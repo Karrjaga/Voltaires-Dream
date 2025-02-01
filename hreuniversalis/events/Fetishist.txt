@@ -4177,6 +4177,7 @@ country_event = {
 			name = tot_legend_abandoned
 			duration = 3650
 		}
+		set_country_flag = legendary_location_abandoned
 	}
 }
 
