@@ -1,84 +1,3 @@
-estate_holy_orders_liberties = {
-	icon = privilege_royal_authority
-	max_absolutism = -10
-	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
-	influence = 0.1
-	loyalty = 0.1
-	is_valid = {
-	}
-	penalties = {
-	}
-	benefits = {
-	}
-	ai_will_do = {
-		factor = 1
-	}
-}
-
-estate_holy_orders_indebted_to_holy_orders = {
-	icon = privilege_give_money
-	max_absolutism = -5
-	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
-	loyalty = 0.05
-	influence = 0.05
-	on_granted = {
-		custom_tooltip = estate_burghers_indebted_to_burghers_effect_tooltip
-		if = {
-			limit = { NOT = { has_government_attribute = no_mercantilism_loss_from_privilege } }
-			add_mercantilism = -1
-		}
-		tooltip = {
-			add_inflation = 0.5
-		}
-		hidden_effect = {
-			add_loan = {
-				fixed_interest = 1
-				duration = 60
-				estate_loan = yes
-			}
-			add_loan = {
-				fixed_interest = 1
-				duration = 60
-				estate_loan = yes
-			}
-			add_loan = {
-				fixed_interest = 1
-				duration = 60
-				estate_loan = yes
-			}
-			add_loan = {
-				fixed_interest = 1
-				duration = 60
-				estate_loan = yes
-			}
-			add_loan = {
-				fixed_interest = 1
-				duration = 60
-				estate_loan = yes
-			}
-		}
-	}
-	penalties = {
-		production_efficiency = -0.05
-	}
-	benefits = {
-	}
-	can_select = {
-		if = {
-			limit = {
-				has_estate_privilege = estate_holy_orders_indebted_to_holy_orders
-			}
-			has_estate_loan = yes
-		}
-	}
-	can_revoke = {
-		has_estate_loan = no
-	}
-	ai_will_do = {
-		factor = 0
-	}
-}
-
 estate_holy_orders_land_rights = {
 	icon = privilege_grant_autonomy
 	land_share = 5
@@ -273,6 +192,87 @@ estate_holy_orders_land_rights = {
 			factor = 0.75
 			has_estate_privilege = estate_mamluks_land_rights
 		}
+	}
+}
+
+estate_holy_orders_liberties = {
+	icon = privilege_royal_authority
+	max_absolutism = -10
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+	influence = 0.1
+	loyalty = 0.1
+	is_valid = {
+	}
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 1
+	}
+}
+
+estate_holy_orders_indebted_to_holy_orders = {
+	icon = privilege_give_money
+	max_absolutism = -5
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 1 } }
+	loyalty = 0.05
+	influence = 0.05
+	on_granted = {
+		custom_tooltip = estate_burghers_indebted_to_burghers_effect_tooltip
+		if = {
+			limit = { NOT = { has_government_attribute = no_mercantilism_loss_from_privilege } }
+			add_mercantilism = -1
+		}
+		tooltip = {
+			add_inflation = 0.5
+		}
+		hidden_effect = {
+			add_loan = {
+				fixed_interest = 1
+				duration = 60
+				estate_loan = yes
+			}
+			add_loan = {
+				fixed_interest = 1
+				duration = 60
+				estate_loan = yes
+			}
+			add_loan = {
+				fixed_interest = 1
+				duration = 60
+				estate_loan = yes
+			}
+			add_loan = {
+				fixed_interest = 1
+				duration = 60
+				estate_loan = yes
+			}
+			add_loan = {
+				fixed_interest = 1
+				duration = 60
+				estate_loan = yes
+			}
+		}
+	}
+	penalties = {
+		production_efficiency = -0.05
+	}
+	benefits = {
+	}
+	can_select = {
+		if = {
+			limit = {
+				has_estate_privilege = estate_holy_orders_indebted_to_holy_orders
+			}
+			has_estate_loan = yes
+		}
+	}
+	can_revoke = {
+		has_estate_loan = no
+	}
+	ai_will_do = {
+		factor = 0
 	}
 }
 
