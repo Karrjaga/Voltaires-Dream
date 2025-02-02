@@ -1,3 +1,39 @@
+estate_eunuchs_land_rights_privilege = {
+	icon = estate_eunuchs_land_rights_privilege
+	max_absolutism = -10
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
+	land_share = 5
+	is_valid = { }
+	can_select = { }
+	influence = 0.05
+	loyalty = 0.05
+	benefits = { 
+		governing_capacity = 100 
+		min_autonomy = -5
+	}
+	penalties = {
+	}
+	conditional_modifier = {
+		trigger = { has_country_flag = mng_increased_land_rights_flag }
+		modifier = {
+			stability_cost_modifier = -0.05
+		}
+	}
+	modifier_by_land_ownership = { yearly_corruption = 0.15 } 
+	mechanics = { exempt_from_seize_land }
+	ai_will_do = {
+		factor = 1
+		modifier = { 
+			factor = 0.25 
+			NOT = { crown_land_share = 20 } 
+		}
+		modifier = {
+			factor = 0
+			yearly_corruption_increase = 0.35
+		}
+	}
+}
+
 estate_eunuchs_bookkeepers_privilege = {
 	icon = estate_eunuchs_bookkeepers_privilege
 	max_absolutism = -10
@@ -153,42 +189,6 @@ estate_eunuchs_imperial_council_privilege = {
 	}
 	ai_will_do = {
 		factor = 1
-		modifier = {
-			factor = 0
-			yearly_corruption_increase = 0.35
-		}
-	}
-}
-
-estate_eunuchs_land_rights_privilege = {
-	icon = estate_eunuchs_land_rights_privilege
-	max_absolutism = -10
-	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
-	land_share = 5
-	is_valid = { }
-	can_select = { }
-	influence = 0.05
-	loyalty = 0.05
-	benefits = { 
-		governing_capacity = 100 
-		min_autonomy = -5
-	}
-	penalties = {
-	}
-	conditional_modifier = {
-		trigger = { has_country_flag = mng_increased_land_rights_flag }
-		modifier = {
-			stability_cost_modifier = -0.05
-		}
-	}
-	modifier_by_land_ownership = { yearly_corruption = 0.15 } 
-	mechanics = { exempt_from_seize_land }
-	ai_will_do = {
-		factor = 1
-		modifier = { 
-			factor = 0.25 
-			NOT = { crown_land_share = 20 } 
-		}
 		modifier = {
 			factor = 0
 			yearly_corruption_increase = 0.35
