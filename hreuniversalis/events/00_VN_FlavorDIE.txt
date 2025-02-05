@@ -10,6 +10,12 @@ country_event = {
 	fire_only_once = yes
 	major = yes
 
+	major_trigger = {
+		capital_scope = {
+			continent = europe
+		}
+	}
+
 	trigger = {
 		tag = DIE
 		NOT = { started_in = 1062.4.1 }
