@@ -22,5 +22,6 @@ PLC = { NOT = { is_year = 1700 } }
 MAM = { NOT = { is_year = 1250 } }
 DAA = { NOT = { exists = MOR } NOT = { is_year = 1200 } }
 MOR = { NOT = { exists = DAA } NOT = { is_year = 1200 } }
+SXN = { NOT = { is_year = 1142 } }
 SAX = { is_year = 1180 }
 PAP = { always = yes }
