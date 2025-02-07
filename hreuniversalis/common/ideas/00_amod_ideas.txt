@@ -10394,7 +10394,7 @@ TBR_ideas = {
 	}
 	TBR_idea_5 = {
 		church_loyalty_modifier = 0.05
-		monthly_piety = -0.001
+		monthly_piety_accelerator = 0.001
 	}
 	TBR_idea_6 = {
 		global_trade_goods_size_modifier = 0.1
@@ -12252,9 +12252,9 @@ WSX_ideas = {
 	}
 	WSX_idea_7 = {
 		papal_influence = 1
-	church_power_modifier = 0.1
-	monthly_fervor_increase = 0.25
-	global_missionary_strength = 0.01
+		church_power_modifier = 0.1
+		monthly_fervor_increase = 0.25
+		global_missionary_strength = 0.01
 	}
 }
 
@@ -14709,5 +14709,42 @@ AFS_ideas = {
 	AFS_idea_7 = {
 		prestige = 0.5
 		monthly_piety_accelerator = 0.001
+	}
+}
+
+YZD_ideas = {
+	start = {
+		war_exhaustion = -0.02
+		global_foreign_trade_power = 0.1
+	}
+	bonus = {
+		missionaries = 1
+	}
+	
+	trigger = {
+		tag = YZD
+	}
+	free = yes
+
+	YZD_idea_1 = {
+		tolerance_own = 2
+	}
+	YZD_idea_2 = {
+		global_prov_trade_power_modifier = 0.15
+	}
+	YZD_idea_3 = {
+	    no_religion_penalty = yes
+	}
+	YZD_idea_4 = {
+        development_cost = -0.1
+	}
+	YZD_idea_5 = {
+        free_leader_pool = 1
+	}
+	YZD_idea_6 = {
+		stability_cost_modifier = -0.1
+	}
+	YZD_idea_7 = {
+		placed_merchant_power = 5
 	}
 }
