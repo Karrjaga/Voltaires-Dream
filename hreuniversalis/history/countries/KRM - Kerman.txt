@@ -4,11 +4,13 @@ government_rank = 5
 primary_culture = persian
 religion = sunni
 technology_group = muslim
+add_accepted_culture = parsi
 capital = 7382 # Kerman
 religious_school = hanafi_school
 
 #Seljuks of Kerman
 1048.1.1 = {
+	set_estate_privilege = estate_dhimmi_guaranteed_autonomy
 	monarch = {
 		name = "Qavurt"
 		dynasty = "Selçukoglu"
