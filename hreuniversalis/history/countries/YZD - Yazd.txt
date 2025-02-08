@@ -4,6 +4,7 @@ government_rank = 3
 primary_culture = persian
 religion = shiite
 technology_group = muslim
+add_accepted_culture = parsi
 capital = 7415 # Yazd
 religious_school = jafari_school
 
