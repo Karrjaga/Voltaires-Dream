@@ -473,8 +473,6 @@
  building_native_three_sisters_field: "Strukturiertes Feld"
  building_native_ceremonial_fire_pit: "Zeremonieller Tempel"
  building_native_sweat_lodge: "Clanhütte"
- native_adm_ideas: "Administration"
- native_dip_ideas: "Diplomatie"
  advisors_council: "Rat der Berater"
  advisors_council_desc: "Die feudalen Staaten haben komplexe Systeme von Höflingen und Geheimräten und Parlamenten. Wir müssen die Ältesten unseres Stammes versammeln, um dem Herrscher Ratschläge zu geben."
  public_ceremonies: "Öffentliche Feste"

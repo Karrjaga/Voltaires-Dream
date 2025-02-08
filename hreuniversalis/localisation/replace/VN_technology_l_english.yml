@@ -473,8 +473,6 @@
  building_native_three_sisters_field: "Organized Field"
  building_native_ceremonial_fire_pit: "Ceremonial Temple"
  building_native_sweat_lodge: "Clan Lodge"
- native_adm_ideas: "Tribal Admin Ideas"
- native_dip_ideas: "Tribal Diplomatic Ideas"
  advisors_council: "Council of Advisors"
  advisors_council_desc: "The feudal states have complex systems of courtiers and privy councils and parliaments. We must gather together the elders of our tribe to provide advice to the ruler."
  public_ceremonies: "Public Feasts"
