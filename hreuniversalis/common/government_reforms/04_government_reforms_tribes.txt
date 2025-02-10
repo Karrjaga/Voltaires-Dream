@@ -150,6 +150,9 @@ great_mongol_state_reform = {
 		iranian = {
 			advisor_cost = -0.1
 		}
+		iranian_tribal = {
+			caravan_power = 0.1
+		}
 		latin = {
 			embracement_cost = -0.1
 		}
