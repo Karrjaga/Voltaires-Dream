@@ -351,7 +351,7 @@ province_event = {
 	}
 }
 
-#Transylvanian Germans
+#Transylvanian Germans (Csango)
 country_event = {
     id = vn_cultures.4
     title = "vn_cultures.4.t"
@@ -473,7 +473,7 @@ country_event = {
 	}
 }
 
-#Transylvanian Germans
+#Transylvanian Germans (Szaszok)
 country_event = {
     id = vn_cultures.5
     title = "vn_cultures.5.t"
@@ -571,15 +571,15 @@ province_event = {
 	goto = root
 
 	trigger = {
-		NOT = { is_year = 1300 }
-		NOT = { has_construction = culture }
 		superregion = anatolia_superregion
-		culture_group = byzantine
-		religion = sunni
 		owner = {
-			religion = sunni
+			religion_group = muslim
 			primary_culture = turkish
 		}
+		culture_group = byzantine
+		religion_group = muslim
+		NOT = { is_year = 1300 }
+		NOT = { has_construction = culture }
 	}
 
 	mean_time_to_happen = { months = 60 }
