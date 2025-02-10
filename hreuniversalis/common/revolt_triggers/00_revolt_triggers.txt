@@ -38,6 +38,16 @@ HLR = {
 	always = no
 }
 
+# Eranshahr
+ERS = {
+	always = no
+}
+
+# Macedonian Empire
+MCD = {
+	always = no
+}
+
 # Germany
 GER = {
 	always = no
@@ -217,6 +227,14 @@ ARM = {
 	NOT = { current_age = age_of_crisis }
 }
 
+#Kurdistan
+KRD = {
+	OR = {
+		exists = KRD
+		is_core = KRD
+	}
+}
+
 # Wales
 WLS = { 
 	OR = {
@@ -275,6 +293,14 @@ MAM = {
 
 FTM = {
 	NOT = { exists = MAM }
+}
+
+#Saxony
+SAX = {
+	NOT = { exists = SXN }
+}
+SXN = {
+	NOT = { exists = SAX }
 }
 
 # Cilicia
