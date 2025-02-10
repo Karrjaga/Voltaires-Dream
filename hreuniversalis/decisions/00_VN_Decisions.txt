@@ -490,7 +490,8 @@ country_decisions = {
 			is_at_war = no
 		}
 		effect = {
-			change_government = monarchy
+			#change_government = monarchy
+			add_stability = -3
 			add_government_reform = byzantine_autocracy_reform
 			add_prestige = 25
 			# hidden_effect = {
@@ -568,6 +569,27 @@ country_decisions = {
 			# 	}
 			# }
 			# custom_tooltip = reform_em.tt
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	reform_seljuk_government = {
+		major = yes
+		potential = {
+			has_reform = seljuk_federation_reform
+		}
+		allow = {
+			adm_tech = 12
+			stability = 1
+			is_at_war = no
+		}
+		effect = {
+			#change_government = monarchy
+			add_stability = -3
+			add_government_reform = seljuk_sultanate_reform
+			add_prestige = 25
 		}
 		ai_will_do = {
 			factor = 1

@@ -2003,6 +2003,7 @@ beylik_government = {
 	icon = "noble_muslim"
 	allow_normal_conversion = yes
 	potential = {
+		NOT = { is_or_was_tag = { tag = SJK } }
 		religion_group = muslim
 		primary_culture = turkish
 	}

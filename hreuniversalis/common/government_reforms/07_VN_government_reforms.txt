@@ -734,6 +734,7 @@ seljuk_federation_reform = {
 			AND = {
 				tag = SJK
 				NOT = { map_setup = map_setup_random }
+				NOT = { has_unlocked_government_reform = { government_reform = seljuk_sultanate_reform } }
 			}
 			AND = {
 				is_playing_custom_nation = yes
@@ -779,9 +780,79 @@ seljuk_federation_reform = {
 			has_harem_events = yes
 			enables_estate_janissaries = yes
 		}
-		# government_abilities = {
-		# 	ottoman_decadence_mechanic
-		# }
+		government_abilities = {
+			ottoman_decadence_mechanic
+		}
+	}
+	conditional = {
+		allow = { 
+			has_dlc = "Cradle of Civilization"
+			NOT = { has_dlc = "Domination" }
+		}
+		has_pashas = yes
+		has_janissaries = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Rights of Man" 
+			NOT = { has_dlc = "Domination" }
+		}
+		has_harem = yes
+		custom_attributes = {
+			has_harem_events = yes
+		}
+	}
+}
+
+seljuk_sultanate_reform = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "modernized_ottoman_government"
+	potential = {
+		religion_group = muslim
+		OR = {
+			has_reform = seljuk_sultanate_reform
+			has_unlocked_government_reform = { government_reform = seljuk_sultanate_reform }
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = ottoman_government
+			}
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 50
+	nation_designer_trigger = {
+		religion_group = muslim
+	}
+	maintain_dynasty = yes
+	can_change_primary_culture = no
+	modifiers = {
+		global_manpower_modifier = 0.1
+		manpower_recovery_speed = 0.1
+		legitimacy = 1
+		max_absolutism = 10
+		governing_capacity = 200
+	}
+
+	factions = {
+		tur_militarists
+		tur_lalas
+		tur_pacifists
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Domination" }
+		has_pashas = yes
+		has_janissaries = yes
+		has_harem = yes
+		custom_attributes = {
+			has_harem_events = yes
+			enables_estate_janissaries = yes
+			#has_eyalets = yes
+		}
 	}
 	conditional = {
 		allow = { 

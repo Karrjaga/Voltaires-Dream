@@ -2907,6 +2907,7 @@ turkish_monarchy = {
 			has_reform = ottoman_government
 			has_reform = beylik_government
 			has_reform = seljuk_federation_reform
+			has_reform = seljuk_sultanate_reform
 			AND = {
 				primary_culture = turkish
 				government = monarchy

@@ -71,6 +71,7 @@ monarchy = {
 				lesbian_matriarchate_reform
 				georgian_monarchy_reform
 				seljuk_federation_reform
+				seljuk_sultanate_reform
 				freegraviate_reform
 				fatimid_caliphate_reform
 				frankokratia_reform
