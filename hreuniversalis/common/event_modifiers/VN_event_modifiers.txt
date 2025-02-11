@@ -349,9 +349,9 @@ byz_succession_army_mod = {
 	army_tradition_decay = -0.01
 	land_maintenance_modifier = -0.1
 }
-decline_of_the_seljuks = {
-	monthly_ottoman_decadence = 0.25
-	ottoman_decadence_gain_modifier = 1
+rise_of_the_seljuks = {
+	monthly_ottoman_decadence = -0.5
+	ottoman_decadence_gain_modifier = -0.25
 }
 fra_vassal_rights_m = {
 	diplomatic_annexation_cost = -0.25

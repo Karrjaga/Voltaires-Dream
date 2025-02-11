@@ -80,43 +80,6 @@ on_startup = {
 		}
 	}
 
-	# if = {
-	# 	limit = {
-	# 		OR = {
-	# 			has_country_modifier = zenith_of_the_seljuks
-	# 			has_country_modifier = decline_of_the_seljuks
-	# 		}
-	# 	}
-	# 	remove_country_modifier = zenith_of_the_seljuks
-	# 	remove_country_modifier = decline_of_the_seljuks
-	# }
-
-	# if = {
-	# 	limit = {
-	# 		tag = SJK
-	# 		has_government_mechanic = ottoman_decadence_mechanic
-	# 		current_age = age_of_empire
-	# 	}
-	# 	add_country_modifier = {
-	# 		name = zenith_of_the_seljuks
-	# 		duration = -1
-	# 		desc = until_end_of_age_desc
-	# 	}
-	# }
-
-	# if = {
-	# 	limit = {
-	# 		tag = SJK
-	# 		has_government_mechanic = ottoman_decadence_mechanic
-	# 		NOT = { current_age = age_of_empire }
-	# 	}
-	# 	add_country_modifier = {
-	# 		name = decline_of_the_seljuks
-	# 		duration = -1
-	# 		desc = until_end_of_age_desc
-	# 	}
-	# }
-
 	if = {
 		limit = {
 			tag = FTM
@@ -128,6 +91,24 @@ on_startup = {
 			mechanic_type = fatimid_irreverence_mechanic
 			power_type = fatimid_irreverence
 			value = 50
+		}
+	}
+
+	if = {
+		limit = {
+			has_country_modifier = rise_of_the_seljuks
+		}
+		remove_country_modifier = rise_of_the_seljuks
+	}
+	if = {
+		limit = {
+			has_government_mechanic = ottoman_decadence_mechanic
+			current_age = age_of_empire
+		}
+		add_country_modifier = {
+			name = rise_of_the_seljuks
+			duration = -1
+			desc = until_end_of_age_desc
 		}
 	}
 }
@@ -1239,4 +1220,13 @@ on_colony_finished = {
 # 			duration = -1
 # 		}
 # 	}
-# }
+# }# }
+
+on_new_age = {
+	if = {
+		limit = {
+			has_country_modifier = rise_of_the_seljuks
+		}
+		remove_country_modifier = rise_of_the_seljuks
+	}
+}
