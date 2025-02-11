@@ -344,6 +344,68 @@ spriteTypes = {
 		texturefile = "gfx//interface//icon_diplomacy_am_canton.dds"
 	}
 
+	# Casus Belli
+
+	spriteType = {
+		name = "GFX_cb_imperial_campaign"
+		texturefile = "gfx/interface/casus_bellis/cb_ita_dismantle_hre.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_cb_take_high_kingship"
+		texturefile = "gfx/interface/casus_bellis/cb_claim_throne.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_cb_restore_paria"
+		texturefile = "gfx/interface/casus_bellis/cb_loan_cancelled.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_cb_irish_unification"
+		texturefile = "gfx/interface/casus_bellis/cb_nationalist.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_cb_grand_crusade"
+		texturefile = "gfx/interface/casus_bellis/cb_crusade.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_cb_grand_heretic"
+		texturefile = "gfx/interface/casus_bellis/cb_crusade.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_cb_imperial_supremacy"
+		texturefile = "gfx/interface/casus_bellis/cb_ita_dismantle_hre.dds"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_cb_germanic_tribute"
+		texturefile = "gfx/interface/casus_bellis/cb_enforce_electorate_right.tga"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_cb_invasion"
+		texturefile = "gfx/interface/casus_bellis/cb_horde_conquest.tga"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_cb_conquest_of_england"
+		texturefile = "gfx/interface/casus_bellis/cb_claim_throne.tga"
+		noOfFrames = 1
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
 	# Institutions
 
 	spriteType = {
