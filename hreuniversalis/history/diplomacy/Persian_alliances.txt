@@ -389,7 +389,7 @@ vassal = {
 	first = TIM
 	second = GRG
 	start_date = 1384.1.1
-	end_date = 1406.9
+	end_date = 1406.9.1
 }
 
 #Later Persian Vassals
