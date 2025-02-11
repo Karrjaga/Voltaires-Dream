@@ -52,7 +52,7 @@ country_event = {
 					size = 3
 					type = pretender_rebels
 					win = yes
-					religion = zikri
+					religion = qarmatian
 					leader = "al-Mustafâ"
 					leader_dynasty = "Banû Fâtimah"
 				}
@@ -68,7 +68,7 @@ country_event = {
 					size = 4
 					type = pretender_rebels
 					win = yes
-					religion = zikri
+					religion = qarmatian
 					leader = "al-Mustafâ"
 					leader_dynasty = "Banû Fâtimah"
 				}
