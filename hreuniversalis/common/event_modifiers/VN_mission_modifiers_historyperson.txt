@@ -295,7 +295,8 @@ bgh_umayyads_wiped_out_mission = {
 
 #Seljuk
 sjk_islam_in_baghdad_mission = {
-	global_missionary_strength = 0.01
+	yearly_corruption = -0.1
+	advisor_cost = -0.1
 }
 sjk_the_islamic_heartland_mission = {
 	improve_relation_modifier = 0.25
