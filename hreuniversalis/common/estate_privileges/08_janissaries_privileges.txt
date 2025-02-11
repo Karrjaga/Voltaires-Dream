@@ -12,13 +12,13 @@ estate_janissary_sultans_aghas = {
 	}
 	can_select = {}
 	can_revoke = {
-		if = {
-			limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
-			custom_trigger_tooltip = {
-				tooltip = cannot_be_manually_revoked_tt
-				always = no
-			}
-		}
+		# if = {
+		# 	limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
+		# 	custom_trigger_tooltip = {
+		# 		tooltip = cannot_be_manually_revoked_tt
+		# 		always = no
+		# 	}
+		# }
 	}
 	on_granted = {}
 	on_granted_province = {}
@@ -51,13 +51,13 @@ estate_janissary_recruited_by_merit = {
 	}
 	can_select = {}
 	can_revoke = {
-		if = {
-			limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
-			custom_trigger_tooltip = {
-				tooltip = cannot_be_manually_revoked_tt
-				always = no
-			}
-		}
+		# if = {
+		# 	limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
+		# 	custom_trigger_tooltip = {
+		# 		tooltip = cannot_be_manually_revoked_tt
+		# 		always = no
+		# 	}
+		# }
 	}
 	on_granted = {
 	}
@@ -98,13 +98,13 @@ estate_janissary_professional_soldiers = {
 	}
 	can_select = {}
 	can_revoke = {
-		if = {
-			limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
-			custom_trigger_tooltip = {
-				tooltip = cannot_be_manually_revoked_tt
-				always = no
-			}
-		}
+		# if = {
+		# 	limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
+		# 	custom_trigger_tooltip = {
+		# 		tooltip = cannot_be_manually_revoked_tt
+		# 		always = no
+		# 	}
+		# }
 	}
 	on_granted = {
 		add_country_modifier = {
@@ -144,13 +144,13 @@ estate_janissary_celibacy = {
 	}
 	can_select = {}
 	can_revoke = {
-		if = {
-			limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
-			custom_trigger_tooltip = {
-				tooltip = cannot_be_manually_revoked_tt
-				always = no
-			}
-		}
+		# if = {
+		# 	limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
+		# 	custom_trigger_tooltip = {
+		# 		tooltip = cannot_be_manually_revoked_tt
+		# 		always = no
+		# 	}
+		# }
 	}
 	on_granted = {}
 	on_granted_province = {}
@@ -184,13 +184,13 @@ estate_janissary_minimal_payment = {
 	}
 	can_select = {}
 	can_revoke = {
-		if = {
-			limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
-			custom_trigger_tooltip = {
-				tooltip = cannot_be_manually_revoked_tt
-				always = no
-			}
-		}
+		# if = {
+		# 	limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
+		# 	custom_trigger_tooltip = {
+		# 		tooltip = cannot_be_manually_revoked_tt
+		# 		always = no
+		# 	}
+		# }
 	}
 	on_granted = {
 		custom_tooltip = estate_janissary_minimal_payment_ct
@@ -229,13 +229,13 @@ estate_janissary_rough_discipline = {
 	}
 	can_select = {}
 	can_revoke = {
-		if = {
-			limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
-			custom_trigger_tooltip = {
-				tooltip = cannot_be_manually_revoked_tt
-				always = no
-			}
-		}
+		# if = {
+		# 	limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
+		# 	custom_trigger_tooltip = {
+		# 		tooltip = cannot_be_manually_revoked_tt
+		# 		always = no
+		# 	}
+		# }
 	}
 	on_granted = {
 		add_country_modifier = {
@@ -275,13 +275,13 @@ estate_janissary_loyalty_to_the_sultan = {
 	}
 	can_select = {}
 	can_revoke = {
-		if = {
-			limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
-			custom_trigger_tooltip = {
-				tooltip = cannot_be_manually_revoked_tt
-				always = no
-			}
-		}
+		# if = {
+		# 	limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
+		# 	custom_trigger_tooltip = {
+		# 		tooltip = cannot_be_manually_revoked_tt
+		# 		always = no
+		# 	}
+		# }
 	}
 	on_granted = {}
 	on_granted_province = {}
@@ -319,13 +319,13 @@ estate_janissary_strict_devshirme_recruitment = {
 		NOT = { has_estate_privilege = estate_dhimmi_manpower }
 	}
 	can_revoke = {
-		if = {
-			limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
-			custom_trigger_tooltip = {
-				tooltip = cannot_be_manually_revoked_tt
-				always = no
-			}
-		}
+		# if = {
+		# 	limit = { NOT = { has_government_attribute = can_revoke_janissary_privileges } }
+		# 	custom_trigger_tooltip = {
+		# 		tooltip = cannot_be_manually_revoked_tt
+		# 		always = no
+		# 	}
+		# }
 	}
 	on_granted = {
 		custom_tooltip = estate_janissary_strict_devshirme_recruitment_gt
