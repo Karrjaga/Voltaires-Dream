@@ -1,0 +1,82 @@
+#Catholique Avignon
+catholique_avignon = {
+	potential = {
+		normal_or_historical_nations = yes
+		owner = {
+			religion = catholique
+			NOT = { tag = AVI }
+		}
+	}
+
+	trigger = {	
+		owner = {
+			NOT = { overlord_of = AVI }
+			NOT = { tag = FRA }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = FKE }
+			NOT = { tag = MCD }
+			custom_trigger_tooltip = {
+				tooltip = no_dip_malus_reward_tt
+				NOT = { has_country_flag = general_flag_for_FU_Rome_flag }			
+			}
+		}
+	}
+
+	papal_influence = -10
+	diplomatic_reputation = -1
+}
+
+#Byzantine Walls
+theodosian_walls = {
+	potential = {
+		NOT = { has_dlc = "Leviathan" }
+		normal_or_historical_nations = yes
+	}
+
+	trigger = {
+		owner = { tag = BYZ }
+		controlled_by = owner
+	}
+	
+	local_defensiveness = 2.0
+	local_hostile_attrition = 3
+	picture = "theodosian_icon"
+}
+
+
+#Romuva
+romuva_prov = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	trigger = {
+		owner = {
+			OR = {
+				religion = animism
+				religion = druwi
+				religion = dievturiba
+			}
+		}
+	}
+	
+	local_missionary_strength = -0.05
+	local_development_cost = -0.1
+	picture = "romuva_prov_icon"
+}
+
+#Samosata
+samosata_prov = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+
+	trigger = {
+		owner = { religion = paulician }
+	}
+	
+	prestige = 0.5
+	missionaries = 1
+	tolerance_own = 1
+}
