@@ -149,7 +149,8 @@
  revolt_of_the_earls.16.d: "Northumbria hat seit langem eine ausgeprägte Kultur unter den angelsächsischen Nationen, die eine einzigartige Grausamkeit in der Kriegsführung, einen ausgeprägten einheimischen Dialekt und eine umfassende Vermischung mit den Wikingern des Nordens aufweist. Im Falle des angelsächsischen Widerstandes gegen unseren Staat haben sie jedoch deutlich gemacht, auf welcher Seite sie stehen. Wir müssen nun in den Norden aufbrechen und auch dort die Herrschaft übernehmen."
  revolt_of_the_earls.16.a: "Eine beunruhigende Entwicklung"
 #Crisis of the 11th Century
- byz_crisis.tt: "Wir werden alle Kerne in ihrem Land verlieren und Ungläubige könnten es besetzen"
+ byz_crisis.tt: "Wir werden alle Kerne in ihrem Land verlieren und Ungläubige könnten es besetzen."
+ byz_crisis.tt2: "Wir werden alle Tributstaaten verlieren."
  byz_crisis_start.tt: "Byzanz oder seine Untertanen grenzen an einen muslimischen Staat"
  byz_crisis_stop.tt2: "Byzanz hat alle der folgenden Modifikatoren durch Entscheidungen entfernt:\n§YMächtige Aristokraten§!, §YAbgezehrte Bürokraten§!, §YAnfällige Grenze§!, §YZersplitterte Armee§!, §YAufständige Bauernschaft§!"
  byz_crisis_stop.tt: "Weder Byzanz noch seine Untertanen grenzen an einen muslimischen Staat"

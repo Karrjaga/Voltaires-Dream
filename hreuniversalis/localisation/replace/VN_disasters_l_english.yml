@@ -149,7 +149,8 @@
  revolt_of_the_earls.16.d: "The Northumbrians have long had a distinct culture amongst the Anglo-Saxon nations, displaying a unique ferocity in warfare, a distinctive local dialect, and extensive intermixing with the Viking Norsemen. In the case of the Anglo-Saxon resistance against our state, however, they have made it clear with whom they side. We will now need to head up north and reign them in as well."
  revolt_of_the_earls.16.a: "A concerning development"
 #Crisis of the 11th Century
- byz_crisis.tt: "We will lose all cores on their land and heathens may occupy it"
+ byz_crisis.tt: "We will lose all cores on their land and heathens may occupy it."
+ byz_crisis.tt2: "We will lose all of our tributaries."
  byz_crisis_start.tt: "Byzantium or its subjects border a Muslim state"
  byz_crisis_stop.tt2: "Byzantium has removed all of the following modifiers via decisions:\n§YPowerful Aristocrats§!, §YEmaciated Bureaucrats§!, §YVulnerable Frontier§!, §YShattered Army§!, §YInsurgent Peasantry§!"
  byz_crisis_stop.tt: "Neither Byzantium nor its subjects border a Muslim state"

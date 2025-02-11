@@ -21,9 +21,12 @@ country_event = {
 		name = "byz_crisis.1.a"
 		add_years_of_income = -2
 		add_yearly_manpower = -1
-		every_subject_country = {
-			limit = { is_subject_of_type = tributary_state }
-			grant_independence = yes
+		custom_tooltip = byz_crisis.tt2
+		hidden_effect = {
+			every_subject_country = {
+				limit = { is_subject_of_type = tributary_state }
+				grant_independence = yes
+			}	
 		}
 	}
 }
@@ -261,6 +264,7 @@ country_event = {
 	title = "byz_crisis.8.t"
 	desc = "byz_crisis.8.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = AHL_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -306,6 +310,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = AHL_capital
 					}
 				}
 			}	
@@ -370,6 +377,7 @@ country_event = {
 	title = "byz_crisis.9.t"
 	desc = "byz_crisis.9.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = SAS_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -417,6 +425,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = SAS_capital
 					}
 				}
 			}	
@@ -473,6 +484,7 @@ country_event = {
 	title = "byz_crisis.10.t"
 	desc = "byz_crisis.10.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = SLT_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -512,6 +524,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = SLT_capital
 					}
 					override_country_name = SALTUK_NAME
 				}
@@ -577,6 +592,7 @@ country_event = {
 	title = "byz_crisis.11.t"
 	desc = "byz_crisis.11.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = MGJ_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -616,6 +632,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = MGJ_capital
 					}
 					override_country_name = MENGUCEK_NAME
 				}
@@ -681,6 +700,7 @@ country_event = {
 	title = "byz_crisis.12.t"
 	desc = "byz_crisis.12.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = HRP_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -720,6 +740,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = HRP_capital
 					}
 					override_country_name = CHUBUK_NAME
 				}
@@ -785,6 +808,7 @@ country_event = {
 	title = "byz_crisis.13.t"
 	desc = "byz_crisis.13.d"
 	picture = CIVIL_WAR_eventPicture
+	goto = KYS_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -845,6 +869,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = KYS_capital
 					}
 				}
 			}	
@@ -924,6 +951,7 @@ country_event = {
 	title = "byz_crisis.14.t"
 	desc = "byz_crisis.14.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = KYP_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -961,6 +989,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = KYP_capital
 					}
 				}
 			}	
@@ -1017,6 +1048,7 @@ country_event = {
 	title = "byz_crisis.15.t"
 	desc = "byz_crisis.15.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = DNM_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -1054,6 +1086,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = DNM_capital
 					}
 				}
 			}	
@@ -1118,6 +1153,7 @@ country_event = {
 	title = "byz_crisis.16.t"
 	desc = "byz_crisis.16.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = TRE_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -1167,6 +1203,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = TRE_capital
 					}
 				}
 			}	
@@ -1223,6 +1262,7 @@ country_event = {
 	title = "byz_crisis.17.t"
 	desc = "byz_crisis.17.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = PHR_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -1270,6 +1310,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = PHR_capital
 					}
 					override_country_name = ANCYRA_NAME
 				}
@@ -1327,6 +1370,7 @@ country_event = {
 	title = "byz_crisis.18.t"
 	desc = "byz_crisis.18.d"
 	picture = CIVIL_WAR_eventPicture
+	goto = CPP_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -1373,6 +1417,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = CPP_capital
 					}
 				}
 			}	
@@ -1525,6 +1572,7 @@ country_event = {
 	title = "byz_crisis.20.t"
 	desc = "byz_crisis.20.d"
 	picture = HORDE_ON_HORSEBACK_eventPicture
+	goto = RUM_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -1592,6 +1640,9 @@ country_event = {
 							cavalry = 0.3
 						}
 					}
+					capital_scope = {
+						save_event_target_as = RUM_capital
+					}
 				}
 			}	
 		}
@@ -1647,6 +1698,7 @@ country_event = {
 	title = "byz_crisis.21.t"
 	desc = "byz_crisis.21.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = TAO_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -1692,6 +1744,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = TAO_capital
 					}
 				}
 			}	
@@ -1748,6 +1803,7 @@ country_event = {
 	title = "byz_crisis.22.t"
 	desc = "byz_crisis.22.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = SRU_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -1787,6 +1843,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = SRU_capital
 					}
 					override_country_name = CHAKA_NAME
 				}
@@ -1844,6 +1903,7 @@ country_event = {
 	title = "byz_crisis.23.t"
 	desc = "byz_crisis.23.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = CLC_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -1893,6 +1953,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = CLC_capital
 					}
 				}
 			}	
@@ -1949,6 +2012,7 @@ country_event = {
 	title = "byz_crisis.24.t"
 	desc = "byz_crisis.24.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = CRT_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -1986,6 +2050,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = CRT_capital
 					}
 				}
 			}	
@@ -2042,6 +2109,7 @@ country_event = {
 	title = "byz_crisis.25.t"
 	desc = "byz_crisis.25.d"
 	picture = BAD_WITH_MONARCH_eventPicture
+	goto = AYD_capital
 
 	fire_only_once = yes
 	is_triggered_only = yes
@@ -2095,6 +2163,9 @@ country_event = {
 							infantry = 0.7
 							cavalry = 0.3
 						}
+					}
+					capital_scope = {
+						save_event_target_as = AYD_capital
 					}
 					override_country_name = TENGRIBIRMISH_NAME
 				}
