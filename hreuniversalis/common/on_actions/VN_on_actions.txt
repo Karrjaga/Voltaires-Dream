@@ -102,6 +102,7 @@ on_startup = {
 	}
 	if = {
 		limit = {
+			tag = SJK
 			has_government_mechanic = ottoman_decadence_mechanic
 			current_age = age_of_empire
 		}
