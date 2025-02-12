@@ -3078,7 +3078,7 @@ country_event = {
 		ai_chance = { factor = 50 }
 		goto = illegitimate_child
 		add_heir_claim = 10
-		event_target:illegitimate_chji = {
+		event_target:illegitimate_child = {
 			spawn_rebels = {
 				type = pretender_rebels
 				size = 1

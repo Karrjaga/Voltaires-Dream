@@ -594,7 +594,7 @@ country_event = {
 	is_triggered_only = yes
 	mean_time_to_happen = { days = 1 }
 
-	immediate = { kill_ruler = yes }
+	immediate = { hidden_effect = { kill_ruler = yes } }
 
 	option = {
 		name = "vn_flavor_spa.5.a"

@@ -29,6 +29,12 @@
  has_courthouse_building_trigger_tt: "Has a §YWatchman§!, §YCourthouse§! or a §YTown Hall§! building."
  has_medical_building_trigger_tt: "Has an §YApothecary§! or a §YHospice§! building."
  has_education_building_trigger_tt: "Has a §YCollege§! or a §YUniversity§! building."
+ add_or_upgrade_tax_building_tt: "§Y[This.GetName]§! gets their §YTax Building§! upgraded. If no building is present, add §YMonument§!, and if §YCathedral§! is, gain §G2§! Base Tax in §Y[This.GetName]§!."
+ add_or_upgrade_production_building_tt: "§Y[This.GetName]§! gets their §YProduction Building§! upgraded. If no building is present, add §YArtisan§!, and if §YCounting House§! is, gain §G2§! Base Production in §Y[This.GetName]§!."
+ add_or_upgrade_university_building_tt: "§Y[This.GetName]§! gets their §YEducation Building§! upgraded. If no building is present, add §YCollege§!, and if §YUniversity§! is, gain §G1§! Base Tax, §G1§! Base Production and §G1§! Base Manpower in §Y[This.GetName]§!."
+ add_or_upgrade_courthouse_building_tt: "§Y[This.GetName]§! gets their §YCourthouse Building§! upgraded. If no building is present, add §YWatchman§!, and if §YTown Hall§! is, gain §G1§! Base Tax, §G1§! Base Production and §G1§! Base Manpower in §Y[This.GetName]§!."
+ add_or_upgrade_fort_building_tt: "§Y[This.GetName]§! gets their §YFort Building§! upgraded. If no building is present, add §YKeep§!, and if §YFortress§! is, gain §G3§! Base Manpower in §Y[This.GetName]§!."
+#Grand Crusade
  participate_in_grand_crusade_trigger_tt: "Participate in a §YGrand Crusade§!."
 #Misc
  confiscated_imperial_regalia: "Confiscated Imperial Regalia"

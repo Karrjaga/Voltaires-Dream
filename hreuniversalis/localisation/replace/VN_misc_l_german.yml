@@ -29,7 +29,13 @@
  has_courthouse_building_trigger_tt: "Hat einen §YNachtwächter§!, einen §YGerichtshof§! oder ein §YRathaus§!."
  has_medical_building_trigger_tt: "Hat eine §YApotheke§! oder ein §YHospiz§!."
  has_education_building_trigger_tt: "Hat eine §YHochschule§! oder eine §YUniversität§!."
- participate_in_grand_crusade_trigger_tt: "Nimmt an einem §Ygroßen Kreuzzug§! teil."
+ add_or_upgrade_tax_building_tt: "Das §YSteuergebäude§! von §Y[This.GetName]§! wird verbessert. Falls es kein Steuergebäude gibt, wird ein §YMonument§! hinzugefügt, und falls eine §YKathedrale§! vorhanden ist, erhält §Y[This.GetName]§! §G2§! Grundsteuer."
+ add_or_upgrade_production_building_tt: "Das §YProduktionsgebäude§! von §Y[This.GetName]§! wird verbessert. Falls es kein Produktionsgebäude gibt, wird ein §YKunsthandwerker§! hinzugefügt, und falls ein §YZahlhaus§! vorhanden ist, erhält §Y[This.GetName]§! §G2§! Grundproduktion."
+ add_or_upgrade_university_building_tt: "Das §YBildungsgebäude§! von §Y[This.GetName]§! wird verbessert. Falls es kein Bildungsgebäude gibt, wird eine §YHochschule§! hinzugefügt, und falls eine §YUniversität§! vorhanden ist, erhält §Y[This.GetName]§! §G1§! Grundsteuer, §G1§! Grundproduktion und §G1§! Grundmannstärke."
+ add_or_upgrade_courthouse_building_tt: "Das §YGerichtsgebäude§! von §Y[This.GetName]§! wird verbessert. Falls es kein Gerichtsgebäude gibt, wird ein §YNachtwächter§! hinzugefügt, und falls ein §YRathaus§! vorhanden ist, erhält §Y[This.GetName]§! §G1§! Grundsteuer, §G1§! Grundproduktion und §G1§! Grundmannstärke."
+ add_or_upgrade_fort_building_tt: "Das §YFestungsgebäude§! von §Y[This.GetName]§! wird verbessert. Falls es kein Festungsgebäude gibt, wird eine §YBergfriedg§! hinzugefügt, und falls eine §YFestung§! vorhanden ist, erhält §Y[This.GetName]§! §G3§! Grundmannstärke."
+#Grand Crusade
+ participate_in_grand_crusade_trigger_tt: "Nehmt an einem §Ygroßen Kreuzzug§! teil."
 #Misc
  confiscated_imperial_regalia: "Reichsinsignien beschlagnahmt"
  desc_confiscated_imperial_regalia: "Verschwörer haben die Reichsinsignien erbeutet und die Kontrolle über das Reich übernommen."

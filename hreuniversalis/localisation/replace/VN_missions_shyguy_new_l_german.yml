@@ -258,6 +258,6 @@
  vn_flavor_nrm.1.t: "Die normannische Eroberung Siziliens"
  vn_flavor_nrm.1.d: "In diesem Moment kämpfen unsere normannischen Verwandten in Süditalien gegen dekadente Griechen und ungläubige Sarazenen, um die Region von Tyrannei und Ungläubigkeit zu befreien. Wir sollten ihnen unsere Hilfe bei ihren Feldzügen zusichern, damit ihre Sache am Ende erfolgreich sein wird."
  vn_flavor_nrm.1.a: "Ihre Interessen sind unsere."
- vn_flavor_nrm.2.t: "Militärische Unterstützung durch [FROM.GetName]"
+ vn_flavor_nrm.2.t: "Militärische Unterstützung durch [From.GetName]"
  vn_flavor_nrm.2.d: "Unsere Verwandten in der normannischen Heimat haben uns eine Lieferung von Hilfsgütern geschickt, um unsere militärischen Bemühungen in Süditalien zu unterstützen."
  vn_flavor_nrm.2.a: "Nun... vielen Dank."

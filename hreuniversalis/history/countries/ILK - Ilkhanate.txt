@@ -65,21 +65,23 @@ historical_rival = SJK
 			siege = 2
 		}
 	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = inspiring_leader_personality
+	add_ruler_personality = lawgiver_personality
+}
+1234.2.27 = {
 	heir = {
 		name = "Abaqa"
 		monarch_name = "Abaqa"
 		dynasty = "Borjigin"
 		religion = buddhism
-		birth_date = 1234.1.1
-		death_date = 1282.1.1
+		birth_date = 1234.2.27
+		death_date = 1282.4.4
 		claim = 90
 		adm = 3
 		dip = 1
 		mil = 0
 	}
-	clear_scripted_personalities = yes
-	add_ruler_personality = inspiring_leader_personality
-	add_ruler_personality = lawgiver_personality
 }
 1258.2.10 = { add_accepted_culture = al_iraqiya_arabic }
 1265.2.8 = {
@@ -88,13 +90,13 @@ historical_rival = SJK
 		name = "Abaqa"
 		dynasty = "Borjigin"
 		religion = buddhism
-		birth_date = 1234.1.1
+		birth_date = 1234.2.27
 		adm = 3
 		dip = 1
 		mil = 0
 	}
 }
-1282.1.1 = {
+1282.4.4 = {
 	secondary_religion = sunni
 	monarch = {
 		name = "Tögöldör"

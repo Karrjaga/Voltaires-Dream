@@ -14,7 +14,7 @@ government_rank = 3
 
 #Nishapur Emirate
 1747.6.19 = {
-	culture = turkmeni
+	primary_culture = turkmeni
 	government = tribal
 	add_government_reform = tribal_federation
 	monarch = {

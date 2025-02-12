@@ -254,6 +254,6 @@
  vn_flavor_nrm.1.t: "The Norman Conquest of Sicily"
  vn_flavor_nrm.1.d: "At this very moment, our Norman relatives are fighting against decadent Greeks and infidel Saracens in southern Italy to liberate the region from tyranny and infidelity. We should pledge them our help in their campaigns so that their cause will be successful in the end."
  vn_flavor_nrm.1.a: "Their interests are ours."
- vn_flavor_nrm.2.t: "Military Support from [FROM.GetName]"
+ vn_flavor_nrm.2.t: "Military Support from [From.GetName]"
  vn_flavor_nrm.2.d: "Our relatives in the Norman homeland have sent us a shipment of supplies to support our military efforts in southern Italy."
  vn_flavor_nrm.2.a: "Well... thank you."
