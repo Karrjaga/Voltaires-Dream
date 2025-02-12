@@ -1,12 +1,16 @@
 government = monarchy
 add_government_reform = iqta
 primary_culture = al_iraqiya_arabic
+add_accepted_culture = bakhtiari
+add_accepted_culture = kalhuri
 religion = shiite
 technology_group = muslim
 capital = 6301
 government_rank = 5
 religious_school = jafari_school
 historical_rival = ILK
+historical_rival = FTM
+historical_rival = SJK
 
 #Buyids of Baghdad
 1048.10.1 = {
@@ -18,6 +22,7 @@ historical_rival = ILK
 		dip = 0
 		mil = 0
 	}
+	set_estate_privilege = estate_dhimmi_guaranteed_autonomy
 }
 #reconquers Al-Anbar 1055.3.1
 #Seljuk vassal 1055.12.17

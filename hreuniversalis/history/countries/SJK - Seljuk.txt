@@ -11,6 +11,7 @@ religious_school = hanafi_school
 historical_rival = BYZ
 historical_rival = FTM
 historical_rival = ILK
+historical_rival = BGH
 
 1037.1.1 = {
 	monarch = {
