@@ -212,6 +212,8 @@
  estate_holy_orders_special_privilege_desc: "It is only a matter of time before we will face the problem of how to continue to govern our growing [Root.GovernmentName]. A not quite ordinary method is to put the Bailiwicks controlled by the $ESTATE_NAME$ under greater self-government, so that we can use our resources elsewhere."
  estate_holy_orders_liberties: "Increased $ESTATE_NAME$ Autonomy"
  estate_holy_orders_liberties_desc: "If we allow them the freedom to decide their own affairs as they wish, the $ESTATE_NAME$ will surely show greater support for our other policies."
+ estate_holy_orders_advisor: "Recruit Knightly Drillmasters"
+ estate_holy_orders_advisor_desc: "The $ESTATE_NAME$ are well-versed in the art of military training and strategy. An arrangement may be made to secure preferential access to their drillmasters and tacticians."
  estate_holy_orders_development_of_hospitals: "Development of Hospitals"
  estate_holy_orders_development_of_hospitals_desc: "The hospitals of the state are places of healing, usually under the patronage of the $ESTATE_NAME$. The sovereignty of these institutions must be guaranteed, and their development must be promoted."
  estate_holy_orders_development_of_hospitals_gt: "Every owned §YChristian§! province with an §YApothecary§! or a §YHospice§! gains the following bonus:"

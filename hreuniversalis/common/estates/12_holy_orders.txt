@@ -283,6 +283,7 @@ estate_holy_orders = {
 
 	privileges = {
 		estate_holy_orders_liberties
+		estate_holy_orders_advisor
 		estate_holy_orders_land_rights
 		estate_holy_orders_indebted_to_holy_orders
 		estate_holy_orders_settle_templars

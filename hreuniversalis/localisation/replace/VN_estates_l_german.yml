@@ -212,6 +212,8 @@
  estate_holy_orders_special_privilege_desc: "Es ist nur eine Frage der Zeit, bis wir mit dem Problem konfrontiert werden, wie wir unser wachsendes Reich weiter regieren können. Eine nicht ganz gewöhnliche Methode ist, die von dem [Root.GetRitterordenName]-Stand kontrollierten Balleien unter größere Selbstverwaltung zu stellen, damit wir unsere Ressourcen anderweitig einsetzen können."
  estate_holy_orders_liberties: "Erhöhte Autonomie des $ESTATE_NAME$-Stands"
  estate_holy_orders_liberties_desc: "Indem wir ihm die Freiheit einräumen, über seine eigenen Angelegenheiten so zu entscheiden, wie er es wünscht, wird der $ESTATE_NAME$-Stand sicherlich eine größere Unterstützung für unsere restliche Politik zeigen."
+ estate_holy_orders_advisor: "Ritterliche Drillmeister rekrutieren"
+ estate_holy_orders_advisor_desc: "Der [Root.GetRitterordenName]-Stand ist in der Kunst der militärischen Ausbildung und Strategie gut bewandert. Wir sollten versuchen, eine Vereinbarung mit ihm zu treffen, um einen vorrangingen Zugang zu seinen Drillmeistern und Taktikern zu sichern."
  estate_holy_orders_development_of_hospitals: "Krankenhausausbau"
  estate_holy_orders_development_of_hospitals_desc: "Die staatlichen Tempel sind Ort der Heilung für das Volk, die üblicherweise unter der Schirmherrschaft des [Root.GetKlerusName]-Stands stehen. Die Souveränität dieser Institutionen muss gewährleistet und ihr Ausbau gefördert werden"
  estate_holy_orders_development_of_hospitals_gt: "Jede im Besitz befindliche §Ychristliche§! Provinz mit einer §YApotheke§! oder einem §YHospiz§! erhält den folgenden Bonus:"

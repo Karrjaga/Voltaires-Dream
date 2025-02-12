@@ -293,7 +293,7 @@ country_decisions = {
 				has_estate_privilege = estate_ghulams_advisor
 				#mod
 				has_estate_privilege = estate_mamluks_advisors
-				has_estate_privilege = estate_holy_orders_court_representation
+				has_estate_privilege = estate_holy_orders_advisor
 			}
 			custom_trigger_tooltip = {
 				tooltip = grand_vizier_selection_at

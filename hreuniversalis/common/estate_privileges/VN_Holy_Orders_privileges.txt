@@ -15,6 +15,33 @@ estate_holy_orders_liberties = {
 	}
 }
 
+estate_holy_orders_advisor = {
+	icon = privilege_recruit_minister
+	max_absolutism = -5
+	influence = 0.1
+	is_valid = {
+	}
+	loyalty = 0.05
+	penalties = {
+		stability_cost_modifier = 0.1
+	}
+	can_select = {	}
+	benefits = {
+		mil_advisor_cost = -0.15
+	}
+	ai_will_do = {
+		factor = 9
+		modifier = {
+			factor = 0.5
+			is_absolutism_active = yes
+		}
+		modifier = {
+			factor = 3
+			uses_meritocracy = yes
+		}
+	}
+}
+
 estate_holy_orders_indebted_to_holy_orders = {
 	icon = privilege_give_money
 	max_absolutism = -5
@@ -468,7 +495,11 @@ estate_holy_orders_court_representation = {
 	loyalty = 0.1
 	influence = 0.1
 	is_valid = {
-		capital_scope = { superregion = levant_superregion }
+		OR = {
+			primary_culture = outremer
+			has_reform = frankokratia_reform
+			has_reform = holy_state_reform
+		}
 	}
 	penalties = {
 		legitimacy = -0.5
