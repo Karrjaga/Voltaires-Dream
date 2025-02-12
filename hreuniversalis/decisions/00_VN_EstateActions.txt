@@ -386,6 +386,7 @@ country_decisions = {
 			has_heir = yes
 			heir_age = 15
 			has_female_heir = no
+			is_lesser_in_union = no
 			NOT = { heir_mil = 6 }
 			custom_trigger_tooltip = {
 				tooltip = estate_holy_orders_heir_knight.tt
