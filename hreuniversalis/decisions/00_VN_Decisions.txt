@@ -488,6 +488,7 @@ country_decisions = {
 			adm_tech = 12
 			stability = 1
 			is_at_war = no
+			has_any_disaster = no
 		}
 		effect = {
 			#change_government = monarchy
@@ -584,6 +585,7 @@ country_decisions = {
 			adm_tech = 12
 			stability = 1
 			is_at_war = no
+			has_any_disaster = no
 		}
 		effect = {
 			#change_government = monarchy
