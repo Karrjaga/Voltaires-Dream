@@ -1281,7 +1281,7 @@ dependency = {
 	first = FRA
 	second = PIC
 	start_date = 1054.1.1
-	end_date = 1290.11.28
+	end_date = 1279.3.16
 }
 dependency = {
 	subject_type = appanage
