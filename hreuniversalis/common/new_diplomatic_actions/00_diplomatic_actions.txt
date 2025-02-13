@@ -447,11 +447,11 @@ fabricate_ottoman_invasion_cb = {
 	is_allowed = {
 		if = {
 			limit = {
-				FROM = { total_development = 150 }
+				FROM = { total_development = 300 }
 			}
 			custom_trigger_tooltip = {
-				tooltip = FROM_HAS_NOT_150_TOTAL_DEV
-				FROM = { NOT = { total_development = 150 } }
+				tooltip = FROM_HAS_NOT_300_TOTAL_DEV
+				FROM = { NOT = { total_development = 300 } }
 			}
 		}
 		if = {
