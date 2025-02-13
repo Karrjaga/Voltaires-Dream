@@ -14,7 +14,6 @@ add_core = BLK
 1239.1.1 = {
 	owner = BLK
 	controller = BLK
-	remove_core = AAN
 	religion = tengri_pagan_reformed
 }
 1312.1.1 = { religion = sunni }
