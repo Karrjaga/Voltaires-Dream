@@ -1398,21 +1398,61 @@ estate_holy_orders_three_privileges = {
 #Support Crusader Orders
 estate_holy_orders_relations_with_crusaders = {
 	can_select = {
-		religion = catholic
+		NOT = { tag = PAP }
+		NOT = { tag = AVI }
+		NOT = { tag = TEU }
+		NOT = { tag = LIV }
+		NOT = { tag = KNI }
+		NOT = { tag = TEM }
 		normal_or_historical_nations = yes
-		any_country = {
-			NOT = { num_of_cities = 30 }
-			NOT = { war_with = ROOT }
-			NOT = { is_enemy = ROOT }
-			NOT = { is_rival = ROOT }
-			has_reform = crusader_order_reform
-			is_free_or_tributary_trigger = yes
-			religion = catholic
-			OR = {
-				tag = TEU
-				tag = LIV
-				tag = KNI
-				tag = TEM
+		OR = {
+			TEU = {
+				exists = yes
+				NOT = { war_with = ROOT }
+				NOT = { is_enemy = ROOT }
+				NOT = { is_rival = ROOT }
+				has_reform = crusader_order_reform
+				is_free_or_tributary_trigger = yes
+				religion = ROOT
+				NOT = { is_rival = root }
+				ROOT = { NOT = { is_rival = prev } }
+			}
+			LIV = {
+				exists = yes
+				NOT = { war_with = ROOT }
+				NOT = { is_enemy = ROOT }
+				NOT = { is_rival = ROOT }
+				has_reform = crusader_order_reform
+				is_free_or_tributary_trigger = yes
+				religion = ROOT
+				has_opinion = { who = ROOT value = -50 }
+				NOT = { has_opinion = { who = ROOT value = 50 } }
+				NOT = { is_rival = root }
+				ROOT = { NOT = { is_rival = prev } }
+			}
+			KNI = {
+				exists = yes
+				NOT = { war_with = ROOT }
+				NOT = { is_enemy = ROOT }
+				NOT = { is_rival = ROOT }
+				has_reform = crusader_order_reform
+				is_free_or_tributary_trigger = yes
+				religion = ROOT
+				has_opinion = { who = ROOT value = -50 }
+				NOT = { has_opinion = { who = ROOT value = 50 } }
+				NOT = { is_rival = root }
+				ROOT = { NOT = { is_rival = prev } }
+			}
+			TEM = {
+				exists = yes
+				NOT = { war_with = ROOT }
+				NOT = { is_enemy = ROOT }
+				NOT = { is_rival = ROOT }
+				has_reform = crusader_order_reform
+				is_free_or_tributary_trigger = yes
+				religion = ROOT
+				NOT = { is_rival = root }
+				ROOT = { NOT = { is_rival = prev } }
 			}
 		}
 	}
@@ -1431,23 +1471,60 @@ estate_holy_orders_relations_with_crusaders = {
 		}
 	}
 	fail_if = {
-		NOT = {
-			any_country = {
-				NOT = { num_of_cities = 30 }
+		event_target:agenda_country = {
+			OR = {
+				NOT = { num_of_cities = 1 }
+				war_with = root
+				NOT = { has_opinion = { who = root value = -100 } }
+				NOT = { religion = ROOT }
+			}
+		}
+	}
+	pre_effect = {
+		set_variable = {
+			which = estate_holy_orders_relations_with_X
+			value = 0
+		}
+		random_known_country = {
+			limit = {
+				OR = {
+					tag = TEU
+					tag = LIV
+					tag = TEM
+					tag = KNI
+				}
+				exists = yes
 				NOT = { war_with = ROOT }
 				NOT = { is_enemy = ROOT }
 				NOT = { is_rival = ROOT }
 				has_reform = crusader_order_reform
 				is_free_or_tributary_trigger = yes
-				religion = catholic
-				OR = {
-					tag = TEU
-					tag = LIV
-					tag = KNI
-					tag = TEM
+				religion = ROOT
+				NOT = { is_rival = root }
+				ROOT = { NOT = { is_rival = prev } }
+			}
+			save_event_target_as = agenda_country
+		}
+		if = {
+			limit = {
+				event_target:agenda_country = {
+					NOT = { has_opinion = { who = root value = 0 } }
 				}
 			}
+			set_variable = {
+				which = estate_nobles_relations_with_X
+				value = 1
+			}
 		}
+		else = {
+			set_variable = {
+				which = estate_nobles_relations_with_X
+				value = 2
+			}
+		}
+	}
+	provinces_to_highlight = {
+		is_capital_of = event_target:agenda_country
 	}
 	task_requirements = {
 		if = {
@@ -1461,21 +1538,37 @@ estate_holy_orders_relations_with_crusaders = {
 			}
 		}
 		else = {
-			treasury = 150
+			if = {
+				limit = {
+					check_variable = {
+						which = estate_nobles_relations_with_X
+						value = 2
+					}
+				}
+				event_target:agenda_country = {
+					has_opinion = {
+						who = root
+						value = 100
+					}
+				}
+			}
+			else = {
+				event_target:agenda_country = {
+					has_opinion = {
+						who = root
+						value = 50
+					}
+				}
+			}
 		}
 	}
 	task_completed_effect = {
-		country_event = { id = hremodevents.23 }
-		add_country_modifier = {
-			name = "donated_ho"
-			duration = 1825
-		}
 		on_completed_agenda_effect = {
 			estate = estate_holy_orders
 		}
 		add_estate_loyalty = {
 			estate = estate_holy_orders
-			loyalty = 10
+			loyalty = 15
 		}
 	}
     failing_effect = {
