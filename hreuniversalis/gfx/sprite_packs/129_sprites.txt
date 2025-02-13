@@ -9,10 +9,7 @@ dummy_sprites = {
 dlc129_ARM_sprite_pack = {
 	# Tests against every tag in game
 	country_trigger = {
-		OR = {
-			primary_culture = armenian
-			primary_culture = cilician
-		}
+		culture_group = armenian_group
 	}
 
 	sprite_infantry = {
@@ -71,10 +68,7 @@ dlc129_CYP_sprite_pack = {
 dlc129_GEO_sprite_pack = {
 	# Tests against every tag in game
 	country_trigger = {
-		OR = {
-			primary_culture = georgian
-			primary_culture = svanetian
-		}
+		culture_group = caucasian
 	}
 
 	sprite_infantry = {

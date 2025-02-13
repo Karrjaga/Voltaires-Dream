@@ -31,8 +31,7 @@ dlc079_hsn_sprite_pack = {
 	# Tests against every tag in game
 	country_trigger = {
 		OR = {
-			primary_culture = kurdish
-			primary_culture = luri
+			culture_group = iranian_tribal
 			primary_culture = aramaic
 			primary_culture = old_egyptian
 		}

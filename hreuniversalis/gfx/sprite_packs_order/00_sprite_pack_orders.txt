@@ -269,7 +269,7 @@ dlc078_naj_sprite_pack = 40
 dlc078_oma_sprite_pack = 40
 
 # Persian
-dlc079_afg_sprite_pack = 0
+dlc079_afg_sprite_pack = 30
 dlc079_hsn_sprite_pack = 30
 dlc079_per_sprite_pack = 20
 dlc079_tab_sprite_pack = 40
