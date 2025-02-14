@@ -1179,7 +1179,6 @@ on_province_culture_converted_estate_privilges_effect = {
 					culture_group = caucasian
 					culture_group = dagestani_group
 					culture_group = abkhazian_group
-					culture_group = armenian_group
 				}
 			}
 			add_province_modifier = {
@@ -2213,7 +2212,6 @@ on_province_owner_change_estate_privileges_effect = {
 					culture_group = caucasian
 					culture_group = dagestani_group
 					culture_group = abkhazian_group
-					culture_group = armenian_group
 				}
 			}
 			add_province_modifier = {
