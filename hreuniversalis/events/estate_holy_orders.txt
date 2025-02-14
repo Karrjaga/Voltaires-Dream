@@ -665,3 +665,363 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+	id = holy_orders_estate_events.12
+	title = "holy_orders_estate_events.12.t"
+	desc = "holy_orders_estate_events.12.d"
+	picture = PRAYING_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_estate = estate_holy_orders
+		OR = {
+			is_great_power = yes
+			num_of_cities = 100
+		}
+		NOT = { has_country_modifier = donated_ho }
+		NOT = { tag = PAP }
+		NOT = { tag = AVI }
+		NOT = { tag = TEU }
+		NOT = { tag = LIV }
+		NOT = { tag = KNI }
+		NOT = { tag = TEM }
+		is_in_deficit = no
+		NOT = { num_of_loans = 5 }
+		is_bankrupt = no
+		OR = {
+			TEU = {
+				exists = yes
+				NOT = { num_of_cities = 30 }
+				NOT = { war_with = ROOT }
+				NOT = { is_enemy = ROOT }
+				NOT = { is_rival = ROOT }
+				has_reform = crusader_order_reform
+				is_free_or_tributary_trigger = yes
+				religion = ROOT
+				NOT = { is_rival = root }
+				ROOT = { NOT = { is_rival = prev } }
+			}
+			LIV = {
+				exists = yes
+				NOT = { num_of_cities = 30 }
+				NOT = { war_with = ROOT }
+				NOT = { is_enemy = ROOT }
+				NOT = { is_rival = ROOT }
+				has_reform = crusader_order_reform
+				is_free_or_tributary_trigger = yes
+				religion = ROOT
+				NOT = { is_rival = root }
+				ROOT = { NOT = { is_rival = prev } }
+			}
+			KNI = {
+				exists = yes
+				NOT = { num_of_cities = 30 }
+				NOT = { war_with = ROOT }
+				NOT = { is_enemy = ROOT }
+				NOT = { is_rival = ROOT }
+				has_reform = crusader_order_reform
+				is_free_or_tributary_trigger = yes
+				religion = ROOT
+				NOT = { is_rival = root }
+				ROOT = { NOT = { is_rival = prev } }
+			}
+			TEM = {
+				exists = yes
+				NOT = { num_of_cities = 30 }
+				NOT = { war_with = ROOT }
+				NOT = { is_enemy = ROOT }
+				NOT = { is_rival = ROOT }
+				has_reform = crusader_order_reform
+				is_free_or_tributary_trigger = yes
+				religion = ROOT
+				NOT = { is_rival = root }
+				ROOT = { NOT = { is_rival = prev } }
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				25 = {
+					trigger = {
+						TEU = {
+							exists = yes
+							NOT = { num_of_cities = 30 }
+							NOT = { war_with = ROOT }
+							NOT = { is_enemy = ROOT }
+							NOT = { is_rival = ROOT }
+							has_reform = crusader_order_reform
+							is_free_or_tributary_trigger = yes
+							religion = ROOT
+							NOT = { is_rival = root }
+							ROOT = { NOT = { is_rival = prev } }
+						}
+					}
+					modifier = {
+						factor = 4
+						TEU = { at_war_with_religious_enemy = yes }
+					}
+					modifier = {
+						factor = 4
+						OR = {
+							capital_scope = { superregion = baltic_superregion }
+							capital_scope = { superregion = poland_superregion }
+							culture_group = germanic
+						}
+					}
+					modifier = {
+						factor = 2
+						alliance_with = TEU
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							TEU = { is_in_deficit = yes }
+							TEU = { num_of_loans = 1 }
+						}
+					}
+					modifier = {
+						factor = 0.5
+						TEU = { num_of_cities = 20 }
+					}
+					TEU = { save_event_target_as = donation_receiver }
+				}
+				25 = {
+					trigger = {
+						LIV = {
+							exists = yes
+							NOT = { num_of_cities = 30 }
+							NOT = { war_with = ROOT }
+							NOT = { is_enemy = ROOT }
+							NOT = { is_rival = ROOT }
+							has_reform = crusader_order_reform
+							is_free_or_tributary_trigger = yes
+							religion = ROOT
+							NOT = { is_rival = root }
+							ROOT = { NOT = { is_rival = prev } }
+						}
+					}
+					modifier = {
+						factor = 4
+						LIV = { at_war_with_religious_enemy = yes }
+					}
+					modifier = {
+						factor = 4
+						OR = {
+							capital_scope = { superregion = baltic_superregion }
+							capital_scope = { superregion = poland_superregion }
+							culture_group = germanic
+						}
+					}
+					modifier = {
+						factor = 2
+						alliance_with = LIV
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							LIV = { is_in_deficit = yes }
+							LIV = { num_of_loans = 1 }
+						}
+					}
+					modifier = {
+						factor = 0.5
+						LIV = { num_of_cities = 20 }
+					}
+					LIV = { save_event_target_as = donation_receiver }
+				}
+				25 = {
+					trigger = {
+						KNI = {
+							exists = yes
+							NOT = { num_of_cities = 30 }
+							NOT = { war_with = ROOT }
+							NOT = { is_enemy = ROOT }
+							NOT = { is_rival = ROOT }
+							has_reform = crusader_order_reform
+							is_free_or_tributary_trigger = yes
+							religion = ROOT
+							NOT = { is_rival = root }
+							ROOT = { NOT = { is_rival = prev } }
+						}
+					}
+					modifier = {
+						factor = 4
+						KNI = { at_war_with_religious_enemy = yes }
+					}
+					modifier = {
+						factor = 4
+						OR = {
+							capital_scope = { superregion = balkans_superregion }
+							capital_scope = { superregion = anatolia_superregion }
+							culture_group = latin
+						}
+					}
+					modifier = {
+						factor = 2
+						alliance_with = KNI
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							KNI = { is_in_deficit = yes }
+							KNI = { num_of_loans = 1 }
+						}
+					}
+					modifier = {
+						factor = 0.5
+						KNI = { num_of_cities = 10 }
+					}
+					KNI = { save_event_target_as = donation_receiver }
+				}
+				25 = {
+					trigger = {
+						TEM = {
+							exists = yes
+							NOT = { num_of_cities = 30 }
+							NOT = { war_with = ROOT }
+							NOT = { is_enemy = ROOT }
+							NOT = { is_rival = ROOT }
+							has_reform = crusader_order_reform
+							is_free_or_tributary_trigger = yes
+							religion = ROOT
+							NOT = { is_rival = root }
+							ROOT = { NOT = { is_rival = prev } }
+						}
+					}
+					modifier = {
+						factor = 4
+						TEM = { at_war_with_religious_enemy = yes }
+					}
+					modifier = {
+						factor = 4
+						OR = {
+							capital_scope = { continent = asia }
+							capital_scope = { continent = africa }
+							culture_group = french
+						}
+					}
+					modifier = {
+						factor = 2
+						alliance_with = TEM
+					}
+					modifier = {
+						factor = 2
+						OR = {
+							TEM = { is_in_deficit = yes }
+							TEM = { num_of_loans = 1 }
+						}
+					}
+					modifier = {
+						factor = 0.5
+						TEM = { num_of_cities = 10 }
+					}
+					TEM = { save_event_target_as = donation_receiver }
+				}
+			}
+			export_to_variable = {
+                which = donation_money
+                value = monthly_income
+                who = ROOT
+            }
+			divide_variable = {
+				which = donation_money
+				value = 2
+			}
+		}
+	}
+
+	option = {
+		name = "holy_orders_estate_events.12.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 3
+				OR = {
+					ruler_has_personality = zealot_personality
+					ruler_has_personality = kind_hearted_personality
+					ruler_has_personality = benevolent_personality
+					ruler_has_personality = naive_personality
+				}
+			}
+			modifier = {
+				factor = 0.5
+				estate_influence = {
+					estate = estate_holy_orders
+					influence = 70
+				}
+			}
+		}
+		custom_tooltip = holy_orders_estate_events.12.tt
+		add_estate_holy_orders_loyalty_effect = yes
+		add_country_modifier = {
+			name = donated_ho
+			duration = 3650
+		}
+		hidden_effect = {
+			event_target:donation_receiver = { country_event = { id = holy_orders_estate_events.13 days = 1 } }
+		}
+	}
+
+	option = {
+		name = "holy_orders_estate_events.12.b"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 3
+				OR = {
+					ruler_has_personality = greedy_personality
+					ruler_has_personality = incorruptible_personality
+					ruler_has_personality = conqueror_personality
+				}
+			}
+			modifier = {
+				factor = 0.5
+				NOT = {
+					estate_loyalty = {
+						estate = estate_holy_orders
+						loyalty = 40
+					}
+				}
+			}
+		}
+		reduce_estate_holy_orders_loyalty_effect = yes
+		add_papal_influence = -5
+	}
+}
+
+country_event = {
+	id = holy_orders_estate_events.13
+	title = "holy_orders_estate_events.13.t"
+	desc = "holy_orders_estate_events.13.d"
+	picture = CORRUPTION_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+            export_to_variable = {
+                which = donation_money
+                value = monthly_income
+                who = FROM
+            }
+            divide_variable = {
+                which = donation_money
+                value = 2
+            }
+        }
+	}
+
+	option = {
+		name = "holy_orders_estate_events.13.a"
+		transfer_treasury = {
+			giver = FROM
+			taker = ROOT
+			variable = donation_money
+			custom_tooltip = holy_orders_estate_events.13.tt
+		}
+	}
+}
