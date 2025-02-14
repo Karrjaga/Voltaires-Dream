@@ -307,13 +307,23 @@ estate_holy_orders = {
 		estate_holy_orders_build_hospital_in_y
 		estate_holy_orders_build_temple_in_y
 		estate_holy_orders_build_university_in_y
-		estate_holy_orders_crusade
-		estate_holy_orders_grand_crusade
+		estate_holy_orders_build_government_building_in_y
+		estate_holy_orders_build_army_building_in_y
+		estate_holy_orders_build_manufactory_in_y
+		estate_holy_orders_restore_currency
+		estate_holy_orders_retake_core
 		estate_holy_orders_convert_province_x
 		estate_holy_orders_three_privileges
-		estate_holy_orders_relations_with_crusaders
 		estate_holy_orders_hire_advisor
 		estate_holy_orders_fire_advisor
+		estate_holy_orders_humiliate_rival
+		estate_holy_orders_build_up_manpower_reserves
+		estate_holy_orders_defeat_large_army
+		estate_holy_orders_crusade
+		estate_holy_orders_grand_crusade
+		estate_holy_orders_relations_with_crusaders
+		estate_holy_orders_become_dotf
+		estate_holy_orders_establish_any_order
 	}
 
 	color = { 0 100 100 }

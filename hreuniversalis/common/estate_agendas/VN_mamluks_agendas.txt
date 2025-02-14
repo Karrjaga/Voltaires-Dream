@@ -558,6 +558,240 @@ estate_mamluks_build_university_in_y = {
     }
 }
 
+estate_mamluks_build_manufactory_in_y = {
+	can_select = {
+		OR = {
+			adm_tech = 32
+			dip_tech = 32
+			mil_tech = 32
+		}
+		any_owned_province = {
+			is_state_core = root
+			root_can_build_manufactory_here_trigger = yes
+			has_nobles_trade_good_trigger = yes
+		}
+		monthly_income = 30
+	}
+	selection_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			NOT = { is_year = 1600 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { monthly_income = 40 }
+		}
+		modifier = {
+			factor = 2
+			monthly_income = 60
+		}
+		modifier = {
+			factor = 2
+			is_institution_enabled = manufactories
+			NOT = { has_institution = manufactories }
+		}
+	}
+	pre_effect = {
+		random_owned_province = {
+			limit = {
+				is_state_core = root
+				root_can_build_manufactory_here_trigger = yes
+				has_nobles_trade_good_trigger = yes
+			}
+			save_event_target_as = agenda_province
+		}
+		random_owned_province = {
+			limit = {
+				is_state_core = root
+				base_production = 5
+				root_can_build_manufactory_here_trigger = yes
+				has_nobles_trade_good_trigger = yes
+			}
+			save_event_target_as = agenda_province
+		}
+		random_owned_province = {
+			limit = {
+				is_state_core = root
+				base_production = 10
+				root_can_build_manufactory_here_trigger = yes
+				has_nobles_trade_good_trigger = yes
+			}
+			save_event_target_as = agenda_province
+		}
+	}
+	provinces_to_highlight = {
+		province_id = event_target:agenda_province
+	}
+	fail_if = {
+		event_target:agenda_province = {
+			NOT = { owned_by = root }
+		}
+	}
+    task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_nobles
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_nobles
+			}
+		}
+		else = {
+			event_target:agenda_province = {
+				custom_trigger_tooltip = {
+					tooltip = has_manufactory_trigger_tooltip
+					
+					if = {
+						limit = {
+							OR = {
+								trade_goods = naval_supplies
+								trade_goods = fish
+								trade_goods = salt
+								trade_goods = whales
+								trade_goods = crabs
+								trade_goods = tar
+								trade_goods = pearls
+								trade_goods = wax
+								trade_goods = slaves
+							}
+						}
+						has_building = wharf
+					}
+					else_if = {
+						limit = {
+							OR = {
+								trade_goods = copper
+								trade_goods = iron
+								trade_goods = plumbum
+								trade_goods = munitions
+								trade_goods = minerals
+								trade_goods = zinc
+								trade_goods = tin
+								trade_goods = gold
+								trade_goods = mercury
+							}
+						}
+						has_building = weapons
+					}
+					else_if = {
+						limit = {
+							OR = {
+								trade_goods = wool
+								trade_goods = cloth
+								trade_goods = silk
+								trade_goods = dyes
+								trade_goods = carpet
+								trade_goods = hemp
+								trade_goods = leather
+								trade_goods = paper
+								trade_goods = cotton
+							}
+						}
+						has_building = textile
+					}
+					else_if = {
+						limit = {
+							OR = {
+								trade_goods = ivory
+								trade_goods = spices
+								trade_goods = fur
+								trade_goods = incense
+								trade_goods = gems
+								trade_goods = glass
+								trade_goods = chinaware
+								trade_goods = marble
+								trade_goods = pepper
+							}
+						}
+						has_building = tradecompany
+					}
+					else_if = {
+						limit = {
+							OR = {
+								trade_goods = horses
+								trade_goods = livestock
+								trade_goods = pigs
+								trade_goods = venison
+								trade_goods = camels
+								trade_goods = honey
+								trade_goods = cheese
+								trade_goods = oil
+							}
+						}
+						has_building = farm_estate
+					}
+					else_if = {
+						limit = {
+							OR = {
+								trade_goods = grain
+								trade_goods = barley
+								trade_goods = rye
+								trade_goods = rice
+								trade_goods = corn
+								trade_goods = lumber
+								trade_goods = wine
+								trade_goods = beer
+								trade_goods = spirits
+							}
+						}
+						has_building = mills
+					}
+					else_if = {
+						limit = {
+							OR = {
+								trade_goods = coal
+								trade_goods = steel
+							}
+						}
+						has_building = furnace
+					}
+					else = {
+						has_building = plantations
+					}
+				}
+			}
+		}
+    }
+    task_completed_effect = {
+		on_completed_agenda_effect = {
+			estate = estate_mamluks
+		}
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 10
+		}
+		event_target:agenda_province = {
+			add_base_manpower = 1
+			add_province_modifier = {
+				name = prospering_production
+				duration = 5475
+			}
+		}
+    }
+    failing_effect = {
+		on_failed_agenda_effect = yes
+		clr_auto_complete_flag = yes
+		event_target:agenda_province = {
+			if = {
+				limit = { owned_by = root }
+				add_named_unrest = {
+					name = local_mamluks_displeased
+					value = 5
+				}
+			}
+		}
+        add_estate_loyalty_modifier = {
+            estate = estate_mamluks
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+        }
+    }
+}
+
 estate_mamluks_develop_x = {
 	selection_weight = {
 		factor = 1
@@ -1021,7 +1255,7 @@ estate_mamluks_build_government_building_in_y = {
 			estate = estate_mamluks
 			loyalty = 10
 		}
-		add_stability = 1
+		add_stability_or_adm_power = yes
     }
     failing_effect = {
 		on_failed_agenda_effect = yes
@@ -1162,6 +1396,689 @@ estate_mamluks_fire_advisor = {
 			duration = 7300
         }
 		clr_country_flag = need_to_fire_adm_advisor
+    }
+}
+
+#Conquer X area from heathen country you don't have great relations with
+estate_mamluks_expand_into_x = {
+	can_select = {
+		is_free_or_tributary_trigger = yes
+		is_at_war = no
+		any_neighbor_country = {
+			NOT = { religion_group = ROOT }
+			num_of_cities = 5
+			is_free_or_tributary_trigger = yes
+			NOT = { is_subject_of = root }
+			NOT = { overlord_of = root }
+			NOT = { alliance_with = root }
+			NOT = { ROOT = { truce_with = prev } }
+			NOT = { 
+				has_opinion = {
+					who = root
+					value = 25
+				}
+			}
+			NOT = {
+				any_owned_province = { #No need for this agenda if covered by a mission
+					OR = {
+						is_permanent_claim = root
+						is_core = root
+					}
+				}
+			}
+			ROOT = {
+				knows_country = prev
+			}
+			any_owned_province = {
+				any_neighbor_province = {
+					owned_by = root
+				}
+				NOT = {
+					area_for_scope_province = {
+						OR = {
+							is_empty = yes
+							owned_by = root
+						}
+					}
+				}
+			}
+			OR = {
+				is_part_of_hre = no
+				NOT = { hre_reform_passed = landfriede }
+				ROOT = { is_part_of_hre = no }
+			}
+		}
+	}
+	selection_weight = {
+		factor = 2
+		modifier = {
+			factor = 0.5
+			has_non_generic_missions = yes
+		}
+		modifier = {
+			factor = 1.5
+			num_of_cities = 20
+		}
+		modifier = {
+			factor = 1.5
+			num_of_cities = 25
+		}
+		modifier = {
+			factor = 1.5
+			num_of_cities = 30
+		}
+		modifier = {
+			factor = 1.5
+			num_of_cities = 40
+		}
+		modifier = {
+			factor = 1.5
+			num_of_cities = 50
+		}
+		modifier = {
+			factor = 0.25
+			any_country = {
+				coalition_target = root
+			}
+		}
+	}
+	pre_effect = {
+		random_neighbor_country = {
+			limit = {
+				NOT = { religion_group = ROOT }
+				num_of_cities = 5
+				is_free_or_tributary_trigger = yes
+				NOT = { is_subject_of = root }
+				NOT = { overlord_of = root }
+				NOT = { alliance_with = root }
+				NOT = { ROOT = { truce_with = prev } }
+				NOT = { 
+					has_opinion = {
+						who = root
+						value = 25
+					}
+				}
+				NOT = {
+					any_owned_province = { #No need for this agenda if covered by a mission
+						OR = {
+							is_permanent_claim = root
+							is_core = root
+						}
+					}
+				}
+				ROOT = {
+					knows_country = prev
+				}
+				any_owned_province = {
+					any_neighbor_province = {
+						owned_by = root
+					}
+					NOT = {
+						area_for_scope_province = {
+							OR = {
+								is_empty = yes
+								owned_by = root
+							}
+						}
+					}
+				}
+				OR = {
+					is_part_of_hre = no
+					NOT = { hre_reform_passed = landfriede }
+					ROOT = { is_part_of_hre = no }
+				}
+			}
+			random_owned_province = {
+				limit = {
+					any_neighbor_province = {
+						owned_by = root
+					}
+					area_for_scope_province = {
+						type = all
+						NOT = { owned_by = root }
+						is_empty = no
+					}
+				}
+				save_event_target_as = agenda_province
+			}
+		}
+	}
+	immediate_effect = {
+		if = {
+			limit = {
+				event_target:agenda_province = {
+					area_for_scope_province = {
+						NOT = { is_claim = root }
+						NOT = { is_core = root }
+					}
+				}
+			}
+			event_target:agenda_province = {
+				area = {
+					limit = {
+						NOT = { is_claim = root }
+						NOT = { is_core = root }
+					}
+					add_claim = root
+				}
+			}
+		}
+	}
+	on_invalid = {
+		if = {
+			limit = {
+				event_target:agenda_province = {
+					area_for_scope_province = {
+						is_claim = root
+						NOT = { is_permanent_claim = root }
+					}
+				}
+			}
+			event_target:agenda_province = {
+				area = {
+					limit = {
+						is_claim = root
+						NOT = { is_permanent_claim = root }
+					}
+					remove_claim = root
+				}
+			}
+		}
+	}
+	provinces_to_highlight = {
+		area_for_scope_province = {
+			province_id = event_target:agenda_province
+		}
+	}
+	task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_mamluks
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_mamluks
+			}
+		}
+		else = {
+			event_target:agenda_province = {
+				area_for_scope_province = {
+					owned_by = root
+				}
+			}
+		}
+	}
+	fail_if = {
+		event_target:agenda_province = {
+			area_for_scope_province = {
+				type = all
+				NOT = { is_claim = root }
+				NOT = { is_core = root }
+				NOT = { owned_by = root }
+			}
+		}
+	}
+	task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 15
+		}
+		add_adm_power = 50
+	}
+    failing_effect = {
+        add_estate_loyalty_modifier = {
+            estate = estate_mamluks
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+        }
+		if = {
+			limit = {
+				event_target:agenda_province = {
+					area_for_scope_province = {
+						is_claim = root
+						NOT = { is_permanent_claim = root }
+					}
+				}
+			}
+			event_target:agenda_province = {
+				area = {
+					limit = {
+						is_claim = root
+						NOT = { is_permanent_claim = root }
+					}
+					remove_claim = root
+				}
+			}
+		}
+    }
+}
+
+#Reduce War Exhaustion
+estate_mamluks_reduce_war_exhaustion = {
+	can_select = {
+		war_exhaustion = 5
+		is_at_war = no
+		NOT = { has_country_modifier = national_recovery }
+	}
+	selection_weight = {
+		factor = 2
+		modifier = {
+			factor = 1.5
+			war_exhaustion = 7.5
+		}
+		modifier = {
+			factor = 1.5
+			war_exhaustion = 10
+		}
+	}
+	fail_if = {
+		is_at_war = yes
+	}
+	task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_mamluks
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_mamluks
+			}
+		}
+		else = {
+			NOT = { war_exhaustion = 1 }
+		}
+	}
+    task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 10
+		}
+		add_country_modifier = {
+			name = national_recovery
+			duration = 5475
+		}
+    }
+    failing_effect = {
+        add_estate_loyalty_modifier = {
+            estate = estate_mamluks
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+        }
+    }
+}
+
+#Bigger Army
+estate_mamluks_build_an_army = {
+	can_select = {
+		NOT = { has_country_modifier = thriving_arms_industry }
+		NOT = { army_size_percentage = 0.5 }
+		if = {
+			limit = {
+				is_emperor = yes
+			}
+			NOT = { army_size_percentage = 0.35 }
+		}
+	}
+	selection_weight = {
+		factor = 5
+		modifier = {
+			factor = 2
+			any_rival_country = {
+				NOT = { truce_with = root }
+				army_size = root
+			}
+		}
+		modifier = {
+			factor = 2.0
+			NOT = { army_size_percentage = 0.3 }
+			NOT = { army_size = 150 }
+		}
+		modifier = { #this could be really annoying in the late game
+			factor = 0.5
+			army_size = 100
+		}
+		modifier = {
+			factor = 0.25
+			army_size = 200
+		}
+		modifier = {
+			factor = 0
+			army_size = 500
+		}
+		modifier = {
+			factor = 0.5
+			is_emperor = yes
+		}
+	}
+	task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_mamluks
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_mamluks
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					is_emperor = yes
+				}
+				army_size_percentage = 0.65
+			}
+			else = {
+				army_size_percentage = 0.75
+			}
+		}
+	}
+	task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 10
+		}
+		define_advisor = {
+			type = commandant
+			cost_multiplier = 0.25
+		}
+	}
+    failing_effect = {
+        add_estate_loyalty_modifier = {
+            estate = estate_mamluks
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+        }
+    }
+}
+
+#Manpower reserves
+estate_mamluks_build_up_manpower_reserves = {
+	can_select = {
+		is_at_war = no
+		NOT = { manpower_percentage = 0.40 }
+	}
+	selection_weight = {
+		factor = 5
+		modifier = {
+			factor = 1.5
+			NOT = { manpower_percentage = 0.35 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { manpower_percentage = 0.3 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { manpower_percentage = 0.25 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { manpower_percentage = 0.2 }
+		}
+		modifier = {
+			factor = 3
+			NOT = { manpower_percentage = 0.15 }
+		}
+		modifier = {
+			factor = 0
+			has_estate_privilege = estate_janissary_allow_other_professions
+		}
+	}
+	pre_effect = {
+		set_variable = {
+			which = estate_mamluks_build_up_manpower_reserves_variable
+			value = 0
+		}
+		if = {
+			limit = {
+				NOT = {
+					manpower_percentage = 0.1
+				}
+			}
+			set_variable = {
+				which = estate_mamluks_build_up_manpower_reserves_variable
+				value = 1
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					manpower_percentage = 0.3
+				}
+			}
+			set_variable = {
+				which = estate_mamluks_build_up_manpower_reserves_variable
+				value = 2
+			}
+		}
+		else = {
+			set_variable = {
+				which = estate_mamluks_build_up_manpower_reserves_variable
+				value = 3
+			}
+		}
+		pick_type_of_military_advisor = yes
+	}
+	fail_if = {
+		is_at_war = yes
+	}
+	task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_mamluks
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_mamluks
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = {
+						which = estate_mamluks_build_up_manpower_reserves_variable
+						value = 3
+					}
+				}
+				manpower_percentage = 0.9
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						which = estate_mamluks_build_up_manpower_reserves_variable
+						value = 2
+					}
+				}
+				manpower_percentage = 0.75
+			}
+			else = {
+				manpower_percentage = 0.5
+			}
+		}
+	}
+	task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 10
+		}
+		generate_scaled_military_advisor_of_religion_effect = {
+			religion = orthodox
+			discount = yes
+		}
+		clear_random_military_advisor_generation_flags = yes
+	}
+    failing_effect = {
+        add_estate_loyalty_modifier = {
+            estate = estate_mamluks
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+		}
+		clear_random_military_advisor_generation_flags = yes
+    }
+}
+
+#Humiliate Rival
+estate_mamluks_humiliate_rival = {
+	can_select = {
+		any_rival_country = {
+			NOT = { truce_with = ROOT }
+			NOT = { humiliated_by = root }
+		}
+	}
+	selection_weight = {
+		factor = 1
+		modifier = {
+			factor = 3
+			NOT = { has_country_flag = humiliated_rival }
+		}
+	}
+	pre_effect = {
+		random_rival_country = {
+			limit = {
+				NOT = { truce_with = ROOT }
+				NOT = { humiliated_by = root }
+			}
+			save_event_target_as = agenda_country
+		}
+	}
+	task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_mamluks
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_mamluks
+			}
+		}
+		else = {
+			event_target:agenda_country = {
+				OR = {
+					humiliated_by = root
+					has_been_eclipsed_by = root
+				}
+			}
+		}
+	}
+	fail_if = {
+		event_target:agenda_country = {
+			has_eclipsed = root
+		}
+	}
+	task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 10
+		}
+		add_prestige_or_monarch_power = {
+			amount = 25
+		}
+	}
+    failing_effect = {
+        add_estate_loyalty_modifier = {
+            estate = estate_mamluks
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+        }
+    }
+}
+
+#Increase Monthly Military Power
+estate_mamluks_increase_monthly_military_power = {
+	can_select = {
+		if = {
+			limit = {
+				#Promote Advisors - +2
+				has_dlc = "Cradle of Civilization"
+				#National Focus - +2
+				has_dlc = "Res Publica"
+				has_dlc = "Common Sense"
+			}
+			NOT = { monthly_mil = 12 }
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_dlc = "Cradle of Civilization"
+					has_dlc = "Res Publica"
+					has_dlc = "Common Sense"
+				}
+			}
+			NOT = { monthly_mil = 10 }
+		}
+		else = {
+			NOT = { monthly_mil = 8 }
+		}
+	}
+	selection_weight = {
+		factor = 1
+	}
+	task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_mamluks
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_mamluks
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					#Promote Advisors - +2
+					has_dlc = "Cradle of Civilization"
+					#National Focus - +2
+					has_dlc = "Res Publica"
+					has_dlc = "Common Sense"
+				}
+				monthly_mil = 12
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_dlc = "Cradle of Civilization"
+						has_dlc = "Res Publica"
+						has_dlc = "Common Sense"
+					}
+				}
+				monthly_mil = 10
+			}
+			else = {
+				monthly_mil = 8
+			}
+		}
+	}
+    task_completed_effect = {
+		on_completed_agenda_effect = {
+			estate = estate_mamluks
+		}
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 10
+		}
+		add_mil_power = 50
+    }
+    failing_effect = {
+		on_failed_agenda_effect = yes
+		clr_auto_complete_flag = yes
+        add_estate_loyalty_modifier = {
+            estate = estate_mamluks
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+        }
     }
 }
 
@@ -1393,6 +2310,151 @@ estate_mamluks_increase_autonomy_in_province_x = {
     }
 }
 
+#Crush Revolts (not heretics)
+estate_mamluks_crush_revolts = {
+	can_select = {
+		num_of_rebel_armies = 1
+		NOT = {
+			has_spawned_rebels = mamluk_rebels
+		}
+	}
+	selection_weight = {
+		factor = 2
+		modifier = {
+			factor = 2
+			num_of_rebel_controlled_provinces = 3
+		}
+		modifier = {
+			factor = 2
+			num_of_rebel_controlled_provinces = 5
+		}
+	}
+	provinces_to_highlight = {
+		owned_by = root
+		controlled_by = REB
+	}
+	fail_if = {
+		has_country_modifier = just_lost_to_rebels
+	}
+	task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_mamluks
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_mamluks
+			}
+		}
+		else = {
+			NOT = { num_of_rebel_controlled_provinces = 1 }
+			NOT = { num_of_rebel_armies = 1 }
+			hidden_trigger = { NOT = { has_country_modifier = just_lost_to_rebels } }
+		}
+	}
+    task_completed_effect = {
+		on_completed_agenda_effect = {
+			estate = estate_mamluks
+		}
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 10
+		}
+		add_prestige = 10
+	}
+    failing_effect = {
+		on_failed_agenda_effect = yes
+		clr_auto_complete_flag = yes
+        add_estate_loyalty_modifier = {
+            estate = estate_mamluks
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+        }
+    }
+}
+
+#Protect minority rights
+estate_mamluks_stop_converting_province_x = {
+	can_select = {
+		num_of_missionaries = 1
+		any_owned_province = {
+			has_missionary = yes
+			NOT = { religion_group = muslim }
+			missionary_strength = 0.01
+		}
+		is_free_or_tributary_trigger = yes
+	}
+	selection_weight = {
+		factor = 2
+	}
+	pre_effect = {
+		random_owned_province = {
+			limit = {
+				has_missionary = yes
+				NOT = { religion_group = muslim }
+				missionary_strength = 0.01
+			}
+			save_event_target_as = agenda_province
+		}
+	}
+	fail_if = {
+		event_target:agenda_province = {
+			OR = {
+				NOT = { owned_by = root }
+				religion = root
+			}
+		}
+	}
+	provinces_to_highlight = {
+		province_id = event_target:agenda_province
+	}
+	task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_mamluks
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_mamluks
+			}
+		}
+		else = {
+			event_target:agenda_province = {
+				has_missionary = no
+				NOT = { religion = root }
+			}
+		}
+	}
+    task_completed_effect = {
+		on_completed_agenda_effect = {
+			estate = estate_mamluks
+		}
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 15
+		}
+		event_target:agenda_province = {
+			add_province_modifier = {
+				name = agenda_guaranteed_minority_rights
+				duration = 7300
+			}
+		}
+    }
+    failing_effect = {
+		on_failed_agenda_effect = yes
+		clr_auto_complete_flag = yes
+        add_estate_loyalty_modifier = {
+            estate = estate_mamluks
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+        }
+    }
+}
+
 #Give us three privileges
 estate_mamluks_three_privileges = {
 	can_select = {
@@ -1466,6 +2528,449 @@ estate_mamluks_three_privileges = {
 		add_estate_loyalty = {
 			estate = estate_mamluks
 			loyalty = 20
+		}
+    }
+    failing_effect = {
+		on_failed_agenda_effect = yes
+		clr_auto_complete_flag = yes
+        add_estate_loyalty_modifier = {
+            estate = estate_mamluks
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+        }
+    }
+}
+
+#Increase Monthly Military Power
+estate_mamluks_increase_monthly_military_power = {
+	can_select = {
+		if = {
+			limit = {
+				#Promote Advisors - +2
+				has_dlc = "Cradle of Civilization"
+				#National Focus - +2
+				has_dlc = "Res Publica"
+				has_dlc = "Common Sense"
+			}
+			NOT = { monthly_mil = 12 }
+		}
+		else_if = {
+			limit = {
+				OR = {
+					has_dlc = "Cradle of Civilization"
+					has_dlc = "Res Publica"
+					has_dlc = "Common Sense"
+				}
+			}
+			NOT = { monthly_mil = 10 }
+		}
+		else = {
+			NOT = { monthly_mil = 8 }
+		}
+	}
+	selection_weight = {
+		factor = 1
+	}
+	task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_mamluks
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_mamluks
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					#Promote Advisors - +2
+					has_dlc = "Cradle of Civilization"
+					#National Focus - +2
+					has_dlc = "Res Publica"
+					has_dlc = "Common Sense"
+				}
+				monthly_mil = 12
+			}
+			else_if = {
+				limit = {
+					OR = {
+						has_dlc = "Cradle of Civilization"
+						has_dlc = "Res Publica"
+						has_dlc = "Common Sense"
+					}
+				}
+				monthly_mil = 10
+			}
+			else = {
+				monthly_mil = 8
+			}
+		}
+	}
+    task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 10
+		}
+		add_mil_power = 50
+    }
+    failing_effect = {
+        add_estate_loyalty_modifier = {
+            estate = estate_mamluks
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+        }
+    }
+}
+
+#Build soldier household
+estate_mamluks_build_soldier_household = {
+	can_select = {
+		any_owned_province = {
+			NOT = { religion_group = ROOT }
+			is_state_core = root
+			has_no_manufactory_trigger = yes
+			num_free_building_slots = 1
+		}
+		monthly_income = 30
+		adm_tech = 48
+	}
+	selection_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.5
+			NOT = { monthly_income = 40 }
+		}
+		modifier = {
+			factor = 2
+			monthly_income = 60
+		}
+	}
+	pre_effect = {
+		random_owned_province = {
+			limit = {
+				NOT = { religion_group = ROOT }
+				is_state_core = root
+				has_no_manufactory_trigger = yes
+				num_free_building_slots = 1
+			}
+			save_event_target_as = agenda_province
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { religion_group = ROOT }
+				is_state_core = root
+				has_no_manufactory_trigger = yes
+				num_free_building_slots = 1
+				base_manpower = 5
+			}
+			save_event_target_as = agenda_province
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { religion_group = ROOT }
+				is_state_core = root
+				has_no_manufactory_trigger = yes
+				num_free_building_slots = 1
+				base_manpower = 10
+			}
+			save_event_target_as = agenda_province
+		}
+	}
+	provinces_to_highlight = {
+		province_id = event_target:agenda_province
+	}
+	fail_if = {
+		event_target:agenda_province = {
+			NOT = { owned_by = root }
+		}
+	}
+	task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_mamluks
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_mamluks
+			}
+		}
+		else = {
+			event_target:agenda_province = {
+				has_building = soldier_households
+			}
+		}
+    }
+    task_completed_effect = {
+		on_completed_agenda_effect = {
+			estate = estate_mamluks
+		}
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 10
+		}
+		event_target:agenda_province = {
+			add_base_manpower = 2
+			add_province_modifier = {
+				name = new_recruitment_center
+				duration = 5475
+			}
+		}
+    }
+    failing_effect = {
+		on_failed_agenda_effect = yes
+		clr_auto_complete_flag = yes
+		event_target:agenda_province = {
+			if = {
+				limit = { owned_by = root }
+				add_named_unrest = {
+					name = local_mamluks_displeased
+					value = 5
+				}
+			}
+		}
+        add_estate_loyalty_modifier = {
+            estate = estate_mamluks
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+        }
+    }
+}
+
+#Loot X province with at least 12 development ("Despoil X")
+estate_mamluks_despoil_x = {
+	can_select = {
+		is_at_war = yes
+		NOT = {
+			is_in_war = {
+				duration = 1825
+			}
+		}
+		any_neighbor_country = {
+			war_with = root
+			any_owned_province = {
+				development = 12
+				is_looted = no
+				continent = root
+				controlled_by = owner
+				area_for_scope_province = {
+					type = all
+					owned_by = prev
+				}
+			}
+		}
+		NOT = { has_country_modifier = agenda_looting_zeal }
+	}
+	selection_weight = {
+		factor = 2.5
+	}
+	pre_effect = {
+		random_neighbor_country = {
+			limit = {
+				war_with = root
+				any_owned_province = {
+					development = 12
+					is_looted = no
+					continent = root
+					controlled_by = owner
+					area_for_scope_province = {
+						type = all
+						owned_by = prev
+					}
+				}
+			}
+			random_owned_province = {
+				limit = {
+					development = 12
+					is_looted = no
+					continent = root
+					controlled_by = owner
+					area_for_scope_province = {
+						type = all
+						owned_by = prev
+					}
+				}
+				save_event_target_as = agenda_province
+			}
+			random_owned_province = {
+				limit = {
+					development = 16
+					is_looted = no
+					continent = root
+					controlled_by = owner
+					area_for_scope_province = {
+						type = all
+						owned_by = prev
+					}
+				}
+				save_event_target_as = agenda_province
+			}
+			random_owned_province = {
+				limit = {
+					development = 20
+					is_looted = no
+					continent = root
+					controlled_by = owner
+					area_for_scope_province = {
+						type = all
+						owned_by = prev
+					}
+				}
+				save_event_target_as = agenda_province
+			}
+		}
+	}
+	provinces_to_highlight = {
+		province_id = event_target:agenda_province
+	}
+	task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_mamluks
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_mamluks
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					has_estate_agenda_auto_completion = {
+						estate = estate_mamluks
+					}
+				}
+				has_estate_agenda_auto_completion = {
+					estate = estate_mamluks
+				}
+			}
+			else = {
+				event_target:agenda_province = {
+					area_for_scope_province = {
+						type = all
+						is_looted = yes
+					}
+				}
+			}
+		}
+	}
+	fail_if = {
+		event_target:agenda_province = {
+			owner = {
+				NOT = {
+					war_with = root
+				}
+			}
+		}
+	}
+    task_completed_effect = {
+		on_completed_agenda_effect = {
+			estate = estate_mamluks
+		}
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 10
+		}
+		add_country_modifier = {
+			name = agenda_looting_zeal
+			duration = 3650
+		}
+    }
+    failing_effect = {
+		on_failed_agenda_effect = yes
+		clr_auto_complete_flag = yes
+        add_estate_loyalty_modifier = {
+            estate = estate_mamluks
+			desc = EST_VAL_AGENDA_DENIED
+			loyalty = -5
+			duration = 7300
+        }
+    }
+}
+
+#Defeat Large Army
+estate_mamluks_defeat_large_army = {
+	can_select = {
+		is_bankrupt = no
+		army_size = 20
+	}
+	selection_weight = {
+		factor = 1
+	}
+	pre_effect = {
+	}
+	provinces_to_highlight = {
+	}
+	task_requirements = {
+		if = {
+			limit = {
+				has_estate_agenda_auto_completion = {
+					estate = estate_mamluks
+				}
+			}
+			has_estate_agenda_auto_completion = {
+				estate = estate_mamluks
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					OR = {
+						current_age = age_of_revolutions
+						current_age = age_of_ideology
+					}
+				}
+				check_variable = {
+					which = land_units_killed
+					value = 30000
+				}
+			}
+			else_if = {
+				limit = {
+					current_age = age_of_absolutism
+				}
+				check_variable = {
+					which = land_units_killed
+					value = 22500
+				}
+			}
+			else_if = {
+				limit = {
+					current_age = age_of_reformation
+				}
+				check_variable = {
+					which = land_units_killed
+					value = 15000
+				}
+			}
+			else = {
+				check_variable = {
+					which = land_units_killed
+					value = 7500
+				}
+			}
+		}
+	}
+	fail_if = {
+		NOT = { army_size = 1 }
+		is_at_war = no
+	}
+    task_completed_effect = {
+		on_completed_agenda_effect = {
+			estate = estate_mamluks
+		}
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 10
+		}
+		add_army_tradition_or_mil_power = {
+			amount = 20
 		}
     }
     failing_effect = {
