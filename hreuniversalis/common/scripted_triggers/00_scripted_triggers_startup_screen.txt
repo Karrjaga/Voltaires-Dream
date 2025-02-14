@@ -29,5 +29,10 @@ tag_with_plural_name_trigger = {
 		tag = BLK
 		tag = BGH
 		tag = MOR
+		#orders
+		tag = KNI
+		tag = TEM
+		tag = TEU
+		tag = LIV
 	}
 }
