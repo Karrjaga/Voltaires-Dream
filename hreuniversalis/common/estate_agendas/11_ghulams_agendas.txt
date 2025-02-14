@@ -20,7 +20,7 @@ estate_ghulams_hire_advisor = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -75,7 +75,7 @@ estate_ghulams_fire_advisor = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -157,7 +157,7 @@ estate_ghulams_three_privileges = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -226,7 +226,7 @@ estate_ghulams_reduce_war_exhaustion = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -291,7 +291,7 @@ estate_ghulams_increase_monthly_military_power = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -455,7 +455,7 @@ estate_ghulams_retake_core = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -567,7 +567,7 @@ estate_ghulams_support_independence = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -634,7 +634,7 @@ estate_ghulams_stop_converting_province_x = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -721,7 +721,7 @@ estate_ghulams_build_an_army = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -792,7 +792,7 @@ estate_ghulams_humiliate_rival = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -902,7 +902,7 @@ estate_ghulams_build_soldier_household = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -979,7 +979,7 @@ estate_ghulams_crush_revolts = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -1208,7 +1208,7 @@ estate_ghulams_expand_into_x = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -1394,7 +1394,7 @@ estate_ghulams_condottieri_rivals = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -1481,7 +1481,7 @@ estate_ghulams_bigger_army_than_rival = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -1593,7 +1593,7 @@ estate_ghulams_build_up_manpower_reserves = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
@@ -1721,7 +1721,7 @@ estate_ghulams_reduce_other_estate_influence = {
 				}
 			}
 			has_estate_agenda_auto_completion = {
-				estate = estate_qizilbash
+				estate = estate_ghulams
 			}
 		}
 		else = {
