@@ -498,7 +498,6 @@ estate_ghulams_ensure_caucasian_sovereignty = {
 				culture_group = caucasian
 				culture_group = dagestani_group
 				culture_group = abkhazian_group
-				culture_group = armenian_group
 			}
 		}
 	}
@@ -508,7 +507,6 @@ estate_ghulams_ensure_caucasian_sovereignty = {
 				culture_group = caucasian
 				culture_group = dagestani_group
 				culture_group = abkhazian_group
-				culture_group = armenian_group
 			}
 		}
 	}
@@ -543,7 +541,6 @@ estate_ghulams_ensure_caucasian_sovereignty = {
 					culture_group = caucasian
 					culture_group = dagestani_group
 					culture_group = abkhazian_group
-					culture_group = armenian_group
 				}
 			}
 			add_province_modifier = {
