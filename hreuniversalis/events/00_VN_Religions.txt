@@ -1,6 +1,5 @@
 namespace = vn_religious_events
 namespace = vn_bogomilist_events
-namespace = hremodevents
 
 # Paths of Religion
 country_event = {
@@ -3141,7 +3140,7 @@ country_event = {
         set_ruler_flag = princess_escaped
         if = {
             limit = { has_dlc = "Rights of Man" }
-            custom_tooltip = hrema25.tt
+            custom_tooltip = vn_zoroastrian_events.4.a.tt
 			hidden_effect = { define_consort = { dynasty = ROOT } }
 			set_consort_flag = xvaetvadatha_flag
         }
@@ -3365,90 +3364,6 @@ country_event = {
             discount = yes
         }
     }
-}
-
-country_event = {
-	id = vn_flavor_ftm.25
-	title = "vn_flavor_ftm.2.t5"
-	desc = "vn_flavor_ftm.2.d5"
-	picture = NEW_HEIR_eventPicture
-
-	trigger = {
-		religion = zoroastrian
-		has_consort_flag = xvaetvadatha_flag
-		NOT = { has_heir_flag = mazda_blessing }
-		heir_has_ruler_dynasty = yes
-		NOT = { heir_adm = 6 }
-		NOT = { heir_dip = 6 }
-		NOT = { heir_mil = 6 }
-		NOT = { heir_age = 1 }
-		has_regency = no
-		has_heir = yes
-	}
-	mean_time_to_happen = { months = 0 }
-	immediate = { hidden_effect = { set_heir_flag = mazda_blessing } }
-
-	option = {
-		name = "vn_flavor_ftm.2.a5"
-		random_list = {
-			25 = { change_heir_adm = 1 }
-			25 = { change_heir_dip = 1 }
-			25 = { change_heir_mil = 1 }
-			25 = {
-				if = {
-					limit = {
-						has_dlc = "Rights of Man"
-						NOT = { heir_has_personality = infertile_personality }
-					}
-					add_heir_personality = infertile_personality
-				}
-				else = { add_heir_claim = -20 }
-			}
-		}
-	}
-}
-
-country_event = {
-	id = hremodevents.25
-	title = "HREMT25"
-	desc = {
-		trigger = { is_female = no }
-		desc = HREMD25
-	}
-	desc = {
-		trigger = { is_female = yes }
-		desc = HREMDD25
-	}
-	picture = ROYAL_COUPLE_FUTURE_eventPicture
-
-	trigger = {
-		has_dlc = "Rights of Man"
-		has_government_attribute = queen
-		is_lesser_in_union = no
-		religion = zoroastrian
-		num_of_consorts = 0
-		government = monarchy
-		has_regency = no
-		has_consort = no
-		NOT = { has_ruler_flag = had_xwedodah_question }
-	}
-
-	mean_time_to_happen =  { months = 12 }
-
-	option = {
-		name = "HREMA25"
-		ai_chance = { factor = 75 }
-		custom_tooltip = hrema25.tt
-		set_ruler_flag = had_xwedodah_question
-		hidden_effect = { define_consort = { dynasty = ROOT } }
-		set_consort_flag = xvaetvadatha_flag
-	}
-	option = {
-		name = "HREMB25"
-		ai_chance = { factor = 25 }
-		set_ruler_flag = had_xwedodah_question
-		add_legitimacy = -5
-	}
 }
 
 #Caucasian Pagan
@@ -4676,6 +4591,90 @@ country_event = {
 		name = "vn_zoroastrian_events.2.b"
 		trigger = { has_ruler_flag = zor_right_answer }
 		add_ruler_modifier = { name = huxshathra }
+	}
+}
+
+country_event = {
+	id = vn_zoroastrian_events.3
+	title = "vn_zoroastrian_events.3.t"
+	desc = "vn_zoroastrian_events.3.d"
+	picture = NEW_HEIR_eventPicture
+
+	trigger = {
+		religion = zoroastrian
+		has_consort_flag = xvaetvadatha_flag
+		NOT = { has_heir_flag = mazda_blessing }
+		heir_has_ruler_dynasty = yes
+		NOT = { heir_adm = 6 }
+		NOT = { heir_dip = 6 }
+		NOT = { heir_mil = 6 }
+		NOT = { heir_age = 1 }
+		has_regency = no
+		has_heir = yes
+	}
+	mean_time_to_happen = { months = 0 }
+	immediate = { hidden_effect = { set_heir_flag = mazda_blessing } }
+
+	option = {
+		name = "vn_zoroastrian_events.3.a"
+		random_list = {
+			25 = { change_heir_adm = 1 }
+			25 = { change_heir_dip = 1 }
+			25 = { change_heir_mil = 1 }
+			25 = {
+				if = {
+					limit = {
+						has_dlc = "Rights of Man"
+						NOT = { heir_has_personality = infertile_personality }
+					}
+					add_heir_personality = infertile_personality
+				}
+				else = { add_heir_claim = -20 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = vn_zoroastrian_events.4
+	title = "vn_zoroastrian_events.4.t"
+	desc = {
+		trigger = { is_female = no }
+		desc = vn_zoroastrian_events.4.d
+	}
+	desc = {
+		trigger = { is_female = yes }
+		desc = vn_zoroastrian_events.4.d2
+	}
+	picture = ROYAL_COUPLE_FUTURE_eventPicture
+
+	trigger = {
+		has_dlc = "Rights of Man"
+		has_government_attribute = queen
+		is_lesser_in_union = no
+		religion = zoroastrian
+		num_of_consorts = 0
+		government = monarchy
+		has_regency = no
+		has_consort = no
+		NOT = { has_ruler_flag = had_xwedodah_question }
+	}
+
+	mean_time_to_happen =  { months = 12 }
+
+	option = {
+		name = "vn_zoroastrian_events.4.a"
+		ai_chance = { factor = 75 }
+		custom_tooltip = vn_zoroastrian_events.4.a.tt
+		set_ruler_flag = had_xwedodah_question
+		hidden_effect = { define_consort = { dynasty = ROOT } }
+		set_consort_flag = xvaetvadatha_flag
+	}
+	option = {
+		name = "vn_zoroastrian_events.4.b"
+		ai_chance = { factor = 25 }
+		set_ruler_flag = had_xwedodah_question
+		add_legitimacy = -5
 	}
 }
 

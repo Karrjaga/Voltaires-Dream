@@ -3,9 +3,10 @@ namespace = hremodevents
 # Age Events
 country_event = {
 	id = hremodevents.33
-	title = "HREMT33"
-	desc = "HREMD33"
+	title = none
+	desc = none
 	picture = BATTLE_eventPicture
+	hidden = yes
 
 	trigger = {
 		has_dlc = "Mandate of Heaven"
@@ -28,15 +29,16 @@ country_event = {
 	immediate = { set_country_flag = obj_holy_war_flag }
 
 	option = {
-		name = "HREMA33"
+		name = none
 	}
 }
 
 country_event = {
 	id = hremodevents.34
-	title = "HREMT34"
-	desc = "HREMD34"
+	title = none
+	desc = none
 	picture = BATTLE_eventPicture
+	hidden = yes
 
 	trigger = {
 		has_dlc = "Mandate of Heaven"
@@ -61,15 +63,16 @@ country_event = {
 	immediate = { set_country_flag = obj_tribal_warfare_flag }
 
 	option = {
-		name = "HREMA34"
+		name = none
 	}
 }
 
 country_event = {
 	id = hremodevents.35
-	title = "HREMT35"
-	desc = "HREMD35"
+	title = none
+	desc = none
 	picture = BATTLE_eventPicture
+	hidden = yes
 
 	trigger = {
 		has_dlc = "Mandate of Heaven"
@@ -86,15 +89,16 @@ country_event = {
 	immediate = { set_country_flag = obj_throne_claim_flag }
 
 	option = {
-		name = "HREMA35"
+		name = none
 	}
 }
 
 country_event = {
 	id = hremodevents.36
-	title = "HREMT36"
-	desc = "HREMD36"
+	title = none
+	desc = none
 	picture = BATTLE_eventPicture
+	hidden = yes
 
 	trigger = {
 		has_dlc = "Mandate of Heaven"
@@ -111,15 +115,16 @@ country_event = {
 	immediate = { set_country_flag = obj_force_converted_govt_flag }
 
 	option = {
-		name = "HREMA36"
+		name = none
 	}
 }
 
 country_event = {
 	id = hremodevents.37
-	title = "HREMT37"
-	desc = "HREMD37"
+	title = none
+	desc = none
 	picture = BATTLE_eventPicture
+	hidden = yes
 
 	trigger = {
 		has_dlc = "Mandate of Heaven"
@@ -135,424 +140,6 @@ country_event = {
 	immediate = { set_country_flag = obj_revolutionary_flag }
 
 	option = {
-		name = "HREMA37"
+		name = none
 	}
 }
-
-country_event = {
-	id = hremodevents.38
-	title = "HREMT38"
-	desc = "HREMD38"
-	picture = ACCUSATION_eventPicture
-
-	is_triggered_only = yes
-	mean_time_to_happen = { days = 1 }
-
-	option = {
-		name = "HREMA38"
-		ai_chance = { factor = 25 }
-		add_adm_power = -50
-	}
-	option = {
-		name = "HREMB38"
-		ai_chance = { factor = 25 }
-		add_dip_power = -50
-	}
-	option = {
-		name = "HREMC38"
-		ai_chance = { factor = 50 }
-		add_stability = -1
-		add_prestige = 15
-	}
-}
-
-
-
-# country_event = {
-# 	id = hremodevents.63
-# 	title = "HREMT63"
-# 	desc = "HREMD63"
-# 	picture = NEW_HEIR_eventPicture
-
-# 	trigger = {
-# 		always = no
-# 		NOT = { has_ruler_flag = had_hq_flag }
-# 		has_reform = eastern_monarchy
-# 		is_lesser_in_union = no
-# 		ruler_age = 55
-# 		has_heir = no
-# 	}
-
-# 	mean_time_to_happen = {
-# 		months = 6
-# 	}
-
-# 	option = {
-# 		name = "HREMA63"
-# 		ai_chance = { factor = 35 }
-# 		define_heir = {
-# 			dynasty = "Doukas"
-# 			age = 20
-# 		}
-# 	}
-# 	option = {
-# 		name = "HREMB63"
-# 		ai_chance = { factor = 35 }
-# 		define_heir = {
-# 			dynasty = "Komnenos"
-# 			age = 20
-# 		}
-# 	}
-# 	option = {
-# 		name = "HREMC63"
-# 		ai_chance = { factor = 30 }
-# 		define_heir = { age = 20 }
-# 	}
-# 	option = {
-# 		name = "HREMDD63"
-# 		ai_chance = { factor = 0 }
-# 		hidden_effect = { set_ruler_flag = had_hq_flag }
-# 		add_legitimacy = 5
-# 	}
-# }
-
-country_event = {
-	id = hremodevents.100
-	title = "HREMT100"
-	desc = "HREMD100"
-	picture = BAD_WITH_MONARCH_eventPicture
-
-	is_triggered_only = yes
-
-	trigger = {
-		OR = {
-			current_age = age_of_empire
-			current_age = age_of_holy_wars
-			current_age = age_of_crisis
-			current_age = age_of_dynasticism
-		}
-		culture_group = east_slavic
-		has_reform = principality
-		NOT = { has_global_flag = disable_rota_flag }
-		NOT = { has_country_flag = stop_releasing_another_country }
-		NOT = { has_global_flag = ongoing_rota }
-		NOT = {
-			any_country = {
-				has_country_flag = recent_rota
-				war_with = ROOT
-			}
-		}
-		OR = {
-			NOT = { has_country_flag = broke_from_kievan_rus }
-			had_country_flag = {
-				flag = broke_from_kievan_rus
-				days = 1
-			}
-		}
-		is_free_or_tributary_trigger = yes
-		any_owned_province = {
-			NOT = { is_capital_of = ROOT }
-			any_core_country = {
-				culture_group = east_slavic
-				NOT = { has_country_flag = rus_country_released }
-				exists = no
-			}
-		}
-	}
-
-	immediate = {
-		hidden_effect = {
-			random_owned_province = {
-				limit = {
-					NOT = { is_capital_of = ROOT }
-					any_core_country = {
-						culture_group = east_slavic
-						exists = no
-					}
-				}
-				random_core_country = {
-					limit = {
-						culture_group = east_slavic
-						exists = no
-					}
-					save_event_target_as = rus_partition_country
-				}
-			}
-			release = event_target:rus_partition_country
-			event_target:rus_partition_country = {
-				set_country_flag = rus_country_released
-				set_country_flag = stop_releasing_another_country
-				if = {
-					limit = { NOT = { religion = ROOT } }
-					change_religion = ROOT
-				}
-				change_government = monarchy
-				add_government_reform = principality
-				add_truce_with = ROOT
-				define_ruler = {
-					dynasty = ROOT
-				}
-				every_neighbor_country = {
-					limit = { 
-						has_reform = principality 
-					}
-					add_truce_with = PREV
-				}
-				capital_scope = {
-					build_to_forcelimit = {
-						infantry = 0.8
-						cavalry = 0.2
-					}
-				}
-				clr_country_flag = stop_releasing_another_country
-			}
-			if = {
-				limit = { is_subject_of_type = partial_principality }
-				overlord = {
-					create_subject = {
-						subject_type = partial_principality
-						subject = event_target:rus_partition_country
-					}
-				}
-			}
-		}
-	}
-
-	option = {
-		name = "HREMA100"
-		ai_chance = { factor = 75 }
-		custom_tooltip = "HREMTT100"
-		add_legitimacy = -20
-		hidden_effect = {
-			event_target:rus_partition_country = {
-				every_owned_province = {
-					limit = { is_core = ROOT }
-					remove_core = ROOT
-				}
-			}
-		}
-	}
-	option = {
-		name = "HREMB100"
-		ai_chance = { 
-			factor = 25
-			modifier = {
-				factor = 0
-				NOT = { legitimacy = 25 }
-			}
-			modifier = {
-				factor = 0
-				NOT = { stability = 0 }
-			}
-			modifier = {
-				factor = 0
-				is_at_war = yes
-			}
-			modifier = {
-				factor = 0.5
-				event_target:rus_partition_country = {
-					num_of_cities = ROOT
-				}
-			}
-		}
-		set_country_flag = contested_rus_breakaway
-		hidden_effect = {
-			event_target:rus_partition_country = {
-				grant_independence = yes
-			}
-		}
-		tooltip = {
-			declare_war_with_cb = {
-				who = event_target:rus_partition_country
-				casus_belli = cb_disloyal_vassal
-			}
-		}
-	}
-	after = {
-		if = {
-			limit = { has_country_flag = contested_rus_breakaway }
-			declare_war_with_cb = {
-				who = event_target:rus_partition_country
-				casus_belli = cb_disloyal_vassal
-			}
-			clr_country_flag = contested_rus_breakaway
-		}
-	}
-}
-
-country_event = {
-	id = hremodevents.101
-	title = "HREMT101"
-	desc = "HREMD101"
-	picture = STREET_SPEECH_eventPicture
-
-	trigger = {
-		always = no
-		is_emperor_of_china = no
-		culture_group = east_slavic
-		has_reform = principality
-		is_subject_of_type = partial_principality
-		NOT = { imperial_mandate = 50 }
-	}
-
-	mean_time_to_happen = {
-		months = 1200
-		modifier = {
-			factor = 0.90
-			imperial_mandate = 45
-			NOT = { imperial_mandate = 50 }
-		}
-		modifier = {
-			factor = 0.80
-			imperial_mandate = 40
-			NOT = { imperial_mandate = 45 }
-		}
-		modifier = {
-			factor = 0.70
-			imperial_mandate = 35
-			NOT = { imperial_mandate = 40 }
-		}
-		modifier = {
-			factor = 0.60
-			imperial_mandate = 30
-			NOT = { imperial_mandate = 35 }
-		}
-		modifier = {
-			factor = 0.50
-			imperial_mandate = 25
-			NOT = { imperial_mandate = 30 }
-		}
-		modifier = {
-			factor = 0.40
-			imperial_mandate = 20
-			NOT = { imperial_mandate = 25 }
-		}
-		modifier = {
-			factor = 0.30
-			imperial_mandate = 15
-			NOT = { imperial_mandate = 20 }
-		}
-		modifier = {
-			factor = 0.20
-			imperial_mandate = 10
-			NOT = { imperial_mandate = 15 }
-		}
-		modifier = {
-			factor = 0.10
-			imperial_mandate = 5
-			NOT = { imperial_mandate = 10 }
-		}
-		modifier = {
-			factor = 0.05
-			NOT = { imperial_mandate = 5 }
-		}
-	}
-	option = {
-		name = "HREMA101"
-		ai_chance = { factor = 95 }
-		add_prestige = 15
-		add_stability = -1
-		set_country_flag = broke_from_kievan_rus
-		define_ruler = {
-			dynasty = ROOT
-		}
-		hidden_effect = {
-			every_neighbor_country = {
-				limit = { has_reform = principality }
-				add_truce_with = ROOT
-			}
-			overlord = {
-				country_event = {
-					id = hremodevents.102
-				}
-			}
-		}
-		tooltip = { grant_independence = yes }
-	}
-	option = {
-		name = "HREMB101"
-		ai_chance = { factor = 5 }
-		add_legitimacy = 20
-		random_owned_province = {
-			limit = {
-				is_capital = no
-				controlled_by = owner
-			}
-			spawn_rebels = {
-				type = noble_rebels
-				size = 4
-				win = yes
-			}
-		}
-	}
-}
-
-country_event = {
-	id = hremodevents.102
-	title = "HREMT102"
-	desc = "HREMD102"
-	picture = COURT_eventPicture
-	
-	is_triggered_only = yes
-
-	option = {
-		name = "HREMA102"
-		#reduce_mandate_small_effect = yes
-		FROM = { grant_independence = yes }
-		remove_historical_friend = FROM
-		FROM = { remove_historical_friend = ROOT }
-		add_truce_with = FROM
-		add_opinion = {
-			who = FROM
-			modifier = tributary_state_broke_free
-		}
-		reverse_add_opinion = {
-			who = FROM
-			modifier = tributary_state_broke_free
-		}
-	}
-}
-
-# country_event = {
-# 	id = hremodevents.139
-# 	title = "HREMT139"
-# 	desc = "HREMD139"
-# 	picture = GENERALS_DISCUSSING_eventPicture
-
-# 	is_triggered_only = yes
-
-# 	option = {
-# 		name = "HREMA139"
-# 		ai_chance = {
-# 			factor = 100
-# 			modifier = {
-# 				factor = 0
-# 				NOT = { years_of_income = 1 }
-# 			}
-# 			modifier = {
-# 				factor = 0
-# 				is_at_war = no
-# 			}
-# 			modifier = {
-# 				factor = 0
-# 				is_in_deficit = yes
-# 			}
-# 			modifier = {
-# 				factor = 0
-# 				is_bankrupt = yes
-# 			}
-# 		}
-# 		add_estate_loyalty = {
-# 			estate = estate_burghers
-# 			loyalty = -5
-# 		}
-# 		reapply_estate_privilege = { privilege = estate_burghers_dutch_water_lines }
-# 	}
-# 	option = {
-# 		name = "HREMB139"
-# 		ai_chance = {
-# 			factor = 1
-# 		}
-# 		remove_estate_privilege = estate_burghers_dutch_water_lines
-# 	}
-# }

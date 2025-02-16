@@ -1,10 +1,15 @@
 namespace = hohenref_events
 namespace = fbievents
 
+########################################
+# Early Heresies
+########################################
+
+#Spawns Catharism + Waldenism
 country_event = {
-	id = fbievents.60
-	title = "FBIT60"
-	desc = "FBID60"
+	id = hohenref_events.0
+	title = "hohenref_events.0.t"
+	desc = "hohenref_events.0.d"
 	picture = RELIGIOUS_TURMOIL_eventPicture
 
 	fire_only_once = yes
@@ -42,8 +47,8 @@ country_event = {
 	mean_time_to_happen = { months = 120 }
 
 	option = {
-		name = "FBIA60"
-		custom_tooltip = fbia60.tt
+		name = "hohenref_events.0.a"
+		custom_tooltip = hohenref_events.0.a.tt
 		hidden_effect = {
 			if = {
 				limit = {
@@ -94,10 +99,6 @@ country_event = {
 		}
 	}
 }
-
-########################################
-# Early Heresies
-########################################
 
 #Catharism
 province_event = {
@@ -410,9 +411,9 @@ country_event = {
 # Anabaptism
 ########################################
 province_event = {
-	id = fbievents.68
-	title = "FBIT68"
-	desc = "FBID68"
+	id = hohenref_events.6
+	title = "hohenref_events.6.t"
+	desc = "hohenref_events.6.d"
 	picture = RELIGIOUS_TURMOIL_eventPicture
 	goto = root
 
@@ -453,7 +454,7 @@ province_event = {
 	}
 
 	option = {
-		name = "FBIA68"
+		name = "hohenref_events.6.a"
 		change_religion = anabaptist
 		spawn_rebels = {
 			type = anabaptist_rebels
@@ -464,9 +465,9 @@ province_event = {
 }
 
 country_event = {
-	id = fbievents.69
-	title = "FBIT69"
-	desc = "FBID69"
+	id = hohenref_events.7
+	title = "hohenref_events.7.t"
+	desc = "hohenref_events.7.d"
 	picture = RELIGIOUS_TURMOIL_eventPicture
 
 	fire_only_once = yes
@@ -499,13 +500,13 @@ country_event = {
 	}
 
 	option = {
-		name = "FBIA69"
+		name = "hohenref_events.7.a"
 		ai_chance = { factor = 80 }
 		change_religion = anabaptist
 		set_country_flag = anabaptist_reformation
 	}
 	option = {
-		name = "FBIB69"
+		name = "hohenref_events.7.b"
 		ai_chance = { factor = 20 }
 		add_papal_influence = 5
 		add_fervor = 5

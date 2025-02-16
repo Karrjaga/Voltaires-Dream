@@ -294,6 +294,8 @@
  EAH_parliament_name: "Reichstag"
  KOJ_parliament_name: "Haute Cour"
  georgian_parliament_name: "Darbazi"
+ string_thingi: "Þing"
+ string_witenagemot: "Witenagemot"
 #Vanilla reforms
  unlock_musketeers_reform_tt: "Unlock the '§YMusketeers of the Guard§!' government reform."
  native_clan_council_reform: "Council"

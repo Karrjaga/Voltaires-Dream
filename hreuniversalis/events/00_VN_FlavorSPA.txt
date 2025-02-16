@@ -572,7 +572,7 @@ country_event = {
 	option = {
 		name = "vn_flavor_spa.4.a"
 		ai_chance = { factor = 75 }
-		custom_tooltip = fbidd107.tt
+		custom_tooltip = vn_flavor_spa.4.tt
 		hidden_effect = {
 			NAV = { country_event = { id = vn_flavor_spa.5 days = 10 } }
 		}

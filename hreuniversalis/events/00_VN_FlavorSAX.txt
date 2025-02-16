@@ -323,7 +323,7 @@ country_event = {
 		name = "vn_flavor_sax.4.a"
 		ai_chance = { factor = 90 }
 		add_stability = 2
-		custom_tooltip = ernestinett
+		custom_tooltip = vn_flavor_sax.4.tt
 		hidden_effect = {
 			every_core_province = {
 				limit = { region = thuringia_region }

@@ -231,7 +231,7 @@ country_event = {
 	mean_time_to_happen = { days = 1 }
 
 	option = {
-		name = "FBIA129"
+		name = "vn_english_succession.2.a"
 		add_opinion = {
 			who = FROM
 			modifier = dynasty_elected
