@@ -145,7 +145,7 @@ country_event = {
 		add_prestige = 15
 		add_imperial_influence = 5
 		declare_war_with_cb = {
-			casus_belli = cb_imperial_ban
+			casus_belli = cb_imperial_ban_incident
 			who = event_target:pu_hre_country
 		}
 	}
