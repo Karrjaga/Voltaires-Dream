@@ -12128,7 +12128,7 @@ country_event = {
 
 	trigger = {
 		copper = 1
-		mil_tech = 7
+		mil_tech = 40
 		NOT = { has_country_modifier = poor_copper }
 	}
 
