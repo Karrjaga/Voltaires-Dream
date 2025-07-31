@@ -732,31 +732,45 @@ country_event = {
 	}
 
 	option = {
-		name = flavor_ger.9.westphalian
+		name = flavor_ger.9.pfalzish
 		
 		ai_chance = {
 			factor = 1
 		}
 		
 		trigger = {
-			GER_can_integrate_culture = { culture = westphalian }
+			GER_can_integrate_culture = { culture = pfalzish }
 		}
 		
-		GER_start_integrating = { culture = westphalian }
+		GER_start_integrating = { culture = pfalzish }
 	}
 
 	option = {
-		name = flavor_ger.9.lower_saxon
+		name = flavor_ger.9.ripuarian
 		
 		ai_chance = {
 			factor = 1
 		}
 		
 		trigger = {
-			GER_can_integrate_culture = { culture = lower_saxon }
+			GER_can_integrate_culture = { culture = ripuarian }
 		}
 		
-		GER_start_integrating = { culture = lower_saxon }
+		GER_start_integrating = { culture = ripuarian }
+	}
+
+	option = {
+		name = flavor_ger.9.baltic_german
+		
+		ai_chance = {
+			factor = 1
+		}
+		
+		trigger = {
+			GER_can_integrate_culture = { culture = baltic_german }
+		}
+		
+		GER_start_integrating = { culture = baltic_german }
 	}
 }
 
