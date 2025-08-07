@@ -133,17 +133,13 @@ country_event = {
 			}
 			every_country = {
 				limit = {
+					is_part_of_hre = yes
+					religion = catholic
+					NOT = { tag = ROOT }
+					NOT = { has_reform = papacy_reform }
 					OR = {
-						tag = PAP
-						tag = AVI
-						AND = {
-							is_part_of_hre = yes
-							NOT = { tag = ROOT }
-							OR = {
-								religion = catholic
-								religion = catholique
-							}
-						}
+						religion = catholic
+						religion = catholique
 					}
 				}
 				country_event = {
