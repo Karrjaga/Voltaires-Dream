@@ -2,638 +2,735 @@ namespace = cid_events
 
 # El Cid appears in Castile
 country_event = {
-    id = cid_events.1
-    title = cid_events.1.t
-    desc = cid_events.1.d
-    picture = CONQUEST_eventPicture
+	id = cid_events.1
+	title = cid_events.1.t
+	desc = cid_events.1.d
+	picture = CONQUEST_eventPicture
 
-    fire_only_once = yes
+	fire_only_once = yes
 
-    trigger = {
-        NOT = { is_year = 1075 }
-        is_year = 1054
-        normal_or_historical_nations = yes
-        tag = CAS
-        government = monarchy
-        religion_group = christian
-    }
-    
-    mean_time_to_happen = {
-        months = 48
-        modifier = {
-            factor = 0.5
-            is_year = 1060
-        }
-    }
+	trigger = {
+		OR = {
+			tag = CAS
+			AND = {
+				tag = LON
+				NOT = { exists = CAS }
+			}
+		}
+		has_global_flag = lon_split_flag
+		NOT = { is_year = 1075 }
+		normal_or_historical_nations = yes
+		government = monarchy
+		religion_group = christian
+	}
+	
+	mean_time_to_happen = {
+		months = 48
+		modifier = {
+			factor = 0.5
+			is_year = 1060
+		}
+	}
 
-    option = {
-        name = cid_events.1.a
-        ai_chance = {
-            factor = 65
-            modifier = {
-                factor = 2
-                NOT = { num_of_generals = 1 }
-            }
-            modifier = {
-                factor = 0
-                num_of_generals = 3
-            }
-        }
-        define_general = {
-            name = "El Cid"
-            fire = 4
-            shock = 5
-            manuever = 4
-            siege = 2
-        }
-        set_country_flag = cid_cas
-    }
-    option = {
-        name = cid_events.1.b
-        ai_chance = {
-            factor = 35
-            modifier = {
-                factor = 2
-                num_of_generals = 3
-            }
-            modifier = {
-                factor = 0
-                NOT = { num_of_generals = 1 }
-            }
-        }
-        custom_tooltip = cid_events.1.tt
-        hidden_effect = {
-            if = {
-                limit = { exists = BRC }
-                BRC = {
-                    country_event = {
-                        id = cid_events.2
-                        days = 60
-                        random = 5
-                    }
-                }
-            }
-            else = {
-                if = {
-                    limit = { exists = ZGZ }
-                    ZGZ = {
-                        country_event = {
-                            id = cid_events.3
-                            days = 40
-                            random = 5
-                        }
-                    }
-                }
-                else = {
-                    random_country = {
-                        limit = {
-                            capital_scope = {
-                                superregion = iberia_superregion
-                            }
-                            religion_group = muslim
-                        }
-                        country_event = {
-                            id = cid_events.4
-                            days = 50
-                            random = 5
-                        }
-                    }
-                }
-            }
-        }
-    }
+	option = {
+		name = cid_events.1.a
+		ai_chance = {
+			factor = 65
+			modifier = {
+				factor = 2
+				NOT = { num_of_generals = 1 }
+			}
+			modifier = {
+				factor = 0
+				num_of_generals = 3
+			}
+		}
+		define_general = {
+			name = "El Cid"
+			fire = 4
+			shock = 5
+			manuever = 4
+			siege = 2
+			trait = inspirational_leader_general_personality
+		}
+		set_country_flag = cid_cas
+	}
+	option = {
+		name = cid_events.1.b
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				num_of_generals = 3
+			}
+			modifier = {
+				factor = 0
+				NOT = { num_of_generals = 1 }
+			}
+		}
+		custom_tooltip = cid_events.1.tt
+		hidden_effect = {
+			if = {
+				limit = { exists = BRC religion_group = christian is_free_or_tributary_trigger = yes }
+				BRC = {
+					country_event = {
+						id = cid_events.2
+						days = 50
+						#random = 5
+					}
+				}
+			}   
+			else_if = {
+				limit = {
+					any_country = {
+						capital_scope = {
+							superregion = iberia_superregion
+						}
+						religion_group = christian
+						is_free_or_tributary_trigger = yes
+					}
+				}
+				random_country = {
+					limit = {
+						capital_scope = {
+							superregion = iberia_superregion
+						}
+						religion_group = christian
+						is_free_or_tributary_trigger = yes
+					}
+					country_event = {
+						id = cid_events.2
+						days = 50
+						#random = 5
+					}
+				}
+			}
+			else_if = {
+				limit = { exists = ZGZ religion_group = muslim is_free_or_tributary_trigger = yes }
+				ZGZ = {
+					country_event = {
+						id = cid_events.3
+						days = 40
+						#random = 5
+					}
+				}
+			}
+			else = {
+				random_country = {
+					limit = {
+						capital_scope = {
+							superregion = iberia_superregion
+						}
+						religion_group = muslim
+						is_free_or_tributary_trigger = yes
+					}
+					country_event = {
+						id = cid_events.4
+						days = 50
+						#random = 5
+					}
+				}
+			}
+		}
+	}
 }
 
 # El Cid appears in Barcelona
 country_event = {
-    id = cid_events.2
-    title = cid_events.2.t
-    desc = cid_events.2.d
-    picture = CONQUEST_eventPicture
+	id = cid_events.2
+	title = cid_events.2.t
+	desc = cid_events.2.d
+	picture = CONQUEST_eventPicture
 
-    is_triggered_only = yes
+	is_triggered_only = yes
 
-    option = {
-        name = cid_events.2.a
-        ai_chance = {
-            factor = 70
-            modifier = {
-                factor = 2
-                NOT = { num_of_generals = 1 }
-            }
-            modifier = {
-                factor = 0
-                num_of_generals = 3
-            }
-        }
-        define_general = {
-            name = "El Cid"
-            fire = 4
-            shock = 5
-            manuever = 4
-            siege = 2
-        }
-        set_country_flag = cid_brc
-    }
-    option = {
-        name = cid_events.2.b
-        ai_chance = {
-            factor = 30
-            modifier = {
-                factor = 2
-                num_of_generals = 3
-            }
-            modifier = {
-                factor = 0
-                NOT = { num_of_generals = 1 }
-            }
-        }
-        custom_tooltip = cid_events.1.tt
-        hidden_effect = {
-            if = {
-                limit = { exists = ZGZ }
-                ZGZ = {
-                    country_event = {
-                        id = cid_events.3
-                        days = 40
-                    }
-                }
-            }
-            else = {
-                random_country = {
-                    limit = {
-                        capital_scope = {
-                            superregion = iberia_superregion
-                        }
-                        religion_group = muslim
-                    }
-                    country_event = {
-                        id = cid_events.4
-                        days = 50
-                    }
-                }
-            }
-        }
-    }
+	option = {
+		name = cid_events.2.a
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 2
+				NOT = { num_of_generals = 1 }
+			}
+			modifier = {
+				factor = 0
+				num_of_generals = 3
+			}
+		}
+		define_general = {
+			name = "El Cid"
+			fire = 4
+			shock = 5
+			manuever = 4
+			siege = 2
+			trait = inspirational_leader_general_personality
+		}
+		set_country_flag = cid_brc
+	}
+	option = {
+		name = cid_events.2.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2
+				num_of_generals = 3
+			}
+			modifier = {
+				factor = 0
+				NOT = { num_of_generals = 1 }
+			}
+		}
+		custom_tooltip = cid_events.1.tt
+		hidden_effect = {
+			if = {
+				limit = { ZGZ = { exists = yes is_free_or_tributary_trigger = yes religion_group = christian } }
+				ZGZ = {
+					country_event = {
+						id = cid_events.3
+						days = 40
+					}
+				}
+			}
+			else = {
+				random_country = {
+					limit = {
+						capital_scope = {
+							superregion = iberia_superregion
+						}
+						religion_group = muslim
+						is_free_or_tributary_trigger = yes
+					}
+					country_event = {
+						id = cid_events.4
+						days = 50
+					}
+				}
+			}
+		}
+	}
 }
 
 # El Cid appears in Zaragoza
 country_event = {
-    id = cid_events.3
-    title = cid_events.3.t
-    desc = cid_events.3.d
-    picture = CONQUEST_eventPicture
+	id = cid_events.3
+	title = cid_events.3.t
+	desc = cid_events.3.d
+	picture = CONQUEST_eventPicture
 
-    is_triggered_only = yes
+	is_triggered_only = yes
 
-    option = {
-        name = cid_events.3.a
-        ai_chance = {
-            factor = 75
-            modifier = {
-                factor = 2
-                NOT = { num_of_generals = 1 }
-            }
-            modifier = {
-                factor = 0
-                num_of_generals = 3
-            }
-        }
-        define_general = {
-            name = "El Cid"
-            fire = 4
-            shock = 5
-            manuever = 4
-            siege = 2
-        }
-        set_country_flag = cid_zgz
-    }
-    option = {
-        name = cid_events.3.b
-        ai_chance = {
-            factor = 25
-            modifier = {
-                factor = 2
-                num_of_generals = 3
-            }
-            modifier = {
-                factor = 0
-                NOT = { num_of_generals = 1 }
-            }
-        }
-        custom_tooltip = cid_events.1.tt
-        hidden_effect = {
-            random_country = {
-                limit = {
-                    capital_scope = {
-                        superregion = iberia_superregion
-                    }
-                    religion_group = muslim
-                }
-                country_event = {
-                    id = cid_events.4
-                    days = 50
-                }
-            }
-        }
-    }
+	option = {
+		name = cid_events.3.a
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 2
+				NOT = { num_of_generals = 1 }
+			}
+			modifier = {
+				factor = 0
+				num_of_generals = 3
+			}
+		}
+		define_general = {
+			name = "El Cid"
+			fire = 4
+			shock = 5
+			manuever = 4
+			siege = 2
+			trait = inspirational_leader_general_personality
+		}
+		set_country_flag = cid_zgz
+	}
+	option = {
+		name = cid_events.3.b
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				num_of_generals = 3
+			}
+			modifier = {
+				factor = 0
+				NOT = { num_of_generals = 1 }
+			}
+		}
+		custom_tooltip = cid_events.1.tt
+		hidden_effect = {
+			random_country = {
+				limit = {
+					capital_scope = {
+						superregion = iberia_superregion
+					}
+					religion_group = muslim
+					is_free_or_tributary_trigger = yes
+				}
+				country_event = {
+					id = cid_events.4
+					days = 50
+				}
+			}
+		}
+	}
 }
 
 # El Cid appears in another taifa
 country_event = {
-    id = cid_events.4
-    title = cid_events.4.t
-    desc = cid_events.4.d
-    picture = CONQUEST_eventPicture
+	id = cid_events.4
+	title = cid_events.4.t
+	desc = cid_events.4.d
+	picture = CONQUEST_eventPicture
 
-    is_triggered_only = yes
+	is_triggered_only = yes
 
-    option = {
-        name = cid_events.4.a
-        ai_chance = { factor = 100 }
-        define_general = {
-            name = "El Cid"
-            fire = 4
-            shock = 5
-            manuever = 4
-            siege = 2
-        }
-        set_country_flag = cid_taifa
-    }
+	option = {
+		name = cid_events.4.a
+		ai_chance = { factor = 100 }
+		define_general = {
+			name = "El Cid"
+			fire = 4
+			shock = 5
+			manuever = 4
+			siege = 2
+			trait = inspirational_leader_general_personality
+		}
+		set_country_flag = cid_taifa
+	}
 }
 
 #El Cid's Ambition
 country_event = {
-    id = cid_events.5
-    title = cid_events.5.t
-    desc = cid_events.5.d
-    picture = MILITARY_CAMP_eventPicture
+	id = cid_events.5
+	title = cid_events.5.t
+	desc = cid_events.5.d
+	picture = MILITARY_CAMP_eventPicture
 
-    fire_only_once = yes
+	fire_only_once = yes
 
-    trigger = {
-        is_year = 1070
-        NOT = { is_year = 1095 }
-        normal_or_historical_nations = yes
-        OR = {
-            has_country_flag = cid_cas
-            has_country_flag = cid_brc
-            has_country_flag = cid_zgz
-            has_country_flag = cid_taifa
-        }
-        2024 = {
-            NOT = { country_or_non_sovereign_subject_holds = ROOT }
-        }
-        has_leader = "El Cid"
-        has_leader_with = {
-            fire = 4
-            shock = 5
-            manuever = 4
-            siege = 2
-        }
-    }
+	trigger = {
+		OR = {
+			has_country_flag = cid_cas
+			has_country_flag = cid_brc
+			has_country_flag = cid_zgz
+			has_country_flag = cid_taifa
+		}
+		has_leader = "El Cid"
+		current_age = age_of_empire
+		normal_or_historical_nations = yes
+		2024 = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			owner = {
+				NOT = { war_with = ROOT }
+			}
+		}
+	}
 
-    mean_time_to_happen = {
-        months = 240
-        modifier = {
-            factor = 0.5
-            is_year = 1080
-        }
-        modifier = {
-            factor = 0.5
-            is_year = 1090
-        }
-    }
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			is_year = 1080
+		}
+		modifier = {
+			factor = 0.5
+			is_year = 1090
+		}
+	}
 
-    immediate = {
-        hidden_effect = {
-            if = {
-                limit = { has_country_flag = cid_cas }
-                clr_country_flag = cid_cas
-            }
-            if = {
-                limit = { has_country_flag = cid_brc }
-                clr_country_flag = cid_brc
-            }
-            if = {
-                limit = { has_country_flag = cid_zgz }
-                clr_country_flag = cid_zgz
-            }
-            if = {
-                limit = { has_country_flag = cid_taifa }
-                clr_country_flag = cid_taifa
-            }
-        }
-    }
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = cid_cas }
+				clr_country_flag = cid_cas
+			}
+			if = {
+				limit = { has_country_flag = cid_brc }
+				clr_country_flag = cid_brc
+			}
+			if = {
+				limit = { has_country_flag = cid_zgz }
+				clr_country_flag = cid_zgz
+			}
+			if = {
+				limit = { has_country_flag = cid_taifa }
+				clr_country_flag = cid_taifa
+			}
+		}
+	}
 
-    option = {
-        name = cid_events.5.a
-        trigger = {
-            2024 = {
-                NOT = { country_or_non_sovereign_subject_holds = ROOT }
-            }
-        }
-        ai_chance = { 
-            factor = 70
-            modifier = {
-                factor = 0.5
-                NOT = { treasury = 100 }
-            }
-            modifier = {
-                factor = 0.5
-                NOT = { manpower = 2 }
-            }
-        }
-        add_treasury = -100
-        add_manpower = -2
-        hidden_effect = {
-            kill_leader = {
-                type = "El Cid"
-            }
-            set_country_flag = cid_sent_help
-            2024 = {
-                owner = {
-                    country_event = {
-                        id = cid_events.6
-                        days = 30
-                        random = 10
-                    }
-                }
-            }
-        }
-        custom_tooltip = cid_events.5.tt
-    }
-    option = {
-        name = cid_events.5.b
-        trigger = {
-            2024 = {
-                NOT = { country_or_non_sovereign_subject_holds = ROOT }
-            }
-        }
-        ai_chance = { 
-            factor = 30
-            modifier = {
-                factor = 0.5
-                treasury = 100
-            }
-            modifier = {
-                factor = 0.5
-                manpower = 2
-            }
-        }
-        random_list = {
-            25 = {
-                hidden_effect = {
-                    kill_leader = {
-                        type = "El Cid"
-                    }
-                }
-                capital_scope = {
-                    spawn_rebels = {
-                        leader = "Rodrigo Díaz"
-                        leader_dynasty = "Laínez"
-                        type = pretender_rebels
-                        size = 3
-                    }
-                }
-            }
-            25 = {
-                custom_tooltip = cid_events.5.tt2
-            }
-            50 = {
-                custom_tooltip = cid_events.5.tt3
-                hidden_effect = {
-                    kill_leader = {
-                        type = "El Cid"
-                    }
-                }
-            }
-        }
-    }
-    option = {
-        name = cid_events.5.c
-        trigger = {
-            2024 = {
-                country_or_non_sovereign_subject_holds = ROOT
-            }
-        }
-        ai_chance = { factor = 100 }
-        2024 = {
-            spawn_rebels = {
-                leader = "Rodrigo Díaz"
-                leader_dynasty = "Laínez"
-                type = pretender_rebels
-                size = 3
-            }
-        }
-    }
+	option = {
+		name = cid_events.5.a
+		trigger = {
+			2024 = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+		ai_chance = { 
+			factor = 70
+			modifier = {
+				factor = 0.5
+				NOT = { treasury = 100 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { manpower = 2 }
+			}
+		}
+		add_years_of_income = -0.25
+		add_yearly_manpower = -1
+		hidden_effect = {
+			kill_leader = {
+				type = "El Cid"
+			}
+			set_country_flag = cid_sent_help
+			2024 = {
+				owner = {
+					country_event = {
+						id = cid_events.6
+						days = 30
+						#random = 10
+					}
+				}
+			}
+		}
+		custom_tooltip = cid_events.5.tt
+	}
+	option = {
+		name = cid_events.5.b
+		trigger = {
+			2024 = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+		ai_chance = { 
+			factor = 30
+			modifier = {
+				factor = 0.5
+				treasury = 100
+			}
+			modifier = {
+				factor = 0.5
+				manpower = 2
+			}
+		}
+		random_list = {
+			25 = {
+				hidden_effect = {
+					kill_leader = {
+						type = "El Cid"
+					}
+				}
+				capital_scope = {
+					spawn_rebels = {
+						leader = "Rodrigo Díaz"
+						leader_dynasty = "Laínez"
+						type = pretender_rebels
+						size = 3
+					}
+				}
+			}
+			25 = {
+				custom_tooltip = cid_events.5.tt2
+			}
+			50 = {
+				custom_tooltip = cid_events.5.tt3
+				hidden_effect = {
+					kill_leader = {
+						type = "El Cid"
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = cid_events.5.c #rare fallback if Valencia somehow ends up in ROOT's ownership before the next event fires (like selling or threaten war)
+		trigger = {
+			2024 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		ai_chance = { factor = 100 }
+		add_prestige_or_monarch_power = { amount = 25 }
+		2024 = {
+			spawn_rebels = {
+				leader = "Rodrigo Díaz"
+				leader_dynasty = "Laínez"
+				type = pretender_rebels
+				size = 3
+			}
+		}
+	}
+	option = {
+		name = cid_events.5.dd
+		trigger = {
+			ai = no
+			2024 = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+		}
+		add_years_of_income = -0.25
+		add_yearly_manpower = -1
+		hidden_effect = {
+			kill_leader = {
+				type = "El Cid"
+			}
+			set_country_flag = cid_sent_help
+			set_country_flag = cid_we_want_to_join
+			2024 = {
+				owner = {
+					country_event = {
+						id = cid_events.6
+						days = 30
+						#random = 10
+					}
+				}
+			}
+		}
+		custom_tooltip = cid_events.5.tt4
+	}
 }
 
 # El Cid's Campaign
 country_event = {
-    id = cid_events.6
-    title = cid_events.6.t
-    desc = cid_events.6.d
-    picture = SIEGE_eventPicture
+	id = cid_events.6
+	title = cid_events.6.t
+	desc = cid_events.6.d
+	picture = SIEGE_eventPicture
 
-    is_triggered_only = yes
+	is_triggered_only = yes
+	major = yes
 
-    immediate = {
-        hidden_effect = {
-            every_owned_province = {
-                limit = { area = valencia_area }
-                add_core = AVL
-                cede_province = AVL
-            }
-            AVL = {
-                define_ruler = {
-                    name = "Rodrigo Díaz"
-                    dynasty = "Laínez"
-                    min_age = 40
-                    max_age = 55
-                    culture = castillian
-                    adm = 3
-                    dip = 5
-                    mil = 6
-                }
-                add_ruler_personality = strict_personality
-	            add_ruler_personality = zealot_personality
-                define_ruler_to_general = {
-                    fire = 4
-                    shock = 5
-                    manuever = 4
-                    siege = 2
-                }
-                add_treasury = 100
-                add_manpower = 2
-            }
-            set_country_flag = cid_rebelled  
-        }
-    }
+	immediate = {
+		hidden_effect = {
+			valencia_area = {
+				limit = { owned_by = ROOT }
+				add_core = AVL
+			}
+			release = AVL
+			AVL = {
+				define_ruler = {
+					name = "Rodrigo Díaz"
+					dynasty = "Laínez"
+					min_age = 40
+					max_age = 55
+					culture = castillian
+					adm = 3
+					dip = 5
+					mil = 6
+				}
+				add_ruler_personality = strict_personality
+				add_ruler_personality = zealot_personality
+				add_ruler_personality = legendary_conqueror_personality
+				define_ruler_to_general = {
+					fire = 4
+					shock = 5
+					manuever = 4
+					siege = 2
+					trait = inspirational_leader_general_personality
+				}
+				add_treasury = 250
+				add_manpower = 15
+				add_army_tradition = 50
+				add_stability = 3
+				add_prestige = 40
+				add_ruler_modifier = {
+					name = cid_the_lords_struggle
+					duration = -1
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				random_province = {
+					limit = { has_port = yes }
+					build_to_forcelimit = {
+						galley = 0.6
+						transport = 0.3
+						light_ship = 0.1
+					}
+				}
+			} 
+			if = {
+				limit = { FROM = { has_country_flag = cid_we_want_to_join } }
+				FROM = {
+					clr_country_flag = cid_we_want_to_join
+					switch_tag = AVL
+				}
+			}
+		}
+	}
 
-    option = {
-        name = cid_events.6.a
-        ai_chance = { 
-            factor = 70
-            modifier = {
-                factor = 0.5
-                is_at_war = yes
-            }
-        }
-        AVL = {
-            declare_war_with_cb = {
-                casus_belli = cb_independence_war
-                who = ROOT
-            }
-        }
-        hidden_effect = {
-            if = {
-                limit = {
-                    FROM = { has_country_flag = cid_sent_help }
-                }
-                FROM = {
-                    create_alliance = AVL
-                    clr_country_flag = cid_sent_help
-                }
-            }
-        }
-        custom_tooltip = cid_events.6.a.tt
-    }
-    option = {
-        name = cid_events.6.b
-        ai_chance = {
-            factor = 30
-            modifier = {
-                factor = 2.0
-                is_at_war = yes
-            }
-            modifier = {
-                factor = 1.5
-                NOT = { manpower = 1 }
-            }
-            modifier = {
-                factor = 1.2
-                num_of_loans = 1
-            }
-        }
-        AVL = {
-            white_peace = ROOT
-            add_truce_with = ROOT
-        }
-        hidden_effect = {
-            clr_country_flag = cid_rebelled
-            if = {
-                limit = {
-                    FROM = { has_country_flag = cid_sent_help }
-                }
-                FROM = {
-                    create_alliance = AVL
-                    clr_country_flag = cid_sent_help
-                }
-            }
-        }
-    }
+	option = {
+		name = cid_events.6.a
+		ai_chance = { 
+			factor = 70
+			modifier = {
+				factor = 0.5
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				is_bankrupt = yes
+			}
+			modifier = {
+				factor = 0.8
+				ruler_has_personality = craven_personality
+			}
+			modifier = {
+				factor = 2
+				has_country_modifier = almoravid_invasion
+			}
+		}
+		declare_war_with_cb = {
+			casus_belli = cb_core
+			who = AVL
+			war_goal_province = 2024
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					FROM = { has_country_flag = cid_sent_help }
+				}
+				FROM = {
+					create_alliance = AVL
+					clr_country_flag = cid_sent_help
+				}
+			}
+		}
+		custom_tooltip = cid_events.6.a.tt
+		set_country_flag = cid_rebelled
+	}
+	option = {
+		name = cid_events.6.b
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2.0
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { manpower_percentage = 0.5 }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { manpower_percentage = 0.1 }
+			}
+			modifier = {
+				factor = 1.2
+				num_of_loans = 1
+			}
+			modifier = {
+				factor = 1.2
+				is_in_deficit = yes
+			}
+			modifier = {
+				factor = 0.8
+				ruler_has_personality = bold_fighter_personality
+			}
+		}
+		add_truce_with = AVL
+		add_prestige = -25
+		hidden_effect = {
+			AVL = { add_truce_with = ROOT }
+			if = {
+				limit = {
+					FROM = { has_country_flag = cid_sent_help }
+				}
+				FROM = {
+					create_alliance = AVL
+					clr_country_flag = cid_sent_help
+				}
+			}
+		}
+	}
 }
 
 # El Cid is Victorious
 country_event = {
-    id = cid_events.7
-    title = cid_events.7.t
-    desc = cid_events.7.d
-    picture = SIEGE_eventPicture
+	id = cid_events.7
+	title = cid_events.7.t
+	desc = cid_events.7.d
+	picture = SIEGE_eventPicture
 
-    fire_only_once = yes
+	fire_only_once = yes
+	major = yes
+	major_trigger = {
+		tag = AVL
+	}
 
-    trigger = {
-        2024 = {
-            owned_by = AVL
-            controlled_by = AVL
-        }
-        has_country_flag = cid_rebelled
-        had_country_flag = {
-            flag = cid_rebelled
-            days = 365
-        }
-    }
+	trigger = {
+		had_country_flag = {
+			flag = cid_rebelled
+			days = 365
+		}
+		2024 = {
+			owned_by = AVL
+			controlled_by = AVL
+		}
+	}
 
-    mean_time_to_happen = {
-        months = 1
-    }
+	mean_time_to_happen = {
+		months = 1
+	}
 
-    option = {
-        name = cid_events.7.a
-        ai_chance = { factor = 100 }
-        hidden_effect = {
-            clr_country_flag = cid_rebelled
-        }
-        valencia_area = {
-            limit = { owned_by = ROOT }
-            add_core = AVL
-            cede_province = AVL
-        }
-        AVL = {
-            every_known_country = {
-                limit = { war_with = AVL }
-                white_peace = AVL
-                add_truce_with = AVL
-            }
-        }
-    }
+	option = {
+		name = cid_events.7.a
+		ai_chance = { factor = 100 }
+		clr_country_flag = cid_rebelled
+		white_peace = AVL
+		add_prestige = -25
+		add_stability = -1
+		add_years_of_income = -1
+		hidden_effect = {
+			if = {
+				limit = {
+					any_country = { has_country_flag = cid_sent_help }
+				}
+				random_country = {
+					create_alliance = AVL
+					clr_country_flag = cid_sent_help
+				}
+			}
+		}
+	}
 }
 
 # El Cid is Defeated
 country_event = {
-    id = cid_events.8
-    title = cid_events.8.t
-    desc = cid_events.8.d
-    picture = WOUNDED_SOLDIERS_eventPicture
+	id = cid_events.8
+	title = cid_events.8.t
+	desc = cid_events.8.d
+	picture = WOUNDED_SOLDIERS_eventPicture
 
-    fire_only_once = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+	major_trigger = {
+		tag = AVL
+	}
 
-    trigger = {
-        has_country_flag = cid_rebelled
-        had_country_flag = {
-            flag = cid_rebelled
-            days = 365
-        }
-        OR = {
-            AND = {
-                war_with = AVL
-                2024 = {
-                    NOT = { controlled_by = AVL }
-                }
-            }
-            2024 = {
-                NOT = { owned_by = AVL }
-            }
-        }
-    }
-
-    mean_time_to_happen = {
-        months = 1
-    }
-
-    option = {
-        name = cid_events.8.a
-        ai_chance = { factor = 100 }
-        clr_country_flag = cid_rebelled
-        add_prestige = 10
-        2024 = {
-            add_devastation = 50
-            add_province_modifier = {
-                name = "cid_valencia_devastated"
-                duration = 1095
-            }
-        }
-        if = {
-            limit = { exists = AVL }
-            AVL = {
-                every_owned_province = {
-                    cede_province = ROOT
-                    remove_core = AVL
-                }
-            }
-        }
-        custom_tooltip = cid_events.8.a.tt
-    }
+	option = {
+		name = cid_events.8.a
+		ai_chance = { factor = 100 }
+		clr_country_flag = cid_rebelled
+		if = {
+			limit = { AVL = { ai = yes } }
+			inherit = AVL
+		}
+		else = {
+			vassalize = AVL
+			AVL = { kill_ruler = yes }
+		}
+		add_prestige_or_monarch_power = { amount = 25 }
+		2024 = {
+			add_devastation = 50
+			add_province_modifier = {
+				name = "cid_valencia_devastated"
+				duration = 1825
+			}
+		}
+	}
 }

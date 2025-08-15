@@ -27,6 +27,7 @@ capital = 2024	# Valencia
 	clear_scripted_personalities = yes
 	add_ruler_personality = strict_personality
 	add_ruler_personality = zealot_personality
+	add_ruler_personality = legendary_conqueror_personality
 	queen = {
 		country_of_origin = LON
 		name = "Jimena Díaz"

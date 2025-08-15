@@ -949,6 +949,11 @@ cid_valencia_devastated = {
     trade_goods_size_modifier = -0.1
     local_monthly_devastation = -0.05
 }
+cid_the_lords_struggle = {
+	land_forcelimit = 10
+	morale_damage = 0.1
+	morale_damage_received = -0.1
+}
 nor_harald_leader = {
     leader_land_fire = 1
     leader_land_shock = 1

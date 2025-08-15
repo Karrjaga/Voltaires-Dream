@@ -189,6 +189,16 @@ on_main_war_won = {
 	}
 	if = {
 		limit = {
+			FROM = { tag = AVL }
+			has_country_flag = cid_rebelled
+		}
+		clr_country_flag = cid_rebelled
+		country_event = {
+			id = cid_events.8
+		}
+	}
+	if = {
+		limit = {
 			has_country_modifier = seljuk_yoke_mod
 			FROM = { tag = SJK }
 		}
@@ -251,6 +261,13 @@ on_main_war_lost = {
 				who = ROOT
 			}
 		}
+	}
+	if = {
+		limit = {
+			FROM = { tag = AVL }
+			has_country_flag = cid_rebelled
+		}
+		clr_country_flag = cid_rebelled
 	}
 }
 
@@ -394,6 +411,23 @@ on_siege_won_country = {
 }
 
 on_siege_lost_province = {
+	if = {
+		limit = {
+			province_id = 2024
+			owner = {
+				tag = AVL
+				any_war_enemy_country = {
+					has_country_flag = cid_rebelled
+				}
+			}
+		}
+		random_war_enemy_country = {
+			limit = { has_country_flag = cid_rebelled }
+			country_event = {
+				id = cid_events.8
+			}
+		}
+	}
 	events = {
 		hussite_wars.4			# Capital occupied by Hussites
 	}
