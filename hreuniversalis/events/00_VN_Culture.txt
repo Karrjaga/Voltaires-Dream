@@ -626,8 +626,6 @@ province_event = {
 	goto = root
 
 	trigger = {
-		current_age = age_of_holy_wars
-		NOT = { has_construction = missionary }
 		superregion = iberia_superregion
 		religion = sunni
 		owner = {
@@ -640,6 +638,11 @@ province_event = {
 				primary_culture = basque
 			}
 		}
+		OR = {
+			current_age = age_of_holy_wars
+			current_age = age_of_crisis
+		}
+		NOT = { has_construction = missionary }
 	}
 
 	mean_time_to_happen = { months = 60 }

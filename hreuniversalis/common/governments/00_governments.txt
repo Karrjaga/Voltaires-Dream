@@ -80,6 +80,7 @@ monarchy = {
 				siculo_norman_monarchy
 				assyrian_monarchy
 				triarchy_reform
+				taifa_reform
 				macedonian_monarchy_reform
 				frankish_monarchy_reform
 				#1.35

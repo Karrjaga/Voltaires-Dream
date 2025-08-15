@@ -1,4 +1,52 @@
 # T1 Reforms
+taifa_reform = {
+	icon = "indian_sultanate"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			capital_scope = {
+				superregion = iberia_superregion
+			}
+			has_reform = taifa_reform
+		}
+		religion_group = muslim
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	nation_designer_trigger = {
+		religion_group = muslim
+		capital_scope = {
+			superregion = iberia_superregion
+		}
+	}
+	modifiers = {
+		tolerance_heathen = 1
+		trade_efficiency = 0.05
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Winds of Change"
+		}
+		custom_attributes = {
+			can_royal_marry_heathens = yes
+		}
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Cradle of Civilization"
+				has_dlc = "Winds of Change"
+			}
+		}
+		government_abilities = {
+			iqta_mechanic
+		}
+	}
+	ai = {
+		factor = 100
+	}
+}
+
 triarchy_reform = {
 	icon = "bohemian_monarchy"
 	allow_normal_conversion = yes

@@ -584,6 +584,8 @@
  no_isolationism_focus: "Kein Fokus"
  desc_no_isolationism_focus: "Solange unser Staat noch keinen Fokus gewählt hat, wird unser Reich unter inneren Problemen leiden.\n\n§YHält an, bis einer der Isolationismus-Fokusse gewählt wurde.§!"
 #Government reforms
+ taifa_reform: "Taifa"
+ taifa_reform_desc: "Ein Taifa ist eines der vielen muslimischen Kleinkönigreiche, die nach dem Zusammenbruch des Kalifats von Córdoba auf der iberischen Halbinsel entstanden sind."
  triarchy_reform: "Triarchie"
  triarchy_reform_desc: "Eine Form der Monarchie, in der die Herrschaft zu gleichen Teilen zwischen drei Triarchen aufgeteilt ist, deren Familien eng miteinander verheiratet sind. Jeder von ihnen regiert einen separaten Teil des Landes mit einem hohen Maß an Autonomie."
  mechanic_has_triarchy_yes: "Hat §YTriarchie-Nachfolge§!"

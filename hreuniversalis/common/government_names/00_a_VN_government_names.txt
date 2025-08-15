@@ -1005,9 +1005,14 @@ taifa_monarchy = {
 	}
 
 	trigger = {
-		government = monarchy
-		religion_group = muslim
-		primary_culture = andalucian
+		OR = {
+			has_reform = taifa_reform
+			AND = {
+				government = monarchy
+				religion_group = muslim
+				primary_culture = andalucian
+			}
+		}	
 	}
 }
 

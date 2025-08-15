@@ -28,7 +28,7 @@ religious_school = maliki_school
 }
 1080.1.1 = {
 	government = monarchy
-	add_government_reform = iqta
+	add_government_reform = taifa_reform
 	monarch = {
 		name = "Yahyâ"
 		dynasty = "Banû Galbun"

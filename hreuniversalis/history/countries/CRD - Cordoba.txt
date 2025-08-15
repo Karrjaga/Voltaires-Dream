@@ -1,5 +1,5 @@
 government = republic
-add_government_reform = oligarchy_reform
+add_government_reform = oligarchic_republic
 government_rank = 3
 technology_group = muslim
 primary_culture = andalucian
@@ -29,7 +29,7 @@ religious_school = maliki_school
 
 1144.1.1 = {
 	government = monarchy
-	add_government_reform = iqta
+	add_government_reform = taifa_reform
 	government_rank = 1
 	monarch = {
 		name = "Ahmad"
