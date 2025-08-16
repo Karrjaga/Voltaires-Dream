@@ -610,7 +610,7 @@ estate_nobles_hungarian_nobles = {
 		custom_tooltip = cannot_annex_subjects
 	}
 	ai_will_do = {
-		factor = 0
+		factor = -300
 	}
 }
 
@@ -662,7 +662,7 @@ estate_church_hungarian_clergy = {
 	benefits = {}
 	mechanics = {}
 	ai_will_do = {
-		factor = 0
+		factor = -300
 	}
 }
 
