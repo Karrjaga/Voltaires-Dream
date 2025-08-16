@@ -37,7 +37,7 @@ country_event = {
 		add_stability = -1
 		tooltip = { kill_ruler = yes }
 		define_ruler = {
-			dynasty = "Banû Umayya"
+			dynasty = "Banû ‘Umayya"
 			hide_skills = yes
 			claim = 75
 		}
@@ -80,11 +80,11 @@ country_event = {
 			remove_heir = { allow_new_heir = no }
 		}
 		define_consort = {
-			dynasty = "Banû Umayya"
+			dynasty = "Banû ‘Umayya"
 			hide_skills = yes
 		}
 		define_heir = {
-			dynasty = "Banû Umayya"
+			dynasty = "Banû ‘Umayya"
 			hide_skills = yes
 			block_disinherit = yes
 		}
