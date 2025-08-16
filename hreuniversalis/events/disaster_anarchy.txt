@@ -109,6 +109,8 @@ country_event = {
 	immediate = {
 		on_non_estate_disaster_end = yes
 		clr_country_flag = has_english_anarchy
+		clr_country_flag = we_support_matilda
+		clr_country_flag = we_support_stephen
 	}
 
 	option = {
