@@ -17,7 +17,6 @@ technology = {
 	naval_engagement_width = 10
 	merchants = yes
 	may_fabricate_claims = yes
-	may_build_flagships = yes
 	naval_morale			=	1.0
 	range					=	500
 	enable = karve
@@ -117,6 +116,7 @@ technology = {
 	}
 	
 	enable = longship
+	may_build_flagships = yes
 	range					=	50
 }
 
