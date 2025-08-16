@@ -502,10 +502,6 @@ country_event = {
 			}
 		}
 	}
-
-	after = {
-		clear_saved_name = geo_prince
-	}
 }
 
 #end of the seljuk yoke
