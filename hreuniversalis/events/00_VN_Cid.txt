@@ -321,6 +321,7 @@ country_event = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			owner = {
 				NOT = { war_with = ROOT }
+				num_of_cities = 2
 			}
 		}
 	}
@@ -502,11 +503,19 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			valencia_area = {
-				limit = { owned_by = ROOT }
-				add_core = AVL
-			}
+			2024 = { add_core = AVL }
 			release = AVL
+			valencia_area = {
+				limit = {
+					OR = {
+						owned_by = ROOT
+						owner = { ai = yes }
+					}
+					is_capital = no
+				}
+				add_core = AVL
+				cede_province = AVL
+			}
 			AVL = {
 				define_ruler = {
 					name = "Rodrigo Díaz"
