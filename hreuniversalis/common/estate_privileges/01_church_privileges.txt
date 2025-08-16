@@ -469,6 +469,7 @@ estate_church_clerical_ministers = {
 				}
 				NOT = { religion = protestant }
 				NOT = { religion = buddhism }
+				NOT = { religion = cathar }
 				NOT = { religion = anabaptist }
 			}
 			if = {
@@ -487,7 +488,10 @@ estate_church_clerical_ministers = {
 				limit = {
 					has_dlc = "Cradle of Civilization"
 				}
-				NOT = { religion_group = muslim }
+				NOT = { religion = sunni }
+				NOT = { religion = shiite }
+				NOT = { religion = ibadi }
+				NOT = { religion = zikri }
 			}
 			if = {
 				limit = {
@@ -500,6 +504,9 @@ estate_church_clerical_ministers = {
 					has_dlc = "Third Rome"
 				}
 				NOT = { religion = orthodox }
+				NOT = { religion = paulician }
+				NOT = { religion = iconoclast }
+				NOT = { religion = monothelite }
 			}
 			if = {
 				limit = {
@@ -516,7 +523,10 @@ estate_church_clerical_ministers = {
 	conditional_modifier = {
 		trigger = {
 			has_dlc = "Common Sense"
-			religion = buddhism
+			OR = {
+				religion = buddhism
+				religion = cathar
+			}
 		}
 		modifier = {
 			yearly_karma_decay = 0.05
@@ -564,7 +574,12 @@ estate_church_clerical_ministers = {
 	conditional_modifier = {
 		trigger = {
 			has_dlc = "Cradle of Civilization"
-			religion_group = muslim
+			OR = {
+				religion = sunni
+				religion = shiite
+				religion = ibadi
+				religion = zikri
+			}
 			NOT = { has_country_flag = MUG_upgrade_clerical_ministers_flag }
 		}
 		modifier = {
@@ -574,7 +589,12 @@ estate_church_clerical_ministers = {
 	conditional_modifier = {
 		trigger = {
 			has_dlc = "Cradle of Civilization"
-			religion_group = muslim
+			OR = {
+				religion = sunni
+				religion = shiite
+				religion = ibadi
+				religion = zikri
+			}
 			has_country_flag = MUG_upgrade_clerical_ministers_flag
 		}
 		modifier = {
@@ -592,7 +612,12 @@ estate_church_clerical_ministers = {
 	}
 	conditional_modifier = {
 		trigger = {
-			religion = orthodox
+			OR = {
+				religion = orthodox
+				religion = paulician
+				religion = iconoclast
+				religion = monothelite
+			}
 			NOT = { has_country_flag = BYZ_buff_clerical_ministers_for_byz }
 		}
 		modifier = {
@@ -601,7 +626,12 @@ estate_church_clerical_ministers = {
 	}
 	conditional_modifier = {
 		trigger = {
-			religion = orthodox
+			OR = {
+				religion = orthodox
+				religion = paulician
+				religion = iconoclast
+				religion = monothelite
+			}
 			has_country_flag = BYZ_buff_clerical_ministers_for_byz
 		}
 		modifier = {
@@ -610,7 +640,12 @@ estate_church_clerical_ministers = {
 	}
 	conditional_modifier = {
 		trigger = {
-			religion = orthodox
+			OR = {
+				religion = orthodox
+				religion = paulician
+				religion = iconoclast
+				religion = monothelite
+			}
 			has_global_flag = BYZ_buff_clerical_ministers_for_orthodox
 		}
 		modifier = {
@@ -668,7 +703,12 @@ estate_church_clerical_ministers = {
 		}
 		modifier = {
 			factor = 10
-			religion = orthodox
+			OR = {
+				religion = orthodox
+				religion = paulician
+				religion = iconoclast
+				religion = monothelite
+			}
 			has_dlc = "Third Rome"
 		}
 	}
