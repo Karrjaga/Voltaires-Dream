@@ -56,6 +56,7 @@ estate_mamluks = {
 					has_reform = pirate_republic_reform
 					has_reform = caliphate_reform
 					has_reform = caliphate_theocracy_reform
+					has_reform = taifa_reform
 				}
 				is_nomad = no
 				primitives = no
