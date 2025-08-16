@@ -126,23 +126,29 @@ country_event = {
 		OR = {
 			capital_scope = { superregion = british_isles_superregion }
 			alliance_with = ENG
+			marriage_with = ENG
 		}
 	}
 
 	fire_only_once = yes
 
 	trigger = {
-		tag = ENG
-		num_of_ports = 1
-		has_regency = no
-		is_lesser_in_union = no
-		government = monarchy
-		primary_culture = english
-		current_age = age_of_holy_wars
-		NOT = { started_in = 1120.11.25 }
-		heir_has_ruler_dynasty = yes
-		has_heir = yes
-		heir_age = 15
+		OR = {
+			AND = {
+				tag = ENG
+				current_age = age_of_holy_wars
+				NOT = { started_in = 1120.11.25 }
+				is_lesser_in_union = no
+				government = monarchy
+				num_of_ports = 1
+				has_regency = no
+				primary_culture = english
+				heir_has_ruler_dynasty = yes
+				has_heir = yes
+				heir_age = 15
+			}
+			has_country_flag = actual_white_ship_disaster
+		}
 	}
 
 	mean_time_to_happen = {
@@ -160,5 +166,9 @@ country_event = {
 	option = {
 		name = "vn_flavor_eng.2.a"
 		kill_heir = { allow_new_heir = no }
+		custom_tooltip = vn_flavor_eng.2.tt
+		clr_country_flag = actual_white_ship_disaster
+		set_country_flag = had_white_ship_disaster
+		set_ruler_flag = white_ship_disaster_ruler
 	}
 }

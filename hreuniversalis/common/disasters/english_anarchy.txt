@@ -1,0 +1,76 @@
+english_anarchy = {
+	potential = {
+		tag = ENG
+		NOT = {
+			has_country_flag = had_english_anarchy
+		}
+		government = monarchy
+		is_free_or_tributary_trigger = yes
+		normal_or_historical_nations = yes
+		OR = {
+			current_age = age_of_holy_wars
+			current_age = age_of_crisis
+		}
+	}
+	
+	can_start = {
+		custom_trigger_tooltip = {
+			tooltip = english_anarchy.tt
+			has_country_flag = had_white_ship_disaster
+			NOT = { has_ruler_flag = white_ship_disaster_ruler }
+		}
+	}
+	
+	can_stop = {
+		OR = {
+			has_any_disaster = yes
+			NOT = {
+				government = monarchy
+			}
+		}
+	}
+
+	progress = {
+		modifier = {
+			factor = 20
+			custom_trigger_tooltip = {
+				tooltip = english_anarchy.tt
+				has_country_flag = had_white_ship_disaster
+				NOT = { has_ruler_flag = white_ship_disaster_ruler }
+			}
+		}	
+	}	
+	
+	can_end = {
+		stability = 1
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		NOT = { num_of_rebel_armies = 1 }
+		custom_trigger_tooltip = {
+			tooltip = disaster_active_for_20_years_tooltip
+			had_country_flag = {
+				flag = has_english_anarchy
+				days = 7300
+			}
+		}
+	}
+
+	modifier = {
+		global_unrest = 5
+		stability_cost_modifier = 0.5
+		heir_chance = -0.5
+	}	
+	
+	
+	on_start = english_anarchy.1
+	on_end = english_anarchy.100
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = { 
+			1000 = 0
+			100 = english_anarchy.2 #Treaty of Wallingford
+			50 = english_anarchy.3 #Rebels Spawn
+		}
+	}
+}

@@ -1,5 +1,7 @@
 ﻿l_german:
 #Disasters
+ english_anarchy: "Englische Anarchie"
+ english_anarchy_desc: "Nachdem der englische Thronfolger beim Untergang des weißen Schiffes ertrunken war, brach zwischen Kaiserin Mathilde und Stephan von Blois ein Bürgerkrieg aus."
  russian_factionalism: "Zersplitterung der Rus"
  russian_factionalism_desc: "Der Großfürst der Rus hat die Loyalität seiner Untertanen verloren, während Thronanwärter ihn anfechten."
  great_fitna: "Die große Kalamität"
@@ -777,3 +779,19 @@
  seljuk_collapse.100.t: "Ende des [Root.GetAdjective]en Niedergangs"
  seljuk_collapse.100.d: "Das Seldschukenreich, einst das mächtigste Reich der islamischen Welt, ist nun endgültig zusammengebrochen. Die vergangenen Jahre waren geprägt von internen Streitigkeiten, rebellischen Vasallen und endlosen Kriegen zwischen aufstrebenden Dynastien. Jetzt ist unsere Autorität über Persien und Anatolien nur noch eine verblassende Erinnerung.\nEhemalige Generäle, Atabegs und Stammesführer haben unser Land unter sich aufgeteilt, und neue Mächte erheben sich aus den Ruinen unseres einst glorreichen Reiches. Die Hauptstadt ist umzingelt, und unser Hofstaat ist zerstreut. Die Herrschaft der Großseldschuken ist zu Ende gegangen, und eine neue Ära beginnt - nicht unter unserer Führung, sondern unter denen, die von unserer Schwäche profitiert haben."
  seljuk_collapse.100.a: "Dies markiert einen Wendepunkt für unser Reich."
+#English Anarchy
+ english_anarchy.tt: "Die Nachfolge ist nach dem Untergang des weißen Schiffes ungewiss."
+ english_anarchy.1.t: "Die [Root.GetAdjective]e Anarchie"
+ english_anarchy.1.d: "Seit unser Kronprinz vor einigen Jahren beim Untergang des Weißen Schiffes ums Leben kam, ist die [Root.GetAdjective]e Thronfolge unklar. Trotz erheblicher Vorbehalte seitens der [Root.GetAdjective]en Stände hinsichtlich ihres Geschlechts und ihrer Ehe mit dem verfeindeten Adel von Anjou wurde Kaiserin Mathilde schließlich zur Nachfolgerin ernannt.\nAls sich jedoch die Nachricht vom Tod unseres Monarchen verbreitete, eilte Stephan von Blois, ein Cousin von Mathilde, nach [Root.GetName], um ihren Anspruch anzufechten. Er zog nach [Root.Capital.GetCapitalName], gewann schnell die Unterstützung vieler örtlicher Fürsten und Prälaten und wurde schließlich vom Erzbischof von Canterbury in Winchester zum König von [Root.GetName] gekrönt. Viele [Root.GetAdjective]e Fürsten unterstützen seine Krönung und betrachten Mathilde als illegitime Herrscherin.\n[Root.GetName] steht nun vor einer tiefen Spaltung zwischen den Anhängern von Kaiserin Mathilde einerseits und Stephan von Blois andererseits. Die derzeitige Herrschaft ist umstritten und das Königreich droht in Chaos und Bürgerkrieg zu versinken."
+ english_anarchy.1.a: "Wir unterstützen Stephan von Blois."
+ english_anarchy.1.b: "Wir unterstützen Kaiserin Mathilde."
+ english_anarchy.2.t: "Vertrag von Wallingford"
+ english_anarchy.2.d: "Seit über einem Jahrzehnt zerreißt der Bürgerkrieg zwischen Kaiserin Mathilde und Stephan von Blois das [Root.GetAdjective]e Königreich. Keine der beiden Seiten konnte bislang einen entscheidenden Sieg erringen, und beide bleiben hartnäckig auf ihren Forderungen bestehen. [Root.GetName] befindet sich in einem Zustand der Anarchie, und immer mehr Fürsten und Bauern sehnen sich nach Frieden.\nAus diesem Grund haben Vertreter beider Parteien einen vorübergehenden Waffenstillstand vereinbart, um einen Kompromiss hinsichtlich der unklaren Thronfolge auszuhandeln. Der dargebrachte Vorschlag ist ebenso ungewöhnlich wie vernünftig: Stephan von Blois wird von allen als König von [Root.GetName] anerkannt, aber Heinrich Kurzmantel, Mathildes Sohn mit Gottfried Plantagenet, wird von jenem adoptiert und somit zu seinem designierten Nachfolger.\nUnsere Gegner haben diesem Abkommen bereits zugestimmt, sodass es nun an uns liegt, ob wir ebenfalls Frieden schließen oder nicht."
+ english_anarchy.2.a: "Das ist ein Kompromiss, den wir akzeptieren können."
+ english_anarchy.2.b: "Wir brauchen nicht noch mehr Thronanwärter."
+ english_anarchy.3.t: "Die Anarchie breitet sich aus"
+ english_anarchy.3.d: "Unsere Feinde haben einen weiteren Versuch unternommen, [Root.Monarch.GetTitle] [Root.Monarch.GetName] zu entthronen, um stattdessen ihren Anhänger auf den Thron zu setzen. Ihre Armee marschiert im Moment auf [Root.Capital.GetCapitalName] zu!"
+ english_anarchy.3.a: "Schlagt sie nieder!"
+ english_anarchy.100.t: "Ende der [Root.GetAdjective]en Anarchie"
+ english_anarchy.100.d: "Die Jahre der [Root.GetAdjective]en Anarchie scheinen zu Ende zu gehen. Die Kämpfe zwischen Kaiserin Mathilde und Stephan von Blois haben nachgelassen und das Königreich kann endlich wieder Frieden finden."
+ english_anarchy.100.a: "Welch Erleichterung."

@@ -834,6 +834,13 @@ spriteTypes = {
 		noOfFrames = 3
 		loadType = "INGAME"
 	}
+
+	spriteType = {
+		name = "GFX_disaster_english_anarchy"
+		texturefile = "gfx//interface//disasters//english_anarchy.dds"
+		noOfFrames = 3
+		loadType = "INGAME"
+	}
 	
 	#NewMissions
 	spriteType = {

@@ -1354,8 +1354,24 @@ on_centralized_state = {
 }
 
 heir_on_shipwreck = {
-	country_event = {
-		id = vn_flavor_eng.2 # White Ship Disaster
+	if = {
+		limit = {
+			tag = ENG
+			current_age = age_of_holy_wars
+			NOT = { started_in = 1120.11.25 }
+			is_lesser_in_union = no
+			government = monarchy
+			num_of_ports = 1
+			has_regency = no
+			primary_culture = english
+			heir_has_ruler_dynasty = yes
+			has_heir = yes
+			heir_age = 15
+		}
+		set_country_flag = actual_white_ship_disaster
+		country_event = {
+			id = vn_flavor_eng.2 # White Ship Disaster
+		}
 	}
 }
 

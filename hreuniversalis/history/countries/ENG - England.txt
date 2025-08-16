@@ -148,6 +148,7 @@ national_focus = DIP
 	add_heir_personality = sinner_personality
 }
 1154.10.25 = {
+	set_country_flag = had_english_anarchy
 	monarch = {
 		name = "Henry II"
 		dynasty = "d'Anjou"

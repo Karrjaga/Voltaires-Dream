@@ -1,5 +1,7 @@
 ﻿l_english:
 #Disasters
+ english_anarchy: "English Anarchy"
+ english_anarchy_desc: "After the English heir drowned in the sinking of the White Ship, a civil war broke out between Empress Matilda and Stephen of Blois."
  russian_factionalism: "Factionalism of the Rus"
  russian_factionalism_desc: "The Grand Prince of the Rus has lost the loyalty of his subjects while pretenders are challenging him."
  great_fitna: "The Great Calamity"
@@ -775,3 +777,19 @@
  seljuk_collapse.100.t: "End of the [Root.GetAdjective] Decline"
  seljuk_collapse.100.d: "The Seljuk Empire, once the most powerful realm of the Islamic world, has now finally collapsed. The past years have been marked by internal strife, rebellious vassals, and endless wars between rising dynasties. Now, our authority over Persia and Anatolia is nothing more than a fading memory.\nFormer generals, atabegs, and tribal leaders have carved up our lands among themselves, and new powers are rising from the ruins of our once-glorious Empire. The capital is surrounded, and our court is scattered. The rule of the Great Seljuks has come to an end, and a new era begins - not under our leadership, but under those who have thrived on our weakness."
  seljuk_collapse.100.a: "This marks a turning point for our [Root.GovernmentName]."
+#English Anarchy
+ english_anarchy.tt: "The succession is uncertain after the White Ship Disaster."
+ english_anarchy.1.t: "The [Root.GetAdjective] Anarchy"
+ english_anarchy.1.d: "Since our crown prince died in the sinking of the White Ship a few years ago, the [Root.GetAdjective] succession has been unclear. Despite serious reservations on the part of the [Root.GetAdjective] estates about her gender and her marriage to the hostile Angevin nobility, Empress Matilda was eventually appointed as successor.\nBut when news of our monarch's death spread, Stephen of Blois, a cousin of Matilda, quickly traveled to [Root.GetName] to challenge her claim. He moved to [Root.Capital.GetCapitalName], swiftly gained the support of many local princes and prelates, and was eventually crowned King of [Root.GetName] by the Archbishop of Canterbury in Winchester. Many [Root.GetAdjective] princes support his coronation and consider Matilda an illegitimate ruler.\n[Root.GetName] is now facing a deep division among the supporters of Empress Matilda on one side and Stephen of Blois on the other side. The current reign is disputed, and the [Root.GovernmentName] threatens to descend into chaos and civil war."
+ english_anarchy.1.a: "We will support Stephen of Blois."
+ english_anarchy.1.b: "We will support Empress Matilda."
+ english_anarchy.2.t: "Treaty of Wallingford"
+ english_anarchy.2.d: "For over a decade, the civil war between Empress Matilda and Stephen of Blois has been tearing the [Root.GetAdjective] [Root.GovernmentName] apart. Neither side has been able to achieve a decisive victory, and both remain steadfast in their claims. [Root.GetName] is in a state of anarchy, and more and more princes and peasants are longing for peace.\nBecause of that, representatives of both parties have called a temporary truce in order to negotiate a solution regarding the unclear succession. Their presented proposal is as unusual as reasonable: Stephen of Blois will be recognized King of [Root.GetName] by all, but Henry Curtmantle, Matilda's son with Geoffrey Plantagenet, will be adopted by Stephen and thus become his designated successor.\nOur opponents have already approved this agreement so it is now up to us whether we also make peace or not."
+ english_anarchy.2.a: "That is a compromise we can accept."
+ english_anarchy.2.b: "We do not need any more pretenders."
+ english_anarchy.3.t: "The Anarchy Spreads"
+ english_anarchy.3.d: "Our enemies have launched another attempt to dethrone [Root.Monarch.GetTitle] [Root.Monarch.GetName] in order to put their supporter on the throne instead. Their army is currently marching on [Root.Capital.GetCapitalName]!"
+ english_anarchy.3.a: "Strike them down!"
+ english_anarchy.100.t: "End of the [Root.GetAdjective] Anarchy"
+ english_anarchy.100.d: "The years of the [Root.GetAdjective] anarchy seem to be coming to an end. The battles between Empress Matilda and Stephen of Blois have subsided, and the [Root.GovernmentName] can finally find peace again."
+ english_anarchy.100.a: "A sigh of relief."
