@@ -609,7 +609,7 @@ country_event = {
 		normal_or_historical_nations = yes
 		NOT = { started_in = 1393.8.31 }
 		is_year = 1388
-		NOT = { is_year = 1550 }
+		NOT = { is_year = 1450 }
 		NOT = { exists = MGE }
 		owns = 7334
 		OR = {
