@@ -745,9 +745,9 @@ age_of_dynasticism = {
 		ab_medici_loan = {
 			effect = {
 				on_age_ability_taken = { age = age_of_dynasticism }
-				add_years_of_income = 2
 			}
 			modifier = {
+				interest = -1
 				num_of_age_rewards = 1
 			}
 			ai_will_do = {
