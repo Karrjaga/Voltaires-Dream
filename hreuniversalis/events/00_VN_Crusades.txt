@@ -1556,7 +1556,7 @@ country_event = {
         	casus_belli = cb_grand_heretic
         }
         tag = BYZ
-        ai = yes
+        #ai = yes
 		NOT = { started_in = 1204.5.16 }
 		NOT = { exists = LAE }
 		NOT = { exists = NKA }
@@ -1784,7 +1784,10 @@ country_event = {
         		limit = {
 					OR = {
         				owner = { ai = yes }
-        				is_capital = no
+						AND = {
+							is_capital = no
+							owner = { ai = no }
+						}
         			}
         			owned_by = ROOT
         		}
@@ -1937,7 +1940,10 @@ country_event = {
         		limit = {
 					OR = {
         				owner = { ai = yes }
-        				is_capital = no
+						AND = {
+							is_capital = no
+							owner = { ai = no }
+						}
         			}
         			owned_by = ROOT
         		}
@@ -2073,7 +2079,10 @@ country_event = {
         		limit = {
         			OR = {
         				owner = { ai = yes }
-        				is_capital = no
+						AND = {
+							is_capital = no
+							owner = { ai = no }
+						}
         			}
         		}
         		add_core = EDE
@@ -2083,7 +2092,10 @@ country_event = {
         		limit = {
         			OR = {
         				owner = { ai = yes }
-        				is_capital = no
+						AND = {
+							is_capital = no
+							owner = { ai = no }
+						}
         			}
         		}
         		add_core = EDE
@@ -2119,7 +2131,10 @@ country_event = {
         			limit = {
         				OR = {
         					owner = { ai = yes }
-        					is_capital = no
+							AND = {
+								is_capital = no
+								owner = { ai = no }
+							}
         				}
         			}
         			add_core = ATC
@@ -2129,7 +2144,10 @@ country_event = {
         			limit = {
         				OR = {
         					owner = { ai = yes }
-        					is_capital = no
+							AND = {
+								is_capital = no
+								owner = { ai = no }
+							}
         				}
         			}
         			add_core = ATC
