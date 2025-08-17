@@ -120,6 +120,10 @@ national_focus = DIP
 		mil = 2
 	}
 }
+1120.11.25 = {
+	set_country_flag = had_white_ship_disaster
+	set_ruler_flag = white_ship_disaster_ruler	
+}
 1135.12.1 = {
 	monarch = {
 		name = "Stephen I"
