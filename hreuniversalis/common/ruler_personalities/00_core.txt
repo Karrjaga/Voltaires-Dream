@@ -3577,7 +3577,12 @@ patron_of_arts_personality = {
 	
 	ruler_allow = {
 		allow = {
-			ADM = 4
+			if = {
+				limit = {
+					NOT = { has_country_flag = TIM_patron_of_art_personality_unlock_flag }
+				}
+				ADM = 4
+			}
 		}
 	
 		chance = {
@@ -3585,12 +3590,21 @@ patron_of_arts_personality = {
 				factor = 1
 				ADM = 6
 			}
+			modifier = {
+				factor = 1
+				has_country_flag = TIM_patron_of_art_personality_unlock_flag
+			}
 		}
 	}
 
 	heir_allow = {
 		allow = {
-			heir_ADM = 4
+			if = {
+				limit = {
+					NOT = { has_country_flag = TIM_patron_of_art_personality_unlock_flag }
+				}
+				heir_ADM = 4
+			}
 		}
 	
 		chance = {
@@ -3598,18 +3612,31 @@ patron_of_arts_personality = {
 				factor = 1
 				heir_ADM = 6
 			}
+			modifier = {
+				factor = 1
+				has_country_flag = TIM_patron_of_art_personality_unlock_flag
+			}
 		}
 	}
 	
 	consort_allow = {
 		allow = {
-			consort_ADM = 4
+			if = {
+				limit = {
+					NOT = { has_country_flag = TIM_patron_of_art_personality_unlock_flag }
+				}
+				consort_ADM = 4
+			}
 		}
 
 		chance = {
 			modifier = {
 				factor = 1
 				consort_ADM = 6
+			}
+			modifier = {
+				factor = 1
+				has_country_flag = TIM_patron_of_art_personality_unlock_flag
 			}
 		}
 	}
