@@ -199,6 +199,17 @@ on_main_war_won = {
 	}
 	if = {
 		limit = {
+			tag = AVL
+			FROM = { has_country_flag = cid_rebelled }
+			any_country = { has_country_flag = cid_sent_help }
+		}
+		random_country = {
+			create_alliance = ROOT
+			clr_country_flag = cid_sent_help
+		}
+	}
+	if = {
+		limit = {
 			has_country_modifier = seljuk_yoke_mod
 			FROM = { tag = SJK }
 		}
