@@ -1380,9 +1380,10 @@
  vn_advisors.12.a: "Appoint him as Qadi"
  vn_advisors.12.b: "Banish him"
  vn_advisors.13.t: "Isabella d'Este"
- vn_advisors.13.d: "Isabella d'Este, wife of Francesco II Gonzaga, was a passionate collector and patron of the arts. She commissioned and encouraged the works of many artists, including but not limited to Titian, Leonardo da Vinci, and Andrea Mantegna. Some hailed her as 'First Lady of the World'. Her dedication for the arts was appreciated by many, as much as her grace in diplomacy, making her a popular public image.\nIf we support her, she will surely establish [Root.Capital.GetCapitalName] as the cradle of the Renaissance."
+ vn_advisors.13.d: "Isabella d'Este, wife of Francesco II Gonzaga, was a passionate collector and patron of the arts. She commissioned and encouraged the works of many artists, including but not limited to Titian, Leonardo da Vinci, and Andrea Mantegna. During her life, she wrote thousands of letters and received even more as she was in contact with many major Italian artists, poets, composers, writers and scholars. Some hailed her as 'First Lady of the World' due to her dedication for the arts.  Isabella was appreciated by many, as much as her grace in diplomacy, making her a popular public image.\nIf we support her, she will surely establish [Root.Capital.GetCapitalName] as the cradle of the Renaissance."
  vn_advisors.13.a: "We should fund her projects."
- vn_advisors.13.b: "She can manage them on her own."
+ vn_advisors.13.b: "A perfect spouse for [Root.Monarch.GetTitle] [Root.Monarch.GetName]."
+ vn_advisors.13.c: "She can manage them on her own."
 #Baltic
  vn_baltic_events.1.t: "Tears of the Sun"
  vn_baltic_events.1.d: "Amber is one of the most valuable gemstones, and is used by us as incense, as offerings or for making trinkets and tools. Trade in Amber is a warrant for numerous amenities of life, acquired by bartering with outsiders, as even the ancient Romans coveted this stone. The Kriwe watches this procedure reluctantly, because the Gods expect us to live a modest and simple life in remoteness."
