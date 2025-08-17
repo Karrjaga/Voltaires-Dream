@@ -1379,6 +1379,10 @@
  vn_advisors.12.d: "The court advisors have come and explained to us the situation with a certain man called Ibn Rushd. Ibn Rushd, a Faylasuf in his creed, has made quite a scene in the field of Aqidah with his writings. He has written refutation of Imam Al-Ghazali's Tahafut, and expounded in length on the writings of Aristotle. His fame has even spread to the Christians, who have started calling him 'The Commentator'. We need to take a stance in the debate; either support Ibn Rushd and his philosophy, or back the rising tide of Ash'ari theologians."
  vn_advisors.12.a: "Appoint him as Qadi"
  vn_advisors.12.b: "Banish him"
+ vn_advisors.13.t: "Isabella d'Este"
+ vn_advisors.13.d: "Isabella d'Este, wife of Francesco II Gonzaga, was a passionate collector and patron of the arts. She commissioned and encouraged the works of many artists, including but not limited to Titian, Leonardo da Vinci, and Andrea Mantegna. Some hailed her as 'First Lady of the World'. Her dedication for the arts was appreciated by many, as much as her grace in diplomacy, making her a popular public image.\nIf we support her, she will surely establish [Root.Capital.GetCapitalName] as the cradle of the Renaissance."
+ vn_advisors.13.a: "We should fund her projects."
+ vn_advisors.13.b: "She can manage them on her own."
 #Baltic
  vn_baltic_events.1.t: "Tears of the Sun"
  vn_baltic_events.1.d: "Amber is one of the most valuable gemstones, and is used by us as incense, as offerings or for making trinkets and tools. Trade in Amber is a warrant for numerous amenities of life, acquired by bartering with outsiders, as even the ancient Romans coveted this stone. The Kriwe watches this procedure reluctantly, because the Gods expect us to live a modest and simple life in remoteness."

@@ -926,11 +926,48 @@ country_event = {
 	}
 }
 
+#Isabella d'Este
+country_event = {
+	id = vn_advisors.13
+    title = "vn_advisors.13.t"
+	desc = "vn_advisors.13.d"
+	picture = wihgfx_FEMALE_SCHOLAR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 109
+		is_year = 1490
+		NOT = { is_year = 1539 }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+	}
+
+	option = {
+		name = "vn_advisors.13.a"
+		add_meritocracy_effect = yes
+		define_advisor = {
+			female = yes
+			type = artist
+			culture = emilian
+			discount = yes
+			skill = 2
+			name = "Isabella d'Este"
+		}
+	}
+	option = {
+		name = "vn_advisors.13.b"
+		add_prestige = 10
+	}
+}
+
 # #Ida of Formbach-Ratelnberg (1055 - 1101)
 # country_event = {
-# 	id = vn_advisors.10
-# 	title = vn_advisors.10.t
-# 	desc = vn_advisors.10.d
+# 	id = vn_advisors.13
+# 	title = vn_advisors.13.t
+# 	desc = vn_advisors.13.d
 # 	picture = wihgfx_FEMALE_GENERAL_eventPicture
 
 # 	fire_only_once = yes
@@ -961,7 +998,7 @@ country_event = {
 # 	}
 
 # 	option = {
-# 		name = vn_advisors.10.a
+# 		name = vn_advisors.13.a
 # 		add_adm_power = 100
 # 		add_dip_power = 100
 # 		add_mil_power = 100
@@ -977,7 +1014,7 @@ country_event = {
 # 		}
 # 	}
 # 	option = {
-# 		name = vn_advisors.10.b
+# 		name = vn_advisors.13.b
 # 		trigger = {
 # 			OR = {
 # 				has_consort = no
@@ -1022,6 +1059,7 @@ country_event = {
 # 			define_consort = {
 # 				name = "Ida"
 # 				dynasty = "von Formbach"
+# 				country_of_origin = NBG
 # 				culture = bavarian
 # 				religion = catholic
 # 				adm = 2
@@ -1036,7 +1074,7 @@ country_event = {
 # 		}
 # 	}
 # 	option = {
-# 		name = vn_advisors.10.c
+# 		name = vn_advisors.13.c
 # 		add_adm_power = 100
 # 		add_dip_power = 100
 # 		add_mil_power = 100
@@ -1051,7 +1089,7 @@ country_event = {
 # 	}
 # }
 
-# # #Jeanne de Belleville (1300 - 1359)
+# # Jeanne de Belleville (1300 - 1359)
 # country_event = {
 # 	id = vn_advisors.11
 # 	title = vn_advisors.11.t
@@ -1111,6 +1149,7 @@ country_event = {
 # 			dip = 4
 # 			mil = 5
 # 			culture = breton
+# 			female = yes
 # 		}
 # 		if = {
 # 			limit = {
@@ -1144,7 +1183,7 @@ country_event = {
 # 	}
 # }
 
-# #Shajar al-Durr (? - 1257)
+# # Shajar al-Durr (? - 1257)
 # country_event = {
 # 	id = vn_advisors.12
 # 	title = vn_advisors.12.t
@@ -1266,10 +1305,20 @@ country_event = {
 # 	}
 # 	option = {
 # 		name = vn_advisors.13.b
-# 		add_country_modifier = {
-# 			name = licoricia_of_winchester
-# 			duration = 7300
+# 		add_meritocracy_effect = yes
+# 		define_advisor = {
+# 			female = yes
+# 			type = treasurer
+# 			culture = english
+# 			religion = jewish
+# 			discount = yes
+# 			skill = 2
+# 			name = "Licoricia of Winchester"
 # 		}
+# 	}
+# 	option = {
+# 		name = vn_advisors.13.c
+# 		add_prestige = 10
 # 	}
 # }
 
@@ -1426,6 +1475,10 @@ country_event = {
 # 			skill = 1
 # 		}
 # 	}
+# 	option = {
+# 		name = vn_advisors.17.b
+# 		add_prestige = 10
+# 	}
 # }
 
 # #Omar Khayyam (1048 - 1131)
@@ -1567,7 +1620,7 @@ country_event = {
 # 	}
 # }
 
-# #Héloïse d'Argenteuil (1095 - 1164) & Peter Abelard (1079 - 1142)
+# # #Héloïse d'Argenteuil (1095 - 1164) & Peter Abelard (1079 - 1142)
 # country_event = {
 # 	id = vn_advisors.22
 # 	title = vn_advisors.22.t
@@ -1643,7 +1696,7 @@ country_event = {
 # 	}
 # }
 
-# #Walther von der Vogelweide (1170 - 1230)
+# # #Walther von der Vogelweide (1170 - 1230)
 # country_event = {
 # 	id = vn_advisors.24
 # 	title = vn_advisors.24.t
