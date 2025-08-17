@@ -57,6 +57,7 @@ estate_mamluks = {
 					has_reform = caliphate_reform
 					has_reform = caliphate_theocracy_reform
 					has_reform = taifa_reform
+					has_reform = ayyubid_dynasty
 				}
 				is_nomad = no
 				primitives = no
