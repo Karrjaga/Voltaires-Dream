@@ -1152,7 +1152,7 @@ strengthen_the_ulema_reform = {
 	conditional = {
 		allow = { has_dlc = "Cradle of Civilization" }
 		custom_attributes = {
-			allow_piety_switch_decision = yes	#Enables a decision which gives 1 stabhit, but turns your piety 180Â°
+			allow_piety_switch_decision = yes	#Enables a decision which gives 1 stabhit, but turns your piety 180°
 		}
 	}
 	
@@ -1831,7 +1831,7 @@ legacy_of_the_safavid_reform = {
 	conditional = {
 		allow = { has_dlc = "Cradle of Civilization" }
 		custom_attributes = {
-			allow_piety_switch_decision = yes	#Enables a decision which gives 1 stabhit, but turns your piety 180Â°
+			allow_piety_switch_decision = yes	#Enables a decision which gives 1 stabhit, but turns your piety 180°
 		}
 	}
 	ai = {
@@ -4669,12 +4669,24 @@ ayyubid_dynasty = {
 	lock_level_when_selected = yes
 	legacy_equivalent = iqta_legacy
 	potential = {
+		has_dlc = "Winds of Change"
 		religion_group = muslim
-		primary_culture = kurdish
-		OR = {
-			tag = HSN
-			was_tag = HSN
-		}
+		# OR = {
+			# AND = {
+			# 	OR = {
+			# 		tag = HSN
+			# 		was_tag = HSN
+			# 	}
+			# 	primary_culture = kurdish
+			# }
+			# AND = {
+				tag = MAM
+			# }
+		# }
+	}
+	trigger = {
+		religion_group = muslim
+		dynasty = "Eyûbî"
 	}
 	valid_for_nation_designer = no
 	nation_designer_cost = 0
@@ -4734,10 +4746,20 @@ ayyubid_high_command = {
 	icon = "modernized_furusiyya_reform"
 	allow_normal_conversion = yes
 	potential = {
-		OR = {
-			tag = HSN
-			was_tag = HSN
-		}
+		has_dlc = "Winds of Change"
+		# OR = {
+			# AND = {
+			# 	OR = {
+			# 		tag = HSN
+			# 		was_tag = HSN
+			# 	}
+			# 	primary_culture = kurdish
+			# }
+			# AND = {
+				tag = MAM
+				dynasty = "Eyûbî"
+			# }
+		# }
 	}
 	modifiers = {
 		max_general_shock = 2
@@ -4748,10 +4770,12 @@ ayyubid_high_command = {
 		army_tradition_for_generals = yes
 	}
 	trigger = {
-		custom_trigger_tooltip = {
-			tooltip = hsn_unlocked_reform_tt
-			has_unlocked_government_reform = { government_reform = ayyubid_high_command }
-		}
+		tag = MAM
+		dynasty = "Eyûbî"
+		# custom_trigger_tooltip = {
+		# 	tooltip = hsn_unlocked_reform_tt
+		# 	has_unlocked_government_reform = { government_reform = ayyubid_high_command }
+		# }
 	}
 }
 
@@ -5413,12 +5437,21 @@ cuman_lancers_reform = {
 		army_tradition_on_stackwipe = yes
 	}
 	modifiers = {
+		nomadic_tribes_loyalty_modifier = 0.05
+		nomadic_tribes_influence_modifier = 0.1
 		cav_to_inf_ratio = 0.25
 		cavalry_cost = -0.2
 	}
 	
 	ai = {
 		factor = 1
+		modifier = {
+			factor = 0
+			estate_influence = {
+				estate = estate_nomadic_tribes
+				influence = 80
+			}
+		}
 	}
 }
 
