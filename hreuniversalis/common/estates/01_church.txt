@@ -438,6 +438,7 @@ estate_church = {
 		estate_church_flexible_deities
 		estate_church_anglosaxon_isolation
 		estate_church_hungarian_clergy
+		estate_church_moorish_tolerance
 	}
 
 	agendas = {

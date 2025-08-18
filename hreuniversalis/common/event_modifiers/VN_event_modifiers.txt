@@ -495,6 +495,10 @@ CONTRIBUTE_WARRIORS_MAMLUKS_level_4 = {
 	land_maintenance_modifier = -0.1
 	reinforce_speed = 0.1
 }
+estate_church_moorish_tolerance_mod = {
+	local_religious_unity_contribution = -1
+	local_missionary_strength = -1
+}
 kremnica_gold = {
 	trade_goods_size = 4.0
 }

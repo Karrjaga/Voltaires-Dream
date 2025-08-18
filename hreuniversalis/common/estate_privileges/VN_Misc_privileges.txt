@@ -615,6 +615,78 @@ estate_nobles_hungarian_nobles = {
 }
 
 # Clergy
+estate_church_moorish_tolerance = {
+	icon = estate_church_fund_dar_al_hadith
+	loyalty = -0.05
+	influence = 0.05
+	max_absolutism = -10
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
+	can_select = {
+		OR = {
+			has_estate_privilege = estate_church_moorish_tolerance
+			any_owned_province = {
+				religion_group = muslim
+				culture = andalucian
+			}
+		}
+	}
+	is_valid = {
+		OR = {
+			culture_group = iberian
+			culture = basque
+		}
+		religion_group = christian
+	}
+	on_granted = {
+		custom_tooltip = estate_church_moorish_tolerance_gt
+		tooltip = {
+			add_province_modifier = {
+				name = estate_church_moorish_tolerance_mod
+				duration = -1
+				desc = UNTIL_REVOKED
+			}
+		}
+	}
+	on_granted_province = {
+		if = {
+			limit = { religion_group = muslim culture = andalucian }
+			add_province_modifier = {
+				name = estate_church_moorish_tolerance_mod
+				duration = -1
+				desc = UNTIL_REVOKED
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_church_moorish_tolerance_rt
+	}
+	on_revoked_province = {
+		remove_province_modifier = estate_church_moorish_tolerance_mod
+	}
+	on_invalid = {
+		custom_tooltip = estate_church_moorish_tolerance_rt
+	}
+	on_invalid_province = {
+		remove_province_modifier = estate_church_moorish_tolerance_mod
+	}
+	benefits = {
+		tolerance_heathen = 1
+	}
+	penalties = {
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 0.1
+			is_absolutism_active = yes
+		}
+		modifier = {
+			factor = 0
+			tag = SPA
+		}
+	}
+}
+
 estate_church_hungarian_clergy = {
 	icon = privilege_nomadic_tolerance
 	max_absolutism = -5
