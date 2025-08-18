@@ -2307,7 +2307,10 @@ on_province_owner_change_estate_privileges_effect = {
 		if = {
 			limit = {
 				religion_group = muslim
-				culture = andalucian
+				OR = {
+					culture = andalucian
+					culture = mozarabic
+				}
 			}
 			add_province_modifier = {
 				name = estate_church_moorish_tolerance_mod
