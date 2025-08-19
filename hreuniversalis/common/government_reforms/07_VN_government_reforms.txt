@@ -29,6 +29,15 @@ taifa_reform = {
 		}
 		custom_attributes = {
 			can_royal_marry_heathens = yes
+			has_jewish_advisors = yes
+		}
+	}
+	conditional = {
+		allow = {
+			NOT = { has_dlc = "Winds of Change" }
+		}
+		custom_attributes = {
+			has_jewish_advisors = yes
 		}
 	}
 	conditional = {

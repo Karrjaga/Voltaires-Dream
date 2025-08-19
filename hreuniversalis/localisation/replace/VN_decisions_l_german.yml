@@ -1,5 +1,6 @@
 ﻿l_german:
 #
+ allow_earlier_yugoslavia_formation_tt: "Die Gründung von §YJugoslawien§! benötigt nicht länger eine §YAdministrative Technologie§! der Stufe §Y40§!."
  allow_earlier_britain_formation_tt: "Die Gründung von §YGroßbritannien§! benötigt nicht länger eine §YAdministrative Technologie§! der Stufe §Y40§!."
  allow_earlier_ruthenia_formation_tt: "Die Gründung von §YRuthenien§! benötigt nicht länger eine §YAdministrative Technologie§! der Stufe §Y40§!."
  allow_earlier_netherlands_formation_tt: "Die Gründung von den §YNiederlanden§! benötigt nicht länger eine §YAdministrative Technologie§! der Stufe §Y40§!."
@@ -251,7 +252,7 @@
  almoravid_invasion.tt: "Wir werden das Almoravidenreich begründen und Südmarokko annektieren."
  hire_jewish_visirs_title: "Rekrutiert einen jüdischen Wesir"
  hire_jewish_visirs_desc: "Unsere Religionsfreiheit und kulturelle Offenheit ermöglicht die systematische Anwerbung von jüdischen Wesiren für unseren Hof."
- hire_jewish_visirs.tt: "Wir erhalten einen vergünstigten §YKünstler§!, §YNaturwissenschaftler§!, §YStaatsmann§!, §YHändler§!, §YArmeereformer§! oder §YQuartiermeister§!, der der jüdischen Religion angehört."
+ hire_jewish_visirs.tt: "Wir können einen jüdischen Berater beliebiger Art wählen, dessen Modifikator um §Y50.0%§ stärker ist."
  reorganize_theocracy_title: "Petition zur Neugestaltung der Theokratie"
  reorganize_theocracy_desc: "Wir werden unseren Einfluss beim Heiligen Stuhl nutzen, um unser theokratisches System neu zu ordnen."
  reorganize_theocracy_tt: "Katholische und gegenkatholische Theokratien müssen die Entscheidung "§YPetition zur Neuordnung der Theokratie§!" nutzen, um diese Stufe der Regierungsreformen zu wechseln."

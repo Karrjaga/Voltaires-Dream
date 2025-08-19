@@ -4548,6 +4548,8 @@ on_advisor_removed_effct = {
 	on_advisor_removed_effct_$type$ = yes
 	remove_grand_vizier_modifiers = yes
 	remove_country_modifier = zoroastrian_prophet_in_the_court
+	#mod
+	clr_country_flag = has_hired_a_jewish_vizir_$type$
 }
 
 

@@ -429,6 +429,7 @@
  principality_desc: "This state has a government system that has evolved in the years after the fragmentation of the Kievan Rus and under the pressure of constant incursions of Tatar tribute expeditions. The ruling family can exercise great power, but seniority succession and princely appanages can lead to lengthy internal conflicts."
  principality_legacy_desc: "This state has a government system that has evolved in the years after the fragmentation of the Kievan Rus and under the pressure of constant incursions of Tatar tribute expeditions. The ruling family can exercise great power, but seniority succession and princely appanages can lead to lengthy internal conflicts."
 #Government mechanics
+ mechanic_has_jewish_advisors_yes: "Can hire §YJewish Advisors§! with additional effects"
  mechanic_enables_offer_reislaufer_yes: "Enables the §YOffer Reisläufer§! Diplomatic Action"
  mechanic_enable_celtic_revolts_yes: "§RCeltic§! provinces and subjects may regularly revolt."
  mechanic_has_righteous_army_yes: "Can call the §YMonaspa§! in times of need"

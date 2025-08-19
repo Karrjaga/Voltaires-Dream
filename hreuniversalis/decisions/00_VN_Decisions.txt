@@ -2372,20 +2372,9 @@ country_decisions = {
 
 	hire_jewish_visirs = {
 		potential = {
-			has_dlc = "The Cossacks"
-			has_estate_privilege = estate_dhimmi_jewish_advisors
-			has_estate = estate_dhimmi
-			estate_loyalty = {
-				estate = estate_dhimmi
-				loyalty = 40
-			}
+			has_government_attribute = has_jewish_advisors
 		}
 		allow = {
-			estate_loyalty = {
-				estate = estate_dhimmi
-				loyalty = 40
-			}
-			has_estate_privilege = estate_dhimmi_jewish_advisors
 			custom_trigger_tooltip = {
 				tooltip = decision_once_every_twenty_years
 				OR = {
@@ -2399,10 +2388,6 @@ country_decisions = {
 		}
 		effect = {
 			set_country_flag = jewish_advisor_decision
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = -5
-			}
 			country_event = {
 				id = vn_flavor_adu.1
 				tooltip = hire_jewish_visirs.tt
@@ -2416,13 +2401,11 @@ country_decisions = {
 			}
 			modifier = {
 				factor = 0
-				has_estate = estate_church
-				NOT = {
-					estate_loyalty = {
-						estate = estate_church
-						loyalty = 40
-					}
-				}
+				is_in_deficit = yes
+			}
+			modifier = {
+				factor = 0
+				is_bankrupt = yes
 			}
 		}
 	}

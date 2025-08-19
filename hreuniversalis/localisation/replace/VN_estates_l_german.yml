@@ -130,10 +130,6 @@
  tribal_estate_events.12.d: "Wichtige Stammesführer haben bei uns vorgesprochen. Sie möchten, dass wir sie zur Verteidigung ihrer Gebiete mit staatlichen Ressourcen versorgen. Sie behaupten, die benachbarten Staaten wurden bei ihnen einfallen und das von ihnen kontrollierte Land ausrauben, und dass sie sich nur dann effizient verteidigen könnten, würden wir unsere Truppen direkt ihrem Oberbefehl unterstellen."
  estate_nomadic_tribes_steppe_colonization: "Steppenkolonisation"
  estate_nomadic_tribes_steppe_colonization_desc: "Die weiten Steppen Eurasiens sind an einigen Stellen völlig unbewohnt. Wir können sie daher leicht für uns beanspruchen, indem wir einige Sippen und Mitglieder der $ESTATE_NAME$ anweisen, sich auf diesen fruchtbaren Weiden niederzulassen und sesshaft zu werden."
-#Dhimmi Estate
- estate_dhimmi_jewish_advisors: "Jüdische Wesire anwerben"
- estate_dhimmi_jewish_advisors_desc: "Unter den jüdischen Minderheiten in unserer Nation existieren viele unentdeckte Talente. Unser Staat könnte immens von diesen Männern profitieren, wenn wir ihnen eine hohe Position an unserem Hof versprechen."
- estate_dhimmi_jewish_advisors.tt: "Schaltet eine Entscheidung frei, mit der §Yjüdische§! Berater vergünstigt alle §Y20§! Jahre angeworben werden können."
 #Holy Orders Estate
  estate_holy_orders: "Ritterorden"
  estate_holy_orders_desc: "Die Ritterorden bestehen aus verschiedenen bruderschaftlichen Organisationen, Kreuzrittergesellschaften und Baronien mit Besitz in Europa. Die verschiedenen Balleien haben oft wenig Kommunikation mit einem Großmeister und führen daher ihre Angelegenheiten über einen souveränen Monarchen. Die Balleien streben danach, als ein Stand von gleicher Wichtigkeit wie der Adel anerkannt zu werden und werden ihre gesamte politische und religiöse Macht einsetzen, um einem wohlwollenden Oberherrn zu helfen."

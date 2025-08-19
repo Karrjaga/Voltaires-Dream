@@ -114,6 +114,15 @@ philosopher = {
 		}
 	}
 
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_adm
+			}
+		}
+		modifier = { prestige = 0.25 }
+	}
+
 	chance = {
 		factor = 1
 	}
@@ -235,6 +244,15 @@ natural_scientist = {
 		modifier = {
 			monthly_persian_influence = 0.03
 		}
+	}
+
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_adm
+			}
+		}
+		modifier = { production_efficiency = 0.025 }
 	}
 
 	chance = {
@@ -369,6 +387,15 @@ artist = {
 		modifier = {
 			build_cost = -0.025
 		}
+	}
+
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_adm
+			}
+		}
+		modifier = { stability_cost_modifier = -0.025 }
 	}
 
 	chance = {
@@ -511,6 +538,14 @@ treasurer = {
 		modifier = {
 			monthly_persian_influence = 0.03
 		}
+	}
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_adm
+			}
+		}
+		modifier = { global_tax_modifier = 0.025 }
 	}
 	
 	chance = {
@@ -657,10 +692,17 @@ theologian = {
 			tolerance_heathen = 0.25
 		}
 	}
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_adm
+			}
+		}
+		modifier = { global_unrest = -0.25 }
+	}
 	
 	chance = {
 		factor = 1
-
 	}
 	
 	ai_will_do = {
@@ -798,6 +840,14 @@ master_of_mint = {
 		modifier = {
 			monthly_persian_influence = 0.03
 		}
+	}
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_adm
+			}
+		}
+		modifier = { inflation_reduction = 0.025 }
 	}
 	
 	chance = {
@@ -953,6 +1003,14 @@ inquisitor = {
 			monthly_persian_influence = 0.03
 		}
 	}
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_adm
+			}
+		}
+		modifier = { global_missionary_strength = 0.005 }
+	}
 	
 	chance = {
 		factor = 1
@@ -1098,6 +1156,15 @@ statesman = {
 		}
 	}
 
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_dip
+			}
+		}
+		modifier = { diplomatic_reputation = 0.25 }
+	}
+
 	chance = {
 		factor = 1
 	}
@@ -1184,6 +1251,14 @@ naval_reformer = {
 		modifier = {
 			trade_efficiency = 0.02
 		}
+	}
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_dip
+			}
+		}
+		modifier = { naval_morale = 0.025 }
 	}
 	
 	chance = {
@@ -1322,6 +1397,14 @@ trader = {
 			global_own_trade_power = 0.05
 		}
 	}
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_dip
+			}
+		}
+		modifier = { trade_efficiency = 0.025 }
+	}
 	
 	chance = {
 		factor = 1
@@ -1403,6 +1486,14 @@ spymaster = {
 			trade_efficiency = 0.02
 		}
 	}
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_dip
+			}
+		}
+		modifier = { global_tariffs = 0.025 }
+	}
 	
 	chance = {
 		factor = 1
@@ -1479,6 +1570,14 @@ colonial_governor = {
 			meritocracy = 0.25 
 			trade_efficiency = 0.02
 		}
+	}
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_dip
+			}
+		}
+		modifier = { spy_offence = 0.0625 }
 	}
 	
 	chance = {
@@ -1589,6 +1688,14 @@ diplomat = {
 			ae_impact = -0.02
 		}
 	}
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_dip
+			}
+		}
+		modifier = { improve_relation_modifier = 0.05 }
+	}
 	
 	chance = {
 		factor = 1
@@ -1665,6 +1772,15 @@ navigator = {
 			meritocracy = 0.25 
 			trade_efficiency = 0.02
 		}
+	}
+
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_dip
+			}
+		}
+		modifier = { range = 0.05 }
 	}
 
 	chance = {
@@ -1751,6 +1867,15 @@ army_reformer = {
 		modifier = {
 			siege_ability = 0.03
 		}
+	}
+
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_mil
+			}
+		}
+		modifier = { land_morale = 0.025 }
 	}
 
 	chance = {
@@ -1850,6 +1975,15 @@ army_organiser = {
 		modifier = { no_cost_for_reinforcing = yes }
 	}
 
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_mil
+			}
+		}
+		modifier = { reinforce_speed = 0.0825 }
+	}
+
 	chance = {
 		factor = 1
 	}
@@ -1927,6 +2061,15 @@ commandant = {
 		modifier = { army_tradition_decay = -0.003 }
 	}
 
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_mil
+			}
+		}
+		modifier = { land_maintenance_modifier = -0.025 }
+	}
+
 	chance = {
 		factor = 1
 	}
@@ -2001,6 +2144,16 @@ quartermaster = {
 		}
 		modifier = { no_cost_for_reinforcing = yes }
 	}
+
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_mil
+			}
+		}
+		modifier = { land_forcelimit_modifier = 0.025 }
+	}
+	
 
 	chance = {
 		factor = 1
@@ -2081,6 +2234,14 @@ recruitmaster = {
 		modifier = { no_cost_for_reinforcing = yes }
 	}
 	
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_mil
+			}
+		}
+		modifier = { global_manpower_modifier = 0.025 }
+	}
 
 	chance = {
 		factor = 1
@@ -2161,9 +2322,17 @@ fortification_expert = {
 		modifier = { siege_ability = 0.05 }
 	}
 
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_mil
+			}
+		}
+		modifier = { defensiveness = 0.05 }
+	}
+
 	chance = {
-		factor = 1
-		
+		factor = 1	
 	}
 	
 	ai_will_do = {
@@ -2226,6 +2395,15 @@ grand_captain = {
 			}
 		}
 		modifier = { army_tradition_decay = -0.003 }
+	}
+
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_country_flag = has_hired_a_jewish_vizir_mil
+			}
+		}
+		modifier = { discipline = 0.0125 }
 	}
 
 	chance = {

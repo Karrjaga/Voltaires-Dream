@@ -130,10 +130,6 @@
  tribal_estate_events.12.d: "Prominent Tribal leaders have approached us demanding that we let them make use of the state resources to defend their lands. They claim that neighboring states are making incursions and raids into the land they control and that the only efficient way to defend our borders is to put some of our troops directly under their command."
  estate_nomadic_tribes_steppe_colonization: "Steppe Colonization"
  estate_nomadic_tribes_steppe_colonization_desc: "The vast steppes of Eurasia are completely uninhabited in some places. Therefore, we can easily claim them for ourselves by directing some clans and members of the $ESTATE_NAME$ to settle down and become sedentary in these fertile pastures."
-#Dhimmi Estate
- estate_dhimmi_jewish_advisors: "Hire Jewish Viziers"
- estate_dhimmi_jewish_advisors_desc: "Among the Jewish minorities in our [Root.GovernmentName], there are many undiscovered talents. Our state could benefit immensely from these men if we promise them a high position at our court."
- estate_dhimmi_jewish_advisors.tt: "Enable a decision allowing the acquisition of discounted §YJewish§! advisors every §Y20§! years."
 #Holy Orders Estate
  estate_holy_orders: "Holy Orders"
  estate_holy_orders_desc: "The Holy Orders consist of various fraternal organizations, crusader societies, and baronies landed within Europe. The various Bailiwicks often have little communication with any Grandmaster and thus conduct their affairs through a sovereign monarch. The Holy Orders aspire to be recognized as an estate of the same importance as the Nobility and will enlist their full political and religious sway to help a benevolent overlord."

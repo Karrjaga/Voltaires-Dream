@@ -1,5 +1,6 @@
 ﻿l_english:
 #
+ allow_earlier_yugoslavia_formation_tt: "The country of §YYugoslavia§! no longer needs an §YAdministrative Technology§! of §Y56§! to be formed." #can_form_yugoslavia_earlier
  allow_earlier_britain_formation_tt: "The country of §YGreat Britain§! no longer needs an §YAdministrative Technology§! of §Y40§! to be formed." #can_form_britain_earlier
  allow_earlier_ruthenia_formation_tt: "The country of §YRuthenia§! no longer needs an §YAdministrative Technology§! of §Y40§! to be formed." #can_form_ruthenia_earlier
  allow_earlier_netherlands_formation_tt: "The country of the §YNetherlands§! no longer needs an §YAdministrative Technology§! of §Y40§! to be formed." #ned_ignore_tech_requirement_netherlands
@@ -251,7 +252,7 @@
  almoravid_invasion.tt: "We will establish the Almoravid Empire and annex southern Morocco."
  hire_jewish_visirs_title: "Recruit a Jewish Vizier"
  hire_jewish_visirs_desc: "Our religious freedom and cultural openness enables the systematic recruitment of Jewish viziers for our court."
- hire_jewish_visirs.tt: "We will get a discounted §YArtist§! §YNatural Scientist§!, §YStatesman§!, §YTrader§!, §YArmy Reformer§! or §YQuartermaster§! of Jewish religion."
+ hire_jewish_visirs.tt: "We can choose a Jewish advisor of any type whose modifier is §Y50.0%§! stronger."
  reorganize_theocracy_title: "Petition to Reorganize Theocracy"
  reorganize_theocracy_desc: "We will use our influence at the Holy See to reorganize our theocratic system."
  reorganize_theocracy_tt: "Catholic and Catholique theocracies must use the §YPetition to Reorganize Theocracy§! Decision to change base reform"
