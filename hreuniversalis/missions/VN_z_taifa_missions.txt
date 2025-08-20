@@ -1,2429 +1,2463 @@
-# #Taifa missions
-# #Designed by RetrogMGXII
-# #Coded by ShyGuy13
+#Taifa missions
+#Designed by RetrogMGXII
+#Coded by ShyGuy13
 
-# vn_taifa_missions_slot_1 = {
-#     slot = 1
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = { 
-# 			tag = ADU
-#             AND = {
-#                 capital_scope = {
-#                     superregion = iberia_superregion
-#                 }
-#                 religion_group = muslim
-#                 OR = {
-#                     primary_culture = andalucian
-#                     primary_culture = mozarabic
-#                 }
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_taifa_missions_slot_1 = {
+    slot = 1
+    generic = no
+    ai = yes
+    potential = {
+		OR = { 
+			tag = ADU
+            AND = {
+                capital_scope = {
+                    superregion = iberia_superregion
+                }
+                religion_group = muslim
+                OR = {
+                    primary_culture = andalucian
+                    primary_culture = mozarabic
+                }
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_taifa_placate_the_christians = {
-#         position = 2
-#         icon = mission_african_gold
-#         required_missions = { vn_taifa_gather_support }
-#         trigger = {
-#             calc_true_if = {
-#                 amount = 3
-#                 all_country = {
-#                     religion_group = christian
-#                     has_opinion_modifier = {
-#                         who = ROOT
-#                         modifier = sent_gift
-#                     }
-#                 }
-#                 desc = vn_taifa_placate_the_christians.tt
-#             }
-#         }
-#         effect = {
-#             every_country = {
-#                 limit = {
-#                     religion_group = christian
-#                     has_opinion_modifier = {
-#                         who = ROOT
-#                         modifier = sent_gift
-#                     }
-#                 }
-#                 add_truce_with = ROOT
-#                 hidden_effect = {
-#                     ROOT = { add_truce_with = PREV }
-#                 }
-#             }
-#             add_country_modifier = {
-#                 name = taifa_placate_the_christians_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_taifa_construct_castles = {
-#         position = 5
-#         icon = mission_tear_down_spanish_strongholds
-#         required_missions = { vn_taifa_spoils_of_war vn_taifa_placate_the_christians }
-#         trigger = {
-#             num_of_owned_provinces_with = {
-#                 value = 5
-#                 has_fort_building_trigger = yes
-#             }
-#             OR = {
-#                 monthly_mil = 10
-#                 fortification_expert = 1
-#             }
-#         }
-#         effect = {
-#             hidden_effect = {
-#                 every_owned_province = {
-#                     limit = {
-#                         has_fort_building_trigger = yes
-#                     }
-#                     add_base_manpower = 1
-#                 }
-#             }
-#             custom_tooltip = vn_taifa_construct_castles.tt
-#             add_country_modifier = {
-#                 name = taifa_construct_castles_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_taifa_placate_the_christians = {
+        position = 2
+        icon = mission_african_gold
+        required_missions = { vn_taifa_gather_support }
+        trigger = {
+            calc_true_if = {
+                amount = 3
+                all_country = {
+                    religion_group = christian
+                    has_opinion_modifier = {
+                        who = ROOT
+                        modifier = sent_gift
+                    }
+                }
+                desc = vn_taifa_placate_the_christians.tt
+            }
+        }
+        effect = {
+			hidden_effect = {
+				every_country = {
+					limit = {
+						religion_group = christian
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = sent_gift
+						}
+					}
+					add_truce_with = ROOT
+					ROOT = { add_truce_with = PREV }
+				}
+			}
+			custom_tooltip = vn_taifa_placate_the_christians.tt2
+			custom_tooltip = " "
+            add_country_modifier = {
+                name = taifa_placate_the_christians_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_taifa_construct_castles = {
+        position = 5
+        icon = mission_tear_down_spanish_strongholds
+        required_missions = { vn_taifa_spoils_of_war vn_taifa_placate_the_christians }
+        trigger = {
+            num_of_owned_provinces_with = {
+                value = 5
+                has_fort_building_trigger = yes
+            }
+            OR = {
+                has_medium_monthly_monarch_power = { type = mil }
+                fortification_expert = 2
+            }
+        }
+        effect = {
+            hidden_effect = {
+                every_owned_province = {
+                    limit = {
+                        has_fort_building_trigger = yes
+                    }
+                    add_base_manpower = 1
+                }
+            }
+            custom_tooltip = vn_taifa_construct_castles.tt
+			custom_tooltip = " "
+            add_country_modifier = {
+                name = taifa_construct_castles_mission
+                duration = 9125
+            }
+        }
+    }
+}
 
-# vn_taifa_missions_slot_2_a = {
-#     slot = 2
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = { 
-# 			tag = ADU
-#             AND = {
-#                 capital_scope = {
-#                     superregion = iberia_superregion
-#                 }
-#                 religion_group = muslim
-#                 OR = {
-#                     primary_culture = andalucian
-#                     primary_culture = mozarabic
-#                 }
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_taifa_missions_slot_2_a = {
+    slot = 2
+    generic = no
+    ai = yes
+    potential = {
+		OR = { 
+			tag = ADU
+            AND = {
+                capital_scope = {
+                    superregion = iberia_superregion
+                }
+                religion_group = muslim
+                OR = {
+                    primary_culture = andalucian
+                    primary_culture = mozarabic
+                }
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_taifa_gather_support = {
-#         position = 1
-#         icon = mission_restore_trade_superiority
-#         required_missions = { }
-#         trigger = {
-#             calc_true_if = {
-#                 amount = 3
-#                 all_ally = {
-#                     capital_scope = {
-#                         superregion = iberia_superregion
-#                     }
-#                     has_opinion = {
-#                         who = ROOT
-#                         value = 150
-#                     }
-#                 }
-#                 desc = vn_taifa_gather_support.tt
-#             }
-#         }
-#         effect = {
-#             add_yearly_manpower = 1
-#             add_country_modifier = {
-#                 name = taifa_gather_support_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_taifa_gather_support = {
+        position = 1
+        icon = mission_restore_trade_superiority
+        required_missions = { }
+        trigger = {
+            calc_true_if = {
+                amount = 2
+                all_ally = {
+                    capital_scope = {
+                        superregion = iberia_superregion
+                    }
+                    has_opinion = {
+                        who = ROOT
+                        value = 150
+                    }
+                }
+                desc = vn_taifa_gather_support.tt
+            }
+        }
+        effect = {
+            add_yearly_manpower = 1
+			custom_tooltip = " "
+            add_country_modifier = {
+                name = taifa_gather_support_mission
+                duration = 9125
+            }
+        }
+    }
+}
 
-# vn_taifa_missions_slot_3 = {
-#     slot = 3
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = { 
-# 			tag = ADU
-#             AND = {
-#                 capital_scope = {
-#                     superregion = iberia_superregion
-#                 }
-#                 religion_group = muslim
-#                 OR = {
-#                     primary_culture = andalucian
-#                     primary_culture = mozarabic
-#                 }
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_taifa_missions_slot_3 = {
+    slot = 3
+    generic = no
+    ai = yes
+    potential = {
+		OR = { 
+			tag = ADU
+            AND = {
+                capital_scope = {
+                    superregion = iberia_superregion
+                }
+                religion_group = muslim
+                OR = {
+                    primary_culture = andalucian
+                    primary_culture = mozarabic
+                }
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_taifa_protect_the_locals = {
-#         position = 1
-#         icon = mission_afghan_frontier
-#         required_missions = { }
-# 		trigger = {
-#             stability = 2
-#             is_at_war = no
-# 			capital_scope = {
-# 				area_for_scope_province = {
-# 					type = all
-# 					owned_by = ROOT
-#                     is_core = ROOT
-#                     NOT = { devastation = 1 }
-# 				}
-# 			}
-# 		}
-#         effect = {
-#             capital_scope = {
-#                 add_base_tax = 1
-#                 add_latest_building = {
-# 					trade = yes
-# 					builder = ROOT
-# 				}
-#             }
-#         }
-#     }
-#     vn_taifa_continue_the_fitna = {
-#         position = 2
-#         icon = mission_eliminate_pretenders
-#         required_missions = { vn_taifa_gather_support vn_taifa_protect_the_locals vn_taifa_promote_mozarabs }
-# 		trigger = {
-#             has_regency = no
-#             num_of_generals = 2
-#             OR = {
-#                 army_size = 25
-#                 army_size_percentage = 1
-#             }
-#             land_maintenance = 1
-#             is_subject = no
-# 		}
-#         effect = {
-#             add_army_tradition = 10
-#             add_army_professionalism = 0.025
-#             iberia_superregion = {
-#                 limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                     owner = {
-#                         religion_group = muslim
-#                         OR = {
-#                             primary_culture = mozarabic
-#                             primary_culture = andalucian
-#                         }
-#                     }
-#                 }
-#                 add_permanent_claim = ROOT
-#             } 
-#         }
-#     }
-#     vn_taifa_conquer_cordoba = {
-#         position = 3
-#         icon = mission_fortify_mandu
-#         required_missions = { vn_taifa_continue_the_fitna }
-#         provinces_to_highlight = {
-#             area = cordoba_area
-#             NOT = { owned_by = ROOT }
-#         }
-#         trigger = {
-#             2670 = {
-#                 owned_by = ROOT
-#                 is_core = ROOT
-#             }
-#             num_of_owned_provinces_with = {
-#                 value = 5
-#                 area = cordoba_area
-#             }
-#         }
-#         effect = {
-#             add_legitimacy = 10
-#             add_prestige_or_monarch_power = { amount = 10 } 
-#             cordoba_area = {
-#                 limit = { owned_by = ROOT }
-#                 add_nationalism = -5
-#             }
-#         }
-#     }
-#     vn_taifa_restore_cordoba = {
-#         position = 4
-#         icon = mission_mal_riches_of_trade
-#         required_missions = { vn_taifa_conquer_cordoba }
-#         trigger = {
-#             if = {
-#                 limit = {
-#                     has_any_estates = yes
-#                 }
-#                 calc_true_if = {
-#                     amount = 3
-#                     estate_loyalty = {
-#                         estate = estate_nobles
-#                         loyalty = 55
-#                     }
-#                     estate_loyalty = {
-#                         estate = estate_burghers
-#                         loyalty = 55
-#                     }
-#                     estate_loyalty = {
-#                         estate = estate_church
-#                         loyalty = 55
-#                     }
-#                     estate_loyalty = {
-#                         estate = estate_dhimmi
-#                         loyalty = 55
-#                     }
-#                     estate_loyalty = {
-#                         estate = estate_mamluks
-#                         loyalty = 55
-#                     }
-#                     desc = vn_taifa_restore_cordoba.tt
-#                 }
-#             }
-#             prestige = 75
-#             reform_level = 3
-#         }
-#         effect = {
-#             add_adm_power = 75
-#         }
-#     }
-#     vn_taifa_restore_andalusia = {
-#         position = 5
-#         icon = mission_al_andalus
-#         required_missions = { vn_taifa_restore_cordoba }
-#         provinces_to_highlight = {
-#             owner = {
-#                 NOT = { tag = ROOT }
-#                 capital_scope = {
-#                     superregion = iberia_superregion
-#                 }
-#                 religion_group = muslim
-#                 OR = {
-#                     total_development = 30
-#                     NOT = { is_subject = ROOT }
-#                 }
-#             }
-#         }
-#         trigger = {
-#             tag = ADU
-#             if = {
-#                 limit = { has_dlc = "Common Sense" }
-#                 legitimacy_equivalent = 100
-#             }
-#             else_if = {
-#                 limit = { government = monarchy }
-#                 legitimacy = 100
-#             }
-#             else_if = {
-#                 limit = { government = republic }
-#                 republican_tradition = 100
-#             }
-#             NOT = { average_unrest = 1 }
-#             NOT = { corruption = 1 }
-#             NOT = { num_of_rebel_controlled_provinces = 1 }
-#             NOT = { num_of_rebel_armies = 1 }
-#         }
-#         effect = {
-#             add_stability_or_adm_power = yes
-#             add_prestige_or_monarch_power = { amount = 25 } 
-#             add_country_modifier = {
-#                 name = taifa_restore_andalusia_mission
-#                 duration = 18250
-#             }
-#         }
-#     }
-# }
+    vn_taifa_protect_the_locals = {
+        position = 1
+        icon = mission_afghan_frontier
+        required_missions = { }
+		trigger = {
+            stability = 2
+            is_at_war = no
+			capital_scope = {
+				area_for_scope_province = {
+					type = all
+					owned_by = ROOT
+                    is_core = ROOT
+                    NOT = { devastation = 1 }
+				}
+			}
+		}
+        effect = {
+            capital_scope = {
+                add_base_tax = 1
+                add_or_upgrade_tax_building = yes
+            }
+        }
+    }
+    vn_taifa_continue_the_fitna = {
+        position = 2
+        icon = mission_eliminate_pretenders
+        required_missions = { vn_taifa_gather_support vn_taifa_protect_the_locals vn_taifa_promote_mozarabs }
+		trigger = {
+            has_regency = no
+            num_of_generals = 2
+            OR = {
+                army_size = 25
+                army_size_percentage = 1
+            }
+            land_maintenance = 1
+            is_subject = no
+		}
+        effect = {
+            add_army_tradition_or_mil_power = { amount = 10 }
+            add_army_professionalism = 0.025
+			custom_tooltip = " "
+			custom_tooltip = vn_taifa_continue_the_fitna.tt
+			hidden_effect = {
+				iberia_superregion = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+						owner = {
+							religion_group = muslim
+							OR = {
+								primary_culture = mozarabic
+								primary_culture = andalucian
+							}
+						}
+					}
+					add_permanent_claim = ROOT
+				} 
+			}
+        }
+    }
+    vn_taifa_conquer_cordoba = {
+        position = 3
+        icon = mission_fortify_mandu
+        required_missions = { vn_taifa_continue_the_fitna }
+        provinces_to_highlight = {
+            area = cordoba_area
+            NOT = { owned_by = ROOT }
+        }
+        trigger = {
+			owns_core_province = 2670
+            num_of_owned_provinces_with = {
+                value = 5
+                area = cordoba_area
+            }
+        }
+        effect = {
+            add_legitimacy_equivalent = { amount = 25 republican_tradition = 10 }
+            custom_tooltip = " "
+			add_prestige_or_monarch_power = { amount = 25 } 
+			custom_tooltip = " "
+            cordoba_area = {
+                limit = { owned_by = ROOT }
+                add_nationalism = -10
+            }
+        }
+    }
+    vn_taifa_restore_cordoba = {
+        position = 4
+        icon = mission_mal_riches_of_trade
+        required_missions = { vn_taifa_conquer_cordoba }
+        trigger = {
+            if = {
+                limit = {
+                    calc_true_if = {
+						amount = 3
+						has_estate = estate_nobles
+						has_estate = estate_burghers
+						has_estate = estate_church
+						has_estate = estate_dhimmi
+						has_estate = estate_mamluks
+					}
+                }
+                calc_true_if = {
+                    amount = 3
+                    estate_loyalty = {
+                        estate = estate_nobles
+                        loyalty = 55
+                    }
+                    estate_loyalty = {
+                        estate = estate_burghers
+                        loyalty = 55
+                    }
+                    estate_loyalty = {
+                        estate = estate_church
+                        loyalty = 55
+                    }
+                    estate_loyalty = {
+                        estate = estate_dhimmi
+                        loyalty = 55
+                    }
+                    estate_loyalty = {
+                        estate = estate_mamluks
+                        loyalty = 55
+                    }
+                    desc = vn_taifa_restore_cordoba.tt
+                }
+            }
+			else = {
+				stability = 2
+			}
+            prestige = 75
+            reform_level = 3
+        }
+        effect = {
+            add_adm_power = 75
+        }
+    }
+    vn_taifa_restore_andalusia = {
+        position = 5
+        icon = mission_al_andalus
+        required_missions = { vn_taifa_restore_cordoba }
+        provinces_to_highlight = {
+            owner = {
+                NOT = { tag = ROOT }
+                capital_scope = {
+                    superregion = iberia_superregion
+                }
+                religion_group = muslim
+                OR = {
+                    total_development = 30
+                    NOT = { is_subject_of = ROOT }
+                }
+            }
+        }
+        trigger = {
+            tag = ADU
+            if = {
+                limit = { has_dlc = "Common Sense" }
+                legitimacy_equivalent = 100
+            }
+            else_if = {
+                limit = { government = monarchy }
+                legitimacy = 100
+            }
+            else_if = {
+                limit = { government = republic }
+                republican_tradition = 100
+            }
+            NOT = { average_unrest = 1 }
+            NOT = { corruption = 1 }
+            NOT = { num_of_rebel_controlled_provinces = 1 }
+            NOT = { num_of_rebel_armies = 1 }
+        }
+        effect = {
+            add_stability_or_adm_power = yes
+			custom_tooltip = " "
+            add_prestige_or_monarch_power = { amount = 25 } 
+			custom_tooltip = " "
+            add_country_modifier = {
+                name = taifa_restore_andalusia_mission
+                duration = 18250
+            }
+        }
+    }
+}
 
-# vn_taifa_missions_slot_4_a = {
-#     slot = 4
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = { 
-# 			tag = ADU
-#             AND = {
-#                 capital_scope = {
-#                     superregion = iberia_superregion
-#                 }
-#                 religion_group = muslim
-#                 OR = {
-#                     primary_culture = andalucian
-#                     primary_culture = mozarabic
-#                 }
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_taifa_missions_slot_4_a = {
+    slot = 4
+    generic = no
+    ai = yes
+    potential = {
+		OR = { 
+			tag = ADU
+            AND = {
+                capital_scope = {
+                    superregion = iberia_superregion
+                }
+                religion_group = muslim
+                OR = {
+                    primary_culture = andalucian
+                    primary_culture = mozarabic
+                }
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_taifa_promote_mozarabs = {
-#         position = 1
-#         icon = mission_cope_with_refugees
-#         required_missions = { }
-#         trigger = {
-#             if = {
-#                 limit = { has_estate = estate_dhimmi }
-#                 estate_loyalty = {
-#                     estate = estate_dhimmi
-#                     loyalty = 60
-#                 }
-#                 has_estate_privilege = estate_dhimmi_dhimmi_nobles
-#             }
-#             else = {
-#                 stability = 2
-#                 all_owned_province = {
-#                     NOT = { unrest = 1 }
-#                 }
-#             }
-#         }
-#         effect = {
-#             add_accepted_culture_or_dip_power = { culture = mozarabic dip_reward = yes }
-#             add_accepted_culture_or_dip_power = { culture = andalucian dip_reward = yes }
-#             custom_tooltip = vn_lem_recover_from_crusade.tt
-#             hidden_effect = {
-#                 every_owned_province = {
-#                     add_local_autonomy = -5
-#                 }
-#             }
-#         }
-#     }
-# }
+    vn_taifa_promote_mozarabs = {
+        position = 1
+        icon = mission_cope_with_refugees
+        required_missions = { }
+        trigger = {
+            if = {
+                limit = { has_estate = estate_dhimmi }
+                estate_loyalty = {
+                    estate = estate_dhimmi
+                    loyalty = 60
+                }
+                has_estate_privilege = estate_dhimmi_dhimmi_nobles
+            }
+            else = {
+                stability = 2
+                all_owned_province = {
+                    NOT = { unrest = 1 }
+                }
+            }
+        }
+        effect = {
+            add_accepted_culture_or_dip_power = { culture = mozarabic dip_reward = yes }
+            add_accepted_culture_or_dip_power = { culture = andalucian dip_reward = yes }
+            custom_tooltip = vn_lem_recover_from_crusade.tt
+            hidden_effect = {
+                every_owned_province = {
+                    add_local_autonomy = -5
+                }
+            }
+        }
+    }
+}
 
-# vn_taifa_missions_slot_4_b = {
-#     slot = 4
-#     generic = no
-#     ai = yes
-#     potential = {
-#         NOT = { was_tag = SEV }
-#         NOT = { was_tag = CRD }
-#         NOT = { was_tag = TLD }
-#         NOT = { was_tag = VLK }
-#         NOT = { was_tag = TTO }
-#         NOT = { was_tag = DNA }
-#         NOT = { was_tag = MGG }
-#         NOT = { was_tag = AGC }
-# 		OR = {
-# 			tag = ADU
-#             AND = {
-#                 NOT = { tag = SEV }
-#                 NOT = { tag = CRD }
-#                 NOT = { tag = TLD }
-#                 NOT = { tag = VLK }
-#                 NOT = { tag = TTO }
-#                 NOT = { tag = DNA }
-#                 NOT = { tag = MGG }
-#                 NOT = { tag = AGC }
-#                 capital_scope = {
-#                     superregion = iberia_superregion
-#                 }
-#                 religion_group = muslim
-#                 OR = {
-#                     primary_culture = andalucian
-#                     primary_culture = mozarabic
-#                 }
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_taifa_missions_slot_4_b = {
+    slot = 4
+    generic = no
+    ai = yes
+    potential = {
+        NOT = { was_tag = SEV }
+        NOT = { was_tag = CRD }
+        NOT = { was_tag = TLD }
+        NOT = { was_tag = VLK }
+        NOT = { was_tag = TTO }
+        NOT = { was_tag = DNA }
+        NOT = { was_tag = MGG }
+        NOT = { was_tag = AGC }
+		OR = {
+			tag = ADU
+            AND = {
+                NOT = { tag = SEV }
+                NOT = { tag = CRD }
+                NOT = { tag = TLD }
+                NOT = { tag = VLK }
+                NOT = { tag = TTO }
+                NOT = { tag = DNA }
+                NOT = { tag = MGG }
+                NOT = { tag = AGC }
+                capital_scope = {
+                    superregion = iberia_superregion
+                }
+                religion_group = muslim
+                OR = {
+                    primary_culture = andalucian
+                    primary_culture = mozarabic
+                }
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_taifa_cultural_splendor = {
-#         position = 3
-#         icon = mission_patronize_art_and_religion
-#         required_missions = { vn_taifa_summon_a_council vn_taifa_continue_the_fitna }
-#         provinces_to_highlight = {
-# 			OR = {
-# 				AND = {
-# 					is_capital_of = ROOT
-# 					OR = {
-# 						NOT = { development = 20 }
-# 						NOT = { num_of_times_improved_by_owner = 5 }
-#                         NOT = { culture = ROOT }
-#                         NOT = { religion = ROOT }
-#                     }
-# 				}
-# 			}
-#         }
-# 		trigger = {
-#             capital_scope = {
-#                 development = 20
-#                 num_of_times_improved_by_owner = 5 
-#                 culture = ROOT
-#                 religion = ROOT
-#             }
-#             religious_unity = 1
-#             OR = {
-#                 monthly_adm = 10
-#                 artist = 1
-#             }
-# 		}
-#         effect = {
-#             add_country_modifier = {
-#                 name = taifa_cultural_splendor_mission_a
-#                 duration = 9125
-#             }
-#             capital_scope = {
-#                 add_province_modifier = {
-#                     name = taifa_cultural_splendor_mission_b
-#                     duration = 9125
-#                 }
-#             }
-#         }
-#     }
-#     vn_taifa_productive_continent = {
-#         position = 4
-#         icon = mission_secure_khandesh
-#         required_missions = { vn_taifa_cultural_splendor vn_taifa_conquer_cordoba }
-#         trigger = {
-#             is_in_deficit = no
-#             is_bankrupt = no
-#             NOT = { inflation = 1 }
-#             monthly_income = 25
-#         }
-#         effect = {
-#             add_mercantilism = 1
-#             add_country_modifier = {
-#                 name = taifa_productive_continent_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_taifa_proclaim_sultanate = {
-#         position = 5
-#         icon = mission_restore_faith_in_the_throne
-#         required_missions = { vn_taifa_productive_continent vn_taifa_berber_support vn_taifa_restore_cordoba }
-#         provinces_to_highlight = {
-#             is_core = ROOT
-#             NOT = { owned_by = ROOT }
-#         }
-#         trigger = {
-#             has_any_disaster = no
-#             is_subject = no
-#             all_core_province = {
-#                 owned_by = ROOT
-#             }
-#             num_of_owned_provinces_with = {
-#                 value = 75
-#                 superregion = iberia_superregion
-#             }
-#         }
-#         effect = {
-#             if = {
-#                 limit = { NOT = { government_rank = 5 } }
-#                 set_government_rank = 5
-#             }
-#             add_reform_progress_medium_effect = yes
-#         }
-#     }
-# }
+    vn_taifa_cultural_splendor = {
+        position = 3
+        icon = mission_patronize_art_and_religion
+        required_missions = { vn_taifa_summon_a_council vn_taifa_continue_the_fitna }
+        provinces_to_highlight = {
+			OR = {
+				AND = {
+					is_capital_of = ROOT
+					OR = {
+						NOT = { development = 20 }
+						NOT = { num_of_times_improved_by_owner = 5 }
+                        NOT = { culture = ROOT }
+                        NOT = { religion = ROOT }
+                    }
+				}
+			}
+        }
+		trigger = {
+            capital_scope = {
+                development = 20
+                num_of_times_improved_by_owner = 5 
+                culture = ROOT
+                religion = ROOT
+            }
+            religious_unity = 1
+            OR = {
+                monthly_adm = 10
+                artist = 1
+            }
+		}
+        effect = {
+            add_country_modifier = {
+                name = taifa_cultural_splendor_mission_a
+                duration = 9125
+            }
+            capital_scope = {
+                add_province_modifier = {
+                    name = taifa_cultural_splendor_mission_b
+                    duration = 9125
+                }
+            }
+        }
+    }
+    vn_taifa_productive_continent = {
+        position = 4
+        icon = mission_secure_khandesh
+        required_missions = { vn_taifa_cultural_splendor vn_taifa_conquer_cordoba }
+        trigger = {
+            is_in_deficit = no
+            is_bankrupt = no
+            NOT = { inflation = 1 }
+            monthly_income = 25
+        }
+        effect = {
+            add_mercantilism_or_monarch_power = { amount = 2 }
+			custom_tooltip = " "
+            add_country_modifier = {
+                name = taifa_productive_continent_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_taifa_proclaim_sultanate = {
+        position = 5
+        icon = mission_restore_faith_in_the_throne
+        required_missions = { vn_taifa_productive_continent vn_taifa_berber_support vn_taifa_restore_cordoba }
+        provinces_to_highlight = {
+            is_core = ROOT
+            NOT = { owned_by = ROOT }
+        }
+        trigger = {
+            has_any_disaster = no
+            is_subject = no
+            all_core_province = {
+                owned_by = ROOT
+            }
+            num_of_owned_provinces_with = {
+                value = 75
+                superregion = iberia_superregion
+            }
+        }
+        effect = {
+            if = {
+                limit = { NOT = { government_rank = 5 } }
+                set_government_rank = 5
+            }
+            add_reform_progress_medium_effect = yes
+        }
+    }
+}
 
-# vn_taifa_missions_slot_5_a = {
-#     slot = 5
-#     generic = no
-#     ai = yes
-#     potential = {
-#         NOT = { was_tag = SEV }
-#         NOT = { was_tag = CRD }
-#         NOT = { was_tag = TLD }
-#         NOT = { was_tag = VLK }
-#         NOT = { was_tag = TTO }
-#         NOT = { was_tag = DNA }
-#         NOT = { was_tag = MGG }
-#         NOT = { was_tag = AGC }
-# 		OR = {
-# 			tag = ADU
-#             AND = {
-#                 NOT = { tag = SEV }
-#                 NOT = { tag = CRD }
-#                 NOT = { tag = TLD }
-#                 NOT = { tag = VLK }
-#                 NOT = { tag = TTO }
-#                 NOT = { tag = DNA }
-#                 NOT = { tag = MGG }
-#                 NOT = { tag = AGC }
-#                 capital_scope = {
-#                     superregion = iberia_superregion
-#                 }
-#                 religion_group = muslim
-#                 OR = {
-#                     primary_culture = andalucian
-#                     primary_culture = mozarabic
-#                 }
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_taifa_missions_slot_5_a = {
+    slot = 5
+    generic = no
+    ai = yes
+    potential = {
+        NOT = { was_tag = SEV }
+        NOT = { was_tag = CRD }
+        NOT = { was_tag = TLD }
+        NOT = { was_tag = VLK }
+        NOT = { was_tag = TTO }
+        NOT = { was_tag = DNA }
+        NOT = { was_tag = MGG }
+        NOT = { was_tag = AGC }
+		OR = {
+			tag = ADU
+            AND = {
+                NOT = { tag = SEV }
+                NOT = { tag = CRD }
+                NOT = { tag = TLD }
+                NOT = { tag = VLK }
+                NOT = { tag = TTO }
+                NOT = { tag = DNA }
+                NOT = { tag = MGG }
+                NOT = { tag = AGC }
+                capital_scope = {
+                    superregion = iberia_superregion
+                }
+                religion_group = muslim
+                OR = {
+                    primary_culture = andalucian
+                    primary_culture = mozarabic
+                }
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_taifa_summon_a_council = {
-#         position = 2
-#         icon = mission_ottoman_harem
-#         required_missions = { }
-#         trigger = {
-#             has_3_advisors_trigger = yes
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = taifa_summon_a_council_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_taifa_foreign_military_aid = {
-#         position = 3
-#         icon = mission_son_military_expertise
-#         required_missions = { vn_taifa_summon_a_council }
-#         provinces_to_highlight = {
-#             is_capital = yes
-#             owner = {
-#                 culture_group = maghrebi
-#                 num_of_cities = 15
-#                 NOT = {
-#                     has_opinion_modifier = {
-#                         who = ROOT
-#                         modifier = improved_relation
-#                         value = 75
-#                     }
-#                 }
-#             }
-#         }
-#         trigger = {
-#             OR = {
-#                 monthly_dip = 10
-#                 diplomat = 1
-#             }
-# 			any_country = {
-# 				capital_scope = {
-# 					culture_group = maghrebi
-# 				}
-#                 has_opinion_modifier = {
-#                     who = ROOT
-#                     modifier = improved_relation
-#                     value = 75
-#                 }
-#                 num_of_cities = 15
-# 			}
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = taifa_foreign_military_aid_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_taifa_berber_support = {
-#         position = 4
-#         icon = mission_traverse_the_sahara
-#         required_missions = { vn_taifa_foreign_military_aid }
-#         trigger = {
-#             custom_trigger_tooltip = {
-# 				tooltip = vn_taifa_berber_support.tt
-# 				has_country_flag = won_war_with_berber_mercs
-# 			}
-#         }
-#         effect = {
-#             add_mil_power = 50
-#             tangiers_area = {
-#                 limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
-#             }
-#         }
-#     }
-#     vn_taifa_conquer_ceuta = {
-#         position = 5
-#         icon = mission_arabian_sea_trade
-#         required_missions = { vn_taifa_berber_support }
-#         provinces_to_highlight = {
-#             area = tangiers_area
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             tangiers_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             4625 = {
-#                 if = {
-# 					limit = {
-# 						province_has_center_of_trade_of_level = 1
-# 						NOT = { province_has_center_of_trade_of_level = 3 }
-# 					}
-# 					add_center_of_trade_level = 1
-# 				}
-# 				else_if = {
-# 					limit = {
-# 						NOT = { province_has_center_of_trade_of_level = 1 }
-# 					}
-# 					center_of_trade = 1
-# 				}
-# 				else = {
-# 					add_base_tax = 1
-# 					add_base_production = 1
-# 					add_base_manpower = 1
-# 				}  
-#             }
-#             add_country_modifier = {
-#                 name = taifa_conquer_ceuta_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_taifa_summon_a_council = {
+        position = 2
+        icon = mission_ottoman_harem
+        required_missions = { }
+        trigger = {
+            has_3_advisors_trigger = yes
+        }
+        effect = {
+            add_country_modifier = {
+                name = taifa_summon_a_council_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_taifa_foreign_military_aid = {
+        position = 3
+        icon = mission_son_military_expertise
+        required_missions = { vn_taifa_summon_a_council }
+        provinces_to_highlight = {
+            is_capital = yes
+            owner = {
+                culture_group = maghrebi
+                num_of_cities = 15
+                NOT = {
+                    has_opinion_modifier = {
+                        who = ROOT
+                        modifier = improved_relation
+                        value = 75
+                    }
+                }
+            }
+        }
+        trigger = {
+            OR = {
+                has_medium_monthly_monarch_power = { type = dip }
+                diplomat = 2
+            }
+			any_country = {
+				capital_scope = {
+					culture_group = maghrebi
+				}
+                has_opinion_modifier = {
+                    who = ROOT
+                    modifier = improved_relation
+                    value = 75
+                }
+                num_of_cities = 15
+			}
+        }
+        effect = {
+            add_country_modifier = {
+                name = taifa_foreign_military_aid_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_taifa_berber_support = {
+        position = 4
+        icon = mission_traverse_the_sahara
+        required_missions = { vn_taifa_foreign_military_aid }
+        trigger = {
+            custom_trigger_tooltip = {
+				tooltip = vn_taifa_berber_support.tt
+				has_country_flag = won_war_with_berber_mercs
+			}
+        }
+        effect = {
+            add_mil_power = 50
+            tangiers_area = {
+                limit = {
+                    NOT = { is_core = ROOT }
+                    NOT = { is_permanent_claim = ROOT }
+                }
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+    vn_taifa_conquer_ceuta = {
+        position = 5
+        icon = mission_arabian_sea_trade
+        required_missions = { vn_taifa_berber_support }
+        provinces_to_highlight = {
+            area = tangiers_area
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            tangiers_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            4625 = {
+                if = {
+					limit = {
+						province_has_center_of_trade_of_level = 1
+						NOT = { province_has_center_of_trade_of_level = 3 }
+					}
+					add_center_of_trade_level = 1
+				}
+				else_if = {
+					limit = {
+						NOT = { province_has_center_of_trade_of_level = 1 }
+					}
+					center_of_trade = 1
+				}
+				else = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}  
+            }
+            add_country_modifier = {
+                name = taifa_conquer_ceuta_mission
+                duration = 9125
+            }
+        }
+    }
+}
 
-# #Taifa Specific
-# vn_taifa_missions_slot_5_b = {
-#     slot = 5
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = SEV
-#             AND = {
-#                 tag = ADU
-#                 was_tag = SEV
-#             }
-#             tag = CRD
-#             AND = {
-#                 tag = ADU
-#                 was_tag = CRD
-#             }
-#             tag = TLD
-#             AND = {
-#                 tag = ADU
-#                 was_tag = TLD
-#             }
-#             tag = VLK
-#             AND = {
-#                 tag = ADU
-#                 was_tag = VLK
-#             }
-#             tag = TTO
-#             AND = {
-#                 tag = ADU
-#                 was_tag = TTO
-#             }
-#             tag = DNA
-#             AND = {
-#                 tag = ADU
-#                 was_tag = DNA
-#             }
-#             tag = MGG
-#             AND = {
-#                 tag = ADU
-#                 was_tag = MGG
-#             }
-#             tag = AGC
-#             AND = {
-#                 tag = ADU
-#                 was_tag = AGC
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+#Taifa Specific
+vn_taifa_missions_slot_5_b = {
+    slot = 5
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = SEV
+            AND = {
+                tag = ADU
+                was_tag = SEV
+            }
+            tag = CRD
+            AND = {
+                tag = ADU
+                was_tag = CRD
+            }
+            tag = TLD
+            AND = {
+                tag = ADU
+                was_tag = TLD
+            }
+            tag = VLK
+            AND = {
+                tag = ADU
+                was_tag = VLK
+            }
+            tag = TTO
+            AND = {
+                tag = ADU
+                was_tag = TTO
+            }
+            tag = DNA
+            AND = {
+                tag = ADU
+                was_tag = DNA
+            }
+            tag = MGG
+            AND = {
+                tag = ADU
+                was_tag = MGG
+            }
+            tag = AGC
+            AND = {
+                tag = ADU
+                was_tag = AGC
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_taifa_summon_a_council_specific = {
-#         position = 1
-#         icon = mission_ottoman_harem
-#         required_missions = { }
-#         trigger = {
-#             has_3_advisors_trigger = yes
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = taifa_summon_a_council_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_taifa_summon_a_council_specific = {
+        position = 1
+        icon = mission_ottoman_harem
+        required_missions = { }
+        trigger = {
+            has_3_advisors_trigger = yes
+        }
+        effect = {
+            add_country_modifier = {
+                name = taifa_summon_a_council_mission
+                duration = 9125
+            }
+        }
+    }
+}
 
-# #Sevilla missions
-# vn_sev_missions_slot_2 = {
-#     slot = 2
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = SEV
-#             AND = {
-#                 tag = ADU
-#                 was_tag = SEV
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+#Sevilla missions
+vn_sev_missions_slot_2 = {
+    slot = 2
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = SEV
+            AND = {
+                tag = ADU
+                was_tag = SEV
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_sev_berber_help = {
-#         position = 2
-#         icon = mission_levantine_restoration
-#         required_missions = { vn_taifa_gather_support }
-#         trigger = {
-#             if = {
-#                 limit = {
-#                     any_country = {
-#                         NOT = { tag = ROOT }
-#                         culture_group = maghrebi
-#                     }
-#                 }
-#                 calc_true_if = {
-#                     amount = 2
-#                     all_ally = {
-#                         culture_group = maghrebi
-#                         has_opinion = {
-#                             who = ROOT
-#                             value = 150
-#                         }
-#                     }
-#                     desc = vn_sev_berber_help.tt
-#                 }
-#             }
-#             else = {
-#                 num_of_allies = 4
-#             }
-#         }
-#         effect = {
-#             create_general = {
-#                 tradition = 50
-#                 culture = berber
-#             }
-#             add_country_modifier = {
-#                 name = sev_berber_help_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_sev_berber_help = {
+        position = 2
+        icon = mission_levantine_restoration
+        required_missions = { vn_taifa_gather_support }
+        trigger = {
+            if = {
+                limit = {
+                    any_country = {
+                        NOT = { tag = ROOT }
+                        culture_group = maghrebi
+                    }
+                }
+                calc_true_if = {
+                    amount = 2
+                    all_ally = {
+                        culture_group = maghrebi
+                        has_opinion = {
+                            who = ROOT
+                            value = 150
+                        }
+                    }
+                    desc = vn_sev_berber_help.tt
+                }
+            }
+            else = {
+                num_of_allies = 4
+            }
+        }
+        effect = {
+            create_general_with_pips = {
+                tradition = 50
+				add_shock = 1
+                culture = berber
+            }
+			custom_tooltip = " "
+            add_country_modifier = {
+                name = sev_berber_help_mission
+                duration = 9125
+            }
+        }
+    }
+}
 
-# vn_sev_missions_slot_4 = {
-#     slot = 4
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = SEV
-#             AND = {
-#                 tag = ADU
-#                 was_tag = SEV
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_sev_missions_slot_4 = {
+    slot = 4
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = SEV
+            AND = {
+                tag = ADU
+                was_tag = SEV
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_sev_sponsor_the_arts = {
-#         position = 2
-#         icon = mission_court_education
-#         required_missions = { vn_taifa_summon_a_council_specific }
-#         trigger = {
-#             is_in_deficit = no
-#             num_of_owned_provinces_with = {
-#                 value = 5
-#                 has_tax_building_trigger = yes
-#                 culture = ROOT
-#             }
-#         }
-#         effect = {
-#             define_advisor = {
-#                 type = artist
-#                 skill = 3
-#                 cost_multiplier = 0.25
-#             }
-#             add_country_modifier = {
-#                 name = sev_sponsor_the_arts_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_sev_consolidation = {
-#         position = 3
-#         icon = mission_restore_caliphate_of_cordoba
-#         required_missions = { vn_taifa_continue_the_fitna }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = sevilla_area
-#                 area = malaga_area
-#                 area = algarve_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             sevilla_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             malaga_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             algarve_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_army_tradition = 10
-#             add_country_modifier = {
-#                 name = sev_consolidation_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_sev_conquer_badajoz = {
-#         position = 4
-#         icon = mission_defeat_mewar
-#         required_missions = { vn_sev_consolidation }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = badajoz_area
-#                 area = alentejo_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             badajoz_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             alentejo_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_stability_or_adm_power = yes
-#             add_country_modifier = {
-#                 name = sev_conquer_badajoz_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_sev_conquer_granada = {
-#         position = 5
-#         icon = mission_protect_granada
-#         required_missions = { vn_sev_conquer_badajoz vn_sev_conquer_murcia }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = almeria_area
-#                 area = granada_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             almeria_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             granada_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_prestige_or_monarch_power = { amount = 15 } 
-#             add_army_professionalism = 0.025
-#             add_country_modifier = {
-#                 name = sev_conquer_granada_mission
-#                 duration = 18250
-#             }
-#         }
-#     }
-# }
+    vn_sev_sponsor_the_arts = {
+        position = 2
+        icon = mission_court_education
+        required_missions = { vn_taifa_summon_a_council_specific }
+        trigger = {
+            is_in_deficit = no
+            num_of_owned_provinces_with = {
+                value = 5
+                has_tax_building_trigger = yes
+                culture = ROOT
+            }
+        }
+        effect = {
+            if = {
+				limit = {
+					has_dlc = "Rights of Man"
+					has_dlc = "Winds of Change"
+				}
+				custom_tooltip = vn_enable_and_increase_patron_of_art
+				set_country_flag = TIM_patron_of_art_personality_unlock
+			}
+			else = {
+				define_advisor = {
+					type = artist
+					skill = 3
+					discount = yes
+				}
+			}
+			custom_tooltip = " "
+            add_country_modifier = {
+                name = sev_sponsor_the_arts_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_sev_consolidation = {
+        position = 3
+        icon = mission_restore_caliphate_of_cordoba
+        required_missions = { vn_taifa_continue_the_fitna }
+        provinces_to_highlight = {
+            OR = {
+                area = sevilla_area
+                area = malaga_area
+                area = algarve_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            sevilla_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            malaga_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            algarve_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_army_tradition_or_mil_power = { amount = 10 }
+			custom_tooltip = " "
+            add_country_modifier = {
+                name = sev_consolidation_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_sev_conquer_badajoz = {
+        position = 4
+        icon = mission_defeat_mewar
+        required_missions = { vn_sev_consolidation }
+        provinces_to_highlight = {
+            OR = {
+                area = badajoz_area
+                area = alentejo_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            badajoz_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            alentejo_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_stability_or_adm_power = yes
+            add_country_modifier = {
+                name = sev_conquer_badajoz_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_sev_conquer_granada = {
+        position = 5
+        icon = mission_protect_granada
+        required_missions = { vn_sev_conquer_badajoz vn_sev_conquer_murcia }
+        provinces_to_highlight = {
+            OR = {
+                area = almeria_area
+                area = granada_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            almeria_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            granada_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_prestige_or_monarch_power = { amount = 15 } 
+            add_army_professionalism = 0.025
+            add_country_modifier = {
+                name = sev_conquer_granada_mission
+                duration = 18250
+            }
+        }
+    }
+}
 
-# vn_sev_missions_slot_5 = {
-#     slot = 5
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = SEV
-#             AND = {
-#                 tag = ADU
-#                 was_tag = SEV
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_sev_missions_slot_5 = {
+    slot = 5
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = SEV
+            AND = {
+                tag = ADU
+                was_tag = SEV
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_sev_own_coinage = {
-#         position = 2
-#         icon = mission_african_gold
-#         required_missions = { vn_taifa_summon_a_council_specific }
-#         provinces_to_highlight = {
-# 			trade_goods = silver
-# 			owned_by = ROOT
-#             OR = {
-#                 NOT = { development = 12 }
-#                 local_autonomy = 25
-#             }
-# 		}
-#         trigger = {
-#             gold_income = 5
-#             num_of_owned_provinces_with = {
-# 				trade_goods = silver
-# 				development = 12
-#                 NOT = { local_autonomy = 25 }
-# 				value = 1
-# 			}
-#         }
-#         effect = {
-#             if = {
-#                 limit = { has_dlc = "Origins" }
-#                 unlock_estate_privilege = {
-#                     estate_privilege = estate_burghers_control_over_the_mint
-#                 }
-#             }
-#             else = {
-#                 add_inflation = -2
-#             }
-#             custom_tooltip = vn_will_receive_rewards_tt
-#             random_owned_province = {
-#                 limit = {
-#                     trade_goods = silver
-#                     development = 12
-#                     NOT = { local_autonomy = 25 }
-#                 }
-#                 add_province_modifier = {
-#                     name = sev_own_coinage_mission
-#                     duration = 9125
-#                 }
-#             }
-#         }
-#     }
-#     vn_sev_conquer_toledo = {
-#         position = 3
-#         icon = mission_levantine_restoration
-#         required_missions = { vn_taifa_continue_the_fitna }
-#         provinces_to_highlight = {
-#             area = ciudad_area
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             ciudad_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = sev_conquer_toledo_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_sev_conquer_murcia = {
-#         position = 4
-#         icon = mission_control_surat
-#         required_missions = { vn_sev_conquer_toledo }
-#         provinces_to_highlight = {
-#             area = murcia_area
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             murcia_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = sev_conquer_murcia_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_sev_conquer_valencia = {
-#         position = 5
-#         icon = mission_raid_on_valencia
-#         required_missions = { vn_sev_conquer_murcia }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = valencia_area
-#                 area = denia_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             valencia_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             denia_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_navy_tradition = 15
-#             add_sailors = 500
-#             valencia_area = {
-#                 limit = { has_port = yes }
-#                 add_province_modifier = {
-#                     name = sev_conquer_valencia_mission
-#                     duration = 9125
-#                 }
-#             }
-#             denia_area = {
-#                 limit = { has_port = yes }
-#                 add_province_modifier = {
-#                     name = sev_conquer_valencia_mission
-#                     duration = 9125
-#                 }
-#             }
-#         }
-#     }
-# }
+    vn_sev_own_coinage = {
+        position = 2
+        icon = mission_african_gold
+        required_missions = { vn_taifa_summon_a_council_specific }
+        provinces_to_highlight = {
+			trade_goods = silver
+			owned_by = ROOT
+            OR = {
+                NOT = { development = 12 }
+                local_autonomy = 25
+            }
+		}
+        trigger = {
+            gold_income = 5
+            num_of_owned_provinces_with = {
+				trade_goods = silver
+				development = 12
+                NOT = { local_autonomy = 25 }
+				value = 1
+			}
+        }
+        effect = {
+            if = {
+                limit = { has_dlc = "Origins" }
+                unlock_estate_privilege = {
+                    estate_privilege = estate_burghers_control_over_the_mint
+                }
+            }
+            else = {
+                add_inflation = -2
+            }
+			custom_tooltip = " "
+            custom_tooltip = vn_will_receive_rewards_tt
+            random_owned_province = {
+                limit = {
+                    trade_goods = silver
+                    development = 12
+                    NOT = { local_autonomy = 25 }
+                }
+                add_province_modifier = {
+                    name = sev_own_coinage_mission
+                    duration = 9125
+                }
+            }
+        }
+    }
+    vn_sev_conquer_toledo = {
+        position = 3
+        icon = mission_levantine_restoration
+        required_missions = { vn_taifa_continue_the_fitna }
+        provinces_to_highlight = {
+            area = ciudad_area
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            ciudad_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = sev_conquer_toledo_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_sev_conquer_murcia = {
+        position = 4
+        icon = mission_control_surat
+        required_missions = { vn_sev_conquer_toledo }
+        provinces_to_highlight = {
+            area = murcia_area
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            murcia_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = sev_conquer_murcia_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_sev_conquer_valencia = {
+        position = 5
+        icon = mission_raid_on_valencia
+        required_missions = { vn_sev_conquer_murcia }
+        provinces_to_highlight = {
+            OR = {
+                area = valencia_area
+                area = denia_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            valencia_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            denia_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_navy_tradition = 15
+			custom_tooltip = " "
+            add_sailors = 500
+			custom_tooltip = " "
+            valencia_area = {
+                limit = { has_port = yes }
+                add_province_modifier = {
+                    name = sev_conquer_valencia_mission
+                    duration = 9125
+                }
+            }
+            denia_area = {
+                limit = { has_port = yes }
+                add_province_modifier = {
+                    name = sev_conquer_valencia_mission
+                    duration = 9125
+                }
+            }
+        }
+    }
+}
 
-# #Cordoba
-# vn_crd_missions_slot_2 = {
-#     slot = 2
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = CRD
-#             AND = {
-#                 tag = ADU
-#                 was_tag = CRD
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+#Cordoba
+vn_crd_missions_slot_2 = {
+    slot = 2
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = CRD
+            AND = {
+                tag = ADU
+                was_tag = CRD
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_crd_empower_the_guilds = {
-#         position = 2
-#         icon = mission_valencian_silk
-#         required_missions = { vn_taifa_gather_support }
-#         trigger = {
-#             trade_income_percentage = 0.3
-#             if = {
-#                 limit = { has_dlc = "Dharma" }
-#                 any_owned_province = {
-#                     province_has_center_of_trade_of_level = 3
-#                 }
-#             }
-#             else = {
-#                 any_owned_province = {
-#                     base_production = 12
-#                 }
-#             }
-#             if = {
-#                 limit = { has_estate = estate_burghers }
-#                 estate_loyalty = {
-#                     estate = estate_burghers
-#                     loyalty = 50
-#                 }
-#                 num_of_estate_privileges = {
-#                     estate = estate_burghers
-#                     value = 2
-#                 }
-#             }
-#             else = {
-#                 share_of_starting_income = 5
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = crd_empower_the_guilds_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_crd_empower_the_guilds = {
+        position = 2
+        icon = mission_valencian_silk
+        required_missions = { vn_taifa_gather_support }
+        trigger = {
+            trade_income_percentage = 0.3
+            if = {
+                limit = { has_dlc = "Dharma" }
+                any_owned_province = {
+                    province_has_center_of_trade_of_level = 3
+                }
+            }
+            else = {
+                any_owned_province = {
+                    base_production = 12
+                }
+            }
+            if = {
+                limit = { has_estate = estate_burghers }
+                estate_loyalty = {
+                    estate = estate_burghers
+                    loyalty = 50
+                }
+                num_of_estate_privileges = {
+                    estate = estate_burghers
+                    value = 2
+                }
+            }
+            else = {
+                share_of_starting_income = 5
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = crd_empower_the_guilds_mission
+                duration = 9125
+            }
+        }
+    }
+}
 
-# vn_crd_missions_slot_4 = {
-#     slot = 4
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = CRD
-#             AND = {
-#                 tag = ADU
-#                 was_tag = CRD
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_crd_missions_slot_4 = {
+    slot = 4
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = CRD
+            AND = {
+                tag = ADU
+                was_tag = CRD
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_crd_sevillan_diplomacy = {
-#         position = 2
-#         icon = mission_friends_or_enemies
-#         required_missions = { vn_taifa_summon_a_council_specific }
-#         trigger = {
-#             OR = {
-#                 AND = {
-#                     alliance_with = SEV
-#                     reverse_has_opinion = {
-#                         who = SEV
-#                         value = 150
-#                     }
-#                 }
-#                 AND = {
-#                     is_rival = SEV
-#                     SEV = {
-#                         OR = {
-#                             has_opinion_modifier = {
-#                                 who = ROOT
-#                                 modifier = insulted
-#                             }
-#                             has_opinion_modifier = {
-#                                 who = ROOT
-#                                 modifier = scornfully_insulted
-#                             }
-#                         }
-#                     }
-#                 }
-#                 NOT = { exists = SEV }
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = crd_sevillan_diplomacy_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_crd_conquer_sevilla = {
-#         icon = mission_turning_the_tables
-#         required_missions = { vn_crd_sevillan_diplomacy vn_taifa_continue_the_fitna }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = huelva_area
-#                 area = sevilla_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             huelva_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             sevilla_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_stability_or_adm_power = yes
-#             add_republican_tradition = 10
-#         }
-#     }
-#     vn_crd_conquer_granada = {
-#         icon = mission_conquer_maharashtra
-#         required_missions = { vn_crd_conquer_sevilla }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = granada_area
-#                 area = almeria_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             granada_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             almeria_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             granada_area = {
-#                 add_devastation = -10
-#                 add_local_autonomy = -10
-#             }
-#             almeria_area = {
-#                 add_devastation = -10
-#                 add_local_autonomy = -10
-#             }
-#             malaga_area = {
-#                 limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
-#             }
-#         }
-#     }
-#     vn_crd_conquer_malaga = {
-#         icon = mission_reconquer_ceuta
-#         required_missions = { vn_crd_conquer_granada }
-#         provinces_to_highlight = {
-#             area = malaga_area
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             malaga_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_adm_power = 50
-#             761 = {
-#                 add_base_tax = 1
-#                 add_base_production = 1
-#                 add_base_manpower = 1
-#                 add_local_autonomy = -25
-#                 add_province_modifier = {
-#                     name = crd_conquer_malaga_mission
-#                     duration = -1
-#                 }
-#             }
-#         }
-#     }
-# }
+    vn_crd_sevillan_diplomacy = {
+        position = 2
+        icon = mission_friends_or_enemies
+        required_missions = { vn_taifa_summon_a_council_specific }
+        trigger = {
+            OR = {
+                AND = {
+                    alliance_with = SEV
+                    reverse_has_opinion = {
+                        who = SEV
+                        value = 150
+                    }
+                }
+                AND = {
+                    is_rival = SEV
+                    SEV = {
+                        OR = {
+                            has_opinion_modifier = {
+                                who = ROOT
+                                modifier = insulted
+                            }
+                            has_opinion_modifier = {
+                                who = ROOT
+                                modifier = scornfully_insulted
+                            }
+                        }
+                    }
+                }
+                NOT = { exists = SEV }
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = crd_sevillan_diplomacy_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_crd_conquer_sevilla = {
+        icon = mission_turning_the_tables
+        required_missions = { vn_crd_sevillan_diplomacy vn_taifa_continue_the_fitna }
+        provinces_to_highlight = {
+            OR = {
+                area = huelva_area
+                area = sevilla_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            huelva_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            sevilla_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_stability_or_adm_power = yes
+            add_republican_tradition = 10
+        }
+    }
+    vn_crd_conquer_granada = {
+        icon = mission_conquer_maharashtra
+        required_missions = { vn_crd_conquer_sevilla }
+        provinces_to_highlight = {
+            OR = {
+                area = granada_area
+                area = almeria_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            granada_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            almeria_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            granada_area = {
+                add_devastation = -10
+                add_local_autonomy = -10
+            }
+            almeria_area = {
+                add_devastation = -10
+                add_local_autonomy = -10
+            }
+            malaga_area = {
+                limit = {
+                    NOT = { is_core = ROOT }
+                    NOT = { is_permanent_claim = ROOT }
+                }
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+    vn_crd_conquer_malaga = {
+        icon = mission_reconquer_ceuta
+        required_missions = { vn_crd_conquer_granada }
+        provinces_to_highlight = {
+            area = malaga_area
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            malaga_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_adm_power = 50
+            761 = {
+                add_base_tax = 1
+                add_base_production = 1
+                add_base_manpower = 1
+                add_local_autonomy = -25
+                add_province_modifier = {
+                    name = crd_conquer_malaga_mission
+                    duration = -1
+                }
+            }
+        }
+    }
+}
 
-# vn_crd_missions_slot_5 = {
-#     slot = 5
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = CRD
-#             AND = {
-#                 tag = ADU
-#                 was_tag = CRD
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_crd_missions_slot_5 = {
+    slot = 5
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = CRD
+            AND = {
+                tag = ADU
+                was_tag = CRD
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_crd_promote_republicanism = {
-#         position = 2
-#         icon = mission_reclaim_morocco
-#         required_missions = { vn_taifa_summon_a_council_specific }
-#         trigger = {
-#             reform_level = 3
-#             stability = 2
-#             if = {
-#                 limit = { government = republic }
-#                 republican_tradition = 95
-#             }
-#             else_if = {
-#                 limit = { government = monarchy }
-#                 legitimacy = 95
-#             }
-#         }
-#         effect = {
-#             add_reform_progress_medium_effect = yes
-#             add_country_modifier = {
-#                 name = crd_promote_republicanism_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_crd_cultural_patron = {
-#         icon = mission_patronize_art_and_religion
-#         required_missions = { vn_crd_promote_republicanism }
-#         trigger = {
-#             num_accepted_cultures = 4
-#             num_of_owned_provinces_with = {
-#                 value = 10
-#                 has_tax_building_trigger = yes
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = crd_cultural_patron_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_crd_conquer_alentejo = {
-#         icon = mission_conquer_nagaur
-#         required_missions = { vn_crd_conquer_sevilla }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = alentejo_area
-#                 area = algarve_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             alentejo_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             algarve_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_prestige_or_monarch_power = { amount = 10 } 
-#             add_mil_power = 100
-#         }
-#     }
-#     vn_crd_conquer_murica = {
-#         icon = mission_reclaim_lost_territory
-#         required_missions = { vn_crd_conquer_granada }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = murcia_area
-#                 area = denia_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             murcia_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             denia_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_years_of_income = 0.25
-#             add_country_modifier = {
-#                 name = crd_conquer_murica_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_crd_promote_republicanism = {
+        position = 2
+        icon = mission_reclaim_morocco
+        required_missions = { vn_taifa_summon_a_council_specific }
+        trigger = {
+            reform_level = 3
+            stability = 2
+            if = {
+                limit = { government = republic }
+                republican_tradition = 95
+            }
+            else_if = {
+                limit = { government = monarchy }
+                legitimacy = 95
+            }
+        }
+        effect = {
+            add_reform_progress_medium_effect = yes
+            add_country_modifier = {
+                name = crd_promote_republicanism_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_crd_cultural_patron = {
+        icon = mission_patronize_art_and_religion
+        required_missions = { vn_crd_promote_republicanism }
+        trigger = {
+            num_accepted_cultures = 4
+            num_of_owned_provinces_with = {
+                value = 10
+                has_tax_building_trigger = yes
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = crd_cultural_patron_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_crd_conquer_alentejo = {
+        icon = mission_conquer_nagaur
+        required_missions = { vn_crd_conquer_sevilla }
+        provinces_to_highlight = {
+            OR = {
+                area = alentejo_area
+                area = algarve_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            alentejo_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            algarve_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_prestige_or_monarch_power = { amount = 10 } 
+            add_mil_power = 100
+        }
+    }
+    vn_crd_conquer_murica = {
+        icon = mission_reclaim_lost_territory
+        required_missions = { vn_crd_conquer_granada }
+        provinces_to_highlight = {
+            OR = {
+                area = murcia_area
+                area = denia_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            murcia_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            denia_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_years_of_income = 0.25
+            add_country_modifier = {
+                name = crd_conquer_murica_mission
+                duration = 9125
+            }
+        }
+    }
+}
 
-# #Toledo
-# vn_tld_missions_slot_2 = {
-#     slot = 2
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = TLD
-#             AND = {
-#                 tag = ADU
-#                 was_tag = TLD
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+#Toledo
+vn_tld_missions_slot_2 = {
+    slot = 2
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = TLD
+            AND = {
+                tag = ADU
+                was_tag = TLD
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_tld_christian_ally = {
-#         position = 2
-#         icon = mission_reclaim_morocco
-#         required_missions = { vn_taifa_gather_support }
-#         trigger = {
-#             if = {
-#                 limit = {
-#                     any_country = {
-#                         NOT = { tag = ROOT }
-#                         religion_group = christian
-#                         capital_scope = {
-#                             superregion = iberia_superregion
-#                         }
-#                     }
-#                 }
-#                 any_ally = {
-#                     religion_group = christian
-#                     capital_scope = {
-#                         superregion = iberia_superregion
-#                     }
-#                     has_opinion = {
-#                         who = ROOT
-#                         value = 150
-#                     }
-#                 }
-#             }
-#         }
-#         effect = {
-#             add_prestige_or_monarch_power = { amount = 5 } 
-#             add_country_modifier = {
-#                 name = tld_tld_christian_ally
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_tld_christian_ally = {
+        position = 2
+        icon = mission_reclaim_morocco
+        required_missions = { vn_taifa_gather_support }
+        trigger = {
+            if = {
+                limit = {
+                    any_country = {
+                        NOT = { tag = ROOT }
+                        religion_group = christian
+                        capital_scope = {
+                            superregion = iberia_superregion
+                        }
+                    }
+                }
+                any_ally = {
+                    religion_group = christian
+                    capital_scope = {
+                        superregion = iberia_superregion
+                    }
+                    has_opinion = {
+                        who = ROOT
+                        value = 150
+                    }
+                }
+            }
+        }
+        effect = {
+            add_prestige_or_monarch_power = { amount = 5 } 
+            add_country_modifier = {
+                name = tld_tld_christian_ally
+                duration = 9125
+            }
+        }
+    }
+}
 
-# vn_tld_missions_slot_4 = {
-#     slot = 4
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = TLD
-#             AND = {
-#                 tag = ADU
-#                 was_tag = TLD
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_tld_missions_slot_4 = {
+    slot = 4
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = TLD
+            AND = {
+                tag = ADU
+                was_tag = TLD
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_tld_resettle_the_north = {
-#         position = 2
-#         icon = mission_arabian_fort
-#         required_missions = { vn_taifa_summon_a_council_specific }
-#         provinces_to_highlight = {
-#             province_id = 4395
-#             OR = {
-#                 NOT = { owned_by = ROOT }
-#                 NOT = { development = 10 }
-#                 NOT = { num_of_buildings_in_province = 2 }
-#             }
-#         }
-#         trigger = {
-#             grown_by_development = 40
-#             4395 = {
-#                 owned_by = ROOT
-#                 development = 10
-#                 num_of_buildings_in_province = 2
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = tld_resetlle_the_north_mission
-#                 duration = 18250
-#             }
-#         }
-#     }
-#     vn_tld_conquer_badajoz = {
-#         position = 3
-#         icon = mission_reconquer_ceuta
-#         required_missions = { vn_tld_central_taifa vn_taifa_continue_the_fitna }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = caceres_area
-#                 area = badajoz_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             caceres_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             badajoz_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = tld_conquer_badajoz_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_tld_conquer_sevilla = {
-#         position = 4
-#         icon = mission_unite_home_region
-#         required_missions = { vn_tld_conquer_badajoz }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = sevilla_area
-#                 area = huelva_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             OR = {
-#                 any_ally = {
-#                     capital_scope = {
-#                         OR = {
-#                             area = sevilla_area
-#                             area = huelva_area
-#                         }
-#                     }
-#                     has_opinion = {
-#                         who = ROOT
-#                         value = 150
-#                     }
-#                 }
-#                 any_subject_country = {
-#                     capital_scope = {
-#                         OR = {
-#                             area = sevilla_area
-#                             area = huelva_area
-#                         }
-#                     }
-#                     has_opinion = {
-#                         who = ROOT
-#                         value = 150
-#                     }
-#                 }
-#                 AND = {
-#                     sevilla_area = {
-#                         type = all
-#                         country_or_non_sovereign_subject_holds = ROOT
-#                     }
-#                     huelva_area = {
-#                         type = all
-#                         country_or_non_sovereign_subject_holds = ROOT
-#                     }
-#                 }
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = tld_conquer_sevilla_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_tld_conquer_granada = {
-#         position = 5
-#         icon = mission_protect_granada
-#         required_missions = { vn_tld_conquer_sevilla }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = granada_area
-#                 area = almeria_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             granada_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             almeria_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_army_tradition = 10
-#             add_country_modifier = {
-#                 name = tld_conquer_granada_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_tld_resettle_the_north = {
+        position = 2
+        icon = mission_arabian_fort
+        required_missions = { vn_taifa_summon_a_council_specific }
+        provinces_to_highlight = {
+            province_id = 4395
+            OR = {
+                NOT = { owned_by = ROOT }
+                NOT = { development = 10 }
+                NOT = { num_of_buildings_in_province = 2 }
+            }
+        }
+        trigger = {
+            grown_by_development = 40
+            4395 = {
+                owned_by = ROOT
+                development = 10
+                num_of_buildings_in_province = 2
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = tld_resetlle_the_north_mission
+                duration = 18250
+            }
+        }
+    }
+    vn_tld_conquer_badajoz = {
+        position = 3
+        icon = mission_reconquer_ceuta
+        required_missions = { vn_tld_central_taifa vn_taifa_continue_the_fitna }
+        provinces_to_highlight = {
+            OR = {
+                area = caceres_area
+                area = badajoz_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            caceres_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            badajoz_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = tld_conquer_badajoz_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_tld_conquer_sevilla = {
+        position = 4
+        icon = mission_unite_home_region
+        required_missions = { vn_tld_conquer_badajoz }
+        provinces_to_highlight = {
+            OR = {
+                area = sevilla_area
+                area = huelva_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            OR = {
+                any_ally = {
+                    capital_scope = {
+                        OR = {
+                            area = sevilla_area
+                            area = huelva_area
+                        }
+                    }
+                    has_opinion = {
+                        who = ROOT
+                        value = 150
+                    }
+                }
+                any_subject_country = {
+                    capital_scope = {
+                        OR = {
+                            area = sevilla_area
+                            area = huelva_area
+                        }
+                    }
+                    has_opinion = {
+                        who = ROOT
+                        value = 150
+                    }
+                }
+                AND = {
+                    sevilla_area = {
+                        type = all
+                        country_or_non_sovereign_subject_holds = ROOT
+                    }
+                    huelva_area = {
+                        type = all
+                        country_or_non_sovereign_subject_holds = ROOT
+                    }
+                }
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = tld_conquer_sevilla_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_tld_conquer_granada = {
+        position = 5
+        icon = mission_protect_granada
+        required_missions = { vn_tld_conquer_sevilla }
+        provinces_to_highlight = {
+            OR = {
+                area = granada_area
+                area = almeria_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            granada_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            almeria_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_army_tradition = 10
+            add_country_modifier = {
+                name = tld_conquer_granada_mission
+                duration = 9125
+            }
+        }
+    }
+}
 
-# vn_tld_missions_slot_5 = {
-#     slot = 5
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = TLD
-#             AND = {
-#                 tag = ADU
-#                 was_tag = TLD
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_tld_missions_slot_5 = {
+    slot = 5
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = TLD
+            AND = {
+                tag = ADU
+                was_tag = TLD
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_tld_central_taifa = {
-#         position = 2
-#         icon = mission_develop_alhambra
-#         required_missions = { vn_taifa_summon_a_council_specific }
-#         provinces_to_highlight = {
-#             province_id = 1208
-#             OR = {
-#                 NOT = { owned_by = ROOT }
-#                 NOT = { development = 30 }
-#             }
-#         }
-#         trigger = {
-#             prestige = 50
-#             1208 = {
-#                 owned_by = ROOT
-#                 development = 30
-#             }
-#         }
-#         effect = {
-#             add_stability_or_adm_power = yes
-#             1208 = {
-#                 add_province_modifier = {
-#                     name = tld_central_taifa_mission
-#                     duration = 9125
-#                 }
-#             }
-#         }
-#     }
-#     vn_tld_aragonese_diplomacy = {
-#         position = 3
-#         icon = mission_friends_or_enemies
-#         required_missions = { vn_tld_central_taifa }
-#         provinces_to_highlight = {
-#             area = teruel_area
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             OR = {
-#                 any_ally = {
-#                     capital_scope = {
-#                         region = aragon_region
-#                     }
-#                     has_opinion = {
-#                         who = ROOT
-#                         value = 150
-#                     }
-#                 }
-#                 any_subject_country = {
-#                     capital_scope = {
-#                         region = aragon_region
-#                     }
-#                     has_opinion = {
-#                         who = ROOT
-#                         value = 150
-#                     }
-#                 }
-#             }
-#             teruel_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = tld_aragonese_diplomacy_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_tld_conquer_valencia = {
-#         position = 4
-#         icon = mission_raid_on_valencia
-#         required_missions = { vn_tld_aragonese_diplomacy }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = valencia_area
-#                 area = denia_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             valencia_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             denia_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             valencia_area = {
-#                 add_local_autonomy = -10
-#                 add_nationalism = -5
-#             }
-#             denia_area = {
-#                 add_local_autonomy = -10
-#                 add_nationalism = -5
-#             }
-#         }
-#     }
-#     vn_tld_conquer_andalusia = {
-#         position = 5
-#         icon = mission_cannons_firing
-#         required_missions = { vn_tld_conquer_valencia vn_tld_conquer_sevilla }
-#         provinces_to_highlight = {
-#             region = andalusia_region
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             andalusia_region = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_adm_power = 50
-#             add_dip_power = 50
-#             add_mil_power = 50
-#             andalusia_region = {
-#                 add_local_autonomy = -10
-#                 add_nationalism = -5
-#             }
-#         }
-#     }
-# }
+    vn_tld_central_taifa = {
+        position = 2
+        icon = mission_develop_alhambra
+        required_missions = { vn_taifa_summon_a_council_specific }
+        provinces_to_highlight = {
+            province_id = 1208
+            OR = {
+                NOT = { owned_by = ROOT }
+                NOT = { development = 30 }
+            }
+        }
+        trigger = {
+            prestige = 50
+            1208 = {
+                owned_by = ROOT
+                development = 30
+            }
+        }
+        effect = {
+            add_stability_or_adm_power = yes
+            1208 = {
+                add_province_modifier = {
+                    name = tld_central_taifa_mission
+                    duration = 9125
+                }
+            }
+        }
+    }
+    vn_tld_aragonese_diplomacy = {
+        position = 3
+        icon = mission_friends_or_enemies
+        required_missions = { vn_tld_central_taifa }
+        provinces_to_highlight = {
+            area = teruel_area
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            OR = {
+                any_ally = {
+                    capital_scope = {
+                        region = aragon_region
+                    }
+                    has_opinion = {
+                        who = ROOT
+                        value = 150
+                    }
+                }
+                any_subject_country = {
+                    capital_scope = {
+                        region = aragon_region
+                    }
+                    has_opinion = {
+                        who = ROOT
+                        value = 150
+                    }
+                }
+            }
+            teruel_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = tld_aragonese_diplomacy_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_tld_conquer_valencia = {
+        position = 4
+        icon = mission_raid_on_valencia
+        required_missions = { vn_tld_aragonese_diplomacy }
+        provinces_to_highlight = {
+            OR = {
+                area = valencia_area
+                area = denia_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            valencia_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            denia_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            valencia_area = {
+                add_local_autonomy = -10
+                add_nationalism = -5
+            }
+            denia_area = {
+                add_local_autonomy = -10
+                add_nationalism = -5
+            }
+        }
+    }
+    vn_tld_conquer_andalusia = {
+        position = 5
+        icon = mission_cannons_firing
+        required_missions = { vn_tld_conquer_valencia vn_tld_conquer_sevilla }
+        provinces_to_highlight = {
+            region = andalusia_region
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            andalusia_region = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_adm_power = 50
+            add_dip_power = 50
+            add_mil_power = 50
+            andalusia_region = {
+                add_local_autonomy = -10
+                add_nationalism = -5
+            }
+        }
+    }
+}
 
-# #Valencia / Tortosa / Dania
-# vn_vlk_missions_slot_2 = {
-#     slot = 2
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = VLK
-#             AND = {
-#                 tag = ADU
-#                 was_tag = VLK
-#             }
-#             tag = TTO
-#             AND = {
-#                 tag = ADU
-#                 was_tag = TTO
-#             }
-#             tag = DNA
-#             AND = {
-#                 tag = ADU
-#                 was_tag = DNA
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+#Valencia / Tortosa / Dania
+vn_vlk_missions_slot_2 = {
+    slot = 2
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = VLK
+            AND = {
+                tag = ADU
+                was_tag = VLK
+            }
+            tag = TTO
+            AND = {
+                tag = ADU
+                was_tag = TTO
+            }
+            tag = DNA
+            AND = {
+                tag = ADU
+                was_tag = DNA
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_vlk_import_slaves = {
-#         position = 2
-#         icon = mission_cope_with_refugees
-#         required_missions = { vn_taifa_gather_support }
-#         trigger = {
-#             if = {
-#                 limit = { has_dlc = "Cradle of Civilization" }
-#                 army_professionalism = 0.15
-#             }
-#             else = {
-#                 army_tradition = 15
-#             }
-#             any_country = {
-#                 culture_group = south_slavic
-#                 has_opinion = {
-#                     who = ROOT
-#                     value = 50
-#                 }
-#             }
-#         }
-#         effect = {
-#             random_owned_province = {
-#                 limit = {
-#                     NOT = { trade_goods = silver }
-#                     NOT = { trade_goods = slaves }
-#                 }
-#                 change_trade_goods = slaves
-#                 add_base_manpower = 2
-#             }
-#             add_country_modifier = {
-#                 name = vlk_import_slaves_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_vlk_import_slaves = {
+        position = 2
+        icon = mission_cope_with_refugees
+        required_missions = { vn_taifa_gather_support }
+        trigger = {
+            if = {
+                limit = { has_dlc = "Cradle of Civilization" }
+                army_professionalism = 0.15
+            }
+            else = {
+                army_tradition = 15
+            }
+            any_country = {
+                culture_group = south_slavic
+                has_opinion = {
+                    who = ROOT
+                    value = 50
+                }
+            }
+        }
+        effect = {
+            random_owned_province = {
+                limit = {
+                    NOT = { trade_goods = silver }
+                    NOT = { trade_goods = slaves }
+                }
+                change_trade_goods = slaves
+                add_base_manpower = 2
+            }
+            add_country_modifier = {
+                name = vlk_import_slaves_mission
+                duration = 9125
+            }
+        }
+    }
+}
 
-# vn_vlk_missions_slot_4 = {
-#     slot = 4
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = VLK
-#             AND = {
-#                 tag = ADU
-#                 was_tag = VLK
-#             }
-#             tag = TTO
-#             AND = {
-#                 tag = ADU
-#                 was_tag = TTO
-#             }
-#             tag = DNA
-#             AND = {
-#                 tag = ADU
-#                 was_tag = DNA
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_vlk_missions_slot_4 = {
+    slot = 4
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = VLK
+            AND = {
+                tag = ADU
+                was_tag = VLK
+            }
+            tag = TTO
+            AND = {
+                tag = ADU
+                was_tag = TTO
+            }
+            tag = DNA
+            AND = {
+                tag = ADU
+                was_tag = DNA
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_vlk_unite_the_dynasty = {
-#         position = 2
-#         icon = mission_have_two_subjects
-#         required_missions = { vn_taifa_promote_mozarabs vn_taifa_summon_a_council_specific }
-#         provinces_to_highlight = {
-#             OR = {
-#                 is_core = VLK
-#                 is_core = TTO
-#                 is_core = DNA
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             custom_trigger_tooltip = {
-#                 tooltip = vn_vlk_unite_the_dynasty.tt
-#                 NOT = {
-#                     any_country = {
-#                         NOT = { tag = ROOT }
-#                         any_owned_province = {
-#                             OR = {
-#                                 is_core = VLK
-#                                 is_core = TTO
-#                                 is_core = DNA
-#                             }
-#                         }
-#                     }
-#                 }
-#             }
-#         }
-#         effect = {
-#             country_event = { id = vn_missions.13 }
-#             add_country_modifier = {
-#                 name = vlk_unite_the_dynasty_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_vlk_conquer_almeria = {
-#         position = 3
-#         icon = mission_cannons_firing
-#         required_missions = { vn_vlk_unite_the_dynasty }
-#         provinces_to_highlight = {
-#             area = almeria_area
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             almeria_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             almeria_area = {
-#                 add_local_autonomy = -10
-#                 add_nationalism = -5
-#             }
-#         }
-#     }
-#     vn_vlk_conquer_granada = {
-#         position = 4
-#         icon = mission_protect_albania
-#         required_missions = { vn_vlk_conquer_almeria vn_taifa_conquer_cordoba }
-#         provinces_to_highlight = {
-#             area = almeria_area
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             almeria_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = sev_conquer_granada_mission
-#                 duration = 18250
-#             }
-#         }
-#     }
-#     vn_vlk_conquer_sevilla = {
-#         position = 5
-#         icon = mission_el_badi_palace
-#         required_missions = { vn_vlk_conquer_granada }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = sevilla_area
-#                 area = huelva_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             sevilla_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             huelva_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_prestige_or_monarch_power = { amount = 15 } 
-#             add_army_professionalism = 0.025
-#             add_country_modifier = {
-#                 name = tld_conquer_sevilla_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_vlk_unite_the_dynasty = {
+        position = 2
+        icon = mission_have_two_subjects
+        required_missions = { vn_taifa_promote_mozarabs vn_taifa_summon_a_council_specific }
+        provinces_to_highlight = {
+            OR = {
+                is_core = VLK
+                is_core = TTO
+                is_core = DNA
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            custom_trigger_tooltip = {
+                tooltip = vn_vlk_unite_the_dynasty.tt
+                NOT = {
+                    any_country = {
+                        NOT = { tag = ROOT }
+                        any_owned_province = {
+                            OR = {
+                                is_core = VLK
+                                is_core = TTO
+                                is_core = DNA
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        effect = {
+            country_event = { id = vn_missions.13 }
+            add_country_modifier = {
+                name = vlk_unite_the_dynasty_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_vlk_conquer_almeria = {
+        position = 3
+        icon = mission_cannons_firing
+        required_missions = { vn_vlk_unite_the_dynasty }
+        provinces_to_highlight = {
+            area = almeria_area
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            almeria_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            almeria_area = {
+                add_local_autonomy = -10
+                add_nationalism = -5
+            }
+        }
+    }
+    vn_vlk_conquer_granada = {
+        position = 4
+        icon = mission_protect_albania
+        required_missions = { vn_vlk_conquer_almeria vn_taifa_conquer_cordoba }
+        provinces_to_highlight = {
+            area = almeria_area
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            almeria_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = sev_conquer_granada_mission
+                duration = 18250
+            }
+        }
+    }
+    vn_vlk_conquer_sevilla = {
+        position = 5
+        icon = mission_el_badi_palace
+        required_missions = { vn_vlk_conquer_granada }
+        provinces_to_highlight = {
+            OR = {
+                area = sevilla_area
+                area = huelva_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            sevilla_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            huelva_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_prestige_or_monarch_power = { amount = 15 } 
+            add_army_professionalism = 0.025
+            add_country_modifier = {
+                name = tld_conquer_sevilla_mission
+                duration = 9125
+            }
+        }
+    }
+}
 
-# vn_vlk_missions_slot_5 = {
-#     slot = 5
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = VLK
-#             AND = {
-#                 tag = ADU
-#                 was_tag = VLK
-#             }
-#             tag = TTO
-#             AND = {
-#                 tag = ADU
-#                 was_tag = TTO
-#             }
-#             tag = DNA
-#             AND = {
-#                 tag = ADU
-#                 was_tag = DNA
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_vlk_missions_slot_5 = {
+    slot = 5
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = VLK
+            AND = {
+                tag = ADU
+                was_tag = VLK
+            }
+            tag = TTO
+            AND = {
+                tag = ADU
+                was_tag = TTO
+            }
+            tag = DNA
+            AND = {
+                tag = ADU
+                was_tag = DNA
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_vlk_invasion_fleet = {
-#         position = 2
-#         icon = mission_launch_a_flagship
-#         required_missions = { vn_taifa_summon_a_council_specific }
-#         trigger = {
-#             num_of_galley = 10
-#             navy_size_percentage = 0.75
-#             num_of_admirals = 1
-#         }
-#         effect = {
-#             random_owned_province = {
-#                 limit = {
-#                     has_port = yes
-#                     has_shipyard_building_trigger = no
-#                 }
-#                 add_building = shipyard
-#             }
-#             add_country_modifier = {
-#                 name = vlk_invasion_fleet_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_vlk_conquer_balears = {
-#         position = 3
-#         icon = mission_invade_island
-#         required_missions = { vn_vlk_invasion_fleet }
-#         provinces_to_highlight = {
-#             area = balears_area
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             balears_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_years_of_income = 1
-#             sassari_area = {
-#                 limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
-#             }
-#             gallura_area = {
-#                 limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
-#             }
-#             arborea_area = {
-#                 limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
-#             }
-#             add_country_modifier = {
-#                 name = vlk_conquer_balears_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_vlk_conquer_sardinia = {
-#         position = 4
-#         icon = mission_look_west
-#         required_missions = { vn_vlk_conquer_balears }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = sassari_area
-#                 area = gallura_area
-#                 area = arborea_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             sassari_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             gallura_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             arborea_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_years_of_income = 2
-#             add_navy_tradition = 15
-#             pisa_area = {
-#                 limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
-#             }
-#         }
-#     }
-#     vn_vlk_conquer_pisa = {
-#         position = 5
-#         icon = mission_dominate_genoa
-#         required_missions = { vn_vlk_conquer_sardinia }
-#         provinces_to_highlight = {
-#             area = pisa_area
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             pisa_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             115 = {
-#                 add_base_tax = -2
-#                 add_base_production = -2
-#                 add_base_manpower = -2
-#                 remove_loot = {
-#                     who = ROOT
-#                     amount = 100
-#                 }
-#             }
-#             capital_scope = {
-#                 add_base_tax = 1
-#                 add_base_production = 1
-#                 add_base_manpower = 1
-#             }
-#             add_country_modifier = {
-#                 name = vlk_conquer_pisa_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_vlk_invasion_fleet = {
+        position = 2
+        icon = mission_launch_a_flagship
+        required_missions = { vn_taifa_summon_a_council_specific }
+        trigger = {
+            num_of_galley = 10
+            navy_size_percentage = 0.75
+            num_of_admirals = 1
+        }
+        effect = {
+            random_owned_province = {
+                limit = {
+                    has_port = yes
+                    has_shipyard_building_trigger = no
+                }
+                add_building = shipyard
+            }
+            add_country_modifier = {
+                name = vlk_invasion_fleet_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_vlk_conquer_balears = {
+        position = 3
+        icon = mission_invade_island
+        required_missions = { vn_vlk_invasion_fleet }
+        provinces_to_highlight = {
+            area = balears_area
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            balears_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_years_of_income = 1
+            sassari_area = {
+                limit = {
+                    NOT = { is_core = ROOT }
+                    NOT = { is_permanent_claim = ROOT }
+                }
+                add_permanent_claim = ROOT
+            }
+            gallura_area = {
+                limit = {
+                    NOT = { is_core = ROOT }
+                    NOT = { is_permanent_claim = ROOT }
+                }
+                add_permanent_claim = ROOT
+            }
+            arborea_area = {
+                limit = {
+                    NOT = { is_core = ROOT }
+                    NOT = { is_permanent_claim = ROOT }
+                }
+                add_permanent_claim = ROOT
+            }
+            add_country_modifier = {
+                name = vlk_conquer_balears_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_vlk_conquer_sardinia = {
+        position = 4
+        icon = mission_look_west
+        required_missions = { vn_vlk_conquer_balears }
+        provinces_to_highlight = {
+            OR = {
+                area = sassari_area
+                area = gallura_area
+                area = arborea_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            sassari_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            gallura_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            arborea_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_years_of_income = 2
+            add_navy_tradition = 15
+            pisa_area = {
+                limit = {
+                    NOT = { is_core = ROOT }
+                    NOT = { is_permanent_claim = ROOT }
+                }
+                add_permanent_claim = ROOT
+            }
+        }
+    }
+    vn_vlk_conquer_pisa = {
+        position = 5
+        icon = mission_dominate_genoa
+        required_missions = { vn_vlk_conquer_sardinia }
+        provinces_to_highlight = {
+            area = pisa_area
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            pisa_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            115 = {
+                add_base_tax = -2
+                add_base_production = -2
+                add_base_manpower = -2
+                remove_loot = {
+                    who = ROOT
+                    amount = 100
+                }
+            }
+            capital_scope = {
+                add_base_tax = 1
+                add_base_production = 1
+                add_base_manpower = 1
+            }
+            add_country_modifier = {
+                name = vlk_conquer_pisa_mission
+                duration = 9125
+            }
+        }
+    }
+}
 
-# #Malaga / Algeciras
-# vn_mgg_missions_slot_2 = {
-#     slot = 2
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = MGG
-#             AND = {
-#                 tag = ADU
-#                 was_tag = MGG
-#             }
-#             tag = AGC
-#             AND = {
-#                 tag = ADU
-#                 was_tag = AGC
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+#Malaga / Algeciras
+vn_mgg_missions_slot_2 = {
+    slot = 2
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = MGG
+            AND = {
+                tag = ADU
+                was_tag = MGG
+            }
+            tag = AGC
+            AND = {
+                tag = ADU
+                was_tag = AGC
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_mgg_shia_alliances = {
-#         position = 2
-#         icon = mission_patronize_sufi_scholars
-#         required_missions = { vn_taifa_gather_support }
-#         trigger = {
-#             religion = shiite
-#             calc_true_if = {
-#                 amount = 2
-#                 all_ally = {
-#                     religion = shiite
-#                     has_opinion = {
-#                         who = ROOT
-#                         value = 150
-#                     }
-#                 }
-#                 desc = vn_mgg_shia_alliances.tt
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = mgg_shia_alliances_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_mgg_shia_alliances = {
+        position = 2
+        icon = mission_patronize_sufi_scholars
+        required_missions = { vn_taifa_gather_support }
+        trigger = {
+            religion = shiite
+            calc_true_if = {
+                amount = 2
+                all_ally = {
+                    religion = shiite
+                    has_opinion = {
+                        who = ROOT
+                        value = 150
+                    }
+                }
+                desc = vn_mgg_shia_alliances.tt
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = mgg_shia_alliances_mission
+                duration = 9125
+            }
+        }
+    }
+}
 
-# vn_mgg_missions_slot_4 = {
-#     slot = 4
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = MGG
-#             AND = {
-#                 tag = ADU
-#                 was_tag = MGG
-#             }
-#             tag = AGC
-#             AND = {
-#                 tag = ADU
-#                 was_tag = AGC
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_mgg_missions_slot_4 = {
+    slot = 4
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = MGG
+            AND = {
+                tag = ADU
+                was_tag = MGG
+            }
+            tag = AGC
+            AND = {
+                tag = ADU
+                was_tag = AGC
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_mgg_religious_unity = {
-#         position = 2
-#         icon = mission_mosque
-#         required_missions = { vn_taifa_promote_mozarabs }
-#         provinces_to_highlight = {
-#             owned_by = ROOT
-#             has_owner_religion = no
-#         }
-#         trigger = {
-#             religion = shiite
-#             religious_unity = 0.75
-#             num_of_owned_provinces_with = {
-#                 value = 12
-#                 has_owner_religion = yes
-#             }
-#         }
-#         effect = {
-#             add_religious_influence_effect_small = yes
-#             add_country_modifier = {
-#                 name = mgg_religious_unity_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_mgg_conquer_sevilla = {
-#         icon = mission_accomodate_the_rajputs
-#         required_missions = { vn_taifa_continue_the_fitna vn_mgg_unite_the_dynasty }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = huelva_area
-#                 area = sevilla_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             huelva_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             sevilla_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = tld_conquer_sevilla_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_mgg_conquer_badajoz = {
-#         icon = mission_upper_burma_campaign
-#         required_missions = { vn_mgg_conquer_sevilla }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = badajoz_area
-#                 area = alentejo_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             badajoz_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             alentejo_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = sev_conquer_badajoz_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_mgg_conquer_alentejo = {
-#         icon = mission_secure_the_malabar_coast
-#         required_missions = { vn_mgg_conquer_badajoz }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = alentejo_area
-#                 area = algarve_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             alentejo_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             algarve_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_prestige_or_monarch_power = { amount = 10 } 
-#             add_mil_power = 100
-#         }
-#     }
-# }
+    vn_mgg_religious_unity = {
+        position = 2
+        icon = mission_mosque
+        required_missions = { vn_taifa_promote_mozarabs }
+        provinces_to_highlight = {
+            owned_by = ROOT
+            has_owner_religion = no
+        }
+        trigger = {
+            religion = shiite
+            religious_unity = 0.75
+            num_of_owned_provinces_with = {
+                value = 12
+                has_owner_religion = yes
+            }
+        }
+        effect = {
+            add_religious_influence_effect_small = yes
+            add_country_modifier = {
+                name = mgg_religious_unity_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_mgg_conquer_sevilla = {
+        icon = mission_accomodate_the_rajputs
+        required_missions = { vn_taifa_continue_the_fitna vn_mgg_unite_the_dynasty }
+        provinces_to_highlight = {
+            OR = {
+                area = huelva_area
+                area = sevilla_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            huelva_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            sevilla_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = tld_conquer_sevilla_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_mgg_conquer_badajoz = {
+        icon = mission_upper_burma_campaign
+        required_missions = { vn_mgg_conquer_sevilla }
+        provinces_to_highlight = {
+            OR = {
+                area = badajoz_area
+                area = alentejo_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            badajoz_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            alentejo_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = sev_conquer_badajoz_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_mgg_conquer_alentejo = {
+        icon = mission_secure_the_malabar_coast
+        required_missions = { vn_mgg_conquer_badajoz }
+        provinces_to_highlight = {
+            OR = {
+                area = alentejo_area
+                area = algarve_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            alentejo_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            algarve_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_prestige_or_monarch_power = { amount = 10 } 
+            add_mil_power = 100
+        }
+    }
+}
 
-# vn_mgg_missions_slot_5 = {
-#     slot = 5
-#     generic = no
-#     ai = yes
-#     potential = {
-# 		OR = {
-#             tag = MGG
-#             AND = {
-#                 tag = ADU
-#                 was_tag = MGG
-#             }
-#             tag = AGC
-#             AND = {
-#                 tag = ADU
-#                 was_tag = AGC
-#             }
-#         }
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+vn_mgg_missions_slot_5 = {
+    slot = 5
+    generic = no
+    ai = yes
+    potential = {
+		OR = {
+            tag = MGG
+            AND = {
+                tag = ADU
+                was_tag = MGG
+            }
+            tag = AGC
+            AND = {
+                tag = ADU
+                was_tag = AGC
+            }
+        }
+        NOT = { map_setup = map_setup_random }
+    }
+    has_country_shield = yes
 
-#     vn_mgg_unite_the_dynasty = {
-#         position = 2
-#         icon = mission_have_two_subjects
-#         required_missions = { vn_taifa_summon_a_council_specific }
-#         provinces_to_highlight = {
-#             OR = {
-#                 is_core = MGG
-#                 is_core = AGC
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             custom_trigger_tooltip = {
-#                 tooltip = vn_mgg_unite_the_dynasty.tt
-#                 NOT = {
-#                     any_country = {
-#                         NOT = { tag = ROOT }
-#                         any_owned_province = {
-#                             OR = {
-#                                 is_core = MGG
-#                                 is_core = AGC
-#                             }
-#                         }
-#                     }
-#                 }
-#             }
-#         }
-#         effect = {
-#             add_legitimacy = 20
-#             add_country_modifier = {
-#                 name = vlk_unite_the_dynasty_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-#     vn_mgg_conquer_granada = {
-#         icon = mission_unite_rajputana
-#         required_missions = { vn_mgg_unite_the_dynasty }
-#         provinces_to_highlight = {
-#             area = granada_area
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             granada_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_country_modifier = {
-#                 name = sev_conquer_granada_mission
-#                 duration = 18250
-#             }
-#         }
-#     }
-#     vn_mgg_conquer_almeria = {
-#         icon = mission_cannons_firing
-#         required_missions = { vn_mgg_conquer_granada }
-#         provinces_to_highlight = {
-#             area = almeria_area
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             almeria_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_dip_power = 25
-#             almeria_area = {
-#                 add_local_autonomy = -10
-#                 add_nationalism = -5
-#             }
-#         }
-#     }
-#     vn_mgg_conquer_murica = {
-#         icon = mission_unite_coromandel
-#         required_missions = { vn_mgg_conquer_almeria }
-#         provinces_to_highlight = {
-#             OR = {
-#                 area = murcia_area
-#                 area = denia_area
-#             }
-#             NOT = { country_or_non_sovereign_subject_holds = ROOT }
-#         }
-#         trigger = {
-#             murcia_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#             denia_area = {
-#                 type = all
-#                 country_or_non_sovereign_subject_holds = ROOT
-#             }
-#         }
-#         effect = {
-#             add_years_of_income = 0.25
-#             add_country_modifier = {
-#                 name = crd_conquer_murica_mission
-#                 duration = 9125
-#             }
-#         }
-#     }
-# }
+    vn_mgg_unite_the_dynasty = {
+        position = 2
+        icon = mission_have_two_subjects
+        required_missions = { vn_taifa_summon_a_council_specific }
+        provinces_to_highlight = {
+            OR = {
+                is_core = MGG
+                is_core = AGC
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            custom_trigger_tooltip = {
+                tooltip = vn_mgg_unite_the_dynasty.tt
+                NOT = {
+                    any_country = {
+                        NOT = { tag = ROOT }
+                        any_owned_province = {
+                            OR = {
+                                is_core = MGG
+                                is_core = AGC
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        effect = {
+            add_legitimacy = 20
+            add_country_modifier = {
+                name = vlk_unite_the_dynasty_mission
+                duration = 9125
+            }
+        }
+    }
+    vn_mgg_conquer_granada = {
+        icon = mission_unite_rajputana
+        required_missions = { vn_mgg_unite_the_dynasty }
+        provinces_to_highlight = {
+            area = granada_area
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            granada_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_country_modifier = {
+                name = sev_conquer_granada_mission
+                duration = 18250
+            }
+        }
+    }
+    vn_mgg_conquer_almeria = {
+        icon = mission_cannons_firing
+        required_missions = { vn_mgg_conquer_granada }
+        provinces_to_highlight = {
+            area = almeria_area
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            almeria_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_dip_power = 25
+            almeria_area = {
+                add_local_autonomy = -10
+                add_nationalism = -5
+            }
+        }
+    }
+    vn_mgg_conquer_murica = {
+        icon = mission_unite_coromandel
+        required_missions = { vn_mgg_conquer_almeria }
+        provinces_to_highlight = {
+            OR = {
+                area = murcia_area
+                area = denia_area
+            }
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        }
+        trigger = {
+            murcia_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+            denia_area = {
+                type = all
+                country_or_non_sovereign_subject_holds = ROOT
+            }
+        }
+        effect = {
+            add_years_of_income = 0.25
+            add_country_modifier = {
+                name = crd_conquer_murica_mission
+                duration = 9125
+            }
+        }
+    }
+}
