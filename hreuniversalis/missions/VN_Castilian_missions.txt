@@ -222,6 +222,13 @@
 # 					}
 # 					add_permanent_claim = ROOT
 # 				}
+# 				basque_region = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
 # 			}
 # 			else_if = {
 # 				limit = {
@@ -235,6 +242,12 @@
 # 					add_permanent_claim = ROOT
 # 				}
 # 				asturian_region = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 				}
+# 				basque_region = {
 # 					limit = {
 # 						NOT = { is_core = ROOT }
 # 						NOT = { is_permanent_claim = ROOT }
@@ -1114,13 +1127,12 @@
 # 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 # 		}
 # 		trigger = {
-# 			ciudad_area = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
-# 			}
-# 			cuenca_area = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 12
+# 				OR = {
+# 					area = cuenca_area
+# 					area = ciudad_area
+# 				}
 # 			}
 # 		}
 # 		effect = {
