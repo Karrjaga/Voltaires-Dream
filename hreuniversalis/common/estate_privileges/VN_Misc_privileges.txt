@@ -684,7 +684,7 @@ estate_church_moorish_tolerance = {
 	penalties = {
 	}
 	ai_will_do = {
-		factor = 10
+		factor = 100
 		modifier = {
 			factor = 0.1
 			is_absolutism_active = yes
