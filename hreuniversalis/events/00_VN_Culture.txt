@@ -649,7 +649,7 @@ province_event = {
 
 	option = {
 		name = "vn_cultures.8.a"
-		change_religion = ROOT
+		change_religion = owner
 		if = {
 			limit = { area = balears_area }
 			change_culture = balearic
