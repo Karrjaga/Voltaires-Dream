@@ -498,6 +498,10 @@ estate_dhimmi_guaranteed_autonomy = {
 				has_idea_group = religious_ideas
 			}
 		}
+		modifier = {
+			factor = 0
+			has_country_modifier = almoravid_invasion
+		}
 	}
 }
 
