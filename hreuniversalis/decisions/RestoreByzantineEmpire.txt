@@ -88,7 +88,11 @@ country_decisions = {
 			give_area_claims = { group = anatolia_superregion tag = BYZ }
 			give_area_claims = { group = albania_region tag = BYZ }
 			give_area_claims = { group = bulgaria_region tag = BYZ }
-			give_area_claims = { group = bulgariasouth_region tag = BYZ }
+			give_area_claims = { group = hellas_region tag = BYZ }
+			give_area_claims = { group = furthergreece_region tag = BYZ }
+			give_area_claims = { group = macedonia_region tag = BYZ }
+			give_area_claims = { group = thrace_region tag = BYZ }
+			give_area_claims = { group = greekislands_region tag = BYZ }
 			random_owned_province = {
 				limit = { culture = greek }
 				add_base_tax = 1
