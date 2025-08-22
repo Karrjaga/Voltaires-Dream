@@ -80,6 +80,18 @@ add_core = ONU
 	add_core = EAH
 }
 1807.7.9 = { remove_core = PLC }
+1809.10.9 = {
+	remove_core = EAH
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+}
+1815.6.9 = {
+	remove_core = RUS
+	owner = EAH
+	controller = EAH
+	add_core = EAH
+}
 1850.1.1 = { religion = orthodox }
 
 discovered_by = muslim
