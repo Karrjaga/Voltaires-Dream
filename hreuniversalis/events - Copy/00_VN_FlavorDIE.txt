@@ -1,0 +1,136 @@
+namespace = vn_flavor_die
+
+#Coup of Kaiserswerth
+country_event = {
+	id = vn_flavor_die.1
+	title = "vn_flavor_die.1.t"
+	desc = "vn_flavor_die.1.d"
+	picture = SPY_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	major_trigger = {
+		capital_scope = {
+			continent = europe
+		}
+	}
+
+	trigger = {
+		tag = DIE
+		NOT = { started_in = 1062.4.1 }
+		is_emperor = yes
+		has_heir_flag = heinrich_iv_flag
+		NOT = { heir_age = 15 }
+		any_elector = {
+			NOT = { tag = ROOT }
+			NOT = { war_with = ROOT }
+			is_subject = no
+			ai = yes
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 30
+		modifier = {
+			factor = 0.1
+			OR = {
+				has_regency = yes
+				has_consort_regency = yes
+			}
+		}
+		modifier = {
+			factor = 0.5
+			any_rival_country = {
+				is_elector = yes
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					KOL = {
+						is_elector = yes
+						NOT = { war_with = ROOT }
+						is_subject = no
+						ai = yes
+					}
+				}
+				KOL = {
+					save_event_target_as = heinrich_iv_kidnapper
+					capital_scope = {
+						save_event_target_as = heinrich_iv_kidnapper_capital
+					}
+				}
+			}
+			else = {
+				random_elector = {
+					limit = {
+						NOT = { tag = ROOT }
+						NOT = { war_with = ROOT }
+						is_subject = no
+						ai = yes
+					}
+					save_event_target_as = heinrich_iv_kidnapper
+					capital_scope = {
+						save_event_target_as = heinrich_iv_kidnapper_capital
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = vn_flavor_die.1.a
+		ai_chance = {
+			factor = 80
+		}
+		add_imperial_influence = -5
+		add_heir_claim = -50
+		add_country_modifier = {
+			name = confiscated_imperial_regalia
+			duration = 3650
+		}
+	}
+
+	option = {
+		name = vn_flavor_die.1.b
+		goto = heinrich_iv_kidnapper_capital
+		ai_chance = {
+			factor = 15
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				NOT = { manpower_percentage = 0.5 }
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					army_strength = {
+						who = event_target:heinrich_iv_kidnapper
+						value = 1
+					}
+				}
+			}
+		}
+		declare_war_with_cb = {
+			casus_belli = cb_insult
+			who = event_target:heinrich_iv_kidnapper
+		}
+	}
+
+	option = {
+		name = vn_flavor_die.1.c
+		ai_chance = {
+			factor = 5
+		}
+		remove_heir = {}
+		add_stability = -1
+		add_imperial_influence = -20
+	}
+}

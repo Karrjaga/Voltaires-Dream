@@ -1,0 +1,222 @@
+namespace = english_anarchy
+
+# start
+country_event = {
+	id = english_anarchy.1
+	title = "english_anarchy.1.t"
+	desc = "english_anarchy.1.d"
+	picture = CIVIL_WAR_eventPicture
+	goto = capital
+	
+	major = yes
+	major_trigger = {
+		capital_scope = {
+			OR = {
+				superregion = french_superregion
+				superregion = british_isles_superregion
+				superregion = irish_superregion
+				superregion = burgundian_superregion
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			add_stability  = -3
+			set_country_flag = has_english_anarchy
+		}
+	}
+	
+	option = {
+		name = "english_anarchy.1.a"
+		define_ruler = {
+			name = "Stephen"
+			dynasty = "Thibalding"
+			culture = orleanais
+			adm = 2
+			dip = 1
+			mil = 1
+			min_age = 40
+			max_age = 50
+			claim = 50
+		}
+		capital_scope = {
+			spawn_rebels = {
+				size = 4
+				type = pretender_rebels
+				leader = "Matilda"
+				leader_dynasty = "Rolloning"
+				female = yes
+				culture = english
+			}
+		}
+		hidden_effect = {
+			define_heir = {
+				name = "Eustace"
+				dynasty = "Thibalding"
+				culture = orleanais
+				claim = 25
+				adm = 0
+				dip = 0
+				mil = 0
+				hide_skills = yes
+				block_disinherit = yes
+				age = 10
+			}
+			add_ruler_personality = craven_personality
+			add_ruler_personality = greedy_personality
+			add_heir_personality = sinner_personality
+		}
+		set_country_flag = we_support_stephen
+	}
+
+	option = {
+		name = "english_anarchy.1.b"
+		set_country_flag = we_support_matilda
+		define_ruler = {
+			name = "Matilda"
+			dynasty = ROOT
+			female = yes
+			adm = 1
+			dip = 1
+			mil = 1
+			min_age = 25
+			max_age = 35
+			claim = 50
+		}
+		capital_scope = {
+			spawn_rebels = {
+				size = 4
+				type = pretender_rebels
+				leader = "Stephen"
+				leader_dynasty = "Thibalding"
+				culture = orleanais
+			}
+		}
+	}
+}
+
+# End of Civil War
+country_event = {
+	id = english_anarchy.100
+	title = "english_anarchy.100.t"
+	desc = "english_anarchy.100.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	immediate = {
+		on_non_estate_disaster_end = yes
+		clr_country_flag = has_english_anarchy
+		clr_country_flag = we_support_matilda
+		clr_country_flag = we_support_stephen
+	}
+
+	option = {
+		name = "english_anarchy.100.a"
+		add_legitimacy = 10
+		add_stability = 1
+		set_country_flag = had_english_anarchy
+	}
+}
+
+#Treaty of Wallingford
+country_event = {
+	id = english_anarchy.2
+	title = "english_anarchy.2.t"
+	desc = "english_anarchy.2.d"
+	picture = CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		had_country_flag = {
+			flag = has_english_anarchy
+			days = 3650
+		}
+	}
+
+	option = {
+		name = "english_anarchy.2.a"
+		ai_chance = {
+			factor = 90
+		}
+		define_heir = {
+			name = "Henry"
+			dynasty = "d'Anjou"
+			culture = angevin_culture
+			adm = 4
+			dip = 5
+			mil = 3
+			claim = 95
+			age = 15
+			block_disinherit = yes
+		}
+		hidden_effect = {
+			add_heir_personality = silver_tongue_personality
+		}
+	}
+	
+	option = {
+		name = "english_anarchy.2.b"
+		add_legitimacy = 10
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+
+#Rebels spawn
+country_event = {
+	id = english_anarchy.3
+	title = "english_anarchy.3.t"
+	desc = "english_anarchy.3.d"
+	picture = CIVIL_WAR_eventPicture
+	goto = eng_pretender_prov
+	
+	is_triggered_only = yes
+
+	trigger = {
+		any_owned_province = {
+			controlled_by = ROOT
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { controlled_by = ROOT }
+				save_event_target_as = eng_pretender_prov
+			}
+		}
+	}
+
+	option = {
+		name = "english_anarchy.3.a"
+		if = {
+			limit = { has_country_flag = we_support_matilda }
+			event_target:eng_pretender_prov = {
+				spawn_rebels = {
+					size = 3
+					type = pretender_rebels
+					leader = "Stephen"
+					leader_dynasty = "Thibalding"
+					culture = orleanais
+				}
+			}
+		}
+		else = {
+			event_target:eng_pretender_prov = {
+				spawn_rebels = {
+					size = 3
+					type = pretender_rebels
+					leader = "Matilda"
+					leader_dynasty = "Rolloning"
+					female = yes
+					culture = english
+				}
+			}
+		}
+	}
+}

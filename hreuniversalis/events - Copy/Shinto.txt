@@ -1,0 +1,2483 @@
+##############################
+# Nestorian Communion Events #
+##############################
+
+namespace = shinto_events
+
+#Chaldean Schism Chain
+country_event = {
+	id = shinto_events.1
+	title = "shinto_events.1.t"
+	desc = "shinto_events.1.d"
+	picture = RELIGIOUS_WARS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.1.a"
+		custom_tooltip = shinto_incident_wokou_start.tt
+		custom_tooltip = shinto_events.isolation.tt
+		add_legitimacy = -10
+		add_incident_variable_value = {
+			incident = incident_wokou
+			value = 2
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.2
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.1.b"
+		custom_tooltip = shinto_incident_wokou_start.tt
+		custom_tooltip = shinto_events.much.isolation.tt
+		add_prestige = -10
+		add_incident_variable_value = {
+			incident = incident_wokou
+			value = 3
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.2
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.2
+	title = "shinto_events.2.t"
+	desc = "shinto_events.2.d"
+	picture = RELIGIOUS_WARS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.2.a"
+		custom_tooltip = shinto_events.isolation.tt
+		add_prestige = -5
+		add_incident_variable_value = {
+			incident = incident_wokou
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.3
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.2.b"
+		custom_tooltip = shinto_events.open.tt
+		add_country_modifier = {
+			name = "nest_promoted_rome"
+			duration = 3650
+		}
+		add_prestige = 10
+		add_incident_variable_value = {
+			incident = incident_wokou
+			value = -1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.3
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.2.c"
+		custom_tooltip = shinto_events.much.isolation.tt
+		add_country_modifier = {
+			name = "nest_denounced_rome"
+			duration = 3650
+		}
+		add_incident_variable_value = {
+			incident = incident_wokou
+			value = 3
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.3
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.3
+	title = "shinto_events.3.t"
+	desc = "shinto_events.3.d"
+	picture = RELIGIOUS_WARS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.3.a"
+		custom_tooltip = shinto_events.open.tt
+		add_country_modifier = {
+			name = "missionary_zeal"
+			duration = 3650
+		}
+		add_stability = -1
+		add_incident_variable_value = {
+			incident = incident_wokou
+			value = -1
+		}
+		set_country_flag = end_of_wokou_chain
+	}
+	
+	option = {
+		name = "shinto_events.3.b"
+		custom_tooltip = shinto_events.isolation.tt
+		add_country_modifier = {
+			name = "nest_emigrants"
+			duration = 3650
+		}
+		add_incident_variable_value = {
+			incident = incident_wokou
+			value = 1
+		}
+		set_country_flag = end_of_wokou_chain
+	}
+	
+	option = {
+		name = "shinto_events.3.c"
+		custom_tooltip = shinto_events.much.isolation.tt
+		add_army_tradition = 10
+		random_owned_province = {
+			limit = {
+				controlled_by = owner
+				religion = nestorian
+			}
+			spawn_rebels = {
+				type = heretic_rebels
+				size = 1
+			}
+		}
+		add_incident_variable_value = {
+			incident = incident_wokou
+			value = 3
+		}
+		set_country_flag = end_of_wokou_chain
+	}
+}
+
+#Chaldean - Outcomes
+
+country_event = {
+	id = shinto_events.4
+	title = "shinto_events.4.t"
+	desc = "shinto_events.4.d"
+	picture = COPTIC_BISHOP_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_wokou
+		has_country_flag = end_of_wokou_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_wokou
+				value = 3
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.4.a"
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = -1
+				end_incident = incident_wokou
+			}
+			else = {
+				add_isolationism = -1
+				end_incident = incident_wokou	
+			}
+		}
+		add_country_modifier = {
+			name = "nest_befriended_chaldeans"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.5
+	title = "shinto_events.5.t"
+	desc = "shinto_events.5.d"
+	picture = COPTIC_BISHOP_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_wokou
+		has_country_flag = end_of_wokou_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_wokou
+				value = 8
+			}
+		}
+		incident_variable_value = {
+			incident = incident_wokou
+			value = 3
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.5.a" #
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				end_incident = incident_wokou
+			}
+			else = {
+				end_incident = incident_wokou
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_two_patriarchs"
+			duration = 18250
+		}
+	}
+}
+
+country_event = { 
+	id = shinto_events.6
+	title = "shinto_events.6.t"
+	desc = "shinto_events.6.d"
+	picture = COPTIC_BISHOP_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_wokou
+		has_country_flag = end_of_wokou_chain
+		incident_variable_value = {
+			incident = incident_wokou
+			value = 8
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.6.a"
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = 1
+				end_incident = incident_wokou
+			}
+			else = {
+				add_isolationism = 1
+				end_incident = incident_wokou
+			}
+		}
+		add_country_modifier = {
+			name = "nest_unified_church"
+			duration = 18250
+		}
+	}
+}
+
+#Regionalism Chain
+
+country_event = {
+	id = shinto_events.7
+	title = "shinto_events.7.t"
+	desc = "shinto_events.7.d"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.7.a"
+		custom_tooltip = shinto_incident_urbanisation.tt
+		custom_tooltip = shinto_events.isolation.tt
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				NOT = { local_autonomy = 50 }
+			}
+			add_local_autonomy = 5
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				NOT = { local_autonomy = 50 }
+			}
+			add_local_autonomy = 5
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				NOT = { local_autonomy = 50 }
+			}
+			add_local_autonomy = 5
+		}
+		add_incident_variable_value = {
+			incident = incident_urbanization
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.8
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.7.b"
+		custom_tooltip = shinto_incident_urbanisation.tt
+		custom_tooltip = shinto_events.much.isolation.tt
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				NOT = { local_autonomy = 50 }
+			}
+			add_local_autonomy = 20
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				NOT = { local_autonomy = 50 }
+			}
+			add_local_autonomy = 20
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				NOT = { local_autonomy = 50 }
+			}
+			add_local_autonomy = 20
+		}
+		add_incident_variable_value = {
+			incident = incident_urbanization
+			value = 3
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.8
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.8
+	title = "shinto_events.8.t"
+	desc = "shinto_events.8.d"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.8.a"
+		custom_tooltip = shinto_events.isolation.tt
+		add_country_modifier = {
+			name = "nest_open_minded"
+			duration = 3650
+		}
+		add_incident_variable_value = {
+			incident = incident_urbanization
+			value = 2
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.9
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.8.b"
+		custom_tooltip = shinto_events.open.tt
+		add_prestige = 5
+		add_adm_power = 25
+		add_incident_variable_value = {
+			incident = incident_urbanization
+			value = -1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.9
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.9
+	title = "shinto_events.9.t"
+	desc = "shinto_events.9.d"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.9.a"
+		custom_tooltip = shinto_events.open.tt
+		add_country_modifier = {
+			name = "nest_roman_sympathies"
+			duration = 3650
+		}
+		add_dip_power = 75
+		add_incident_variable_value = {
+			incident = incident_urbanization
+			value = -1
+		}
+		set_country_flag = end_of_urbanisation_chain
+	}
+	
+	option = {
+		name = "shinto_events.9.b"
+		custom_tooltip = shinto_events.isolation.tt
+		add_years_of_income = -0.25
+		add_incident_variable_value = {
+			incident = incident_urbanization
+			value = 2
+		}
+		set_country_flag = end_of_urbanisation_chain
+	}
+	
+	option = {
+		name = "shinto_events.9.c"
+		custom_tooltip = shinto_events.much.isolation.tt
+		add_country_modifier = {
+			name = "nest_betrayed_faith"
+			duration = 3650
+		}
+		add_incident_variable_value = {
+			incident = incident_urbanization
+			value = 1
+		}
+		set_country_flag = end_of_urbanisation_chain
+	}
+}
+
+# Regionalism - Result
+country_event = {
+	id = shinto_events.10
+	title = "shinto_events.10.t"
+	desc = "shinto_events.10.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_urbanization
+		has_country_flag = end_of_urbanisation_chain
+		incident_variable_value = {
+			incident = incident_urbanization
+			value = 8
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.10.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = 1
+				end_incident = incident_urbanization
+			}
+			else = {
+				add_isolationism = 1
+				end_incident = incident_urbanization
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_nestorian_identity"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.11
+	title = "shinto_events.11.t"
+	desc = "shinto_events.11.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_urbanization
+		has_country_flag = end_of_urbanisation_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_urbanization
+				value = 8
+			}
+		}
+		incident_variable_value = {
+			incident = incident_urbanization
+			value = 3
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.11.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				end_incident = incident_urbanization
+			}
+			else = {
+				end_incident = incident_urbanization
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_rekindled_zeal"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.12
+	title = "shinto_events.12.t"
+	desc = "shinto_events.12.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_urbanization
+		has_country_flag = end_of_urbanisation_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_urbanization
+				value = 3
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.12.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = -1
+				end_incident = incident_urbanization
+			}
+			else = {
+				add_isolationism = -1
+				end_incident = incident_urbanization
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_significant_apostolic_influence"
+			duration = 18250
+		}
+	}
+}
+
+#Tamerlane Chain
+
+country_event = {
+	id = shinto_events.13
+	title = "shinto_events.13.t"
+	desc = "shinto_events.13.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.13.a"
+		custom_tooltip = shinto_incident_ikko.tt
+		custom_tooltip = shinto_events.open.tt
+		add_prestige = -10
+		add_yearly_manpower = 0.25
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.14
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.13.b"
+		custom_tooltip = shinto_incident_ikko.tt
+		custom_tooltip = shinto_events.isolation.tt
+		add_prestige = 1
+		add_incident_variable_value = {
+			incident = incident_ikko_shu
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.14
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.13.c"
+		custom_tooltip = shinto_incident_ikko.tt
+		custom_tooltip = shinto_events.much.isolation.tt
+		add_country_modifier = {
+			name = "nest_to_last_man"
+			duration = 3650
+		}
+		add_incident_variable_value = {
+			incident = incident_ikko_shu
+			value = 3
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.14
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.14
+	title = "shinto_events.14.t"
+	desc = "shinto_events.14.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "shinto_events.14.a"
+		custom_tooltip = shinto_events.much.isolation.tt
+		add_years_of_income = -0.25
+		capital_scope = {
+			add_province_modifier = {
+				name = nest_rebuilding
+				duration = 3650
+			}
+		}
+		add_incident_variable_value = {
+			incident = incident_ikko_shu
+			value = 3
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.15
+				days = 1095
+			}
+		}
+	}
+	option = {
+		name = "shinto_events.14.b"
+		custom_tooltip = shinto_events.isolation.tt
+		capital_scope = { add_devastation = 15 }
+		add_incident_variable_value = {
+			incident = incident_ikko_shu
+			value = 2
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.15
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.14.c"
+		custom_tooltip = shinto_events.open.tt
+		capital_scope = { add_devastation = 5 }
+		add_incident_variable_value = {
+			incident = incident_ikko_shu
+			value = -1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.15
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.15
+	title = "shinto_events.15.t"
+	desc = "shinto_events.15.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.15.c"
+		set_country_flag = end_of_ikko_chain
+		custom_tooltip = shinto_events.much.isolation.tt
+		add_prestige = -5
+		add_incident_variable_value = {
+			incident = incident_ikko_shu
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "shinto_events.15.b"
+		set_country_flag = end_of_ikko_chain
+		custom_tooltip = shinto_events.isolation.tt
+		add_country_modifier = {
+			name = "nest_false_conversion"
+			duration = 3650
+		}
+		add_legitimacy = -15
+		add_incident_variable_value = {
+			incident = incident_ikko_shu
+			value = 1
+		}
+	}
+	
+	option = {
+		name = "shinto_events.15.a"
+		set_country_flag = end_of_ikko_chain
+		custom_tooltip = shinto_events.open.tt
+		add_mil_power = 25
+		add_incident_variable_value = {
+			incident = incident_ikko_shu
+			value = -1
+		}
+	}
+}
+
+# Tamerlane - Result
+country_event = {
+	id = shinto_events.16
+	title = "shinto_events.16.t"
+	desc = "shinto_events.16.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_ikko_shu
+		has_country_flag = end_of_ikko_chain
+		incident_variable_value = {
+			incident = incident_ikko_shu
+			value = 9
+		}
+		NOT = {
+			any_owned_province = {
+				controlled_by = TIM
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.16.a"
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = 1
+				end_incident = incident_ikko_shu
+			}
+			else = {
+				add_isolationism = 1
+				end_incident = incident_ikko_shu
+			}
+		}
+		add_country_modifier = {
+			name = "nest_nestorian_revival"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.17
+	title = "shinto_events.17.t"
+	desc = "shinto_events.17.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_ikko_shu
+		has_country_flag = end_of_ikko_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_ikko_shu
+				value = 9
+			}
+		}
+		incident_variable_value = {
+			incident = incident_ikko_shu
+			value = 3
+		}
+		NOT = {
+			any_owned_province = {
+				controlled_by = TIM
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.17.a"
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				end_incident = incident_ikko_shu
+			}
+			else = {
+				end_incident = incident_ikko_shu
+			}
+		}
+		add_country_modifier = {
+			name = "nest_tradition_of_remembrance"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.18
+	title = "shinto_events.18.t"
+	desc = "shinto_events.18.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_ikko_shu
+		has_country_flag = end_of_ikko_chain
+		NOT = {
+			any_owned_province = {
+				controlled_by = TIM
+			}
+		}
+		NOT = {
+			incident_variable_value = {
+				incident = incident_ikko_shu
+				value = 3
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.18.a"
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = -1
+				end_incident = incident_ikko_shu
+			}
+			else = {
+				add_isolationism = -1
+				end_incident = incident_ikko_shu
+			}
+		}
+		add_country_modifier = {
+			name = "nest_apostolic_guidance"
+			duration = 18250
+		}
+	}
+}
+
+#Caliphal Chain
+
+country_event = {
+	id = shinto_events.19
+	title = "shinto_events.19.t"
+	desc = "shinto_events.19.d"
+	picture = REFORM_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.19.a"
+		custom_tooltip = shinto_incident_confucianism.tt
+		custom_tooltip = shinto_events.isolation.tt
+		add_years_of_income = -0.15
+		add_incident_variable_value = {
+			incident = incident_neo_confucianism
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.20
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.19.b"
+		custom_tooltip = shinto_incident_confucianism.tt
+		custom_tooltip = shinto_events.much.isolation.tt
+		every_neighbor_country = {
+			limit = { religion_group = muslim }
+			add_opinion = {
+				who = ROOT
+				modifier = tributary_refused_tribute
+			}
+		}
+		add_prestige = -1
+		add_incident_variable_value = {
+			incident = incident_neo_confucianism
+			value = 3
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.20
+				days = 1095
+			}
+		}
+	}
+	
+}
+
+country_event = {
+	id = shinto_events.20
+	title = "shinto_events.20.t"
+	desc = "shinto_events.20.d"
+	picture = REFORM_eventPicture
+	
+	is_triggered_only = yes
+
+	
+	option = {
+		name = "shinto_events.20.a"
+		custom_tooltip = shinto_events.open.tt
+		reverse_add_opinion = {
+			who = PAP
+			modifier = zan_religious_orthodoxy
+		}
+		add_years_of_income = 0.1
+		add_incident_variable_value = {
+			incident = incident_neo_confucianism
+			value = -1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.21
+				days = 1095
+			}
+		}
+	}
+	option = {
+		name = "shinto_events.20.b"
+		custom_tooltip = shinto_events.isolation.tt
+		every_neighbor_country = {
+			limit = { religion_group = muslim }
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_insulted
+			}
+		}
+		add_prestige = -1
+		add_incident_variable_value = {
+			incident = incident_neo_confucianism
+			value = 3
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.21
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.21
+	title = "shinto_events.21.t"
+	desc = "shinto_events.21.d"
+	picture = REFORM_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.21.a"
+		set_country_flag = end_of_neo_confucianism_chain
+		custom_tooltip = shinto_events.open.tt
+		add_dip_power = 100
+		add_incident_variable_value = {
+			incident = incident_neo_confucianism
+			value = -1
+		}
+	}
+	
+	option = {
+		name = "shinto_events.21.b"
+		set_country_flag = end_of_neo_confucianism_chain
+		custom_tooltip = shinto_events.isolation.tt
+		every_neighbor_country = {
+			limit = { religion_group = muslim }
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_irritated
+			}
+		}
+		add_prestige = -1
+		add_incident_variable_value = {
+			incident = incident_neo_confucianism
+			value = 3
+		}
+	}
+	
+}
+
+# Caliphal - Result
+country_event = {
+	id = shinto_events.22
+	title = "shinto_events.22.t"
+	desc = "shinto_events.22.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_neo_confucianism
+		has_country_flag = end_of_neo_confucianism_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_neo_confucianism
+				value = 2
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.22.a"
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = -1
+				end_incident = incident_neo_confucianism
+			}
+			else = {
+				add_isolationism = -1
+				end_incident = incident_neo_confucianism
+			}
+		}
+		add_country_modifier = {
+			name = "nest_devotion_to_rome"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.23
+	title = "shinto_events.23.t"
+	desc = "shinto_events.23.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_neo_confucianism
+		has_country_flag = end_of_neo_confucianism_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_neo_confucianism
+				value = 7
+			}
+		}
+		incident_variable_value = {
+			incident = incident_neo_confucianism
+			value = 2
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.23.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				end_incident = incident_neo_confucianism
+			}
+			else = {
+				end_incident = incident_neo_confucianism
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_against_all_evils"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.24
+	title = "shinto_events.24.t"
+	desc = "shinto_events.24.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_neo_confucianism
+		has_country_flag = end_of_neo_confucianism_chain
+		incident_variable_value = {
+			incident = incident_neo_confucianism
+			value = 7
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.24.a"
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = 1
+				end_incident = incident_neo_confucianism
+			}
+			else = {
+				add_isolationism = 1
+				end_incident = incident_neo_confucianism
+			}
+		}
+		add_country_modifier = {
+			name = "nest_weakened_caliphate"
+			duration = 18250
+		}
+	}
+}
+
+#Silk Road Trade
+
+country_event = {
+	id = shinto_events.25
+	title = "shinto_events.25.t"
+	desc = "shinto_events.25.d"
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.25.a"
+		custom_tooltip = shinto_incident_nanban.tt
+		custom_tooltip = shinto_events.open.tt
+		add_country_modifier = {
+			name = "nest_local_trade"
+			duration = 3650
+		}
+		add_incident_variable_value = {
+			incident = incident_nanban
+			value = -1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.26
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.25.c"
+		custom_tooltip = shinto_incident_nanban.tt
+		custom_tooltip = shinto_events.isolation.tt
+		add_adm_power = 75
+		add_incident_variable_value = {
+			incident = incident_nanban
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.26
+				days = 1095
+			}
+		}
+	}
+
+	option = {
+		name = "shinto_events.25.b"
+		custom_tooltip = shinto_incident_nanban.tt
+		add_country_modifier = {
+			name = "nest_foreign_trade"
+			duration = 3650
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.26
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.26
+	title = "shinto_events.26.t"
+	desc = "shinto_events.26.d"
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "shinto_events.26.a"
+		custom_tooltip = shinto_events.open.tt
+		add_prestige = -10
+		add_incident_variable_value = {
+			incident = incident_nanban
+			value = -1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.27
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.26.b"
+		add_prestige = 10
+		if = {
+			limit = { capital_scope = { base_tax = 2 } }
+			capital_scope = { add_base_tax = -1 }
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.27
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.26.c"
+		custom_tooltip = shinto_events.isolation.tt
+		capital_scope = { add_base_tax = 1 }
+		add_incident_variable_value = {
+			incident = incident_nanban
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.27
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.27
+	title = "shinto_events.27.t"
+	desc = "shinto_events.27.d"
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.27.a"
+		custom_tooltip = shinto_events.open.tt
+		add_navy_tradition = 10
+		add_incident_variable_value = {
+			incident = incident_nanban
+			value = -1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.28
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.27.b"
+		custom_tooltip = shinto_events.isolation.tt
+		define_advisor = {
+			type = theologian
+			religion = nestorian
+			skill = 2
+			discount = yes
+		}
+		add_incident_variable_value = {
+			incident = incident_nanban
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.28
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.28
+	title = "shinto_events.28.t"
+	desc = "shinto_events.28.d"
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+		
+	option = {
+		name = "shinto_events.28.b"
+		set_country_flag = end_of_nanban_chain
+		custom_tooltip = shinto_events.isolation.tt
+		add_country_modifier = {
+			name = "nest_traders_outraged"
+			duration = 3650
+		}
+		add_incident_variable_value = {
+			incident = incident_nanban
+			value = 1
+		}
+	}
+	
+	option = {
+		name = "shinto_events.28.a"
+		custom_tooltip = shinto_events.open.tt
+		add_stability = -1
+		set_country_flag = end_of_nanban_chain
+		add_incident_variable_value = {
+			incident = incident_nanban
+			value = -1
+		}
+	}
+}
+
+# Silk Road - Result
+country_event = {
+	id = shinto_events.29
+	title = "shinto_events.29.t"
+	desc = "shinto_events.29.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_nanban
+		has_country_flag = end_of_nanban_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_nanban
+				value = 2
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.29.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = -1
+				end_incident = incident_nanban
+			}
+			else = {
+				add_isolationism = -1
+				end_incident = incident_nanban
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_mediterranean_focus"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.30
+	title = "shinto_events.30.t"
+	desc = "shinto_events.30.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_nanban
+		has_country_flag = end_of_nanban_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_nanban
+				value = 5
+			}
+		}
+		incident_variable_value = {
+			incident = incident_nanban
+			value = 2
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.30.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				end_incident = incident_nanban
+			}
+			else = {
+				end_incident = incident_nanban
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_new_beliefs"
+			duration = 18250
+		}
+	}
+	
+}
+
+country_event = {
+	id = shinto_events.31
+	title = "shinto_events.31.t"
+	desc = "shinto_events.31.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_nanban
+		has_country_flag = end_of_nanban_chain
+		incident_variable_value = {
+			incident = incident_nanban
+			value = 5
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.31.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = 1
+				end_incident = incident_nanban
+			}
+			else = {
+				add_isolationism = 1
+				end_incident = incident_nanban
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_expansive_church"
+			duration = 18250
+		}
+	}
+}
+
+#Mongols Chain
+
+country_event = {
+	id = shinto_events.32
+	title = "shinto_events.32.t"
+	desc = "shinto_events.32.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.32.a"
+		custom_tooltip = shinto_incident_tanegashima.tt
+		custom_tooltip = shinto_events.isolation.tt
+		add_country_modifier = {
+			name = "nest_mongol_connections"
+			duration = 3650
+		}
+		add_incident_variable_value = {
+			incident = incident_firearms
+			value = 2
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.33
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.32.b"
+		custom_tooltip = shinto_incident_tanegashima.tt
+		custom_tooltip = shinto_events.open.tt
+		add_country_modifier = {
+			name = "nest_papal_connections"
+			duration = 3650
+		}
+		add_incident_variable_value = {
+			incident = incident_firearms
+			value = -1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.33
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.33
+	title = "shinto_events.33.t"
+	desc = "shinto_events.33.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "shinto_events.33.a"
+		custom_tooltip = shinto_events.isolation.tt
+		add_country_modifier = {
+			name = "missionary_zeal"
+			duration = 3650
+		}
+		random_owned_province = {
+			limit = {
+				controlled_by = owner
+				NOT = { religion = nestorian }
+			}
+			change_religion = nestorian
+		}
+		add_incident_variable_value = {
+			incident = incident_firearms
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.34
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.33.b"
+		custom_tooltip = shinto_events.open.tt
+		add_country_modifier = {
+			name = "nest_betrayed_faith"
+			duration = 3650
+		}
+		add_incident_variable_value = {
+			incident = incident_firearms
+			value = -1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.34
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.34
+	title = "shinto_events.34.t"
+	desc = "shinto_events.34.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.34.a"
+		set_country_flag = end_of_incident_firearms_chain
+		custom_tooltip = shinto_events.open.tt
+		add_prestige = -5
+		add_legitimacy = 5
+		add_incident_variable_value = {
+			incident = incident_firearms
+			value = -1
+		}
+	}
+	
+	option = {
+		name = "shinto_events.34.b"
+		set_country_flag = end_of_incident_firearms_chain
+		custom_tooltip = shinto_events.isolation.tt
+		add_adm_power = -50
+		add_incident_variable_value = {
+			incident = incident_firearms
+			value = 1
+		}
+	}
+}
+
+# Mongols - Result
+country_event = {
+	id = shinto_events.35
+	title = "shinto_events.35.t"
+	desc = "shinto_events.35.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_firearms
+		has_country_flag = end_of_incident_firearms_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_firearms
+				value = 1
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.35.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = -1
+				end_incident = incident_firearms
+			}
+			else = {
+				add_isolationism = -1
+				end_incident = incident_firearms
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_roman_legates"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.36
+	title = "shinto_events.36.t"
+	desc = "shinto_events.36.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_firearms
+		has_country_flag = end_of_incident_firearms_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_firearms
+				value = 4
+			}
+		}
+		incident_variable_value = {
+			incident = incident_firearms
+			value = 1
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.36.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				end_incident = incident_firearms
+			}
+			else = {
+				end_incident = incident_firearms
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_reticent_mongols"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.37
+	title = "shinto_events.37.t"
+	desc = "shinto_events.37.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_firearms
+		has_country_flag = end_of_incident_firearms_chain
+		incident_variable_value = {
+			incident = incident_firearms
+			value = 4
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.37.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = 1
+				end_incident = incident_firearms
+			}
+			else = {
+				add_isolationism = 1
+				end_incident = incident_firearms
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_cooperation_with_the_mongols"
+			duration = 18250
+		}
+	}
+}
+
+#Marian Cult Chain
+
+country_event = {
+	id = shinto_events.38
+	title = "shinto_events.38.t"
+	desc = "shinto_events.38.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.38.a"
+		custom_tooltip = shinto_incident_kirishitan.tt
+		custom_tooltip = shinto_events.open.tt
+		add_adm_power = 50
+		add_country_modifier = {
+			name = "nest_promoted_rome"
+			duration = 3650
+		}
+		add_incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.39
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.38.b"
+		custom_tooltip = shinto_incident_kirishitan.tt
+		custom_tooltip = shinto_events.middle_way.tt
+		add_legitimacy = -5
+		add_incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = 2
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.39
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.38.c"
+		custom_tooltip = shinto_incident_kirishitan.tt
+		custom_tooltip = shinto_events.isolation.tt
+		add_country_modifier = {
+			name = "nest_denounced_rome"
+			duration = 3650
+		}
+		add_incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = 3
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.39
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.39
+	title = "shinto_events.39.t"
+	desc = "shinto_events.39.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "shinto_events.39.a"
+		custom_tooltip = shinto_events.much.isolation.tt
+		random_owned_province = {
+			limit = { base_tax = 2 }
+			add_base_tax = -1
+		}
+		add_incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = 2
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.40
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.39.b"
+		custom_tooltip = shinto_events.isolation.tt
+		add_dip_power = 25
+		add_mil_power = -25
+		add_incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.40
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.39.c"
+		custom_tooltip = shinto_events.open.tt
+		kill_advisor = random
+		add_incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = -1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.40
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.40
+	title = "shinto_events.40.t"
+	desc = "shinto_events.40.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.40.a"
+		custom_tooltip = shinto_events.isolation.tt
+		add_prestige = 1
+		reverse_add_opinion = {
+			who = PAP
+			modifier = opinion_disappointed_pope
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.41
+				days = 1095
+			}
+		}
+		add_incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = 1
+		}
+	}
+	
+	option = {
+		name = "shinto_events.40.b"
+		custom_tooltip = shinto_events.open.tt
+		add_prestige = -1
+		reverse_add_opinion = {
+			who = PAP
+			modifier = zan_religious_orthodoxy
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.41
+				days = 1095
+			}
+		}
+		add_incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = -1
+		}
+	}
+	
+}
+
+country_event = {
+	id = shinto_events.41
+	title = "shinto_events.41.t"
+	desc = "shinto_events.41.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.41.a"
+		custom_tooltip = shinto_events.isolation.tt
+		add_adm_power = 50
+		add_incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = 1
+		}
+		set_country_flag = end_of_incident_spread_of_christianity_chain
+	}
+	
+	option = {
+		name = "shinto_events.41.b"
+		custom_tooltip = shinto_events.open.tt
+		add_country_modifier = {
+			name = "missionary_zeal"
+			duration = 3650
+		}
+		add_incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = -1
+		}
+		set_country_flag = end_of_incident_spread_of_christianity_chain
+	}
+	
+}
+
+#42 43 44 removed
+
+#Marian Community Attacked
+country_event = {
+	id = shinto_events.45
+	title = "shinto_events.45.t"
+	desc = "shinto_events.45.d"
+	picture = PRAYING_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_spread_of_christianity
+		any_owned_province = { base_tax = 3 }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = "shinto_events.45.a"
+		custom_tooltip = shinto_events.isolation.tt
+		add_years_of_income = -0.25
+		random_owned_province = {
+			limit = { base_tax = 3 }
+			add_base_tax = -1
+		}
+		add_incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = 1
+		}
+	}
+	
+	option = {
+		name = "shinto_events.45.b"
+		custom_tooltip = shinto_events.open.tt
+		add_years_of_income = -0.1
+		random_owned_province = {
+			limit = { base_tax = 3 }
+			add_base_tax = -2
+		}
+		add_incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = -1
+		}
+	}
+}
+
+#46 removed
+
+# Marian - Result
+country_event = {
+	id = shinto_events.47
+	title = "shinto_events.47.t"
+	desc = "shinto_events.47.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_spread_of_christianity
+		has_country_flag = end_of_incident_spread_of_christianity_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_spread_of_christianity
+				value = 3
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.47.a"
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = -1
+				end_incident = incident_spread_of_christianity
+			}
+			else = {
+				add_isolationism = -1
+				end_incident = incident_spread_of_christianity
+			}
+		}
+		add_country_modifier = {
+			name = "nest_ave_maria"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.48
+	title = "shinto_events.48.t"
+	desc = "shinto_events.48.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_spread_of_christianity
+		has_country_flag = end_of_incident_spread_of_christianity_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_spread_of_christianity
+				value = 9
+			}
+		}
+		incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = 3
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.48.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				end_incident = incident_spread_of_christianity
+			}
+			else = {
+				end_incident = incident_spread_of_christianity
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_pleased_marians"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.49
+	title = "shinto_events.49.t"
+	desc = "shinto_events.49.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_incident_active = incident_spread_of_christianity
+		has_country_flag = end_of_incident_spread_of_christianity_chain
+		incident_variable_value = {
+			incident = incident_spread_of_christianity
+			value = 9
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.49.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = 1
+				end_incident = incident_spread_of_christianity
+			}
+			else = {
+				add_isolationism = 1
+				end_incident = incident_spread_of_christianity
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_purity"
+			duration = 18250
+		}
+	}
+}
+
+
+#Iconoclasm Chain
+
+country_event = {
+	id = shinto_events.50
+	title = "shinto_events.50.t"
+	desc = "shinto_events.50.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "shinto_events.50.a"
+		custom_tooltip = shinto_incident_shogunate_authority.tt
+		custom_tooltip = shinto_events.much.isolation.tt
+		add_prestige = 10
+		add_incident_variable_value = {
+			incident = incident_shogunate_authority
+			value = 3
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.51
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.50.b"
+		custom_tooltip = shinto_incident_shogunate_authority.tt
+		custom_tooltip = shinto_events.isolation.tt
+		add_prestige = 5
+		add_incident_variable_value = {
+			incident = incident_shogunate_authority
+			value = 2
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.51
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.50.c"
+		custom_tooltip = shinto_incident_shogunate_authority.tt
+		custom_tooltip = shinto_events.open.tt
+		add_prestige = 15
+		random_owned_province = {
+			limit = {
+				controlled_by = owner
+				religion = nestorian
+			}
+			spawn_rebels = {
+				type = nestorian_rebels
+				size = 1
+			}
+		}
+		add_incident_variable_value = {
+			incident = incident_shogunate_authority
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.51
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.51
+	title = "shinto_events.51.t"
+	desc = "shinto_events.51.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "shinto_events.51.a"
+		custom_tooltip = shinto_events.open.tt
+		add_army_tradition = 10
+		add_incident_variable_value = {
+			incident = incident_shogunate_authority
+			value = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.52
+				days = 1095
+			}
+		}
+	}
+	
+	option = {
+		name = "shinto_events.51.b"
+		custom_tooltip = shinto_events.isolation.tt
+		add_navy_tradition = 10
+		add_incident_variable_value = {
+			incident = incident_shogunate_authority
+			value = 3
+		}
+		hidden_effect = {
+			country_event = {
+				id = shinto_events.52
+				days = 1095
+			}
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.52
+	title = "shinto_events.52.t"
+	desc = "shinto_events.52.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "shinto_events.52.a"
+		set_country_flag = end_of_incident_shogunate_authority_chain
+		custom_tooltip = shinto_events.isolation.tt
+		add_years_of_income = -0.25
+		capital_scope = {
+			add_base_tax = 2
+			add_devastation = 10
+		}
+		add_incident_variable_value = {
+			incident = incident_shogunate_authority
+			value = 3
+		}
+	}
+	
+	option = {
+		name = "shinto_events.52.b"
+		set_country_flag = end_of_incident_shogunate_authority_chain
+		custom_tooltip = shinto_events.open.tt
+		capital_scope = {
+			add_province_modifier = {
+				name = nest_church_prestige
+				duration = 3650
+			}
+		}
+		add_incident_variable_value = {
+			incident = incident_shogunate_authority
+			value = -1
+		}
+	}
+}
+
+#53 54 removed
+
+# Iconoclasm Result
+country_event = {
+	id = shinto_events.55
+	title = "shinto_events.55.t"
+	desc = "shinto_events.55.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_at_war = no
+		is_incident_active = incident_shogunate_authority
+		has_country_flag = end_of_incident_shogunate_authority_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_shogunate_authority
+				value = 2
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.55.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = -1
+				end_incident = incident_shogunate_authority
+			}
+			else = {
+				add_isolationism = -1
+				end_incident = incident_shogunate_authority
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_magnificent_religious_art"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.56
+	title = "shinto_events.56.t"
+	desc = "shinto_events.56.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_at_war = no
+		is_incident_active = incident_shogunate_authority
+		has_country_flag = end_of_incident_shogunate_authority_chain
+		NOT = {
+			incident_variable_value = {
+				incident = incident_shogunate_authority
+				value = 6
+			}
+		}
+		incident_variable_value = {
+			incident = incident_shogunate_authority
+			value = 2
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.56.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				end_incident = incident_shogunate_authority
+			}
+			else = {
+				end_incident = incident_shogunate_authority
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_status_quo"
+			duration = 18250
+		}
+	}
+}
+
+country_event = {
+	id = shinto_events.57
+	title = "shinto_events.57.t"
+	desc = "shinto_events.57.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	trigger = {
+		is_at_war = no
+		is_incident_active = incident_shogunate_authority
+		has_country_flag = end_of_incident_shogunate_authority_chain
+		incident_variable_value = {
+			incident = incident_shogunate_authority
+			value = 6
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = "shinto_events.57.a"
+		if = {
+			limit = { NOT = { religion = nestorian } }
+			hidden_effect = {
+				add_isolationism = 1
+				end_incident = incident_shogunate_authority
+			}
+			else = {
+				add_isolationism = 1
+				end_incident = incident_shogunate_authority
+			}
+		}
+		set_country_flag = shinto_incident_recent
+		clr_country_flag = active_incident_flag
+		add_country_modifier = {
+			name = "nest_end_of_idolatry"
+			duration = 18250
+		}
+	}
+}
+
+#58 removed

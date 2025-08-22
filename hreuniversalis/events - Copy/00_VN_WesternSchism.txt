@@ -1,0 +1,853 @@
+namespace = western_schism
+
+#Cede Avignon to PAP
+country_event = {
+	id = western_schism.1
+	title = "western_schism.1.t"
+	desc = "western_schism.1.d"
+	picture = POPE_PREACHING_eventPicture
+
+	fire_only_once = yes
+	trigger = {
+		is_year = 1248
+		NOT = { started_in = 1271.8.21 }
+		religion = catholic
+		papacy_active = yes
+		NOT = { tag = PAP }
+		NOT = { war_with = PAP }
+		exists = PAP
+		NOT = { exists = AVI }
+		OR = {
+			AND = {
+				owns_core_province = 202
+				is_subject = no
+				num_of_cities = 2
+			}
+			any_subject_country = {
+				owns_core_province = 202
+				OR = {
+					num_of_cities = 2
+					ai = no
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			num_of_cities = 30
+		}
+		modifier = {
+			factor = 0.25
+			alliance_with = PAP
+		}
+		modifier = {
+			factor = 0.25
+			is_papal_controller = yes
+		}
+	}
+
+	option = {
+		name = "western_schism.1.a"
+		goto = 202
+		ai_chance = {
+			factor = 95
+			modifier = {
+				factor = 0
+				OR = {
+					is_rival = PAP
+					is_enemy = PAP
+				}
+			}
+		}
+		tooltip = {
+			202 = {
+				remove_core = owner
+				add_core = PAP
+				cede_province = PAP
+			}
+			reverse_add_opinion = { who = PAP modifier = opinion_loyal_to_pope }
+		}
+		hidden_effect = { PAP = { country_event = { id = western_schism.2 } } }
+		if = {
+			limit = { is_excommunicated = yes }
+			tooltip = { excommunicate = FROM }
+		}
+		add_papal_influence = 20
+		add_prestige = 25
+	}
+
+	option = {
+		name = "western_schism.1.b"
+		ai_chance = { factor = 5 }
+		add_prestige = -25
+	}
+}
+
+#Answer for Pope
+country_event = {
+	id = western_schism.2
+	title = "western_schism.2.t"
+	desc = "western_schism.2.d"
+    picture = {
+		trigger = { NOT = { has_dlc = "Lions of the North" } }
+		picture = RELIGIOUS_CONVERSION_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Lions of the North" }
+		picture = PAY_POPE_eventPicture
+	}
+	goto = 202
+
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "western_schism.2.a"
+		202 = {
+			remove_core = owner
+			add_core = PAP
+			cede_province = PAP
+		}
+		if = {
+			limit = {
+				is_part_of_hre = no
+				202 = { is_part_of_hre = yes }
+			}
+			202 = { set_in_empire = no }
+		}
+		if = {
+			limit = { FROM = { is_excommunicated = yes } }
+			excommunicate = FROM
+		}
+		add_opinion = { who = FROM modifier = opinion_loyal_to_pope }
+	}
+}
+
+#Move capital of PAP to Avignon
+country_event = {
+	id = western_schism.3
+	title = "western_schism.3.t"
+	desc = "western_schism.3.d"
+	picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = POPE_PREACHING_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = BAD_POPE_eventPicture
+	}
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		current_age = age_of_dynasticism
+		religion = catholic
+		papacy_active = yes
+		NOT = { has_reform = papacy_reform }
+		NOT = { war_with = PAP }
+		NOT = { exists = AVI }
+		NOT = { started_in = 1309.3.9 }
+		num_of_cities = 10
+		PAP = { owns = 202 }
+		OR = {
+			has_reform = feudal_france_reform
+			AND = {
+				tag = FRA
+				NOT = { has_dlc = "Domination" }
+			}
+			AND = {
+				NOT = { exists = FRA }
+				owns = 548
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.25
+			is_papal_controller = yes
+		}
+	}
+
+	option = {
+		name = "western_schism.3.a"
+		custom_tooltip = western_schism.3.tt
+		hidden_effect = {
+			PAP = { country_event = { id = western_schism.4 } }
+		}
+		if = {
+			limit = { is_excommunicated = yes }
+			tooltip = { excommunicate = FROM }
+		}
+		if = {
+			limit = { NOT = { historical_friend_with = PAP } }
+			add_historical_friend = PAP
+		}
+		if = {
+			limit = { NOT = { has_guaranteed = PAP } }
+			create_guarantee = PAP
+		}
+		every_neighbor_country = {
+			limit = { 
+				religion = catholic 
+				NOT = { tag = PAP }
+			}
+			add_opinion = { who = ROOT modifier = opinion_demote_pope }
+		}
+		add_country_modifier = {
+			name = "babylonian_captivity"
+			duration = -1
+		}
+	}
+	option = {
+		name = "western_schism.3.b"
+		ai_chance = { factor = 0 }
+		add_papal_influence = 5
+		add_prestige = 5
+	}
+}
+
+country_event = {
+	id = western_schism.4
+	title = "western_schism.4.t"
+	desc = "western_schism.4.d"
+	picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = POPE_PREACHING_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = BAD_POPE_eventPicture
+	}
+	goto = 202
+
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "western_schism.4.a"
+		add_prestige = -25
+		if = {
+			limit = { NOT = { historical_friend_with = FROM } }
+			add_historical_friend = FROM
+		}
+		if = {
+			limit = { 202 = { is_capital = no } }
+			set_capital = 202
+		}
+		if = {
+			limit = {
+				has_dlc = "Leviathan"
+				202 = {
+					NOT = {
+						has_great_project = {
+							type = palace_of_the_popes
+							tier = 2
+						}
+					}
+				}
+			}
+			202 = {
+				set_great_project_tier_2 = {
+					type = palace_of_the_popes
+				}
+			}
+		}
+		if = {
+			limit = { FROM = { is_excommunicated = yes } }
+			excommunicate = FROM
+		}
+		add_country_modifier = {
+			name = "babylonian_captivity"
+			duration = -1
+		}
+	}
+}
+
+#Catholique spawns
+country_event = {
+	id = western_schism.5
+	title = "western_schism.5.t"
+	desc = "western_schism.5.d"
+	picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = POPE_PREACHING_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = BAD_POPE_eventPicture
+	}
+	goto = 202
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		is_year = 1356
+		NOT = { started_in = 1378.9.20 }
+		has_country_modifier = babylonian_captivity
+		current_age = age_of_dynasticism
+		papacy_active = yes
+		NOT = { exists = AVI }
+		PAP = {
+			owns = 202
+			owns = 2708
+		}
+	}
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.1
+			war_with = PAP
+		}
+		modifier = {
+			factor = 0.1
+			202 = {
+				owned_by = PAP
+				is_capital = no
+			}
+		}
+		modifier = {
+			factor = 0.5
+			is_year = 1375
+		}
+		modifier = {
+			factor = 0.5
+			is_year = 1385
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			enable_religion = catholique
+			if = {
+				limit = { historical_friend_with = PAP }
+				remove_historical_friend = PAP
+			}
+			if = {
+				limit = { PAP = { historical_friend_with = ROOT } }
+				PAP = { remove_historical_friend = ROOT }
+			}
+			PAP = { set_capital = 2708 }
+		}
+	}
+
+	option = {
+		name = "western_schism.5.a"
+		ai_chance = { factor = 100 }
+		remove_country_modifier = babylonian_captivity
+		PAP = {
+			remove_country_modifier = babylonian_captivity_pap
+		}
+		change_religion = catholique
+		add_papal_influence = 100
+		add_country_modifier = {
+			name = "conversion_zeal"
+			duration = 1825
+		}
+		custom_tooltip = western_schism.5.tt
+		hidden_effect = {
+			202 = {
+				remove_core = PAP
+				add_core = AVI
+				cede_province = AVI
+				change_religion = catholique
+			}
+			AVI = {
+				add_government_reform = papacy_reform
+				define_ruler = { name = "Clemens VII" }
+				add_treasury = 500
+				add_prestige = 25
+				add_stability = 3
+				add_manpower = 10
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+			every_country = {
+				limit = {
+					religion = catholic
+					government = monarchy
+					NOT = { tag = PAP }
+				}
+				country_event = { id = western_schism.6 days = 10 }
+			}
+		}
+		set_global_flag = western_schism_flag
+	}
+	option = {
+		name = "western_schism.5.b"
+		ai_chance = { factor = 0 }
+		remove_country_modifier = babylonian_captivity
+		PAP = {
+			remove_country_modifier = babylonian_captivity_pap
+		}
+	}
+}
+
+country_event = {
+	id = western_schism.6
+	title = "western_schism.6.t"
+	desc = "western_schism.6.d"
+	picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = POPE_PREACHING_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = BAD_POPE_eventPicture
+	}
+	goto = 202
+
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "western_schism.6.a"
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0.1
+				any_country = {
+					war_with = ROOT
+					war_with = PAP
+				}
+				NOT = { war_with = PAP }
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					primary_culture = irish
+					primary_culture = hiberno_norman
+					primary_culture = gallowglass
+				}
+			}
+			modifier = {
+				factor = 0
+				is_defender_of_faith = yes
+			}
+			modifier = {
+				factor = 0
+				is_papal_controller = yes
+			}
+			modifier = {
+				factor = 0
+				is_emperor = yes
+			}
+			modifier = {
+				factor = 0.5
+				is_part_of_hre = yes
+			}
+			modifier = {
+				factor = 0.5
+				is_elector = yes
+			}
+			modifier = {
+				factor = 2
+				war_with = PAP
+			}
+			modifier = {
+				factor = 2
+				is_excommunicated = yes
+			}
+			modifier = {
+				factor = 1.5
+				is_rival = PAP
+			}
+			modifier = {
+				factor = 1.5
+				is_enemy = PAP
+			}
+		}
+		change_religion = catholique
+		add_country_modifier = {
+			name = "conversion_zeal"
+			duration = 1825
+		}
+	}
+
+	option = {
+		name = "western_schism.6.b"
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0.1
+				is_subject_of_type = appanage
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = PAP value = -100 } }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = PAP value = -50 } }
+			}
+			modifier = {
+				factor = 1.25
+				has_opinion = { who = PAP value = 50 }
+			}	
+			modifier = {
+				factor = 1.25
+				has_opinion = { who = PAP value = 100 }
+			}
+			modifier = {
+				factor = 1.5
+				alliance_with = PAP
+			}
+			modifier = {
+				factor = 1.5
+				is_subject_of = PAP
+			}
+			modifier = {
+				factor = 1.25
+				invested_papal_influence = 25
+			}
+			modifier = {
+				factor = 1.25
+				invested_papal_influence = 50
+			}
+			modifier = {
+				factor = 1.1
+				num_of_cardinals = 1
+			}
+			modifier = {
+				factor = 1.1
+				num_of_cardinals = 2
+			}
+			modifier = {
+				factor = 1.1
+				num_of_cardinals = 3
+			}
+			modifier = {
+				factor = 1.1
+				num_of_cardinals = 4
+			}
+			modifier = {
+				factor = 1.1
+				num_of_cardinals = 5
+			}
+		}
+		add_papal_influence = 1
+	}
+}
+
+#Fallback
+country_event = {
+	id = western_schism.7
+	title = "western_schism.7.t"
+	desc = "western_schism.7.d"
+	picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = POPE_PREACHING_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = BAD_POPE_eventPicture
+	}
+	trigger = {
+		has_institution = laytheology
+		has_country_modifier = babylonian_captivity
+	}
+	mean_time_to_happen = { months = 12 }
+
+	option = {
+		name = "western_schism.7.a"
+		remove_country_modifier = babylonian_captivity
+		PAP = {
+			remove_country_modifier = babylonian_captivity_pap
+		}
+	}
+}
+
+#Catholiques might become Protestant later on
+country_event = {
+	id = western_schism.8
+	title = "western_schism.8.t"
+	desc = "western_schism.8.d"
+	picture = POPE_PREACHING_eventPicture
+	
+	trigger = {
+		religion = catholique
+		NOT = { hre_religion = catholique }
+		is_religion_enabled = protestant
+		current_age = age_of_reformation
+		NOT = { has_reform = papacy_reform }
+		NOT = { has_country_flag = had_cath_question }
+		NOT = {
+			calc_true_if = {
+				all_country = { religion = catholique }
+				amount = 6
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = { set_country_flag = had_cath_question }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			NOT = {
+				calc_true_if = {
+					all_country = { religion = catholique }
+					amount = 4
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				calc_true_if = {
+					all_country = { religion = catholique }
+					amount = 2
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "western_schism.8.a"
+		ai_chance = { factor = 50 }
+		change_religion = protestant
+	}
+
+	option = {
+		name = "western_schism.8.b"
+		trigger = { is_religion_enabled = reformed }
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				NOT = {
+					capital_scope = {
+						OR = {
+							superregion = switzerland_superregion
+							superregion = lowlands_superregion
+						}
+					}
+				}
+			}
+		}
+		change_religion = reformed
+	}
+
+	option = {
+		name = "western_schism.8.c"
+		ai_chance = { factor = 0 }
+		add_papal_influence = 20
+	}
+}
+
+# Papal State
+country_event = {
+	id = western_schism.9
+	title = "EVTNAME1081"
+	desc = "western_schism.9.d"
+	picture = POPE_PREACHING_eventPicture
+	
+	trigger = {
+		papacy_active = yes
+		owns = 202		# Avignon
+		normal_or_historical_nations = yes
+		religion = catholique
+		NOT = { tag = AVI }
+		NOT = { has_country_flag = no_support }
+	}
+	
+	mean_time_to_happen = {
+		months = 2
+		
+		modifier = {
+			factor = 0.95
+			num_of_cardinals = 1
+		}
+		modifier = {
+			factor = 0.95
+			num_of_cardinals = 2
+		}
+		modifier = {
+			factor = 0.75
+			has_idea_group = religious_ideas
+		}
+		modifier = {
+			factor = 0.9
+			is_defender_of_faith = yes
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { is_defender_of_faith = yes }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { advisor = theologian }
+		}
+		modifier = {
+			factor = 0.9
+			theologian = 2
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1081" # We will never support such a state
+		ai_chance = { factor = 25 }
+		add_prestige = -10
+		add_stability = -1
+		every_country = {
+			limit = {
+				religion = catholique
+				NOT = { tag = ROOT }
+			}
+			add_opinion = { who = ROOT modifier = opinion_declined_independent_state_support }
+		}
+		set_country_flag = no_support
+	}
+	option = {
+		name = "western_schism.9.b" # Avignon is rightfully theirs
+		ai_chance = { 
+			factor = 75 
+			modifier = {
+				factor = 0
+				is_core = 202
+			}
+		}
+		202 = {
+			add_core = AVI
+			cede_province = AVI
+		}
+		if = {
+			limit = {
+				202 = {
+					is_core = ROOT
+				}
+			}
+			202 = { remove_core = ROOT }
+		}
+		add_prestige = 25
+		AVI = { change_religion = catholique }
+	}
+}
+
+# The Papal State
+country_event = {
+	id = western_schism.10
+	title = "EVTNAME1082"
+	desc = "EVTDESC1082"
+	picture = POPE_PREACHING_eventPicture
+	
+	trigger = {
+		papacy_active = yes
+		NOT = { exists = AVI }
+		religion = catholique
+		government = theocracy
+		NOT = { has_ruler_flag = refused_papacy }
+		is_at_war = no
+		NOT = { tag = TEU }
+		NOT = { tag = LIV }
+		NOT = { tag = KNI }
+		NOT = { tag = TEM }
+		num_of_cities = 2
+		NOT = { num_of_cities = 5 }
+		any_owned_province = {
+			is_capital = no
+			religion = catholique
+			continent = europe
+		}
+		202 = {
+			owner = {
+				OR = {
+					NOT = { religion = catholique }
+					has_country_flag = no_support
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+		modifier = {
+			factor = 0.5
+			tag = AVI
+		}
+		modifier = {
+			factor = 2.0
+			capital_scope = {
+				NOT = { religion = catholique }
+			}
+		}
+		modifier = {
+			factor = 0.95
+			theologian = 3
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { num_of_cities = 3 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { num_of_cities = 2 }
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					religion = catholique
+					continent = europe
+					any_neighbor_province = {
+						NOT = { owned_by = ROOT }
+					}
+				}
+				set_province_flag = papal_province
+			}
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					religion = catholique
+					continent = europe
+					owner = {
+						NOT = {
+							any_owned_province = {
+								has_province_flag = papal_province
+							}
+						}
+					}
+				}
+				set_province_flag = papal_province
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1082"
+		ai_chance = { factor = 100 }
+		random_owned_province = {
+			limit = {
+				has_province_flag = papal_province
+			}
+			remove_core = ROOT
+			add_core = AVI
+			cede_province = AVI
+			clr_province_flag = papal_province
+		}
+		add_papal_influence = 20
+		add_prestige = 25
+		AVI = { change_religion = catholique }
+	}
+	option = {
+		name = "EVTOPTB1082"
+		ai_chance = { factor = 0 }
+		set_ruler_flag = refused_papacy
+		add_prestige = -25
+	}
+}

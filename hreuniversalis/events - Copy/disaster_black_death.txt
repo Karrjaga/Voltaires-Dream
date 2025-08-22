@@ -1,0 +1,1224 @@
+namespace = black_death
+
+########################################
+# Black Death
+########################################
+
+# Start
+country_event = {
+	id = black_death.1
+	title = black_death.1.t
+	desc = black_death.1.d
+	picture = PLAGUE_eventPicture
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_country_flag = black_death_active
+	}
+	
+	option = {
+		name = black_death.1.a
+		add_stability = -3
+		add_prestige = -25
+		if = {
+			limit = {
+				manpower = 1
+			}
+			add_yearly_manpower = -3
+		}
+		if = {
+			limit = {
+				sailors = 500
+			}
+			add_yearly_sailors = -1.5
+		}
+	}
+}
+
+country_event = {
+	id = black_death.2
+	title = black_death.2.t
+	desc = black_death.2.d
+	picture = PLAGUE_eventPicture
+	goto = phdea_1
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		any_owned_province = {
+			NOT = { publichealth = 100 }
+			development = 4
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					num_of_cities = 50
+					num_of_owned_provinces_with = {
+						value = 10
+						NOT = { publichealth = 100 }
+						development = 4
+						NOT = { has_province_flag = phdea }
+					}
+				}
+				pick_best_provinces = {
+					10 = yes
+					global_trigger = "
+						NOT = { publichealth = 100 }
+						development = 4
+						NOT = { has_province_flag = phdea }
+					"
+					scope = every_owned_province
+					scale = higher_development_than
+					event_target_name = phdea
+				}
+			}
+			else_if = {
+				limit = {
+					num_of_cities = 25
+					num_of_owned_provinces_with = {
+						value = 5
+						NOT = { publichealth = 100 }
+						development = 6
+						NOT = { has_province_flag = phdea }
+					}
+				}
+				pick_best_provinces = {
+					5 = yes
+					global_trigger = "
+						NOT = { publichealth = 100 }
+						development = 4
+						NOT = { has_province_flag = phdea }
+					"
+					scope = every_owned_province
+					scale = higher_development_than
+					event_target_name = phdea
+				}
+			}
+			else_if = {
+				limit = {
+					num_of_cities = 20
+					num_of_owned_provinces_with = {
+						value = 4
+						NOT = { publichealth = 100 }
+						development = 4
+						NOT = { has_province_flag = phdea }
+					}
+				}
+				pick_best_provinces = {
+					4 = yes
+					global_trigger = "
+						NOT = { publichealth = 100 }
+						development = 4
+						NOT = { has_province_flag = phdea }
+					"
+					scope = every_owned_province
+					scale = higher_development_than
+					event_target_name = phdea
+				}
+			}
+			else_if = {
+				limit = {
+					num_of_cities = 10
+					num_of_owned_provinces_with = {
+						value = 3
+						NOT = { publichealth = 100 }
+						development = 4
+						NOT = { has_province_flag = phdea }
+					}
+				}
+				pick_best_provinces = {
+					3 = yes
+					global_trigger = "
+						NOT = { publichealth = 100 }
+						development = 4
+						NOT = { has_province_flag = phdea }
+					"
+					scope = every_owned_province
+					scale = higher_development_than
+					event_target_name = phdea
+				}
+			}
+			else_if = {
+				limit = {
+					num_of_cities = 5
+					num_of_owned_provinces_with = {
+						value = 2
+						NOT = { publichealth = 100 }
+						development = 4
+						NOT = { has_province_flag = phdea }
+					}
+				}
+				pick_best_provinces = {
+					2 = yes
+					global_trigger = "
+						NOT = { publichealth = 100 }
+						development = 4
+						NOT = { has_province_flag = phdea }
+					"
+					scope = every_owned_province
+					scale = higher_development_than
+					event_target_name = phdea
+				}
+			}
+			else = {
+				pick_best_provinces = {
+					1 = yes
+					global_trigger = "
+						NOT = { publichealth = 100 }
+						development = 4
+						NOT = { has_province_flag = phdea }
+					"
+					scope = every_owned_province
+					scale = higher_development_than
+					event_target_name = phdea
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = black_death.2.a
+		ai_chance = {
+			factor = 100
+		}
+		event_target:phdea_1 = {
+			black_death_big_effect = yes
+			add_institution_embracement = {
+    			which = "publichealth"
+   				value = 20
+   			}
+			set_province_flag = phdea
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_2 }
+			event_target:phdea_2 = {
+				black_death_big_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 20
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_3 }
+			event_target:phdea_3 = {
+				black_death_big_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 20
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_4 }
+			event_target:phdea_4 = {
+				black_death_big_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 20
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_5 }
+			event_target:phdea_5 = {
+				black_death_big_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 20
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_6 }
+			event_target:phdea_6 = {
+				black_death_big_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 20
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_7 }
+			event_target:phdea_7 = {
+				black_death_big_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 20
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_8 }
+			event_target:phdea_8 = {
+				black_death_big_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 20
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_9 }
+			event_target:phdea_9 = {
+				black_death_big_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 20
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_10 }
+			event_target:phdea_10 = {
+				black_death_big_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 20
+				}
+				set_province_flag = phdea
+			}
+		}
+	}
+	option = {
+		name = black_death.2.b
+		ai_chance = {
+			factor = 0
+		}
+		event_target:phdea_1 = {
+			add_local_autonomy = 15
+			black_death_small_effect = yes
+			add_institution_embracement = {
+    			which = "publichealth"
+   				value = 2
+   			}
+			set_province_flag = phdea
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_2 }
+			event_target:phdea_2 = {
+				add_local_autonomy = 15
+				black_death_small_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 2
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_3 }
+			event_target:phdea_3 = {
+				add_local_autonomy = 15
+				black_death_small_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 2
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_4 }
+			event_target:phdea_4 = {
+				add_local_autonomy = 15
+				black_death_small_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 2
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_5 }
+			event_target:phdea_5 = {
+				add_local_autonomy = 15
+				black_death_small_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 2
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_6 }
+			event_target:phdea_6 = {
+				add_local_autonomy = 15
+				black_death_small_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 2
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_7 }
+			event_target:phdea_7 = {
+				add_local_autonomy = 15
+				black_death_small_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 2
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_8 }
+			event_target:phdea_8 = {
+				add_local_autonomy = 15
+				black_death_small_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 2
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_9 }
+			event_target:phdea_9 = {
+				add_local_autonomy = 15
+				black_death_small_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 2
+				}
+				set_province_flag = phdea
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phdea_10 }
+			event_target:phdea_10 = {
+				add_local_autonomy = 15
+				black_death_small_effect = yes
+				add_institution_embracement = {
+					which = "publichealth"
+					value = 2
+				}
+				set_province_flag = phdea
+			}
+		}
+	}
+}
+
+country_event = {
+	id = black_death.3
+	title = black_death.3.t
+	desc = black_death.3.d
+	picture = PLAGUE_eventPicture
+	goto = phinf_1
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		any_owned_province = {
+			NOT = { publichealth = 100 }
+			NOT = { has_province_modifier = influenza }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					num_of_cities = 10
+					num_of_owned_provinces_with = {
+						value = 3
+						NOT = { publichealth = 100 }
+						NOT = { has_province_modifier = influenza }
+					}
+				}
+				pick_best_provinces = {
+					3 = yes
+					global_trigger = "
+						NOT = { publichealth = 100 }
+						NOT = { has_province_modifier = influenza }
+					"
+					scope = every_owned_province
+					scale = higher_development_than
+					event_target_name = phinf
+				}
+			}
+			else_if = {
+				limit = {
+					num_of_cities = 5
+					num_of_owned_provinces_with = {
+						value = 2
+						NOT = { publichealth = 100 }
+						NOT = { has_province_modifier = influenza }
+					}
+				}
+				pick_best_provinces = {
+					2 = yes
+					global_trigger = "
+						NOT = { publichealth = 100 }
+						NOT = { has_province_modifier = influenza }
+					"
+					scope = every_owned_province
+					scale = higher_development_than
+					event_target_name = phinf
+				}
+			}
+			else = {
+				pick_best_provinces = {
+					1 = yes
+					global_trigger = "
+						NOT = { publichealth = 100 }
+						NOT = { has_province_modifier = influenza }
+					"
+					scope = every_owned_province
+					scale = higher_development_than
+					event_target_name = phinf
+				}
+			}
+		}
+	}
+
+	option = {
+		name = black_death.3.a
+		event_target:phinf_1 = {
+			black_death_small_effect = yes
+			add_province_modifier = {
+				name = "influenza"
+				duration = 1825
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phinf_2 }
+			event_target:phinf_2 = {
+				black_death_small_effect = yes
+				add_province_modifier = {
+					name = "influenza"
+					duration = 1825
+				}
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phinf_3 }
+			event_target:phinf_3 = {
+				black_death_small_effect = yes
+				add_province_modifier = {
+					name = "influenza"
+					duration = 1825
+				}
+			}
+		}
+	}
+	option = {
+		name = black_death.3.b
+		add_years_of_income = -0.6
+	}
+}
+
+country_event = {
+	id = black_death.4
+	title = black_death.4.t
+	desc = black_death.4.d
+	picture = PLAGUE_eventPicture
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		manpower_percentage = 0.30
+		any_owned_province = {
+			NOT = { publichealth = 100 }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { NOT = { publichealth = 100 } }
+				save_event_target_as = pubhealthfirst
+			}
+		}
+	}
+
+	option = {
+		name = black_death.4.a
+		goto = pubhealthfirst
+		ai_chance = {
+			factor = 90
+		}
+		add_yearly_manpower = -0.8
+		event_target:pubhealthfirst = {
+			add_institution_embracement = {
+    			which = "publichealth"
+   				value = 50
+			}
+		}
+	}
+	option = {
+		name = black_death.4.b
+		ai_chance = {
+			factor = 10
+		}
+		add_yearly_manpower = -0.4
+		add_prestige = 2
+	}
+}
+
+country_event = {
+	id = black_death.5
+	title = black_death.5.t
+	desc = black_death.5.d
+	picture = KING_SICK_IN_BED_eventPicture
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		has_regency = no
+		is_lesser_in_union = no
+		NOT = { has_country_flag = ruler_had_black_death }
+		NOT = { ruler_has_personality = immortal_personality }
+		capital_scope = {
+			NOT = { publichealth = 100 }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = ruler_had_black_death
+		}
+	}
+
+	option = {
+		name = black_death.5.a
+		highlight = yes
+		trigger = {
+			full_idea_group = innovativeness_ideas
+		}
+		ai_chance = {
+			factor = 90
+		}
+		random_list = {
+			10 = {
+				kill_ruler = yes
+				if = {
+					limit = {
+						OR = {
+							government = republic
+							government = theocracy
+						}
+					}
+					add_stability = -1
+				}
+			}
+			90 = {
+				capital_scope = {
+					add_institution_embracement = {
+    					which = "publichealth"
+   						value = 50
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = black_death.5.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					is_bankrupt = yes
+					is_in_deficit = yes
+				}
+			}
+		}
+		add_years_of_income = -0.5
+		random_list = {
+			25 = {
+				kill_ruler = yes
+				if = {
+					limit = {
+						OR = {
+							government = republic
+							government = theocracy
+						}
+					}
+					add_stability = -1
+				}
+			}
+			75 = {
+				capital_scope = {
+					add_institution_embracement = {
+    					which = "publichealth"
+   						value = 50
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = black_death.5.c
+		ai_chance = {
+			factor = 1
+		}
+		random_list = {
+			50 = {
+				kill_ruler = yes
+				if = {
+					limit = {
+						OR = {
+							government = republic
+							government = theocracy
+						}
+					}
+					add_stability = -1
+				}
+			}
+			50 = {
+				capital_scope = {
+					add_institution_embracement = {
+    					which = "publichealth"
+   						value = 50
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = black_death.6
+	title = black_death.6.t
+	desc = black_death.6.d
+	picture = PLAGUE_eventPicture
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		government = monarchy
+		has_heir = yes
+		has_regency = no
+		is_lesser_in_union = no
+		NOT = { has_government_attribute = has_harem_events }
+		NOT = { has_government_attribute = is_elective }
+		NOT = { has_government_attribute = has_ruler_election }
+		NOT = { has_government_attribute = foreign_slave_rulers }
+		NOT = { has_country_flag = heir_had_black_death }
+		capital_scope = {
+			NOT = { publichealth = 100 }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = heir_had_black_death
+		}
+	}
+	
+	option = {
+		name = black_death.6.a
+		highlight = yes
+		trigger = {
+			full_idea_group = innovativeness_ideas
+		}
+		ai_chance = {
+			factor = 90
+		}
+		random_list = {
+			10 = { kill_heir = {} }
+			90 = {
+				capital_scope = {
+					add_institution_embracement = {
+    					which = "publichealth"
+   						value = 30
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = black_death.6.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					is_bankrupt = yes
+					is_in_deficit = yes
+				}
+			}
+		}
+		add_years_of_income = -0.25
+		random_list = {
+			25 = { kill_heir = {} }
+			75 = {
+				capital_scope = {
+					add_institution_embracement = {
+    					which = "publichealth"
+   						value = 30
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = black_death.6.c
+		ai_chance = {
+			factor = 1
+		}
+		random_list = {
+			50 = { kill_heir = {} }
+			50 = {
+				capital_scope = {
+					add_institution_embracement = {
+    					which = "publichealth"
+   						value = 30
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = black_death.7
+	title = black_death.7.t
+	desc = black_death.7.d
+	picture = POPE_PREACHING_eventPicture
+	goto = papalmissal
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		OR = {
+			AND = {
+				religion = catholic
+				NOT = { tag = PAP }
+				exists = PAP
+			}
+			AND = {
+				religion = catholique
+				NOT = { tag = AVI }
+				exists = AVI
+			}
+		}
+		NOT = { has_country_flag = papal_blackdeath }
+		any_owned_province = {
+			NOT = { publichealth = 100 }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = papal_blackdeath
+			random_owned_province = {
+				limit = {
+					NOT = { publichealth = 100 }
+				}
+				save_event_target_as = papalmissal
+			}
+		}
+	}
+
+	option = {
+		name = black_death.7.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				religion = catholic
+				alliance_with = PAP
+			}
+			modifier = {
+				factor = 0
+				religion = catholique
+				alliance_with = AVI
+			}
+		}
+		if = {
+			limit = { religion = catholic }
+			reverse_add_opinion = {
+				who = PAP
+				modifier = opinion_upset_pope
+			}
+		}
+		else = {
+			reverse_add_opinion = {
+				who = AVI
+				modifier = opinion_upset_pope
+			}
+		}
+		reduce_estate_church_loyalty_effect = yes
+		event_target:papalmissal = {
+			add_institution_embracement = {
+    			which = "publichealth"
+   				value = 40
+			}
+		}
+	}
+	option = {
+		name = black_death.7.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_excommunicated = yes
+			}
+		}
+		add_papal_influence = 25
+		event_target:papalmissal = {
+			add_institution_embracement = {
+    			which = "publichealth"
+   				value = 5
+			}
+		}
+	}
+}
+
+country_event = {
+	id = black_death.8
+	title = black_death.8.t
+	desc = black_death.8.d
+	picture = {
+		trigger = { has_dlc = "Rule Britannia" }
+		picture = SCIENTISTS_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Rule Britannia" } }
+		picture = ADVISOR_eventPicture
+	}
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		full_idea_group = innovativeness_ideas
+		any_owned_province = {
+			NOT = { publichealth = 100 }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { NOT = { publichealth = 100 } }
+				save_event_target_as = researchbreakthrough
+			}
+		}
+	}
+
+	option = {
+		name = black_death.8.a
+		goto = researchbreakthrough
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0.1
+				is_in_deficit = yes
+			}
+			modifier = {
+				factor = 0.1
+				num_of_loans = 1
+			}
+			modifier = {
+				factor = 0.1
+				is_bankrupt = yes
+			}
+		}
+		add_innovativeness_small_effect = yes
+		add_years_of_income = -0.2
+		event_target:researchbreakthrough = {
+			add_institution_embracement = {
+    			which = "publichealth"
+   				value = 50
+			}
+		}
+	}
+	option = {
+		name = black_death.8.b
+		ai_chance = {
+			factor = 10
+		}
+		if = {
+			limit = {
+				has_dlc = "Rule Britannia"
+			}
+			reduce_innovativeness_small_effect = yes
+		}
+		else = {
+			add_prestige = -5
+		}
+		reduce_meritocracy_effect = yes
+	}
+}
+
+country_event = {
+	id = black_death.9
+	title = black_death.9.t
+	desc = black_death.9.d
+	picture = ANGRY_MOB_eventPicture
+	goto = phrev_1
+
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		any_owned_province = {
+			publichealth = 10
+			NOT = { publichealth = 100 }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					num_of_cities = 10
+					num_of_owned_provinces_with = {
+						value = 3
+						publichealth = 10
+						NOT = { publichealth = 100 }
+					}
+				}
+				pick_best_provinces = {
+					3 = yes
+					global_trigger = "
+						publichealth = 10
+						NOT = { publichealth = 100 }
+						NOT = { has_province_flag = phrev }
+					"
+					scope = every_owned_province
+					scale = higher_development_than
+					event_target_name = phrev
+				}
+			}
+			else_if = {
+				limit = {
+					num_of_cities = 5
+					num_of_owned_provinces_with = {
+						value = 2
+						publichealth = 10
+						NOT = { publichealth = 100 }
+					}
+				}
+				pick_best_provinces = {
+					2 = yes
+					global_trigger = "
+						publichealth = 10
+						NOT = { publichealth = 100 }
+						NOT = { has_province_flag = phrev }
+					"
+					scope = every_owned_province
+					scale = higher_development_than
+					event_target_name = phrev
+				}
+			}
+			else = {
+				pick_best_provinces = {
+					1 = yes
+					global_trigger = "
+						publichealth = 10
+						NOT = { publichealth = 100 }
+						NOT = { has_province_flag = phrev }
+					"
+					scope = every_owned_province
+					scale = higher_development_than
+					event_target_name = phrev
+				}
+			}
+		}
+	}
+
+	option = {
+		name = black_death.9.a
+		ai_chance = { factor = 90 }
+		event_target:phrev_1 = {
+			add_institution_embracement = {
+    			which = "publichealth"
+   				value = -25
+   			}
+		}
+		if = {
+			limit = { has_saved_event_target = phrev_2 }
+			event_target:phrev_2 = {
+				add_institution_embracement = {
+					which = "publichealth"
+					value = -25
+				}
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phrev_3 }
+			event_target:phrev_3 = {
+				add_institution_embracement = {
+					which = "publichealth"
+				   value = -25
+				}
+			}
+		}
+	}
+	option = {
+		name = black_death.9.b
+		ai_chance = { factor = 10 }
+		event_target:phrev_1 = {
+			spawn_small_scaled_rebels = {
+				type = anti_tax_rebels
+				no_defined_leader = yes
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phrev_2 }
+			event_target:phrev_2 = {
+				spawn_small_scaled_rebels = {
+					type = anti_tax_rebels
+					no_defined_leader = yes
+				}
+			}
+		}
+		if = {
+			limit = { has_saved_event_target = phrev_3 }
+			event_target:phrev_3 = {
+				spawn_small_scaled_rebels = {
+					type = anti_tax_rebels
+					no_defined_leader = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = black_death.10
+	title = black_death.10.t
+	desc = black_death.10.d
+	picture = REFORM_eventPicture
+	goto = foreignadvice
+	
+	is_triggered_only = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { publichealth = 100 }
+				}
+				save_event_target_as = foreignadvice
+			}
+		}
+	}
+
+	option = {
+		name = black_death.10.a
+		event_target:foreignadvice = {
+			add_institution_embracement = {
+    			which = "publichealth"
+   				value = 35
+			}
+		}
+	}
+}
+
+# The Aftermath
+country_event = {
+	id = black_death.100
+	title = black_death.100.t
+	desc = black_death.100.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		on_non_estate_disaster_end = yes
+		set_country_flag = had_black_death
+		clr_country_flag = black_death_active
+	}
+	
+	option = {
+		name = black_death.100.a
+		add_prestige = 10
+		clr_country_flag = ruler_had_black_death
+		clr_country_flag = heir_had_black_death
+		clr_country_flag = papal_blackdeath
+		if = {
+			limit = {
+				NOT = { manpower_percentage = 0.8 }
+			}
+			add_yearly_manpower = 1.00
+		}
+		if = {
+			limit = {
+				has_institution = publichealth
+			}
+			every_neighbor_country = {
+				limit = {
+					has_disaster = black_death
+					any_owned_province = {
+						NOT = { publichealth = 100 }
+					}
+					NOT = { is_rival = ROOT }
+					NOT = { is_enemy = ROOT }
+				}
+				country_event = { id = black_death.10 }
+			}
+		}
+		every_owned_province = {
+			limit = {
+				has_province_modifier = influenza
+			}
+			remove_province_modifier = influenza
+		}
+	}
+}

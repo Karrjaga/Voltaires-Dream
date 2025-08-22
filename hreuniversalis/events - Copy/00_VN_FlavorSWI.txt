@@ -1,0 +1,129 @@
+namespace = vn_flavor_swi
+
+#Rise of Swiss Republicanism
+country_event = {
+	id = vn_flavor_swi.1
+	title = "vn_flavor_swi.1.t"
+	desc = "vn_flavor_swi.1.d"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	trigger = {
+		capital_scope = { superregion = switzerland_superregion }
+		OR = {
+			primary_culture = swiss
+			primary_culture = arpitan
+		}
+		has_global_flag = free_city_allowed
+		OR = {
+			current_age = age_of_crisis
+			current_age = age_of_dynasticism
+		}
+		NOT = { has_country_flag = had_canton_question }
+		NOT = { num_of_cities = 10 }
+		NOT = { government = republic }
+		is_subject = no
+		NOT = { exists = SWI }
+	}
+	
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			factor = 0.75
+			NOT = { num_of_cities = 2 }
+		}
+		modifier = {
+			factor = 0.8
+			capital_scope = { development = 8 }
+		}
+		modifier = {
+			factor = 0.8
+			capital_scope = { development = 12 }
+		}
+	}
+
+	immediate = {
+		set_country_flag = had_canton_question
+	}
+
+	option = {
+		name = "vn_flavor_swi.1.a"
+		ai_chance = {
+			factor = 95
+			modifier = {
+				factor = 0
+				is_emperor = yes
+			}
+		}
+		change_government = republic
+		add_government_reform = canton_government
+		country_event = { id = 700 }
+	}
+
+	option = {
+		name = "vn_flavor_swi.1.b"
+		goto = capital
+		ai_chance = { factor = 5 }
+		add_legitimacy = 15
+		capital_scope = {
+			spawn_rebels = {
+				type = nap_republican_rebels
+				size = 3
+			}
+		}
+	}
+}
+
+#Swiss subject wants to become independent
+country_event = {
+    id = vn_flavor_swi.2
+    title = "vn_flavor_swi.2.t"
+    desc = "vn_flavor_swi.2.d"
+	picture = REFORM_eventPicture
+
+	trigger = {
+		any_subject_country = {
+			is_part_of_hre = yes
+			capital_scope = {
+				superregion = switzerland_superregion
+			}
+		}
+		has_global_flag = had_canton_question
+		is_emperor = no
+		is_part_of_hre = yes
+
+	}
+
+	trigger = {
+		always = no
+		normal_or_historical_nations = yes
+		is_year = 1100
+		NOT = { started_in = 1127.1.1 }
+		tag = DIE
+		BRN = { is_subject_of = ROOT }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			is_emperor = no
+		}
+	}
+
+	option = {
+		name = "vn_flavor_swi.2.a"
+		add_prestige = 10
+		BRN = {
+			grant_independence = yes
+			change_government = republic
+			add_government_reform = canton_government
+		}
+	}
+	option = {
+		name = "vn_flavor_swi.2.b"
+		BRN = {
+			add_liberty_desire = 40
+			add_opinion = { who = ROOT modifier = opinion_tyrant_overlord }
+		}
+	}
+}

@@ -1,0 +1,56 @@
+country_event = {
+	id = 3051
+	title = "EVTNAME3051"
+	desc = "EVTDESC3051"
+	picture = ANGRY_MOB_eventPicture
+	goto = cultural_unrest_province
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_province = {
+			is_capital = no
+			is_city = yes
+			has_owner_culture = no
+			has_owner_accepted_culture = no
+			has_owner_religion = no
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					is_city = yes		
+					has_owner_culture = no
+					has_owner_accepted_culture = no
+					has_owner_religion = no
+				}
+				save_event_target_as = cultural_unrest_province
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA3051"
+		ai_chance = { factor = 50 }
+		event_target:cultural_unrest_province = {
+			add_province_modifier = {
+				name = "suppress_minority"
+				duration = 1825
+			}			
+		}
+	}
+	option = {
+		name = "EVTOPTB3051"
+		ai_chance = { factor = 50 }
+		event_target:cultural_unrest_province = {
+			add_local_autonomy = 25
+		}
+	}
+}

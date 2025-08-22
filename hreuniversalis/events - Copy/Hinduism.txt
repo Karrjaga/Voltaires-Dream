@@ -1,0 +1,83 @@
+########################################
+# Hindu Deity Events
+#
+# written by Rufus Tronde
+########################################
+
+namespace = hindu_events
+
+country_event = {
+	id = hindu_events.1
+	title = "hindu_events.1.t"
+	desc = "hindu_events.1.d"
+	picture = PRAYING_eventPicture
+
+	trigger = {
+		religion = zoroastrian
+		has_dlc = "Wealth of Nations"
+		has_regency = no
+		OR = {
+			has_country_flag = brahmin_deity_interaction
+			AND = {
+				NOT = { has_personal_deity = vohu_manah }
+				NOT = { has_personal_deity = asha_vahishta }
+				NOT = { has_personal_deity = xshathra_vairya }
+				NOT = { has_personal_deity = spenta_armaiti }
+				NOT = { has_personal_deity = haurvatat }
+				NOT = { has_personal_deity = ameretat }
+			}
+		}
+	}
+
+	after = {
+		clr_country_flag = brahmin_deity_interaction
+	}
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	# Shaivism
+	option = {
+		name = "hindu_events.1.a"
+		change_personal_deity = vohu_manah
+	}
+
+	# Skaktism
+	option = {
+		name = "hindu_events.1.b"
+		change_personal_deity = asha_vahishta
+	}
+
+	# Vaishnavism
+	option = {
+		name = "hindu_events.1.c"
+		change_personal_deity = xshathra_vairya
+	}
+
+	# Ganga
+	option = {
+		name = "hindu_events.1.e"
+		change_personal_deity = spenta_armaiti
+	}
+
+	# Ganesha
+	option = {
+		name = "hindu_events.1.f"
+		change_personal_deity = haurvatat
+	}
+
+	# Surya
+	option = {
+		name = "hindu_events.1.g"
+		change_personal_deity = ameretat
+	}
+
+	# Not ready
+	option = {
+		trigger = {
+			NOT = { has_country_flag = brahmin_deity_interaction }
+		}
+		name = "hindu_events.1.h"
+	}
+}

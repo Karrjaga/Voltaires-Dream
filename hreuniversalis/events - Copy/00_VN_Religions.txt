@@ -1,0 +1,4708 @@
+namespace = vn_religious_events
+namespace = vn_bogomilist_events
+
+# Paths of Religion
+country_event = {
+	id = vn_religious_events.0
+	title = "vn_religious_events.0.t"
+	desc = "vn_religious_events.0.d"
+	picture = PRAYING_eventPicture
+
+	trigger = {
+		has_dlc = "Wealth of Nations"
+		has_regency = no
+		OR = {
+			has_country_flag = church_deity_interaction
+			AND = {
+                religion = egyptian_religion
+				NOT = { has_personal_deity = egy_anubis }
+				NOT = { has_personal_deity = egy_horus }
+				NOT = { has_personal_deity = egy_isis }
+				NOT = { has_personal_deity = egy_ra }
+				NOT = { has_personal_deity = egy_set }
+				NOT = { has_personal_deity = egy_sobek }
+			}
+            AND = {
+                religion = hellenic_pagan
+				NOT = { has_personal_deity = zeus }
+				NOT = { has_personal_deity = poseidon }
+				NOT = { has_personal_deity = hades }
+				NOT = { has_personal_deity = hera }
+				NOT = { has_personal_deity = athena }
+				NOT = { has_personal_deity = aphrodite }
+			}
+            AND = {
+                religion = slavic_pagan
+				NOT = { has_personal_deity = perun }
+				NOT = { has_personal_deity = veles }
+				NOT = { has_personal_deity = jarilo }
+				NOT = { has_personal_deity = svarog }
+				NOT = { has_personal_deity = dazbog }
+				NOT = { has_personal_deity = lada }
+			}
+            AND = {
+                religion = animism
+				NOT = { has_personal_deity = ausrine }
+				NOT = { has_personal_deity = laima }
+				NOT = { has_personal_deity = milda }
+				NOT = { has_personal_deity = perkunas }
+				NOT = { has_personal_deity = saule }
+				NOT = { has_personal_deity = zemyna }
+			}
+            AND = {
+                religion = druwi
+				NOT = { has_personal_deity = potrimpo }
+				NOT = { has_personal_deity = autrimpo }
+				NOT = { has_personal_deity = peckols }
+				NOT = { has_personal_deity = occopirmo }
+				NOT = { has_personal_deity = suaixtix }
+				NOT = { has_personal_deity = piluuyto }
+			}
+            AND = {
+                religion = dievturiba
+				NOT = { has_personal_deity = dievs }
+				NOT = { has_personal_deity = mara }
+				NOT = { has_personal_deity = karta }
+				NOT = { has_personal_deity = udens }
+				NOT = { has_personal_deity = juras }
+				NOT = { has_personal_deity = upes }
+			}
+            AND = {
+                religion = uralinusko
+				NOT = { has_personal_deity = kugu }
+				NOT = { has_personal_deity = kudryrcho }
+				NOT = { has_personal_deity = purysho }
+				NOT = { has_personal_deity = azyren }
+				NOT = { has_personal_deity = mlande }
+				NOT = { has_personal_deity = tunya }
+			}
+		}
+	}
+
+	after = {
+		clr_country_flag = church_deity_interaction
+	}
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	option = {
+		name = "vn_religious_events.0.egy.a"
+        trigger = { religion = egyptian_religion }
+		change_personal_deity = egy_anubis
+	}
+	option = {
+		name = "vn_religious_events.0.egy.b"
+        trigger = { religion = egyptian_religion }
+		change_personal_deity = egy_horus
+	}
+	option = {
+		name = "vn_religious_events.0.egy.c"
+        trigger = { religion = egyptian_religion }
+		change_personal_deity = egy_isis
+	}
+	option = {
+		name = "vn_religious_events.0.egy.d"
+        trigger = { religion = egyptian_religion }
+		change_personal_deity = egy_ra
+	}
+	option = {
+		name = "vn_religious_events.0.egy.e"
+        trigger = { religion = egyptian_religion }
+		change_personal_deity = egy_set
+	}
+	option = {
+		name = "vn_religious_events.0.egy.f"
+        trigger = { religion = egyptian_religion }
+		change_personal_deity = egy_sobek
+	}
+
+    option = {
+		name = "vn_religious_events.0.hel.a"
+        trigger = { religion = hellenic_pagan }
+		change_personal_deity = zeus
+	}
+	option = {
+		name = "vn_religious_events.0.hel.b"
+        trigger = { religion = hellenic_pagan }
+		change_personal_deity = poseidon
+	}
+	option = {
+		name = "vn_religious_events.0.hel.c"
+        trigger = { religion = hellenic_pagan }
+		change_personal_deity = hades
+	}
+	option = {
+		name = "vn_religious_events.0.hel.d"
+        trigger = { religion = hellenic_pagan }
+		change_personal_deity = hera
+	}
+	option = {
+		name = "vn_religious_events.0.hel.e"
+        trigger = { religion = hellenic_pagan }
+		change_personal_deity = athena
+	}
+	option = {
+		name = "vn_religious_events.0.hel.f"
+        trigger = { religion = hellenic_pagan }
+		change_personal_deity = aphrodite
+	}
+
+    option = {
+		name = "vn_religious_events.0.slv.a"
+        trigger = { religion = slavic_pagan }
+		change_personal_deity = perun
+	}
+	option = {
+		name = "vn_religious_events.0.slv.b"
+        trigger = { religion = slavic_pagan }
+		change_personal_deity = veles
+	}
+	option = {
+		name = "vn_religious_events.0.slv.c"
+        trigger = { religion = slavic_pagan }
+		change_personal_deity = jarilo
+	}
+	option = {
+		name = "vn_religious_events.0.slv.d"
+        trigger = { religion = slavic_pagan }
+		change_personal_deity = svarog
+	}
+	option = {
+		name = "vn_religious_events.0.slv.e"
+        trigger = { religion = slavic_pagan }
+		change_personal_deity = dazbog
+	}
+	option = {
+		name = "vn_religious_events.0.slv.f"
+        trigger = { religion = slavic_pagan }
+		change_personal_deity = lada
+	}
+
+    option = {
+		name = "vn_religious_events.0.rmv.a"
+        trigger = { religion = animism }
+		change_personal_deity = ausrine
+	}
+	option = {
+		name = "vn_religious_events.0.rmv.b"
+        trigger = { religion = animism }
+		change_personal_deity = laima
+	}
+	option = {
+		name = "vn_religious_events.0.rmv.c"
+        trigger = { religion = animism }
+		change_personal_deity = milda
+	}
+	option = {
+		name = "vn_religious_events.0.rmv.d"
+        trigger = { religion = animism }
+		change_personal_deity = perkunas
+	}
+	option = {
+		name = "vn_religious_events.0.rmv.e"
+        trigger = { religion = animism }
+		change_personal_deity = saule
+	}
+	option = {
+		name = "vn_religious_events.0.rmv.f"
+        trigger = { religion = animism }
+		change_personal_deity = zemyna
+	}
+
+    option = {
+		name = "vn_religious_events.0.drw.a"
+        trigger = { religion = druwi }
+		change_personal_deity = potrimpo
+	}
+	option = {
+		name = "vn_religious_events.0.drw.b"
+        trigger = { religion = druwi }
+		change_personal_deity = autrimpo
+	}
+	option = {
+		name = "vn_religious_events.0.drw.c"
+        trigger = { religion = druwi }
+		change_personal_deity = peckols
+	}
+	option = {
+		name = "vn_religious_events.0.drw.d"
+        trigger = { religion = druwi }
+		change_personal_deity = occopirmo
+	}
+	option = {
+		name = "vn_religious_events.0.drw.e"
+        trigger = { religion = druwi }
+		change_personal_deity = suaixtix
+	}
+	option = {
+		name = "vn_religious_events.0.drw.f"
+        trigger = { religion = druwi }
+		change_personal_deity = piluuyto
+	}
+
+    option = {
+		name = "vn_religious_events.0.dvb.a"
+        trigger = { religion = dievturiba }
+		change_personal_deity = dievs
+	}
+	option = {
+		name = "vn_religious_events.0.dvb.b"
+        trigger = { religion = dievturiba }
+		change_personal_deity = mara
+	}
+	option = {
+		name = "vn_religious_events.0.dvb.c"
+        trigger = { religion = dievturiba }
+		change_personal_deity = karta
+	}
+	option = {
+		name = "vn_religious_events.0.dvb.d"
+        trigger = { religion = dievturiba }
+		change_personal_deity = udens
+	}
+	option = {
+		name = "vn_religious_events.0.dvb.e"
+        trigger = { religion = dievturiba }
+		change_personal_deity = juras
+	}
+	option = {
+		name = "vn_religious_events.0.dvb.f"
+        trigger = { religion = dievturiba }
+		change_personal_deity = upes
+	}
+
+    option = {
+		name = "vn_religious_events.0.url.a"
+        trigger = { religion = uralinusko }
+		change_personal_deity = kugu
+	}
+	option = {
+		name = "vn_religious_events.0.url.b"
+        trigger = { religion = uralinusko }
+		change_personal_deity = kudryrcho
+	}
+	option = {
+		name = "vn_religious_events.0.url.c"
+        trigger = { religion = uralinusko }
+		change_personal_deity = purysho
+	}
+	option = {
+		name = "vn_religious_events.0.url.d"
+        trigger = { religion = uralinusko }
+		change_personal_deity = azyren
+	}
+	option = {
+		name = "vn_religious_events.0.url.e"
+        trigger = { religion = uralinusko }
+		change_personal_deity = mlande
+	}
+	option = {
+		name = "vn_religious_events.0.url.f"
+        trigger = { religion = uralinusko }
+		change_personal_deity = tunya
+	}
+
+	option = {
+		trigger = {
+			NOT = { has_country_flag = church_deity_interaction }
+		}
+		name = "vn_religious_events.0.g"
+	}
+}
+
+#Catholic Heretic
+country_event = {
+	id = vn_religious_events.1
+	title = vn_religious_events.1.t
+	desc = vn_religious_events.1.d
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = fraticelli
+            religion = waldensian
+            religion = lollardy
+            religion = cathar
+        }
+        government = monarchy
+        has_government_attribute = heir
+        heir_age = 15
+        ruler_age = 60
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.1.a"
+        add_prestige = 10
+        kill_ruler = yes
+    }
+    option = {
+        name = "vn_religious_events.1.b"
+        add_legitimacy = -10
+    }
+}
+
+country_event = {
+	id = vn_religious_events.2
+	title = "vn_religious_events.2.t"
+	desc = "vn_religious_events.2.d"
+	picture = ARTWORK_eventPicture
+	
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = fraticelli
+            religion = waldensian
+            religion = lollardy
+            religion = cathar
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.2.a"
+        add_karma = 5
+        add_prestige = 10
+    }
+    option = {
+        name = "vn_religious_events.2.b"
+        add_karma = -5
+        add_years_of_income = 0.25
+    }
+}
+
+country_event = {
+	id = vn_religious_events.3
+	title = "vn_religious_events.3.t"
+	desc = "vn_religious_events.3.d"
+	picture = POPE_PREACHING_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+            religion = fraticelli
+            religion = waldensian
+            religion = lollardy
+            religion = cathar
+        }
+        NOT = { stability = 3 }
+    }
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "vn_religious_events.3.a"
+		add_stability_or_adm_power = yes
+	}
+}
+
+country_event = {
+    id = vn_religious_events.4
+	title = "vn_religious_events.4.t"
+	desc = "vn_religious_events.4.d"
+	picture = BIG_BOOK_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = fraticelli
+            religion = waldensian
+            religion = lollardy
+            religion = cathar
+        }
+        NOT = { has_country_modifier = translated_bible_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.4.a"
+        add_country_modifier = {
+            name = translated_bible_m
+            duration = 9125
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.5
+	title = "vn_religious_events.5.t"
+	desc = "vn_religious_events.5.d"
+	picture = COURT_INTRIGUE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = fraticelli
+            religion = waldensian
+            religion = lollardy
+            religion = cathar
+        }
+        has_estate = estate_church
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_religious_events.5.a"
+        add_army_tradition = 5
+    }
+    option = {
+        name = "vn_religious_events.5.b"
+        define_advisor = {
+            type = inquisitor
+            skill = 2
+            discount = yes
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.6
+	title = "vn_religious_events.6.t"
+	desc = "vn_religious_events.6.d"
+	picture = CORRUPTION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+            religion = fraticelli
+            religion = waldensian
+            religion = lollardy
+            religion = cathar
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+    
+	option = {
+        name = "vn_religious_events.6.a"
+        add_karma = -5
+        add_mil_power = -50
+        add_corruption = 1
+    }
+    option = {
+        name = "vn_religious_events.6.b"
+        add_karma = -10
+        add_corruption = 2
+	}
+}
+
+country_event = {
+	id = vn_religious_events.7
+	title = "vn_religious_events.7.t"
+	desc = "vn_religious_events.7.d"
+	picture = BORDER_TENSION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = fraticelli
+            religion = waldensian
+            religion = lollardy
+            religion = cathar
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.7.a"
+        add_karma = 5
+        random_owned_province = {
+            add_base_tax = 1
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.8
+	title = "vn_religious_events.8.t"
+	desc = "vn_religious_events.8.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+            religion = fraticelli
+            religion = waldensian
+            religion = lollardy
+            religion = cathar
+        }
+        any_owned_province = {
+            OR = {
+                religion = fraticelli
+                religion = waldensian
+                religion = lollardy
+                religion = cathar
+            }
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+		
+	option = {
+        name = "vn_religious_events.8.a"
+        add_karma = 5
+		random_owned_province = {
+            catholic_rebels = 2
+        }
+	}
+}
+
+country_event = {
+    id = vn_religious_events.9
+	title = "vn_religious_events.9.t"
+	desc = "vn_religious_events.9.d"
+	picture = UNIVERSITY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = fraticelli
+            religion = waldensian
+            religion = lollardy
+            religion = cathar
+        }
+        NOT = { has_country_modifier = reinterpreted_bible_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+		name = "vn_religious_events.9.a"
+        add_country_modifier = {
+            name = reinterpreted_bible_m
+            duration = 3650
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.10
+	title = "vn_religious_events.10.t"
+	desc = "vn_religious_events.10.d"
+	picture = FAMINE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+            religion = fraticelli
+            religion = waldensian
+            religion = lollardy
+            religion = cathar
+        }
+        is_at_war = yes
+    }
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+        name = "vn_religious_events.10.a"
+        add_war_exhaustion = 2
+    }
+    option = {
+        name = "vn_religious_events.10.b"
+        every_owned_province = {
+            limit = { culture = ROOT }
+            add_unrest = 5
+        }
+	}
+}
+
+########################################
+# Bogomilist
+########################################
+country_event = {
+	id = vn_bogomilist_events.1
+	title = "vn_bogomilist_events.1.t"
+	desc = "vn_bogomilist_events.1.d"
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		religion = bogomilist
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_bogomilist_events.1.a"
+		add_harmony = 10
+		add_stability_or_adm_power = yes
+	}
+}
+
+country_event = {
+	id = vn_bogomilist_events.2
+	title = "vn_bogomilist_events.2.t"
+	desc = "vn_bogomilist_events.2.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+    goto = draguvitian_province
+	
+	is_triggered_only = yes
+	trigger = {
+		religion = bogomilist
+		any_owned_province = {
+            is_capital = no
+            religion = bogomilist
+            controlled_by = ROOT
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    immediate = {
+        hidden_effect = {
+            random_owned_province = {
+                limit = {
+                    is_capital = no
+                    religion = bogomilist
+                    controlled_by = ROOT
+                }
+                save_event_target_as = draguvitian_province
+            }
+        }
+    }
+	
+	option = {
+		name = "vn_bogomilist_events.2.a"
+        ai_chance = { factor = 2 }
+        add_harmony = 10
+        event_target:draguvitian_province = {
+            heretic_rebels = 1
+        }
+	}
+	option = {
+		name = "vn_bogomilist_events.2.b"
+        ai_chance = { factor = 8 }
+		add_harmony = -10
+        event_target:draguvitian_province = {
+            add_province_modifier = {
+                name = religious_violence
+                duration = 1825
+            }
+        }
+	}
+}
+
+country_event = {
+	id = vn_bogomilist_events.3
+	title = "vn_bogomilist_events.3.t"
+	desc = "vn_bogomilist_events.3.d"
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		religion = bogomilist
+    }
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "vn_bogomilist_events.3.a"
+        ai_chance = { factor = 2 }
+        add_harmony = -10
+        add_prestige = 10
+	}
+	option = {
+		name = "vn_bogomilist_events.3.b"
+        ai_chance = { factor = 8 }
+		add_harmony = 10
+        add_prestige = -10
+	}
+}
+
+country_event = {
+	id = vn_bogomilist_events.4
+	title = "vn_bogomilist_events.4.t"
+	desc = "vn_bogomilist_events.4.d"
+	picture = ACCUSATION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		religion = bogomilist
+        has_estate = estate_nobles
+    }
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "vn_bogomilist_events.4.a"
+        ai_chance = { factor = 2 }
+        add_harmony = 10
+        add_estate_loyalty = {
+            estate = estate_nobles
+            loyalty = -10
+        }
+	}
+	option = {
+		name = "vn_bogomilist_events.4.b"
+        ai_chance = { factor = 8 }
+        add_harmony = -10
+        add_estate_loyalty = {
+            estate = estate_nobles
+            loyalty = 10
+        }
+	}
+}
+
+country_event = {
+    id = vn_bogomilist_events.5
+	title = "vn_bogomilist_events.5.t"
+	desc = "vn_bogomilist_events.5.d"
+    picture = ARTWORK_eventPicture
+
+    is_triggered_only = yes
+	trigger = {
+		religion = bogomilist
+    }
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "vn_bogomilist_events.5.a"
+        ai_chance = { factor = 8 }
+        add_harmony = 10
+        add_years_of_income = -0.5
+        add_republican_tradition = 5
+		add_legitimacy = 5
+		add_devotion = 5
+		define_advisor = {
+            type = artist
+            skill = 2
+            discount = yes
+        }
+	}
+	option = {
+		name = "vn_bogomilist_events.5.b"
+        ai_chance = { factor = 2 }
+        add_harmony = -10
+		add_republican_tradition = -5
+		add_legitimacy = -5
+		add_devotion = -5
+	}
+}
+
+country_event = {
+	id = vn_bogomilist_events.6
+	title = "vn_bogomilist_events.6.t"
+	desc = "vn_bogomilist_events.6.d"
+	picture = OVEREXTENSION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		religion = bogomilist
+        NOT = { has_country_modifier = incompetent_clergy }
+    }
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "vn_bogomilist_events.6.a"
+		add_harmony = -10
+		add_country_modifier = {
+            name = incompetent_clergy
+            duration = 1825
+        }
+	}
+}
+
+#Hussite
+country_event = {
+	id = vn_religious_events.21
+	title = "vn_religious_events.21.t"
+    desc = "vn_religious_events.21.d"
+    picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = LAND_MILITARY_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = HUSSITE_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		religion = hussite
+	}
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+        name = "vn_religious_events.21.a"
+		create_general = {
+			tradition = 60
+		}
+	}
+	option = {
+        name = "vn_religious_events.21.b"
+        add_church_power = 15
+		add_mil_power = 25
+	}
+}
+
+country_event = {
+	id = vn_religious_events.22
+	title = "vn_religious_events.22.t"
+    desc = "vn_religious_events.22.d"
+    picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = SIEGE_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = HUSSITE_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = hussite
+        any_owned_province = {
+            base_production = 2
+        }
+	}
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "vn_religious_events.22.a"
+		random_owned_province = {
+            limit = { base_production = 2 }
+			add_base_production = -1
+		}
+	}
+}
+
+country_event = {
+	id = vn_religious_events.23
+	title = "vn_religious_events.23.t"
+    desc = "vn_religious_events.23.d"
+    picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = RELIGIOUS_TURMOIL_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = ADULT_BAPTISME_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		religion = hussite
+	}
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.23.a"
+		random_owned_area = {
+			add_unrest = 10
+		}
+	}
+	option = {
+        name = "vn_religious_events.23.b"
+        add_church_power = -25
+		add_dip_power = -50
+	}
+}
+
+country_event = {
+	id = vn_religious_events.24
+	title = "vn_religious_events.24.t"
+    desc = "vn_religious_events.24.d"
+    picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = BATTLE_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = HUSSITE_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = hussite
+        NOT = { has_country_modifier = hussite_songs_m }
+	}
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+        name = "vn_religious_events.24.a"
+        add_church_power = 10
+		add_army_tradition = 10
+	}
+    option = {
+		name = "vn_religious_events.24.b"
+		add_country_modifier = {
+            name = hussite_songs_m
+            duration = 3650
+        }
+	}
+}
+
+country_event = {
+	id = vn_religious_events.25
+    title = "vn_religious_events.25.t"
+    desc = "vn_religious_events.25.d"
+    picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = BORDER_TENSION_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = ADULT_BAPTISME_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		religion = hussite
+	}
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+        name = "vn_religious_events.25.a"
+        add_church_power = -15
+		add_prestige = -15
+	}
+	option = {
+		name = "vn_religious_events.25.b"
+		add_stability = -1
+	}
+}
+
+country_event = {
+	id = vn_religious_events.26
+	title = "vn_religious_events.26.t"
+    desc = "vn_religious_events.26.d"
+    picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = CITY_DEVELOPMENT_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = ADULT_BAPTISME_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		religion = hussite
+		NOT = { has_country_modifier = hussite_settlements_m }
+	}
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "vn_religious_events.26.a"
+		add_country_modifier = {
+			name = hussite_settlements_m
+			duration = 3650
+		}
+	}
+}
+
+country_event = {
+	id = vn_religious_events.27
+	title = "vn_religious_events.27.t"
+    desc = "vn_religious_events.27.d"
+    picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = PRAYING_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = ADULT_BAPTISME_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		religion = hussite
+	}
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+        name = "vn_religious_events.27.a"
+        add_church_power = 10
+		add_adm_power = 50
+	}
+	option = {
+        name = "vn_religious_events.27.b"
+        add_church_power = 10
+		add_dip_power = 50
+	}
+	option = {
+        name = "vn_religious_events.27.c"
+        add_church_power = 10
+		add_mil_power = 50
+	}
+}
+
+country_event = {
+	id = vn_religious_events.28
+	title = "vn_religious_events.28.t"
+    desc = "vn_religious_events.28.d"
+    picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = WOUNDED_SOLDIERS_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = HUSSITE_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		religion = hussite
+	}
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+        name = "vn_religious_events.28.a"
+        add_church_power = -10
+		add_yearly_manpower = -0.25
+	}
+}
+
+country_event = {
+	id = vn_religious_events.29
+	title = "vn_religious_events.29.t"
+    desc = "vn_religious_events.29.d"
+    picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = BORDER_TENSION_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = HUSSITE_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		religion = hussite
+		any_neighbor_country = {
+            NOT = { war_with = ROOT }
+            NOT = { religion = ROOT }
+        }
+	}
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.29.a"
+        add_church_power = -10
+        add_years_of_income = 0.25
+		add_inflation = 1
+	}
+	option = {
+        name = "vn_religious_events.29.b"
+        add_church_power = 10
+		random_neighbor_country = {
+            limit = {
+                NOT = { war_with = ROOT }
+                NOT = { religion = ROOT }
+            }
+            add_opinion = {
+                who = ROOT
+                modifier = opinion_good_relations
+            }
+        }
+	}
+}
+
+country_event = {
+	id = vn_religious_events.30
+	title = "vn_religious_events.30.t"
+    desc = "vn_religious_events.30.d"
+    picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = ACCUSATION_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = HUSSITE_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		religion = hussite
+        has_regency = no
+	}
+    mean_time_to_happen = { days = 1 }
+	
+	option = {
+        name = "vn_religious_events.30.a"
+        add_church_power = 20
+		random_owned_province = {
+			pretender_rebels = 2
+		}
+	}
+	option = {
+		name = "vn_religious_events.30.b"
+		add_republican_tradition = -10
+		add_legitimacy = -10
+		add_devotion = -10
+		add_horde_unity = -5
+	}
+}
+
+#Anabaptist
+country_event = {
+	id = vn_religious_events.31
+	title = vn_religious_events.31.t
+	desc = vn_religious_events.31.d
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = anabaptist
+        is_at_war = yes
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.31.a"
+        add_war_exhaustion = 2
+    }
+    option = {
+        name = "vn_religious_events.31.b"
+        add_mil_power = -50
+    }
+}
+
+country_event = {
+	id = vn_religious_events.32
+	title = vn_religious_events.32.t
+	desc = vn_religious_events.32.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = anabaptist
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.32.a"
+        random_owned_province = {
+            heretic_rebels = 2
+        }
+    }
+    option = {
+        name = "vn_religious_events.32.b"
+        add_republican_tradition = -10
+		add_legitimacy = -10
+        add_devotion = -10
+        add_horde_unity = -5
+    }
+}
+
+country_event = {
+	id = vn_religious_events.33
+	title = vn_religious_events.33.t
+	desc = vn_religious_events.33.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = anabaptist
+        any_neighbor_country = {
+            religion_group = christian
+            NOT = { religion = anabaptist }
+            NOT = { war_with = ROOT }
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.33.a"
+        random_neighbor_country = {
+            limit = {
+                religion_group = christian
+                NOT = { religion = anabaptist }
+                NOT = { war_with = ROOT }
+            }
+            add_opinion = {
+                who = ROOT
+                modifier = opinion_good_relations
+            }
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.34
+	title = vn_religious_events.34.t
+	desc = vn_religious_events.34.d
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = anabaptist
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.34.a"
+        add_adm_power = 25
+        add_dip_power = 25
+        add_mil_power = 25
+    }
+}
+
+country_event = {
+	id = vn_religious_events.35
+	title = vn_religious_events.35.t
+	desc = vn_religious_events.35.d
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = anabaptist
+        NOT = { has_country_modifier = anabaptist_fanatism_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.35.a"
+        add_church_power = 25
+        add_country_modifier = {
+            name = anabaptist_fanatism_m
+            duration = 7300
+        }
+    }
+    option = {
+        name = "vn_religious_events.35.b"
+        random_owned_province = {
+            add_base_tax = 1
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.36
+	title = vn_religious_events.36.t
+	desc = vn_religious_events.36.d
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = anabaptist
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.36.a"
+        add_stability_or_adm_power = yes
+    }
+}
+
+country_event = {
+	id = vn_religious_events.37
+	title = vn_religious_events.37.t
+	desc = vn_religious_events.37.d
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = anabaptist
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.37.a"
+        add_dip_power = -50
+    }
+    option = {
+        name = "vn_religious_events.37.b"
+        add_church_power = -25
+    }
+}
+
+country_event = {
+	id = vn_religious_events.38
+	title = vn_religious_events.38.t
+	desc = vn_religious_events.38.d
+	picture = CULTURE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = anabaptist
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.38.a"
+        add_corruption = 1
+    }
+    option = {
+        name = "vn_religious_events.38.b"
+        add_church_power = -25
+    }
+}
+
+country_event = {
+	id = vn_religious_events.39
+	title = vn_religious_events.39.t
+	desc = vn_religious_events.39.d
+	picture = BORDER_TENSION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = anabaptist
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.39.a"
+        add_years_of_income = -0.25
+    }
+    option = {
+        name = "vn_religious_events.39.b"
+        add_church_power = -25
+    }
+}
+
+country_event = {
+	id = vn_religious_events.40
+	title = vn_religious_events.40.t
+	desc = vn_religious_events.40.d
+	picture = UNIVERSITY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = anabaptist
+        NOT = { has_country_modifier = anabaptist_universities_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.40.a"
+        add_country_modifier = {
+            name = "anabaptist_universities_m"
+            duration = 3650
+        }
+    }
+    option = {
+        name = "vn_religious_events.40.b"
+        add_church_power = 50
+    }
+}
+
+########################################
+# Rodnovery
+########################################
+namespace = vn_slavic_events
+
+country_event = {
+	id = vn_slavic_events.1
+	title = vn_slavic_events.1.t
+	desc = vn_slavic_events.1.d
+	picture = CULTURE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = slavic_pagan
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_slavic_events.1.a"
+        add_army_tradition = 10
+    }
+
+    option = {
+        name = "vn_slavic_events.1.b"
+        add_years_of_income = 0.2
+    }
+
+    option = {
+        name = "vn_slavic_events.1.c"
+        add_country_modifier = {
+            name = ancestral_worship
+            duration = 1825
+        }
+    }
+}
+
+country_event = {
+	id = vn_slavic_events.2
+	title = vn_slavic_events.2.t
+	desc = vn_slavic_events.2.d
+	picture = ADVISOR_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = slavic_pagan
+    }
+    mean_time_to_happen = { days = 1 }
+
+    immediate = {
+        hidden_effect = {
+            random_list = {
+                1 = { set_country_flag = vedmak_scientist }
+                1 = { set_country_flag = vedmak_artist }
+                1 = { set_country_flag = vedmak_theologian }
+            }
+        }
+    }
+
+    option = {
+        name = "vn_slavic_events.2.a"
+        if = {
+            limit = { has_estate = estate_church }
+            add_estate_loyalty = {
+                estate = estate_church
+                loyalty = -10
+            }
+        }
+        else = {
+            add_prestige = -10
+        }
+        trigger_switch = {
+            on_trigger = has_country_flag
+            vedmak_scientist = {
+                generate_scaled_advisor_of_type_and_cost_effect = {
+                    type = natural_scientist
+                    cost_multiplier = 0.5 
+                }
+            }
+            vedmak_artist = {
+                generate_scaled_advisor_of_type_and_cost_effect = {
+                    type = artist
+                    cost_multiplier = 0.5 
+                }
+            }
+            vedmak_theologian = {
+                generate_scaled_advisor_of_type_and_cost_effect = {
+                    type = theologian
+                    cost_multiplier = 0.5 
+                }
+            }
+        }
+    }
+
+    option = {
+        name = "vn_slavic_events.2.b"
+        if = {
+            limit = { has_estate = estate_church }
+            add_estate_loyalty = {
+                estate = estate_church
+                loyalty = 10
+            }
+        }
+        else = {
+            add_prestige = 5
+        }
+    }
+
+    after = {
+        clr_country_flag = vedmak_scientist
+        clr_country_flag = vedmak_artist
+        clr_country_flag = vedmak_theologian
+    }
+}
+
+country_event = {
+	id = vn_slavic_events.3
+	title = vn_slavic_events.3.t
+	desc = vn_slavic_events.3.d
+	picture = ACCUSATION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = slavic_pagan
+        any_owned_province = {
+            religion = slavic_pagan
+            is_capital = no
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    immediate = {
+        hidden_effect = {
+            random_owned_province = {
+                limit = {
+                    religion = slavic_pagan
+                    is_capital = no
+                }
+                save_event_target_as = holy_glade_prov
+            }
+        }
+    }
+
+    option = {
+        name = vn_slavic_events.3.a
+        goto = holy_glade_prov
+        event_target:holy_glade_prov = {
+            add_devastation = 10
+        }
+    }
+
+    option = {
+        name = vn_slavic_events.3.b
+        add_prestige = -5
+    }
+}
+
+country_event = {
+	id = vn_slavic_events.4
+	title = vn_slavic_events.4.t
+	desc = vn_slavic_events.4.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+
+    is_triggered_only = yes
+	trigger = {
+        religion = slavic_pagan
+        NOT = { has_country_modifier = rusalka_anxiety }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = vn_slavic_events.4.a
+        add_country_modifier = {
+            name = rusalka_anxiety
+            duration = 3650
+        }
+    }
+}
+
+country_event = {
+	id = vn_slavic_events.5
+	title = vn_slavic_events.5.t
+	desc = vn_slavic_events.5.d
+	picture = FAMINE_eventPicture
+
+    is_triggered_only = yes
+	trigger = {
+        religion = slavic_pagan
+        any_owned_province = {
+            is_capital = no
+            base_production = 2
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    immediate = {
+        hidden_effect = {
+            random_owned_province = {
+                limit = {
+                    is_capital = no
+                    base_production = 2
+                }
+                save_event_target_as = paparuda_prov
+            }
+        }
+    }
+
+    option = {
+        name = vn_slavic_events.5.a
+        add_years_of_income = -0.15
+    }
+
+    option = {
+        name = vn_slavic_events.5.b
+        goto = paparuda_prov
+        event_target:paparuda_prov = {
+            add_base_production = -1
+        }
+    }
+}
+
+country_event = {
+	id = vn_slavic_events.6
+	title = vn_slavic_events.6.t
+	desc = vn_slavic_events.6.d
+	picture = FEAST_eventPicture
+
+    is_triggered_only = yes
+	trigger = {
+        religion = slavic_pagan
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = vn_slavic_events.6.a
+        add_stability_or_adm_power = yes
+    }
+}
+
+country_event = {
+	id = vn_slavic_events.7
+	title = vn_slavic_events.7.t
+	desc = vn_slavic_events.7.d
+	picture = COMET_SIGHTED_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = slavic_pagan
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_slavic_events.7.a"
+        if = { 
+            limit = { has_dlc = "Rule Britannia" }
+            change_innovativeness = 1
+        }
+        else = { add_adm_power = 10 add_dip_power = 10 add_mil_power = 10 } 
+    }
+    option = {
+        name = "vn_slavic_events.7.b"
+        add_mercantilism = 1
+    }
+    option = {
+        name = "vn_slavic_events.7.c"
+        add_yearly_manpower = 0.5
+    }
+}
+
+########################################
+# Romuva / Druwi / Dievturiba
+########################################
+namespace = vn_baltic_events
+
+country_event = {
+	id = vn_baltic_events.1
+	title = vn_baltic_events.1.t
+	desc = vn_baltic_events.1.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = animism
+            religion = druwi
+            religion = dievturiba
+        }
+        NOT = { has_country_modifier = holy_amber }
+        any_owned_province = {
+            trade_goods = gems
+            is_state = yes
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_baltic_events.1.a"
+        if = {
+            limit = { has_estate = estate_church }
+            add_estate_loyalty = {
+                estate = estate_church
+                loyalty = -5
+            }
+        }
+        else = {
+            add_prestige = -5
+        }
+        add_mercantilism = 1
+    }
+    option = {
+        name = "vn_baltic_events.1.b"
+        if = {
+            limit = { has_estate = estate_church }
+            add_estate_loyalty = {
+                estate = estate_church
+                loyalty = 5
+            }
+        }
+        else = {
+            add_prestige = 5
+        }
+        add_country_modifier = {
+            name = holy_amber
+            duration = 1825
+        }
+    }
+}
+
+country_event = {
+	id = vn_baltic_events.2
+	title = vn_baltic_events.2.t
+	desc = vn_baltic_events.2.d
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = animism
+            religion = druwi
+            religion = dievturiba
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_baltic_events.2.a"
+        add_mil_power = -25
+        add_army_tradition = 5
+    }
+    option = {
+        name = "vn_baltic_events.2.b"
+        add_adm_power = -25
+        add_prestige = 5
+    }
+    option = {
+        name = "vn_baltic_events.2.c"
+        every_neighbor_country = {
+            limit = {
+                OR = {
+                    religion = animism
+                    religion = druwi
+                    religion = dievturiba
+                }
+            }
+            add_opinion = {
+                who = ROOT
+                modifier = opinion_pleased
+            }
+        }
+    }
+}
+
+country_event = {
+	id = vn_baltic_events.3
+	title = vn_baltic_events.3.t
+	desc = vn_baltic_events.3.d
+	picture = COMET_SIGHTED_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = animism
+            religion = druwi
+            religion = dievturiba
+        }
+        has_regency = no
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_baltic_events.3.a"
+        random_list = {
+            50 = { add_stability_or_adm_power = yes }
+            10 = {
+                change_ruler_stat = {
+					type = adm
+					amount = 1
+				}
+            }
+            10 = {
+                change_ruler_stat = {
+					type = dip
+					amount = 1
+				}
+            }
+            10 = {
+                change_ruler_stat = {
+					type = mil
+					amount = 1
+				}
+            }
+            20 = { kill_ruler = yes }
+        }
+    }
+    option = {
+        name = "vn_baltic_events.3.b"
+        add_prestige = -5
+    }
+}
+
+country_event = {
+	id = vn_baltic_events.4
+	title = vn_baltic_events.4.t
+	desc = vn_baltic_events.4.d
+	picture = FEAST_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = animism
+            religion = druwi
+            religion = dievturiba
+        }
+        war_exhaustion = 2
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_baltic_events.4.a"
+        add_years_of_income = -0.5
+        add_war_exhaustion = -2
+    }
+    option = {
+        name = "vn_baltic_events.4.b"
+        add_war_exhaustion = -1
+    }
+}
+
+country_event = {
+	id = vn_baltic_events.5
+	title = vn_baltic_events.5.t
+	desc = vn_baltic_events.5.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = animism
+            religion = druwi
+            religion = dievturiba
+        }
+        stability = 0
+        NOT = { has_country_modifier = purification_ritual }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_baltic_events.5.a"
+        add_country_modifier = {
+			name = "purification_ritual"
+			duration = 3650
+		}
+    }
+    option = {
+        name = "vn_baltic_events.5.b"
+        add_stability = -1
+    }
+}
+
+country_event = {
+	id = vn_baltic_events.6
+	title = vn_baltic_events.6.t
+	desc = vn_baltic_events.6.d
+	picture = EXPLORERS_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = animism
+            religion = druwi
+            religion = dievturiba
+        }
+        any_owned_province = {
+            religion = ROOT
+            is_capital = no
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    immediate = {
+        hidden_effect = {
+            random_owned_province = {
+                limit = {
+                    religion = ROOT
+                    is_capital = no
+                }
+                save_event_target_as = white_deer_prov
+            }
+        }
+    }
+
+    option = {
+        name = "vn_baltic_events.6.a"
+        goto = white_deer_prov
+        add_prestige = -5
+        event_target:white_deer_prov = { add_base_tax = 1 }
+    }
+    option = {
+        name = "vn_baltic_events.6.b"
+        if = {
+            limit = { has_estate = estate_church }
+            add_estate_loyalty = {
+                estate = estate_church
+                loyalty = 10
+            }
+        }
+        else = {
+            add_prestige = 5
+        }
+    }
+}
+
+########################################
+# Maausko / Suomenusko / Uralinusko
+########################################
+# namespace = vn_finnish_events
+
+# country_event = {
+# 	id = vn_finnish_events.1
+# 	title = vn_finnish_events.1.t
+# 	desc = vn_finnish_events.1.d
+# 	picture = FEAST_eventPicture
+
+#     is_triggered_only = yes
+# 	trigger = {
+#         OR = {
+#             religion = finnish_pagan
+#             religion = maausko
+#             religion = uralinusko
+#         }
+#     }
+#     mean_time_to_happen = { days = 1 }
+
+#     option = {
+#         name = "vn_finnish_events.1.a"
+#         add_years_of_income = -0.2
+#         add_prestige = 10
+#     }
+#     option = {
+#         name = "vn_finnish_events.1.b"
+#         add_years_of_income = -0.1
+#         add_prestige = 5
+#     }
+#     option = {
+#         name = "vn_finnish_events.1.c"
+#         add_prestige = -5
+#     }
+# }
+
+# country_event = {
+# 	id = vn_finnish_events.2
+# 	title = vn_finnish_events.2.t
+# 	desc = vn_finnish_events.2.d
+# 	picture = FORT_eventPicture
+
+#     is_triggered_only = yes
+# 	trigger = {
+#         OR = {
+#             religion = finnish_pagan
+#             religion = maausko
+#             religion = uralinusko
+#         }
+#         has_regency = no
+#     }
+#     mean_time_to_happen = { days = 1 }
+
+#     option = {
+#         name = "vn_finnish_events.2.a"
+#         random_list = {
+#             20 = { 
+#                 change_ruler_stat = {
+# 					type = mil
+# 					amount = 1
+# 				}
+#             }
+#             30 = { add_prestige = 10 }
+#             30 = { add_mil_power = 50 }
+#             20 = { kill_ruler = yes }
+#         }
+#     }
+#     option = {
+#         name = "vn_finnish_events.2.b"
+#         random_list = {
+#             10 = { 
+#                 change_ruler_stat = {
+# 					type = mil
+# 					amount = 1
+# 				}
+#             }
+#             40 = { add_prestige = 5 }
+#             40 = { add_mil_power = 25 }
+#             10 = { kill_ruler = yes }
+#         }
+#     }
+#     option = {
+#         name = "vn_finnish_events.2.c"
+#         add_mil_power = -10
+#     }
+# }
+
+# country_event = {
+# 	id = vn_finnish_events.3
+# 	title = vn_finnish_events.3.t
+# 	desc = vn_finnish_events.3.d
+# 	picture = FARMING_eventPicture
+
+#     is_triggered_only = yes
+# 	trigger = {
+#         OR = {
+#             religion = finnish_pagan
+#             religion = maausko
+#             religion = uralinusko
+#         }
+#         any_owned_province = {
+#             OR = {
+#                 superregion = ural_superregion
+#                 superregion = scandinavia_superregion
+#             }
+#             OR = {
+#                 has_terrain = forest
+#                 has_terrain = woods
+#             }
+#         }
+#     }
+#     mean_time_to_happen = { days = 1 }
+
+#     immediate = {
+#         hidden_effect = {
+#             random_owned_province = {
+#                 limit = {
+#                     OR = {
+#                         superregion = ural_superregion
+#                         superregion = scandinavia_superregion
+#                     }
+#                     OR = {
+#                         has_terrain = forest
+#                         has_terrain = woods
+#                     }
+#                 }
+#                 save_event_target_as = reindeer_province
+#             }
+#         }
+#     }
+
+#     option = {
+#         name = "vn_finnish_events.3.a"
+#         goto = reindeer_province
+#         add_adm_power = -15
+#         add_dip_power = -15
+#         event_target:reindeer_province = {
+#             add_base_production = 1
+#         }
+#     }
+#     option = {
+#         name = "vn_finnish_events.3.b"
+#         add_prestige = 10
+#     }
+# }
+
+#Scandinavian Pagan
+country_event = {
+	id = vn_religious_events.61
+	title = vn_religious_events.61.t
+	desc = vn_religious_events.61.d
+	picture = FEAST_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = finnish_pagan
+            religion = maausko
+            religion = uralinusko
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.61.a"
+        add_prestige = 10
+    }
+}
+
+country_event = {
+	id = vn_religious_events.62
+	title = vn_religious_events.62.t
+	desc = vn_religious_events.62.d
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = finnish_pagan
+            religion = maausko
+            religion = uralinusko
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.62.a"
+        capital_scope = {
+            add_base_tax = 1
+        }
+    }
+    option = {
+        name = "vn_religious_events.62.b"
+        capital_scope = {
+            add_base_production = 1
+        }
+    }
+    option = {
+        name = "vn_religious_events.62.c"
+        capital_scope = {
+            add_base_manpower = 1
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.63
+	title = vn_religious_events.63.t
+	desc = vn_religious_events.63.d
+	picture = FAMINE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = finnish_pagan
+            religion = maausko
+            religion = uralinusko
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.63.a"
+        add_legitimacy = -10
+        add_republican_tradition = -10
+        add_devotion = -10
+        add_horde_unity = -5
+    }
+}
+
+country_event = {
+	id = vn_religious_events.64
+	title = vn_religious_events.64.t
+	desc = vn_religious_events.64.d
+	picture = FAMINE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = finnish_pagan
+            religion = maausko
+            religion = uralinusko
+        }
+        stability = 0
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.64.a"
+        add_stability = -1
+    }
+}
+
+country_event = {
+	id = vn_religious_events.65
+	title = vn_religious_events.65.t
+	desc = vn_religious_events.65.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+
+    is_triggered_only = yes
+    trigger = {
+        OR = {
+            religion = finnish_pagan
+            religion = maausko
+            religion = uralinusko
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.65.a"
+        add_manpower = -1
+    }
+    option = {
+        name = "vn_religious_events.65.b"
+        add_mil_power = -25
+    }
+}
+
+country_event = {
+	id = vn_religious_events.66
+	title = vn_religious_events.66.t
+	desc = vn_religious_events.66.d
+	picture = CITY_DEVELOPMENT_eventPicture
+
+    is_triggered_only = yes
+    trigger = {
+        OR = {
+            religion = finnish_pagan
+            religion = maausko
+            religion = uralinusko
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.66.a"
+        add_years_of_income = 0.2
+    }
+}
+
+country_event = {
+	id = vn_religious_events.67
+	title = vn_religious_events.67.t
+	desc = vn_religious_events.67.d
+	picture = FAMINE_eventPicture
+
+    is_triggered_only = yes
+    trigger = {
+        OR = {
+            religion = finnish_pagan
+            religion = maausko
+            religion = uralinusko
+        }
+        any_owned_province = {
+            base_tax = 2
+            has_winter = normal_winter
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.67.a"
+        random_owned_province = {
+            limit = {
+                base_tax = 2
+                has_winter = normal_winter
+            }
+            add_base_tax = -1
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.68
+	title = vn_religious_events.68.t
+	desc = vn_religious_events.68.d
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+    trigger = {
+        OR = {
+            religion = finnish_pagan
+            religion = maausko
+            religion = uralinusko
+        }
+        num_of_ports = 1
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.68.a"
+        add_adm_power = 25
+        add_dip_power = 25
+        add_mil_power = 25
+    }
+}
+
+country_event = {
+	id = vn_religious_events.69
+	title = vn_religious_events.69.t
+	desc = vn_religious_events.69.d
+	picture = COMET_SIGHTED_eventPicture
+
+    is_triggered_only = yes
+    trigger = {
+        OR = {
+            religion = finnish_pagan
+            religion = maausko
+            religion = uralinusko
+        }
+        NOT = { has_country_modifier = red_polar_lights_m }
+        NOT = { has_country_modifier = green_polar_lights_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.69.a"
+        add_country_modifier = {
+            name = red_polar_lights_m
+            duration = 1825
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.70
+	title = vn_religious_events.70.t
+	desc = vn_religious_events.70.d
+	picture = COMET_SIGHTED_eventPicture
+
+    is_triggered_only = yes
+    trigger = {
+        OR = {
+            religion = finnish_pagan
+            religion = maausko
+            religion = uralinusko
+        }
+        NOT = { has_country_modifier = red_polar_lights_m }
+        NOT = { has_country_modifier = green_polar_lights_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.70.a"
+        add_country_modifier = {
+            name = green_polar_lights_m
+            duration = 1825
+        }
+    }
+}
+
+#Hellenic
+country_event = {
+	id = vn_religious_events.71
+	title = vn_religious_events.71.t
+	desc = vn_religious_events.71.d
+	picture = MILITARY_CAMP_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = hellenic_pagan
+        NOT = { has_country_modifier = mithraism_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.71.a"
+        add_country_modifier = {
+            name = mithraism_m
+            duration = 3650
+        }
+    }
+    option = {
+        name = "vn_religious_events.71.b"
+        add_army_tradition = 10
+    }
+}
+
+country_event = {
+	id = vn_religious_events.72
+	title = vn_religious_events.72.t
+	desc = vn_religious_events.72.d
+	picture = CULTURE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = hellenic_pagan
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.72.a"
+        define_advisor = {
+            type = artist
+            skill = 2
+            discount = yes
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.73
+	title = vn_religious_events.73.t
+	desc = vn_religious_events.73.d
+	picture = UNIVERSITY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = hellenic_pagan
+        NOT = { has_country_modifier = hellenic_philosophy_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.73.a"
+        add_country_modifier = {
+            name = hellenic_philosophy_m
+            duration = 3650
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.74
+	title = vn_religious_events.74.t
+	desc = vn_religious_events.74.d
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = hellenic_pagan
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.74.a"
+        add_prestige = 10
+    }
+}
+
+country_event = {
+	id = vn_religious_events.75
+	title = vn_religious_events.75.t
+	desc = vn_religious_events.75.d
+	picture = RELIGION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = hellenic_pagan
+        is_at_war = yes
+        war_exhaustion = 1
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.75.a"
+        add_war_exhaustion = -2
+    }
+}
+
+country_event = {
+	id = vn_religious_events.76
+	title = vn_religious_events.76.t
+	desc = vn_religious_events.76.d
+	picture = STREET_SPEECH_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = hellenic_pagan
+        any_owned_province = {
+            religion = ROOT
+            culture = ROOT
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.76.a"
+        every_owned_province = {
+            limit = {
+                religion = ROOT
+                culture = ROOT
+            }
+            add_unrest = -5
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.77
+	title = vn_religious_events.77.t
+	desc = vn_religious_events.77.d
+	picture = COMET_SIGHTED_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = hellenic_pagan
+        NOT = { stability = 1 }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.77.a"
+        add_adm_power = 25
+    }
+    option = {
+        name = "vn_religious_events.77.b"
+        add_dip_power = 25
+    }
+    option = {
+        name = "vn_religious_events.77.c"
+        add_mil_power = 25
+    }
+}
+
+country_event = {
+	id = vn_religious_events.78
+	title = vn_religious_events.78.t
+	desc = vn_religious_events.78.d
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = hellenic_pagan
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.78.a"
+        add_years_of_income = -0.1
+    }
+    option = {
+        name = "vn_religious_events.78.b"
+        add_prestige = -10
+    }
+}
+
+country_event = {
+	id = vn_religious_events.79
+	title = vn_religious_events.79.t
+	desc = vn_religious_events.79.d
+	picture = COURT_INTRIGUE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = hellenic_pagan
+        has_estate = estate_church
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.79.a"
+        reduce_estate_church_loyalty_effect = yes
+    }
+    option = {
+        name = "vn_religious_events.79.b"
+		add_corruption = 1
+    }
+}
+
+country_event = {
+	id = vn_religious_events.80
+	title = vn_religious_events.80.t
+	desc = vn_religious_events.80.d
+	picture = STREET_SPEECH_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = hellenic_pagan
+        NOT = { has_country_modifier = unteachable_nation_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.80.a"
+        add_country_modifier = {
+            name = unteachable_nation_m
+            duration = 3650
+        }
+    }
+}
+
+#Norse
+country_event = {
+	id = vn_religious_events.81
+	title = vn_religious_events.81.t
+	desc = vn_religious_events.81.d
+	picture = CULTURE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = norse_pagan_reformed
+        NOT = { stability = 3 }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.81.a"
+        add_stability_or_adm_power = yes
+    }
+}
+
+country_event = {
+	id = vn_religious_events.82
+	title = vn_religious_events.82.t
+	desc = vn_religious_events.82.d
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = norse_pagan_reformed
+        has_leaders = {
+			value = 1
+			type = admiral
+			include_monarch = no
+			include_heir = no
+		}
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.82.a"
+        kill_leader = { type = admiral }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.83
+	title = vn_religious_events.83.t
+	desc = vn_religious_events.83.d
+	picture = FEAST_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = norse_pagan_reformed
+        NOT = { has_country_modifier = grand_blot_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.83.a"
+        add_country_modifier = {
+            name = grand_blot_m
+            duration = 1825
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.84
+	title = vn_religious_events.84.t
+	desc = vn_religious_events.84.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = norse_pagan_reformed
+        any_owned_province = {
+            base_tax = 2
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.84.a"
+        random_owned_province = {
+            limit = { base_tax = 2 }
+            add_base_tax = -1
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.85
+	title = vn_religious_events.85.t
+	desc = vn_religious_events.85.d
+	picture = HARBOUR_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = norse_pagan_reformed
+        num_of_ports = 1
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.85.a"
+        add_years_of_income = -0.2
+    }
+    option = {
+        name = "vn_religious_events.85.b"
+        add_mercantilism = -1
+    }
+}
+
+country_event = {
+	id = vn_religious_events.86
+	title = vn_religious_events.86.t
+	desc = vn_religious_events.86.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = norse_pagan_reformed
+        has_regency = no
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.86.a"
+        add_adm_power = -10
+        add_dip_power = -10
+        add_mil_power = -10
+        add_republican_tradition = 5
+		add_legitimacy = 5
+        add_devotion = 5
+        add_horde_unity = 5
+    }
+    option = {
+        name = "vn_religious_events.86.b"
+        add_republican_tradition = -10
+		add_legitimacy = -10
+        add_devotion = -10
+        add_horde_unity = -5
+    }
+}
+
+country_event = {
+	id = vn_religious_events.87
+	title = vn_religious_events.87.t
+	desc = vn_religious_events.87.d
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = norse_pagan_reformed
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.87.a"
+        add_army_tradition = 10
+    }
+    option = {
+        name = "vn_religious_events.87.b"
+        add_navy_tradition = 10
+    }
+}
+
+country_event = {
+	id = vn_religious_events.88
+	title = vn_religious_events.88.t
+	desc = vn_religious_events.88.d
+	picture = ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = norse_pagan_reformed
+        government = monarchy
+        has_regency = no
+        num_of_cities = 2
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.88.a"
+        random_owned_province = {
+            limit = { is_capital = no }
+            pretender_rebels = 1
+        }
+    }
+    option = {
+        name = "vn_religious_events.88.b"
+        add_dip_power = -25
+    }
+}
+
+country_event = {
+	id = vn_religious_events.89
+	title = vn_religious_events.89.t
+	desc = vn_religious_events.89.d
+	picture = ECONOMY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = norse_pagan_reformed
+        NOT = { has_country_modifier = best_stallions_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.89.a"
+        add_country_modifier = {
+            name = best_stallions_m
+            duration = 3650
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.90
+	title = vn_religious_events.90.t
+	desc = vn_religious_events.90.d
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+        religion = norse_pagan_reformed
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.90.a"
+        add_yearly_manpower = 0.25
+        add_yearly_sailors = 0.25
+    }
+}
+
+#Paulician Icons
+country_event = {
+	id = vn_religious_events.91
+	title = vn_religious_events.91.t
+	desc = vn_religious_events.91.d
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_dlc = "Third Rome"
+		uses_religious_icons = yes
+		current_icon = icon_silvanus
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.91.a"
+        every_owned_province = {
+            limit = { 
+                religion = ROOT
+                culture = ROOT
+            }
+            add_unrest = -5
+        }
+        add_patriarch_authority = 0.05
+    }
+}
+
+country_event = {
+	id = vn_religious_events.92
+	title = vn_religious_events.92.t
+	desc = vn_religious_events.92.d
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_dlc = "Third Rome"
+        uses_religious_icons = yes
+        current_icon = icon_maria
+        NOT = { stability = 3 }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.92.a"
+        add_stability_or_adm_power = yes
+        add_patriarch_authority = 0.05
+    }
+}
+
+country_event = {
+	id = vn_religious_events.93
+	title = vn_religious_events.93.t
+	desc = vn_religious_events.93.d
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_dlc = "Third Rome"
+		uses_religious_icons = yes
+        current_icon = icon_paul
+        NOT = { has_country_modifier = pauline_theology_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.93.a"
+        add_country_modifier = {
+            name = pauline_theology_m
+            duration = 3650
+        }
+        add_patriarch_authority = 0.05
+    }
+}
+
+country_event = {
+	id = vn_religious_events.94
+	title = vn_religious_events.94.t
+	desc = vn_religious_events.94.d
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_dlc = "Third Rome"
+		uses_religious_icons = yes
+        current_icon = icon_chrysostom
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.94.a"
+        add_adm_power = 25
+        add_dip_power = 25
+        add_mil_power = 25
+        add_patriarch_authority = 0.05
+    }
+}
+
+country_event = {
+	id = vn_religious_events.95
+	title = vn_religious_events.95.t
+	desc = vn_religious_events.95.d
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_dlc = "Third Rome"
+        uses_religious_icons = yes
+        current_icon = icon_tapeinosis
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.95.a"
+        add_legitimacy = 10
+        add_republican_tradition = 10
+        add_devotion = 10
+        add_horde_unity = 10
+        add_patriarch_authority = 0.05
+    }
+}
+
+#Monothelite
+country_event = {
+	id = vn_religious_events.96
+	title = "vn_religious_events.96.t"
+	desc = "vn_religious_events.96.d"
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+
+    is_triggered_only = yes
+	trigger = {
+		has_dlc = "Third Rome"
+        uses_religious_icons = yes
+        current_icon = icon_gabriel
+        NOT = { has_country_modifier = improved_mobility_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.96.a"
+        add_country_modifier = {
+            name = improved_mobility_m
+            duration = 3650
+        }
+		add_patriarch_authority = 0.05
+	}
+}
+
+country_event = {
+	id = vn_religious_events.97
+	title = "vn_religious_events.97.t"
+	desc = "vn_religious_events.97.d"
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+
+    is_triggered_only = yes
+	trigger = {
+        has_dlc = "Third Rome"
+        uses_religious_icons = yes
+        current_icon = icon_hodegetria
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.97.a"
+        capital_scope = {
+            add_base_tax = 1
+        }
+		add_patriarch_authority = 0.05
+    }
+    option = {
+        name = "vn_religious_events.97.b"
+        capital_scope = {
+            add_base_production = 1
+        }
+		add_patriarch_authority = 0.05
+    }
+    option = {
+        name = "vn_religious_events.97.c"
+        capital_scope = {
+            add_base_manpower = 1
+        }
+		add_patriarch_authority = 0.05
+	}
+}
+
+country_event = {
+	id = vn_religious_events.98
+	title = "vn_religious_events.98.t"
+	desc = "vn_religious_events.98.d"
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+
+    is_triggered_only = yes
+	trigger = {
+        has_dlc = "Third Rome"
+        uses_religious_icons = yes
+        current_icon = icon_deisis
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.98.a"
+        define_advisor = {
+            type = theologian
+            skill = 2
+            discount = yes
+        }
+		add_patriarch_authority = 0.05
+    }
+    option = {
+        name = "vn_religious_events.98.b"
+        define_advisor = {
+            type = inquisitor
+            skill = 2
+            discount = yes
+        }
+		add_patriarch_authority = 0.05
+	}
+}
+
+country_event = {
+	id = vn_religious_events.99
+	title = "vn_religious_events.99.t"
+	desc = "vn_religious_events.99.d"
+	picture = ICONS_IN_CHURCH_eventPicture
+
+    is_triggered_only = yes
+	trigger = {
+        has_dlc = "Third Rome"
+        uses_religious_icons = yes
+        current_icon = icon_james
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.99.a"
+        add_years_of_income = 0.25
+		add_patriarch_authority = 0.05
+    }
+    option = {
+        name = "vn_religious_events.99.b"
+        add_prestige = 10
+		add_patriarch_authority = 0.05
+	}
+}
+
+country_event = {
+	id = vn_religious_events.100
+	title = "vn_religious_events.100.t"
+	desc = "vn_religious_events.100.d"
+	picture = ICONS_IN_CHURCH_eventPicture
+
+    is_triggered_only = yes
+	trigger = {
+        has_dlc = "Third Rome"
+        uses_religious_icons = yes
+        current_icon = icon_jacob
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.100.a"
+        add_adm_power = 20
+        add_dip_power = 20
+        add_mil_power = 20
+		add_patriarch_authority = 0.05
+	}
+}
+
+#Zoroastrian
+country_event = {
+	id = vn_religious_events.101
+	title = "vn_religious_events.101.t"
+	desc = "vn_religious_events.101.d"
+	picture = RELIGION_eventPicture
+
+    is_triggered_only = yes
+	trigger = {
+        religion = zoroastrian
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.101.a"
+        add_years_of_income = -0.25
+        add_prestige = 10
+	}
+    option = {
+        name = "vn_religious_events.101.b"
+        add_prestige = -5
+    }
+}
+
+country_event = {
+	id = vn_religious_events.102
+	title = "vn_religious_events.102.t"
+	desc = "vn_religious_events.102.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+    is_triggered_only = yes
+	trigger = {
+        religion = zoroastrian
+        government = monarchy
+        has_government_attribute = heir
+        has_heir = yes
+        heir_age = 15
+        has_female_heir = no
+        has_regency = no
+        stability = 0
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.102.a"
+        add_stability = -1
+	}
+    option = {
+        name = "vn_religious_events.102.b"
+        reduce_legitimacy_medium_effect = yes
+    }
+}
+
+country_event = {
+	id = vn_religious_events.103
+	title = "vn_religious_events.103.t"
+	desc = "vn_religious_events.103.d"
+	picture = ACCUSATION_eventPicture
+
+    is_triggered_only = yes
+	trigger = {
+        religion = zoroastrian
+        government = monarchy
+        has_government_attribute = heir
+        if = {
+            limit = { has_dlc = "Rights of Man" }
+            has_consort = yes
+            has_heir = yes
+            heir_has_consort_dynasty = no
+            NOT = { has_consort_flag = xvaetvadatha_flag }
+        }
+        has_regency = no
+        num_of_royal_marriages = 1
+        NOT = { has_ruler_flag = princess_escaped }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.103.a"
+        ai_chance = {
+        	factor = 50
+        	modifier = {
+        		factor = 0
+        		has_ruler_flag = had_xwedodah_question
+        	}
+        }
+        set_ruler_flag = princess_escaped
+        if = {
+            limit = { has_dlc = "Rights of Man" }
+            custom_tooltip = vn_zoroastrian_events.4.a.tt
+			hidden_effect = { define_consort = { dynasty = ROOT } }
+			set_consort_flag = xvaetvadatha_flag
+        }
+        every_country = {
+            limit = { marriage_with = ROOT }
+            add_opinion = {
+                who = ROOT
+                modifier = uncertain_marriage_ties
+            }
+        }
+    }
+    option = {
+        name = "vn_religious_events.103.b"
+        ai_chance = { factor = 50 }
+        set_ruler_flag = princess_escaped
+        add_prestige = -10
+    }
+}
+
+country_event = {
+	id = vn_religious_events.104
+	title = "vn_religious_events.104.t"
+	desc = "vn_religious_events.104.d"
+    picture = RELIGION_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = zoroastrian
+        NOT = { has_country_modifier = fire_guardians_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.104.a"
+        add_country_modifier = {
+            name = fire_guardians_m
+            duration = 3650
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.105
+	title = "vn_religious_events.105.t"
+	desc = "vn_religious_events.105.d"
+    picture = CULTURE_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = zoroastrian
+        is_month = 9
+        OR = {
+            has_estate = estate_church
+            has_estate = estate_brahmins
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.105.a"
+        add_years_of_income = -0.2
+        if = {
+            limit = { has_estate = estate_church }
+            add_estate_loyalty = {
+                estate = estate_church
+                loyalty = 10
+            }
+        }
+        if = {
+            limit = { has_estate = estate_brahmins }
+            add_estate_loyalty = {
+                estate = estate_brahmins
+                loyalty = 10
+            }
+        }
+    }
+    option = {
+        name = "vn_religious_events.105.b"
+        if = {
+            limit = { has_estate = estate_church }
+            add_estate_loyalty = {
+                estate = estate_church
+                loyalty = -10
+            }
+        }
+        if = {
+            limit = { has_estate = estate_brahmins }
+            add_estate_loyalty = {
+                estate = estate_brahmins
+                loyalty = -10
+            }
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.106
+	title = "vn_religious_events.106.t"
+	desc = "vn_religious_events.106.d"
+    picture = TRADEGOODS_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = zoroastrian
+        NOT = { has_country_modifier = silk_road_trade_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.106.a"
+        add_country_modifier = {
+            name = silk_road_trade_m
+            duration = 3650
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.107
+	title = "vn_religious_events.107.t"
+	desc = "vn_religious_events.107.d"
+    picture = DIPLOMACY_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = zoroastrian
+        NOT = { has_ruler_flag = marriage_offer }
+        government = monarchy
+        has_government_attribute = heir
+        has_heir = yes
+        heir_age = 14
+        any_owned_province = {
+            can_spawn_rebels = nationalist_rebels
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.107.a"
+        set_ruler_flag = marriage_offer
+        add_heir_claim = -10
+        add_years_of_income = 0.5
+    }
+    option = {
+        name = "vn_religious_events.107.b"
+        set_ruler_flag = marriage_offer
+        random_owned_province = {
+            limit = { can_spawn_rebels = nationalist_rebels }
+            nationalist_rebels = 2
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.108
+	title = "vn_religious_events.108.t"
+	desc = "vn_religious_events.108.d"
+    picture = STREET_SPEECH_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = zoroastrian
+        any_owned_province = {
+            religion = zoroastrian
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.108.a"
+        random_owned_province = {
+            limit = { religion = zoroastrian }
+            heretic_rebels = 1
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.109
+	title = "vn_religious_events.109.t"
+	desc = "vn_religious_events.109.d"
+    picture = COURT_INTRIGUE_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = zoroastrian
+        is_at_war = yes
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.109.a"
+        add_war_exhaustion = 2
+    }
+}
+
+country_event = {
+	id = vn_religious_events.110
+	title = "vn_religious_events.110.t"
+	desc = "vn_religious_events.110.d"
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = zoroastrian
+        is_at_war = no
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.110.a"
+        create_general = {
+            tradition = 40
+        }
+    }
+    option = {
+        name = "vn_religious_events.110.b"
+        define_advisor = {
+            type = grand_captain
+            skill = 2
+            discount = yes
+        }
+    }
+}
+
+#Caucasian Pagan
+country_event = {
+	id = vn_religious_events.111
+	title = "vn_religious_events.111.t"
+	desc = "vn_religious_events.111.d"
+    picture = FAMINE_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = khabze
+            religion = uatsdin
+            religion = vainakh
+        }
+        any_owned_province = {
+            base_production = 2
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.111.a"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = -5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = 5
+        }
+        else = {
+            add_prestige = -5
+        }
+        random_owned_province = {
+            limit = { base_production = 2 }
+            add_base_production = -1
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.112
+	title = "vn_religious_events.112.t"
+	desc = "vn_religious_events.112.d"
+    picture = BORDER_TENSION_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = khabze
+            religion = uatsdin
+            religion = vainakh
+        }
+        any_owned_province = {
+            any_neighbor_province = {
+                NOT = { owned_by = ROOT }
+                NOT = { is_claim = ROOT }
+                NOT = { is_core = ROOT }
+            }
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.112.a"
+        add_mil_power = 25
+        random_province = {
+            limit = {
+                NOT = { owned_by = ROOT }
+                NOT = { is_claim = ROOT }
+                NOT = { is_core = ROOT }
+                any_neighbor_province = {
+                    owned_by = ROOT
+                }
+            }
+            add_claim = ROOT
+        }
+    }
+    option = {
+        name = "vn_religious_events.112.b"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = 5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = -5
+        }
+        else = {
+            add_prestige = 5
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.113
+	title = "vn_religious_events.113.t"
+	desc = "vn_religious_events.113.d"
+    picture = RELIGION_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = khabze
+            religion = uatsdin
+            religion = vainakh
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.113.a"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = 10
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = -10
+        }
+        else = {
+            add_prestige = 10
+        }
+    }
+    option = {
+        name = "vn_religious_events.113.b"
+        add_stability_or_adm_power = yes
+    }
+}
+
+country_event = {
+	id = vn_religious_events.114
+	title = "vn_religious_events.114.t"
+	desc = "vn_religious_events.114.d"
+    picture = MILITARY_CAMP_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = khabze
+            religion = uatsdin
+            religion = vainakh
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.114.a"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = 10
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = -10
+        }
+        else = {
+            add_prestige = 10
+        }
+    }
+    option = {
+        name = "vn_religious_events.114.b"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = 5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = -5
+        }
+        else = {
+            add_prestige = 5
+        }
+        add_country_modifier = {
+            name = inspiring_weapons_m
+            duration = 3650
+        }
+    }
+    option = {
+        name = "vn_religious_events.114.c"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = -5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = 5
+        }
+        else = {
+            add_prestige = -5
+        }
+        add_yearly_manpower = 0.5
+    }
+}
+
+country_event = {
+	id = vn_religious_events.115
+	title = "vn_religious_events.115.t"
+	desc = "vn_religious_events.115.d"
+    picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = khabze
+            religion = uatsdin
+            religion = vainakh
+        }       
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.115.a"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = 5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = -5
+        }
+        else = {
+            add_prestige = 5
+        }
+        reduce_legitimacy_small_effect = yes
+    }
+    option = {
+        name = "vn_religious_events.115.b"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = -5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = 5
+        }
+        else = {
+            add_prestige = -5
+        }
+        increase_legitimacy_small_effect = yes
+    }
+}
+
+country_event = {
+	id = vn_religious_events.116
+	title = "vn_religious_events.116.t"
+	desc = "vn_religious_events.116.d"
+    picture = COURT_INTRIGUE_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = khabze
+            religion = uatsdin
+            religion = vainakh
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.116.a"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = 5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = -5
+        }
+        else = {
+            add_prestige = 5
+        }
+        add_dip_power = -25
+    }
+    option = {
+        name = "vn_religious_events.116.b"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = -5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = 5
+        }
+        else = {
+            add_prestige = -5
+        }
+        increase_legitimacy_small_effect = yes
+    }
+}
+
+country_event = {
+	id = vn_religious_events.117
+	title = "vn_religious_events.117.t"
+	desc = "vn_religious_events.117.d"
+    picture = WOUNDED_SOLDIERS_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = khabze
+            religion = uatsdin
+            religion = vainakh
+        }
+        war_exhaustion = 2
+        NOT = { has_country_modifier = venetration_of_ancestors_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.117.a"
+        add_country_modifier = {
+            name = venetration_of_ancestors_m
+            duration = 3650
+        }
+    }
+    option = {
+        name = "vn_religious_events.117.b"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = -10
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = 10
+        }
+        else = {
+            add_prestige = -10
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.118
+	title = "vn_religious_events.118.t"
+	desc = "vn_religious_events.118.d"
+    picture = PRAYING_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = khabze
+            religion = uatsdin
+            religion = vainakh
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.118.a"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = 5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = -5
+        }
+        else = {
+            add_prestige = 5
+        }
+        add_corruption = -1
+    }
+    option = {
+        name = "vn_religious_events.118.b"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = 5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = -5
+        }
+        else = {
+            add_prestige = 5
+        }
+        add_army_tradition = 10
+    }
+}
+
+country_event = {
+	id = vn_religious_events.119
+	title = "vn_religious_events.119.t"
+	desc = "vn_religious_events.119.d"
+    picture = MILITARY_CAMP_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = khabze
+            religion = uatsdin
+            religion = vainakh
+        }
+        has_mil_advisor = yes
+        is_at_war = yes
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.119.a"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = 5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = -5
+        }
+        else = {
+            add_prestige = 5
+        }
+        remove_advisor_by_category = MIL
+    }
+    option = {
+        name = "vn_religious_events.119.b"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = -5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = 5
+        }
+        else = {
+            add_prestige = -5
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.120
+	title = "vn_religious_events.120.t"
+	desc = "vn_religious_events.120.d"
+    picture = MILITARY_CAMP_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = khabze
+            religion = uatsdin
+            religion = vainakh
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.120.a"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = -5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = 5
+        }
+        else = {
+            add_prestige = -5
+        }
+        add_years_of_income = 0.5
+    }
+    option = {
+        name = "vn_religious_events.120.b"
+        if = {
+            limit = { uses_authority = yes is_religion_reformed = no }
+            add_authority = 5
+        }
+        else_if = {
+            limit = { uses_doom = yes is_religion_reformed = no }
+            add_doom = -5
+        }
+        else = {
+            add_prestige = 5
+        }
+    }
+}
+
+#Gnostic
+country_event = {
+	id = vn_religious_events.121
+	title = "vn_religious_events.121.t"
+	desc = "vn_religious_events.121.d"
+    picture = RELIGIOUS_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = mandaeism
+            religion = yazidi
+            religion = druze
+        }
+        any_owned_province = {
+            has_missionary = yes
+            NOT = { has_province_modifier = missionary_failure }
+        }
+        has_estate = estate_church
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.121.a"
+        add_estate_church_loyalty_effect = yes
+        random_owned_province = {
+            limit = { has_missionary = yes }
+            add_province_modifier = {
+                name = missionary_failure
+                duration = 3650
+            }
+        }
+    }
+    option= {
+        name = "vn_religious_events.121.b"
+        reduce_estate_church_loyalty_effect = yes
+    }
+}
+
+country_event = {
+	id = vn_religious_events.122
+	title = "vn_religious_events.122.t"
+	desc = "vn_religious_events.122.d"
+    picture = RELIGION_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = mandaeism
+            religion = yazidi
+            religion = druze
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.122.a"
+        add_prestige = 10
+    }
+    option= {
+        name = "vn_religious_events.122.b"
+        add_years_of_income = 0.25
+    }
+}
+
+country_event = {
+	id = vn_religious_events.123
+	title = "vn_religious_events.123.t"
+	desc = "vn_religious_events.123.d"
+    picture = GOOD_WITH_MONARCH_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = mandaeism
+            religion = yazidi
+            religion = druze
+        }
+        has_regency = no
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.123.a"
+        increase_legitimacy_medium_effect = yes
+    }
+}
+
+country_event = {
+	id = vn_religious_events.124
+	title = "vn_religious_events.124.t"
+	desc = "vn_religious_events.124.d"
+    picture = ACCUSATION_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = mandaeism
+            religion = yazidi
+            religion = druze
+        }
+        any_owned_province = {
+            religion = ROOT
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.124.a"
+        random_owned_province = {
+            limit = { religion = ROOT }
+            heretic_rebels = 2
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.125
+	title = "vn_religious_events.125.t"
+	desc = "vn_religious_events.125.d"
+    picture = RELIGIOUS_CONVERSION_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = mandaeism
+            religion = yazidi
+            religion = druze
+        }
+        any_neighbor_country = {
+            NOT = { religion = ROOT }
+            NOT = { war_with = ROOT }
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+	option = {
+        name = "vn_religious_events.125.a"
+        every_neighbor_country = {
+            limit = {
+                NOT = { religion = ROOT }
+                NOT = { war_with = ROOT }
+            }
+            add_opinion = {
+                who = ROOT
+                modifier = opinion_good_relations
+            }
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.126
+	title = "vn_religious_events.126.t"
+	desc = "vn_religious_events.126.d"
+    picture = RELIGIOUS_CONVERSION_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = mandaeism
+            religion = yazidi
+            religion = druze
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.126.a"
+        capital_scope = {
+            area = {
+                limit = { owned_by = ROOT }
+                add_unrest = 10
+            }
+        }
+    }
+    option = {
+        name = "vn_religious_events.126.b"
+        capital_scope = {
+            area = {
+                limit = { owned_by = ROOT }
+                add_local_autonomy = 25
+            }
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.127
+	title = "vn_religious_events.127.t"
+	desc = "vn_religious_events.127.d"
+    picture = OVEREXTENSION_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = mandaeism
+            religion = yazidi
+            religion = druze
+        }
+        NOT = { stability = 3 }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.127.a"
+        add_stability = -1
+    }
+}
+
+country_event = {
+	id = vn_religious_events.128
+	title = "vn_religious_events.128.t"
+	desc = "vn_religious_events.128.d"
+    picture = ECONOMY_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = mandaeism
+            religion = yazidi
+            religion = druze
+        }
+        government = monarchy
+        has_heir = yes
+        NOT = { heir_age = 15 }
+        NOT = { heir_adm = 6 }
+        NOT = { has_ruler_flag = mentor_for_heir_flag }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.128.a"
+        add_years_of_income = -0.75
+        change_heir_adm = 1
+        set_ruler_flag = mentor_for_heir_flag
+    }
+    option = {
+        name = "vn_religious_events.128.a"
+        add_prestige = -1
+        set_ruler_flag = mentor_for_heir_flag
+    }
+}
+
+country_event = {
+	id = vn_religious_events.129
+	title = "vn_religious_events.129.t"
+	desc = "vn_religious_events.129.d"
+    picture = RELIGION_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = mandaeism
+            religion = yazidi
+            religion = druze
+        }
+        NOT = { has_country_modifier = new_ceremonies_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.129.a"
+        add_country_modifier = {
+            name = new_ceremonies_m
+            duration = 3650
+        }
+    }
+    option = {
+        name = "vn_religious_events.129.b"
+        add_prestige = 10
+    }
+}
+
+country_event = {
+	id = vn_religious_events.130
+	title = "vn_religious_events.130.t"
+	desc = "vn_religious_events.130.d"
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        OR = {
+            religion = mandaeism
+            religion = yazidi
+            religion = druze
+        }
+        NOT = { has_country_modifier = reverent_court_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.130.a"
+        add_country_modifier = {
+            name = reverent_court_m
+            duration = 3650
+        }
+    }
+}
+
+#Kemetic
+country_event = {
+	id = vn_religious_events.131
+	title = "vn_religious_events.131.t"
+	desc = "vn_religious_events.131.d"
+    picture = COURT_INTRIGUE_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = egyptian_religion
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.131.a"
+        add_corruption = 2
+    }
+}
+
+country_event = {
+	id = vn_religious_events.132
+	title = "vn_religious_events.132.t"
+	desc = "vn_religious_events.132.d"
+    picture = OVEREXTENSION_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = egyptian_religion
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.132.a"
+        add_prestige = -10
+    }
+}
+
+country_event = {
+	id = vn_religious_events.133
+	title = "vn_religious_events.133.t"
+	desc = "vn_religious_events.133.d"
+    picture = NAVAL_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = egyptian_religion
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.133.a"
+        add_mercantilism = 1
+        add_adm_power = -25
+    }
+    option = {
+        name = "vn_religious_events.133.b"
+        add_prestige = -1
+    }
+}
+
+country_event = {
+	id = vn_religious_events.134
+	title = "vn_religious_events.134.t"
+	desc = "vn_religious_events.134.d"
+    picture = SIEGE_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = egyptian_religion
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.134.a"
+        random_owned_province = {
+            pretender_rebels = 2
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.135
+	title = "vn_religious_events.135.t"
+	desc = "vn_religious_events.135.d"
+    picture = IMPORTANT_STATUE_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = egyptian_religion
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.135.a"
+        add_years_of_income = -0.25
+        add_prestige = 10
+    }
+    option = {
+        name = "vn_religious_events.135.b"
+        reduce_legitimacy_small_effect = yes
+    }
+    option = {
+        name = "vn_religious_events.135.c"
+        capital_scope = {
+            add_base_tax = -1
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.136
+	title = "vn_religious_events.136.t"
+	desc = "vn_religious_events.136.d"
+    picture = FEAST_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = egyptian_religion
+        NOT = { has_country_modifier = cattle_count_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.136.a"
+        add_country_modifier = {
+            name = cattle_count_m
+            duration = 1825
+        }
+    }
+}
+
+country_event = {
+	id = vn_religious_events.137
+	title = "vn_religious_events.137.t"
+	desc = "vn_religious_events.137.d"
+    picture = CITY_VIEW_eventPicture
+    goto = pyramid_province
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = egyptian_religion
+        any_owned_province = {
+            religion = egyptian_religion
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    immediate = {
+        hidden_effect = {
+            random_owned_province = {
+                limit = {
+                    religion = egyptian_religion
+                }
+                save_event_target_as = pyramid_province
+            }
+        }
+    }
+
+    option = {
+        name = "vn_religious_events.137.a"
+        add_years_of_income = -0.5
+        event_target:pyramid_province = {
+            add_base_tax = 1
+            add_base_production = 1
+        }
+    }
+    option = {
+        name = "vn_religious_events.137.b"
+        add_years_of_income = -0.25
+        event_target:pyramid_province = {
+            add_base_tax = 1
+        }
+    }
+    option = {
+        name = "vn_religious_events.137.c"
+        add_prestige = 5
+    }
+}
+
+country_event = {
+	id = vn_religious_events.138
+	title = "vn_religious_events.138.t"
+	desc = "vn_religious_events.138.d"
+    picture = HARBOUR_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = egyptian_religion
+        any_owned_province = {
+            has_port = yes
+        }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.138.a"
+        add_army_tradition = 5
+    }
+    option = {
+        name = "vn_religious_events.138.b"
+        add_navy_tradition = 5
+    }
+}
+
+country_event = {
+	id = vn_religious_events.139
+	title = "vn_religious_events.139.t"
+	desc = "vn_religious_events.139.d"
+    picture = ARTWORK_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = egyptian_religion
+        NOT = { has_country_modifier = kemetic_hieroglyphs_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.139.a"
+        add_adm_power = -50
+        add_country_modifier = {
+            name = kemetic_hieroglyphs_m
+            duration = 3650
+        }
+    }
+    option = {
+        name = "vn_religious_events.139.b"
+        add_stability_or_adm_power = yes
+    }
+}
+
+country_event = {
+	id = vn_religious_events.140
+	title = "vn_religious_events.140.t"
+	desc = "vn_religious_events.140.d"
+    picture = FARMING_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+        religion = egyptian_religion
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_religious_events.140.a"
+        add_years_of_income = 0.2
+    }
+}
+
+########################################
+# Iconoclast
+########################################
+namespace = vn_iconoclast_events
+
+country_event = {
+	id = vn_iconoclast_events.1
+	title = vn_iconoclast_events.1.t
+	desc = vn_iconoclast_events.1.d
+	picture = ICONS_IN_CHURCH_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_dlc = "Third Rome"
+		uses_religious_icons = yes
+		current_icon = icon_aniconism_eleusa
+        NOT = { has_country_modifier = iconoclast_revelation_m }
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_iconoclast_events.1.a"
+		add_country_modifier = {
+            name = iconoclast_revelation_m
+            duration = 3650
+        }
+    }
+    option = {
+        name = "vn_iconoclast_events.1.b"
+        add_patriarch_authority = 0.05
+        add_estate_church_loyalty_effect = yes
+    }
+}
+
+country_event = {
+	id = vn_iconoclast_events.2
+	title = vn_iconoclast_events.2.t
+	desc = vn_iconoclast_events.2.d
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_dlc = "Third Rome"
+		uses_religious_icons = yes
+		current_icon = icon_aniconism_michael
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_iconoclast_events.2.a"
+        generate_scaled_advisor_of_type_and_religion_effect = {
+			type = artist
+			discount = yes
+			religion = ROOT
+		}
+    }
+    option = {
+        name = "vn_iconoclast_events.2.b"
+        add_prestige = 10
+    }
+}
+
+country_event = {
+	id = vn_iconoclast_events.3
+	title = vn_iconoclast_events.3.t
+	desc = vn_iconoclast_events.3.d
+	picture = ICONS_IN_CHURCH_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_dlc = "Third Rome"
+		uses_religious_icons = yes
+		current_icon = icon_aniconism_pancreator
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_iconoclast_events.3.a"
+		add_years_of_income = 1
+    }
+}
+
+country_event = {
+	id = vn_iconoclast_events.4
+	title = vn_iconoclast_events.4.t
+	desc = vn_iconoclast_events.4.d
+	picture = ICONS_IN_CHURCH_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_dlc = "Third Rome"
+		uses_religious_icons = yes
+		current_icon = icon_aniconism_climacus
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_iconoclast_events.4.a"
+		add_inflation = -2
+    }
+    option = {
+        name = "vn_iconoclast_events.4.b"
+		add_mercantilism = 2
+    }
+}
+
+country_event = {
+	id = vn_iconoclast_events.5
+	title = vn_iconoclast_events.5.t
+	desc = vn_iconoclast_events.5.d
+	picture = ORTHODOX_ICON_FLAG_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_dlc = "Third Rome"
+		uses_religious_icons = yes
+		current_icon = icon_aniconism_nicholas
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+        name = "vn_iconoclast_events.5.a"
+		add_stability_or_adm_power = yes
+    }
+    option = {
+        name = "vn_iconoclast_events.5.b"
+		add_country_modifier = {
+            name = iconoclast_peace_m
+            duration = 3650
+        }
+    }
+}
+
+########################################
+# Zoroastrian
+########################################
+namespace = vn_zoroastrian_events
+
+country_event = {
+	id = vn_zoroastrian_events.1
+	title = "vn_zoroastrian_events.1.t"
+	desc = "vn_zoroastrian_events.1.d"
+    picture = BIG_BOOK_eventPicture
+    
+    is_triggered_only = yes
+	trigger = {
+		religion = zoroastrian
+		government = monarchy
+		has_regency = no
+		NOT = {
+			OR = {
+				has_ruler_flag = zor_wrong_answer
+				has_ruler_flag = zor_right_answer
+			}
+		}
+    }
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+		name = "vn_zoroastrian_events.1.a"
+		country_event = { id = vn_zoroastrian_events.2 days = 10 }
+		hidden_effect = { set_ruler_flag = zor_wrong_answer }
+	}
+	option = {
+		name = "vn_zoroastrian_events.1.b"
+		country_event = { id = vn_zoroastrian_events.2 days = 10 }
+		hidden_effect = { set_ruler_flag = zor_wrong_answer }
+	}
+	option = {
+		name = "vn_zoroastrian_events.1.c"
+		country_event = { id = vn_zoroastrian_events.2 days = 10 }
+		hidden_effect = { set_ruler_flag = zor_right_answer }
+	}
+}
+
+country_event = {
+	id = vn_zoroastrian_events.2
+	title = "vn_zoroastrian_events.2.t"
+	desc = {
+		trigger = { has_ruler_flag = zor_wrong_answer }
+		desc = vn_zoroastrian_events.2.d
+	}
+	desc = {
+		trigger = { has_ruler_flag = zor_right_answer }
+		desc = vn_zoroastrian_events.2.dd
+	}
+    picture = STREET_SPEECH_eventPicture
+    
+    is_triggered_only = yes
+    mean_time_to_happen = { days = 1 }
+
+    option = {
+		name = "vn_zoroastrian_events.2.a"
+		trigger = { has_ruler_flag = zor_wrong_answer }
+		add_ruler_modifier = { name = dushxshathra }
+	}
+	option = {
+		name = "vn_zoroastrian_events.2.b"
+		trigger = { has_ruler_flag = zor_right_answer }
+		add_ruler_modifier = { name = huxshathra }
+	}
+}
+
+country_event = {
+	id = vn_zoroastrian_events.3
+	title = "vn_zoroastrian_events.3.t"
+	desc = "vn_zoroastrian_events.3.d"
+	picture = NEW_HEIR_eventPicture
+
+	trigger = {
+		religion = zoroastrian
+		has_consort_flag = xvaetvadatha_flag
+		NOT = { has_heir_flag = mazda_blessing }
+		heir_has_ruler_dynasty = yes
+		NOT = { heir_adm = 6 }
+		NOT = { heir_dip = 6 }
+		NOT = { heir_mil = 6 }
+		NOT = { heir_age = 1 }
+		has_regency = no
+		has_heir = yes
+	}
+	mean_time_to_happen = { months = 0 }
+	immediate = { hidden_effect = { set_heir_flag = mazda_blessing } }
+
+	option = {
+		name = "vn_zoroastrian_events.3.a"
+		random_list = {
+			25 = { change_heir_adm = 1 }
+			25 = { change_heir_dip = 1 }
+			25 = { change_heir_mil = 1 }
+			25 = {
+				if = {
+					limit = {
+						has_dlc = "Rights of Man"
+						NOT = { heir_has_personality = infertile_personality }
+					}
+					add_heir_personality = infertile_personality
+				}
+				else = { add_heir_claim = -20 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = vn_zoroastrian_events.4
+	title = "vn_zoroastrian_events.4.t"
+	desc = {
+		trigger = { is_female = no }
+		desc = vn_zoroastrian_events.4.d
+	}
+	desc = {
+		trigger = { is_female = yes }
+		desc = vn_zoroastrian_events.4.d2
+	}
+	picture = ROYAL_COUPLE_FUTURE_eventPicture
+
+	trigger = {
+		has_dlc = "Rights of Man"
+		has_government_attribute = queen
+		is_lesser_in_union = no
+		religion = zoroastrian
+		num_of_consorts = 0
+		government = monarchy
+		has_regency = no
+		has_consort = no
+		NOT = { has_ruler_flag = had_xwedodah_question }
+	}
+
+	mean_time_to_happen =  { months = 12 }
+
+	option = {
+		name = "vn_zoroastrian_events.4.a"
+		ai_chance = { factor = 75 }
+		custom_tooltip = vn_zoroastrian_events.4.a.tt
+		set_ruler_flag = had_xwedodah_question
+		hidden_effect = { define_consort = { dynasty = ROOT } }
+		set_consort_flag = xvaetvadatha_flag
+	}
+	option = {
+		name = "vn_zoroastrian_events.4.b"
+		ai_chance = { factor = 25 }
+		set_ruler_flag = had_xwedodah_question
+		add_legitimacy = -5
+	}
+}
+
+#Additional Eastern Flavor
+country_event = {
+	id = vn_religious_events.153
+	title = "vn_religious_events.153.t"
+	desc = "vn_religious_events.153.d"
+    picture = ORTHODOX_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BYZ
+		religion = orthodox
+		owns = 6778 #Nazianzus
+		owns = 6779 #Caesarea
+		owns = 6796 #Nyssa
+		NOT = { has_country_flag = triumph_anatolia }
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = "vn_religious_events.153.a"
+		add_prestige = 10
+		add_dip_power = 50
+	}
+}

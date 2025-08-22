@@ -1,0 +1,95 @@
+########################################
+# Flavor Events for Aztecs
+#
+# written by Henrik Lohmander
+########################################
+
+namespace = flavor_azt
+normal_or_historical_nations = yes
+
+#flavor_azt.1 - 23 removed
+
+#Choosing a Patron Deity
+country_event = {
+	id = flavor_azt.24
+	title = flavor_azt.24.t
+	desc = flavor_azt.24.d
+	picture = HUIZTILOPOCHTLI_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #Huitzilopochtli
+		name = flavor_azt.24.a
+		ai_chance = { factor = 1 }
+		
+		trigger = {
+			OR = {
+				has_country_flag = azt_tezcatlipoca_deity
+				has_country_flag = azt_quetzacoatl_deity
+				has_country_flag = azt_tlaloc_deity
+			}
+		}
+		
+		clr_country_flag = azt_tezcatlipoca_deity
+		clr_country_flag = azt_quetzacoatl_deity
+		clr_country_flag = azt_tlaloc_deity
+		
+		custom_tooltip = AZT_MODIFY_MECHANIC_HUITZILOPOCHTLI
+	}
+	
+	option = { #Tezcatlipoca
+		name = flavor_azt.24.b
+		ai_chance = { factor = 1 }
+		
+		trigger = {
+			NOT = {
+				has_country_flag = azt_tezcatlipoca_deity
+			}
+		}
+		
+		clr_country_flag = azt_tlaloc_deity
+		clr_country_flag = azt_quetzacoatl_deity
+		
+		set_country_flag = azt_tezcatlipoca_deity
+		
+		custom_tooltip = AZT_MODIFY_MECHANIC_TEZCATLIPOCA
+	}
+	
+	option = { #Tlaloc
+		name = flavor_azt.24.c
+		ai_chance = { factor = 1 }
+		
+		trigger = {
+			NOT = {
+				has_country_flag = azt_tlaloc_deity
+			}
+		}
+		
+		clr_country_flag = azt_tezcatlipoca_deity
+		clr_country_flag = azt_quetzacoatl_deity
+		
+		set_country_flag = azt_tlaloc_deity
+		
+		custom_tooltip = AZT_MODIFY_MECHANIC_TLALOC
+	}
+	
+	option = { #Quetzacoatl
+		name = flavor_azt.24.dd
+		ai_chance = { factor = 1 }
+		
+		trigger = {
+			NOT = {
+				has_country_flag = azt_quetzacoatl_deity
+			}
+		}
+		
+		clr_country_flag = azt_tlaloc_deity
+		clr_country_flag = azt_tezcatlipoca_deity
+		
+		set_country_flag = azt_quetzacoatl_deity
+		
+		custom_tooltip = AZT_MODIFY_MECHANIC_QUETZACOATL
+	}
+}
+
+#flavor_azt.25 removed

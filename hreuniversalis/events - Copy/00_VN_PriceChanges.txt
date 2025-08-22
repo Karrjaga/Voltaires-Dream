@@ -1,0 +1,1685 @@
+namespace = vn_prices
+
+#Siberian Whaling
+country_event = {
+	id = vn_prices.1
+	title = vn_prices.1.t
+	desc = vn_prices.1.d
+	picture = SHIP_SAILING_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		capital_scope = {
+			OR = {
+				superregion = british_isles_superregion
+				superregion = lowlands_superregion
+			}
+		}
+		whales = 1
+		dip_tech = 51	#1615
+		NOT = { started_in = 1615.1.1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.1.a
+		change_price = {
+			trade_goods = whales
+			key = SIBERIAN_WHALING
+			value = 0.5
+			duration = -1
+		}
+		add_prestige = 10
+	}
+}
+
+#Increasing Demand for Oil Lamps
+country_event = {
+	id = vn_prices.2
+	title = vn_prices.2.t
+	desc = vn_prices.2.d
+	picture = TRADEGOODS_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		oil = 1
+		dip_tech = 48	#1582
+		NOT = { started_in = 1582.1.1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.2.a
+		change_price = {
+			trade_goods = oil
+			key = POPULAR_OIL_LAMP
+			value = 0.2
+			duration = -1
+		}
+		change_price = {
+			trade_goods = wax
+			key = POPULAR_OIL_LAMP
+			value = -0.2
+			duration = -1
+		}
+		capital_scope = {
+			add_base_tax = 1
+		}
+	}
+}
+
+#The Philosopher's Stone?
+country_event = {
+	id = vn_prices.3
+	title = vn_prices.3.t
+	desc = vn_prices.3.d
+	picture = {
+		trigger = { NOT = { has_dlc = "Rule Britannia" } }
+		picture = TRADEGOODS_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Rule Britannia" }
+		picture = SCIENTISTS_eventPicture
+	}
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		OR = {
+			mercury = 1
+			plumbum = 1
+		}
+		adm_tech = 11	#1173
+		NOT = { is_year = 1300 }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.3.a
+		add_innovativeness_small_effect = yes
+		add_years_of_income = 1
+		change_price = {
+			trade_goods = gold
+			key = GOLD_SYNTHESIS
+			value = -0.75
+			duration = 18250
+		}
+	}
+}
+
+#Pilgrims signs made of tin
+country_event = {
+	id = vn_prices.4
+	title = vn_prices.4.t
+	desc = vn_prices.4.d
+	picture = {
+		trigger = { NOT = { has_dlc = "Purple Phoenix" } }
+		picture = TRADEGOODS_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Purple Phoenix" }
+		picture = BYZ_JERUSALEM_eventPicture
+	}
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		tin = 1
+		NOT = { has_reform = papacy_reform }
+		NOT = { started_in = 1099.1.13 }
+		OR = {
+			religion = catholic
+			religion = catholique
+		}
+		is_in_war = {
+			casus_belli = cb_grand_crusade
+			attackers = ROOT
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.4.a
+		add_papal_influence = 20
+		change_price = {
+			trade_goods = tin
+			key = TIN_PILGRIM_SIGNS
+			value = 0.2
+			duration = -1
+		}
+	}
+}
+
+#Dinnerware made out of tin
+country_event = {
+	id = vn_prices.5
+	title = vn_prices.5.t
+	desc = vn_prices.5.d
+	picture = INVENTION_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		tin = 1
+		adm_tech = 3	#1085
+		NOT = { current_age = age_of_empire }
+		NOT = { started_in = 1085.1.1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.5.a
+		change_price = {
+			trade_goods = tin
+			key = NEW_DINNERWARE
+			value = 0.2
+			duration = -1
+		}
+	}
+}
+
+#Cubagua and Margarita
+country_event = {
+	id = vn_prices.6
+	title = vn_prices.6.t
+	desc = vn_prices.6.d
+	picture = GREAT_BUILDING_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		capital_scope = {
+			superregion = iberia_superregion
+		}
+		has_institution = new_world_i
+		dip_tech = 41	#1504
+		NOT = { started_in = 1504.1.1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.6.a
+		change_price = {
+			trade_goods = pearls
+			key = CUBAGUA_AND_MARGARITA
+			value = -0.5
+			duration = -1
+		}
+	}
+}
+
+#Monastery Brewery
+country_event = {
+	id = vn_prices.7
+	title = vn_prices.7.t
+	desc = vn_prices.7.d
+	picture = TRADE_GOODS_PLANTATION_GOODS_IN_WAREHOUSE_eventPicture
+	goto = beer_province
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		beer = 1
+		government = theocracy
+		OR = {
+			has_reform = monastic_order_reform
+			has_reform = priory_reform
+			has_reform = monastic_breweries_reform
+		}
+		adm_tech = 6	#1119
+		capital_scope = { superregion = germanysouth_superregion }
+		NOT = { started_in = 1119.1.1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { trade_goods = beer }
+				save_event_target_as = beer_province
+			}
+		}
+	}
+	
+	option = {
+		name = vn_prices.7.a
+		change_price = {
+			trade_goods = beer
+			key = MONASTERY_BREWERY
+			value = 0.4
+			duration = -1
+		}
+		event_target:beer_province = {
+			add_base_production = 2
+		}
+	}
+}
+
+#Waldensians bring Potatoes to Germany
+country_event = {
+	id = vn_prices.8
+	title = vn_prices.8.t
+	desc = vn_prices.8.d
+	picture = TRADE_GOODS_PLANTATION_GOODS_IN_WAREHOUSE_eventPicture
+	goto = potato_province
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		capital_scope = {
+			superregion = germanysouth_superregion
+		}
+		adm_tech = 52	#1626
+		NOT = { started_in = 1626.1.1 }
+		vegetables = 1
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { NOT = { religion = waldensian } }
+				save_event_target_as = potato_province
+			}
+		}
+	}
+	
+	option = {
+		name = vn_prices.8.a
+		event_target:potato_province = {
+			change_religion = waldensian
+			add_base_tax = 2
+		}
+		change_price = {
+			trade_goods = vegetables
+			key = POTATOES_IN_GERMANY
+			value = -0.4
+			duration = -1
+		}
+	}
+}
+
+#Pantaleone da Confienza
+country_event = {
+	id = vn_prices.9
+	title = vn_prices.9.t
+	desc = vn_prices.9.d
+	picture = GREAT_BUILDING_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		capital_scope = {
+			OR = {
+				region = piedmont_region
+				region = dauphine_region
+			}
+		}
+		cheese = 1
+		adm_tech = 38	#1471
+		NOT = { started_in = 1471.1.1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.9.a
+		add_innovativeness_small_effect = yes
+		add_years_of_income = 0.25
+		change_price = {
+			trade_goods = cheese
+			key = SUMMA_LACTICINIORUM
+			value = 0.2
+			duration = -1
+		}
+	}
+}
+
+#Knight Horse Breeding
+country_event = {
+	id = vn_prices.10
+	title = vn_prices.10.t
+	desc = vn_prices.10.d
+	picture = TOURNAMENT_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		NOT = { is_year = 1400 }
+		capital_scope = {
+			OR = {
+				superregion = french_superregion
+				superregion = burgundian_superregion
+			}
+		}
+		has_institution = chivalry
+		horses = 1
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.10.a
+		add_mil_power = 50
+		change_price = {
+			trade_goods = horses
+			key = KNIGHT_HORSES
+			value = 0.4
+			duration = 36500
+		}
+	}
+}
+
+#Siemens Martin Process
+country_event = {
+	id = vn_prices.11
+	title = vn_prices.11.t
+	desc = vn_prices.11.d
+	picture = TRADE_GOODS_METALS_AND_MINING_EQUIPENT_eventPicture
+	goto = steel_province
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		has_institution = industrialism
+		NOT = { started_in = 1750.1.1 }
+		any_owned_province = {
+			trade_goods = steel
+			has_building = furnace
+		}
+		steel = 10
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { trade_goods = steel }
+				save_event_target_as = steel_province
+			}
+		}
+	}
+	
+	option = {
+		name = vn_prices.11.a
+		add_years_of_income = 1
+		add_adm_power = 50
+		event_target:steel_province = {
+			if = {
+				limit = { has_building = furnace }
+				add_base_production = 6
+			}
+			else = {
+				add_building = furnace
+			}
+		}
+		change_price = {
+			trade_goods = steel
+			key = OPEN_HEARTH_FURNACE
+			value = -0.3
+			duration = -1
+		}
+	}
+}
+
+#Mercury cures Syphilis
+country_event = {
+	id = vn_prices.12
+	title = vn_prices.12.t
+	desc = vn_prices.12.d
+	picture = FAMINE_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		adm_tech = 40	#1493
+		mercury = 1
+		has_institution = new_world_i
+		NOT = { is_year = 1550 }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.12.a
+		add_innovativeness_small_effect = yes
+		change_price = {
+			trade_goods = mercury
+			key = SYPHILIS_HITS_EUROPE
+			value = 0.2
+			duration = 18250
+		}
+	}
+}
+
+#Afterpains of the Black Death
+country_event = {
+	id = vn_prices.13
+	title = vn_prices.13.t
+	desc = vn_prices.13.d
+	picture = FAMINE_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		NOT = { is_year = 1400 }
+		adm_tech = 27	#1349
+		calc_true_if = {
+			amount = 50
+			all_country = {
+				has_country_flag = had_black_death
+			}
+		}
+		has_country_flag = had_black_death
+		OR = {
+			grain = 1
+			rice = 1
+			barley = 1
+			rye = 1
+			dates = 1
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.13.a
+		change_price = {
+			trade_goods = grain
+			key = FALLOW_FIELDS
+			value = -0.5
+			duration = 9125
+		}
+		change_price = {
+			trade_goods = rice
+			key = FALLOW_FIELDS
+			value = -0.5
+			duration = 9125
+		}
+		change_price = {
+			trade_goods = barley
+			key = FALLOW_FIELDS
+			value = -0.5
+			duration = 9125
+		}
+		change_price = {
+			trade_goods = rye
+			key = FALLOW_FIELDS
+			value = -0.5
+			duration = 9125
+		}
+		change_price = {
+			trade_goods = dates
+			key = FALLOW_FIELDS
+			value = -0.5
+			duration = 9125
+		}
+	}
+}
+
+#Arab Agricultural Revolution
+country_event = {
+	id = vn_prices.14
+	title = vn_prices.14.t
+	desc = vn_prices.14.d
+	picture = FARMING_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		OR = {
+			dates = 3
+			olive = 3
+			spices = 3
+			pepper = 3
+		}
+		culture_group = turko_semitic
+		adm_tech = 2	#1074
+		NOT = { started_in = 1074.1.1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.14.a
+		add_innovativeness_small_effect = yes
+		add_adm_power = 100
+		change_price = {
+			trade_goods = dates
+			key = AGRICULTURAL_REVOLUTION
+			value = 0.2
+			duration = -1
+		}
+		change_price = {
+			trade_goods = olive
+			key = AGRICULTURAL_REVOLUTION
+			value = 0.2
+			duration = -1
+		}
+		change_price = {
+			trade_goods = spices
+			key = AGRICULTURAL_REVOLUTION
+			value = 0.2
+			duration = -1
+		}
+		change_price = {
+			trade_goods = pepper
+			key = AGRICULTURAL_REVOLUTION
+			value = 0.2
+			duration = -1
+		}
+	}
+}
+
+#Marble in Renaissance
+country_event = {
+	id = vn_prices.15
+	title = vn_prices.15.t
+	desc = vn_prices.15.d
+	picture = GREAT_BUILDING_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		marble = 1
+		NOT = { started_in = 1450.1.1 }
+		has_institution = renaissance
+		capital_scope = { continent = europe }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.15.a
+		add_prestige = 20
+		add_years_of_income = 0.25
+		change_price = {
+			trade_goods = marble
+			key = RENAISSANCE_MARBE
+			value = 0.25
+			duration = -1
+		}
+	}
+}
+
+#Dried Fruits
+country_event = {
+	id = vn_prices.16
+	title = vn_prices.16.t
+	desc = vn_prices.16.d
+	picture = FARMING_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		NOT = { started_in = 1548.1.1 }
+		adm_tech = 45	#1548
+		peaches = 1
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.16.a
+		add_years_of_income = 1
+		change_price = {
+			trade_goods = peaches
+			key = DRIED_FRUITS
+			value = 0.1
+			duration = -1
+		}
+	}
+}
+
+#Invention of Spectacles
+country_event = {
+	id = vn_prices.17
+	title = vn_prices.17.t
+	desc = vn_prices.17.d
+	picture = ADVISOR_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		adm_tech = 21	#1283
+		NOT = { started_in = 1283.1.1 }
+		any_owned_province = {
+			region = tuscany_region
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.17.a
+		add_innovativeness_small_effect = yes
+		add_adm_power = 100
+		change_price = {
+			trade_goods = glass
+			key = SPECTACLES_INVENTED
+			value = 0.1
+			duration = -1
+		}
+		change_price = {
+			trade_goods = paper
+			key = SPECTACLES_INVENTED
+			value = 0.1
+			duration = -1
+		}
+	}
+}
+
+#Nürnberger Gingerbread
+country_event = {
+	id = vn_prices.18
+	title = vn_prices.18.t
+	desc = vn_prices.18.d
+	picture = TRADEGOODS_eventPicture
+	goto = gingerbread_province
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		is_year = 1430
+		NOT = { is_year = 1530 }
+		NOT = { started_in = 1450.1.1 }
+		any_owned_province = {
+			trade_goods = honey
+			development = 15
+			culture_group = germanic
+		}
+	}
+	
+	mean_time_to_happen = {
+		years = 30
+	}
+
+	immediate = {
+		random_owned_province = {
+			limit = {
+				trade_goods = honey
+				development = 15
+				culture_group = germanic
+			}
+			save_event_target_as = gingerbread_province
+		}
+	}
+	
+	option = {
+		name = vn_prices.18.a
+		change_price = {
+			trade_goods = honey
+			key = NURNBERGER_GINGERBREAD
+			value = 0.15
+			duration = -1
+		}
+		event_target:gingerbread_province = {
+			add_base_tax = 1
+			add_base_production = 1
+		}
+		add_prestige = 10
+	}
+}
+
+#European carpet weaving
+country_event = {
+	id = vn_prices.19
+	title = vn_prices.19.t
+	desc = vn_prices.19.d
+	picture = TRADEGOODS_eventPicture
+	goto = carpet_province
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		dip_tech = 50	#1604
+		NOT = { started_in = 1604.1.1 }
+		any_owned_province = {
+			OR = {
+				superregion = lowlands_superregion
+				superregion = french_superregion
+				superregion = british_isles_superregion
+			}
+			development = 20
+			NOT = { trade_goods = carpet }
+			NOT = { trade_goods = silver }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					OR = {
+						superregion = lowlands_superregion
+						superregion = french_superregion
+						superregion = british_isles_superregion
+					}
+					development = 20
+					NOT = { trade_goods = carpet }
+					NOT = { trade_goods = silver }
+				}
+				save_event_target_as = carpet_province
+			}
+		}
+	}
+	
+	option = {
+		name = vn_prices.19.a
+		change_price = {
+			trade_goods = carpet
+			key = EUROPEAN_CARPET_WEAVING
+			value = -0.35
+			duration = -1
+		}
+		event_target:carpet_province = {
+			change_trade_goods = carpet
+			if = {
+				limit = {
+					has_building = mills
+				}
+				remove_building = mills
+				add_building = textile
+			}
+			else_if = {
+				limit = {
+					has_building = farm_estate
+				}
+				remove_building = farm_estate
+				add_building = textile
+			}
+			else_if = {
+				limit = {
+					has_building = plantations
+				}
+				remove_building = plantations
+				add_building = textile
+			}
+			else_if = {
+				limit = {
+					has_building = tradecompany
+				}
+				remove_building = tradecompany
+				add_building = textile
+			}
+			else_if = {
+				limit = {
+					has_building = weapons
+				}
+				remove_building = weapons
+				add_building = textile
+			}
+			else_if = {
+				limit = {
+					has_building = wharf
+				}
+				remove_building = wharf
+				add_building = textile
+			}
+		}
+		add_years_of_income = 0.5
+	}
+}
+
+#Irish Whiskey
+country_event = {
+	id = vn_prices.20
+	title = vn_prices.20.t
+	desc = vn_prices.20.d
+	picture = TRADEGOODS_eventPicture
+	goto = whiskey_province
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		adm_tech = 51	#1615
+		NOT = { started_in = 1615.1.1 }
+		any_owned_province = {
+			superregion = irish_superregion
+			NOT = { trade_goods = spirits }
+			NOT = { trade_goods = silver }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					superregion = irish_superregion
+					NOT = { trade_goods = spirits }
+					NOT = { trade_goods = silver }
+				}
+				save_event_target_as = whiskey_province
+			}
+		}
+	}
+	
+	option = {
+		name = vn_prices.20.a
+		add_years_of_income = 0.5
+		event_target:whiskey_province = {
+			change_trade_goods = spirits
+			add_base_production = 2
+			if = {
+				limit = {
+					has_building = textile
+				}
+				remove_building = textile
+				add_building = mills
+			}
+			else_if = {
+				limit = {
+					has_building = farm_estate
+				}
+				remove_building = farm_estate
+				add_building = mills
+			}
+			else_if = {
+				limit = {
+					has_building = plantations
+				}
+				remove_building = plantations
+				add_building = mills
+			}
+			else_if = {
+				limit = {
+					has_building = tradecompany
+				}
+				remove_building = tradecompany
+				add_building = mills
+			}
+			else_if = {
+				limit = {
+					has_building = weapons
+				}
+				remove_building = weapons
+				add_building = mills
+			}
+			else_if = {
+				limit = {
+					has_building = wharf
+				}
+				remove_building = wharf
+				add_building = mills
+			}
+		}
+		change_price = {
+			trade_goods = spirits
+			key = IRISH_WHISKEY
+			value = 0.2
+			duration = -1
+		}
+	}
+}
+
+#Herring buss
+country_event = {
+	id = vn_prices.21
+	title = vn_prices.21.t
+	desc = vn_prices.21.d
+	picture = SHIP_SAILING_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		dip_tech = 33	#1416
+		NOT = { started_in = 1416.1.1 }
+		OR = {
+			fish = 2
+			crabs = 2
+		}
+		num_of_ports = 1
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.21.a
+		add_innovativeness_small_effect = yes
+		add_dip_power = 50
+		change_price = {
+			trade_goods = fish
+			key = HERRING_BUSS
+			value = 0.15
+			duration = -1
+		}
+		change_price = {
+			trade_goods = crabs
+			key = HERRING_BUSS
+			value = 0.15
+			duration = -1
+		}
+	}
+}
+
+#Spirits used as medicine
+country_event = {
+	id = vn_prices.22
+	title = vn_prices.22.t
+	desc = vn_prices.22.d
+	picture = FAMINE_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		NOT = { is_year = 1400 }
+		adm_tech = 27	#1349
+		calc_true_if = {
+			amount = 25
+			all_country = {
+				has_country_flag = had_black_death
+			}
+		}
+		has_disaster = black_death
+		spirits = 1
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.21.a
+		add_innovativeness_small_effect = yes
+		change_price = {
+			trade_goods = spirits
+			key = SPIRITS_CURE_BLACK_DEATH
+			value = 0.4
+			duration = 9125
+		}
+	}
+}
+
+#hemp ropemaking
+country_event = {
+	id = vn_prices.23
+	title = vn_prices.23.t
+	desc = vn_prices.23.d
+	picture = {
+		trigger = { NOT = { has_dlc = "Rule Britannia" } }
+		picture = SHIP_SAILING_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Rule Britannia" }
+		picture = LARGE_SHIPYARD_eventPicture
+	}
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		has_institution = new_world_i
+		hemp = 1
+		dip_tech = 40	#1493
+		NOT = { started_in = 1493.1.1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.23.a
+		add_dip_power = 100
+		change_price = {
+			trade_goods = naval_supplies
+			key = HEMP_ROPEMAKING
+			value = 0.2
+			duration = -1
+		}
+		change_price = {
+			trade_goods = lumber
+			key = HEMP_ROPEMAKING
+			value = 0.2
+			duration = -1
+		}
+		change_price = {
+			trade_goods = hemp
+			key = HEMP_ROPEMAKING
+			value = 0.2
+			duration = -1
+		}
+	}
+}
+
+#widespread deforestation
+country_event = {
+	id = vn_prices.24
+	title = vn_prices.24.t
+	desc = vn_prices.24.d
+	picture = FARMING_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		adm_tech = 25	#1327
+		OR = {
+			lumber = 2
+			venison = 2
+			fur = 2
+			honey = 2
+		}
+		capital_scope = {
+			continent = europe
+		}
+		NOT = { is_year = 1550 }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.24.a
+		change_price = {
+			trade_goods = lumber
+			key = DEFORESTATION
+			value = -0.4
+			duration = 36500
+		}
+		change_price = {
+			trade_goods = venison
+			key = DEFORESTATION
+			value = -0.4
+			duration = 36500
+		}
+		change_price = {
+			trade_goods = fur
+			key = DEFORESTATION
+			value = -0.4
+			duration = 36500
+		}
+		change_price = {
+			trade_goods = honey
+			key = DEFORESTATION
+			value = -0.4
+			duration = 36500
+		}
+	}
+}
+
+#Rise of Mali
+country_event = {
+	id = vn_prices.25
+	title = vn_prices.25.t
+	desc = vn_prices.25.d
+	picture = {
+		trigger = { NOT = { has_dlc = "Origins" } }
+		picture = CARAVAN_EVENT_Picture
+	}
+	picture = {
+		trigger = { has_dlc = "Origins" }
+		picture = SAHARA_eventPicture
+	}
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		adm_tech = 16	#1228
+		NOT = { started_in = 1228.1.1 }
+		camels = 1
+		capital_scope = { continent = africa }
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.25.a
+		add_years_of_income = 1
+		change_price = {
+			trade_goods = camels
+			key = TRADE_WITH_MALI
+			value = 0.25
+			duration = -1
+		}
+	}
+}
+
+#finer Soap production
+country_event = {
+	id = vn_prices.26
+	title = vn_prices.26.t
+	desc = vn_prices.26.d
+	picture = TRADE_GOODS_eventPicture
+	goto = soap_province
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		adm_tech = 43	#1526
+		NOT = { started_in = 1526.1.1 }
+		oil = 1
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { trade_goods = oil }
+				save_event_target_as = soap_province
+			}
+		}
+	}
+	
+	option = {
+		name = vn_prices.26.a
+		add_innovativeness_small_effect = yes
+		event_target:soap_province = {
+			add_base_production = 2
+		}
+		change_price = {
+			trade_goods = oil
+			key = FINER_SOAPS
+			value = 0.1
+			duration = -1
+		}
+		change_price = {
+			trade_goods = vegetables
+			key = FINER_SOAPS
+			value = 0.1
+			duration = -1
+		}
+		change_price = {
+			trade_goods = pigs
+			key = FINER_SOAPS
+			value = -0.1
+			duration = -1
+		}
+	}
+}
+
+#Smoked Meat
+country_event = {
+	id = vn_prices.27
+	title = vn_prices.27.t
+	desc = vn_prices.27.d
+	picture = TRADE_GOODS_FURS_FISH_AND_SALT_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		adm_tech = 12	#1184
+		NOT = { started_in = 1184.1.1 }
+		OR = {
+			livestock = 1
+			pigs = 1
+			fish = 1
+			venison = 1
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.27.a
+		add_innovativeness_small_effect = yes
+		change_price = {
+			trade_goods = pigs
+			key = SMOKED_MEAT
+			value = 0.1
+			duration = -1
+		}
+		change_price = {
+			trade_goods = livestock
+			key = SMOKED_MEAT
+			value = 0.1
+			duration = -1
+		}
+		change_price = {
+			trade_goods = fish
+			key = SMOKED_MEAT
+			value = 0.1
+			duration = -1
+		}
+		change_price = {
+			trade_goods = venison
+			key = SMOKED_MEAT
+			value = 0.1
+			duration = -1
+		}
+		change_price = {
+			trade_goods = minerals
+			key = SMOKED_MEAT
+			value = 0.1
+			duration = -1
+		}
+	}
+}
+
+#Spread of Rice
+country_event = {
+	id = vn_prices.28
+	title = vn_prices.28.t
+	desc = vn_prices.28.d
+	picture = SHIP_SAILING_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		dip_tech = 39	#1482
+		NOT = { started_in = 1482.1.1 }
+		capital_scope = {
+			OR = {
+				superregion = iberia_superregion
+				superregion = italy_superregion
+				superregion = sicily_superregion
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.28.a
+		add_years_of_income = 0.5
+		change_price = {
+			trade_goods = rice
+			key = SPREAD_OF_RICE
+			value = -0.4
+			duration = -1
+		}
+	}
+}
+
+#Increasing popularity of inhalates
+country_event = {
+	id = vn_prices.29
+	title = vn_prices.29.t
+	desc = vn_prices.29.d
+	picture = TRADE_GOODS_FURS_FISH_AND_SALT_eventPicture
+	goto = tobacco_province
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		dip_tech = 53	#1637
+		NOT = { started_in = 1637.1.1 }
+		capital_scope = {
+			continent = europe
+		}
+		any_owned_province = {
+			NOT = { trade_goods = tobacco }
+			NOT = { trade_goods = silver }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { trade_goods = tobacco }
+					NOT = { trade_goods = silver }
+				}
+				save_event_target_as = tobacco_province
+			}
+		}
+	}
+	
+	option = {
+		name = vn_prices.29.a
+		add_dip_power = 100
+		event_target:tobacco_province = {
+			change_trade_goods = tobacco
+			if = {
+				limit = {
+					has_building = mills
+				}
+				remove_building = mills
+				add_building = plantations
+			}
+			else_if = {
+				limit = {
+					has_building = farm_estate
+				}
+				remove_building = farm_estate
+				add_building = plantations
+			}
+			else_if = {
+				limit = {
+					has_building = textile
+				}
+				remove_building = textile
+				add_building = plantations
+			}
+			else_if = {
+				limit = {
+					has_building = tradecompany
+				}
+				remove_building = tradecompany
+				add_building = plantations
+			}
+			else_if = {
+				limit = {
+					has_building = weapons
+				}
+				remove_building = weapons
+				add_building = plantations
+			}
+			else_if = {
+				limit = {
+					has_building = wharf
+				}
+				remove_building = wharf
+				add_building = plantations
+			}
+		}
+		change_price = {
+			trade_goods = tobacco
+			key = TOBACOO_PIPE
+			value = 0.25
+			duration = -1
+		}
+	}
+}
+
+#Steelboats instead of Woodboats
+country_event = {
+	id = vn_prices.30
+	title = vn_prices.30.t
+	desc = vn_prices.30.d
+	picture = {
+		trigger = { NOT = { has_dlc = "Rule Britannia" } }
+		picture = SHIP_SAILING_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Rule Britannia" }
+		picture = LARGE_SHIPYARD_eventPicture
+	}
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		has_institution = industrialism
+		NOT = { started_in = 1750.1.1 }
+		OR = {
+			tar = 1
+			lumber = 1
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	option = {
+		name = vn_prices.30.a
+		change_price = {
+			trade_goods = tar
+			key = STEEL_SHIPS
+			value = -0.4
+			duration = -1
+		}
+		change_price = {
+			trade_goods = lumber
+			key = STEEL_SHIPS
+			value = -0.4
+			duration = -1
+		}
+	}
+}
+
+#Spread of Maize
+country_event = {
+	id = vn_prices.31
+	title = "vn_prices.31.t"
+	desc = "vn_prices.31.d"
+	picture = COLONIZATION_eventPicture
+	goto = new_maize_prov
+
+	major = yes
+
+	trigger = {
+		has_institution = new_world_i
+		OR = {
+			grain = 1
+			barley = 1
+		}
+		dip_tech = 41	#1504
+		NOT = { started_in = 1504.1.1 }
+		NOT = { has_global_flag = spread_of_maize_flag }
+	}
+
+	mean_time_to_happen =  {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = spread_of_maize_flag
+			random_owned_province = {
+				limit = {
+					OR = {
+						trade_goods = grain
+						trade_goods = barley
+					}
+				}
+				save_event_target_as = new_maize_prov
+			}
+		}
+	}
+
+	option = {
+		name = "vn_prices.31.a"
+		custom_tooltip = vn_prices.31.tt
+		event_target:new_maize_prov = {
+			change_trade_goods = corn
+		}
+		change_price = {
+			trade_goods = corn
+			key = MAIZE_CULTIVATION
+			value = 1
+			duration = 36500
+		}
+	}
+}
+
+province_event = {
+	id = vn_prices.3100
+	title = "vn_prices.31.t"
+	desc = "vn_prices.3100.d"
+	picture = FARMING_eventPicture
+	goto = root
+
+	trigger = {
+		OR = {
+			trade_goods = grain
+			trade_goods = barley
+		}
+		owner = { has_institution = new_world_i }
+		has_global_flag = spread_of_maize_flag
+		NOT = {
+			had_global_flag = {
+				flag = spread_of_maize_flag
+				days = 36500
+			}
+		}
+		NOT = { devastation = 1 }
+	}
+
+	mean_time_to_happen =  {
+		years = 100
+	}
+
+	option = {
+		name = "vn_prices.3100.a"
+		change_trade_goods = corn
+		add_province_modifier = {
+			name = corn_cultivation
+			duration = 1825
+		}
+	}
+}
+
+#Champange Fairs
+# country_event = {
+# 	id = vn_prices.31
+# 	title = vn_prices.31.t
+# 	desc = vn_prices.31.d
+# 	picture = TRADEGOODS_eventPicture
+
+# 	fire_only_once = yes
+# 	major = yes
+
+# 	trigger = {
+# 		adm_tech = 10 #1162
+# 		capital_scope = {
+# 			superregion = french_superregion
+# 		}
+# 		num_of_owned_provinces_with = {
+# 			value = 2
+# 			region = champagne_region
+# 			NOT = { trade_goods = silver }
+# 			NOT = { trade_goods = cloth }
+# 			NOT = { trade_goods = leather }
+# 		}
+# 	}
+	
+# 	mean_time_to_happen = {
+# 		months = 1
+# 	}
+
+# 	immediate = {
+# 		hidden_effect = {
+# 			random_owned_province = {
+# 				limit = {
+# 					region = champagne_region
+# 					NOT = { trade_goods = silver }
+# 					NOT = { trade_goods = cloth }
+# 					NOT = { trade_goods = leather }
+# 				}
+# 				save_event_target_as = fair_prov_1
+# 			}
+# 			random_owned_province = {
+# 				limit = {
+# 					NOT = { province_id = event_target:fair_prov_1 }
+# 					region = champagne_region
+# 					NOT = { trade_goods = silver }
+# 					NOT = { trade_goods = cloth }
+# 					NOT = { trade_goods = leather }
+# 				}
+# 				save_event_target_as = fair_prov_2
+# 			}
+# 		}
+# 	}
+	
+# 	option = {
+# 		name = vn_prices.30.a
+# 		event_target:fair_prov_1 = {
+# 			change_trade_goods = cloth
+# 			add_base_production = 2
+# 		}
+# 		event_target:fair_prov_2 = {
+# 			change_trade_goods = cloth
+# 			add_base_production = 2
+# 		}
+# 		change_price = {
+# 			trade_goods = cloth
+# 			key = CHAMPAGNE_FAIRS
+# 			value = 0.35
+# 			duration = 36500
+# 		}
+# 		change_price = {
+# 			trade_goods = leather
+# 			key = CHAMPAGNE_FAIRS
+# 			value = 0.35
+# 			duration = 36500
+# 		}
+# 	}
+# }

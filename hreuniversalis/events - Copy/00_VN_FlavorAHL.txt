@@ -1,0 +1,55 @@
+namespace = vn_flavor_ahl
+
+country_event = {
+	id = vn_flavor_ahl.1
+	title = "vn_flavor_ahl.1.t"
+	desc = "vn_flavor_ahl.1.d"
+	picture = {	
+		trigger = {
+			has_dlc = "Cradle of Civilization"
+		}
+		picture = MAMLUK_WARRIORS_eventPicture
+	}
+	picture = {	
+		trigger = {
+			NOT = { has_dlc = "Cradle of Civilization" }
+		}
+		picture = MILITARY_CAMP_eventPicture
+	}
+
+	is_triggered_only = yes
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		tag = AHL
+		NOT = { started_in = 1185.1.1 }
+		NOT = { current_age = age_of_empire }
+		religion_group = muslim
+		has_not_locked_first_tier_reform = yes
+		is_free_or_tributary_trigger = yes
+	}
+
+	option = {
+		name = "vn_flavor_ahl.1.a"
+		ai_chance = { factor = 80 }
+		if = {
+			limit = { NOT = { government = monarchy } }
+			change_government = monarchy
+		}
+		add_government_reform = mamluk_government
+	}
+	option = {
+		name = "vn_flavor_ahl.1.b"
+		ai_chance = { factor = 20 }
+		add_prestige = 20
+		capital_scope = {
+			spawn_rebels = {
+				size = 3
+				type = mamluk_rebels
+				win = yes
+				leader_dynasty = "Armaniyya"
+			}
+		}
+	}
+}

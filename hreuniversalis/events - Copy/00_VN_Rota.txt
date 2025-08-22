@@ -1,0 +1,293 @@
+namespace = vn_rota_events
+
+country_event = {
+	id = vn_rota_events.1
+	title = "vn_rota_events.1.t"
+	desc = "vn_rota_events.1.d"
+	picture = KING_SICK_IN_BED_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		is_emperor_of_china = yes
+		has_reform = celestial_empire
+		NOT = { has_global_flag = disable_rota_flag }
+		OR = {
+			NOT = { has_country_flag = recent_rota }
+			had_country_flag = { flag = recent_rota days = 365 }
+		}
+		any_subject_country = {
+			is_subject_of_type = partial_principality
+			has_reform = principality
+			has_regency = no
+			dynasty = ROOT
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = ongoing_rota
+			set_country_flag = recent_rota
+			every_country = {
+				limit = { has_ruler_flag = rota_elected_flag }
+				clr_ruler_flag = rota_elected_flag
+			}
+		}
+	}
+
+	option = {
+		name = "vn_rota_events.1.a"
+		ai_chance = {
+			factor = 95
+			modifier = {
+				factor = 0
+				ADM = 4
+				DIP = 4
+				MIL = 4
+			}
+		}
+		random_country = {
+			limit = {
+				is_subject_of_type = partial_principality
+				has_reform = principality
+				has_regency = no
+				dynasty = ROOT
+			}
+			country_event = { id = vn_rota_events.2 days = 3 }
+		}
+	}
+	option = {
+		name = "vn_rota_events.1.b"
+		ai_chance = { factor = 5 }
+		reduce_meritocracy_large_effect = yes
+		reduce_mandate_large_effect = yes
+	}
+}
+
+country_event = {
+	id = vn_rota_events.2
+	title = "vn_rota_events.2.t"
+	desc = "vn_rota_events.2.d"
+	picture = KING_SICK_IN_BED_eventPicture
+
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { has_heir = no }
+				define_heir = {
+					dynasty = ROOT
+					age = 0
+					claim = 100
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "vn_rota_events.2.a"
+		exile_ruler_as = { name = rota_ruler }
+		FROM = {
+			set_ruler = rota_ruler
+			set_ruler_flag = rota_elected_flag
+		}
+		if = {
+			limit = {
+				any_country = {
+					NOT = { tag = ROOT }
+					NOT = { has_ruler_flag = rota_elected_flag }
+					is_subject_of_type = partial_principality
+					has_reform = principality
+					has_regency = no
+					dynasty = ROOT
+				}
+			}
+			random_country = {
+				limit = {
+					NOT = { tag = ROOT }
+					NOT = { has_ruler_flag = rota_elected_flag }
+					is_subject_of_type = partial_principality
+					has_reform = principality
+					has_regency = no
+					dynasty = ROOT
+				}
+				country_event = { id = vn_rota_events.2 days = 1 }
+			}
+		}
+		else = {
+			clr_global_flag = ongoing_rota
+		}
+	}
+}
+
+country_event = {
+	id = vn_rota_events.3
+	title = "vn_rota_events.3.t"
+	desc = "vn_rota_events.3.d"
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_reform = principality
+		OR = {
+			current_age = age_of_empire
+			current_age = age_of_holy_wars
+			current_age = age_of_crisis
+			current_age = age_of_dynasticism
+		}
+		any_owned_province = {
+			NOT = { is_capital_of = ROOT }
+			any_core_country = {
+				culture_group = east_slavic
+				NOT = { has_country_flag = rus_country_released }
+				exists = no
+			}
+		}
+		culture_group = east_slavic
+		is_free_or_tributary_trigger = yes
+		OR = {
+			is_emperor_of_china = yes
+			any_country = {
+				is_emperor_of_china = yes
+			}
+		}
+		NOT = { has_global_flag = disable_rota_flag }
+		NOT = { has_country_flag = stop_releasing_another_country }
+		NOT = { has_global_flag = ongoing_rota }
+		NOT = {
+			any_country = {
+				has_country_flag = recent_rota
+				war_with = ROOT
+			}
+		}
+		OR = {
+			NOT = { has_country_flag = broke_from_kievan_rus }
+			had_country_flag = {
+				flag = broke_from_kievan_rus
+				days = 1
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { is_capital_of = ROOT }
+					any_core_country = {
+						culture_group = east_slavic
+						exists = no
+					}
+				}
+				random_core_country = {
+					limit = {
+						culture_group = east_slavic
+						exists = no
+					}
+					save_event_target_as = rus_partition_country
+				}
+			}
+			release = event_target:rus_partition_country
+			event_target:rus_partition_country = {
+				set_country_flag = rus_country_released
+				set_country_flag = stop_releasing_another_country
+				if = {
+					limit = { NOT = { religion = ROOT } }
+					change_religion = ROOT
+				}
+				change_government = monarchy
+				add_government_reform = principality
+				add_truce_with = ROOT
+				define_ruler = {
+					dynasty = ROOT
+				}
+				every_neighbor_country = {
+					limit = { 
+						has_reform = principality 
+					}
+					add_truce_with = PREV
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+				clr_country_flag = stop_releasing_another_country
+			}
+			if = {
+				limit = { is_subject_of_type = partial_principality }
+				overlord = {
+					create_subject = {
+						subject_type = partial_principality
+						subject = event_target:rus_partition_country
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "vn_rota_events.3.a"
+		ai_chance = { factor = 75 }
+		custom_tooltip = "vn_rota_events.3.tt"
+		add_legitimacy = -20
+		hidden_effect = {
+			event_target:rus_partition_country = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	option = {
+		name = "vn_rota_events.3.b"
+		ai_chance = { 
+			factor = 25
+			modifier = {
+				factor = 0
+				NOT = { legitimacy = 25 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { stability = 0 }
+			}
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0.5
+				event_target:rus_partition_country = {
+					num_of_cities = ROOT
+				}
+			}
+		}
+		set_country_flag = contested_rus_breakaway
+		hidden_effect = {
+			event_target:rus_partition_country = {
+				grant_independence = yes
+			}
+		}
+		tooltip = {
+			declare_war_with_cb = {
+				who = event_target:rus_partition_country
+				casus_belli = cb_disloyal_vassal
+			}
+		}
+	}
+	after = {
+		if = {
+			limit = { has_country_flag = contested_rus_breakaway }
+			declare_war_with_cb = {
+				who = event_target:rus_partition_country
+				casus_belli = cb_disloyal_vassal
+			}
+			clr_country_flag = contested_rus_breakaway
+		}
+	}
+}

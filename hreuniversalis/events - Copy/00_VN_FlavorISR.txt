@@ -1,0 +1,59 @@
+namespace = vn_flavor_isr
+
+#Jews flocking to Isreal after formation
+country_event = {
+	id = vn_flavor_isr.1
+	title = "vn_flavor_isr.1.t"
+	desc = "vn_flavor_isr.1.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_flavor_isr.1.a"
+		ai_chance = { factor = 0 }
+	}
+
+	option = {
+		name = "vn_flavor_isr.1.b"
+		trigger = { religion = jewish }
+		ai_chance = { factor = 50 }
+		if = {
+			limit = {
+				ISR = {
+					any_owned_province = { NOT = { religion = jewish } }
+				}
+			}
+			ISR = {
+				random_owned_province = {
+					limit = { NOT = { religion = jewish } }
+					change_religion = jewish
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "vn_flavor_isr.1.c"
+		trigger = { NOT = { religion = jewish } }
+		ai_chance = { factor = 50 }
+		random_owned_province = {
+			limit = { religion = jewish }
+			change_religion = ROOT
+		}
+		if = {
+			limit = {
+				ISR = {
+					any_owned_province = { NOT = { religion = jewish } }
+				}
+			}
+			ISR = {
+				random_owned_province = {
+					limit = { NOT = { religion = jewish } }
+					change_religion = jewish
+				}
+			}
+		}
+	}
+}

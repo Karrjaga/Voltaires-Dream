@@ -1,0 +1,217 @@
+namespace = vn_flavor_ftm
+
+#Nizarism
+country_event = {
+	id = vn_flavor_ftm.1
+	title = "vn_flavor_ftm.1.t"
+	desc = "vn_flavor_ftm.1.d"
+	picture = RELIGIOUS_WARS_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+
+	trigger = {
+		normal_or_historical_nations = yes
+		current_age = age_of_empire
+		tag = FTM
+		government = monarchy
+		religion = shiite
+		has_heir_flag = nizar_heir_flag
+		num_of_cities = 10
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = avoid_choosing_madhhab_flag
+		}
+	}
+
+	option = {
+		name = "vn_flavor_ftm.1.a"
+		ai_chance = { factor = 90 }
+		add_stability = -1
+		define_ruler = { dynasty = ROOT	}
+		if = {
+			limit = { has_heir_flag = nizar_heir_flag }
+			kill_heir = { allow_new_heir = no }
+		}
+		if = {
+			limit = {
+				5022 = {
+					is_capital = no
+					controlled_by = ROOT
+				}
+			}
+			5022 = {
+				spawn_rebels = {
+					size = 3
+					type = pretender_rebels
+					win = yes
+					religion = qarmatian
+					leader = "al-Mustafâ"
+					leader_dynasty = "Banû Fâtimah"
+				}
+			}
+		}
+		else = {
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					controlled_by = ROOT
+				}
+				spawn_rebels = {
+					size = 4
+					type = pretender_rebels
+					win = yes
+					religion = qarmatian
+					leader = "al-Mustafâ"
+					leader_dynasty = "Banû Fâtimah"
+				}
+			}
+		}
+		clr_country_flag = avoid_choosing_madhhab_flag
+	}
+	option = {
+		name = "vn_flavor_ftm.1.b"
+		ai_chance = { factor = 10 }
+		add_stability = 1
+		change_religion = qarmatian
+		set_religious_school = {
+			group = muslim
+			school = nizari_school
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				controlled_by = ROOT
+				OR = {
+					region = lower_egypt_region
+					region = middle_egypt_region
+				}
+			}
+			spawn_rebels = {
+				size = 4
+				type = pretender_rebels
+				win = yes
+				religion = shiite
+				leader = "al-Musta‘lî"
+				leader_dynasty = "Banû Fâtimah"
+			}
+		}
+		clr_country_flag = avoid_choosing_madhhab_flag
+	}
+}
+
+#Ayyubid Coup
+country_event = {
+	id = vn_flavor_ftm.2
+	title = "vn_flavor_ftm.2.t"
+	desc = "vn_flavor_ftm.2.d"
+	picture = ASSASSINATION_eventPicture
+
+	major = yes
+	fire_only_once = yes
+
+	trigger = {
+		tag = FTM
+		NOT = { exists = MAM }
+		current_age = age_of_holy_wars
+		normal_or_historical_nations = yes
+		is_free_or_tributary_trigger = yes
+		any_owned_province = { religion = sunni }
+		NOT = { started_in = 1171.9.13 }
+		NOT = { owns = 4974 }
+		NOT = { ADM = 3 }
+		NOT = { DIP = 3 }
+		NOT = { MIL = 3 }
+		religion = shiite
+	}
+
+	mean_time_to_happen =  {
+		months = 120
+		modifier = {
+			factor = 2
+			war_score = 50
+		}
+		modifier = {
+			factor = 2
+			at_war_with_religious_enemy = yes
+		}
+		modifier = {
+			factor = 0.5
+			has_regency = yes
+		}
+		modifier = {
+			factor = 0.5
+			war_exhaustion = 10
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = avoid_choosing_madhhab_flag
+		}
+	}
+	
+	option = {
+		name = "vn_flavor_ftm.2.a"
+		ai_chance = { factor = 95 }
+		change_tag = MAM
+		change_government = monarchy
+		add_government_reform = ayyubid_dynasty
+		set_government_rank = 5
+		change_religion = sunni
+		set_religious_school = {
+			group = muslim
+			school = shafii_school
+		}
+		define_ruler = {
+			name = "Yûsuf"
+			dynasty = "Eyûbî"
+			age = 33
+			culture = kurdish
+			adm = 6
+			dip = 6
+			mil = 6
+		}
+		hidden_effect = {
+			remove_heir = {}
+			swap_free_idea_group = yes
+			define_ruler_to_general = {
+				fire = 6
+				shock = 5
+				manuever = 2
+				siege = 5
+			}
+			add_ruler_personality = inspiring_leader_personality
+			add_ruler_personality = lawgiver_personality
+			add_ruler_personality = conqueror_personality
+			override_country_name = AYYUBIDS_NAME
+			set_country_flag = ayyubids_name_flag
+		}
+		clr_country_flag = avoid_choosing_madhhab_flag
+	}
+	option = {
+		name = "vn_flavor_ftm.2.b"
+		ai_chance = { factor = 5 }
+		random_owned_province = {
+			limit = { religion = sunni }
+			spawn_rebels = {
+				type = sunni_rebels
+				leader = "Yûsuf"
+				leader_dynasty = "Eyûbî"
+				size = 5
+				unrest = 15
+				win = yes
+				religion = sunni
+				culture = kurdish
+			}
+		}
+		clr_country_flag = avoid_choosing_madhhab_flag
+	}
+}

@@ -1,0 +1,65 @@
+namespace = vn_flavor_sar
+
+country_event = {
+	id = vn_flavor_sar.1
+	title = "vn_flavor_sar.1.t"
+	desc = "vn_flavor_sar.1.d"
+	picture = REFORM_eventPicture
+
+	trigger = {
+		primary_culture = sardinian
+		NOT = { has_country_modifier = greek_admin }
+		NOT = { has_country_modifier = sardinian_admin }
+		current_age = age_of_empire
+		OR = {
+			tag = SAR
+			tag = AOE
+			tag = CGL
+			tag = GLL
+			tag = LGU
+		}
+	}
+
+	mean_time_to_happen = { months = 120 }
+
+	option = {
+		name = "vn_flavor_sar.1.a"
+		ai_chance = { factor = 1 }
+		if = {
+			limit = { exists = BYZ }
+			reverse_add_opinion = {
+				who = BYZ
+				modifier = opinion_pleased
+			}
+		}
+		add_country_modifier = {
+            name = greek_admin
+            duration = -1
+        }
+	}
+	option = {
+		name = "vn_flavor_sar.1.b"
+		ai_chance = {
+			factor = 99
+			modifier = {
+				factor = 0
+				OR = {
+					religion = orthodox
+					is_subject_of = BYZ
+					alliance_with = BYZ
+				}
+			}
+		}
+		if = {
+			limit = { exists = PAP }
+			reverse_add_opinion = {
+				who = PAP
+				modifier = opinion_pleased
+			}
+		}
+		add_country_modifier = {
+            name = sardinian_admin
+            duration = -1
+        }
+	}
+}

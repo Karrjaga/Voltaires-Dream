@@ -1,0 +1,1658 @@
+#Isildur's mission events.
+#CLAIMING IDs 51-100
+
+namespace = vn_missions
+
+#The Dannebrog (51) (DAN)
+country_event = {
+	id = vn_missions.51
+	title = vn_missions.51.t
+	desc = vn_missions.51.d
+	picture = BATTLE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = vn_missions.51.a
+		ai_chance = { factor = 100 }
+		add_prestige = 25
+		add_country_modifier = {
+			name = "dan_dannebrog"
+			duration = -1
+		}
+	}
+}
+
+#A New Capital? (52) (BUR)
+country_event = {
+	id = vn_missions.52
+	title = vn_missions.52.t
+	desc = vn_missions.52.d
+	picture = CITY_VIEW_eventPicture
+	goto = 989
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = vn_missions.52.a
+		ai_chance = { factor = 0 }
+		989 = {
+			move_capital_effect = yes
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+		if = {
+			limit = { NOT = { exists = XAP } }
+			change_tag = XAP
+			hidden_effect = { restore_country_name = yes }
+		}
+		if = {
+			limit = {
+				NOT = { government_rank = 5 }
+			}
+			set_government_rank = 5
+		}
+	}
+	option = {
+		name = vn_missions.52.b
+		ai_chance = { factor = 100 }
+		capital_scope = {
+			add_base_tax = 2
+			add_base_production = 2
+			add_base_manpower = 2
+		}
+	}
+}
+
+#Coronation at Trier (53) (BUR)
+country_event = {
+	id = vn_missions.53
+	title = vn_missions.53.t
+	desc = vn_missions.53.d
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = vn_missions.53.a
+		ai_chance = { factor = 100 }
+		add_prestige = 25
+		add_adm_power = 100
+		add_dip_power = 100
+		add_mil_power = 100
+		add_stability = 1
+		reverse_add_opinion = {
+			who = emperor
+			modifier = trier_coronation
+		}
+		add_country_modifier = {
+			name = "bur_third_kingdom_of_burgundy_mission"
+			duration = 36500
+		}
+	}
+}
+
+#Education Act (58) (SCO)
+country_event = {
+	id = vn_missions.58
+	title = vn_missions.58.t
+	desc = vn_missions.58.d
+	picture = GREAT_BUILDING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = vn_missions.58.a
+		ai_chance = { factor = 100 }
+		add_innovativeness_big_effect = yes
+		add_country_modifier = {
+			name = "sco_education_act"
+			duration = 18250
+		}
+	}
+}
+
+#Restore Temple at Uppsala? (59) (SWE)
+country_event = {
+	id = vn_missions.59
+	title = vn_missions.59.t
+	desc = vn_missions.59.d
+	picture = {
+		trigger = { has_dlc = "Lions of the North" }
+		picture = NORSE_TEMPLE_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Lions of the North" } }
+		picture = RELIGIOUS_CONVERSION_eventPicture
+	}
+	goto = 6112
+
+	is_triggered_only = yes
+	
+	option = {
+		name = vn_missions.59.a
+		ai_chance = { 
+			factor = 95 
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 1 }
+			}
+		}
+		add_prestige = 15
+		add_years_of_income = -1
+		6112 = {
+			add_base_tax = 2
+			add_province_modifier = {
+				name = "swe_uppsala_temple"
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = vn_missions.59.b
+		ai_chance = { factor = 5 }
+		6112 = {
+			add_base_tax = -2
+			add_province_modifier = {
+				name = "swe_uppsala_temple2"
+				duration = 9125
+			}
+		}
+	}
+}
+
+#National Kirk (60) (SCO)
+country_event = {
+	id = vn_missions.60
+	title = vn_missions.60.t
+	desc = vn_missions.60.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = vn_missions.60.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				OR = {
+					religion = catholic
+					religion = catholique
+				}
+			}
+			modifier = {
+				factor = 1.25
+				religion = reformed
+			}
+		}
+		if = {
+			limit = {
+				NOT = { religion = reformed }
+			}
+			change_religion = reformed
+		}
+		if = {
+			limit = {
+				capital_scope = {
+					NOT = { religion = reformed }
+				}
+			}
+			capital_scope = {
+				change_religion = reformed
+			}
+		}
+		every_owned_province = {
+			limit = { 
+				NOT = { religion = reformed }
+			}
+			add_province_modifier = {
+				name = "sco_national_kirk"
+				duration = 9125
+			}
+		}
+
+	}
+	option = {
+		name = vn_missions.60.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				religion = reformed
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					religion = anabaptist
+					religion = anglican
+					religion = protestant
+				}
+			}
+			modifier = {
+				factor = 1.25
+				OR = {
+					religion = catholic
+					religion = catholique
+				}
+			}
+		}
+		add_country_modifier = {
+			name = "sco_no_national_kirk"
+			duration = 9125
+		}
+	}
+}
+
+#Batavian Republic (61) (FRA)
+country_event = {
+	id = vn_missions.61
+	title = vn_missions.61.t
+	desc = vn_missions.61.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = vn_missions.61.a
+		ai_chance = {
+			factor = 50 
+			modifier = {
+				factor = 0
+				government = monarchy
+			}
+		}
+		netherlands_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = NED
+			add_core = NED
+		}
+		overijssel_area = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = NED
+			add_core = NED
+		}
+		westfrisia_area = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = NED
+			add_core = NED
+		}
+		NED = {
+			change_government = republic
+			override_country_name = BATAVIA
+			if = {
+				limit = {
+					has_dlc = "Res Publica"
+				}
+				add_government_reform = dutch_republic
+			}
+			adopt_reform_progress = ROOT
+		}
+		if = {
+			limit = {
+				NED = { NOT = { is_subject_of = ROOT } }
+			}
+			vassalize = NED
+		}
+	}
+	option = {
+		name = vn_missions.61.b
+		ai_chance = {
+			factor = 50 
+			modifier = {
+				factor = 0
+				government = republic
+			}
+		}
+		netherlands_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = NED
+			add_core = NED
+		}
+		overijssel_area = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = NED
+			add_core = NED
+		}
+		westfrisia_area = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = NED
+			add_core = NED
+		}
+		NED = {
+			change_government = monarchy
+			adopt_reform_progress = ROOT
+			define_ruler = {
+				dynasty = ROOT
+			}
+			define_heir = {
+				dynasty = ROOT
+			}
+		}
+		if = {
+			limit = {
+				NED = { NOT = { is_subject_of = ROOT } }
+			}
+			vassalize = NED
+		}
+	}
+	option = {
+		name = vn_missions.61.c
+		ai_chance = { factor = 5 }
+		netherlands_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			add_province_modifier = {
+				name = "fra_batavia_unrest"
+				duration = 9125
+			}
+		}
+		overijssel_area = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			add_province_modifier = {
+				name = "fra_batavia_unrest"
+				duration = 9125
+			}
+		}
+		westfrisia_area = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			add_province_modifier = {
+				name = "fra_batavia_unrest"
+				duration = 9125
+			}
+		}
+	}
+}
+
+#Promotion to Duchy! (64) (MLO)
+country_event = {
+	id = vn_missions.64
+	title = vn_missions.64.t
+	desc = {
+        trigger = { is_emperor = no }
+        desc = vn_missions.64.d
+    }
+    desc = {
+        trigger = { is_emperor = yes }
+        desc = vn_missions.64.d2
+    }
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+        name = vn_missions.64.a
+        trigger = { is_emperor = no }
+		ai_chance = { factor = 100 }
+        add_treasury = -400
+        if = {
+            limit = {
+                NOT = { government_rank = 4 }
+            }
+            set_government_rank = 4
+        }
+        add_prestige = 25
+    }
+    option = {
+        name = vn_missions.64.b
+        highlight = yes
+        trigger = { is_emperor = yes }
+        ai_chance = { factor = 100 }
+        add_imperial_influence = -5
+        if = {
+            limit = {
+                NOT = { government_rank = 4 }
+            }
+            set_government_rank = 4
+        }
+        add_prestige = 25
+	}
+}
+
+#Swiss Mercs for Hire (65) (MLO)
+country_event = {
+	id = vn_missions.65
+	title = vn_missions.65.t
+	desc = vn_missions.65.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = vn_missions.65.a
+        ai_chance = { factor = 100 }
+        random_owned_province = {
+            limit = { controlled_by = ROOT }
+            add_unit_construction = {
+                type = infantry
+                amount = 15
+                speed = 0.5
+                cost = 0
+            }
+            add_unit_construction = {
+                type = cavalry
+                amount = 5
+                speed = 0.5
+                cost = 0
+            }
+        }
+        add_treasury = -200
+        add_country_modifier = {
+            name = "mlo_swiss_mercs"
+            duration = 730
+		}
+	}
+}
+
+#The Seat of the Grand Duchy (66) (BRG/KLE/JCH)
+country_event = {
+	id = vn_missions.66
+	title = vn_missions.66.t
+	desc = vn_missions.66.d
+	picture = CITY_VIEW_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = vn_missions.66.a
+		goto = 1940
+        ai_chance = { 
+            factor = 33
+            modifier = {
+                factor = 2
+                1940 = { 
+					higher_development_than = 2501
+					higher_development_than = 2502
+				}	
+            }
+        }
+        trigger = {
+            NOT = { capital = 1940 }
+        }
+        1940 = { move_capital_effect = yes }
+    }
+    option = {
+		name = vn_missions.66.b
+		goto = 2501
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 2
+				2501 = { 
+					higher_development_than = 1940
+					higher_development_than = 2502
+				}	
+			}
+		}
+        trigger = {
+            NOT = { capital = 2501 }
+        }
+        2501 = { move_capital_effect = yes }
+    }
+    option = {
+		name = vn_missions.66.c
+		goto = 2502
+        ai_chance = { 
+            factor = 33
+            modifier = {
+                factor = 2
+                2502 = { 
+					higher_development_than = 1940
+					higher_development_than = 2501
+				}	
+            }
+        }
+        trigger = {
+            NOT = { capital = 2502 }
+        }
+        2502 = { move_capital_effect = yes }
+	}
+    option = {
+		name = vn_missions.68.e
+        ai_chance = { factor = 1 }
+	}
+}
+
+#The Capital of Lotharingia (68) (LOR)
+country_event = {
+	id = vn_missions.68
+	title = vn_missions.68.t
+	desc = vn_missions.68.d
+	picture = CITY_VIEW_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = vn_missions.68.a
+		goto = 2995
+        ai_chance = { 
+            factor = 33
+            modifier = {
+                factor = 2
+                2995 = { 
+					higher_development_than = 34
+					higher_development_than = 869
+				}	
+            }
+        }
+        trigger = {
+            NOT = { capital = 2995 }
+        }
+        2995 = { move_capital_effect = yes }
+    }
+    option = {
+		name = vn_missions.68.b
+		goto = 34
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 2
+				34 = { 
+					higher_development_than = 2995
+					higher_development_than = 869
+				}	
+			}
+		}
+        trigger = {
+            NOT = { capital = 34 }
+        }
+        34 = { move_capital_effect = yes }
+    }
+    option = {
+		name = vn_missions.68.c
+		goto = 869
+        ai_chance = { 
+            factor = 33
+            modifier = {
+                factor = 2
+                869 = { 
+					higher_development_than = 2995
+					higher_development_than = 34
+				}	
+            }
+        }
+        trigger = {
+            NOT = { capital = 869 }
+        }
+        869 = { move_capital_effect = yes }
+	}
+    option = {
+		name = vn_missions.68.e
+        ai_chance = { factor = 1 }
+	}
+}
+
+# Nitra requests union with Moravia (69) (SLO)
+country_event = {
+	id = vn_missions.69
+	title = vn_missions.69.t
+	desc = vn_missions.69.d
+	picture = DIPLOMACY_eventPicture
+
+    is_triggered_only = yes
+
+	option = {
+		name = vn_missions.69.a
+        ai_chance = { factor = 50 }
+		SLO = { create_union = ROOT }
+    }
+	option = {
+		name = vn_missions.69.b
+        ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 0
+				has_opinion = {
+					who = SLO
+					value = 100
+				}
+				SLO = {
+					dip_power = 300
+				}
+			}
+		}
+        reverse_add_casus_belli = {
+			type = cb_fabricated_claims
+			months = 300
+			target = SLO
+		}
+    }
+}
+
+# Reestablishment of Great Moravia (70) (SLO)
+country_event = {
+	id = vn_missions.70
+	title = vn_missions.70.t
+	desc = vn_missions.70.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+    is_triggered_only = yes
+
+	option = {
+		name = vn_missions.70.a
+        ai_chance = { factor = 100 }
+		2911 = {
+			if = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+		781 = {
+			if = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+		444 = {
+			if = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+		440 = {
+			if = {
+				limit = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+		}
+		add_prestige = 20
+		add_legitimacy = 20
+		add_country_modifier = {
+			name = "slo_endless_glory"
+			duration = -1
+		}
+		override_country_name = GREAT_MORAVIA
+    }
+}
+
+# Raid on the Medway (71) (NED)
+country_event = {
+	id = vn_missions.71
+	title = vn_missions.71.t
+	desc = vn_missions.71.d
+	picture = {
+		trigger = { NOT = { has_dlc = "Art of War" } }
+		picture = SHIP_SAILING_eventPicture
+	}
+	picture = {
+		trigger = { has_dlc = "Art of War" }
+		picture = DUTCH_SHIPS_PLUNDERING_eventPicture
+	}
+    is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			2268 = {
+				owner = {
+					add_country_modifier = {
+						name = "hol_raided_medway"
+						duration = 7300
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = vn_missions.71.a
+        ai_chance = { factor = 100 }
+        add_prestige = 25
+		add_years_of_income = 0.25
+		add_sailors = 2500
+		2268 = {
+			owner = {
+				add_prestige = -25
+				tooltip = {
+					add_country_modifier = {
+						name = "hol_raided_medway"
+						duration = 7300
+					}
+				}
+			}
+		}
+		2268 = {
+			if = {
+				limit = {
+					owner = { has_country_modifier = hol_raided_medway }
+				}
+				add_devastation = 10
+			}
+		}
+		1997 = {
+			if = {
+				limit = {
+					owner = { has_country_modifier = hol_raided_medway }
+				}
+				add_devastation = 10
+			}
+		}
+		495 = {
+			if = {
+				limit = {
+					owner = { has_country_modifier = hol_raided_medway }
+				}
+				add_devastation = 10
+			}
+		}
+		498 = {
+			if = {
+				limit = {
+					owner = { has_country_modifier = hol_raided_medway }
+				}
+				add_devastation = 10
+			}
+		}
+		2005 = {
+			if = {
+				limit = {
+					owner = { has_country_modifier = hol_raided_medway }
+				}
+				add_devastation = 20
+			}
+		}
+    }
+}
+
+#March on Rome (72) (FRA)
+country_event = {
+	id = vn_missions.72
+	title = vn_missions.72.t
+	desc = vn_missions.72.d
+	picture = SIEGE_eventPicture
+
+    is_triggered_only = yes
+
+	option = {
+		name = vn_missions.72.a
+		ai_chance = { factor = 50 }
+		add_years_of_income = 0.5
+		2235 = {
+			add_devastation = 75
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+			owner = {
+				add_opinion = {
+					who = ROOT
+					modifier = fra_march_on_rome_opinion
+				}
+			}
+		}
+		custom_tooltip = vn_missions.72.a.tt
+		hidden_effect = {
+			every_known_country = {
+				limit = { 
+					NOT = { tag = ROOT }
+					uses_papacy = yes 
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = fra_march_on_rome_opinion2
+				}
+			}
+		}
+	}
+	option = {
+		name = vn_missions.72.b
+		ai_chance = { factor = 50 }
+		add_country_modifier = {
+			name = "fra_march_on_rome"
+			duration = 1825
+		}
+    }
+}
+
+#The Beeldenstorm (73) (NED)
+country_event = {
+	id = vn_missions.73
+	title = vn_missions.73.t
+	desc = vn_missions.73.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+    is_triggered_only = yes
+
+	option = {
+		name = vn_missions.73.a
+		ai_chance = { factor = 75 }
+		add_stability = -1
+		custom_tooltip = vn_missions.73.a.tt1
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						has_building = temple
+						has_building = cathedral
+					}
+				}
+				random_list = {
+					10 = {
+						remove_building = temple
+						remove_building = cathedral
+						add_devastation = 10
+					}
+					40 = {
+						add_devastation = 10
+					}
+					50 = {
+						add_devastation = 5
+					}
+				}
+			}
+		}
+		custom_tooltip = vn_missions.73.a.tt2
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						religion = protestant
+						religion = reformed
+						religion = anabaptist
+						religion = anglican
+					}
+				}
+				add_province_modifier = {
+					name = "ned_beeldenstorm1"
+					duration = 9125
+				}
+			}
+		}
+	}
+	option = {
+		name = vn_missions.73.b
+		ai_chance = { factor = 25 }
+		add_stability_or_adm_power = yes
+		custom_tooltip = vn_missions.73.b.tt1
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						religion = protestant
+						religion = reformed
+						religion = anabaptist
+						religion = anglican
+					}
+				}
+				add_province_modifier = {
+					name = "ned_beeldenstorm2"
+					duration = 9125
+				}
+			}
+		}
+    }
+}
+
+#74 obsoleted
+
+#Raid on London (75) (DAN/NOR)
+country_event = {
+	id = vn_missions.75
+	title = vn_missions.75.t
+	desc = vn_missions.75.d
+	picture = SIEGE_eventPicture
+
+    is_triggered_only = yes
+
+	option = {
+		name = vn_missions.75.a
+        ai_chance = { 
+			factor = 75
+		}
+		add_prestige = 20
+		add_years_of_income = 1
+		2268 = {
+			add_devastation = 75
+			add_province_modifier = {
+				name = "dan_nor_london_raid_strong"
+				duration = 18250
+			}
+		}
+		if = {
+			limit = { 2268 = { religion = catholic } }
+			every_known_country = {
+				limit = { 
+					NOT = { tag = ROOT }
+					religion = catholic 
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = dan_nor_london_raid_strong_opinion
+				}
+			}
+		}
+		add_country_modifier = {
+			name = "dan_nor_london_raid_strong_country"
+			duration = 3650
+		}
+	}
+	option = {
+		name = vn_missions.75.b
+		ai_chance = { 
+			factor = 50
+		}
+		add_prestige = 15
+		add_years_of_income = 0.5
+		2268 = {
+			add_devastation = 50
+			add_province_modifier = {
+				name = "dan_nor_london_raid_medium"
+				duration = 18250
+			}
+		}
+		if = {
+			limit = { 2268 = { religion = catholic } }
+			every_known_country = {
+				limit = { 
+					NOT = { tag = ROOT }
+					religion = catholic 
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = dan_nor_london_raid_medium_opinion
+				}
+			}
+		}
+	}
+	option = {
+		name = vn_missions.75.c
+		ai_chance = { 
+			factor = 25
+		}
+		add_prestige = 10
+		add_years_of_income = 0.25
+		2268 = {
+			add_devastation = 25
+			add_province_modifier = {
+				name = "dan_nor_london_raid_weak"
+				duration = 18250
+			}
+		}
+		if = {
+			limit = { 2268 = { religion = catholic } }
+			every_known_country = {
+				limit = { 
+					NOT = { tag = ROOT }
+					religion = catholic 
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = dan_nor_london_raid_weak_opinion
+				}
+			}
+		}
+		add_country_modifier = {
+			name = "dan_nor_london_raid_weak_country"
+			duration = 3650
+		}
+	}
+}
+
+# Fate of the Holy Roman Empire (76) (FRA)
+country_event = {
+	id = vn_missions.76
+	title = vn_missions.76.t
+	desc = {
+		trigger = { is_emperor = yes }
+		desc = vn_missions.76.da
+	}
+	desc = {
+		trigger = { NOT = { hre_size = 1 } }
+		desc = vn_missions.76.db
+	}
+	picture = HRE_eventPicture
+
+    is_triggered_only = yes
+
+	option = {
+		name = vn_missions.76.a
+		ai_chance = { factor = 100 }
+		trigger = { is_emperor = yes }
+		add_imperial_influence = 10
+		add_prestige = 15
+		every_elector = {
+			add_opinion = {
+				who = ROOT
+				modifier = fra_fate_of_hre_opinion
+			}
+		}
+	}
+	option = {
+		name = vn_missions.76.b
+		ai_chance = { factor = 100 }
+		trigger = { NOT = { hre_size = 1 } }
+		add_country_modifier = {
+			name = "fra_fate_of_hre_fall"
+			duration = 9125
+		}
+    }
+}
+
+# Manifestis Probatum (77) (POR)
+country_event = {
+	id = vn_missions.77
+	title = vn_missions.77.t
+	desc = vn_missions.77.d
+	picture = POPE_PREACHING_eventPicture
+
+    is_triggered_only = yes
+
+	option = {
+		name = vn_missions.77.a
+        ai_chance = { factor = 100 }
+        add_prestige = 10
+        add_religious_influence_effect_large = yes
+        add_legitimacy = 10
+        add_country_modifier = {
+            name = "por_papal_recognition"
+            duration = 9125
+        }
+    }
+}
+
+# Sack of Rome (78) (SPA)
+country_event = {
+	id = vn_missions.78
+	title = vn_missions.78.t
+	desc = vn_missions.78.d
+	picture = SIEGE_eventPicture
+
+    is_triggered_only = yes
+
+	option = {
+		name = vn_missions.78.a
+        ai_chance = { factor = 25 }
+		add_years_of_income = 0.25
+        2235 = {
+			add_devastation = 75
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+			owner = {
+				add_opinion = {
+					who = ROOT
+					modifier = fra_march_on_rome_opinion
+				}
+			}
+		}
+		custom_tooltip = vn_missions.72.a.tt
+		hidden_effect = {
+			every_known_country = {
+				limit = { 
+					NOT = { tag = ROOT }
+					uses_papacy = yes 
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = fra_march_on_rome_opinion2
+				}
+			}
+		}
+    }
+	option = {
+		name = vn_missions.78.b
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0
+				NOT = { 
+					papal_influence = 25
+					dip_power = 150 
+				}
+			}
+		}
+		add_dip_power = -150
+		add_papal_influence = -25
+		add_years_of_income = 0.25
+		2235 = {
+			add_devastation = 75
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+			owner = {
+				add_opinion = {
+					who = ROOT
+					modifier = fra_march_on_rome_opinion2
+				}
+			}
+		}
+		custom_tooltip = vn_missions.78.b.tt
+		hidden_effect = {
+			every_known_country = {
+				limit = { 
+					NOT = { tag = ROOT }
+					uses_papacy = yes 
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = fra_march_on_rome_opinion3
+				}
+			}
+		}
+	}
+	option = {
+		name = vn_missions.78.c
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { treasury = 100 }
+			}
+		}
+		trigger = { ruler_has_personality = silver_tongue_personality }
+		highlight = yes
+		add_treasury = -100
+		2235 = {
+			add_devastation = 75
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+		}
+	}
+}
+
+#Kalmar Union (79) (DAN)
+country_event = {
+	id = vn_missions.79
+	title = vn_missions.79.t
+	desc = vn_missions.79.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = vn_missions.79.a
+		ai_chance = { factor = 0 }
+        vestlandet_region = {
+			limit = { owned_by = ROOT }
+			remove_core = ROOT
+			cede_province = NOR
+			add_core = NOR
+		}
+		austlandet_region = {
+			limit = { owned_by = ROOT }
+			remove_core = ROOT
+			cede_province = NOR
+			add_core = NOR
+		}
+		if = {
+			limit = {
+				NOR = { 
+					NOT = { junior_union_with = ROOT } 
+				}
+			}
+			create_union = NOR
+		}
+		svealand_region = {
+			limit = { owned_by = ROOT }
+			remove_core = ROOT
+			cede_province = SWE
+			add_core = SWE
+		}
+		uppland_region = {
+			limit = { owned_by = ROOT }
+			remove_core = ROOT
+			cede_province = SWE
+			add_core = SWE
+		}
+		scandinavia_region = {
+			limit = { owned_by = ROOT }
+			remove_core = ROOT
+			cede_province = SWE
+			add_core = SWE
+		}
+		gotaland_region = {
+			limit = { owned_by = ROOT }
+			remove_core = ROOT
+			cede_province = SWE
+			add_core = SWE
+		}
+		finland_region = {
+			limit = { owned_by = ROOT }
+			remove_core = ROOT
+			cede_province = SWE
+			add_core = SWE
+		}
+		if = {
+			limit = {
+				SWE = { 
+					NOT = { junior_union_with = ROOT } 
+				}
+			}
+			create_union = SWE
+		}
+		add_ruler_modifier = {
+			name = "dan_kalmar_union"
+			duration = -1
+		}
+	}
+	option = {
+		name = vn_missions.79.b
+		ai_chance = { factor = 100 }
+		custom_tooltip = vn_missions.79.b.tt
+		hidden_effect = {
+			scandinavia_superregion = {
+				limit = { 
+					owned_by = ROOT
+					OR = {
+						is_core = NOR
+						is_core = SWE
+					}
+				}
+				add_province_modifier = {
+					name = "dan_no_kalmar_union"
+					duration = 9125
+				}
+			}
+		}
+    }
+}
+
+#Prussian Army Doctrine (80) (PRU)
+country_event = {
+	id = vn_missions.80
+	title = vn_missions.80.t
+	desc = vn_missions.80.d
+	picture = {
+		trigger = { has_dlc = "Art of War" }
+		picture = PRUSSIA_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Art of War" } }
+		picture = LAND_MILITARY_eventPicture
+	}
+
+    is_triggered_only = yes
+
+	option = {
+		name = vn_missions.80.a
+		ai_chance = { factor = 50 }
+		add_country_modifier = {
+			name = "prussian_army_doctrine1"
+			duration = 18250
+		}
+	}
+	option = {
+		name = vn_missions.80.b
+		ai_chance = { factor = 50 }
+		add_country_modifier = {
+			name = "prussian_army_doctrine2"
+			duration = 18250
+		}
+    }
+}
+
+#The Fate of London (83) (IRE)
+country_event = {
+	id = vn_missions.83
+	title = vn_missions.83.t
+	desc = vn_missions.83.d
+	picture = SIEGE_eventPicture
+
+    is_triggered_only = yes
+
+	option = {
+		name = vn_missions.83.a
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 1.5
+				OR = {
+					ruler_has_personality = calm_personality
+					ruler_has_personality = benevolent_personality
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					ruler_has_personality = cruel_personality
+					ruler_has_personality = malevolent_personality
+				}
+			}
+		}
+		add_years_of_income = 0.5
+		2268 = {
+			add_devastation = 25
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+		}
+	}
+	option = {
+		name = vn_missions.83.b
+		ai_chance = { 
+			factor = 50
+			modifier = {
+				factor = 1.5
+				OR = {
+					ruler_has_personality = cruel_personality
+					ruler_has_personality = malevolent_personality
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					ruler_has_personality = calm_personality
+					ruler_has_personality = benevolent_personality
+				}
+			}
+		}
+		add_years_of_income = 1
+		2268 = {
+			add_devastation = 75
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+			if = {
+				limit = { has_building = fort_14th }
+				remove_building = fort_14th
+			}
+			if = {
+				limit = { has_building = fort_15th }
+				remove_building = fort_15th
+			}
+			if = {
+				limit = { has_building = fort_16th }
+				remove_building = fort_16th
+			}
+			if = {
+				limit = { has_building = fort_17th }
+				remove_building = fort_17th
+			}
+			if = {
+				limit = { has_building = fort_18th }
+				remove_building = fort_18th
+			}
+		}
+	}
+	option = {
+		name = vn_missions.83.c
+		trigger = { owns = 2268 }
+		ai_chance = { 
+			factor = 0
+		}
+		2268 = {
+			move_capital_effect = yes
+		}
+	}
+}
+
+#Cisalpine Republic (84) (FRA)
+country_event = {
+	id = vn_missions.84
+	title = vn_missions.84.t
+	desc = vn_missions.84.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = vn_missions.84.a
+		ai_chance = {
+			factor = 50 
+			modifier = {
+				factor = 0
+				government = monarchy
+			}
+		}
+		lombardy_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = ITA
+			add_core = ITA
+		}
+		romagna_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = ITA
+			add_core = ITA
+		}
+		ITA = {
+			change_government = republic
+			adopt_reform_progress = ROOT
+		}
+		if = {
+			limit = {
+				ITA = { NOT = { is_subject_of = ROOT } }
+			}
+			vassalize = ITA
+		}
+	}
+	option = {
+		name = vn_missions.84.b
+		ai_chance = {
+			factor = 50 
+			modifier = {
+				factor = 0
+				government = republic
+			}
+		}
+		lombardy_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = XKK
+			add_core = XKK
+		}
+		romagna_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = XKK
+			add_core = XKK
+		}
+		XKK = {
+			change_government = monarchy
+			adopt_reform_progress = ROOT
+			define_ruler = {
+				dynasty = ROOT
+			}
+			define_heir = {
+				dynasty = ROOT
+			}
+		}
+		if = {
+			limit = {
+				XKK = { NOT = { is_subject_of = ROOT } }
+			}
+			vassalize = XKK
+		}
+	}
+	option = {
+		name = vn_missions.84.c
+		ai_chance = { factor = 5 }
+		lombardy_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			add_province_modifier = {
+				name = "fra_batavia_unrest"
+				duration = 9125
+			}
+		}
+		romagna_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			add_province_modifier = {
+				name = "fra_batavia_unrest"
+				duration = 9125
+			}
+		}
+	}
+}
+
+#Roman Republic (85) (FRA)
+country_event = {
+	id = vn_missions.85
+	title = vn_missions.85.t
+	desc = vn_missions.85.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = vn_missions.85.a
+		ai_chance = {
+			factor = 50 
+			modifier = {
+				factor = 0
+				government = monarchy
+			}
+		}
+		umbria_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = LZO
+			add_core = LZO
+		}
+		LZO = {
+			change_government = republic
+			adopt_reform_progress = ROOT
+		}
+		if = {
+			limit = {
+				LZO = { NOT = { is_subject_of = ROOT } }
+			}
+			vassalize = LZO
+		}
+	}
+	option = {
+		name = vn_missions.85.b
+		ai_chance = {
+			factor = 50 
+			modifier = {
+				factor = 0
+				government = republic
+			}
+		}
+		umbria_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = LZO
+			add_core = LZO
+		}
+		LZO = {
+			change_government = monarchy
+			adopt_reform_progress = ROOT
+			define_ruler = {
+				dynasty = ROOT
+			}
+			define_heir = {
+				dynasty = ROOT
+			}
+		}
+		if = {
+			limit = {
+				LZO = { NOT = { is_subject_of = ROOT } }
+			}
+			vassalize = LZO
+		}
+	}
+	option = {
+		name = vn_missions.85.c
+		ai_chance = { factor = 5 }
+		umbria_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			add_province_modifier = {
+				name = "fra_batavia_unrest"
+				duration = 9125
+			}
+		}
+	}
+}
+
+#Etruria (86) (FRA)
+country_event = {
+	id = vn_missions.86
+	title = vn_missions.86.t
+	desc = vn_missions.86.d
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = vn_missions.86.a
+		ai_chance = {
+			factor = 50 
+			modifier = {
+				factor = 0
+				government = monarchy
+			}
+		}
+		tuscany_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = ETR
+			add_core = ETR
+		}
+		ETR = {
+			change_government = republic
+			adopt_reform_progress = ROOT
+		}
+		if = {
+			limit = {
+				ETR = { NOT = { is_subject_of = ROOT } }
+			}
+			vassalize = ETR
+		}
+	}
+	option = {
+		name = vn_missions.86.b
+		ai_chance = {
+			factor = 50 
+			modifier = {
+				factor = 0
+				government = republic
+			}
+		}
+		tuscany_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			remove_core = owner
+			cede_province = TUS
+			add_core = TUS
+		}
+		TUS = {
+			change_government = monarchy
+			adopt_reform_progress = ROOT
+			define_ruler = {
+				dynasty = ROOT
+			}
+			define_heir = {
+				dynasty = ROOT
+			}
+		}
+		if = {
+			limit = {
+				TUS = { NOT = { is_subject_of = ROOT } }
+			}
+			vassalize = TUS
+		}
+	}
+	option = {
+		name = vn_missions.86.c
+		ai_chance = { factor = 5 }
+		tuscany_region = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			add_province_modifier = {
+				name = "fra_batavia_unrest"
+				duration = 9125
+			}
+		}
+	}
+}

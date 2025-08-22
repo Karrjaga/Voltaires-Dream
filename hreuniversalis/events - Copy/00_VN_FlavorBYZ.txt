@@ -1,0 +1,227 @@
+namespace = vn_flavor_byz
+
+#Byzantium loses Constantinople
+country_event = {
+	id = vn_flavor_byz.1
+	title = "vn_flavor_byz.1.t"
+	desc = "vn_flavor_byz.1.d"
+	picture = HRE_eventPicture
+
+	trigger = {
+		normal_or_historical_nations = yes
+		is_at_war = no
+		OR = {
+			primary_culture = greek
+			primary_culture = peloponnesian
+		}
+		NOT = { tag = BYZ }
+		NOT = { tag = TUR }
+		NOT = { has_country_flag = annexed_byz_flag }
+		any_owned_province = { is_island = no }
+		BYZ = {
+			exists = yes
+			all_owned_province = { is_island = yes }
+			primary_culture = greek
+			religion = ROOT
+			NOT = { owns = 2233 }
+			is_subject = no
+			is_at_war = no
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 24
+		modifier = {
+			factor = 0.5
+			num_of_cities = 5
+		}
+		modifier = {
+			factor = 0.5
+			num_of_cities = 10
+		}
+		modifier = {
+			factor = 0.5
+			num_of_cities = 20
+		}
+	}
+
+	immediate = {
+		hidden_effect = { set_country_flag = annexed_byz_flag }
+	}
+
+	option = {
+		name = "vn_flavor_byz.1.a"
+		inherit = BYZ
+	}
+}
+
+#Second Bulgarian Empire emerges
+country_event = {
+	id = vn_flavor_byz.2
+    title = "vn_flavor_byz.2.t"
+	desc = "vn_flavor_byz.2.d"
+	picture = CIVIL_WAR_eventPicture
+	
+	trigger = {
+		normal_or_historical_nations = yes
+		NOT = { started_in = 1185.1.1 }
+		tag = BYZ
+		is_year = 1160
+		NOT = { is_year = 1200 }
+		NOT = { exists = BUL }
+		any_owned_province = {
+			is_core = BUL
+		}
+	}
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	fire_only_once = yes
+	major = yes
+
+	immediate = {
+		hidden_effect = {
+			release = BUL
+			BUL = {
+				change_government = monarchy
+				add_government_reform = bulgarian_tsardom_reform
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 5
+				add_accepted_culture = greek
+				add_stability = 3
+				add_treasury = 500
+				add_manpower = 20
+				define_ruler = {
+					name = "Ivan"
+					dynasty = "Asenev"
+					adm = 4
+					dip = 2
+					mil = 6
+					age = 20
+				}
+				add_ruler_personality = bold_fighter_personality
+				define_heir = {
+					name = "Ivan"
+					dynasty = "Asenev"
+					adm = 5
+					dip = 5
+					mil = 5
+				}
+				define_ruler_to_general = {
+					fire = 4
+					shock = 4
+					manuever = 2
+					siege = 0
+				}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "vn_flavor_byz.2.a"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 0
+				war_exhaustion = 5
+			}
+			modifier = {
+				factor = 0
+				NOT = { manpower_percentage = 0.50 }
+			}
+		}
+		declare_war_with_cb = {
+			casus_belli = cb_disloyal_vassal
+			who = BUL
+		}
+	}
+
+	option = {
+		name = "vn_flavor_byz.2.b"
+		ai_chance = { factor = 90 }
+		add_prestige = -10
+		add_truce_with = BUL
+		hidden_effect = {
+			BUL = {
+				every_owned_province = {
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+#Byzantium loses against Apulia
+country_event = {
+	id = vn_flavor_byz.3
+	title = "vn_flavor_byz.3.t"
+	desc = "vn_flavor_byz.3.d"
+	picture = BATTLE_eventPicture
+
+	major = yes
+	major_trigger = { capital_scope = { superregion = sicily_superregion } }
+	fire_only_once = yes
+
+	trigger = {
+		tag = BYZ
+		war_with = APL
+		current_age = age_of_empire
+		normal_or_historical_nations = yes
+		NOT = { started_in = 1071.4.15 }
+		NOT = {
+			any_owned_province = {
+				superregion = sicily_superregion
+				controlled_by = BYZ
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	immediate = {
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					superregion = sicily_superregion
+					controlled_by = APL
+				}
+				cede_province = APL
+			}
+		}
+	}
+
+	option = {
+		name = "vn_flavor_byz.3.a"
+		ai_chance = { factor = 95 }
+		white_peace = APL
+		every_subject_country = {
+			limit = {
+				capital_scope = { superregion = sicily_superregion }
+				is_subject_of_type = tributary_state
+			}
+			grant_independence = yes
+		}
+	}
+
+	option = {
+		name = "vn_flavor_byz.3.b"
+		ai_chance = { factor = 5 }
+		add_war_exhaustion = -5
+	}
+}

@@ -1,0 +1,394 @@
+namespace = vn_flavor_sjk
+
+country_event = {
+    id = vn_flavor_sjk.1
+    title = "vn_flavor_sjk.1.t"
+	desc = "vn_flavor_sjk.1.d"
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = KHW
+		SJK = {
+			exists = yes
+			has_regency = no
+		}
+		NOT = { started_in = 1077.1.1 }
+		normal_or_historical_nations = yes
+		current_age = age_of_empire
+		is_at_war = no
+	}
+
+	mean_time_to_happen = { months = 240 }
+
+	option = {
+		name = "vn_flavor_sjk.1.a"
+		ai_chance = { factor = 90 }
+		add_prestige = -20
+		define_ruler = {
+			culture = turkmeni
+			name = "Anushtegin"
+			dynasty = "Anushteginoglu"
+			adm = 5
+			dip = 3
+			mil = 3
+		}
+		hidden_effect = { remove_heir = {} }
+	}
+	option = {
+		name = "vn_flavor_sjk.1.b"
+		ai_chance = { factor = 10 }
+		SJK = {
+			add_casus_belli = {
+				target = KHW
+				type = cb_vassalize_mission
+				months = 120
+			}
+		}	
+	}
+}
+
+#Collapse of the Buyids
+country_event = {
+	id = vn_flavor_sjk.3
+	title = vn_flavor_sjk.3.t
+	desc = vn_flavor_sjk.3.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = vn_flavor_sjk.3.a
+		custom_tooltip = vn_flavor_sjk.3.tt
+		set_country_flag = sjk_decided_to_go_eyalet
+		add_war_exhaustion = -2
+		add_prestige = 20
+		BGH = {
+			country_event = {
+				id = vn_flavor_sjk.4
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = vn_flavor_sjk.3.b
+		custom_tooltip = vn_flavor_sjk.3.tt2
+		add_war_exhaustion = -2
+		add_prestige = 20
+		BGH = {
+			country_event = {
+				id = vn_flavor_sjk.4
+			}
+		}
+		add_country_modifier = {
+			name = sjk_mesopotamian_annexation
+			duration = 7300
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+# Collapse of the Buyids - Baghdad event
+country_event = {
+	id = vn_flavor_sjk.4
+	title = vn_flavor_sjk.4.t
+	desc = vn_flavor_sjk.4.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = vn_flavor_sjk.4.a
+		custom_tooltip = vn_flavor_sjk.4.tt
+		add_stability = -3
+		add_war_exhaustion = 10
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+# Collapse of the Buyids - Creation of the Baghdadi Eyalet
+country_event = {
+	id = vn_flavor_sjk.5
+	title = vn_flavor_sjk.5.t
+	desc = vn_flavor_sjk.5.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		has_dlc = "Domination"
+		tag = SJK
+		has_country_flag = sjk_decided_to_go_eyalet
+		or = {
+			and = {
+				ai = yes
+				had_country_flag = {
+					flag = sjk_decided_to_go_eyalet
+					days = 365
+				}
+			}
+			and = {
+				ai = no
+				had_country_flag = {
+					flag = sjk_decided_to_go_eyalet
+					days = 1095
+				}
+			}
+		}
+		is_in_war = {
+			casus_belli = cb_ottoman_invasion
+			defender_leader = BGH
+		}
+		war_score_against = {
+			who = BGH
+			value = 90
+		}
+		BGH = {
+			capital_scope = {
+				controlled_by = ROOT
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = vn_flavor_sjk.5.a
+		white_peace = BGH
+		BGH = {
+			remove_historical_rival = ROOT
+			every_subject_country = {
+				limit = {
+					NOT = { total_development = 75 }
+					capital_scope = {
+						superregion = mesopotamia_superregion
+					}
+				}
+				overlord = {
+					inherit = PREV
+				}
+			}
+		}
+		create_subject = {
+			who = BGH
+			subject_type = core_eyalet
+		}
+		BGH = {
+			define_ruler = {
+				dynasty = "Banû ‘Abbâs"
+			}
+		}
+		hidden_effect = {
+			BGH = {
+				if = {
+					limit = { NOT = { government = monarchy } }
+					change_government = monarchy
+				}
+				add_government_reform = feudal_theocracy
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+				override_country_name = ABBASIDS_NAME
+				set_country_flag = abbasids_name_flag
+				add_liberty_desire = -50
+				remove_heir = { allow_new_heir = yes }
+				if = {
+					limit = { NOT = { has_idea_group = BGHA_ideas } }
+					swap_free_idea_group = yes
+				}
+			}
+			khuzestan_area = {
+				limit = {
+					owned_by = BGH
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+			elam_region = {
+				limit = {
+					owned_by = BGH
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+		tooltip = {
+			khuzestan_area = { cede_province = ROOT }
+			elam_region = { cede_province = ROOT }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				BGH = {
+					OR = {
+						ai = no
+						was_player = yes
+					}
+				}
+				factor = 0
+			}
+		}
+	}
+
+	option = {
+		name = vn_flavor_sjk.5.b
+		white_peace = BGH
+		BGH = {
+			remove_historical_rival = ROOT
+			every_subject_country = {
+				limit = {
+					NOT = { total_development = 75 }
+					capital_scope = {
+						superregion = mesopotamia_superregion
+					}
+				}
+				overlord = {
+					inherit = PREV
+				}
+			}
+		}
+		create_subject = {
+			who = BGH
+			subject_type = core_eyalet
+		}
+		BGH = {
+			define_ruler = {
+				dynasty = "Selçukoglu"
+			}
+		}
+		hidden_effect = {
+			BGH = {
+				if = {
+					limit = { NOT = { government = monarchy } }
+					change_government = monarchy
+				}
+				add_government_reform = eyalet_government
+				add_liberty_desire = -50
+				remove_heir = { allow_new_heir = yes }
+			}
+			khuzestan_area = {
+				limit = {
+					owned_by = BGH
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+			elam_region = {
+				limit = {
+					owned_by = BGH
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+		tooltip = {
+			khuzestan_area = { cede_province = ROOT }
+			elam_region = { cede_province = ROOT }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				BGH = {
+					OR = {
+						ai = no
+						was_player = yes
+					}
+				}
+				factor = 0
+			}
+		}
+	}
+
+	option = {
+		name = vn_flavor_sjk.5.c
+		white_peace = BGH
+		BGH = {
+			remove_historical_rival = ROOT
+			every_subject_country = {
+				limit = {
+					NOT = { total_development = 75 }
+					capital_scope = {
+						superregion = mesopotamia_superregion
+					}
+				}
+				overlord = {
+					inherit = PREV
+				}
+			}
+		}
+		create_subject = {
+			who = BGH
+			subject_type = core_eyalet
+		}
+		BGH = {
+			define_ruler = { }
+		}
+		hidden_effect = {
+			BGH = {
+				if = {
+					limit = { NOT = { government = monarchy } }
+					change_government = monarchy
+				}
+				add_government_reform = eyalet_government
+				change_religion = sunni
+				add_liberty_desire = -50
+				remove_heir = { allow_new_heir = yes }
+			}
+			khuzestan_area = {
+				limit = {
+					owned_by = BGH
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+			elam_region = {
+				limit = {
+					owned_by = BGH
+				}
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+		tooltip = {
+			khuzestan_area = { cede_province = ROOT }
+			elam_region = { cede_province = ROOT }
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				BGH = {
+					OR = {
+						ai = no
+						was_player = yes
+					}
+				}
+				factor = 0
+			}
+		}
+	}
+
+	option = {
+		name = vn_flavor_sjk.5.dd
+		add_adm_power = 300
+		ai_chance = {
+			factor = 1
+			modifier = {
+				BGH = {
+					ai = yes
+					was_player = no
+				}
+				factor = 0
+			}
+		}
+	}
+}

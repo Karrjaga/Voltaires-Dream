@@ -1,0 +1,1478 @@
+#Fragmentation of Poland disaster events
+#By Isildur
+
+namespace = fragmentation_of_poland
+
+#Start event
+country_event = {
+	id = fragmentation_of_poland.1
+	title = fragmentation_of_poland.1.t
+	desc = fragmentation_of_poland.1.d
+	picture = KING_SICK_IN_BED_eventPicture
+
+	is_triggered_only = yes
+	major = yes
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = had_fragmentation_of_poland
+			set_global_flag = poland_fragmentation_active
+			WKP = {
+				define_exiled_ruler = {
+					exiled_as = WKP_new_ruler
+					option = 0
+					min_age = 16
+					max_age = 30
+					dynasty = ROOT
+				}
+			}
+			MAZ = {
+				define_exiled_ruler = {
+					exiled_as = MAZ_new_ruler
+					option = 1
+					min_age = 16
+					max_age = 30
+					dynasty = ROOT
+				}
+			}
+			SIL = {
+				define_exiled_ruler = {
+					exiled_as = SIL_new_ruler
+					option = 2
+					min_age = 16
+					max_age = 30
+					dynasty = ROOT
+				}
+			}
+			SDZ = {
+				define_exiled_ruler = {
+					exiled_as = SDZ_new_ruler
+					option = 3
+					min_age = 16
+					max_age = 30
+					dynasty = ROOT
+				}
+			}
+		}
+	}
+	option = {
+		name = fragmentation_of_poland.1.a
+        ai_chance = { 
+			factor = 85
+			modifier = {
+				factor = 2
+				OR = {
+					heir_has_personality = just_personality
+					heir_has_personality = careful_personality
+					heir_has_personality = well_advised_personality
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					heir_has_personality = cruel_personality
+					heir_has_personality = fierce_negotiator_personality
+					heir_has_personality = malevolent_personality
+				}
+			}
+		}
+		custom_tooltip = fragmentation_of_poland.1.tt4
+		hidden_effect = {
+			#Wielkopolska
+			if = {
+				limit = {
+					WKP = { is_subject_of = ROOT }
+				}
+				WKP = {
+					grant_independence = yes
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { exists = WKP }
+				}
+				release = WKP
+				WKP = {
+					every_owned_province = {
+						limit = { is_core = ROOT }
+						remove_core = ROOT
+						remove_core = KRA
+					}
+					change_government = monarchy
+					add_government_reform = feudal_monarchy
+				}
+			}
+			else = {
+				WKP = { set_country_flag = fragpol_was_independent }
+			}
+			add_truce_with = WKP
+		}
+		custom_tooltip = fragmentation_of_poland.1.tt2
+		hidden_effect = {
+			#Mazovia
+			if = {
+				limit = {
+					MAZ = { is_subject_of = ROOT }
+				}
+				MAZ = {
+					grant_independence = yes
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { exists = MAZ }
+				}
+				release = MAZ
+				MAZ = {
+					every_owned_province = {
+						limit = { is_core = ROOT }
+						remove_core = ROOT
+						remove_core = KRA
+					}
+					change_government = monarchy
+					add_government_reform = feudal_monarchy
+				}
+			}
+			else = {
+				MAZ = { set_country_flag = fragpol_was_independent }
+			}
+			add_truce_with = MAZ
+		}
+		custom_tooltip = fragmentation_of_poland.1.tt3
+		hidden_effect = {
+			#Silesia
+			every_owned_province = {
+				limit = { is_core = SIL }
+				owner = { remove_core = PREV }
+				cede_province = SIL
+			}
+			if = {
+				limit = {
+					SIL = { is_subject_of = ROOT }
+				}
+				SIL = {
+					grant_independence = yes
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { exists = SIL }
+				}
+				release = SIL
+				SIL = {
+					every_owned_province = {
+						limit = { is_core = ROOT }
+						remove_core = ROOT
+						remove_core = KRA
+					}
+					change_government = monarchy
+					add_government_reform = feudal_monarchy
+				}
+			}
+			else = {
+				SIL = { set_country_flag = fragpol_was_independent }
+			}
+			add_truce_with = SIL
+		}
+		custom_tooltip = fragmentation_of_poland.1.tt7
+		hidden_effect = {
+			#Malopolska
+			if = {
+				limit = {
+					SDZ = { is_subject_of = ROOT }
+				}
+				SDZ = {
+					grant_independence = yes
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { exists = SDZ }
+				}
+				release = SDZ
+				SDZ = {
+					every_owned_province = {
+						limit = { is_core = ROOT }
+						remove_core = ROOT
+						remove_core = KRA
+					}
+					change_government = monarchy
+					add_government_reform = feudal_monarchy
+				}
+			}
+			else = {
+				SDZ = { set_country_flag = fragpol_was_independent }
+			}
+			add_truce_with = SDZ
+		}
+		hidden_effect = {
+			WKP = {
+				add_truce_with = SIL
+				add_truce_with = MAZ
+				add_truce_with = SDZ
+			}
+			MAZ = {
+				add_truce_with = WKP
+				add_truce_with = SIL
+				add_truce_with = SDZ
+			}
+			SIL = {
+				add_truce_with = WKP
+				add_truce_with = MAZ
+				add_truce_with = SDZ
+			}
+		}
+		custom_tooltip = fragmentation_of_poland.1.tt5
+		custom_tooltip = fragmentation_of_poland.1.tt6
+		hidden_effect = {
+			#Pomerania/Pomerelia
+			hinterpommern_region = {
+				limit = { 
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { owned_by = POM }
+				}
+				owner = { remove_core = PREV }
+				cede_province = POM
+				add_core = POM
+				remove_core = KRA
+			}
+			add_truce_with = POM
+			westpreussennorth_area = {
+				limit = { 
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { owned_by = PML }
+				}
+				owner = { remove_core = PREV }
+				cede_province = PML
+				add_core = PML
+				remove_core = KRA
+			}
+			westpreussensouth_area = {
+				limit = { 
+					country_or_non_sovereign_subject_holds = ROOT
+					NOT = { owned_by = PML }
+				}
+				owner = { remove_core = PREV }
+				cede_province = PML
+				add_core = PML
+				remove_core = KRA
+			}
+			add_truce_with = PML
+		}
+		#Krakow (Seniorate) to ingame heir
+		custom_tooltip = fragmentation_of_poland.1.tt
+		hidden_effect = {
+			if = {
+				limit = {
+					KRA = { is_subject_of = ROOT }
+				}
+				inherit = KRA
+			}
+			change_tag = KRA
+		}
+		kill_ruler = yes
+		set_global_flag = pol_was_split
+	}
+	option = {
+		name = fragmentation_of_poland.1.b
+        ai_chance = { 
+			factor = 15
+			modifier = {
+				factor = 2
+				OR = {
+					heir_has_personality = cruel_personality
+					heir_has_personality = fierce_negotiator_personality
+					heir_has_personality = malevolent_personality
+				}
+			}
+			modifier = {
+				factor = 0.5
+				OR = {
+					heir_has_personality = just_personality
+					heir_has_personality = careful_personality
+					heir_has_personality = well_advised_personality
+				}
+			}
+		}
+		#hidden_effect = {
+		#	random_owned_province = {
+		#		limit = { is_core = SIL }
+		#		save_event_target_as = piast_silesia_province
+		#	}
+		#	random_owned_province = {
+		#		limit = { is_core = WKP }
+		#		save_event_target_as = piast_wielkopolska_province
+		#	}
+		#	random_owned_province = {
+		#		limit = { is_core = MAZ }
+		#		save_event_target_as = piast_mazovia_province
+		#	}
+		#	random_owned_province = {
+		#		limit = { is_core = SDZ }
+		#		save_event_target_as = piast_malopolska_province
+		#	}
+		#}
+		add_war_exhaustion = 5
+		add_stability = -2
+		if = {
+			limit = {
+				MAZ = {
+					is_subject_of = ROOT
+				}
+			}
+			MAZ = {
+				declare_war_with_cb = {
+					casus_belli = cb_independence_war
+					who = ROOT
+				}
+				set_ruler = MAZ_new_ruler
+			}
+		}
+		else = {
+			random_owned_province = {
+				limit = { is_core = MAZ }
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 3
+					win = yes
+				}
+			}
+			random_owned_province = {
+				limit = { is_core = MAZ }
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 2
+					win = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				SIL = {
+					is_subject_of = ROOT
+				}
+			}
+			SIL = {
+				declare_war_with_cb = {
+					casus_belli = cb_independence_war
+					who = ROOT
+				}
+				set_ruler = SIL_new_ruler
+			}
+		}
+		else = {
+			random_owned_province = {
+				limit = { is_core = SIL }
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 3
+					win = yes
+				}
+			}
+			random_owned_province = {
+				limit = { is_core = SIL }
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 2
+					win = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				SDZ = {
+					is_subject_of = ROOT
+				}
+			}
+			SDZ = {
+				declare_war_with_cb = {
+					casus_belli = cb_independence_war
+					who = ROOT
+				}
+				set_ruler = SDZ_new_ruler
+			}
+		}
+		else = {
+			random_owned_province = {
+				limit = { is_core = SDZ }
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 3
+					win = yes
+				}
+			}
+			random_owned_province = {
+				limit = { is_core = SDZ }
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 2
+					win = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				WKP = {
+					is_subject_of = ROOT
+				}
+			}
+			WKP = {
+				declare_war_with_cb = {
+					casus_belli = cb_independence_war
+					who = ROOT
+				}
+				set_ruler = WKP_new_ruler
+			}
+		}
+		else = {
+			random_owned_province = {
+				limit = { is_core = WKP }
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 3
+					win = yes
+				}
+			}
+			random_owned_province = {
+				limit = { is_core = WKP }
+				spawn_rebels = {
+					type = nationalist_rebels
+					size = 2
+					win = yes
+				}
+			}
+		}
+		kill_ruler = yes
+	}
+	after = {
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = MAZ
+					MAZ = {
+						NOT = { has_country_flag = fragpol_was_independent }
+					}
+				}
+				MAZ = {
+					set_ruler = MAZ_new_ruler
+					define_heir = {
+						age = 0
+						dynasty = original_dynasty
+					}
+					if = {
+						limit = { NOT = { war_with = ROOT } }
+						add_truce_with = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = WKP
+					WKP = {
+						NOT = { has_country_flag = fragpol_was_independent }
+					}
+				}
+				WKP = {
+					set_ruler = WKP_new_ruler
+					define_heir = {
+						age = 0
+						dynasty = original_dynasty
+					}
+					if = {
+						limit = { NOT = { war_with = ROOT } }
+						add_truce_with = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = SIL
+					SIL = {
+						NOT = { has_country_flag = fragpol_was_independent }
+					}
+				}
+				SIL = {
+					set_ruler = SIL_new_ruler
+					define_heir = {
+						age = 0
+						dynasty = original_dynasty
+					}
+					if = {
+						limit = { NOT = { war_with = ROOT } }
+						add_truce_with = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = SDZ
+					SDZ = {
+						NOT = { has_country_flag = fragpol_was_independent }
+					}
+				}
+				SDZ = {
+					set_ruler = SDZ_new_ruler
+					define_heir = {
+						age = 0
+						dynasty = original_dynasty
+					}
+					if = {
+						limit = { NOT = { war_with = ROOT } }
+						add_truce_with = ROOT
+					}
+				}
+			}
+		}
+	}
+}
+
+#Sale of Lubusz
+country_event = {
+	id = fragmentation_of_poland.2
+	title = fragmentation_of_poland.2.t
+	desc = fragmentation_of_poland.2.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = fragmentation_of_poland.2.a
+		ai_chance = { factor = 100 }
+		add_treasury = 100
+		event_target:fragpol_hre_country = {
+			add_truce_with = ROOT
+			add_treasury = -100
+		}
+		if = {
+			limit = {
+				50 = { 
+					owned_by = ROOT
+					NOT = { is_capital_of = ROOT } 
+				}
+			}
+			event_target:fragpol_hre_country = {
+				50 = {
+					remove_core = ROOT
+					cede_province = PREV
+					add_core = PREV
+				}
+			}
+		}
+		if = {
+			limit = {
+				839 = {
+					owned_by = ROOT 
+					NOT = { is_capital_of = ROOT } 
+				}
+			}
+			event_target:fragpol_hre_country = {
+				839 = {
+					remove_core = ROOT
+					cede_province = PREV
+					add_core = PREV
+				}
+			}
+		}
+		if = {
+			limit = {
+				242 = { 
+					owned_by = ROOT 
+					NOT = { is_capital_of = ROOT } 
+				}
+			}
+			event_target:fragpol_hre_country = {
+				242 = {
+					remove_core = ROOT
+					cede_province = PREV
+					add_core = PREV
+				}
+			}
+		}
+		if = {
+			limit = {
+				2197 = { 
+					owned_by = ROOT
+					NOT = { is_capital_of = ROOT }  
+				}
+			}
+			event_target:fragpol_hre_country = {
+				2197 = {
+					remove_core = ROOT
+					cede_province = PREV
+					add_core = PREV
+				}
+			}
+		}
+		if = {
+			limit = {
+				2650 = { 
+					owned_by = ROOT 
+					NOT = { is_capital_of = ROOT } 
+				}
+			}
+			event_target:fragpol_hre_country = {
+				2650 = {
+					remove_core = ROOT
+					cede_province = PREV
+					add_core = PREV
+				}
+			}
+		}
+		if = {
+			limit = {
+				3205 = { 
+					owned_by = ROOT 
+					NOT = { is_capital_of = ROOT } 
+				}
+			}
+			event_target:fragpol_hre_country = {
+				3205 = {
+					remove_core = ROOT
+					cede_province = PREV
+					add_core = PREV
+				}
+			}
+		}
+		if = {
+			limit = {
+				4917 = { 
+					owned_by = ROOT 
+					NOT = { is_capital_of = ROOT } 
+				}
+			}
+			event_target:fragpol_hre_country = {
+				4917 = {
+					remove_core = ROOT
+					cede_province = PREV
+					add_core = PREV
+				}
+			}
+		}
+		if = {
+			limit = {
+				4805 = { 
+					owned_by = ROOT 
+					NOT = { is_capital_of = ROOT } 
+				}
+			}
+			event_target:fragpol_hre_country = {
+				4805 = {
+					remove_core = ROOT
+					cede_province = PREV
+					add_core = PREV
+				}
+			}
+		}
+	}
+	option = {
+		name = fragmentation_of_poland.2.b
+		ai_chance = { factor = 0 }
+		event_target:fragpol_hre_country = {
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_refused_sale_lubusz
+			}
+		}
+	}
+}
+
+#Sale of Lubusz (for HRE country)
+country_event = {
+	id = fragmentation_of_poland.3
+	title = fragmentation_of_poland.3.t
+	desc = fragmentation_of_poland.3.d
+	picture = DIPLOMACY_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		is_part_of_hre = yes
+		culture_group = germanic
+		has_global_flag = poland_fragmentation_active
+		any_owned_province = {
+			any_neighbor_province = {
+				OR = {
+					province_id = 50
+					province_id = 839
+				}
+				owner = {
+					OR = {
+						primary_culture = polish
+						primary_culture = mazovian
+						primary_culture = schlesian
+					}
+				}
+			}
+		}
+		NOT = {	owns = 50 }
+		NOT = {	owns = 839 }
+		NOT = {	owns = 242 }
+		NOT = {	owns = 2197 }
+		NOT = {	owns = 2650 }
+		NOT = {	owns = 3205 }
+		NOT = {	owns = 4917 }
+		NOT = {	owns = 4805 }
+		OR = { 
+			50 = { culture_group = germanic } 
+			839 = { culture_group = germanic } 
+			242 = { culture_group = germanic } 
+			2197 = { culture_group = germanic } 
+			2650 = { culture_group = germanic } 
+			3205 = { culture_group = germanic } 
+			4917 = { culture_group = germanic } 
+			4805 = { culture_group = germanic } 
+		}
+		treasury = 100
+		NOT = { num_of_loans = 1 }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { 
+					50 = { 
+						owner = {
+							OR = {
+								primary_culture = polish
+								primary_culture = mazovian
+								primary_culture = schlesian
+							}
+						}
+						any_neighbor_province = {
+							owned_by = ROOT
+						}
+					}
+				}
+				50 = {
+					owner = {
+						save_event_target_as = fragpol_lubusz_country
+					}
+				}
+			}
+			else_if = {
+				limit = { 
+					839 = { 
+						owner = {
+							OR = {
+								primary_culture = polish
+								primary_culture = mazovian
+								primary_culture = schlesian
+							}
+						}
+						any_neighbor_province = {
+							owned_by = ROOT
+						}
+					}
+				}
+				839 = {
+					owner = {
+						save_event_target_as = fragpol_lubusz_country
+					}
+				}
+			}
+			save_event_target_as = fragpol_hre_country
+		}
+	}
+
+	option = {
+		name = fragmentation_of_poland.3.a
+		ai_chance = { 
+			factor = 95
+			modifier = {
+				factor = 0
+				num_of_loans = 1
+			}
+			modifier = {
+				factor = 0
+				NOT = { treasury = 100 }
+			}
+		}
+		custom_tooltip = fragmentation_of_poland.3.a.tt
+		event_target:fragpol_lubusz_country = {
+			country_event = { 
+				id = fragmentation_of_poland.2 
+			}
+		}
+	}
+	option = {
+		name = fragmentation_of_poland.3.b
+		ai_chance = { 
+			factor = 5
+			modifier = {
+				factor = 1.5
+				num_of_loans = 1
+			}
+		}
+		add_prestige = -5
+	}
+}
+
+#Pomeranian Ties Broken
+country_event = {
+	id = fragmentation_of_poland.4
+	title = fragmentation_of_poland.4.t
+	desc = fragmentation_of_poland.4.d
+	picture = {
+		trigger = { has_dlc = "Art of War" }
+		picture = POMERANIA_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Art of War" } }
+		picture = BAD_WITH_MONARCH_eventPicture
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		has_global_flag = poland_fragmentation_active
+		any_subject_country = {
+			OR = {
+				primary_culture = pommeranian
+				primary_culture = kashubian
+			}
+		}
+		OR = {
+			primary_culture = polish
+			primary_culture = schlesian
+			primary_culture = mazovian
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_subject_country = {
+				limit = { 
+					OR = {
+						primary_culture = pommeranian
+						primary_culture = kashubian
+					}
+				}
+				save_event_target_as = fragpol_pomeranian_country
+			}
+		}
+	}
+
+	option = {
+		name = fragmentation_of_poland.4.a
+        ai_chance = { factor = 100 }
+		event_target:fragpol_pomeranian_country = {
+			grant_independence = yes
+			add_truce_with = ROOT
+		}
+    }
+}
+
+#Acts of Cienia
+country_event = {
+	id = fragmentation_of_poland.5
+	title = fragmentation_of_poland.5.t
+	desc = fragmentation_of_poland.5.d
+	picture = NOBLE_ESTATE_DEMANDS_eventPicture
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	trigger = {
+		has_global_flag = poland_fragmentation_active
+		NOT = { has_country_flag = acts_of_cienia_fired }
+		has_estate = estate_nobles
+		NOT = {
+			estate_influence = {
+				estate = estate_nobles
+				influence = 80
+			}
+		}
+		NOT = {
+			estate_territory = {
+				estate = estate_nobles
+				territory = 40
+			}
+		}
+		NOT = {
+			estate_influence = {
+				estate = estate_church
+				influence = 80
+			}
+		}
+		NOT = {
+			estate_territory = {
+				estate = estate_church
+				territory = 40
+			}
+		}
+		OR = {
+			primary_culture = polish
+			primary_culture = schlesian
+			primary_culture = mazovian
+		}
+	}
+
+	immediate = {
+		set_country_flag = acts_of_cienia_fired
+	}
+
+	option = {
+		name = fragmentation_of_poland.5.a
+		ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 1.25
+				NOT = {
+					OR = {
+						estate_loyalty = {
+							estate = estate_nobles
+							loyalty = 40
+						}
+						estate_loyalty = {
+							estate = estate_church
+							loyalty = 40
+						}
+					}	
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					estate_influence = {
+						estate = estate_nobles
+						influence = 80
+					}
+				}
+				NOT = {
+					estate_influence = {
+						estate = estate_church
+						influence = 80
+					}
+				}
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nobles
+			desc = EST_VAL_FRAGPOL_ACCEPTED
+			influence = 15
+			duration = 9125
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_FRAGPOL_ACCEPTED
+			influence = 15
+			duration = 9125
+		}
+		random_owned_province = {
+			limit = { 
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "acts_of_cienia_province"
+				duration = 9125
+			}
+		}
+		random_owned_province = {
+			limit = { 
+				is_capital = no
+			}
+			add_province_modifier = {
+				name = "acts_of_cienia_province"
+				duration = 9125
+			}
+		}
+	}
+	option = {
+		name = fragmentation_of_poland.5.b
+        ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 1.25
+				OR = {
+					estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 60
+					}
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 60
+					}
+				}	
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -20
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -20
+		}
+    }
+}
+
+#Magdeburg Laws in (Province)
+country_event = {
+	id = fragmentation_of_poland.6
+	title = fragmentation_of_poland.6.t
+	desc = fragmentation_of_poland.6.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	goto = magdeburg_law_province
+
+	mean_time_to_happen = {
+		months = 48
+	}
+
+	trigger = {
+		has_global_flag = poland_fragmentation_active
+		OR = {
+			primary_culture = polish
+			primary_culture = schlesian
+			primary_culture = mazovian
+		}
+		any_owned_province = {	
+		 	development = 6
+			OR = {
+				culture = polish
+				culture = schlesian
+				culture = mazovian
+			}
+			NOT = { has_province_modifier = fragpol_magdeburg_laws }
+			NOT = { has_province_flag = has_magdeburg_laws }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { 
+					development = 6
+					OR = {
+						culture = polish
+						culture = schlesian
+						culture = mazovian
+					}
+				}
+				save_event_target_as = magdeburg_law_province
+			}
+		}
+	}
+
+	option = {
+		name = fragmentation_of_poland.6.a
+        ai_chance = { factor = 50 }
+		event_target:magdeburg_law_province = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_province_modifier = {
+				name = "fragpol_magdeburg_laws"
+				duration = 18250
+			}
+			set_province_flag = has_magdeburg_laws
+			add_unrest = 10
+			add_local_autonomy = 25
+		}
+	}
+	option = {
+		name = fragmentation_of_poland.6.b
+        ai_chance = { factor = 50 }
+		event_target:magdeburg_law_province = {
+			add_province_modifier = {
+				name = "fragpol_depopulation_crisis"
+				duration = 9125
+			}
+		}
+    }
+}
+
+#Support of the Church
+country_event = {
+	id = fragmentation_of_poland.7
+	title = fragmentation_of_poland.7.t
+	desc = fragmentation_of_poland.7.d
+	picture = RELIGION_eventPicture
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 48
+	}
+
+	trigger = {
+		has_global_flag = poland_fragmentation_active
+		has_estate = estate_church
+		religion_group = christian
+		OR = {
+			primary_culture = polish
+			primary_culture = schlesian
+			primary_culture = mazovian
+		}
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			superregion = poland_superregion
+			value = 70
+		}
+	}
+
+	option = {
+		name = fragmentation_of_poland.7.a
+		ai_chance = { factor = 100 }
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_legitimacy = 10
+		add_religious_influence_effect_large = yes
+		poland_superregion = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_claim = ROOT }
+			}
+			add_claim = ROOT
+		}
+	}
+}
+
+#Depopulation Crisis
+country_event = {
+	id = fragmentation_of_poland.8
+	title = fragmentation_of_poland.8.t
+	desc = fragmentation_of_poland.8.d
+	picture = PLAGUE_eventPicture
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	trigger = {
+		has_global_flag = poland_fragmentation_active
+		OR = {
+			primary_culture = polish
+			primary_culture = schlesian
+			primary_culture = mazovian
+		}
+		any_owned_province = {
+			devastation = 1
+		}
+		num_of_cities = 2
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { devastation = 1 }
+				save_event_target_as = depopulation_province
+			}
+		}
+	}
+
+	option = {
+		name = fragmentation_of_poland.8.a
+		ai_chance = { 
+			factor = 33
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.5 }
+				num_of_loans = 1
+			}
+		}
+		add_years_of_income = -0.5
+		event_target:depopulation_province = {
+			add_devastation = -5
+			random = {
+				chance = 50
+				add_base_tax = -1
+			}
+			random = {
+				chance = 50
+				add_base_production = -1
+			}
+			random = {
+				chance = 50
+				add_base_manpower = -1
+			}
+		}
+	}
+	option = {
+		name = fragmentation_of_poland.8.b
+		ai_chance = { 
+			factor = 33
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.5 }
+				num_of_loans = 1
+			}
+		}
+		add_years_of_income = -0.5
+		event_target:depopulation_province = {
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+			random_neighbor_province = {
+				limit = { owned_by = ROOT }
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+		
+	}
+	option = {
+		name = fragmentation_of_poland.8.c
+		ai_chance = { factor = 33 }
+		event_target:depopulation_province = {
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+		}
+	}
+}
+
+#Halychian Raid
+country_event = {
+	id = fragmentation_of_poland.9
+	title = fragmentation_of_poland.9.t
+	desc = fragmentation_of_poland.9.d
+	picture = BORDER_TENSION_eventPicture
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	trigger = {
+		has_global_flag = poland_fragmentation_active
+		any_neighbor_country = {
+			primary_culture = volhynian
+		}
+		OR = {
+			primary_culture = polish
+			primary_culture = schlesian
+			primary_culture = mazovian
+		}
+		any_owned_province = {
+			NOT = { has_province_modifier = fragpol_halychian_raid }
+			any_neighbor_province = {
+				owner = { primary_culture = volhynian }
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = fragpol_halychian_raid }
+					any_neighbor_province = {
+						owner = { primary_culture = volhynian }
+					}
+				}
+				save_event_target_as = halychian_raid_area
+				random_neighbor_province = {
+					limit = {
+						owner = { primary_culture = volhynian } 
+					}
+					owner = {
+						save_event_target_as = halychian_raid_country
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = fragmentation_of_poland.9.a
+		ai_chance = { factor = 100 }
+		add_stability = -1
+		event_target:halychian_raid_area = {
+			area = {
+				limit = { owned_by = ROOT }
+				add_devastation = 25
+				add_province_modifier = {
+					name = "fragpol_halychian_raid"
+					duration = 9125
+				}
+			}
+		}
+		event_target:halychian_raid_country = {
+			add_opinion = {
+				who = ROOT
+				modifier = fragpol_halychian_raid_opinion
+			}
+			reverse_add_casus_belli = {
+				target = ROOT
+				type = cb_insult
+				months = 120
+			}
+		}
+    }
+}
+
+#End of Fragmentation
+country_event = {
+	id = fragmentation_of_poland.100
+	title = fragmentation_of_poland.100.t
+	desc = fragmentation_of_poland.100.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+	major = yes
+	
+	immediate = {
+		on_non_estate_disaster_end = yes
+		clr_global_flag = poland_fragmentation_active
+		set_global_flag = fragmentation_of_poland_ended
+	}
+
+	option = {
+		name = fragmentation_of_poland.100.a
+        ai_chance = { factor = 100 }
+		add_stability_or_adm_power = yes
+		if = {
+			limit = {
+				NOT = { government_rank = 5 }
+			}
+			set_government_rank = 5
+		}
+		add_legitimacy = 20
+    }
+}
+
+#End of Fragmentation (if Poland was split)
+country_event = {
+	id = fragmentation_of_poland.101
+	title = fragmentation_of_poland.101.t
+	desc = fragmentation_of_poland.101.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	fire_only_once = yes
+	major = yes
+	
+	trigger = {
+		tag = POL
+		has_global_flag = pol_was_split
+		NOT = { started_in = 1305.6.21 }
+		has_global_flag = poland_fragmentation_active
+		NOT = { has_global_flag = fragmentation_of_poland_ended }
+		custom_trigger_tooltip = {
+			tooltip = disaster_active_for_10_years_tooltip
+			had_global_flag = {
+				flag = poland_fragmentation_active
+				days = 3650
+			}
+		}
+		stability = 1
+		is_at_war = no
+		NOT = {
+			any_owned_province = {
+				has_rebel_faction = nationalist_rebels
+			}
+		}
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		calc_true_if = {
+			MAZ = {
+				OR = {
+					exists = no
+					is_subject = yes
+					NOT = {
+						any_owned_province = {
+							superregion = poland_superregion
+						}
+					}
+				}
+			}
+			SIL = {
+				OR = {
+					exists = no
+					is_subject = yes
+					NOT = {
+						any_owned_province = {
+							superregion = poland_superregion
+						}
+					}
+				}
+			}
+			WKP = {
+				OR = {
+					exists = no
+					is_subject = yes
+					NOT = {
+						any_owned_province = {
+							superregion = poland_superregion
+						}
+					}
+				}
+			}
+			SDZ = {
+				OR = {
+					exists = no
+					is_subject = yes
+					NOT = {
+						any_owned_province = {
+							superregion = poland_superregion
+						}
+					}
+				}
+			}
+			KRA = {
+				OR = {
+					exists = no
+					is_subject = yes
+					NOT = {
+						any_owned_province = {
+							superregion = poland_superregion
+						}
+					}
+				}
+			}
+			amount = 2
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = fragmentation_of_poland_ended
+			clr_global_flag = poland_fragmentation_active
+			if = {
+				limit = { has_disaster = fragmentation_of_poland }
+				end_disaster = fragmentation_of_poland
+			}
+			else = {
+				random_country = {
+					limit = { has_disaster = fragmentation_of_poland }
+					end_disaster = fragmentation_of_poland
+				}
+			}
+		}
+	}
+
+	option = {
+		name = fragmentation_of_poland.101.a
+		ai_chance = { factor = 100 }
+		add_stability_or_adm_power = yes
+		add_legitimacy = 20
+		if = {
+			limit = {
+				NOT = { government_rank = 5 }
+			}
+			set_government_rank = 5
+		}
+		custom_tooltip = fragmentation_of_poland.101.a.tt
+    }
+}

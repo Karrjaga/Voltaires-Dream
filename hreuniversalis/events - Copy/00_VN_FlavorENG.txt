@@ -1,0 +1,174 @@
+namespace = vn_flavor_eng
+
+#Magna Charta
+country_event = {
+	id = vn_flavor_eng.1
+	title = "vn_flavor_eng.1.t"
+	desc = "vn_flavor_eng.1.d"
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		OR = {
+			tag = ENG
+			AND = {
+				NOT = { exists = ENG }
+				tag = ASE
+			}
+		}
+		government = monarchy
+		NOT = { has_reform = english_monarchy }
+		NOT = { has_reform = british_monarchy }
+		NOT = { has_reform = angevin_monarchy }
+		NOT = { has_reform = absolute_british_monarchy }
+		is_emperor_of_china = no
+		adm_tech = 14
+		has_regency = no
+		num_of_cities = 10
+		normal_or_historical_nations = yes
+		NOT = { started_in = 1215.6.14 }
+	}
+	
+	mean_time_to_happen = {
+		months = 120	
+		modifier = {
+			factor = 0.9
+			NOT = { legitimacy = 90 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { legitimacy = 70 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { legitimacy = 50 }
+		}
+		modifier = {
+			factor = 0.5
+			is_excommunicated = yes
+		}
+		modifier = {
+			factor = 0.75
+			num_of_revolts = 1
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 40
+				}
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					controlled_by = owner
+				}
+				save_event_target_as = english_noble_revolt
+			}
+		}
+	}
+	
+	option = {
+		name = "vn_flavor_eng.1.a"
+		ai_chance = { factor = 95 }
+		change_government = monarchy
+		hidden_effect = {
+			unlock_government_reform = {
+				government_reform = english_monarchy
+			}
+		}
+		add_government_reform = english_monarchy
+		set_estate_privilege = estate_nobles_english_villeinage
+		add_mercantilism = 25
+		add_stability = -1
+	}
+	option = {
+		name = "vn_flavor_eng.1.b"
+		ai_chance = { factor = 5 }
+		goto = english_noble_revolt
+		add_legitimacy = 20
+		if = {
+			limit = {
+				has_estate = estate_nobles
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -20
+			}
+		}
+		event_target:english_noble_revolt = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 4
+				win = yes
+			}
+		}
+	}
+}
+
+#White Ship disaster
+country_event = {
+	id = vn_flavor_eng.2
+	title = "vn_flavor_eng.2.t"
+	desc = "vn_flavor_eng.2.d"
+	picture = DEATH_OF_HEIR_eventPicture
+
+	major = yes
+	major_trigger = {
+		OR = {
+			capital_scope = { superregion = british_isles_superregion }
+			alliance_with = ENG
+			marriage_with = ENG
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				tag = ENG
+				current_age = age_of_holy_wars
+				NOT = { started_in = 1120.11.25 }
+				is_lesser_in_union = no
+				government = monarchy
+				num_of_ports = 1
+				has_regency = no
+				primary_culture = english
+				heir_has_ruler_dynasty = yes
+				has_heir = yes
+				heir_age = 15
+			}
+			has_country_flag = actual_white_ship_disaster
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			factor = 0.75
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0.75
+			ruler_age = 50
+		}
+	}
+
+	option = {
+		name = "vn_flavor_eng.2.a"
+		kill_heir = { allow_new_heir = no }
+		custom_tooltip = vn_flavor_eng.2.tt
+		clr_country_flag = actual_white_ship_disaster
+		set_country_flag = had_white_ship_disaster
+		set_ruler_flag = white_ship_disaster_ruler
+	}
+}

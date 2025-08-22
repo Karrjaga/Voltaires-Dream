@@ -1,0 +1,116 @@
+# Unprofitable Trade
+country_event = {
+	id = 4043
+	title = "EVTNAME4043"
+	desc = "EVTDESC4043"
+	picture = MERCHANTS_TALKING_eventPicture
+
+	trigger = {
+		has_country_modifier = india_trade_co
+		NOT = { any_owned_province = { has_port = yes } }
+	}
+
+	mean_time_to_happen = {
+		months = 24
+		
+		modifier = {
+			factor = 0.9
+			inflation = 10
+		}
+		modifier = {
+			factor = 0.9
+			inflation = 20
+		}
+		modifier = {
+			factor = 0.9
+			num_of_loans = 1
+		}
+		modifier = {
+			factor = 0.9
+			num_of_loans = 2
+		}
+		modifier = {
+			factor = 1.1
+			trader = 2
+		}
+		modifier = {
+			factor = 1.1
+			trader = 3
+		}
+		modifier = {
+			factor = 1.1
+			colonial_governor = 2
+		}
+		modifier = {
+			factor = 1.1
+			colonial_governor = 3
+		}
+	}
+
+	option = {
+		name = "EVTOPTA4043"		# What a disaster!
+		remove_country_modifier = india_trade_co
+		add_prestige = -2
+	}
+}
+
+# Unprofitable Trade 2
+country_event = {
+	id = 4044
+	title = "EVTNAME4043"
+	desc = "EVTDESC4043"
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	trigger = {
+		has_country_modifier = dutch_india_trade_co
+		NOT = {
+			any_province = {
+				country_or_non_sovereign_subject_holds = ROOT
+				has_port = yes
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 24
+		
+		modifier = {
+			factor = 0.9
+			inflation = 10
+		}
+		modifier = {
+			factor = 0.9
+			inflation = 20
+		}
+		modifier = {
+			factor = 0.9
+			num_of_loans = 1
+		}
+		modifier = {
+			factor = 0.9
+			num_of_loans = 2
+		}
+		modifier = {
+			factor = 1.1
+			trader = 2
+		}
+		modifier = {
+			factor = 1.1
+			trader = 3
+		}
+		modifier = {
+			factor = 1.1
+			colonial_governor = 2
+		}
+		modifier = {
+			factor = 1.1
+			colonial_governor = 3
+		}
+	}
+
+	option = {
+		name = "EVTOPTA4043"		# What a disaster!
+		remove_country_modifier = dutch_india_trade_co
+		add_prestige = -2
+	}
+}

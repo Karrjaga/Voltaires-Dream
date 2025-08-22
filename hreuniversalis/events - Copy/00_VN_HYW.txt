@@ -1,0 +1,310 @@
+namespace = vn_hyw
+
+#Start for France
+country_event = {
+	id = vn_hyw.1
+	title = "vn_hyw.1.t"
+	desc = "vn_hyw.1.d"
+	picture = DEATH_OF_HEIR_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			AND = {
+				has_dlc = "Domination"
+				has_reform = feudal_france_reform
+				NOT = { tag = ENG }
+				NOT = { tag = GBR }
+				NOT = { tag = AVE }
+				NOT = { primary_culture = english }
+			}
+			AND = {
+				tag = FRA
+				government = monarchy
+				NOT = { has_dlc = "Domination" }
+			}
+		}
+		current_age = age_of_dynasticism
+		is_subject = no
+		any_country = {
+			primary_culture = english
+			government = monarchy
+			is_subject = no
+			exists = yes
+			num_of_cities = 20
+			has_regency = no
+			is_female = no
+			NOT = { tag = ROOT }
+		}
+		NOT = { has_global_flag = eng_had_start_of_hundred_years_war }
+		normal_or_historical_nations = yes
+		any_owned_province = {
+			OR = {
+				superregion = french_superregion
+				superregion = burgundian_superregion
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = {
+					primary_culture = english
+					government = monarchy
+					is_subject = no
+					exists = yes
+					num_of_cities = 20
+					has_regency = no
+					is_female = no
+					NOT = { tag = ROOT }
+				}
+				save_global_event_target_as = England
+				set_country_flag = hyw_eng_flag # needed to set global_event_target in on_startup
+			}
+			save_global_event_target_as = France
+			set_country_flag = hyw_fra_flag # needed to set global_event_target in on_startup
+		}
+	}
+
+	option = {
+		name = "vn_hyw.1.a"
+		add_army_tradition = 20
+		event_target:England = {
+			country_event = {
+				id = vn_hyw.2
+			}
+		}
+	}
+}
+
+#Response for England
+country_event = {
+	id = vn_hyw.2
+	title = "vn_hyw.2.t"
+	desc = "vn_hyw.2.d"
+	picture = DEATH_OF_HEIR_eventPicture
+
+	is_triggered_only = yes
+	major = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		set_global_flag = eng_had_start_of_hundred_years_war
+	}
+
+	option = {
+		name = "vn_hyw.2.a"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				alliance_with = FROM
+			}
+			modifier = {
+				factor = 0
+				is_bankrupt = yes
+			}
+			modifier = {
+				factor = 0
+				NOT = { num_of_cities = 16 }
+			}
+		}
+		add_yearly_manpower = 0.5
+		tooltip = {
+			add_casus_belli = {
+				type = cb_hundred_years_union
+				months = 1200
+				target = FROM
+			}
+		}
+		if = {
+			limit = {
+				FROM = { NOT = { historical_rival_with = ROOT } }
+			}
+			add_historical_rival = FROM
+			FROM = { add_historical_rival = ROOT }
+		}
+		if = {
+			limit = { has_dlc = "Mandate of Heaven" }
+			add_splendor = 800
+		}
+	}
+
+	option = {
+		name = "vn_hyw.2.b"
+		ai_chance = { factor = 10 }
+		add_stability_or_adm_power = yes
+		reverse_add_opinion = {
+			who = FROM
+			modifier = eng_no_english_in_france
+		}
+		clear_hyw_flags_and_event_targets_effect = yes
+	}
+}
+
+#End if England wins
+country_event = {
+	id = vn_hyw.3
+	title = "vn_hyw.3.t"
+	desc = "vn_hyw.3.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	major = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = { set_global_flag = eng_had_end_of_hundred_years_war }
+	}
+
+	after = {
+		clear_hyw_flags_and_event_targets_effect = yes
+	}
+
+	option = {
+		name = "vn_hyw.3.a"
+		add_stability_or_adm_power = yes
+		add_prestige_or_monarch_power = { amount = 25 }
+		event_target:France = {
+			add_liberty_desire = -50
+		}
+		custom_tooltip = vn_hyw.3.tt
+		if = {
+			limit = { historical_rival_with = event_target:France }
+			remove_historical_rival = event_target:France
+		}
+		if = {
+			limit = { event_target:France = { historical_rival_with = ROOT } }
+			event_target:France = { remove_historical_rival = ROOT }
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					any_country = {
+						junior_union_with = ROOT
+						OR = {
+							has_reform = feudal_france_reform
+							AND = {
+								NOT = { has_dlc = "Domination" }
+								tag = FRA
+								government = monarchy
+							}
+						}
+					}
+				}
+				every_country = {
+					limit = {
+						junior_union_with = ROOT
+						OR = {
+							has_reform = feudal_france_reform
+							AND = {
+								NOT = { has_dlc = "Domination" }
+								tag = FRA
+								government = monarchy
+							}
+						}
+					}
+					change_government = monarchy
+					add_government_reform = feudalism_reform
+					every_subject_country = {
+						limit = { is_subject_of_type = appanage }
+						grant_independence = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+#End if France gets annexed
+country_event = {
+	id = vn_hyw.4
+	title = "vn_hyw.4.t"
+	desc = "vn_hyw.4.d"
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	major = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = { set_global_flag = eng_had_end_of_hundred_years_war }
+	}
+
+	after = {
+		clear_hyw_flags_and_event_targets_effect = yes
+	}
+
+	option = {
+		name = "vn_hyw.4.a"
+		add_stability_or_adm_power = yes
+	}
+}
+
+#Set historical rivalry if England starts conquering France before the actual war
+country_event = {
+	id = vn_hyw.5
+	title = "vn_hyw.5.t"
+	desc = "vn_hyw.5.d"
+	picture = BATTLE_eventPicture
+
+	fire_only_once = yes
+	major = yes
+	major_trigger = {
+		tag = FRA
+	}
+
+	trigger = {
+		OR = {
+			tag = ENG
+			tag = GBR
+			tag = AVE
+		}
+		NOT = { has_global_flag = eng_had_start_of_hundred_years_war }
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			value = 30
+			superregion = french_superregion
+		}
+		government = monarchy
+		is_subject = no
+		normal_or_historical_nations = yes
+		if = {
+			limit = { has_dlc = "Domination" }
+			any_country = {
+				has_reform = feudal_france_reform
+				exists = yes
+				NOT = { tag = ENG }
+				NOT = { tag = GBR }
+				NOT = { tag = AVE }
+				NOT = { alliance_with = ROOT }
+				NOT = { historical_rival_with = ROOT }
+				ROOT = { NOT = { historical_rival_with = PREV } }
+			}
+		}
+		else = {
+			FRA = {
+				government = monarchy
+				exists = yes
+				NOT = { alliance_with = ROOT }
+				NOT = { historical_rival_with = ROOT }
+				ROOT = { NOT = { historical_rival_with = PREV } }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+
+	option = {
+		name = "vn_hyw.5.a"
+		add_historical_rival = FRA
+		FRA = { add_historical_rival = ROOT }
+	}
+}

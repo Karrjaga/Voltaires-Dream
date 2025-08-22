@@ -383,7 +383,7 @@
 #                 add_permanent_claim = ROOT
 #             }
 #             add_country_modifier = {
-#                 name = mor_conquer_gibraltar_mission
+#                 name = mor_entry_into_iberia
 #                 duration = 9125
 #             }
 #         }
@@ -458,6 +458,10 @@
 #                     NOT = { is_permanent_claim = ROOT }
 #                 }
 #                 add_permanent_claim = ROOT
+#             }
+#             add_country_modifier = {
+#                 name = mor_conquer_gibraltar_mission
+#                 duration = 9125
 #             }
 #         }
 #     }

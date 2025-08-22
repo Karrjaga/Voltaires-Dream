@@ -1,0 +1,932 @@
+namespace = great_fitna
+
+########################################
+# The Great Fitna
+########################################
+
+# Start
+country_event = {
+	id = great_fitna.1
+	title = "great_fitna.1.t"
+	desc = "great_fitna.1.d"
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+	major = yes
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = had_great_fitna
+			set_variable = {
+				which = fatimid_authority
+				value = 0
+			}
+			random_owned_province = {
+				limit = { NOT = { religion = ROOT } }
+				spawn_rebels = {
+					size = 3
+					type = mamluk_rebels
+					win = yes
+				}
+			}
+			random_owned_province = {
+				limit = { NOT = { religion = ROOT } }
+				spawn_rebels = {
+					size = 3
+					type = mamluk_rebels
+					win = yes
+				}
+			}
+			random_owned_province = {
+				limit = { NOT = { religion = ROOT } }
+				spawn_rebels = {
+					size = 3
+					type = mamluk_rebels
+					win = yes
+				}
+			}
+			random_owned_province = {
+				limit = { NOT = { religion = ROOT } }
+				spawn_rebels = {
+					size = 3
+					type = mamluk_rebels
+					win = yes
+				}
+			}
+			random_owned_province = {
+				limit = { NOT = { religion = ROOT } }
+				spawn_rebels = {
+					size = 3
+					type = mamluk_rebels
+					win = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = great_fitna.1.a
+		add_stability = -5
+		add_legitimacy = -25
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = -20
+		}
+	}
+}
+
+# Mamluks plunder treasuries
+country_event = {
+	id = great_fitna.2
+	title = "great_fitna.2.t"
+	desc = "great_fitna.2.d"
+	picture = BATTLE_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_leaders = {
+			value = 1
+			type = general
+			include_monarch = no
+			include_heir = no
+		}
+	}
+
+	option = {
+		name = great_fitna.2.a
+		change_variable = {
+			which = fatimid_authority
+			value = -1
+		}
+		add_years_of_income = -0.25
+	}
+	option = {
+		name = great_fitna.2.b
+		change_variable = {
+			which = fatimid_authority
+			value = 1
+		}
+		random_list = {
+			1 = { kill_leader = { type = general } }
+			4 = { add_yearly_manpower = -0.5 }	
+		}
+	}
+}
+
+# Corrpution at court
+country_event = {
+	id = great_fitna.3
+	title = "great_fitna.3.t"
+	desc = "great_fitna.3.d"
+	picture = COURT_INTRIGUE_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_advisor = yes
+	}
+
+	option = {
+		name = great_fitna.3.a
+		change_variable = {
+			which = fatimid_authority
+			value = -1
+		}
+		add_corruption = 0.5
+	}
+	option = {
+		name = great_fitna.3.b
+		change_variable = {
+			which = fatimid_authority
+			value = 1
+		}
+		kill_advisor = random
+	}
+}
+
+# Famine
+country_event = {
+	id = great_fitna.4
+	title = "great_fitna.4.t"
+	desc = "great_fitna.4.d"
+	picture = FAMINE_eventPicture
+	goto = famine_prov
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_owned_province = {
+			NOT = { has_province_modifier = influenza }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { NOT = { has_province_modifier = influenza } }
+				save_event_target_as = famine_prov
+			}
+		}
+	}
+
+	option = {
+		name = great_fitna.4.a
+		change_variable = {
+			which = fatimid_authority
+			value = -1
+		}
+		event_target:famine_prov = {
+			area = {
+				limit = { owned_by = ROOT }
+				add_devastation = 20
+				add_province_modifier = {
+					name = influenza
+					duration = 1095
+				}
+			}
+		}
+	}
+	option = {
+		name = great_fitna.4.b
+		change_variable = {
+			which = fatimid_authority
+			value = 1
+		}
+		event_target:famine_prov = {
+			area = {
+				limit = { owned_by = ROOT }
+				add_devastation = 20
+			}
+		}
+		add_adm_power = -50
+	}
+}
+
+#rebels
+country_event = {
+	id = great_fitna.5
+	title = "great_fitna.5.t"
+	desc = "great_fitna.5.d"
+	picture = SIEGE_eventPicture
+	goto = anarchy_prov
+
+	is_triggered_only = yes
+
+	trigger = {
+		any_owned_province = {
+			controlled_by = ROOT
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				33 = { set_country_flag = reb_1_flag }
+				33 = { set_country_flag = reb_2_flag }
+				33 = { set_country_flag = reb_3_flag }
+			}
+			random_owned_province = {
+				save_event_target_as = anarchy_prov
+			}
+		}
+	}
+
+	option = {
+		name = great_fitna.5.a
+		change_variable = {
+			which = fatimid_authority
+			value = 1
+		}
+		if = {
+			limit = { has_country_flag = reb_1_flag }
+			event_target:anarchy_prov = {
+				spawn_rebels = {
+					size = 1
+					type = mamluk_rebels
+					win = yes
+					unrest = 5
+				}
+			}
+			clr_country_flag = reb_1_flag
+		}
+		else_if = {
+			limit = { has_country_flag = reb_2_flag }
+			event_target:anarchy_prov = {
+				spawn_rebels = {
+					size = 2
+					type = mamluk_rebels
+					win = yes
+					unrest = 5
+				}
+			}
+			clr_country_flag = reb_2_flag
+		}
+		else_if = {
+			limit = { has_country_flag = reb_3_flag }
+			event_target:anarchy_prov = {
+				spawn_rebels = {
+					size = 3
+					type = mamluk_rebels
+					win = yes
+					unrest = 5
+				}
+			}
+			clr_country_flag = reb_3_flag
+		}
+	}
+	option = {
+		name = great_fitna.5.b
+		change_variable = {
+			which = fatimid_authority
+			value = -1
+		}
+		add_mil_power = -50
+	}
+}
+
+#Hedjaz breaks off
+country_event = {
+	id = great_fitna.6
+	title = "great_fitna.6.t"
+	desc = "great_fitna.6.d"
+	picture = PRAYING_eventPicture
+	goto = hed_cap
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		religion = shiite
+		HED = {
+			exists = yes
+			ai = yes
+			religion = shiite
+			NOT = { war_with = ROOT }
+			owns_core_province = 5012
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			HED = {
+				capital_scope = {
+					save_event_target_as = hed_cap
+				}
+			}
+		}
+	}
+
+	option = {
+		name = great_fitna.6.a #spread shia islam with force
+		ai_chance = { factor = 10 }
+		trigger = {
+			HED = { NOT = { is_subject_of = ROOT } }
+		}
+		change_variable = {
+			which = fatimid_authority
+			value = 3
+		}
+		hidden_effect = {
+			if = {
+				limit = { HED = { is_subject_of = ROOT } }
+				HED = {
+					grant_independence = yes
+				}
+			}
+			if = {
+				limit = {
+					alliance_with = HED
+				}
+				break_alliance = HED
+			}
+		}
+		declare_war_with_cb = {
+			casus_belli = cb_heretic
+			who = HED
+		}
+		hidden_effect = {
+			HED = {
+				set_country_flag = avoid_choosing_madhhab_flag
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = defended_heretic_rebels
+				}
+				reverse_add_opinion = {
+					who = ROOT
+					modifier = defended_heretic_rebels
+				}
+				clr_country_flag = avoid_choosing_madhhab_flag
+				capital_scope = { change_religion = sunni }
+				add_country_modifier = {
+					name = religious_zeal_at_conv
+					duration = 3650
+				}
+			}
+		}
+	}
+	option = {
+		name = great_fitna.6.b #corrupt
+		ai_chance = { factor = 50 }
+		change_variable = {
+			which = fatimid_authority
+			value = 1
+		}
+		add_years_of_income = -0.75
+		add_corruption = 2
+	}
+	option = {
+		name = great_fitna.6.c #let them be
+		ai_chance = { factor = 40 }
+		change_variable = {
+			which = fatimid_authority
+			value = -2
+		}
+		HED = {
+			set_country_flag = avoid_choosing_madhhab_flag
+			change_religion = sunni
+			hidden_effect = {
+				set_religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+			}
+			if = {
+				limit = { is_subject_of = ROOT }
+				add_liberty_desire = 50
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = defended_heretic_rebels
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = defended_heretic_rebels
+			}
+			clr_country_flag = avoid_choosing_madhhab_flag
+			hidden_effect = {
+				capital_scope = { change_religion = sunni }
+				add_country_modifier = {
+					name = religious_zeal_at_conv
+					duration = 3650
+				}
+			}
+		}
+	}
+}
+
+# Ivite Badr Badr al-Jamali?
+country_event = {
+	id = great_fitna.7
+	title = "great_fitna.7.t"
+	desc = "great_fitna.7.d"
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		any_owned_province = {
+			controlled_by = ROOT
+		}
+	}
+
+	option = {
+		name = great_fitna.7.a
+		ai_chance = { factor = 70 }
+		change_variable = {
+			which = fatimid_authority
+			value = -1
+		}
+		add_yearly_manpower = 2
+		define_general = {
+			name = "Badr al-Jamali"
+			shock = 5
+			fire = 5
+			manuever = 3
+			siege = 2
+			trait = ruthless_personality
+		}
+		set_country_flag = badr_jamali_accepted
+	}
+	option = {
+		name = great_fitna.7.b
+		ai_chance = { factor = 10 }
+		change_variable = {
+			which = fatimid_authority
+			value = 1
+		}
+		levant_superregion = {
+			limit = {
+				owned_by = ROOT
+				is_core = DSC
+			}
+			add_local_autonomy = 35
+		}
+	}
+}
+
+# al-jamali seizes power
+country_event = {
+	id = great_fitna.8
+	title = "great_fitna.8.t"
+	desc = "great_fitna.8.d"
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = badr_jamali_accepted
+	}
+
+	option = {
+		name = great_fitna.8.a
+		change_variable = {
+			which = fatimid_authority
+			value = -1
+		}
+		add_disaster_modifier = {
+			name = reign_of_terror_m
+			duration = -1
+			disaster = great_fitna
+		}
+		if = {
+			limit = { has_estate = estate_mamluks }
+			add_estate_influence_modifier = {
+				estate = estate_mamluks
+				desc = EST_VAL_REIGN_OF_TERROR
+				influence = -20
+				duration = 5475
+			}
+		}
+	}
+	option = {
+		name = great_fitna.8.b
+		change_variable = {
+			which = fatimid_authority
+			value = 3
+		}
+		release = DSC
+		hidden_effect = {
+			kill_leader = {
+				type = "Badr al-Jamali"
+			}
+			DSC = {
+				change_government = monarchy
+				add_government_reform = mamluk_government
+				change_religion = sunni
+				adopt_reform_progress = ROOT
+				define_ruler = {
+					name = "Badr"
+					dynasty = "Armaniyya"
+					religion = shiite
+					culture = armenian
+					change_adm = 3
+					change_dip = 3
+					change_mil = 3
+				}
+				add_ruler_personality = strict_personality
+				define_ruler_to_general = {
+					shock = 5
+					fire = 5
+					manuever = 3
+					siege = 2
+					trait = ruthless_personality
+				}
+				add_yearly_manpower = 10
+				add_years_of_income = 10
+				add_army_tradition = 40
+				add_prestige = 40
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+			}
+		}
+		declare_war_with_cb = {
+			casus_belli = cb_disloyal_vassal
+			who = DSC
+		}
+	}
+}
+
+# conflicts within the army
+country_event = {
+	id = great_fitna.9
+	title = "great_fitna.9.t"
+	desc = "great_fitna.9.d"
+	picture = RELIGIOUS_WARS_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_estate = estate_mamluks
+	}
+
+	option = {
+		name = great_fitna.9.a # support the Turks
+		change_variable = {
+			which = fatimid_authority
+			value = -2
+		}
+		add_yearly_manpower = 1
+		add_disaster_modifier = {
+			name = army_quarrels_m
+			duration = 5475
+			disaster = great_fitna
+		}
+		add_estate_mamluks_loyalty_effect = yes
+		add_estate_influence_modifier = {
+			estate = estate_mamluks
+			desc = EST_VAL_TURKISH_NUBIAN_SUPPORT
+			influence = 15
+			duration = 5475
+		}
+	}
+	option = {
+		name = great_fitna.9.b # support the opposition
+		change_variable = {
+			which = fatimid_authority
+			value = 2
+		}
+		add_yearly_manpower = 1
+		add_disaster_modifier = {
+			name = army_quarrels_m
+			duration = 5475
+			disaster = great_fitna
+		}
+		reduce_estate_mamluks_loyalty_effect = yes
+		add_estate_influence_modifier = {
+			estate = estate_mamluks
+			desc = EST_VAL_TURKISH_NUBIAN_SUPPORT
+			influence = -15
+			duration = 5475
+		}
+	}
+}
+
+# curtail the viziers?
+country_event = {
+	id = great_fitna.10
+	title = "great_fitna.10.t"
+	desc = "great_fitna.10.d"
+	picture = SPY_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { religion = sunni }
+	}
+
+	option = {
+		name = great_fitna.10.a # yes
+		change_variable = {
+			which = fatimid_authority
+			value = 1
+		}
+		random_owned_province = {
+			limit = { controlled_by = ROOT }
+			spawn_rebels = {
+				size = 3
+				type = mamluk_rebels
+				win = yes
+				unrest = 5
+			}
+		}
+		random_owned_province = {
+			limit = { controlled_by = ROOT }
+			spawn_rebels = {
+				size = 3
+				type = mamluk_rebels
+				win = yes
+				unrest = 5
+			}
+		}
+		random_owned_province = {
+			limit = { controlled_by = ROOT }
+			spawn_rebels = {
+				size = 3
+				type = mamluk_rebels
+				win = yes
+				unrest = 5
+			}
+		}
+	}
+	option = {
+		name = great_fitna.10.b # no
+		change_variable = {
+			which = fatimid_authority
+			value = -1
+		}
+		add_disaster_modifier = {
+			name = strong_viziers_m
+			duration = 3650
+			disaster = great_fitna
+		}
+	}
+}
+
+# sunni preachers
+country_event = {
+	id = great_fitna.11
+	title = "great_fitna.11.t"
+	desc = "great_fitna.11.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = sunni_prov
+
+	is_triggered_only = yes
+
+	trigger = {
+		religion_group = muslim
+		NOT = { religion = sunni }
+		any_owned_province = {
+			religion_group = muslim
+			NOT = { religion = sunni }
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					religion_group = muslim
+					NOT = { religion = sunni }
+				}
+				save_event_target_as = sunni_prov
+			}
+		}
+	}
+
+	option = {
+		name = great_fitna.11.a
+		change_variable = {
+			which = fatimid_authority
+			value = -1
+		}
+		event_target:sunni_prov = {
+			change_religion = sunni
+			add_province_modifier = {
+				name = religious_zeal_at_conv
+				duration = 3650
+			}
+		}
+	}
+	option = {
+		name = great_fitna.11.b
+		change_variable = {
+			which = fatimid_authority
+			value = 1
+		}
+		event_target:sunni_prov = {
+			change_religion = sunni
+			spawn_rebels = {
+				size = 2
+				type = sunni_rebels
+			}
+		}
+	}
+}
+
+# loss of lebanon
+country_event = {
+	id = great_fitna.12
+	title = "great_fitna.12.t"
+	desc = "great_fitna.12.d"
+	picture = BORDER_TENSION_eventPicture
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	trigger = {
+		any_owned_province = {
+			is_core = LEB
+		}
+	}
+
+	option = {
+		name = great_fitna.12.a
+		change_variable = {
+			which = fatimid_authority
+			value = -1
+		}
+		if = {
+			limit = { LEB = { exists = yes } }
+			every_owned_province = {
+				limit = { is_core = LEB }
+				cede_province = LEB
+				remove_core = ROOT
+			}
+		}
+		else = {
+			release = LEB
+			hidden_effect = {
+				LEB = {
+					change_government = monarchy
+					add_government_reform = iqta
+					capital_scope = {
+						build_to_forcelimit = {
+							infantry = 0.7
+							cavalry = 0.3
+						}
+					}
+				}
+			}
+		}
+		add_truce_with = LEB
+		reverse_add_opinion = {
+			who = LEB
+			modifier = opinion_pleased
+		}
+	}
+	option = {
+		name = great_fitna.12.b
+		change_variable = {
+			which = fatimid_authority
+			value = 1
+		}
+		every_owned_province = {
+			limit = { is_core = LEB }
+			add_nationalism = 20
+		}
+		random_owned_province = {
+			limit = { is_core = LEB }
+			spawn_rebels = {
+				size = 2
+				type = nationalist_rebels
+				win = yes
+				friend = LEB
+			}
+		}
+		random_owned_province = {
+			limit = { is_core = LEB }
+			spawn_rebels = {
+				size = 1
+				type = nationalist_rebels
+				win = yes
+				friend = LEB
+			}
+		}
+		reverse_add_opinion = {
+			who = LEB
+			modifier = opinion_angry
+		}
+	}
+}
+
+# End
+country_event = {
+	id = great_fitna.100
+	title = "great_fitna.100.t"
+	desc = great_fitna.100.d
+	picture = {
+		trigger = {
+			has_country_flag = ended_fitna_by_high_authority
+		}
+		picture = GOOD_WITH_MONARCH_eventPicture
+	}
+	picture = {
+		trigger = {
+			has_country_flag = ended_fitna_by_low_authority
+		}
+		picture = BAD_WITH_MONARCH_eventPicture
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		on_non_estate_disaster_end = yes
+	}
+
+	option = {
+		name = great_fitna.100.a
+		add_stability_or_adm_power = yes
+		add_government_reform = feudal_theocracy
+		disband_rebels = mamluk_rebels
+		add_estate_loyalty = {
+			estate = estate_mamluks
+			loyalty = 20
+		}
+		clr_country_flag = badr_jamali_accepted
+		clr_country_flag = ended_fitna_by_low_authority
+		clr_country_flag = ended_fitna_by_high_authority
+	}
+}
+
+country_event = {
+	id = great_fitna.101
+	title = "great_fitna.101.t"
+	desc = "great_fitna.101.d"
+	picture = PRAYING_eventPicture	
+
+	is_triggered_only = yes
+	major = yes
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = ended_fitna_by_high_authority
+		}
+	}
+
+	option = {
+		name = great_fitna.101.a
+		add_prestige = 25
+		change_ruler_stat = {
+			type = adm
+			amount = 1
+		}
+		change_ruler_stat = {
+			type = dip
+			amount = 1
+		}
+		change_ruler_stat = {
+			type = mil
+			amount = 1
+		}
+		tooltip = { end_disaster = great_fitna }
+	}
+}
+
+country_event = {
+	id = great_fitna.102
+	title = "great_fitna.102.t"
+	desc = "great_fitna.102.d"
+	picture = COUNTRY_COLLAPSE_eventPicture	
+
+	is_triggered_only = yes
+	major = yes
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = ended_fitna_by_low_authority
+		}
+	}
+
+	option = {
+		name = great_fitna.101.a
+		add_prestige = -25
+		tooltip = { kill_ruler = yes }
+		if = {
+			limit = { has_heir = yes }
+			remove_heir = { allow_new_heir = no }
+		}
+		define_ruler = {
+			claim = 50
+			age = 14
+			male = yes
+			max_random_adm = 1
+			max_random_dip = 1
+			max_random_mil = 1
+			dynasty = ROOT
+		}
+	}
+}

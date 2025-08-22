@@ -1,0 +1,3371 @@
+namespace = italian_monarchy_events
+namespace = eastern_monarchy_events
+namespace = irish_clan_events
+namespace = turkish_government_events
+namespace = canton_events
+namespace = abbacy_events
+namespace = pap_faction_events
+namespace = sufi_order_events
+namespace = germanic_monarchy_events
+namespace = anglo_norman_monarchy_events
+
+#Italian Monarchy
+country_event = {
+	id = italian_monarchy_events.1
+	title = "italian_monarchy_events.1.t"
+	desc = "italian_monarchy_events.1.d"
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = italian_monarchy
+		is_statists_in_power = yes
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "italian_monarchy_events.1.a" #Signoria
+		add_adm_power = 25
+		change_statists_vs_orangists = 0.15
+	}
+}
+
+country_event = {
+	id = italian_monarchy_events.2
+	title = "italian_monarchy_events.2.t"
+	desc = "italian_monarchy_events.2.d"
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = italian_monarchy
+		is_orangists_in_power = yes
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "italian_monarchy_events.2.a" #Communia
+		add_years_of_income = 0.2
+		change_statists_vs_orangists = -0.15
+	}
+}
+
+country_event = {
+	id = italian_monarchy_events.3
+	title = "italian_monarchy_events.3.t"
+	desc = "italian_monarchy_events.3.d"
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { has_reform = italian_monarchy }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "italian_monarchy_events.3.a"
+		if = {
+			limit = { NOT = { has_dlc = "Res Publica" } }
+			add_republican_tradition = 5
+			add_army_tradition = -5
+		}
+		change_statists_vs_orangists = -0.15
+	}
+
+	option = {
+		name = "italian_monarchy_events.3.b"
+		if = {
+			limit = { NOT = { has_dlc = "Res Publica" } }
+			add_republican_tradition = -5
+			add_army_tradition = 5
+		}
+		change_statists_vs_orangists = 0.15
+	}
+}
+
+country_event = {
+	id = italian_monarchy_events.4
+	title = "italian_monarchy_events.4.t"
+	desc = "italian_monarchy_events.4.d"
+	picture = HARBOUR_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = italian_monarchy
+		NOT = { has_country_modifier = free_commune_m }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "italian_monarchy_events.4.a"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 84 }
+			}
+		}
+		add_mercantilism = 1
+		add_republican_tradition = -4
+		change_statists_vs_orangists = 0.1
+	}
+
+	option = {
+		name = "italian_monarchy_events.4.b"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				republican_tradition = 84
+			}
+		}
+		change_statists_vs_orangists = -0.1
+		add_country_modifier = {
+			name = "free_commune_m"
+			duration = 1825
+		}
+	}
+}
+
+country_event = {
+	id = italian_monarchy_events.5
+	title = "italian_monarchy_events.5.t"
+	desc = "italian_monarchy_events.5.d"
+	picture = ACCUSATION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = italian_monarchy
+		stability = 0
+		has_leaders = {
+			value = 1
+			type = general
+			include_monarch = no
+			include_heir = no
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "italian_monarchy_events.5.a"
+		ai_chance = {
+			factor = 60
+		}
+		kill_leader = { type = general }
+		change_statists_vs_orangists = -0.15
+	}
+
+	option = {
+		name = "italian_monarchy_events.5.b"
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 0
+				NOT = { stability = 0 }
+			}
+		}
+		add_stability = -1
+		change_statists_vs_orangists = 0.15
+	}
+}
+
+country_event = {
+	id = italian_monarchy_events.6
+	title = "italian_monarchy_events.6.t"
+	desc = "italian_monarchy_events.6.d"
+	picture = PAINTER_ARTIST_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = italian_monarchy
+		has_estate = estate_church
+		OR = {
+			religion = catholic
+			religion = catholique
+			religion = anabaptist
+			religion = protestant
+			religion = anglican
+			religion = reformed
+			religion = orthodox
+			religion = paulician
+			religion = cathar
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "italian_monarchy_events.6.a"
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 40
+					}
+				}
+			}
+		}
+		add_prestige = 10
+		reduce_estate_church_loyalty_effect = yes
+		change_statists_vs_orangists = 0.1
+	}
+
+	option = {
+		name = "italian_monarchy_events.6.b"
+		ai_chance = { factor = 1 }
+		add_religious_influence_effect_small = yes
+		change_statists_vs_orangists = -0.1
+	}
+}
+
+#Eastern Monarchy
+country_event = {
+	id = eastern_monarchy_events.1
+	title = "eastern_monarchy_events.1.t"
+	desc = "eastern_monarchy_events.1.d"
+	picture = FORT_eventPicture
+	goto = uncooperative_doux
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = eastern_monarchy
+		any_owned_province = {
+			is_capital = no
+			NOT = { local_autonomy = 100 }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					NOT = { local_autonomy = 100 }
+				}
+				save_event_target_as = uncooperative_doux
+			}
+		}
+	}
+
+	option = {
+		name = "eastern_monarchy_events.1.a"
+		add_prestige = -5
+		event_target:uncooperative_doux = {
+			add_local_autonomy = 20
+			random_neighbor_province = {
+				limit = {
+					owned_by = ROOT
+					is_capital = no
+					NOT = { local_autonomy = 100 }
+				}
+				add_local_autonomy = 20
+			}
+		}
+	}
+}
+
+country_event = {
+	id = eastern_monarchy_events.2
+	title = "eastern_monarchy_events.2.t"
+	desc = "eastern_monarchy_events.2.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	goto = greek_prov
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = eastern_monarchy
+		OR = {
+			religion = catholique
+			religion = catholic
+			religion = orthodox
+			religion = paulician
+			religion = iconoclast
+		}
+		any_owned_province = {
+			NOT = { culture = owner }
+			any_neighbor_province = {
+				culture = owner
+				owned_by = ROOT
+			}
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { culture = owner }
+					any_neighbor_province = {
+						culture = owner
+						owned_by = ROOT
+					}
+				}
+				save_event_target_as = greek_prov
+			}
+		}
+	}
+
+	option = {
+		name = "eastern_monarchy_events.2.a"
+		random_list = {
+			90 = {
+				add_religious_influence_effect_small = yes
+			}
+			10 = {
+				event_target:greek_prov = {
+					change_culture = owner
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = eastern_monarchy_events.3
+	title = "eastern_monarchy_events.3.t"
+	desc = "eastern_monarchy_events.3.d"
+	picture = FAMINE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = eastern_monarchy
+		num_of_cities = 2
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { is_capital = no }
+				save_event_target_as = byzantine_famine
+			}
+		}
+	}
+
+	option = {
+		name = "eastern_monarchy_events.3.a"
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 0
+				OR = {
+					num_of_loans = 1
+					is_bankrupt = yes
+				}
+			}
+		}
+		add_years_of_income = -0.2
+	}
+
+	option = {
+		name = "eastern_monarchy_events.3.b"
+		ai_chance = { factor = 30 }
+		goto = byzantine_famine
+		event_target:byzantine_famine = {
+			anti_tax_rebels = 1
+		}
+	}
+
+	option = {
+		name = "eastern_monarchy_events.3.c"
+		highlight = yes
+		trigger = {
+			ruler_has_personality = lawgiver_personality
+		}
+		ai_chance = { factor = 100 }
+		goto = byzantine_famine
+		event_target:byzantine_famine = {
+			add_base_tax = -1
+		}
+		capital_scope = { add_base_tax = 1 }
+	}
+}
+
+country_event = {
+	id = eastern_monarchy_events.4
+	title = "eastern_monarchy_events.4.t"
+	desc = "eastern_monarchy_events.4.d"
+	picture = ASSASSINATION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = eastern_monarchy
+		has_leaders = {
+			value = 1
+			type = general
+			include_monarch = no
+			include_heir = no
+		}
+		num_of_cities = 2
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "eastern_monarchy_events.4.a"
+		add_legitimacy = 10
+		kill_leader = { type = general }
+		if = {
+			limit = { has_dlc = "Cradle of Civilization" }
+			add_army_professionalism = -0.02
+		}
+		else = {
+			add_army_tradition = -5
+		}
+	}
+}
+
+country_event = {
+	id = eastern_monarchy_events.5
+	title = "eastern_monarchy_events.5.t"
+	desc = "eastern_monarchy_events.5.d"
+	picture = CORRUPTION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = eastern_monarchy
+		has_estate = estate_nobles
+		any_owned_province = {
+			is_capital = no
+			NOT = { local_autonomy = 100 }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				NOT = { local_autonomy = 100 }
+			}
+			save_event_target_as = byzantine_powerful_family
+		}
+	}
+
+	option = {
+		name = "eastern_monarchy_events.5.a"
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 2
+				NOT = { stability = 0 }
+			}
+		}
+		add_corruption = 2
+		add_stability_or_adm_power = yes
+	}
+
+	option = {
+		name = "eastern_monarchy_events.5.b"
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 0
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 40
+					}
+				}
+			}
+		}
+		goto = byzantine_powerful_family
+		reduce_estate_nobles_loyalty_effect = yes
+		event_target:byzantine_powerful_family = {
+			add_local_autonomy = 40
+		}
+	}
+}
+
+country_event = {
+	id = eastern_monarchy_events.6
+	title = "eastern_monarchy_events.6.t"
+	desc = "eastern_monarchy_events.6.d"
+	picture = ARTWORK_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = eastern_monarchy
+		religion_group = christian
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "eastern_monarchy_events.6.a"
+		add_legitimacy = -5
+		add_inflation = 1
+		add_years_of_income = 0.25
+	}
+
+	option = {
+		name = "eastern_monarchy_events.6.b"
+		add_legitimacy = 5
+	}
+}
+
+country_event = {
+	id = eastern_monarchy_events.7
+	title = "eastern_monarchy_events.7.t"
+	desc = "eastern_monarchy_events.7.d"
+	picture = WESTERNISATION_eventPicture
+
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "eastern_monarchy_events.7.a"
+		hidden_effect = { remove_government_reform = eastern_monarchy }
+		add_government_reform = byzantine_autocracy_reform
+		add_stability_or_adm_power = yes
+	}
+}
+
+#Irish Clan
+country_event = {
+	id = irish_clan_events.1
+	title = "irish_clan_events.1.t"
+	desc = "irish_clan_events.1.d"
+	picture = NEW_HEIR_eventPicture
+	
+	mean_time_to_happen = { days = 1 }
+
+	trigger = {
+		NOT = { has_country_flag = in_tanist_heir_selection }
+		has_reform = tribal_kingdom
+		has_regency = no
+		is_lesser_in_union = no
+		has_heir = no
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = in_tanist_heir_selection
+
+			if = {
+				limit = {
+					has_estate = estate_nobles
+					any_owned_province = {
+						is_capital = no
+						is_state = yes
+						culture_group = ROOT
+					}
+				}
+				random_owned_province = {
+					limit = { 
+						is_capital = no
+						is_state = yes
+						culture_group = ROOT
+					}
+					save_event_target_as = warrior_province
+				}
+			}
+			if = {
+				limit = {
+					has_estate = estate_nobles
+					any_owned_province = {
+						is_capital = no
+						is_state = yes
+						culture_group = ROOT
+					}
+				}
+				random_owned_province = {
+					limit = { 
+						is_capital = no
+						is_state = yes
+						culture_group = ROOT
+					}
+					save_event_target_as = bard_province
+				}
+			}
+			if = {
+				limit = {
+					has_estate = estate_church
+					any_owned_province = {
+						is_capital = no
+						is_state = yes
+						culture_group = ROOT
+					}
+				}
+				random_owned_province = {
+					limit = { 
+						is_capital = no
+						is_state = yes
+						culture_group = ROOT
+					}
+					save_event_target_as = cleric_province
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "irish_clan_events.1.a"
+		ai_chance = { factor = 33 }
+		if = {
+			limit = { has_government_attribute = can_see_theocratic_heir_stats }
+			if = {
+				limit = {
+					has_saved_event_target = warrior_province
+					NOT = {
+						has_global_modifier_value = {
+							which = female_advisor_chance
+							value = 1
+						}
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					culture = event_target:warrior_province
+				}
+			}
+			else_if = {
+				limit = {
+					has_saved_event_target = warrior_province
+					has_global_modifier_value = {
+						which = female_advisor_chance
+						value = 1
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					female = yes
+					culture = event_target:warrior_province
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { has_saved_event_target = warrior_province }
+					has_global_modifier_value = {
+						which = female_advisor_chance
+						value = 1
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					female = yes
+				}
+			}
+			else = {
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					has_saved_event_target = warrior_province
+					NOT = {
+						has_global_modifier_value = {
+							which = female_advisor_chance
+							value = 1
+						}
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					hidden = yes
+					culture = event_target:warrior_province
+				}
+			}
+			else_if = {
+				limit = {
+					has_saved_event_target = warrior_province
+					has_global_modifier_value = {
+						which = female_advisor_chance
+						value = 1
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					hidden = yes
+					female = yes
+					culture = event_target:warrior_province
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { has_saved_event_target = warrior_province }
+					has_global_modifier_value = {
+						which = female_advisor_chance
+						value = 1
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					hidden = yes
+					female = yes
+				}
+			}
+			else = {
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					hidden = yes
+				}
+			}
+		}
+		if = {
+			limit = { has_estate = estate_nobles }
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 15
+			}
+		}
+		if = {
+			limit = { has_estate = estate_church }
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = -15
+			}
+		}
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = 10
+		}
+		hidden_effect = { clr_country_flag = in_tanist_heir_selection }
+	}
+	option = {
+		name = "irish_clan_events.1.b"
+		ai_chance = { factor = 33 }
+		if = {
+			limit = { has_government_attribute = can_see_theocratic_heir_stats }
+			if = {
+				limit = {
+					has_saved_event_target = bard_province
+					NOT = {
+						has_global_modifier_value = {
+							which = female_advisor_chance
+							value = 1
+						}
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					culture = event_target:bard_province
+				}
+			}
+			else_if = {
+				limit = {
+					has_saved_event_target = bard_province
+					has_global_modifier_value = {
+						which = female_advisor_chance
+						value = 1
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					female = yes
+					culture = event_target:bard_province
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { has_saved_event_target = bard_province }
+					has_global_modifier_value = {
+						which = female_advisor_chance
+						value = 1
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					female = yes
+				}
+			}
+			else = {
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					has_saved_event_target = bard_province
+					NOT = {
+						has_global_modifier_value = {
+							which = female_advisor_chance
+							value = 1
+						}
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					hidden = yes
+					culture = event_target:bard_province
+				}
+			}
+			else_if = {
+				limit = {
+					has_saved_event_target = bard_province
+					has_global_modifier_value = {
+						which = female_advisor_chance
+						value = 1
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					hidden = yes
+					female = yes
+					culture = event_target:bard_province
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { has_saved_event_target = bard_province }
+					has_global_modifier_value = {
+						which = female_advisor_chance
+						value = 1
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					hidden = yes
+					female = yes
+				}
+			}
+			else = {
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					hidden = yes
+				}
+			}
+		}
+		if = {
+			limit = { has_estate = estate_burghers }
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 10
+			}
+		}
+		if = {
+			limit = { has_estate = estate_nobles }
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -5
+			}
+		}
+		if = {
+			limit = { has_estate = estate_church }
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = -5
+			}
+		}
+		add_faction_influence = {
+			faction = cla_filid
+			influence = 10
+		}
+		hidden_effect = { clr_country_flag = in_tanist_heir_selection }
+	}
+	option = {
+		name = "irish_clan_events.1.c"
+		ai_chance = { factor = 33 }
+		if = {
+			limit = { has_government_attribute = can_see_theocratic_heir_stats }
+			if = {
+				limit = {
+					has_saved_event_target = cleric_province
+					NOT = {
+						has_global_modifier_value = {
+							which = female_advisor_chance
+							value = 1
+						}
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					culture = event_target:cleric_province
+				}
+			}
+			else_if = {
+				limit = {
+					has_saved_event_target = cleric_province
+					has_global_modifier_value = {
+						which = female_advisor_chance
+						value = 1
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					female = yes
+					culture = event_target:cleric_province
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { has_saved_event_target = cleric_province }
+					has_global_modifier_value = {
+						which = female_advisor_chance
+						value = 1
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					female = yes
+				}
+			}
+			else = {
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					has_saved_event_target = cleric_province
+					NOT = {
+						has_global_modifier_value = {
+							which = female_advisor_chance
+							value = 1
+						}
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					hidden = yes
+					culture = event_target:cleric_province
+				}
+			}
+			else_if = {
+				limit = {
+					has_saved_event_target = cleric_province
+					has_global_modifier_value = {
+						which = female_advisor_chance
+						value = 1
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					hidden = yes
+					female = yes
+					culture = event_target:cleric_province
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = { has_saved_event_target = cleric_province }
+					has_global_modifier_value = {
+						which = female_advisor_chance
+						value = 1
+					}
+				}
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					hidden = yes
+					female = yes
+				}
+			}
+			else = {
+				define_heir = {
+					age = 15
+					dynasty = ROOT
+					hidden = yes
+				}
+			}
+		}
+		if = {
+			limit = { has_estate = estate_church }
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 15
+			}
+		}
+		if = {
+			limit = { has_estate = estate_nobles }
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -15
+			}
+		}
+		add_faction_influence = {
+			faction = cla_druid
+			influence = 10
+		}
+		hidden_effect = { clr_country_flag = in_tanist_heir_selection }
+	}
+	option = {
+		name = "irish_clan_events.1.dd"
+		ai_chance = { factor = 1 }
+		trigger = {
+			any_neighbor_country = {
+				has_reform = tribal_kingdom
+				is_lesser_in_union = no
+				has_regency = no
+				primary_culture = ROOT
+			}
+		}
+		random_neighbor_country = { 
+			limit = {
+				has_reform = tribal_kingdom
+				is_lesser_in_union = no
+				has_regency = no
+				primary_culture = ROOT
+			}
+			ROOT = { 
+				if = {
+					limit = { has_government_attribute = can_see_theocratic_heir_stats }
+					if = {
+						limit = {
+							NOT = {
+								has_global_modifier_value = {
+									which = female_advisor_chance
+									value = 1
+								}
+							}
+						}
+						define_heir = { 
+							dynasty = PREV 
+							age = 15
+							culture = PREV
+						} 
+					}
+					else = {
+						define_heir = { 
+							dynasty = PREV 
+							age = 15
+							culture = PREV
+							female = yes
+						} 
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							NOT = {
+								has_global_modifier_value = {
+									which = female_advisor_chance
+									value = 1
+								}
+							}
+						}
+						define_heir = { 
+							dynasty = PREV 
+							age = 15
+							culture = PREV
+							hidden = yes
+						} 
+					}
+					else = {
+						define_heir = { 
+							dynasty = PREV 
+							age = 15
+							culture = PREV
+							female = yes
+							hidden = yes
+						} 
+					}
+				}
+			} 
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_good_relations
+			}
+		}
+		random_list = {
+			33 = {
+				add_faction_influence = {
+					faction = cla_flatha
+					influence = 10
+				}
+			}
+			33 = {
+				add_faction_influence = {
+					faction = cla_filid
+					influence = 10
+				}
+			}
+			33 = {
+				add_faction_influence = {
+					faction = cla_druid
+					influence = 10
+				}
+			}
+		}
+		hidden_effect = { clr_country_flag = in_tanist_heir_selection }
+	}
+}
+
+country_event = {
+	id = irish_clan_events.2
+	title = "irish_clan_events.2.t"
+	desc = "irish_clan_events.2.d"
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_reform = tribal_kingdom
+	}
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "irish_clan_events.1.a"
+		add_mil_power = -25
+	}
+	option = {
+		name = "irish_clan_events.2.a"
+		add_yearly_manpower = -0.25
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = 10
+		}
+	}
+}
+
+country_event = {
+	id = irish_clan_events.3
+	title = "irish_clan_events.3.t"
+	desc = "irish_clan_events.3.d"
+	picture = ACCUSATION_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_reform = tribal_kingdom
+	}
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "irish_clan_events.3.a"
+		add_legitimacy = 10
+		add_faction_influence = {
+			faction = cla_filid
+			influence = 10
+		}
+	}
+	option = {
+		name = "irish_clan_events.3.b"
+		add_legitimacy = -10
+	}
+}
+
+country_event = {
+	id = irish_clan_events.4
+	title = "irish_clan_events.4.t"
+	desc = "irish_clan_events.4.d"
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_reform = tribal_kingdom
+	}
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "irish_clan_events.4.a"
+		add_years_of_income = 0.4
+		add_inflation = 1
+	}
+	option = {
+		name = "irish_clan_events.4.b"
+		add_years_of_income = 0.2
+		add_faction_influence = {
+			faction = cla_druid
+			influence = 10
+		}
+	}
+}
+
+country_event = {
+	id = irish_clan_events.5
+	title = "irish_clan_events.5.t"
+	desc = "irish_clan_events.5.d"
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_reform = tribal_kingdom
+	}
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "irish_clan_events.5.a"
+		create_general = { tradition = 40 }
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = -10
+		}
+	}
+	option = {
+		name = "irish_clan_events.5.b"
+		add_army_tradition = 5
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = 10
+		}
+	}
+}
+
+country_event = {
+	id = irish_clan_events.6
+	title = "irish_clan_events.6.t"
+	desc = "irish_clan_events.6.d"
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_reform = tribal_kingdom
+	}
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "irish_clan_events.6.a"
+		goto = capital
+		capital_scope = {
+			add_base_tax = 1
+		}
+		add_faction_influence = {
+			faction = cla_filid
+			influence = 10
+		}
+	}
+	option = {
+		name = "irish_clan_events.6.b"
+		add_faction_influence = {
+			faction = cla_filid
+			influence = -10
+		}
+	}
+}
+
+country_event = {
+	id = irish_clan_events.7
+	title = "irish_clan_events.7.t"
+	desc = "irish_clan_events.7.d"
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_reform = tribal_kingdom
+		NOT = { has_country_modifier = druid_administration_m }
+	}
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "irish_clan_events.7.a"
+		add_country_modifier = {
+			name = druid_administration_m
+			duration = 1825
+		}
+		add_faction_influence = {
+			faction = cla_druid
+			influence = 10
+		}
+	}
+	option = {
+		name = "irish_clan_events.7.b"
+		add_stability_or_adm_power = yes
+		add_faction_influence = {
+			faction = cla_druid
+			influence = -10
+		}
+	}
+}
+
+country_event = {
+	id = irish_clan_events.8
+	title = "irish_clan_events.8.t"
+	desc = "irish_clan_events.8.d"
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_reform = tribal_kingdom
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "irish_clan_events.8.a"
+		add_mil_power = 25
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = 10
+		}
+	}
+	option = {
+		name = "irish_clan_events.8.b"
+		add_dip_power = 25
+		add_faction_influence = {
+			faction = cla_filid
+			influence = 10
+		}
+	}
+	option = {
+		name = "irish_clan_events.8.c"
+		add_adm_power = 25
+		add_faction_influence = {
+			faction = cla_druid
+			influence = 10
+		}
+	}
+}
+
+country_event = {
+	id = irish_clan_events.9
+	title = "irish_clan_events.9.t"
+	desc = "irish_clan_events.9.d"
+	picture = ADVISOR_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_reform = tribal_kingdom
+		NOT = { has_country_modifier = architectural_enthusiasts_m }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		check_if_non_state_advisor_effect = {
+			chance_of_primary = 75
+			chance_of_tertiary = 5
+			chance_of_secondary = 25
+		}
+	}
+	
+	option = {
+		name = "irish_clan_events.9.a"
+		add_country_modifier = {
+			name = architectural_enthusiasts_m
+			duration = 1825
+		}
+		add_faction_influence = {
+			faction = cla_filid
+			influence = 10
+		}
+	}
+	option = {
+		name = "irish_clan_events.9.b"
+		generate_advisor_of_type_and_semi_random_religion_effect = {
+			advisor_type = fortification_expert
+			advisor_type_if_not_state = fortification_expert
+			scaled_skill = yes
+			discount = yes
+		}
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = 10
+		}
+	}
+	option = {
+		name = "irish_clan_events.9.c"
+		trigger = { religion_group = christian }
+		add_religious_influence_effect_small = yes
+		add_faction_influence = {
+			faction = cla_druid
+			influence = 10
+		}
+	}
+	after = {
+		erase_advisor_flags_effect = yes
+	}
+}
+
+country_event = {
+	id = irish_clan_events.10
+	title = "irish_clan_events.10.t"
+	desc = "irish_clan_events.10.d"
+	picture = CORRUPTION_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_reform = tribal_kingdom
+	}
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "irish_clan_events.10.a"
+		add_corruption = 1
+		add_adm_power = 50
+	}
+	option = {
+		name = "irish_clan_events.10.b"
+		add_adm_power = 25
+		add_faction_influence = {
+			faction = cla_druid
+			influence = 10
+		}
+	}
+}
+
+country_event = {
+	id = irish_clan_events.11
+	title = "irish_clan_events.11.t"
+	desc = "irish_clan_events.11.d"
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_reform = tribal_kingdom
+		any_neighbor_country = { NOT = { war_with = ROOT } }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "irish_clan_events.11.a"
+		add_prestige = 10
+		add_faction_influence = {
+			faction = cla_filid
+			influence = 10
+		}
+	}
+	option = {
+		name = "irish_clan_events.11.b"
+		add_dip_power = 50
+		random_neighbor_country = {
+			limit = { NOT = { war_with = ROOT } }
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_good_relations
+			}
+		}
+	}
+}
+
+#Turkish beylik
+country_event = {
+	id = turkish_government_events.1
+	title = "turkish_government_events.1.t"
+	desc = "turkish_government_events.1.d"
+	picture = {
+		trigger = { has_dlc = "Domination" }
+		picture = GRAND_VIZIER_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Domination" } }
+		picture = ECONOMY_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		has_faction = tur_pacifists
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			check_if_non_state_advisor_effect = {
+				chance_of_primary = 75
+				chance_of_tertiary = 20
+				chance_of_secondary = 5
+			}
+		}
+	}
+
+	option = {
+		name = "turkish_government_events.1.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				NOT = { legitimacy = 80 }
+			}
+		}
+		generate_advisor_of_type_and_semi_random_religion_effect = {
+			advisor_type = statesman
+			advisor_type_if_not_state = statesman
+			scaled_skill = yes
+			discount = yes
+		}
+		add_faction_influence = {
+			faction = tur_lalas
+			influence = 10
+		}
+	}
+
+	option = {
+		name = "turkish_government_events.1.b"
+		ai_chance = {
+			factor = 50
+		}
+		add_prestige = 5
+		add_treasury = -50
+	}
+
+	after = {
+		erase_advisor_flags_effect = yes
+	}
+}
+
+country_event = {
+	id = turkish_government_events.2
+	title = "turkish_government_events.2.t"
+	desc = "turkish_government_events.2.d"
+	picture = {
+		trigger = { has_dlc = "Domination" }
+		picture = EYALET_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Domination" } }
+		picture = HORDE_ON_HORSEBACK_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		has_faction = tur_pacifists
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "turkish_government_events.2.a"
+		add_stability_or_adm_power = yes
+		add_faction_influence = {
+			faction = tur_pacifists
+			influence = 10
+		}
+	}
+
+	option = {
+		name = "turkish_government_events.2.b"
+		add_army_tradition = 10
+		add_faction_influence = {
+			faction = tur_militarists
+			influence = 10
+		}
+	}
+}
+
+country_event = {
+	id = turkish_government_events.3
+	title = "turkish_government_events.3.t"
+	desc = "turkish_government_events.3.d"
+	picture = {
+		trigger = { has_dlc = "Domination" }
+		picture = LAWGIVER_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Domination" } }
+		picture = MERCHANTS_TALKING_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		has_faction = tur_pacifists
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "turkish_government_events.3.a"
+		ai_chance = { factor = 33 }
+		add_adm_power = 50
+		add_faction_influence = {
+			faction = tur_pacifists
+			influence = 10
+		}
+	}
+
+	option = {
+		name = "turkish_government_events.3.b"
+		ai_chance = {
+			factor = 34
+			modifier = {
+				factor = 2
+				NOT = { legitimacy = 80 }
+			}
+		}
+		add_dip_power = 50
+		add_faction_influence = {
+			faction = tur_lalas
+			influence = 10
+		}
+	}
+
+	option = {
+		name = "turkish_government_events.3.c"
+		ai_chance = { factor = 33 }
+		add_mil_power = 50
+		add_faction_influence = {
+			faction = tur_militarists
+			influence = 10
+		}
+	}
+}
+
+country_event = {
+	id = turkish_government_events.4
+	title = "turkish_government_events.4.t"
+	desc = "turkish_government_events.4.d"
+	picture = {
+		trigger = { has_dlc = "Domination" }
+		picture = EYALET_REBELLION_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Domination" } }
+		picture = PRAYING_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		has_faction = tur_pacifists
+		religion_group = muslim
+		NOT = { religion = zikri }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "turkish_government_events.4.a"
+		add_piety = 0.1
+		add_faction_influence = {
+			faction = tur_pacifists
+			influence = 10
+		}
+	}
+
+	option = {
+		name = "turkish_government_events.4.a"
+		add_piety = -0.2
+	}
+}
+
+country_event = {
+	id = turkish_government_events.5
+	title = "turkish_government_events.5.t"
+	desc = "turkish_government_events.5.d"
+	picture = {
+		trigger = { has_dlc = "Domination" }
+		picture = JANISSARY_ESTATE_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Domination" } }
+		picture = HORDE_ON_HORSEBACK_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		has_faction = tur_pacifists
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "turkish_government_events.5.a"
+		add_yearly_manpower = 0.4
+		reduce_estate_burghers_loyalty_effect = yes
+		add_faction_influence = {
+			faction = tur_militarists
+			influence = 10
+		}
+	}
+
+	option = {
+		name = "turkish_government_events.5.b"
+		add_mercantilism = 1
+		add_estate_burghers_loyalty_effect = yes
+		add_mil_power = -25
+	}
+}
+
+country_event = {
+	id = turkish_government_events.6
+	title = "turkish_government_events.6.t"
+	desc = "turkish_government_events.6.d"
+	picture = {
+		trigger = { has_dlc = "Domination" }
+		picture = PASHAS_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Domination" } }
+		picture = HORDE_ON_HORSEBACK_eventPicture
+	}
+	
+	is_triggered_only = yes
+	trigger = {
+		has_faction = tur_pacifists
+		NOT = { has_country_modifier = tur_mil_m }
+		NOT = { has_country_modifier = tur_pac_m }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "turkish_government_events.6.a"
+		add_country_modifier = {
+			name = "tur_mil_m"
+			duration = 1825
+		}
+		add_faction_influence = {
+			faction = tur_militarists
+			influence = 10
+		}
+	}
+
+	option = {
+		name = "turkish_government_events.6.b"
+		add_country_modifier = {
+			name = "tur_pac_m"
+			duration = 1825
+		}
+		add_faction_influence = {
+			faction = tur_pacifists
+			influence = 10
+		}
+	}
+}
+
+country_event = {
+	id = turkish_government_events.7
+	title = "turkish_government_events.7.t"
+	desc = "turkish_government_events.7.d"
+	picture = CORRUPTION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_faction = tur_pacifists
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "turkish_government_events.7.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				NOT = { legitimacy = 80 }
+			}
+		}
+		add_adm_power = -15
+		add_faction_influence = {
+			faction = tur_lalas
+			influence = 10
+		}
+	}
+
+	option = {
+		name = "turkish_government_events.7.b"
+		ai_chance = {
+			factor = 50
+		}
+		add_corruption = 2
+		add_dip_power = 75
+	}
+}
+
+country_event = {
+	id = turkish_government_events.8
+	title = "turkish_government_events.8.t"
+	desc = "turkish_government_events.8.d"
+	picture = {
+		trigger = { has_dlc = "Domination" }
+		picture = EYALET_REBELLION_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Domination" } }
+		picture = BANKRUPTCY_eventPicture
+	}
+	
+	trigger = {
+		has_faction = tur_pacifists
+		faction_in_power = tur_pacifists
+		has_advisor = yes
+		is_at_war = yes
+		war_exhaustion = 1
+		NOT = { war_exhaustion = 19 }
+	}
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			war_exhaustion = 10
+		}
+		modifier = {
+			factor = 0.5
+			war_exhaustion = 18
+		}
+	}
+
+	option = {
+		name = "turkish_government_events.8.a"
+		kill_advisor = random
+		add_faction_influence = {
+			faction = tur_militarists
+			influence = 10
+		}
+	}
+
+	option = {
+		name = "turkish_government_events.8.b"
+		add_war_exhaustion = 1
+		add_faction_influence = {
+			faction = tur_pacifists
+			influence = 5
+		}
+	}
+}
+
+country_event = {
+	id = turkish_government_events.9
+	title = "turkish_government_events.9.t"
+	desc = "turkish_government_events.9.d"
+	picture = {
+		trigger = { has_dlc = "Domination" }
+		picture = ARTILLERY_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Domination" } }
+		picture = BATTLE_eventPicture
+	}
+	
+	trigger = {
+		has_faction = tur_pacifists
+		faction_in_power = tur_militarists
+		war_exhaustion = 2
+		is_at_war = yes
+	}
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			war_exhaustion = 10
+		}
+		modifier = {
+			factor = 0.5
+			war_exhaustion = 18
+		}
+	}
+
+	option = {
+		name = "turkish_government_events.9.a"
+		add_war_exhaustion = -2
+		add_faction_influence = {
+			faction = tur_militarists
+			influence = 5
+		}
+	}
+}
+
+#Canton
+country_event = {
+	id = canton_events.1
+	title = "canton_events.1.t"
+	desc = "canton_events.1.d"
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_reform = canton_government
+			has_reform = united_cantons_reform
+		}
+		has_estate = estate_burghers
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "canton_events.1.a"
+		add_mercantilism = 1
+		add_estate_burghers_loyalty_effect = yes
+	}
+
+	option = {
+		name = "canton_events.1.b"
+		add_adm_power = 75
+		reduce_estate_burghers_loyalty_effect = yes
+	}
+}
+
+country_event = {
+	id = canton_events.2
+	title = "canton_events.2.t"
+	desc = "canton_events.2.d"
+	picture = CITY_VIEW_eventPicture
+	goto = canton_merchants
+	
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_reform = canton_government
+			has_reform = united_cantons_reform
+		}
+		any_owned_province = {
+			is_capital = no
+			has_owner_culture = yes
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					has_owner_culture = yes
+				}
+				save_event_target_as = canton_merchants
+			}
+		}
+	}
+
+	option = {
+		name = "canton_events.2.a"
+		event_target:canton_merchants = { add_base_manpower = 1 }
+	}
+
+	option = {
+		name = "canton_events.2.b"
+		event_target:canton_merchants = { add_base_production = 1 }
+	}
+
+	option = {
+		name = "canton_events.2.c"
+		event_target:canton_merchants = { add_base_tax = 1 }
+	}
+}
+
+country_event = {
+	id = canton_events.3
+	title = "canton_events.3.t"
+	desc = "canton_events.3.d"
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_reform = canton_government
+			has_reform = united_cantons_reform
+		}
+		is_at_war = yes
+		NOT = { has_country_modifier = military_funding }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "canton_events.3.a"
+		add_army_professionalism = 0.02
+		add_country_modifier = {
+			name = "military_funding"
+			duration = 3650
+		}
+	}
+}
+
+country_event = {
+	id = canton_events.4
+	title = "canton_events.4.t"
+	desc = "canton_events.4.d"
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_reform = canton_government
+			has_reform = united_cantons_reform
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "canton_events.4.a"
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 85 }
+			}
+		}
+		add_stability_or_adm_power = yes
+		add_scaled_republican_tradition = -10
+	}
+
+	option = {
+		name = "canton_events.4.b"
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0.25
+				is_at_war = no
+			}
+			modifier = {
+				factor = 0
+				republican_tradition = 85
+			}
+		}
+		create_general = { tradition = 40 }
+		add_scaled_republican_tradition = 5
+	}
+}
+
+country_event = {
+	id = canton_events.5
+	title = "canton_events.5.t"
+	desc = "canton_events.5.d"
+	picture = IMPORTANT_STATUE_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_reform = canton_government
+			has_reform = united_cantons_reform
+		}
+		any_country = {
+			OR = {
+				has_reform = canton_government
+				has_reform = united_cantons_reform
+			}
+			is_at_war = no
+			NOT = { tag = ROOT }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "canton_events.5.a"
+		every_country = {
+			limit = {
+				OR = {
+					has_reform = canton_government
+					has_reform = united_cantons_reform
+				}
+				NOT = { tag = ROOT }
+				is_at_war = no
+			}
+			add_opinion = { who = ROOT modifier = opinion_eased_tension }
+		}
+		random_country = {
+			limit = {
+				OR = {
+					has_reform = canton_government
+					has_reform = united_cantons_reform
+				}
+				NOT = { tag = ROOT }
+				is_at_war = no
+			}
+			country_event = { id = canton_events.6 }
+		}
+	}
+
+	option = {
+		name = "canton_events.5.b"
+		add_prestige = 5
+		add_religious_influence_effect_small = yes
+		add_scaled_republican_tradition = -10
+	}
+}
+
+country_event = {
+	id = canton_events.6
+	title = "canton_events.6.t"
+	desc = "canton_events.6.d"
+	picture = WESTERNISATION_eventPicture
+	
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "canton_events.6.a"
+		add_prestige = 5
+		add_religious_influence_effect_small = yes
+	}
+}
+
+#Hidden
+country_event = {
+	id = canton_events.7
+	title = none
+	desc = none
+	picture = WESTERNISATION_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+
+    immediate = {
+        hidden_effect = {
+            export_to_variable = {
+                which = soldvertrag_payment
+                value = years_of_income
+                who = ROOT
+            } 
+        }
+    }
+
+	option = {
+		name = OK
+		transfer_treasury = {
+            giver = ROOT
+            taker = FROM
+            variable = soldvertrag_payment
+		}
+	}
+}
+
+#Abbacies
+country_event = {
+	id = abbacy_events.1
+	title = "abbacy_events.1.t"
+	desc = "abbacy_events.1.d"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_faction = abb_benedictines
+		NOT = { has_country_modifier = cluniac_m }
+		NOT = { has_country_modifier = cisterc_m }
+		NOT = { has_country_modifier = benedic_m }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "abbacy_events.1.a"
+		add_country_modifier = {
+			name = "cluniac_m"
+			duration = 1825
+		}
+		add_faction_influence = {
+			faction = abb_cluniacs
+			influence = 10
+		}
+	}
+	option = {
+		name = "abbacy_events.1.b"
+		add_country_modifier = {
+			name = "cisterc_m"
+			duration = 1825
+		}
+		add_faction_influence = {
+			faction = abb_cistercians
+			influence = 10
+		}
+	}
+	option = {
+		name = "abbacy_events.1.c"
+		add_country_modifier = {
+			name = "benedic_m"
+			duration = 1825
+		}
+		add_faction_influence = {
+			faction = abb_benedictines
+			influence = 10
+		}
+	}
+}
+
+country_event = {
+	id = abbacy_events.2
+	title = "abbacy_events.2.t"
+	desc = "abbacy_events.2.d"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_faction = abb_benedictines }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "abbacy_events.2.a"
+		add_mercantilism = 1
+		add_corruption = 1
+		add_faction_influence = {
+			faction = abb_cluniacs
+			influence = 10
+		}
+	}
+	option = {
+		name = "abbacy_events.2.b"
+		add_army_tradition = 5
+		add_prestige = -5
+		add_faction_influence = {
+			faction = abb_cistercians
+			influence = 10
+		}
+	}
+	option = {
+		name = "abbacy_events.2.c"
+		add_stability_or_adm_power = yes
+		add_inflation = 2
+		add_faction_influence = {
+			faction = abb_benedictines
+			influence = 10
+		}
+	}
+}
+
+country_event = {
+	id = abbacy_events.3
+	title = "abbacy_events.3.t"
+	desc = "abbacy_events.3.d"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_faction = abb_benedictines }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "abbacy_events.3.a"
+		add_dip_power = 25
+		add_faction_influence = {
+			faction = abb_cluniacs
+			influence = 10
+		}
+	}
+	option = {
+		name = "abbacy_events.3.b"
+		add_mil_power = 25
+		add_faction_influence = {
+			faction = abb_cistercians
+			influence = 10
+		}
+	}
+	option = {
+		name = "abbacy_events.3.c"
+		add_adm_power = 25
+		add_faction_influence = {
+			faction = abb_benedictines
+			influence = 10
+		}
+	}
+}
+
+country_event = {
+	id = abbacy_events.4
+	title = "abbacy_events.4.t"
+	desc = "abbacy_events.4.d"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_faction = abb_benedictines }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "abbacy_events.4.a"
+		change_government_reform_progress = 15
+		add_faction_influence = {
+			faction = abb_cluniacs
+			influence = 10
+		}
+	}
+	option = {
+		name = "abbacy_events.4.b"
+		add_yearly_manpower = 0.25
+		add_faction_influence = {
+			faction = abb_cistercians
+			influence = 10
+		}
+	}
+	option = {
+		name = "abbacy_events.4.c"
+		add_years_of_income = 0.25
+		add_faction_influence = {
+			faction = abb_benedictines
+			influence = 10
+		}
+	}
+}
+
+country_event = {
+	id = abbacy_events.5
+	title = "abbacy_events.5.t"
+	desc = "abbacy_events.5.d"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_faction = abb_benedictines
+		faction_in_power = abb_cluniacs
+		any_neighbor_country = {
+			is_at_war = no
+			religion = ROOT
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "abbacy_events.5.a"
+		random_neighbor_country = {
+			limit = {
+				is_at_war = no
+				religion = ROOT
+			}
+			add_opinion = { who = ROOT modifier = opinion_good_relations }
+		}
+		add_faction_influence = {
+			faction = abb_cluniacs
+			influence = 5
+		}
+	}
+}
+
+country_event = {
+	id = abbacy_events.6
+	title = "abbacy_events.6.t"
+	desc = "abbacy_events.6.d"
+	picture = RELIGION_eventPicture
+	goto = suffragan_abbey
+
+	is_triggered_only = yes
+	trigger = {
+		has_faction = abb_benedictines
+		faction_in_power = abb_cistercians
+		any_neighbor_country = {
+			NOT = { alliance_with = ROOT }
+			NOT = { is_subject_of = ROOT }
+			NOT = { overlord_of = ROOT }
+			any_owned_province = {
+				NOT = { is_claim = ROOT }
+				any_neighbor_province = { owned_by = ROOT }
+				religion = ROOT
+			}
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_neighbor_country = {
+				limit = {
+					NOT = { alliance_with = ROOT }
+					NOT = { is_subject_of = ROOT }
+					NOT = { overlord_of = ROOT }
+				}
+				random_owned_province = {
+					limit = {
+						NOT = { is_claim = ROOT }
+						any_neighbor_province = { owned_by = ROOT }
+						religion = ROOT
+					}
+					save_event_target_as = suffragan_abbey
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "abbacy_events.6.a"
+		event_target:suffragan_abbey = {
+			add_claim = ROOT
+		}
+		add_faction_influence = {
+			faction = abb_cistercians
+			influence = 5
+		}
+	}
+}
+
+country_event = {
+	id = abbacy_events.7
+	title = "abbacy_events.7.t"
+	desc = "abbacy_events.7.d"
+	picture = RELIGION_eventPicture
+	goto = mendicant_return
+
+	is_triggered_only = yes
+	trigger = {
+		has_faction = abb_benedictines
+		faction_in_power = abb_benedictines
+		any_owned_province = {
+			is_capital = no
+			religion = ROOT
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_capital = no
+					religion = ROOT
+				}
+				save_event_target_as = mendicant_return
+			}
+		}
+	}
+
+	option = {
+		name = "abbacy_events.7.a"
+		event_target:mendicant_return = { add_base_production = 1 }
+		add_faction_influence = {
+			faction = abb_benedictines
+			influence = 5
+		}
+	}
+}
+
+country_event = {
+	id = abbacy_events.8
+	title = "abbacy_events.8.t"
+	desc = "abbacy_events.8.d"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_faction = abb_benedictines
+		NOT = { faction_in_power = abb_cluniacs }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "abbacy_events.8.a"
+		add_years_of_income = -0.2
+		add_faction_influence = {
+			faction = abb_cluniacs
+			influence = 5
+		}
+	}
+	option = {
+		name = "abbacy_events.8.b"
+		add_years_of_income = -0.4
+	}
+}
+
+country_event = {
+	id = abbacy_events.9
+	title = "abbacy_events.9.t"
+	desc = "abbacy_events.9.d"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_faction = abb_benedictines
+		NOT = { faction_in_power = abb_cistercians }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "abbacy_events.9.a"
+		add_yearly_manpower = -0.2
+		add_faction_influence = {
+			faction = abb_cistercians
+			influence = 5
+		}
+	}
+	option = {
+		name = "abbacy_events.9.b"
+		add_yearly_manpower = -0.4
+	}
+}
+
+country_event = {
+	id = abbacy_events.10
+	title = "abbacy_events.10.t"
+	desc = "abbacy_events.10.d"
+	picture = RELIGION_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_faction = abb_benedictines
+		NOT = { faction_in_power = abb_benedictines }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "abbacy_events.10.a"
+		reduce_legitimacy_small_effect = yes
+		add_faction_influence = {
+			faction = abb_benedictines
+			influence = 5
+		}
+	}
+	option = {
+		name = "abbacy_events.10.b"
+		reduce_legitimacy_medium_effect = yes
+	}
+}
+
+#Theocratic Reorganisation
+country_event = {
+	id = abbacy_events.11
+	title = "abbacy_events.11.t"
+	desc = {
+		trigger = { religion = catholic }
+		desc = "abbacy_events.11.d"
+	}
+	desc = {
+		trigger = { religion = catholique }
+		desc = "abbacy_events.11.d2"
+	}
+	picture = POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "abbacy_events.11.a"
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOT = { has_reform = monastic_order_reform }
+			NOT = { has_reform = priory_reform }
+		}
+		if = {
+			limit = {
+				OR = {
+					is_or_was_tag = { tag = QDL }
+					is_or_was_tag = { tag = ROT }
+					is_or_was_tag = { tag = THO }
+				}
+			}
+			add_government_reform = priory_reform
+		}
+		else = {
+			add_government_reform = monastic_order_reform
+		}
+		lose_reforms = 4
+	}
+
+	option = {
+		name = "abbacy_events.11.b"
+		ai_chance = { factor = 0 }
+		trigger = { NOT = { has_reform = crusader_order_reform } }
+		add_government_reform = crusader_order_reform
+		lose_reforms = 4
+	}
+
+	option = {
+		name = "abbacy_events.11.c"
+		ai_chance = { factor = 0 }
+		trigger = { NOT = { has_reform = leading_clergy_reform } }
+		add_government_reform = leading_clergy_reform
+		lose_reforms = 4
+	}
+
+	option = {
+		name = "abbacy_events.11.dd"
+		ai_chance = { factor = 100 }
+		add_devotion = 1
+	}
+}
+
+# Papal Factions
+country_event = {
+	id = pap_faction_events.1
+	title = "pap_faction_events.1.t"
+	desc = "pap_faction_events.1.d"
+	picture = POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			faction_in_power = pap_orsini
+			faction_in_power = pap_colonna
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "pap_faction_events.1.a"
+		trigger = { faction_in_power = pap_orsini }
+		add_ruler_modifier = { name = "orsini_pope" }
+	}
+
+	option = {
+		name = "pap_faction_events.1.b"
+		trigger = { faction_in_power = pap_colonna }
+		add_ruler_modifier = { name = "colonna_pope" }
+	}
+}
+
+country_event = {
+	id = pap_faction_events.2
+	title = "pap_faction_events.2.t"
+	desc = "pap_faction_events.2.d"
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		faction_in_power = pap_roman_mob
+		OR = {
+			has_ruler_modifier = orsini_pope
+			has_ruler_modifier = colonna_pope
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { is_in_capital_area = yes }
+				save_event_target_as = roman_mob_prov
+			}
+		}
+	}
+	
+	option = {
+		name = "pap_faction_events.2.a"
+		ai_chance = { factor = 1 }
+		kill_ruler = yes
+	}
+
+	option = {
+		name = "pap_faction_events.2.b"
+		ai_chance = {
+			factor = 99
+			modifier = {
+				factor = 0
+				NOT = {
+					ruler_total_stats = {
+						amount = 5 
+					}
+				}
+			}
+		}
+		goto = roman_mob_prov
+		event_target:roman_mob_prov = {
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = pap_faction_events.3
+	title = "pap_faction_events.3.t"
+	desc = "pap_faction_events.3.d"
+	picture = STREET_SPEECH_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = papacy_reform
+		has_factions = yes
+		capital_scope = {
+			NOT = { controlled_by = REB }
+			NOT = { controlled_by = owner }
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "pap_faction_events.3.a"
+		ai_chance = { factor = 100 }
+		goto = capital
+		add_faction_influence = { faction = pap_roman_mob influence = 50 }
+		capital_scope = { change_controller = ROOT }
+	}
+
+	option = {
+		name = "pap_faction_events.3.b"
+		ai_chance = { factor = 0 }
+		add_faction_influence = { faction = pap_roman_mob influence = -25 }
+		add_manpower = 5
+		add_war_exhaustion = -5
+	}
+}
+
+country_event = {
+	id = pap_faction_events.4
+	title = "pap_faction_events.4.t"
+	desc = "pap_faction_events.4.d"
+	picture = CORRUPTION_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		is_papal_controller = no
+		OR = {
+			faction_in_power = pap_orsini
+			faction_in_power = pap_colonna
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_country = {
+				limit = { is_papal_controller = yes }
+				save_event_target_as = papal_antagonist
+			}
+		}
+	}
+	
+	option = {
+		name = "pap_faction_events.4.a"
+		if = {
+			limit = { faction_in_power = pap_orsini }
+			add_faction_influence = { faction = pap_orsini influence = -25 }
+		}
+		else = {
+			add_faction_influence = { faction = pap_colonna influence = -25 }
+		}
+		random_country = {
+			limit = { is_papal_controller = yes }
+			add_papal_influence = 10
+		}
+	}
+
+	option = {
+		name = "pap_faction_events.4.b"
+		random_country = {
+			limit = { is_papal_controller = yes }
+			add_opinion = { who = ROOT modifier = opinion_upset_pope }
+		}
+	}
+}
+
+country_event = {
+	id = pap_faction_events.5
+	title = "pap_faction_events.5.t"
+	desc = "pap_faction_events.5.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			faction_in_power = pap_orsini
+			faction_in_power = pap_colonna
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "pap_faction_events.5.a"
+		ai_chance = { factor = 25 }
+		add_faction_influence = { faction = pap_roman_mob influence = 25 }
+		add_prestige = -10
+	}
+
+	option = {
+		name = "pap_faction_events.5.b"
+		ai_chance = { factor = 75 }
+		add_corruption = 1
+		add_devotion = -5
+	}
+}
+
+country_event = {
+	id = pap_faction_events.6
+	title = "pap_faction_events.6.t"
+	desc = "pap_faction_events.6.d"
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = BAD_POPE_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = POPE_PREACHING_eventPicture
+	}
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_ruler_modifier = colonna_pope
+		faction_in_power = pap_orsini
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "pap_faction_events.6.a"
+		add_years_of_income = -0.25
+		add_faction_influence = { faction = pap_orsini influence = 10 }
+	}
+}
+
+country_event = {
+	id = pap_faction_events.7
+	title = "pap_faction_events.7.t"
+	desc = "pap_faction_events.7.d"
+	picture = {
+		trigger = { has_dlc = "Emperor" }
+		picture = BAD_POPE_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Emperor" } }
+		picture = POPE_PREACHING_eventPicture
+	}
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_ruler_modifier = orsini_pope
+		faction_in_power = pap_colonna
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "pap_faction_events.7.a"
+		add_corruption = 2
+		add_faction_influence = { faction = pap_colonna influence = 10 }
+	}
+}
+
+country_event = {
+	id = pap_faction_events.8
+	title = "pap_faction_events.8.t"
+	desc = "pap_faction_events.8.d"
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = papacy_reform
+		has_factions = yes
+		any_neighbor_country = {
+			NOT = { tag = LZO }
+			NOT = { is_rival = ROOT }
+		}
+	}
+	
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_neighbor_country = {
+				limit = {
+					NOT = { tag = LZO }
+					NOT = { is_rival = ROOT }
+				}
+				save_event_target_as = colonna_friend
+			}
+		}
+	}
+	
+	option = {
+		name = "pap_faction_events.8.a"
+		add_faction_influence = { faction = pap_colonna influence = 25 }
+		event_target:colonna_friend = {
+			add_opinion = { who = ROOT modifier = christian_brotherhood }
+		}
+	}
+
+	option = {
+		name = "pap_faction_events.8.b"
+		add_faction_influence = { faction = pap_orsini influence = 25 }
+		add_adm_power = 50
+	}
+}
+
+country_event = {
+	id = pap_faction_events.9
+	title = "pap_faction_events.9.t"
+	desc = "pap_faction_events.9.d"
+	picture = ADVISOR_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_country_modifier = orsini_admin }
+		has_reform = papacy_reform
+		has_factions = yes
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "pap_faction_events.9.a"
+		add_faction_influence = { faction = pap_orsini influence = 25 }
+		add_country_modifier = {
+			name = "orsini_admin"
+			duration = 1825
+		}
+	}
+
+	option = {
+		name = "pap_faction_events.9.b"
+		add_faction_influence = { faction = pap_colonna influence = 25 }
+		add_dip_power = 50
+	}
+}
+
+country_event = {
+	id = pap_faction_events.10
+	title = "pap_faction_events.10.t"
+	desc = "pap_faction_events.10.d"
+	picture = POPE_PREACHING_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		has_reform = papacy_reform
+		tag = PAP
+		has_factions = yes
+		current_age = age_of_reformation
+		NOT = { started_in = 1511.1.1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.5
+			ruler_has_personality = pious_personality
+		}
+		modifier = {
+			factor = 0.5
+			faction_in_power = pap_roman_mob
+		}
+	}
+	
+	option = {
+		name = "pap_faction_events.10.a"
+		add_devotion = 20
+		remove_faction = pap_orsini
+		remove_faction = pap_colonna
+		remove_faction = pap_roman_mob
+		set_global_flag = pax_romana
+	}
+}
+
+#Sufi Orders
+country_event = {
+	id = sufi_order_events.1
+	title = "sufi_order_events.1.t"
+	desc = "sufi_order_events.1.d"
+	picture = UNIVERSITY_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { has_reform = sufi_reform }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "sufi_order_events.1.a"
+		if = {
+			limit = { uses_piety = yes }
+			add_piety = 0.1
+		}
+		else = {
+			change_government_reform_progress = 10
+		}		
+		reduce_legitimacy_small_effect = yes
+	}
+
+	option = {
+		name = "sufi_order_events.1.b"
+		if = {
+			limit = { uses_piety = yes }
+			add_piety = -0.1
+		}
+		else = {
+			change_government_reform_progress = -10
+		}	
+		increase_legitimacy_small_effect = yes
+	}
+}
+
+country_event = {
+	id = sufi_order_events.2
+	title = "sufi_order_events.2.t"
+	desc = "sufi_order_events.2.d"
+	picture = ACCUSATION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_reform = sufi_reform
+			has_reform = millenarian_republic
+		}
+		any_neighbor_country = {
+			religion_group = muslim
+			NOT = { has_reform = sufi_reform }
+			NOT = { has_reform = millenarian_republic }
+			piety = 0.1
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "sufi_order_events.2.a"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				OR = {
+					is_bankrupt = yes
+					num_of_loans = 1
+					NOT = { years_of_income = 0.33 }
+				}
+			}
+		}
+		add_years_of_income = -0.33
+		add_piety = -0.15
+		increase_legitimacy_small_effect = yes
+	}
+
+	option = {
+		name = "sufi_order_events.2.b"
+		ai_chance = { factor = 10 }
+		add_piety = 0.15
+		every_neighbor_country = {
+			limit = {
+				religion_group = muslim
+				NOT = { has_reform = sufi_reform }
+				NOT = { has_reform = millenarian_republic }
+				piety = 0.1
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_displeased
+			}
+		}
+	}
+}
+
+#Germanic Monarchy
+country_event = {
+	id = germanic_monarchy_events.1
+	title = "germanic_monarchy_events.1.t"
+	desc = "germanic_monarchy_events.1.d"
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = germanic_monarchy
+		heir_has_ruler_dynasty = yes
+		is_lesser_in_union = no
+		has_regency = no
+		heir_claim = 50
+		heir_age = 10
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "germanic_monarchy_events.1.a"
+		ai_chance = { factor = 100 }
+		add_prestige = -5
+		add_dip_power = -50
+	}
+
+	option = {
+		name = "germanic_monarchy_events.1.b"
+		ai_chance = { factor = 0 }
+		add_heir_claim = -10
+	}
+}
+
+country_event = {
+	id = germanic_monarchy_events.2
+	title = "germanic_monarchy_events.2.t"
+	desc = "germanic_monarchy_events.2.d"
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = germanic_monarchy
+		heir_has_ruler_dynasty = no
+		is_lesser_in_union = no
+		has_regency = no
+		NOT = { heir_claim = 100 }
+		has_heir = yes
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { controlled_by = ROOT }
+				save_event_target_as = illegitimate_child
+			}
+		}
+	}
+
+	option = {
+		name = "germanic_monarchy_events.2.a"
+		ai_chance = { factor = 50 }
+		goto = illegitimate_child
+		add_heir_claim = 10
+		event_target:illegitimate_child = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 1
+			}
+		}
+	}
+
+	option = {
+		name = "germanic_monarchy_events.2.b"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				OR = {
+					is_in_deficit = yes
+					is_bankrupt = yes
+					num_of_loans = 1
+				}
+			}
+		}
+		add_years_of_income = -0.5
+	}
+}
+
+country_event = {
+	id = germanic_monarchy_events.3
+	title = "germanic_monarchy_events.3.t"
+	desc = "germanic_monarchy_events.3.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = germanic_monarchy
+		is_lesser_in_union = no
+		has_regency = no
+		NOT = { heir_mil = 6 }
+		NOT = { heir_age = 30 }
+		heir_age = 15
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "germanic_monarchy_events.3.a"
+		change_heir_mil = 1
+	}
+}
+
+country_event = {
+	id = germanic_monarchy_events.4
+	title = "germanic_monarchy_events.4.t"
+	desc = "germanic_monarchy_events.4.d"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = germanic_monarchy
+		has_regency = no
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "germanic_monarchy_events.4.a"
+		change_government_reform_progress = -15
+		add_estate_influence_modifier = {
+			estate = estate_nobles
+			desc = EST_VAL_THING_POWER
+			influence = 10
+			duration = 3650
+		}
+	}
+
+	option = {
+		name = "germanic_monarchy_events.4.b"
+		change_government_reform_progress = 15
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -10
+		}
+	}
+}
+
+country_event = {
+	id = germanic_monarchy_events.5
+	title = "germanic_monarchy_events.5.t"
+	desc = {
+		trigger = { NOT = { primary_culture = anglosaxon } }
+		desc = "germanic_monarchy_events.5.d"
+	}
+	desc = {
+		trigger = { primary_culture = anglosaxon }
+		desc = "germanic_monarchy_events.5.d2"
+	}
+	picture = OVEREXTENSION_eventPicture
+	
+	is_triggered_only = yes
+	trigger = { has_reform = germanic_monarchy }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "germanic_monarchy_events.5.a"
+		add_country_modifier = {
+			name = "reorganizing_folklands"
+			duration = 3650
+		}
+	}
+
+	option = {
+		name = "germanic_monarchy_events.5.b"
+		add_adm_power = 25
+		add_dip_power = 25
+		add_mil_power = 25
+	}
+}
+
+country_event = {
+	id = germanic_monarchy_events.6
+	title = "germanic_monarchy_events.6.t"
+	desc = "germanic_monarchy_events.6.d"
+	picture = LIBERUM_VETO_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = germanic_monarchy
+		any_owned_province = {
+			NOT = { local_autonomy = 100 }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { local_autonomy = 100 }
+				}
+				save_event_target_as = folkmoot_province
+			}
+		}
+	}
+
+	option = {
+		name = "germanic_monarchy_events.6.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				estate_influence = {
+					estate = estate_nobles
+					influence = 70
+				}
+			}
+		}
+		goto = folkmoot_province
+		event_target:folkmoot_province = {
+			add_local_autonomy = 50
+		}
+		add_stability = 1
+	}
+
+	option = {
+		name = "germanic_monarchy_events.6.b"
+		ai_chance = { factor = 50 }
+		add_prestige = 20
+	}
+}
+
+country_event = {
+	id = germanic_monarchy_events.7
+	title = "germanic_monarchy_events.7.t"
+	desc = "germanic_monarchy_events.7.d"
+	picture = LIBERUM_VETO_eventPicture
+	
+	is_triggered_only = yes
+	trigger = {
+		has_reform = germanic_monarchy
+		is_lesser_in_union = yes
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "germanic_monarchy_events.7.a"
+		add_liberty_desire = 15
+		add_corruption = 3
+	}
+
+	option = {
+		name = "germanic_monarchy_events.7.b"
+		add_prestige = -5
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -20
+		}
+	}
+}
+
+#Anglo-Norman monarchy
+# country_event = {
+# 	id = anglo_norman_monarchy_events.1
+# 	title = "anglo_norman_monarchy_events.1.t"
+# 	desc = "anglo_norman_monarchy_events.1.d"
+# 	picture = ANGRY_MOB_eventPicture
+# 	goto = celt_prov
+	
+# 	trigger = {
+# 		has_reform = anglo_norman_monarchy
+# 		NOT = { has_disaster = revolt_of_the_earls }
+# 		NOT = {
+# 			has_disaster_progress = {
+# 				disaster = revolt_of_the_earls
+# 				value = 1
+# 			}
+# 		}
+# 		any_owned_province = {
+# 			culture_group = celtic
+# 			NOT = { culture = cornish } # :(
+# 			can_spawn_rebels = nationalist_rebels
+# 		}
+# 	}
+
+# 	mean_time_to_happen = { 
+# 		months = 240
+# 		modifier = {
+# 			factor = 0.8
+# 			NOT = { stability = 1 }
+# 		}
+# 		modifier = {
+# 			factor = 0.8
+# 			is_at_war = yes
+# 		}
+# 		modifier = {
+# 			factor = 0.8
+# 			num_of_owned_provinces_with = {
+# 				value = 10
+# 				culture_group = celtic
+# 				NOT = { culture = cornish }
+# 			}
+# 		}
+# 		modifier = {
+# 			factor = 0.8
+# 			num_of_owned_provinces_with = {
+# 				value = 20
+# 				culture_group = celtic
+# 				NOT = { culture = cornish }
+# 			}
+# 		}
+# 		modifier = {
+# 			factor = 0.8
+# 			num_of_owned_provinces_with = {
+# 				value = 30
+# 				culture_group = celtic
+# 				NOT = { culture = cornish }
+# 			}
+# 		}
+# 	}
+
+# 	immediate = {
+# 		hidden_effect = {
+# 			random_owned_province = {
+# 				limit = {
+# 					culture_group = celtic
+# 					NOT = { culture = cornish }
+# 					can_spawn_rebels = nationalist_rebels
+# 				}
+# 				save_event_target_as = celt_prov
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = "anglo_norman_monarchy_events.1.a"
+# 		event_target:celt_prov = {
+# 			if = {
+# 				limit = {
+# 					ROOT = { total_development = 300 }
+# 				}
+# 				nationalist_rebels = 3
+# 			}
+# 			else_if = {
+# 				limit = {
+# 					ROOT = { total_development = 150 }
+# 				}
+# 				nationalist_rebels = 2
+# 			}
+# 			else = {
+# 				nationalist_rebels = 1
+# 			}
+# 		}
+# 	}
+# }
+

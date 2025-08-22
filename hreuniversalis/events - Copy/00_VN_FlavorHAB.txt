@@ -1,0 +1,231 @@
+namespace = vn_flavor_hab
+
+#Fall of Babenbergs
+country_event = {
+	id = vn_flavor_hab.1
+	title = "vn_flavor_hab.1.t"
+	desc = "vn_flavor_hab.1.d"
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	trigger = {
+		OR = {
+			tag = HAB
+			tag = STY
+		}
+		has_regency = yes
+		has_consort_regency = no
+		is_lesser_in_union = no
+		NOT = { is_year = 1253 }
+		started_in = 1246.6.15
+		NOT = { started_in = 1251.1.1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = "vn_flavor_hab.1.a" #Bohemia
+		ai_chance = { factor = 70 }
+		define_ruler = {
+			dynasty = "Premyslovci"
+			culture = czech
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+		hidden_effect = {
+			BOH = { country_event = { id = vn_flavor_hab.2 } }
+		}
+		tooltip = {
+			reverse_add_opinion = {
+				who = BOH
+				modifier = opinion_choose_heir
+			}
+		}
+	}
+	option = {
+		name = "vn_flavor_hab.1.b"
+		ai_chance = { factor = 25 }
+		define_ruler = {
+			dynasty = "von Zähringen"
+			culture = boden_alemannic
+		}
+		add_prestige = 10
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -15
+		}
+		hidden_effect = {
+			BAD = { country_event = { id = vn_flavor_hab.2 } }
+		}
+		tooltip = {
+			reverse_add_opinion = {
+				who = BAD
+				modifier = opinion_choose_heir
+			}
+		}
+	}
+	option = {
+		name = "vn_flavor_hab.1.c"
+		ai_chance = { factor = 5 }
+		trigger = { tag = STY }
+		define_ruler = { dynasty = "von Karnstein" }
+		add_legitimacy = -5
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 15
+		}
+	}
+}
+
+#Response for chosen country
+country_event = {
+	id = vn_flavor_hab.2
+	title = "vn_flavor_hab.2.t"
+	desc = "vn_flavor_hab.2.d"
+	picture = NEW_HEIR_eventPicture
+
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "vn_flavor_hab.2.a"
+		add_prestige = 5
+		add_opinion = {
+			who = FROM
+			modifier = opinion_choose_heir
+		}
+	}
+}
+
+#Ladislaus Postumus
+country_event = {
+	id = vn_flavor_hab.3
+	title = "vn_flavor_hab.3.t"
+	desc = "vn_flavor_hab.3.d"
+	picture = ASSASSINATION_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		normal_or_historical_nations = yes
+		is_free_or_tributary_trigger = yes
+		dynasty = "von Habsburg"
+		is_emperor = yes
+		tag = STY
+		HAB = {
+			has_ruler = "Ladislaus Postumus"
+			is_free_or_tributary_trigger = yes
+		}
+	}
+
+	mean_time_to_happen =  {
+		days = 1
+	}
+
+	option = {
+		name = "vn_flavor_hab.3.a"
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0
+				HAB = { ai = no }
+			}
+		}
+		random_list = {
+			75 = {
+				inherit = HAB
+				set_capital = 2172
+				random_owned_province = {
+					limit = { is_capital = no }
+					spawn_rebels = {
+						type = noble_rebels
+						size = 2
+					}
+				}
+				set_ruler_flag = styria_inherited_austria_flag
+			}
+			25 = {
+				HAB = { add_opinion = { who = STY modifier = attempted_assassination_of_heir } }
+				HAB = {
+					add_casus_belli = {
+						target = STY
+						type = cb_insult
+						months = 60
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "vn_flavor_hab.3.b"
+		ai_chance = { factor = 25 }
+		add_stability = 1
+	}
+}
+
+#Fuggers
+country_event = {
+	id = vn_flavor_hab.4
+	title = "vn_flavor_hab.4.t"
+	desc = "vn_flavor_hab.4.d"
+	picture = ADVISOR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		dynasty = "von Habsburg"
+		is_year = 1500
+		NOT = { started_in = 1504.1.1 }
+		burgau_area = {
+			owned_by = ROOT
+			is_core = ROOT
+		}
+		capital_scope = { NOT = { area = burgau_area } }
+		num_of_cities = 20
+		NOT = { exists = BGX }
+		normal_or_historical_nations = yes
+	}
+
+	mean_time_to_happen =  {
+		months = 200
+		modifier = {
+			factor = 0.5
+			is_emperor = yes
+		}
+		modifier = {
+			factor = 0.75
+			has_estate_privilege = estate_burghers_fugger_family
+		}
+	}
+
+	option = {
+		name = "vn_flavor_hab.4.a"
+		ai_chance = { factor = 90 }
+		add_imperial_influence = 10
+		add_adm_power = 100
+		add_dip_power = 100
+		add_mil_power = 100
+		burgau_area = {
+			limit = { owned_by = ROOT }
+			add_core = BGX
+			remove_core = ROOT
+		}
+		release = BGX
+		BGX = {
+			add_opinion = { who = ROOT modifier = supported_independence }
+			change_government = monarchy
+			add_government_reform = autocracy_reform
+			define_ruler = { dynasty = "Fugger" }
+			set_government_rank = 1
+		}
+	}
+
+	option = {
+		name = "vn_flavor_hab.4.b"
+		ai_chance = { factor = 10 }
+		add_prestige = -5
+	}
+}

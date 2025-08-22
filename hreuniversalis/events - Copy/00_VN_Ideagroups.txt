@@ -1,0 +1,1099 @@
+namespace = vn_ideagroups
+
+# Piracy Ideas
+country_event = {
+	id = vn_ideagroups.1
+	title = "vn_ideagroups.1.t"
+	desc = "vn_ideagroups.1.d"
+	picture = BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = piracy_ideas
+		NOT = { has_country_modifier = privateer_integration }
+		any_owned_province = { has_port = yes }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.1.a"
+		add_country_modifier = {
+			name = "privateer_integration"
+			duration = 3650
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.2
+	title = "vn_ideagroups.2.t"
+	desc = "vn_ideagroups.2.d"
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = piracy_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.2.a"
+		add_years_of_income = 0.25
+	}
+
+	option = {
+		name = "vn_ideagroups.2.b"
+		add_adm_power = 20
+		add_dip_power = 20
+		add_mil_power = 20
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.3
+	title = "vn_ideagroups.3.t"
+	desc = "vn_ideagroups.3.d"
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = piracy_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.3.a"
+		add_mercantilism = 1
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.4
+	title = "vn_ideagroups.4.t"
+	desc = "vn_ideagroups.4.d"
+	picture = HARBOUR_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = piracy_ideas
+		war_exhaustion = 1
+		any_owned_province = { has_port = yes }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.4.a"
+		add_war_exhaustion = -2
+	}
+
+	option = {
+		name = "vn_ideagroups.4.b"
+		add_yearly_sailors = 1
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.5
+	title = "vn_ideagroups.5.t"
+	desc = "vn_ideagroups.5.d"
+	picture = NAVAL_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = piracy_ideas
+		any_owned_province = { has_port = yes }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.5.a"
+		add_navy_tradition = 10
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.6
+	title = "vn_ideagroups.6.t"
+	desc = "vn_ideagroups.6.d"
+	picture = NAVAL_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = piracy_ideas
+		NOT = { has_country_modifier = piracy_rampant_m }
+		NOT = { has_country_modifier = piracy_controlled_m }
+		any_owned_province = { has_port = yes }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.6.a"
+		add_country_modifier = {
+			name = "piracy_rampant_m"
+			duration = 1825
+		}
+	}
+
+	option = {
+		name = "vn_ideagroups.6.b"
+		add_country_modifier = {
+			name = "piracy_controlled_m"
+			duration = 1825
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.7
+	title = "vn_ideagroups.7.t"
+	desc = "vn_ideagroups.7.d"
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = piracy_ideas
+		any_owned_province = { has_port = yes }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.7.a"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				has_leaders = {
+					value = 2
+					type = admiral
+					include_heir = no
+					include_monarch = no
+				}
+			}
+		}
+		create_admiral = { tradition = 50 }
+		add_dip_power = -25
+	}
+
+	option = {
+		name = "vn_ideagroups.7.b"
+		ai_chance = { factor = 10 }
+		add_dip_power = 10
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.8
+	title = "vn_ideagroups.8.t"
+	desc = "vn_ideagroups.8.d"
+	picture = SHIP_SAILING_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = piracy_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.8.a"
+		reduce_estate_burghers_loyalty_effect = yes
+		add_inflation = 1
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.9
+	title = "vn_ideagroups.9.t"
+	desc = "vn_ideagroups.9.d"
+	picture = HARBOUR_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = piracy_ideas
+		any_owned_province = { has_port = yes }
+		NOT = { navy_size_percentage = 0.8 }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { has_port = yes }
+				save_event_target_as = unlicensed_shipbuilders
+			}
+		}
+	}
+
+	option = {
+		name = "vn_ideagroups.9.a"
+		goto = unlicensed_shipbuilders
+		ai_chance = { factor = 30 }
+		event_target:unlicensed_shipbuilders = {
+			light_ship = ROOT
+			light_ship = ROOT
+			light_ship = ROOT
+		}
+	}
+
+	option = {
+		name = "vn_ideagroups.9.b"
+		ai_chance = { factor = 70 }
+		add_navy_tradition = 5
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.10
+	title = "vn_ideagroups.10.t"
+	desc = "vn_ideagroups.10.d"
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = piracy_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.10.a"
+		add_mercantilism = -1
+		reduce_estate_burghers_loyalty_effect = yes
+	}
+}
+
+#Cultural Ideas
+country_event = {
+	id = vn_ideagroups.11
+	title = "vn_ideagroups.11.t"
+	desc = "vn_ideagroups.11.d"
+	picture = PAINTER_ARTIST_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = cultural_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			check_if_non_state_advisor_effect = {
+				chance_of_primary = 85
+				chance_of_tertiary = 15
+				chance_of_secondary = 35
+			}
+		}
+	}
+
+	option = {
+		name = "vn_ideagroups.11.a"
+		add_prestige_or_monarch_power = { amount = 5 }
+		generate_advisor_of_type_and_semi_random_religion_effect = {
+			advisor_type = artist
+			advisor_type_if_not_state = artist
+			scaled_skill = yes
+			discount = yes
+		}
+	}
+
+	after = {
+		erase_advisor_flags_effect = yes
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.12
+	title = "vn_ideagroups.12.t"
+	desc = "vn_ideagroups.12.d"
+	picture = BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = cultural_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.12.a"
+		add_adm_power = 25
+		add_republican_tradition = 10
+		add_legitimacy = 10
+		add_devotion = 5
+		add_horde_unity = 5
+		add_meritocracy = 5
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.13
+	title = "vn_ideagroups.13.t"
+	desc = "vn_ideagroups.13.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = cultural_ideas
+		NOT = { has_country_modifier = cultural_emigration }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.13.a"
+		add_country_modifier = {
+			name = "cultural_emigration"
+			duration = 3650
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.14
+	title = "vn_ideagroups.14.t"
+	desc = "vn_ideagroups.14.d"
+	picture = ARTWORK_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_country_modifier = cultural_construction }
+		any_owned_province = { NOT = { has_province_modifier = remove_unrest_5_modifier } }
+		has_idea_group = cultural_ideas
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { NOT = { has_province_modifier = remove_unrest_5_modifier } }
+				save_event_target_as = new_museum
+			}
+		}
+	}
+
+	option = {
+		name = "vn_ideagroups.14.a"
+		goto = new_museum
+		event_target:new_museum = {
+			add_base_tax = 1
+			add_province_modifier = {
+				name = "remove_unrest_5_modifier"
+				duration = 1825
+			}
+		}
+	}
+	option = {
+		name = "vn_ideagroups.14.b"
+		add_corruption = 0.5
+		add_country_modifier = {
+			name = "cultural_construction"
+			duration = 1825
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.15
+	title = "vn_ideagroups.15.t"
+	desc = "vn_ideagroups.15.d"
+	picture = ANGRY_MOB_eventPicture
+	goto = angry_peasants
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = cultural_ideas
+		any_owned_province = {
+			NOT = { culture = ROOT }
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { NOT = { culture = ROOT } }
+				save_event_target_as = angry_peasants
+			}
+		}
+	}
+
+	option = {
+		name = "vn_ideagroups.15.a"
+		event_target:angry_peasants = {
+			add_unrest = 10
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.16
+	title = "vn_ideagroups.16.t"
+	desc = "vn_ideagroups.16.d"
+	picture = CULTURE_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = cultural_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.16.a"
+		if = {
+			limit = { has_dlc = "Mandate of Heaven" } 
+			add_splendor = 50 
+		}
+		else = {
+			add_prestige_or_monarch_power = { amount = 10 }
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.17
+	title = "vn_ideagroups.17.t"
+	desc = "vn_ideagroups.17.d"
+	picture = CULTURE_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = cultural_ideas
+		any_neighbor_country = { is_at_war = no }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.17.a"
+		add_prestige_or_monarch_power = { amount = 10 }
+	}
+	option = {
+		name = "vn_ideagroups.17.b"
+		add_dip_power = 25
+		random_neighbor_country = {
+			limit = { is_at_war = no }
+			add_opinion = { who = ROOT modifier = opinion_good_relations }
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.18
+	title = "vn_ideagroups.18.t"
+	desc = "vn_ideagroups.18.d"
+	picture = EXPOLERERS_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = cultural_ideas
+		is_institution_enabled = new_world_i
+		NOT = { tag = GEN }
+		NOT = { has_country_modifier = cultural_enthusiasm }
+		NOT = { has_country_modifier = cultural_skepticism }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.18.a"
+		add_country_modifier = {
+			name = "cultural_enthusiasm"
+			duration = 3650
+		}
+	}
+	option = {
+		name = "vn_ideagroups.18.b"
+		add_country_modifier = {
+			name = "cultural_skepticism"
+			duration = 3650
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.19
+	title = "vn_ideagroups.19.t"
+	desc = "vn_ideagroups.19.d"
+	picture = SPY_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = cultural_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.19.a"
+		add_years_of_income = -0.25
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.20
+	title = "vn_ideagroups.20.t"
+	desc = "vn_ideagroups.20.d"
+	picture = TOURNAMENT_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = cultural_ideas
+		government = monarchy
+		has_heir = yes
+		heir_age = 15
+		has_female_heir = no
+		heir_mil = 1
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.20.a"
+		ai_chance = { factor = 20 }
+		change_heir_mil = -1
+		add_heir_claim = -10
+	}
+	option = {
+		name = "vn_ideagroups.20.b"
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				OR = {
+					is_bankrupt = yes
+					num_of_loans = 1
+				}
+			}
+		}
+		add_years_of_income = -0.75
+		add_heir_claim = -20
+	}
+}
+
+#Logistics Ideas
+country_event = {
+	id = vn_ideagroups.21
+	title = "vn_ideagroups.21.t"
+	desc = "vn_ideagroups.21.d"
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = logistics_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.21.a"
+		add_mil_power = 50
+		add_government_power = {
+			mechanic_type = militarization_mechanic
+			power_type = militarized_society
+			value = 10
+		}
+		add_government_power = {
+			mechanic_type = prussian_militarization_mechanic_1
+			power_type = prussian_militarized_society_1
+			value = 10
+		}
+		add_government_power = {
+			mechanic_type = prussian_militarization_mechanic_2
+			power_type = prussian_militarized_society_2
+			value = 10
+		}
+		add_government_power = {
+			mechanic_type = prussian_militarization_mechanic_3
+			power_type = prussian_militarized_society_3
+			value = 10
+		}
+		add_government_power = {
+			mechanic_type = hessian_militarization_mechanic
+			power_type = hessian_militarization
+			value = 10
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.22
+	title = "vn_ideagroups.22.t"
+	desc = "vn_ideagroups.22.d"
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = logistics_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.22.a"
+		if = {
+			limit = { has_dlc = "Cradle of Civilization" }
+			add_army_professionalism = 0.01
+		}
+		else = {
+			add_army_tradition = 5
+		}
+		add_yearly_manpower = -0.2
+	}
+	option = {
+		name = "vn_ideagroups.22.b"
+		add_yearly_manpower = 0.1
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.23
+	title = "vn_ideagroups.23.t"
+	desc = "vn_ideagroups.23.d"
+	picture = BATTLE_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = logistics_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.23.a"
+		create_general = {
+			tradition = 20
+			add_shock = -3
+			add_fire = -3
+			add_manuever = 6
+			add_siege = 2
+		}
+	}
+	option = {
+		name = "vn_ideagroups.23.b"
+		add_army_tradition = 5
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.24
+	title = "vn_ideagroups.24.t"
+	desc = "vn_ideagroups.24.d"
+	picture = NAVAL_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = logistics_ideas
+		any_owned_province = { has_port = yes }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.24.a"
+		create_admiral = {
+			tradition = 20
+			add_shock = -3
+			add_fire = -3
+			add_manuever = 6
+			add_siege = 2
+		}
+	}
+	option = {
+		name = "vn_ideagroups.24.b"
+		add_navy_tradition = 5
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.25
+	title = "vn_ideagroups.25.t"
+	desc = "vn_ideagroups.25.d"
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = logistics_ideas
+		NOT = { has_country_modifier = logistics_speed }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.25.a"
+		add_country_modifier = {
+			name = "logistics_speed"
+			duration = 3650
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.26
+	title = "vn_ideagroups.26.t"
+	desc = "vn_ideagroups.26.d"
+	picture = SIEGE_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = logistics_ideas
+		is_at_war = yes
+		any_owned_province = { has_siege = yes }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		random_owned_province = {
+			limit = { has_siege = yes }
+			save_event_target_as = secret_passages
+		}
+	}
+
+	option = {
+		name = "vn_ideagroups.26.a"
+		goto = secret_passages
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 0.1
+				NOT = { treasury = 80 }
+			}
+		}
+		add_treasury = -50
+		event_target:secret_passages = {
+			change_siege = -2
+		}
+	}
+
+	option = {
+		name = "vn_ideagroups.26.b"
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				NOT = { war_exhaustion = 1 }
+			}
+		}
+		add_prestige = 1
+		if = {
+			limit = { war_exhaustion = 1 }
+			add_war_exhaustion = -1
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.27
+	title = "vn_ideagroups.27.t"
+	desc = "vn_ideagroups.27.d"
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = logistics_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.27.a"
+		add_yearly_manpower = 0.25
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.28
+	title = "vn_ideagroups.28.t"
+	desc = "vn_ideagroups.28.d"
+	picture = SPY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = logistics_ideas
+		any_country = {
+			has_spy_network_from = {
+				who = ROOT
+				value = 25
+			}
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.28.a"
+		random_country = {
+			limit = {
+				has_spy_network_from = {
+					who = ROOT
+					value = 25
+				}
+			}
+			add_spy_network_from = {
+				who = ROOT
+				value = -25
+			}
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.29
+	title = "vn_ideagroups.29.t"
+	desc = "vn_ideagroups.29.d"
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = logistics_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.29.a"
+		if = {
+			limit = {
+				has_dlc = "Cradle of Civilization"
+			}
+			add_army_professionalism = -0.01
+		}
+		else = {
+			add_army_tradition = -5
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.30
+	title = "vn_ideagroups.30.t"
+	desc = "vn_ideagroups.30.d"
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = logistics_ideas
+		NOT = { has_country_modifier = logistics_sluggish }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.30.a"
+		add_yearly_manpower = -0.25
+		add_yearly_sailors = -0.25
+	}
+	option = {
+		name = "vn_ideagroups.30.b"
+		add_country_modifier = {
+			name = "logistics_sluggish"
+			duration = 3650
+		}
+	}
+}
+
+#Manufacturing Ideas
+country_event = {
+	id = vn_ideagroups.31
+	title = "vn_ideagroups.31.t"
+	desc = "vn_ideagroups.31.d"
+	picture = HARBOUR_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = manufacturing_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.31.a"
+		add_stability_or_adm_power = yes
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.32
+	title = "vn_ideagroups.32.t"
+	desc = "vn_ideagroups.32.d"
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = manufacturing_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.32.a"
+		add_years_of_income = 0.25
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.33
+	title = "vn_ideagroups.33.t"
+	desc = "vn_ideagroups.33.d"
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = manufacturing_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.33.a"
+		add_prestige = 5
+	}
+	option = {
+		name = "vn_ideagroups.33.b"
+		add_mil_power = 25
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.34
+	title = "vn_ideagroups.34.t"
+	desc = "vn_ideagroups.34.d"
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = manufacturing_ideas
+		NOT = { has_country_modifier = manufacturing_recruitment }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.34.a"
+		add_country_modifier = {
+			name = "manufacturing_recruitment"
+			duration = 3650
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.35
+	title = "vn_ideagroups.35.t"
+	desc = "vn_ideagroups.35.d"
+	picture = MERCHANTS_TALKING_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = manufacturing_ideas
+		NOT = { has_country_modifier = manufacturing_own_trade }
+		NOT = { has_country_modifier = manufacturing_foreign_trade }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.35.a"
+		add_country_modifier = {
+			name = "manufacturing_own_trade"
+			duration = 1825
+		}
+	}
+	option = {
+		name = "vn_ideagroups.35.b"
+		add_country_modifier = {
+			name = "manufacturing_foreign_trade"
+			duration = 1825
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.36
+	title = "vn_ideagroups.36.t"
+	desc = "vn_ideagroups.36.d"
+	picture = FARMING_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = manufacturing_ideas
+		OR = {
+			has_estate = estate_burghers
+			has_estate = estate_vaisyas
+			has_estate = estate_jains
+		}
+		any_owned_province = {
+			NOT = { has_province_modifier = manufacturing_production }
+			is_capital = no
+		}
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = manufacturing_production }
+					is_capital = no
+				}
+				save_event_target_as = laissez_faire
+			}
+		}
+	}
+
+	option = {
+		name = "vn_ideagroups.36.a"
+		goto = laissez_faire
+		event_target:laissez_faire = {
+			add_local_autonomy = 15
+			add_province_modifier = {
+    			name = "manufacturing_production"
+   				duration = 1825
+			}
+		}
+	}
+	option = {
+		name = "vn_ideagroups.36.b"
+		add_estate_burghers_loyalty_effect = yes
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.37
+	title = "vn_ideagroups.37.t"
+	desc = "vn_ideagroups.37.d"
+	picture = FEAST_eventPicture
+
+	is_triggered_only = yes
+	trigger = { has_idea_group = manufacturing_ideas }
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.37.a"
+		add_adm_power = 50
+		add_treasury = 10
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.38
+	title = "vn_ideagroups.38.t"
+	desc = "vn_ideagroups.38.d"
+	picture = FAMINE_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = manufacturing_ideas
+		is_at_war = yes
+		NOT = { war_exhaustion = 19 }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.38.a"
+		add_war_exhaustion = 2
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.39
+	title = "vn_ideagroups.39.t"
+	desc = "vn_ideagroups.39.d"
+	picture = BORDER_TENSION_eventPicture
+	goto = ravaged_province
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = manufacturing_ideas
+		any_owned_province = { base_production = 2 }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { base_production = 2 }
+				save_event_target_as = ravaged_province
+			}
+		}
+	}
+
+	option = {
+		name = "vn_ideagroups.39.a"
+		event_target:ravaged_province = {
+			add_base_production = -1
+		}
+	}
+}
+
+country_event = {
+	id = vn_ideagroups.40
+	title = "vn_ideagroups.40.t"
+	desc = "vn_ideagroups.40.d"
+	picture = BORDER_TENSION_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		has_idea_group = manufacturing_ideas
+		stability = 0
+		NOT = { has_country_modifier = manufacturing_prod_lost }
+	}
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_ideagroups.40.a"
+		add_country_modifier = {
+			name = "manufacturing_prod_lost"
+			duration = 1825
+		}
+	}
+	option = {
+		name = "vn_ideagroups.40.b"
+		add_stability = -1
+	}
+}

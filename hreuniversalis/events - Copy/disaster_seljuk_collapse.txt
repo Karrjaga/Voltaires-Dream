@@ -1,0 +1,2213 @@
+namespace = seljuk_collapse
+
+#Start
+country_event = {
+	id = seljuk_collapse.1
+	title = seljuk_collapse.1.t
+	desc = seljuk_collapse.1.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+
+	major = yes
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "seljuk_collapse.1.a"
+		add_prestige = -50
+		add_legitimacy = -50
+		add_stability = -5
+	}
+
+	after = {
+		if = {
+			limit = {
+				GEO = {
+					has_country_modifier = seljuk_yoke_mod
+				}
+			}
+			GEO = {
+				country_event = {
+					id = vn_flavor_geo.6
+				}
+			}
+		}
+	}
+}
+
+#End
+country_event = {
+	id = seljuk_collapse.100
+	title = seljuk_collapse.100.t
+	desc = seljuk_collapse.100.d
+	picture = COUNTRY_COLLAPSE_eventPicture
+
+	major = yes
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+
+	immediate = {
+		on_non_estate_disaster_end = yes
+		hidden_effect = {
+			set_country_flag = had_seljuk_collapse
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.100.a"
+		add_stability = 1
+		add_legitimacy = 20
+		if = {
+			limit = {
+				has_reform = seljuk_federation_reform
+			}
+			#remove_government_reform = seljuk_federation_reform
+			add_government_reform = seljuk_sultanate_reform
+		}
+	}
+}
+
+#Spawn rebels
+country_event = {
+	id = seljuk_collapse.2
+	title = seljuk_collapse.2.t
+	desc = seljuk_collapse.2.d
+	picture = REVOLT_eventPicture
+
+	goto = sjk_rebels_prov
+	is_triggered_only = yes
+	
+	trigger = {
+		any_owned_province = {
+			can_spawn_rebels = nationalist_rebels
+			controlled_by = ROOT
+			any_core_country = {
+				NOT = { tag = ROOT }
+				exists = no
+			}
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					can_spawn_rebels = nationalist_rebels
+					controlled_by = ROOT
+					any_core_country = {
+						NOT = { tag = ROOT }
+						exists = no
+					}
+				}
+				save_event_target_as = sjk_rebels_prov
+			}
+		}
+	}
+	
+	option = {
+		name = seljuk_collapse.2.a
+		event_target:sjk_rebels_prov = {
+			spawn_rebels = {
+				type = nationalist_rebels 
+				size = 3
+			}
+		}
+	}
+}
+
+# Yazd declares independence
+country_event = {
+	id = seljuk_collapse.3
+	title = seljuk_collapse.3.t
+	desc = seljuk_collapse.3.d
+	picture = CIVIL_WAR_eventPicture
+	goto = YZD_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = YZD }
+		any_owned_province = {
+			area = yazd_area
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			yazd_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = KHO
+			}
+			release = YZD
+			YZD = {
+				change_government = monarchy
+				add_government_reform = iqta
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 3
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = jafari_school
+				}
+				define_ruler = {
+					name = "Langar"
+					dynasty = "Wardanruzi"
+					adm = 4
+					dip = 3
+					mil = 3
+				}
+				remove_heir = {}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = YZD_capital
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = YZD
+		hidden_effect = {
+			YZD = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = YZD
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = YZD
+		add_truce_with = YZD
+		hidden_effect = {
+			YZD = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Kerman declares independence
+country_event = {
+	id = seljuk_collapse.4
+	title = seljuk_collapse.4.t
+	desc = seljuk_collapse.4.d
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	goto = KRM_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = KRM }
+		any_owned_province = {
+			OR = {
+				region = kerman_region
+				area = hormuz_area
+			}
+			NOT = { area = yazd_area }
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		kerman_region = {
+			limit = {
+				owned_by = ROOT
+				NOT = { area = yazd_area }
+			}
+			add_core = KRM
+		}
+		hormuz_area = {
+			limit = {
+				owned_by = ROOT
+			}
+			add_core = KRM
+		}
+		release = KRM
+		KRM = {
+			change_government = monarchy
+			add_government_reform = iqta
+			if = {
+				limit = { is_part_of_hre = yes }
+				set_in_empire = no
+			}
+			set_government_rank = 3
+			add_stability = 3
+			change_religion = sunni
+			set_religious_school = {
+				group = muslim
+				school = hanafi_school
+			}
+			define_ruler = {
+				name = "Malik Dinar"
+				dynasty = "Tenghin"
+				culture = turkish
+				adm = 4
+				dip = 2
+				mil = 5
+			}
+			remove_heir = {}
+			random_owned_province = {
+				build_to_forcelimit = {
+					infantry = 0.7
+					cavalry = 0.3
+				}
+			}
+			capital_scope = {
+				save_event_target_as = KRM_capital
+			}
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = KRM
+		hidden_effect = {
+			KRM = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = KRM
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = KRM
+		add_truce_with = KRM
+		hidden_effect = {
+			KRM = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Bakhtemir declares independence
+country_event = {
+	id = seljuk_collapse.5
+	title = seljuk_collapse.5.t
+	desc = seljuk_collapse.5.d
+	picture = CIVIL_WAR_eventPicture
+	goto = LRB_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = LRB }
+		any_owned_province = {
+			region = elam_region
+			NOT = { area = shushtar_area }
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			elam_region = {
+				limit = {
+					owned_by = ROOT
+					NOT = { area = shushtar_area }
+				}
+			}
+			release = LRB
+			LRB = {
+				change_government = tribal
+				add_government_reform = tribal_federation
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 3
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+				define_ruler = {
+					name = "Abû Tahir"
+					dynasty = "Ramanî"
+					adm = 4
+					dip = 4
+					mil = 4
+				}
+				remove_heir = {}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = LRB_capital
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = LRB
+		hidden_effect = {
+			LRB = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = LRB
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = LRB
+		add_truce_with = LRB
+		hidden_effect = {
+			LRB = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Ardalan declares independence
+country_event = {
+	id = seljuk_collapse.6
+	title = seljuk_collapse.6.t
+	desc = seljuk_collapse.6.d
+	picture = ANGRY_MOB_eventPicture
+	goto = ARD_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = ARD }
+		any_owned_province = {
+			area = ardalan_area
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			ardalan_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = ARD
+			}
+			release = ARD
+			ARD = {
+				change_government = tribal
+				add_government_reform = tribal_federation
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 4
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+				define_ruler = {
+					name = "Bab Ardalan"
+					dynasty = "Merwanî"
+					adm = 3
+					dip = 4
+					mil = 3
+				}
+				define_heir = {
+					name = "Kulul"
+					dynasty = "Merwanî"
+					adm = 2
+					dip = 3
+					mil = 6
+				}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = ARD_capital
+				}
+			}	
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = ARD
+		hidden_effect = {
+			ARD = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = ARD
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = ARD
+		add_truce_with = ARD
+		hidden_effect = {
+			ARD = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Tabriz declares independence
+country_event = {
+	id = seljuk_collapse.7
+	title = seljuk_collapse.7.t
+	desc = seljuk_collapse.7.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	goto = TBR_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = TBR }
+		any_owned_province = {
+			OR = {
+				region = azerbaijan_region
+				region = armenia_region
+				region = atropatene_region
+			}
+			NOT = { area = zanjan_area }
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			azerbaijan_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = TBR
+			}
+			armenia_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = TBR
+			}
+			atropatene_region = {
+				limit = {
+					owned_by = ROOT
+					NOT = { area = zanjan_area }
+				}
+				add_core = TBR
+			}
+			release = TBR
+			TBR = {
+				change_government = monarchy
+				add_government_reform = iqta
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 3
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = shafii_school
+				}
+				define_ruler = {
+					name = "Eldigüz"
+					dynasty = "Eldigüzoglu"
+					culture = azerbaijani
+					adm = 4
+					dip = 4
+					mil = 5
+				}
+				remove_heir = {}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = TBR_capital
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = TBR
+		hidden_effect = {
+			TBR = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = TBR
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = TBR
+		add_truce_with = TBR
+		hidden_effect = {
+			TBR = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Fars declares independence
+country_event = {
+	id = seljuk_collapse.8
+	title = seljuk_collapse.8.t
+	desc = seljuk_collapse.8.d
+	picture = CIVIL_WAR_eventPicture
+	goto = FRS_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = FRS }
+		any_owned_province = {
+			OR = {
+				region = fars_region
+				region = persian_coast_region
+			}
+			NOT = { area = hormuz_area }
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			fars_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = FRS
+			}
+			persian_coast_region = {
+				limit = {
+					owned_by = ROOT
+					NOT = { area = hormuz_area }
+				}
+				add_core = FRS
+			}
+			release = FRS
+			FRS = {
+				change_government = monarchy
+				add_government_reform = iqta
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 3
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+				define_ruler = {
+					name = "Sunqur"
+					dynasty = "Salur"
+					culture = turkmeni
+					adm = 4
+					dip = 5
+					mil = 4
+				}
+				remove_heir = {}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = FRS_capital
+				}
+			}	
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = FRS
+		hidden_effect = {
+			FRS = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = FRS
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = FRS
+		add_truce_with = FRS
+		hidden_effect = {
+			FRS = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Maragheh declares independence
+country_event = {
+	id = seljuk_collapse.9
+	title = seljuk_collapse.9.t
+	desc = seljuk_collapse.9.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	goto = MGR_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = MGR }
+		any_owned_province = {
+			OR = {
+				area = doris_area
+				area = caria_area
+				area = pisidia_area
+				area = pamphylia_area
+				area = lycia_area
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			maragegh_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = MGR
+			}
+			release = MGR
+			MGR = {
+				change_government = monarchy
+				add_government_reform = iqta
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 3
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = shafii_school
+				}
+				define_ruler = {
+					name = "Aq Sunqur"
+					dynasty = "Rewadî"
+					adm = 3
+					dip = 4
+					mil = 4
+				}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = MGR_capital
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = MGR
+		hidden_effect = {
+			MGR = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = MGR
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = MGR
+		add_truce_with = MGR
+		hidden_effect = {
+			MGR = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Luristan declares independence
+country_event = {
+	id = seljuk_collapse.10
+	title = seljuk_collapse.10.t
+	desc = seljuk_collapse.10.d
+	picture = BATTLE_eventPicture
+	goto = LRI_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = LRI }
+		any_owned_province = {
+			region = lorestan_region
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			lorestan_region = {
+				limit = {
+					owned_by = ROOT
+					NOT = { area = ilam_area }
+				}
+				add_core = LRI
+			}
+			release = LRI
+			LRI = {
+				change_government = tribal
+				add_government_reform = tribal_federation
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 3
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+				define_ruler = {
+					name = "Khorshid"
+					dynasty = "Khorshidi"
+					adm = 4
+					dip = 6
+					mil = 4
+				}
+				define_heir = {
+					name = "Rustam"
+					dynasty = "Khorshidi"
+					adm = 4
+					dip = 4
+					mil = 4
+				}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = LRI_capital
+				}
+			}	
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = LRI
+		hidden_effect = {
+			LRI = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = LRI
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = LRI
+		add_truce_with = LRI
+		hidden_effect = {
+			LRI = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Khuzestan declares independence
+country_event = {
+	id = seljuk_collapse.11
+	title = seljuk_collapse.11.t
+	desc = seljuk_collapse.11.d
+	picture = CIVIL_WAR_eventPicture
+	goto = KHU_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		OR = {
+			any_owned_province = {
+				is_core = KHU
+			}
+			KHU = {
+				is_subject_of = ROOT
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			khuzestan_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = KHU
+			}
+			release = KHU
+			KHU = {
+				change_government = monarchy
+				add_government_reform = iqta
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 3
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+				define_ruler = {
+					name = "Shumla"
+					dynasty = "Afshar"
+					culture = turkmeni
+					adm = 4
+					dip = 3
+					mil = 4
+				}
+				remove_heir = {}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = KHU_capital
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = KHU
+		hidden_effect = {
+			KHU = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = KHU
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = KHU
+		add_truce_with = KHU
+		hidden_effect = {
+			KHU = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Baghdad declares independence
+country_event = {
+	id = seljuk_collapse.12
+	title = seljuk_collapse.12.t
+	desc = seljuk_collapse.12.d
+	picture = RELIGIOUS_WARS_eventPicture
+	goto = BGH_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = BGH }
+		any_owned_province = {
+			OR = {
+				region = lower_mesopotamia_region
+				region = assyria_region
+			}
+			NOT = { area = khuzestan_area }
+			NOT = { area = zagros_area }
+			NOT = { area = mosul_area }
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			lower_mesopotamia_region = {
+				limit = {
+					owned_by = ROOT
+					NOT = { area = khuzestan_area }
+				}
+				add_core = BGH
+			}
+			assyria_region = {
+				limit = {
+					owned_by = ROOT
+					NOT = { area = zagros_area }
+					NOT = { area = mosul_area }
+				}
+				add_core = BGH
+			}
+			release = BGH
+			BGH = {
+				override_country_name = ABBASIDS_NAME
+				set_country_flag = abbasids_name_flag
+				change_government = monarchy
+				add_government_reform = feudal_theocracy
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 6
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+				define_ruler = {
+					name = "al-Mustarshid"
+					dynasty = "Banû ‘Abbâs"
+					adm = 4
+					dip = 2
+					mil = 2
+				}
+				remove_heir = {}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = BGH_capital
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = BGH
+		hidden_effect = {
+			BGH = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = BGH
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = BGH
+		add_truce_with = BGH
+		hidden_effect = {
+			BGH = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Khwarezm declares independence
+country_event = {
+	id = seljuk_collapse.13
+	title = seljuk_collapse.13.t
+	desc = seljuk_collapse.13.d
+	picture = CIVIL_WAR_eventPicture
+	goto = KHW_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = KHW }
+		any_owned_province = {
+			OR = {
+				region = kazakhstan_region
+				region = khwarezmia_region
+			}
+			NOT = { area = dihistan_area }
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			KHW = {
+				kazakhstan_region = {
+					limit = {
+						owned_by = ROOT
+					}
+					add_core = KHW
+				}
+				khwarezmia_region = {
+					limit = {
+						owned_by = ROOT
+						NOT = { area = dihistan_area }
+					}
+					add_core = KHW
+				}
+				release = KHW
+				change_government = monarchy
+				add_government_reform = iqta
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 4
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+				add_accepted_culture = turkmeni
+				define_ruler = {
+					culture = turkmeni
+					name = "Atsiz"
+					dynasty = "Anushteginoglu"
+					adm = 3
+					dip = 4
+					mil = 3
+				}
+				remove_heir = {}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = KHW_capital
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = KHW
+		hidden_effect = {
+			KHW = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = KHW
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = KHW
+		add_truce_with = KHW
+		hidden_effect = {
+			KHW = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+#Erbil declares independence
+country_event = {
+	id = seljuk_collapse.14
+	title = seljuk_collapse.14.t
+	desc = seljuk_collapse.14.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	goto = ERB_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = ERB }
+		any_owned_province = {
+			OR = {
+				area = zagros_area
+				area = urmia_area
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			zagros_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = ERB
+			}
+			urmia_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = ERB
+			}
+			release = ERB
+			ERB = {
+				restore_country_name = yes
+				change_government = monarchy
+				add_government_reform = iqta
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 3
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = shafii_school
+				}
+				define_ruler = {
+					name = "‘Alî"
+					dynasty = "Begteginoglu"
+					culture = turkish
+					adm = 2
+					dip = 3
+					mil = 2
+				}
+				define_heir = {
+					name = "Kûkubûri"
+					monarch_name = "Kûkubûri"
+					dynasty = "Begteginoglu"
+					culture = turkish
+					claim = 95
+					adm = 3
+					dip = 5
+					mil = 6
+				}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = ERB_capital
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = ERB
+		hidden_effect = {
+			ERB = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = ERB
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = ERB
+		add_truce_with = ERB
+		hidden_effect = {
+			ERB = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+#Ajam declares independence
+country_event = {
+	id = seljuk_collapse.15
+	title = seljuk_collapse.15.t
+	desc = seljuk_collapse.15.d
+	picture = BATTLE_eventPicture
+	goto = QOM_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = QOM }
+		any_owned_province = {
+			OR = {
+				area = zanjan_area
+				region = media_region
+			}
+			NOT = { area = kashan_area }
+			NOT = { area = isfahan_area }
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			zanjan_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = QOM
+			}
+			media_region = {
+				limit = {
+					owned_by = ROOT
+					NOT = { area = kashan_area }
+					NOT = { area = isfahan_area }
+				}
+				add_core = QOM
+			}
+			release = QOM
+			QOM = {
+				restore_country_name = yes
+				change_government = monarchy
+				add_government_reform = mamluk_government
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 3
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+				define_ruler = {
+					name = "Kukya"
+					dynasty = "Turkiyya"
+					culture = azerbaijani
+					adm = 3
+					dip = 3
+					mil = 3
+				}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = QOM_capital
+				}
+			}	
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = QOM
+		hidden_effect = {
+			QOM = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = QOM
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = QOM
+		add_truce_with = QOM
+		hidden_effect = {
+			QOM = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Assassins declare independence
+country_event = {
+	id = seljuk_collapse.16
+	title = seljuk_collapse.16.t
+	desc = seljuk_collapse.16.d
+	picture = ASSASSINATION_eventPicture
+	goto = HAH_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = HAH }
+		OR = {
+			owns = 7616
+			owns = 7617
+			owns = 7618
+			owns = 7619
+			owns = 7620
+			owns = 7646
+			# any_owned_province = {
+			# 	region = qohistan_region
+			# }
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { owns = 7616 }
+				7616 = { add_Core = HAH }
+			}
+			if = {
+				limit = { owns = 7617 }
+				7617 = { add_Core = HAH }
+			}
+			if = {
+				limit = { owns = 7618 }
+				7618 = { add_Core = HAH }
+			}
+			if = {
+				limit = { owns = 7619 }
+				7619 = { add_Core = HAH }
+			}
+			if = {
+				limit = { owns = 7620 }
+				7620 = { add_Core = HAH }
+			}
+			if = {
+				limit = { owns = 7646 }
+				7646 = { add_Core = HAH }
+			}
+			qohistan_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = HAH
+			}
+			release = HAH
+			HAH = {
+				change_government = theocracy
+				add_government_reform = millenarian_republic
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 2
+				add_stability = 3
+				change_religion = qarmatian
+				set_religious_school = {
+					group = muslim
+					school = nizari_school
+				}
+				add_accepted_culture = khorasani
+				define_ruler = {
+					name = "Hasan"
+					dynasty = "Nizariyya"
+					adm = 5
+					dip = 5
+					mil = 6
+				}
+				add_ruler_personality = scholar_personality
+				add_ruler_personality = zealot_personality
+				remove_heir = {}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = HAH_capital
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = HAH
+		hidden_effect = {
+			HAH = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = HAH
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = HAH
+		add_truce_with = HAH
+		hidden_effect = {
+			HAH = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+#Mosul declares independence
+country_event = {
+	id = seljuk_collapse.17
+	title = seljuk_collapse.17.t
+	desc = seljuk_collapse.17.d
+	picture = CIVIL_WAR_eventPicture
+	goto = MSL_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = MSL }
+		any_owned_province = {
+			OR = {
+				region = al_jazira_region
+				region = syria_region
+				area = mosul_area
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			al_jazira_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = MSL
+			}
+			syria_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = MSL
+			}
+			mosul_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = MSL
+			}
+			release = MSL
+			MSL = {
+				change_government = monarchy
+				add_government_reform = iqta
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 3
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+				define_ruler = {
+					name = "Zangî"
+					dynasty = "Zengîoglu"
+					adm = 4
+					dip = 3
+					mil = 4
+				}
+				remove_heir = {}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = MSL_capital
+				}
+			}	
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = MSL
+		hidden_effect = {
+			MSL = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = MSL
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = MSL
+		add_truce_with = MSL
+		hidden_effect = {
+			MSL = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+#Hisn Kayfa declares independence
+country_event = {
+	id = seljuk_collapse.18
+	title = seljuk_collapse.18.t
+	desc = seljuk_collapse.18.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	goto = HSN_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = HSN }
+		any_owned_province = {
+			area = mardin_area
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			mardin_area = {
+				limit = {
+					owned_by = ROOT
+					NOT = { province_id = 3676 }
+				}
+				add_core = HSN
+			}
+			release = HSN
+			HSN = {
+				change_government = monarchy
+				add_government_reform = iqta
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 1
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = shafii_school
+				}
+				add_accepted_culture = al_suryah_arabic
+				define_ruler = {
+					name = "Sokmen"
+					dynasty = "Artukoglu"
+					culture = turkish
+					adm = 3
+					dip = 4
+					mil = 3
+				}
+				remove_heir = {}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = HSN_capital
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = HSN
+		hidden_effect = {
+			HSN = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = HSN
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = HSN
+		add_truce_with = HSN
+		hidden_effect = {
+			HSN = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+#Hisn Kayfa declares independence
+country_event = {
+	id = seljuk_collapse.19
+	title = seljuk_collapse.19.t
+	desc = seljuk_collapse.19.d
+	picture = CIVIL_WAR_eventPicture
+	goto = MRD_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = MRD }
+		any_owned_province = {
+			OR = {
+				area = arzanene_area
+				province_id = 3676
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { owns = 3676 }
+				3676 = { add_core = MRD }
+			}
+			arzanene_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = MRD
+			}
+			release = MRD
+			MRD = {
+				change_government = monarchy
+				add_government_reform = iqta
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 1
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = shafii_school
+				}
+				define_ruler = {
+					name = "Ilgazi"
+					dynasty = "Artukoglu"
+					adm = 3
+					dip = 2
+					mil = 3
+				}
+				remove_heir = {}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = MRD_capital
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = MRD
+		hidden_effect = {
+			MRD = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = MRD
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = MRD
+		add_truce_with = MRD
+		hidden_effect = {
+			MRD = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}
+
+# Khorasan declares independence
+country_event = {
+	id = seljuk_collapse.20
+	title = seljuk_collapse.20.t
+	desc = seljuk_collapse.20.d
+	picture = CIVIL_WAR_eventPicture
+	goto = KHO_capital
+	
+	fire_only_once = yes
+	is_triggered_only = yes 
+	
+	trigger = {
+		NOT = { exists = KHO }
+		any_owned_province = {
+			OR = {
+				region = khorasan_region
+				region = mazandaran_region
+				area = dihistan_area
+			}
+		}
+	}
+
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			khorasan_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = KHO
+			}
+			mazandaran_region = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = KHO
+			}
+			dihistan_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				add_core = KHO
+			}
+			release = KHO
+			KHO = {
+				change_government = monarchy
+				add_government_reform = iqta
+				if = {
+					limit = { is_part_of_hre = yes }
+					set_in_empire = no
+				}
+				set_government_rank = 3
+				add_stability = 3
+				change_religion = sunni
+				set_religious_school = {
+					group = muslim
+					school = hanafi_school
+				}
+				add_accepted_culture = persian
+				define_ruler = {
+					name = "Mu‘ayyid ad-Dîn"
+					dynasty = "Ai-Aba"
+					adm = 3
+					dip = 3
+					mil = 3
+				}
+				remove_heir = {}
+				random_owned_province = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				capital_scope = {
+					save_event_target_as = KHO_capital
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.a"
+		ai_chance = { factor = 1 }
+		custom_tooltip = seljuk_collapse.tt
+		add_truce_with = KHO
+		hidden_effect = {
+			KHO = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "seljuk_collapse.3.b"
+		ai_chance = { factor = 0 }
+		declare_war_with_cb = {
+			who = KHO
+			casus_belli = cb_disloyal_vassal
+		}
+	}
+
+	option = {
+		name = "seljuk_collapse.3.c"
+		trigger = { ai = no }
+		ai_chance = { factor = 0 }
+		switch_tag = KHO
+		add_truce_with = KHO
+		hidden_effect = {
+			KHO = {
+				every_owned_province = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,575 @@
+namespace = incident_divided_church
+
+#event to start the incident
+country_event = {
+	id = incident_divided_church.1
+	title = "incident_divided_church.1.t"
+	desc = "incident_divided_church.1.d"
+	picture = COUNCIL_TRENT_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		has_dlc = "Emperor"
+		NOT = { started_in = 1403.5.28 }
+		is_emperor = yes
+		had_global_flag = {
+			flag = western_schism_flag
+			days = 18250
+		}
+		OR = {
+			current_age = age_of_dynasticism
+			current_age = age_of_discovery
+		}
+		normal_or_historical_nations = yes
+		NOT = { active_imperial_incident = any }
+		any_country = {
+			is_part_of_hre = yes
+			religion = catholique
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.75
+			any_elector = {
+				religion = catholique
+			}
+		}
+		modifier = {
+			factor = 0.5
+			current_age = age_of_discovery
+		}
+	}
+	
+	option = {
+		name = incident_divided_church.1.a
+		set_imperial_incident = incident_divided_church
+	}
+}
+
+#let emperor decide to end the schism or not
+country_event = {
+	id = incident_divided_church.2
+	title = "incident_divided_church.2.t"
+	desc = "incident_divided_church.2.d"
+	picture = COUNCIL_TRENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = incident_divided_church.2.a
+		ai_chance = {
+			factor = 15
+		}
+		add_prestige = -10
+		add_imperial_influence = -10
+		#custom_tooltip = incident_divided_church.2.tt
+	}
+	option = {
+		name = incident_divided_church.2.b
+		set_global_flag = emperor_wants_to_end_schism
+		ai_chance = {
+			factor = 70
+		}
+		custom_tooltip = incident_divided_church.2.tt2
+		hidden_effect = {
+			1 = {
+				set_variable = {
+					which = WS_counting_variable
+					value = 0
+				}
+			}
+			every_country = {
+				limit = {
+					NOT = { tag = ROOT }
+					OR = {
+						religion = catholic
+						religion = catholique
+					}
+				}
+				country_event = {
+					id = incident_divided_church.3
+					days = 10
+					random = 30
+				}
+			}
+		}
+	}
+	option = {
+		name = incident_divided_church.2.c
+		ai_chance = {
+			factor = 15
+		}
+		change_religion = catholique
+		set_hre_religion = catholique
+		set_emperor = yes
+		if = {
+			limit = { AVI = { is_part_of_hre = no }  }
+			AVI = { set_in_empire = yes }
+		}
+		if = {
+			limit = { PAP = { is_part_of_hre = yes }  }
+			PAP = { set_in_empire = no }
+		}
+		reverse_add_opinion = {
+			who = AVI
+			modifier = opinion_favored_avignon_papacy_good
+		}
+		reverse_add_opinion = {
+			who = PAP
+			modifier = opinion_favored_avignon_papacy_bad
+		}
+		custom_tooltip = incident_divided_church.2.tt3
+		hidden_effect = {
+			capital_scope = {
+				change_religion = catholique
+			}
+			add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 1825
+			}
+			every_country = {
+				limit = {
+					is_part_of_hre = yes
+					religion = catholic
+					NOT = { tag = ROOT }
+					NOT = { has_reform = papacy_reform }
+					OR = {
+						religion = catholic
+						religion = catholique
+					}
+				}
+				country_event = {
+					id = incident_divided_church.4
+					days = 10
+					random = 30
+				}
+			}
+		}
+	}
+}
+
+#response if emperor wants to mend the schism
+country_event = {
+	id = incident_divided_church.3
+	title = "incident_divided_church.3.t"
+	desc = "incident_divided_church.3.d"
+	picture = BAD_POPE_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = incident_divided_church.3.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.1
+				is_subject_of_type = appanage
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = FROM value = -100 } }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = FROM value = -50 } }
+			}
+			modifier = {
+				factor = 1.25
+				has_opinion = { who = FROM value = 50 }
+			}	
+			modifier = {
+				factor = 1.25
+				has_opinion = { who = FROM value = 100 }
+			}
+			modifier = {
+				factor = 1.5
+				alliance_with = FROM
+			}
+			modifier = {
+				factor = 1.5
+				is_subject_of = FROM
+			}
+			modifier = {
+				factor = 0
+				is_defender_of_faith = yes
+			}
+			modifier = {
+				factor = 0
+				is_papal_controller = yes
+			}
+			modifier = {
+				factor = 2
+				war_with = PAP
+			}
+			modifier = {
+				factor = 1.5
+				is_rival = PAP
+			}
+			modifier = {
+				factor = 1.5
+				is_enemy = PAP
+			}
+			modifier = {
+				factor = 2
+				war_with = AVI
+			}
+			modifier = {
+				factor = 1.5
+				is_rival = AVI
+			}
+			modifier = {
+				factor = 1.5
+				is_enemy = AVI
+			}
+			modifier = {
+				factor = 2
+				is_excommunicated = yes
+			}
+		}
+		add_prestige = 1
+		custom_tooltip = incident_divided_church.3.tt
+		hidden_effect = {
+			1 = {
+				change_variable = {
+					which = WS_counting_variable
+					value = 1
+				}
+			}
+		}
+	}
+	option = {
+		name = incident_divided_church.3.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = PAP value = -100 } }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = PAP value = -50 } }
+			}
+			modifier = {
+				factor = 1.25
+				has_opinion = { who = PAP value = 50 }
+			}	
+			modifier = {
+				factor = 1.25
+				has_opinion = { who = PAP value = 100 }
+			}
+			modifier = {
+				factor = 1.5
+				alliance_with = PAP
+			}
+			modifier = {
+				factor = 1.5
+				is_subject_of = PAP
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = AVI value = -100 } }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = AVI value = -50 } }
+			}
+			modifier = {
+				factor = 1.25
+				has_opinion = { who = AVI value = 50 }
+			}	
+			modifier = {
+				factor = 1.25
+				has_opinion = { who = AVI value = 100 }
+			}
+			modifier = {
+				factor = 1.5
+				alliance_with = AVI
+			}
+			modifier = {
+				factor = 1.5
+				is_subject_of = AVI
+			}
+			modifier = {
+				factor = 1.25
+				invested_papal_influence = 25
+			}
+			modifier = {
+				factor = 1.25
+				invested_papal_influence = 50
+			}
+		}
+		add_papal_influence = 1
+		custom_tooltip = incident_divided_church.3.tt2
+		hidden_effect = {
+			1 = {
+				subtract_variable = {
+					which = WS_counting_variable
+					value = -1
+				}
+			}
+		}
+	}
+}
+
+#response if Catholique becomes official religion
+country_event = {
+	id = incident_divided_church.4
+	title = "incident_divided_church.4.t"
+	desc = "incident_divided_church.4.d"
+	picture = COUNCIL_TRENT_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = incident_divided_church.4.a
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = FROM value = -100 } }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = FROM value = -50 } }
+			}
+			modifier = {
+				factor = 1.25
+				has_opinion = { who = FROM value = 50 }
+			}	
+			modifier = {
+				factor = 1.25
+				has_opinion = { who = FROM value = 100 }
+			}
+			modifier = {
+				factor = 1.5
+				alliance_with = FROM
+			}
+			modifier = {
+				factor = 1.5
+				is_subject_of = FROM
+			}
+			modifier = {
+				factor = 0
+				is_defender_of_faith = yes
+			}
+			modifier = {
+				factor = 0
+				is_papal_controller = yes
+			}
+			modifier = {
+				factor = 2
+				war_with = PAP
+			}
+			modifier = {
+				factor = 1.5
+				is_rival = PAP
+			}
+			modifier = {
+				factor = 1.5
+				is_enemy = PAP
+			}
+			modifier = {
+				factor = 1.25
+				imperial_influence = 25
+			}
+			modifier = {
+				factor = 1.25
+				imperial_influence = 50
+			}
+			modifier = {
+				factor = 1.25
+				imperial_influence = 75
+			}
+		}
+		change_religion = catholique
+		capital_scope = {
+			change_religion = catholique
+		}
+		add_country_modifier = {
+			name = "conversion_zeal"
+			duration = 1825
+		}
+	}
+	option = {
+		name = incident_divided_church.4.b
+		ai_chance = {
+			factor = 25
+		}
+		add_prestige = -10
+		reverse_add_casus_belli = {
+			type = cb_religious_conformance
+			target = FROM
+			months = 600
+		}
+	}
+}
+
+#check if schism is mended or not
+country_event = {
+	id = incident_divided_church.5
+	title = "incident_divided_church.5.t"
+	desc = {
+		trigger = {
+			1 = {
+				NOT = {
+					check_variable = {
+						which = WS_counting_variable
+						value = 0
+					}
+				}
+			}
+		}
+		desc = "incident_divided_church.5.d"
+	}
+	desc = {
+		trigger = {
+			1 = {
+				check_variable = {
+					which = WS_counting_variable
+					value = 0
+				}
+			}
+		}
+		desc = "incident_divided_church.5.d2"
+	}
+	picture = BAD_POPE_eventPicture
+
+	trigger = {
+		is_emperor = yes
+		had_global_flag = {
+			flag = emperor_wants_to_end_schism
+			days = 180
+		}
+	}
+
+	fire_only_once = yes
+	major = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			clr_global_flag = emperor_wants_to_end_schism
+		}
+	}
+
+	option = {
+		name = incident_divided_church.5.a
+		if = {
+			limit = {
+				1 = {
+					NOT = {
+						check_variable = {
+							which = WS_counting_variable
+							value = 0
+						}
+					}
+				}
+			}
+			add_prestige = -20
+			add_imperial_influence = -20
+		}
+		else = {
+			add_prestige = 20
+			add_imperial_influence = 20
+			tooltip = { PAP = { kill_ruler = yes } }
+			AVI = { kill_ruler = yes }
+			PAP = { define_ruler = { name = "Martin V" }}
+			custom_tooltip = incident_divided_church.5.tt
+			hidden_effect = {
+				every_country = {
+					limit = {
+						NOT = { tag = PAP }
+						NOT = { tag = AVI }
+						NOT = { tag = ROOT }
+						religion = catholique
+					}
+					country_event = {
+						id = incident_divided_church.6
+						days = 10
+						random = 30
+					}
+				}
+			}
+		}
+	}
+}
+
+#response for Catholique nations if schism is mended
+country_event = {
+	id = incident_divided_church.6
+	title = "incident_divided_church.6.t"
+	desc = "incident_divided_church.6.d"
+	picture = POPE_PREACHING_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = incident_divided_church.6.a
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				is_defender_of_faith = yes
+			}
+			modifier = {
+				factor = 0
+				is_papal_controller = yes
+			}
+		}
+		change_religion = catholic
+		capital_scope = {
+			change_religion = catholic
+		}
+		add_country_modifier = {
+			name = "conversion_zeal"
+			duration = 1825
+		}
+	}
+
+	option = {
+		name = incident_divided_church.6.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = AVI value = -100 } }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { has_opinion = { who = AVI value = -50 } }
+			}
+			modifier = {
+				factor = 1.25
+				has_opinion = { who = AVI value = 50 }
+			}	
+			modifier = {
+				factor = 1.25
+				has_opinion = { who = AVI value = 100 }
+			}
+			modifier = {
+				factor = 1.5
+				alliance_with = AVI
+			}
+			modifier = {
+				factor = 1.5
+				is_subject_of = AVI
+			}
+			modifier = {
+				factor = 1.25
+				invested_papal_influence = 25
+			}
+			modifier = {
+				factor = 1.25
+				invested_papal_influence = 50
+			}
+		}
+		add_papal_influence = 1
+	}
+}

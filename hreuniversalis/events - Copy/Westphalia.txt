@@ -1,0 +1,59 @@
+# Westphalia
+country_event = {
+	id = 1012
+	title = "EVTNAME1012"
+	desc = "EVTDESC1012"
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = { exists = WES }
+		is_revolution_target = yes
+		normal_or_historical_nations = yes
+		capital_scope = {
+			NOT = { superregion = germanynorth_superregion }
+		}
+		owns = 2627		# Luneburg
+		owns = 879		# Osnabrück
+		owns = 81		# Hesse
+		owns = 135		# Lippe
+		owns = 2973		# Münster
+	}
+	
+	mean_time_to_happen = {
+	
+		months = 180
+	
+		modifier = {
+			factor = 0.95
+			owns = 842	# Altmark
+		}
+		modifier = {
+			factor = 0.95
+			owns = 429	# Bremen
+		}
+		modifier = {
+			factor = 0.95
+			owns = 2230	# Hannover
+		}
+		modifier = {
+			factor = 0.95
+			owns = 344	# Nassau
+		}
+	}
+	
+	option = {
+		name = "EVTOPTA1012"
+		every_owned_province = {
+			limit = {
+				OR = {
+					region = hesse_region
+					region = brunswick_region
+					region = westphalia_region
+				}
+			}
+			add_core = WES
+		}
+	}
+}

@@ -1,0 +1,421 @@
+namespace = vn_flavor_nrm
+#Support for Apulia?
+country_event = {
+	id = vn_flavor_nrm.100
+	title = vn_flavor_nrm.100.t
+	desc = vn_flavor_nrm.100.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { has_country_flag = nrm_mission_flag_normand }
+				random_country = {
+					limit = {
+						capital_scope = { superregion = sicily_superregion }
+						NOT = { tag = ROOT }
+						ruler_culture = normand
+					}
+					save_event_target_as = apulian_ally
+				}
+				clr_country_flag = nrm_mission_flag_normand
+			}
+			else = {
+				random_country = {
+					limit = {
+						capital_scope = { superregion = sicily_superregion }
+						NOT = { tag = ROOT }
+					}
+					save_event_target_as = apulian_ally
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = vn_flavor_nrm.100.a
+		if = {
+			limit = { 
+				NOT = { historical_friend_with = event_target:apulian_ally }
+				event_target:apulian_ally = { 
+					NOT = { historical_friend_with = ROOT }
+				}
+			}
+			tooltip = {
+				add_historical_friend = event_target:apulian_ally 
+				event_target:apulian_ally = { add_historical_friend = ROOT }
+			} 
+		}
+		else = { 
+			tooltip = {
+				add_trust = { 
+					who = event_target:apulian_ally 
+					value = 25 
+					mutual = yes 
+				}
+			}
+		}
+		add_dip_power = 50
+		add_country_modifier = {
+			name = "nrm_support_normans_in_italy_mission"
+			duration = 9125
+		}
+		tooltip = {
+			event_target:apulian_ally = {
+				add_mil_power = 50
+				add_country_modifier = {
+					name = "nrm_support_normans_in_italy_mission2"
+					duration = 3650
+				}
+			}
+		}
+		hidden_effect = {
+			event_target:apulian_ally = {
+				country_event = {
+					id = vn_flavor_nrm.101
+				}
+			}	
+		}
+	}
+}
+
+#Response for Apulia
+country_event = {
+	id = vn_flavor_nrm.101
+	title = vn_flavor_nrm.101.t
+	desc = vn_flavor_nrm.101.d
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = vn_flavor_nrm.101.a
+		if = {
+			limit = { 
+				NOT = { historical_friend_with = FROM }
+				FROM = { 
+					NOT = { historical_friend_with = ROOT }
+				}
+			}
+			add_historical_friend = FROM
+			FROM = { add_historical_friend = ROOT }
+		}
+		else = { 
+			add_trust = { 
+				who = FROM 
+				value = 25 
+				mutual = yes 
+			}
+		}
+		add_mil_power = 50
+		add_country_modifier = {
+			name = "nrm_support_normans_in_italy_mission2"
+			duration = 3650
+		}
+	}
+}
+
+#Normandy Requests Troops
+country_event = {
+	id = vn_flavor_nrm.102
+	title = vn_flavor_nrm.102.t
+	desc = vn_flavor_nrm.102.d
+	picture = LAND_MILITARY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = vn_flavor_nrm.102.a
+		add_manpower = -5
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0
+				NOT = { manpower = 5 }
+			}
+			modifier = {
+				factor = 0.5
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 1.5
+				manpower = 10
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = {
+					who = FROM
+					value = 100
+				}
+			}
+		}
+		FROM = {
+			country_event = {
+				id = vn_flavor_nrm.103
+				days = 15
+				random = 5
+				tooltip = vn_flavor_nrm.102.a.tt
+			}
+		}
+	}
+	option = {
+		name = vn_flavor_nrm.102.b
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				manpower = 5
+			}
+		}
+		FROM = {
+			country_event = {
+				id = vn_flavor_nrm.104
+				days = 15
+				random = 5
+				tooltip = vn_flavor_nrm.102.a.tt
+			}
+		}
+	}
+}
+
+#[FROM.GetName] Agrees to Send Troops
+country_event = {
+	id = vn_flavor_nrm.103
+	title = vn_flavor_nrm.103.t
+	desc = vn_flavor_nrm.103.d
+	picture = FARMING_eventPicture
+	
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = { is_in_capital_area = yes }
+				save_event_target_as = nrm_merc_province
+			}
+		}	
+	}
+	option = {
+		name = vn_flavor_nrm.103.a
+		goto = nrm_merc_province
+		ai_chance = { factor = 100 }
+		event_target:nrm_merc_province = {
+			add_unit_construction = {
+				type = infantry
+				amount = 4
+				speed = 0.1
+				cost = 0
+			}
+			add_unit_construction = {
+				type = cavalry
+				amount = 1
+				speed = 0.1
+				cost = 0
+			}
+		}
+		add_country_modifier = {
+			name = "nrm_sent_troops"
+			duration = 3650
+		}
+	}
+}
+
+#[FROM.GetName] Refuses to Send Troops
+country_event = {
+	id = vn_flavor_nrm.104
+	title = vn_flavor_nrm.104.t
+	desc = vn_flavor_nrm.104.d
+	picture = FARMING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = vn_flavor_nrm.104.a
+		ai_chance = { factor = 100 }
+		add_opinion = {
+			who = FROM
+			modifier = nrm_refused_troops
+		}
+	}
+}
+
+#move the following events to BYZ later
+# #Normandy wants to send mercenaries
+# country_event = {
+# 	id = vn_flavor_nrm.106
+# 	title = vn_flavor_nrm.106.t
+# 	desc = vn_flavor_nrm.106.d
+# 	picture = MILITARY_CAMP_eventPicture
+	
+# 	is_triggered_only = yes
+	
+# 	option = {
+# 		name = vn_flavor_nrm.106.a
+# 		ai_chance = {
+# 			factor = 25
+# 			modifier = {
+# 				factor = 4
+# 				ai_attitude = {
+# 					who = FROM
+# 					attitude = attitude_friendly
+# 				}
+# 			}
+# 			modifier = {
+# 				factor = 4
+# 				ai_attitude = {
+# 					who = FROM
+# 					attitude = attitude_allied
+# 				}
+# 			}
+# 			modifier = {
+# 				factor = 2
+# 				has_opinion = {
+# 					who = FROM
+# 					value = 125
+# 				}
+# 			}
+# 			modifier = {
+# 				factor = 2
+# 				has_opinion = {
+# 					who = FROM
+# 					value = 150
+# 				}
+# 			}
+# 		}
+# 		add_treasury = -250
+# 		tooltip = { FROM = { add_treasury = 150 } }
+# 		create_general = {
+# 			culture = normand
+# 			tradition = 50
+# 		}
+# 		add_country_modifier = {
+# 			name = nrm_byzantine_bargains_mission
+# 			duration = 7300
+# 		}
+# 		add_opinion = {
+# 			who = ROOT
+# 			modifier = nrm_gave_troops
+# 		}
+# 		hidden_effect = {
+# 			FROM = {
+# 				set_country_flag = nrm_big_support
+# 				country_event = {
+# 					id = vn_flavor_nrm.108
+# 				}
+# 			}
+# 		}
+# 	}
+# 	option = {
+# 		name = vn_flavor_nrm.106.b
+# 		ai_chance = {
+# 			factor = 50
+# 			modifier = {
+# 				factor = 2
+# 				has_opinion = {
+# 					who = FROM
+# 					value = 125
+# 				}
+# 			}
+# 			modifier = {
+# 				factor = 2
+# 				has_opinion = {
+# 					who = FROM
+# 					value = 150
+# 				}
+# 			}
+# 		}
+# 		add_treasury = -150
+# 		tooltip = { FROM = { add_treasury = 150 } }
+# 		create_general = {
+# 			culture = normand
+# 			tradition = 25
+# 		}
+# 		add_country_modifier = {
+# 			name = nrm_byzantine_bargains_mission
+# 			duration = 3650
+# 		}
+# 		add_opinion = {
+# 			who = ROOT
+# 			modifier = nrm_gave_troops
+# 		}
+# 		hidden_effect = {
+# 			FROM = {
+# 				country_event = {
+# 					id = vn_flavor_nrm.108
+# 				}
+# 			}
+# 		}
+# 	}
+# 	option = {
+# 		name = vn_flavor_nrm.106.c
+# 		ai_chance = {
+# 			factor = 25
+# 			modifier = {
+# 				factor = 4
+# 				OR = {
+# 					ai_attitude = {
+# 						who = FROM
+# 						attitude = attitude_hostile
+# 					}
+# 					ai_attitude = {
+# 						who = FROM
+# 						attitude = attitude_rivalry
+# 					}
+# 					ai_attitude = {
+# 						who = FROM
+# 						attitude = attitude_outraged
+# 					}
+# 				}
+# 			}
+# 		}
+# 		hidden_effect = {
+# 			FROM = {
+# 				country_event = {
+# 					id = vn_flavor_nrm.107
+# 				}
+# 			}
+# 		}
+# 	}
+# }
+
+# #Byzantium does not send troops
+# country_event = {
+# 	id = vn_flavor_nrm.107
+# 	title = vn_flavor_nrm.107.t
+# 	desc = vn_flavor_nrm.107.d
+# 	picture = ATHENS_eventPicture
+	
+# 	is_triggered_only = yes
+	
+# 	option = {
+# 		name = vn_flavor_nrm.107.a
+# 		ai_chance = { factor = 100 }
+# 		add_prestige = -1
+# 	}
+# }
+
+# #Byzantium Agrees to our Offer
+# country_event = {
+# 	id = vn_flavor_nrm.108
+# 	title = vn_flavor_nrm.108.t
+# 	desc = vn_flavor_nrm.108.d
+# 	picture = ATHENS_eventPicture
+	
+# 	is_triggered_only = yes
+	
+# 	option = {
+# 		name = vn_flavor_nrm.108.a
+# 		ai_chance = { factor = 100 }
+# 		if = {
+# 			limit = { has_country_flag = nrm_big_support }
+# 			add_manpower = -5
+# 			add_treasury = 250
+# 			clr_country_flag = nrm_big_support
+# 		}
+# 		else = {
+# 			add_manpower = -2.5
+# 			add_treasury = 150
+# 		}
+# 	}
+# }

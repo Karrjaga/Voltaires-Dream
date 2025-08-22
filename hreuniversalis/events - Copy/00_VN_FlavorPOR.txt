@@ -1,0 +1,260 @@
+namespace = vn_flavor_por
+
+#Event chain to subjugate ORM
+country_event = {
+	id = vn_flavor_por.1
+	title = "vn_flavor_por.1.t"
+	desc = "vn_flavor_por.1.d"
+	picture = MERCHANTS_TALKING_eventPicture
+	goto = 5541
+
+	fire_only_once = yes
+
+	trigger = {
+		is_or_was_tag = { tag = POR }
+		is_subject = no
+		is_at_war = no
+		num_of_ports = 5
+		current_age = age_of_reformation
+		ORM = {
+			owns = 5541
+			is_subject = no
+			is_at_war = no
+			NOT = { num_of_cities = 2 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 150
+		modifier = {
+			factor = 0.75
+			any_owned_province = { continent = africa }
+		}
+		modifier = {
+			factor = 0.50
+			any_owned_province = { continent = asia }
+		}
+	}
+
+	option = {
+		name = "vn_flavor_por.1.a"
+		ai_chance = { factor = 100 }
+		ORM = { country_event = { id = vn_flavor_por.2 days = 20 } }
+	}
+
+	option = {
+		name = "vn_flavor_por.1.b"
+		ai_chance = { factor = 0 }
+		add_prestige = -5
+	}
+}
+
+country_event = {
+	id = vn_flavor_por.2
+	title = "vn_flavor_por.2.t"
+	desc = "vn_flavor_por.2.d"
+	picture = REFORM_eventPicture
+
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_flavor_por.2.a"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				OR = {
+					is_rival = FROM
+					is_enemy = FROM
+				}
+			}
+		}
+		FROM = { country_event = { id = vn_flavor_por.3 } }
+		if = {
+			limit = { 
+				has_dlc = "Domination"
+			}
+			tooltip = {
+				FROM = {
+					create_subject = {
+						who = ROOT
+						subject_type = trade_protectorate
+					}
+				}
+			}
+		}
+		else = {
+			tooltip = { FROM = { vassalize = ROOT } }
+		}
+	}
+
+	option = {
+		name = "vn_flavor_por.2.b"
+		ai_chance = { factor = 10 }
+		FROM = { country_event = { id = vn_flavor_por.4 } }
+		tooltip = {
+			reverse_add_casus_belli = {
+				type = cb_vassalize_mission
+				target = FROM
+				months = 300
+			}
+		}
+	}
+}
+
+country_event = {
+	id = vn_flavor_por.3
+	title = "vn_flavor_por.3.t"
+	desc = "vn_flavor_por.3.d"
+	picture = CONQUEST_eventPicture
+
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_flavor_por.3.a"
+		if = {
+			limit = {
+				has_dlc = "Domination"
+			}
+			create_subject = {
+				who = FROM
+				subject_type = trade_protectorate
+			}
+		}
+		else = {
+			vassalize = FROM
+		}
+	}
+}
+
+country_event = {
+	id = vn_flavor_por.4
+	title = "vn_flavor_por.4.t"
+	desc = "vn_flavor_por.4.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_flavor_por.4.a"
+		add_casus_belli = {
+			type = cb_vassalize_mission
+			target = FROM
+			months = 300
+		}
+	}
+}
+
+#independence of Portugal
+country_event = {
+    id = vn_flavor_por.5
+    title = "vn_flavor_por.5.t"
+	desc = "vn_flavor_por.5.d"
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+	major = yes
+
+	trigger = {
+		is_or_was_tag = { tag = PCA }
+		NOT = { started_in = 1096.1.1 }
+		NOT = { is_year = 1110 }
+		is_subject = yes
+		OR = {
+			has_global_flag = lon_split_flag
+			is_year = 1090
+		}
+	}
+
+	immediate = {
+		overlord = {
+			save_event_target_as = pca_overlord
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+
+	option = {
+		name = "vn_flavor_por.5.a"
+		ai_chance = { factor = 90 }
+		grant_independence = yes
+		event_target:pca_overlord = {
+			add_opinion = {
+				who = ROOT
+				modifier = vn_flavor_por.5.a_opinion
+			}
+			add_truce_with = ROOT
+			add_casus_belli = {
+				type = cb_disloyal_vassal
+				target = ROOT
+				months = 120
+			}
+		}
+		custom_tooltip = vn_flavor_por.5.aTT2
+		hidden_effect = {
+			porto_area = {
+				limit = { 
+					owned_by = event_target:pca_overlord
+					NOT = { owned_by = ROOT } 
+				}
+				owner = { remove_core = PREV }
+				cede_province = ROOT
+				add_core = ROOT
+			}
+			braganca_area = {
+				limit = { 
+					owned_by = event_target:pca_overlord
+					NOT = { owned_by = ROOT } 
+				}
+				owner = { remove_core = PREV }
+				cede_province = ROOT
+				add_core = ROOT
+			}
+		}
+		if = {
+			limit = { exists = CBR }
+			custom_tooltip = vn_flavor_por.5.aTT
+			hidden_effect = {
+				beiras_region = {
+					limit = { owned_by = CBR }
+					cede_province = ROOT
+					add_core = ROOT
+					remove_core = CBR
+				}
+				alentejo_region = {
+					limit = { owned_by = CBR }
+					cede_province = ROOT
+					add_core = ROOT
+					remove_core = CBR
+				}
+			}
+		}
+		define_ruler = {
+			name = "Henrique"
+			dynasty = "de Bourgogne"
+			adm = 2
+			dip = 5
+			mil = 3
+		}
+		define_heir = {
+			dynasty = "de Bourgogne"
+			block_disinherit = yes
+		}
+	}
+	option = {
+		name = "vn_flavor_por.5.b"
+		ai_chance = { factor = 10 }
+		add_prestige = -10
+		event_target:pca_overlord = {
+			add_opinion = {
+				who = ROOT
+				modifier = vn_flavor_por.5.b_opinion
+			}
+		}
+	}
+}

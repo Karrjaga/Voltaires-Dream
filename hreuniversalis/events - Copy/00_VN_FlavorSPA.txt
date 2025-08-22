@@ -1,0 +1,726 @@
+namespace = vn_flavor_spa
+
+country_event = {
+	id = vn_flavor_spa.1
+	title = "vn_flavor_spa.1.t"
+	desc = "vn_flavor_spa.1.d"
+	picture = KING_SICK_IN_BED_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+
+	trigger = {
+		normal_or_historical_nations = yes
+		current_age = age_of_empire
+		NOT = { has_global_flag = lon_split_flag }
+		tag = LON
+		is_subject = no
+		government = monarchy
+		religion_group = christian
+		OR = {
+			any_owned_province = { is_core = CAS }
+			any_owned_province = { is_core = GAL }
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = { set_global_flag = lon_split_flag }
+	}
+
+	option = {
+		name = "vn_flavor_spa.1.a"
+		ai_chance = { factor = 95 }
+		custom_tooltip = vn_flavor_spa.1.tt
+		hidden_effect = {
+			if = {
+				limit = { NOT = { exists = CAS } }
+				CAS = { set_country_flag = cas_didnt_exist }
+			}
+			every_owned_province = {
+				limit = { is_core = CAS }
+				cede_province = CAS
+				remove_core = LON
+			}
+			if = {
+				limit = { CAS = { has_country_flag = cas_didnt_exist } }
+				CAS = {
+					set_government_rank = 5
+					add_manpower = 4
+					add_prestige = 25
+					add_army_tradition = 50
+					add_treasury = 150
+					define_ruler = {
+						dynasty = "Jiménez"
+						adm = 2
+						dip = 4
+						mil = 4
+					}
+					clr_country_flag = cas_didnt_exist
+					every_neighbor_country = {
+						limit = { dynasty = CAS }
+						add_truce_with = CAS
+					}
+				}
+			}
+			if = {
+				limit = { aragon_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = aragon_region } 
+					cede_province = CAS 
+					add_core = CAS 
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = { castile_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = castile_region } 
+					cede_province = CAS 
+					add_core = CAS 
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = { toledan_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = toledan_region } 
+					cede_province = CAS 
+					add_core = CAS 
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = { basque_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = basque_region } 
+					cede_province = CAS
+					add_core = CAS 
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = { NOT = { exists = GAL } }
+				GAL = { define_ruler = { dynasty = "Jiménez" } }
+			}
+			if = {
+				limit = { GAL = { is_subject_of = LON } }
+				free_vassal = GAL
+				GAL = {
+					define_ruler = { dynasty = "Jiménez" }
+					set_government_rank = 5
+				}
+			}
+			GAL = {
+				every_neighbor_country = {
+					limit = { dynasty = GAL }
+					add_truce_with = GAL
+				}
+			}
+			every_owned_province = {
+				limit = { is_core = GAL }
+				cede_province = GAL
+				remove_core = LON
+			}
+			every_owned_province = {
+				limit = { is_core = PCA }
+				cede_province = PCA
+				remove_core = LON
+			}
+			if = {
+				limit = { beiras_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = beiras_region } 
+					cede_province = PCA
+					add_core = PCA
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = { alentejo_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = alentejo_region } 
+					cede_province = PCA
+					add_core = PCA
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = {
+					exists = PCA
+					PCA = { is_subject_of = LON }
+				}
+				GAL = { create_march = PCA }
+			}
+			if = {
+				limit = {
+					exists = CBR
+					CBR = { is_subject_of = LON }
+				}
+				GAL = { create_march = CBR }
+			}
+		}
+	}
+	option = {
+		name = "vn_flavor_spa.1.b"
+		ai_chance = { factor = 0 }
+		trigger = { ai = no }
+		custom_tooltip = vn_flavor_spa.1.tt
+		hidden_effect = {
+			if = {
+				limit = { NOT = { exists = CAS } }
+				CAS = { set_country_flag = cas_didnt_exist }
+			}
+			every_owned_province = {
+				limit = { is_core = CAS }
+				cede_province = CAS
+				remove_core = LON
+			}
+			if = {
+				limit = { CAS = { has_country_flag = cas_didnt_exist } }
+				CAS = {
+					set_government_rank = 5
+					add_manpower = 4
+					add_prestige = 25
+					add_army_tradition = 50
+					add_treasury = 150
+					define_ruler = {
+						dynasty = "Jiménez"
+						adm = 2
+						dip = 4
+						mil = 4
+					}
+					clr_country_flag = cas_didnt_exist
+					every_neighbor_country = {
+						limit = { dynasty = CAS }
+						add_truce_with = CAS
+					}
+					discover_provinces = ROOT
+				}
+			}
+			if = {
+				limit = { aragon_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = aragon_region } 
+					cede_province = CAS 
+					add_core = CAS 
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = { castile_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = castile_region } 
+					cede_province = CAS 
+					add_core = CAS 
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = { toledan_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = toledan_region } 
+					cede_province = CAS 
+					add_core = CAS 
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = { basque_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = basque_region } 
+					cede_province = CAS
+					add_core = CAS 
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = { NOT = { exists = GAL } }
+				GAL = { define_ruler = { dynasty = "Jiménez" } }
+			}
+			if = {
+				limit = { GAL = { is_subject_of = LON } }
+				free_vassal = GAL
+				GAL = {
+					define_ruler = { dynasty = "Jiménez" }
+					set_government_rank = 5
+				}
+			}
+			GAL = {
+				every_neighbor_country = {
+					limit = { dynasty = GAL }
+					add_truce_with = GAL
+				}
+			}
+			every_owned_province = {
+				limit = { is_core = GAL }
+				cede_province = GAL
+				remove_core = LON
+			}
+			if = {
+				limit = {
+					exists = PCA
+					PCA = { is_subject_of = LON }
+				}
+				GAL = { create_march = PCA }
+			}
+			if = {
+				limit = {
+					exists = CBR
+					CBR = { is_subject_of = LON }
+				}
+				GAL = { create_march = CBR }
+			}
+		}
+		switch_tag = CAS
+	}
+	option = {
+		name = "vn_flavor_spa.1.c"
+		ai_chance = { factor = 0 }
+		trigger = { ai = no }
+		custom_tooltip = vn_flavor_spa.1.tt
+		hidden_effect = {
+			if = {
+				limit = { NOT = { exists = CAS } }
+				CAS = { set_country_flag = cas_didnt_exist }
+			}
+			every_owned_province = {
+				limit = { is_core = CAS }
+				cede_province = CAS
+				remove_core = LON
+			}
+			if = {
+				limit = { CAS = { has_country_flag = cas_didnt_exist } }
+				CAS = {
+					set_government_rank = 5
+					add_manpower = 4
+					add_prestige = 25
+					add_army_tradition = 50
+					add_treasury = 150
+					define_ruler = {
+						dynasty = "Jiménez"
+						adm = 2
+						dip = 4
+						mil = 4
+					}
+					clr_country_flag = cas_didnt_exist
+					every_neighbor_country = {
+						limit = { dynasty = CAS }
+						add_truce_with = CAS
+					}
+					discover_provinces = ROOT
+				}
+			}
+			if = {
+				limit = { aragon_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = aragon_region } 
+					cede_province = CAS 
+					add_core = CAS 
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = { castile_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = castile_region } 
+					cede_province = CAS 
+					add_core = CAS 
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = { toledan_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = toledan_region } 
+					cede_province = CAS 
+					add_core = CAS 
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = { basque_region = { owned_by = ROOT } }
+				every_owned_province = { 
+					limit = { region = basque_region } 
+					cede_province = CAS
+					add_core = CAS 
+					remove_core = LON 
+				}
+			}
+			if = {
+				limit = { NOT = { exists = GAL } }
+				GAL = { define_ruler = { dynasty = "Jiménez" } }
+			}
+			if = {
+				limit = { GAL = { is_subject_of = LON } }
+				free_vassal = GAL
+				GAL = {
+					define_ruler = { dynasty = "Jiménez" }
+					set_government_rank = 5
+				}
+			}
+			GAL = {
+				every_neighbor_country = {
+					limit = { dynasty = GAL }
+					add_truce_with = GAL
+				}
+			}
+			every_owned_province = {
+				limit = { is_core = GAL }
+				cede_province = GAL
+				remove_core = LON
+			}
+			if = {
+				limit = {
+					exists = PCA
+					PCA = { is_subject_of = LON }
+				}
+				GAL = { create_march = PCA }
+			}
+			if = {
+				limit = {
+					exists = CBR
+					CBR = { is_subject_of = LON }
+				}
+				GAL = { create_march = CBR }
+			}
+		}
+		switch_tag = GAL
+	}
+	option = {
+		name = "vn_flavor_spa.1.dd"
+		ai_chance = { factor = 5 }
+		add_corruption = 20
+		add_legitimacy = -20
+		add_stability = -2
+		random_owned_province = {
+			limit = { is_core = CAS }
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 2
+			}
+		}
+		random_owned_province = {
+			limit = { is_core = GAL }
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 2
+			}
+		}
+		if = {
+			limit = { 
+				exists = GAL
+				GAL = { is_subject_of = LON }
+			}
+			GAL = {
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_independence_war
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = CAS
+				CAS = {
+					is_subject_of = LON
+				}
+			}
+			CAS = {
+				set_government_rank = 5
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_independence_war
+				}
+			}
+		}
+	}
+
+	after = {
+		if = {
+			limit = { has_dlc = "Leviathan" }
+			4328 = {
+				set_great_project_tier_2 = {
+					type = santiago_cathedral
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = vn_flavor_spa.2
+	title = "vn_flavor_spa.2.t"
+	desc = "vn_flavor_spa.2.d"
+	picture = CIVIL_WAR_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		current_age = age_of_empire
+		has_global_flag = lon_split_flag
+		tag = CAS
+		is_subject = no
+		has_regency = no
+		government = monarchy
+		religion_group = christian
+		dynasty = "Jiménez"
+		LON = {
+			exists = yes
+			government = monarchy
+			religion_group = christian
+			dynasty = "Jiménez"
+			is_subject = no
+			is_at_war = no
+			ai = yes
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 72
+	}
+
+	option = {
+		name = "vn_flavor_spa.2.a"
+		ai_chance = { factor = 90 }
+		create_union = LON
+	}
+
+	option = {
+		name = "vn_flavor_spa.2.b"
+		ai_chance = { factor = 10 }
+		add_prestige = 20
+	}
+}
+
+country_event = {
+	id = vn_flavor_spa.3
+	title = "vn_flavor_spa.3.t"
+	desc = "vn_flavor_spa.3.d"
+	picture = CIVIL_WAR_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		current_age = age_of_empire
+		has_global_flag = lon_split_flag
+		tag = CAS
+		is_subject = no
+		has_regency = no
+		government = monarchy
+		religion_group = christian
+		dynasty = "Jiménez"
+		GAL = {
+			exists = yes
+			government = monarchy
+			religion_group = christian
+			dynasty = "Jiménez"
+			is_subject = no
+			is_at_war = no
+			ai = yes
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 72
+	}
+
+	option = {
+		name = "vn_flavor_spa.3.a"
+		ai_chance = { factor = 90 }
+		create_union = GAL
+	}
+
+	option = {
+		name = "vn_flavor_spa.3.b"
+		ai_chance = { factor = 10 }
+		add_prestige = 20
+	}
+}
+
+country_event = {
+	id = vn_flavor_spa.4
+	title = "vn_flavor_spa.4.t"
+	desc = "vn_flavor_spa.4.d"
+	picture = BATTLE_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		NOT = { started_in = 1054.9.12 }
+		normal_or_historical_nations = yes
+		tag = LON
+		is_subject = no
+		dynasty = "Jiménez"
+		NOT = { exists = CAS }
+		NAV = {
+			exists = yes
+			is_subject = no
+			dynasty = "Jiménez"
+			any_owned_province = { is_core = CAS }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 2
+	}
+
+	option = {
+		name = "vn_flavor_spa.4.a"
+		ai_chance = { factor = 75 }
+		custom_tooltip = vn_flavor_spa.4.tt
+		hidden_effect = {
+			NAV = { country_event = { id = vn_flavor_spa.5 days = 10 } }
+		}
+	}
+
+	option = {
+		name = "vn_flavor_spa.4.b"
+		ai_chance = { factor = 25 }
+		add_prestige = 5
+	}
+}
+
+country_event = {
+	id = vn_flavor_spa.5
+	title = "vn_flavor_spa.5.t"
+	desc = "vn_flavor_spa.5.d"
+	picture = CONQUEST_eventPicture
+	
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	immediate = { hidden_effect = { kill_ruler = yes } }
+
+	option = {
+		name = "vn_flavor_spa.5.a"
+		ai_chance = { factor = 90 }
+		hidden_effect = {
+			FROM = { country_event = { id = vn_flavor_spa.6 } }
+		}
+		add_prestige = -5
+		tooltip = {
+			every_owned_province = {
+				limit = {
+					is_capital = no
+					is_core = CAS
+				}
+				remove_core = ROOT
+				add_core = FROM
+				cede_province = FROM
+			}
+		}
+	}
+
+	option = {
+		name = "vn_flavor_spa.5.b"
+		ai_chance = { factor = 10 }
+		hidden_effect = {
+			FROM = { country_event = { id = vn_flavor_spa.7 } }
+		}
+		add_prestige = 5
+		tooltip = {
+			FROM = {
+				add_casus_belli = {
+					target = ROOT
+					type = cb_insult
+					months = 1825
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = vn_flavor_spa.6
+	title = "vn_flavor_spa.6.t"
+	desc = "vn_flavor_spa.6.d"
+	picture = CONQUEST_eventPicture
+	
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_flavor_spa.6.a"
+		add_prestige = 5
+		FROM = {
+			every_owned_province = {
+				limit = {
+					is_capital = no
+					is_core = CAS
+				}
+				remove_core = FROM
+				add_core = ROOT
+				cede_province = ROOT
+			}
+		}
+	}
+}
+
+country_event = {
+	id = vn_flavor_spa.7
+	title = "vn_flavor_spa.7.t"
+	desc = "vn_flavor_spa.7.d"
+	picture = SIEGE_eventPicture
+	
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_flavor_spa.7.a"
+		add_prestige = -5
+		add_casus_belli = {
+			target = FROM
+			type = cb_insult
+			months = 1825
+		}
+	}
+}
+
+country_event = {
+    id = vn_flavor_spa.8
+    title = "vn_flavor_spa.8.t"
+	desc = "vn_flavor_spa.8.d"
+	picture = POPE_PREACHING_eventPicture
+	
+	fire_only_once = yes
+	major = yes
+	major_trigger = {
+		capital_scope = {
+			superregion = iberia_superregion
+		}
+	}
+	
+	trigger = {
+		NOT = { has_global_flag = enable_reconquista_holy_orders_flag }
+		NOT = { current_age = age_of_empire }
+		OR = {
+			religion = catholic
+			religion = catholique
+		}
+		is_free_or_tributary_trigger = yes
+		OR = {
+			owns_core_province = 2253 #Avis
+			owns_core_province = 1206 #Calatrava
+			owns_core_province = 4391 #Alcantara
+			owns_core_province = 4397 #Ucles
+			owns_core_province = 4319 #Montesa
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 120
+	}
+
+	option = {
+		name = "vn_flavor_spa.8.a"
+		add_papal_influence = 25
+		add_prestige = 25
+		custom_tooltip = vn_flavor_spa.8.tt
+		set_global_flag = enable_reconquista_holy_orders_flag
+	}
+}

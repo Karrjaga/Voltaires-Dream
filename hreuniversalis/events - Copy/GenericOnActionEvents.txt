@@ -1,0 +1,124 @@
+# Integrating FROMCOUNTRY
+country_event = {
+	id = 610
+	title = "EVTNAME610"
+	desc = "EVTDESC610"
+	picture = DEBATE_REPUBLICAN_eventPicture
+
+	trigger = {
+		NOT = { has_government_attribute =  MAY_free_diplo_annexation }
+		NOT = {
+			FROM = {
+				has_country_modifier = to_be_agenda_annexed_timer
+			}
+		}
+		NOT = {
+			AND = {
+				FROM = {
+					is_subject_of_type = nahuatl_tributary
+				}
+				has_country_flag = MAY_may_annex_tributaries_with_no_penalty_flag
+			}
+		}
+		NOT = {
+			AND = {
+				FROM = {
+					religion = ROOT
+				}
+				has_country_flag = BYZ_diplo_annexing_orthodox_countries
+			}
+		}
+		NOT = {
+			AND = {
+				FROM = {
+					culture_group = germanic
+				}
+				has_country_flag = GER_all_germanic_subjects_will_be_annexable_without_diplo_annex_penalty_flag
+			}
+		}
+		NOT = { has_country_flag = no_integrate_penalty }
+	}
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTB610A"
+		add_country_modifier = {
+			name = "annexers_legacy"
+			duration = 3650
+		}
+	}
+}
+
+# Chance of being triggered when an heir with a weak claim succeeds to the throne
+country_event = {
+	id = 611
+	title = "EVTNAME611"
+	desc = "EVTDESC611"
+	picture = MILITARY_CAMP_eventPicture
+	goto = pretender_province
+	
+	is_triggered_only = yes
+	
+	trigger = { 
+		num_of_cities = 3 
+		government = monarchy
+		NOT = { has_country_modifier = bill_of_rights_parliament }
+		NOT = { has_ruler_flag = civil_war_exempt }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_saved_name = {
+				key = pretender
+				type = leader
+			}
+			random_owned_province = {
+				save_event_target_as = pretender_province
+			}
+			random_owned_province = {
+				limit = { 
+					is_in_capital_area = yes
+					highest_supply_limit_in_area = yes
+				}
+				save_event_target_as = pretender_province
+			}
+		}
+	}
+	
+	option = {
+		name = "EVTOPTB611A"
+		event_target:pretender_province = {
+			spawn_large_scaled_rebels = {
+				type = pretender_rebels
+				saved_name = pretender
+			}
+		}
+	}
+	
+	after = {
+		clear_saved_name = pretender
+	}
+}
+
+# Appanage Integration
+namespace = appanages_event
+
+country_event = {
+	id = appanages_event.1
+	title = appanages_event.1.t
+	desc = appanages_event.1.desc
+	picture = DIPLOMACY_SIGNING_eventPicture
+	trigger = {
+		has_government_attribute = nobility_loyalty_hit_on_integration
+	}
+	is_triggered_only = yes
+
+	option = {
+		name = appanages_event.1.a
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -20
+		}
+	}
+}

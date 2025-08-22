@@ -1,0 +1,419 @@
+########################################
+# Made by Parmelion
+########################################
+
+namespace = flavor_turkoman
+
+#flavor_turkoman.1 removed
+
+#Remove Flag
+country_event = {
+	id = flavor_turkoman.2
+	title = none
+	desc = none
+	picture = none
+	hidden = yes	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_country_flag = turkoman_tribes_access_tt
+	}
+	
+	option = { }
+}
+
+#flavor_turkoman.3 removed
+
+#Abu Bakr Tihrani
+country_event = {
+	id = flavor_turkoman.4
+	title = flavor_turkoman.4.t
+	desc = flavor_turkoman.4.d
+	picture = muslimgfx_BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = flavor_turkoman.4.a
+		define_advisor = {
+			type = philosopher
+			name = "Abu Bakr Tihrani"
+			skill = 3
+			culture = persian
+			religion = ROOT
+			cost_multiplier = 0.25
+		}
+	}
+	
+	option = {
+		name = flavor_turkoman.4.b
+		define_advisor = {
+			type = artist
+			name = "Abu Bakr Tihrani"
+			skill = 3
+			culture = persian
+			religion = ROOT
+			cost_multiplier = 0.25
+		}
+	}
+	
+	option = {
+		name = flavor_turkoman.4.c
+		define_advisor = {
+			type = diplomat
+			name = "Abu Bakr Tihrani"
+			skill = 3
+			culture = persian
+			religion = ROOT
+			cost_multiplier = 0.25
+		}
+	}
+}
+
+#Persianization of the Turkomans
+country_event = {
+	id = flavor_turkoman.5
+	title = flavor_turkoman.5.t
+	desc = flavor_turkoman.5.d
+	picture = muslimgfx_GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = flavor_turkoman.5.a
+		custom_tooltip = turkoman_unlock_persia_decision
+		set_government_rank = 6
+		custom_tooltip = turkoman_shahanshah_title
+		custom_tooltip = turkoman_turcoiranian_culture
+		set_country_flag = turkoman_can_form_persia
+		set_country_flag = turkoman_adopt_shahanshah_title
+		add_country_modifier = {
+			name = turkoman_shahanshahs
+			duration = 7300
+		}
+		hidden_effect = {
+			change_primary_culture = turco_iranian
+			set_ruler_culture = turco_iranian
+			set_heir_culture = turco_iranian
+			set_consort_culture = turco_iranian
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = turkish
+						culture = azerbaijani
+						culture = turkmeni
+					}
+				}
+				change_culture = turco_iranian
+			}
+		}
+	}
+	
+}
+
+#The Death of Ispend Mirza
+country_event = {
+	id = flavor_turkoman.6
+	title = flavor_turkoman.6.t
+	desc = flavor_turkoman.6.d
+	picture = muslimgfx_KING_SICK_IN_BED_eventPicture
+	
+	is_triggered_only = yes
+
+	major = yes
+	major_trigger = { tag = JYA }
+	
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					JYA = { is_subject_of = ROOT }
+				}
+				JYA = {
+					grant_independence = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = flavor_turkoman.6.a
+		ai_chance = { factor = 75 }
+		if = {
+			limit = { ai = yes }
+			every_country = {
+				limit = { war_with = ROOT }
+				white_peace = ROOT
+			}
+		}
+		declare_war_with_cb = {
+			casus_belli = cb_vassalize_mission
+			who = JYA
+		}
+	}
+	
+	option = {
+		name = flavor_turkoman.6.b
+		ai_chance = { factor = 25 }
+		add_prestige = -20
+		add_truce_with = JYA
+	}
+
+	after = {
+		#this causes a crash if you put it in immediate = { } for whatever reason?
+		if = {
+			limit = { JYA = { ai = yes } }
+			JYA = {
+				define_ruler = {
+					name = "Fulad"
+					dynasty = "Qara Qoyunlu"
+					adm = 1
+					dip = 1
+					mil = 2
+				}
+				remove_heir = {
+					allow_new_heir = yes
+				}
+			}
+		}
+	}
+}
+
+#Fate of Trebizond - Qara Qoyunlu
+country_event = {
+	id = flavor_turkoman.7
+	title = flavor_turkoman.7.t
+	desc = flavor_turkoman.7.d
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = QAR
+			was_tag = QAR
+		}
+		owns_core_province = 4181
+		4181 = {
+			culture = pontic_greek
+		}
+		4181 = {
+			religion = orthodox
+		}
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = flavor_turkoman.7.a
+		add_dip_power = -50
+		add_accepted_culture_or_dip_power = { culture = pontic_greek dip_reward = yes }
+		trebizond_area = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			add_local_autonomy = -50
+		}
+		trebizond_area = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			add_province_modifier = {
+				name = turkoman_guaranteed_the_rights
+				duration = 3650
+			}
+		}
+	}
+	
+	option = {
+		name = flavor_turkoman.7.b
+		add_adm_power = -50
+		4181 = {
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 2
+			}
+		}
+		4181 = {
+			change_culture = ROOT
+		}
+		4181 = {
+			change_religion = ROOT
+		}
+	}
+}
+
+#Fate of Trebizond - Aq Qoyunlu
+country_event = {
+	id = flavor_turkoman.8
+	title = flavor_turkoman.8.t
+	desc = flavor_turkoman.8.d
+	picture = BYZ_BYZANTINE_EAGLE_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+
+	option = {
+		name = flavor_turkoman.8.a
+		add_dip_power = -50
+		add_accepted_culture_or_dip_power = { culture = pontic_greek dip_reward = yes }
+		trebizond_area = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			add_local_autonomy = -50
+		}
+		trebizond_area = {
+			limit = { country_or_non_sovereign_subject_holds = ROOT }
+			add_province_modifier = {
+				name = turkoman_guaranteed_the_rights
+				duration = 3650
+			}
+		}
+	}
+	
+	option = {
+		name = flavor_turkoman.8.b
+		add_adm_power = -50
+		4181 = {
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 2
+			}
+		}
+		4181 = {
+			change_culture = ROOT
+		}
+		4181 = {
+			change_religion = ROOT
+		}
+	}
+}
+
+#The Safavid Order
+country_event = {
+	id = flavor_turkoman.9
+	title = flavor_turkoman.9.t
+	desc = flavor_turkoman.9.d
+	picture = muslimgfx_LAND_MILITARY_eventPicture
+	
+	mean_time_to_happen = {
+		months = 50
+	}
+	
+	trigger = {
+		OR = {
+			tag = AKK
+			tag = QAR
+			was_tag = AKK
+			was_tag = QAR
+		}
+		religion_group = muslim
+		any_owned_province = { is_core = PER }
+		has_dlc = "Cradle of Civilization"
+		OR = {
+			has_reform = tribal_federation
+			has_reform = turkoman_ottoman_institutions
+		}
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = flavor_turkoman.9.a
+		add_mil_power = -100
+		set_country_flag = turkoman_safavids_conscripted
+		custom_tooltip = turkoman_upgrade_tribal_interaction_safavids
+		if = {
+			limit = {
+				OR = {
+					religion = sunni
+					religion = ibadi
+				}
+			}
+			add_country_modifier = {
+				name = turkoman_enlisted_the_safavids_sunni
+				duration = 3650
+			}
+		}
+		else_if = {
+			limit = {
+				religion = shiite
+				religion = zikri
+				religion = qarmatian
+			}
+			add_country_modifier = {
+				name = turkoman_enlisted_the_safavids_shia
+				duration = 3650
+			}
+		}
+	}
+	
+	option = {
+		name = flavor_turkoman.9.b
+		add_mil_power = 50
+	}
+}
+
+#The Mausoleum of the Turkmen Emirs
+country_event = {
+	id = flavor_turkoman.10
+	title = flavor_turkoman.10.t
+	desc = flavor_turkoman.10.d
+	picture = muslimgfx_GREAT_BUILDING_eventPicture
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	trigger = {
+		OR = {
+			tag = AKK
+			tag = QAR
+			was_tag = AKK
+			was_tag = QAR
+		}
+		religion_group = muslim
+		owns = 3540
+	}
+	
+	fire_only_once = yes
+
+	option = {
+		name = flavor_turkoman.10.a
+		add_adm_power = -100
+		add_country_modifier = {
+			name = turkoman_mausoleum
+			duration = -1
+		}
+	}
+	
+	option = {
+		name = flavor_turkoman.10.b
+		add_adm_power = 50
+	}
+}
+
+
+#flavor_turkoman.11 removed
+
+# Emirs of Mesopotamia
+country_event = {
+	id = flavor_turkoman.12
+	title = flavor_turkoman.12.t
+	desc = flavor_turkoman.12.d
+	picture = muslimgfx_CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_dlc = "King of Kings"
+	}
+
+	option = {
+		name = flavor_turkoman.12.a
+		custom_tooltip = qara_qoyunlu_starting_event_tt
+	}
+}

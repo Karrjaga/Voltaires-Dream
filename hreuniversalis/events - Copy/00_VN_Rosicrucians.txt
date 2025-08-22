@@ -1,0 +1,276 @@
+namespace = vn_rosicrucians
+
+country_event = {
+	id = vn_rosicrucians.1
+	title = "vn_rosicrucians.1.t"
+	desc = "vn_rosicrucians.1.d"
+	picture = RELIGIOUS_WARS_eventPicture
+
+	is_triggered_only = yes
+	trigger = {
+		NOT = { has_reform = papacy_reform }
+		government = monarchy
+		OR = {
+			has_idea_group = cultural_ideas
+			has_idea_group = court_ideas
+		}
+		has_institution = publichealth
+		NOT = { has_ruler_modifier = rosicrucianist }
+		NOT = { has_ruler_flag = had_rosi_offer }
+		NOT = {
+			calc_true_if = {
+				all_country = { has_ruler_modifier = rosicrucianist }
+				amount = 8
+			}
+		}
+		is_female = no
+		has_consort = no
+		has_regency = no
+		religion_group = christian
+	}
+
+	immediate = { hidden_effect = { set_ruler_flag = had_rosi_offer } }
+
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_rosicrucians.1.a"
+		ai_chance = { factor = 1 }
+	}
+
+	option = {
+		name = "vn_rosicrucians.1.b"
+		ai_chance = { factor = 99 }
+		add_prestige = 5
+		country_event = { id = vn_rosicrucians.2 days = 180 }
+	}
+}
+
+country_event = {
+	id = vn_rosicrucians.2
+	title = "vn_rosicrucians.2.t"
+	desc = "vn_rosicrucians.2.d"
+	picture = ECONOMY_eventPicture
+
+	trigger = {
+		is_female = no
+		has_regency = no
+		has_consort = no
+		religion_group = christian
+		NOT = {
+			calc_true_if = {
+				all_country = { has_ruler_modifier = rosicrucianist }
+				amount = 8
+			}
+		}
+	}
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_rosicrucians.2.a"
+		ai_chance = { factor = 1 }
+		add_adm_power = -20
+		add_dip_power = -20
+		add_mil_power = -20
+		random_list = {
+			60 = { country_event = { id = vn_rosicrucians.3 days = 1 } }
+			30 = { add_prestige = -5 }
+			10 = { kill_ruler = yes }
+		}
+	}
+	option = {
+		name = "vn_rosicrucians.2.b"
+		highlight = yes
+		trigger = { ruler_has_personality = free_thinker_personality }
+		ai_chance = { factor = 99 }
+		country_event = { id = vn_rosicrucians.3 days = 1 }
+	}
+}
+
+country_event = {
+	id = vn_rosicrucians.3
+	title = "vn_rosicrucians.3.t"
+	desc = "vn_rosicrucians.3.d"
+	picture = BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_rosicrucians.3.a"
+		ai_chance = { factor = 1 }
+		add_ruler_modifier = { name = rosicrucianist }
+	}
+	option = {
+		name = "vn_rosicrucians.3.b"
+		ai_chance = { factor = 99 }
+		trigger = {
+			has_dlc = "Rights of Man"
+			ruler_has_personality = free_thinker_personality
+		}
+		add_ruler_modifier = { name = rosicrucianist }
+		remove_ruler_personality = free_thinker_personality
+		add_ruler_personality = immortal_personality
+	}
+}
+
+country_event = {
+	id = vn_rosicrucians.4
+	title = "vn_rosicrucians.4.t"
+	desc = "vn_rosicrucians.4.d"
+	picture = BIG_BOOK_eventPicture
+
+	trigger = {
+		has_ruler_modifier = rosicrucianist
+		NOT = { has_ruler_flag = rosi_consort }
+		has_consort = yes
+	}
+	mean_time_to_happen = { days = 15 }
+
+	option = {
+		name = "vn_rosicrucians.4.a"
+		ai_chance = { factor = 90 }
+		add_stability = -1
+		set_ruler_flag = rosi_consort
+		if = {
+			limit = {
+				has_dlc = "Rights of Man"
+				ruler_has_personality = immortal_personality
+			}
+			remove_ruler_personality = immortal_personality
+		}
+	}
+	option = {
+		name = "vn_rosicrucians.4.b"
+		ai_chance = { factor = 10 }
+		divorce_consort_effect = yes
+	}
+}
+
+country_event = {
+	id = vn_rosicrucians.5
+	title = "vn_rosicrucians.5.t"
+	desc = "vn_rosicrucians.5.d"
+	picture = BIG_BOOK_eventPicture
+
+	trigger = {
+		has_ruler_modifier = rosicrucianist
+		has_consort = no
+		religion_group = christian
+	}
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_rosicrucians.5.a"
+		add_adm_power = 100
+	}
+	option = {
+		name = "vn_rosicrucians.5.b"
+		add_dip_power = 100
+	}
+	option = {
+		name = "vn_rosicrucians.5.c"
+		add_mil_power = 100
+	}
+}
+
+country_event = {
+	id = vn_rosicrucians.6
+	title = "vn_rosicrucians.6.t"
+	desc = "vn_rosicrucians.6.d"
+	picture = ADVISOR_eventPicture
+
+	trigger = {
+		has_ruler_modifier = rosicrucianist
+		has_consort = no
+		religion_group = christian
+	}
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			check_if_non_state_advisor_effect = {
+				chance_of_primary = 10
+				chance_of_tertiary = 75
+				chance_of_secondary = 25
+			}
+		}
+	}
+
+	option = {
+		name = "vn_rosicrucians.6.a"
+		ai_chance = { factor = 90 }
+		add_meritocracy_effect = yes
+		generate_advisor_of_type_and_semi_random_religion_effect = {
+			advisor_type = natural_scientist
+			advisor_type_if_not_state = natural_scientist
+			scaled_skill = yes
+			discount = yes
+		}
+	}
+	option = {
+		name = "vn_rosicrucians.6.b"
+		ai_chance = { factor = 10 }
+		add_prestige = 5
+	}
+
+	after = {
+		erase_advisor_flags_effect = yes
+	}
+}
+
+country_event = {
+	id = vn_rosicrucians.7
+	title = "vn_rosicrucians.7.t"
+	desc = "vn_rosicrucians.7.d"
+	picture = DIPLOMACY_eventPicture
+
+	trigger = {
+		has_ruler_modifier = rosicrucianist
+		has_consort = no
+		religion_group = christian
+		any_neighbor_country = {
+			has_ruler_modifier = rosicrucianist
+			religion_group = christian
+		}
+	}
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_rosicrucians.7.a"
+		random_neighbor_country = {
+			limit = {
+				has_ruler_modifier = rosicrucianist
+				religion_group = christian
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = swe_political_alignment
+			}
+		}
+	}
+}
+
+country_event = {
+	id = vn_rosicrucians.8
+	title = "vn_rosicrucians.8.t"
+	desc = "vn_rosicrucians.8.d"
+	picture = COURT_eventPicture
+
+	trigger = {
+		has_ruler_modifier = rosicrucianist
+		has_consort = no
+		religion_group = christian
+	}
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_rosicrucians.8.a"
+		add_yearly_manpower = -0.25
+	}
+}

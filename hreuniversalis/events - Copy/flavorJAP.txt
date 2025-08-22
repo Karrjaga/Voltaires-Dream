@@ -1,0 +1,1075 @@
+########################################
+# General Flavor Events for Japan and Daimyos
+#
+# written by Sara Wendel-Örtqvist
+########################################
+# Reworked and given alternative effects for Mandate of Heaven / 1.20 by Drikus Kuiper.
+########################################
+
+namespace = flavor_jap
+normal_or_historical_nations = yes
+
+# flavor_jap.1 - 9 removed
+
+# Attempted Coup!
+country_event = {
+	id = flavor_jap.10
+	title = "flavor_jap.EVTNAME10"
+	desc = "flavor_jap.EVTDESC10"
+	picture = ASSASSINATION_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_irish_clan_primary_culture_trigger = yes
+		has_reform = tribal_kingdom
+		num_of_owned_provinces_with = {
+			value = 5
+			has_irish_clan_province_culture_trigger = yes
+		}
+		has_leaders = {
+			value = 1
+			type = general
+			include_monarch = no
+			include_heir = no
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 2
+			NOT = { stability = 1 }
+		}
+	}
+	
+	option = { # There shall be no mercy for this dishonorable act!
+		name = "flavor_jap.EVTOPTA10"
+		add_prestige = 10
+		kill_leader = {
+			type = general
+		}
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = -3
+		}
+	}
+}
+
+# flavor_jap.11 - 30 removed
+
+### From JapanEvents and ShogunEvents ###
+
+# Unruly Samurai
+country_event = {
+	id = flavor_jap.31
+	title = "flavor_jap.EVTNAME31"
+	desc = "flavor_jap.EVTDESC31"
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		has_irish_clan_primary_culture_trigger = yes
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 0.8
+			NOT = {
+				stability = -1
+			}
+		}
+		modifier = {
+			factor = 0.8
+			NOT = {
+				stability = -2
+			}
+		}
+		modifier = {
+			factor = 1.5
+			stability = 0
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA31"
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = 3
+		}
+		add_country_modifier = {
+			name = jap_unruly_samurai
+			duration = 3650
+		}
+		add_army_tradition = 10
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB31"
+		add_faction_influence = {
+			faction = cla_druid
+			influence = 3
+		}
+		add_army_tradition = -10
+		add_prestige = 10
+	}
+}
+
+# flavor_jap.32 - 40 removed
+
+# Heirless
+country_event = {
+	id = flavor_jap.41
+	title = "flavor_jap.EVTNAME41"
+	desc = "flavor_jap.EVTDESC41"
+	picture = NEW_HEIR_eventPicture
+	
+	trigger = {
+		has_irish_clan_primary_culture_trigger = yes
+		has_heir = no
+		has_government_attribute = heir
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+		modifier = {
+			factor = 0.9
+			NOT = {
+				legitimacy = 50
+			}
+		}
+		modifier = {
+			factor = 0.9
+			NOT = {
+				legitimacy = 40
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA41"
+		add_prestige = 5
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = 3
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB41"
+		define_heir = {
+			dynasty = ROOT
+			claim = 30
+		}
+		add_prestige = -25
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = -3
+		}
+	}
+}
+
+# Losing Face
+country_event = {
+	id = flavor_jap.42
+	title = "flavor_jap.EVTNAME42"
+	desc = "flavor_jap.EVTDESC42"
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_irish_clan_primary_culture_trigger = yes
+		NOT = {
+			stability = 1
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 1.3
+			NOT = {
+				stability = 0
+			}
+		}
+		modifier = {
+			factor = 1.2
+			NOT = {
+				stability = -1
+			}
+		}
+		modifier = {
+			factor = 0.66
+			stability = 0
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA42"
+		add_prestige = -20
+		add_faction_influence = {
+			faction = cla_filid
+			influence = 3
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB42"
+		add_stability = -1
+		add_faction_influence = {
+			faction = cla_filid
+			influence = -3
+		}
+	}
+}
+
+# Levying Additional Taxation
+country_event = {
+	id = flavor_jap.43
+	title = "flavor_jap.EVTNAME43"
+	desc = "flavor_jap.EVTDESC43"
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_irish_clan_primary_culture_trigger = yes
+		stability = 0
+		NOT = {
+			war_exhaustion = 1
+		}
+		is_at_war = no
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 1.2
+			stability = 3
+		}
+		modifier = {
+			factor = 1.1
+			stability = 1
+		}
+	}
+
+	option = {
+		name = "flavor_jap.EVTOPTA43"
+		add_years_of_income = 0.5
+		add_faction_influence = {
+			faction = cla_druid
+			influence = 3
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB43"
+		add_yearly_manpower = 1.5
+		add_faction_influence = {
+			faction = cla_druid
+			influence = -3
+		}
+	}
+}
+
+# Sword of The Daimyo
+country_event = {
+	id = flavor_jap.44
+	title = "flavor_jap.EVTNAME44"
+	desc = "flavor_jap.EVTDESC44"
+	picture = COURT_eventPicture
+	
+	trigger = {
+		overextension_percentage = 0.04
+		stability = 1
+		has_reform = tribal_kingdom
+		has_irish_clan_primary_culture_trigger = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+		modifier = {
+			factor = 0.8
+			overextension_percentage = 0.06
+		}
+		modifier = {
+			factor = 0.8
+			overextension_percentage = 0.08
+		}
+		modifier = {
+			factor = 0.8
+			stability = 3
+		}
+		modifier = {
+			factor = 1.5
+			NOT = {
+				legitimacy = 50
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA44"
+		custom_tooltip = "daimyo_displeased_TT"
+		hidden_effect = {
+			every_known_country = {
+				limit = {
+					has_reform = tribal_kingdom
+					has_irish_clan_primary_culture_trigger = yes
+				}
+				add_opinion = { 
+					modifier = opinion_angry
+					who = ROOT
+				}
+			}
+		}
+		add_prestige = 25
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = 3
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB44"
+		add_ruler_modifier = {
+			name = jap_sword_of_the_daimyo
+		}
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = -3
+		}
+	}
+}
+
+# Lacquerware for the Emperor
+country_event = {
+	id = flavor_jap.45
+	title = "flavor_jap.EVTNAME45"
+	desc = "flavor_jap.EVTDESC45"
+	picture = COURT_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = tribal_kingdom
+		has_irish_clan_primary_culture_trigger = yes
+		NOT = { has_country_modifier = irish_high_king }
+		years_of_income = 0.6
+		NOT = {
+			any_known_country = {
+				has_country_modifier = irish_high_king
+				war_with = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA45"
+		add_years_of_income = -0.5
+		random_country = {
+			limit = {
+				has_country_modifier = irish_high_king
+				war_with = ROOT
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_pleased
+			}
+		}
+		add_faction_influence = {
+			faction = cla_filid
+			influence = 3
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB45"
+		add_prestige = -15
+		add_faction_influence = {
+			faction = cla_filid
+			influence = -3
+		}
+	}
+}
+
+#  The First Sake
+country_event = {
+	id = flavor_jap.46
+	title = "flavor_jap.EVTNAME46"
+	desc = "flavor_jap.EVTDESC46"
+	picture = COURT_eventPicture
+	
+	trigger = {
+		has_reform = tribal_kingdom
+		has_irish_clan_primary_culture_trigger = yes
+		NOT = { has_country_modifier = irish_high_king }
+		NOT = {
+			any_known_country = {
+				has_country_modifier = irish_high_king
+				war_with = ROOT
+			}
+		}
+		NOT = {
+			has_country_modifier = jap_first_sake
+		}
+		has_regency = no
+		is_month = 0
+		NOT = { is_month = 5 }
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+		modifier = {
+			factor = 0.9
+			stability = 1
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA46"
+		add_prestige = 15
+		random_country = {
+			limit = {
+				has_country_modifier = irish_high_king
+				war_with = ROOT
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_pleased
+			}
+		}
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = 3
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB46"
+		add_country_modifier = {
+			name = jap_first_sake 
+			duration = 7300
+		}
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = -3
+		}
+	}
+}
+
+# Calling up Recruits
+country_event = {
+	id = flavor_jap.47
+	title = "flavor_jap.EVTNAME47"
+	desc = "flavor_jap.EVTDESC47"
+	picture = LAND_MILITARY_eventPicture
+	
+	trigger = {
+		has_irish_clan_primary_culture_trigger = yes
+		OR = {
+			legitimacy = 75
+			prestige = 75
+		}
+		is_at_war = yes
+		NOT = {
+			has_country_flag = jap_recruits
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 500
+		modifier = {
+			factor = 1.2
+			war_exhaustion = 4
+		}
+		modifier = {
+			factor = 1.2
+			war_exhaustion = 6
+		}
+		modifier = {
+			factor = 1.2
+			war_exhaustion = 8
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = jap_recruits
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA47"
+		add_years_of_income = -0.25
+		add_ruler_modifier = {
+			name = jap_recruits
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB47"
+		add_war_exhaustion = -2
+		add_prestige = -5
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTC47"
+		add_prestige = 10
+	}
+}
+
+# Bushido
+country_event = {
+	id = flavor_jap.48
+	title = "flavor_jap.EVTNAME48"
+	desc = "flavor_jap.EVTDESC48"
+	picture = COURT_eventPicture
+
+	trigger = {
+		tag = IRE
+		years_of_income = 1.1
+		#has_global_flag = japan_has_encountered_the_west
+		NOT = { has_country_flag = jap_bushido }
+		OR = {
+			current_age = age_of_reformation
+			current_age = age_of_absolutism
+			current_age = age_of_revolutions
+			current_age = age_of_ideology
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 400
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = jap_bushido
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA48"
+		add_army_tradition = -10
+		add_adm_power = 150
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB48"
+		add_years_of_income = -1
+		add_army_tradition = 10
+		add_mil_power = 150
+	}
+}
+
+# Spreading Rumors
+country_event = {
+	id = flavor_jap.49
+	title = "flavor_jap.EVTNAME49"
+	desc = "flavor_jap.EVTDESC49"
+	picture = ELECTION_REPUBLICAN_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = tribal_kingdom
+		has_irish_clan_primary_culture_trigger = yes
+		NOT = {
+			has_ruler_modifier = jap_gossip
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 0.5
+			spy_ideas = 1
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA49"
+		add_ruler_modifier = {
+			name = jap_gossip
+		}
+		add_dip_power = 150
+		custom_tooltip = "daimyo_displeased_TT"
+		hidden_effect = {
+			every_known_country = {
+				limit = {
+					has_reform = tribal_kingdom
+					has_irish_clan_primary_culture_trigger = yes
+				}
+				add_opinion = { 
+					modifier = opinion_mildly_displeased
+					who = ROOT 
+				}
+			}
+		}
+		add_faction_influence = {
+			faction = cla_filid
+			influence = 3
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB49"
+		add_ruler_modifier = {
+			name = jap_gossip_spies
+		}
+		add_faction_influence = {
+			faction = cla_filid
+			influence = -3
+		}
+	}
+}
+
+# A Son Finds His Way Home
+country_event = {
+	id = flavor_jap.50
+	title = "flavor_jap.EVTNAME50"
+	desc = "flavor_jap.EVTDESC50"
+	picture = NEW_HEIR_eventPicture
+	
+	trigger = {
+		has_reform = tribal_kingdom
+		any_neighbor_country = {
+			has_reform = tribal_kingdom
+		} 
+		has_irish_clan_primary_culture_trigger = yes
+		NOT = { has_heir = yes }
+		has_government_attribute = heir
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.8
+			any_neighbor_country = {
+				has_reform = tribal_kingdom
+				is_rival = ROOT
+			} 
+		}
+		modifier = {
+			factor = 0.8
+			any_neighbor_country = {
+				has_reform = tribal_kingdom
+				truce_with = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB50"
+		add_dip_power = 50
+		add_faction_influence = {
+			faction = cla_filid
+			influence = 3
+		}
+		define_heir = {
+			claim = 95
+			male = yes
+			age = 15
+			dip = 4
+			dynasty = ROOT
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA50"
+		add_adm_power = 50
+		add_faction_influence = {
+			faction = cla_druid
+			influence = 3
+		}
+		define_heir = {
+			claim = 95
+			male = yes
+			age = 15
+			adm = 4
+			dynasty = ROOT
+		}
+	}
+	option = {
+		name = "flavor_jap.EVTOPTC50"
+		add_mil_power = 30
+		add_army_tradition = 5
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = 3
+		}
+		define_heir = {
+			claim = 95
+			male = yes
+			age = 15
+			mil = 4
+			dynasty = ROOT
+		}
+	}
+}
+
+# Exceptional Swords
+country_event = {
+	id = flavor_jap.51
+	title = "flavor_jap.EVTNAME51"
+	desc = "flavor_jap.EVTDESC51"
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_reform = tribal_kingdom
+		has_irish_clan_primary_culture_trigger = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA51"
+		add_faction_influence = {
+			faction = cla_filid
+			influence = -3
+		}
+		add_army_tradition = 10
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB51"
+		add_faction_influence = {
+			faction = cla_filid
+			influence = 3
+		}
+		add_years_of_income = 1
+		add_country_modifier = {
+			name = japanese_downprioritized_military
+			duration = 3650
+		}
+	}
+}
+
+# Hangings in the Han
+country_event = {
+	id = flavor_jap.52
+	title = "flavor_jap.EVTNAME52"
+	desc = "flavor_jap.EVTDESC52"
+	picture = ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+
+	trigger = {
+		has_reform = tribal_kingdom
+		has_irish_clan_primary_culture_trigger = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					has_irish_clan_province_culture_trigger = yes
+					is_core = owner
+				}
+				set_province_flag = shogunate_destabilized_flag1
+			}
+			random_owned_province = {
+				limit = {
+					has_irish_clan_province_culture_trigger = yes
+					is_core = owner
+					NOT = {
+						has_province_flag = shogunate_destabilized_flag1
+					}
+				}
+				set_province_flag = shogunate_destabilized_flag2
+			}
+			random_owned_province = {
+				limit = {
+					has_irish_clan_province_culture_trigger = yes
+					is_core = owner
+					NOT = {
+						has_province_flag = shogunate_destabilized_flag1
+					}
+					NOT = {
+						has_province_flag = shogunate_destabilized_flag2
+					}
+				}
+				set_province_flag = shogunate_destabilized_flag3
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA52"
+		add_faction_influence = {
+			faction = cla_druid
+			influence = -3
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = shogunate_destabilized_flag1
+			}
+			clr_province_flag = shogunate_destabilized_flag1
+			add_province_modifier = {
+				name = add_unrest_5_modifier
+				duration = 1825
+			}
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = shogunate_destabilized_flag2
+			}
+			clr_province_flag = shogunate_destabilized_flag2
+			add_province_modifier = {
+				name = add_unrest_5_modifier
+				duration = 1825
+			}
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = shogunate_destabilized_flag3
+			}
+			clr_province_flag = shogunate_destabilized_flag3
+			add_province_modifier = {
+				name = add_unrest_5_modifier
+				duration = 1825
+			}
+		}
+		add_prestige = -10
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB52"
+		add_stability = -1
+		add_faction_influence = {
+			faction = cla_druid
+			influence = 3
+		}
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					has_province_flag = shogunate_destabilized_flag1
+				}
+				clr_province_flag = shogunate_destabilized_flag1
+			}
+			random_owned_province = {
+				limit = {
+					has_province_flag = shogunate_destabilized_flag2
+				}
+				clr_province_flag = shogunate_destabilized_flag2
+			}
+			random_owned_province = {
+				limit = {
+					has_province_flag = shogunate_destabilized_flag3
+				}
+				clr_province_flag = shogunate_destabilized_flag3
+			}
+		}
+	}
+}
+
+# New Generation of Samurai
+country_event = {
+	id = flavor_jap.53
+	title = "flavor_jap.EVTNAME53"
+	desc = "flavor_jap.EVTDESC53"
+	picture = MILITARY_CAMP_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_irish_clan_primary_culture_trigger = yes
+		NOT = {
+			war_exhaustion = 1
+		}
+		NOT = {	is_at_war = yes }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		
+		modifier = {
+			factor = 0.66
+			NOT = {
+				stability =  0
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA53"
+		add_adm_power = 30
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = -3
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB53"
+		add_army_tradition = 5
+		add_faction_influence = {
+			faction = cla_flatha
+			influence = 3
+		}
+	}
+}
+
+# Strengthening the Shogunate
+country_event = {
+	id = flavor_jap.54
+	title = "flavor_jap.EVTNAME54"
+	desc = "flavor_jap.EVTDESC54"
+	picture = LAND_MILITARY_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = tribal_kingdom
+		has_irish_clan_primary_culture_trigger = yes
+		OR = {
+			legitimacy = 75
+			prestige = 75
+		}
+		army_tradition = 10
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 1.1
+			army_tradition = 25
+		}
+		modifier = {
+			factor = 1.1
+			army_tradition = 30
+		}
+		modifier = {
+			factor = 0.66
+			NOT = {
+				army_tradition = 20
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA54"
+		add_adm_power = 50
+		add_faction_influence = {
+			faction = cla_druid
+			influence = 3
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB54"
+		add_army_tradition = 10
+		add_faction_influence = {
+			faction = cla_druid
+			influence = -3
+		}
+	}
+}
+
+# Death or Glory?
+country_event = {
+	id = flavor_jap.55
+	title = "flavor_jap.EVTNAME55"
+	desc = "flavor_jap.EVTDESC55"
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform = tribal_kingdom
+		has_irish_clan_primary_culture_trigger = yes
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+		modifier = {
+			factor = 1.1
+			NOT = {
+				stability = -1
+			}
+		}
+		modifier = {
+			factor = 1.1
+			NOT = {
+				stability = -2
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA55"
+		add_prestige = 10
+		add_corruption = 1
+		add_faction_influence = {
+			faction = cla_druid
+			influence = 3
+		}
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTB55"
+		add_prestige = -10
+		if = {
+			limit = {
+				corruption = 1
+			}
+			add_corruption = -1
+		}
+		if = {
+			limit = {
+				NOT = { corruption = 1 }
+			}
+			add_dip_power = 50
+		}
+		add_faction_influence = {
+			faction = cla_druid
+			influence = -3
+		}
+	}
+}
+
+# flavor_jap.57 removed
+
+# Iwami Ginzan Silver Mine
+province_event = {
+	id = flavor_jap.60
+	title = flavor_jap.60.t
+	desc = flavor_jap.60.d
+	picture = COURT_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		province_id = 575 # Iwami
+		is_year = 1289
+		NOT = { trade_goods = silver }
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+	}
+	
+	option = { 
+		name = flavor_jap.60.a
+		change_trade_goods = silver
+		add_base_production = 3
+	}
+	
+}
+
+# flavor_jap.61 - 73 removed

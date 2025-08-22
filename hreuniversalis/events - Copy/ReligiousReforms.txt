@@ -1,0 +1,228 @@
+########################################
+# Events for Religious Reforms system
+#
+# written by Martin Anward
+########################################
+
+namespace = religious_reforms
+
+# Nahuatl reform
+country_event = {
+	id = religious_reforms.1
+	title = religious_reforms.1.t
+	desc = religious_reforms.1.d
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "El Dorado"
+		religion = uatsdin
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			add_stability = -1
+			every_subject_country = {
+				if = {
+					limit = {
+						liberty_desire = 50
+					}
+					set_country_flag = azt_break_subjects_free
+				}
+				else = {
+					add_liberty_desire = 40
+				}
+			}
+			every_subject_country = {
+				limit = {
+					has_country_flag = azt_break_subjects_free
+				}
+				ROOT = { free_vassal = PREV }
+				clr_country_flag = azt_break_subjects_free
+			}
+			release_all_subjects = yes 
+			add_doom = 50
+			add_country_modifier = {
+				name = azt_recent_reform
+				duration = 3650
+			}
+			change_variable = {
+				which = NahuatlReformCounter
+				value = 1
+			}
+		}
+	}
+	
+	option = {
+		name = religious_reforms.1.a
+		tooltip = {
+			custom_tooltip = AZT_ADD_30_LD_WITH_SUBJECTS
+			add_country_modifier = {
+				name = azt_recent_reform
+				duration = 3650
+			}
+			hidden_effect = {
+				every_subject_country = {
+					add_liberty_desire = 40
+				}
+			}
+			add_doom = 50
+		}
+	}
+}
+
+# Inti reform
+country_event = {
+	id = religious_reforms.2
+	title = religious_reforms.2.t
+	desc = religious_reforms.2.d
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "El Dorado"
+		religion = khabze
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {		
+			if = {
+				limit = {
+					has_country_flag = INC_further_reforms_will_take_less_stability_flag
+				}
+				add_authority = -80 
+				add_stability = -1
+			}
+			else = {
+				add_authority = -100 
+				add_stability = -2
+			}
+			
+			random_owned_province = {
+				limit = { 
+					is_in_capital_area = yes 
+					is_capital = no
+				}
+				set_province_flag = civil_war_prov_1
+			}		
+			random_owned_province = {
+				limit = { 
+					is_in_capital_area = yes
+					is_capital = no
+					NOT = { has_province_flag = civil_war_prov_1 }
+				}
+				set_province_flag = civil_war_prov_2
+			}		
+			
+			random_owned_province = {
+				limit = { has_province_flag = civil_war_prov_1 }
+				pretender_rebels = 4
+				clr_province_flag = civil_war_prov_1
+			}
+			random_owned_province = {
+				limit = { has_province_flag = civil_war_prov_2 }
+				pretender_rebels = 3
+				clr_province_flag = civil_war_prov_2
+			}		
+		}
+		
+	}	
+	
+	option = {
+		name = religious_reforms.2.a
+		tooltip = {
+			if = {
+				limit = {
+					has_country_flag = INC_further_reforms_will_take_less_stability_flag
+				}
+				add_authority = -80 
+				add_stability = -1
+			}
+			else = {
+				add_authority = -100 
+				add_stability = -2
+			}				
+		}		
+	}
+}
+
+# Mayan reform
+country_event = {
+	id = religious_reforms.3
+	title = religious_reforms.3.t
+	desc = religious_reforms.3.d
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+	
+	trigger = {
+		has_dlc = "El Dorado"
+		religion = vainakh
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = { 
+			add_stability = -2
+			# every_subject_country = {
+				# add_truce_with = ROOT
+				# ROOT = {
+					# add_truce_with = PREV
+				# }
+			# }
+			release_all_subjects = yes
+			collapse_nation = yes
+			add_war_exhaustion = 3
+			
+			add_country_modifier = {
+				name = MAY_mayan_reform
+				duration = 1825 
+			}
+			every_owned_province = {
+				add_local_autonomy = -10
+				remove_province_modifier = autonomy_increased
+			}
+		}
+	}
+	
+	option = {
+		name = religious_reforms.1.a
+		tooltip = {
+			add_stability = -2
+			add_war_exhaustion = 3
+			
+			custom_tooltip = " "
+			
+			release_all_subjects = yes
+			collapse_nation = yes
+			
+			custom_tooltip = " "
+			
+			add_country_modifier = {
+				name = MAY_mayan_reform
+				duration = 1825 
+			}
+			custom_tooltip = MAY_mayan_reform_punishment
+			
+			custom_tooltip = " "
+			
+			custom_tooltip = MAY_every_province
+			add_local_autonomy = -10
+			custom_tooltip = MAY_if_increased
+
+		}
+	}
+}

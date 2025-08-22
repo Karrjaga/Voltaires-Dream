@@ -1,0 +1,306 @@
+namespace = vn_flavor_fri
+
+#Groningen seeks independence
+country_event = {
+	id = vn_flavor_fri.1
+	title = "vn_flavor_fri.1.t"
+	desc = "vn_flavor_fri.1.d"
+	picture = CITY_VIEW_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		2383 = {
+			owned_by = ROOT
+			controlled_by = ROOT
+			culture = east_frisian
+			is_capital = no
+		}
+		normal_or_historical_nations = yes
+		NOT = { exists = XGR }
+		is_year = 1399
+		NOT = { is_year = 1480 }
+		calc_true_if = {
+			all_country = {
+				primary_culture = east_frisian
+			}
+			amount = 2
+		}
+		NOT = { primary_culture = east_frisian }
+	}
+
+	mean_time_to_happen = {
+		months = 400
+	}
+
+	option = {
+		name = "vn_flavor_fri.1.a"
+		ai_chance = { factor = 90 }
+		goto = 2383
+		2383 = {
+			add_core = XGR
+			remove_core = ROOT
+			cede_province = XGR
+			set_in_empire = no
+		}
+		add_prestige = 10
+	}
+
+	option = {
+		name = "vn_flavor_fri.1.b"
+		ai_chance = { factor = 10 }
+		add_prestige = -25
+		every_country = {
+			limit = { primary_culture = east_frisian }
+			add_opinion = { who = ROOT modifier = opinion_declined_independent_state_support }
+		}
+	}
+}
+
+#Inheritance of Moormerland
+country_event = {
+	id = vn_flavor_fri.2
+	title = "vn_flavor_fri.2.t"
+	desc = "vn_flavor_fri.2.d"
+	picture = COURT_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		normal_or_historical_nations = yes
+		tag = AUC
+		NOT = { exists = EFR }
+		is_year = 1399
+		NOT = { is_year = 1530 }
+		num_of_cities = 3
+		is_free_or_tributary_trigger = yes
+		has_regency  = no
+		MOO = {
+			is_free_or_tributary_trigger = yes
+			has_regency = no
+			exists = yes
+			NOT = { war_with = ROOT }
+		}
+		OR = {
+			AND = {
+				AUC = { is_female = yes }
+				MOO = { is_female = no }
+			}
+			AND = {
+				AUC = { is_female = no }
+				MOO = { is_female = yes }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = "vn_flavor_fri.2.a"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0
+				MOO = { ai = no }
+			}
+		}
+		inherit = MOO
+	}
+
+	option = {
+		name = "vn_flavor_fri.2.b"
+		ai_chance = { factor = 10 }
+		add_stability_or_adm_power = yes
+	}
+}
+
+#Restore the Old Capital (81) (Frisian)
+country_event = {
+	id = vn_flavor_fri.100
+	title = vn_flavor_fri.100.t
+	desc = vn_flavor_fri.100.d
+	picture = {
+		trigger = { has_dlc = "Lions of the North" }
+		picture = CASTLE_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Lions of the North" } }
+		picture = CITY_VIEW_eventPicture
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			capital_scope = {
+				save_event_target_as = capital
+			}
+		}
+	}
+
+	option = {
+		name = vn_flavor_fri.100.a
+		goto = 1846
+		ai_chance = { factor = 0 }
+		trigger = {
+			owns = 1846
+			1846 = { NOT = { is_capital_of = ROOT } }
+		}
+		1846 = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+			move_capital_effect = yes
+		}
+	}
+	option = {
+		name = vn_flavor_fri.100.b
+		goto = 98
+		ai_chance = { factor = 0 }
+		trigger = {
+			owns = 98
+			98 = { NOT = { is_capital_of = ROOT } }
+		}
+		98 = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+			move_capital_effect = yes
+		}
+	}
+	option = {
+		name = vn_flavor_fri.100.c
+		goto = capital
+		ai_chance = { factor = 100 }
+		capital_scope = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+		}
+    }
+}
+
+#The Legend of Akraberg (82) (Frisian)
+country_event = {
+	id = vn_flavor_fri.101
+	title = vn_flavor_fri.101.t
+	desc = vn_flavor_fri.101.d
+	picture = {
+		trigger = { has_dlc = "Lions of the North" }
+		picture = NORTH_SEA_MAPS_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Lions of the North" } }
+		picture = SHIP_SAILING_eventPicture
+	}
+
+    is_triggered_only = yes
+
+	option = {
+		name = vn_flavor_fri.101.a
+		ai_chance = { factor = 100 }
+		add_navy_tradition = 20
+		5931 = {
+			if = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		add_country_modifier = {
+			name = "fri_north_sea_whaling_mission"
+			duration = 9125
+		}
+	}
+}
+
+country_event = {
+	id = vn_flavor_fri.102
+	title = vn_flavor_fri.102.t
+	desc = vn_flavor_fri.102.d
+	picture = {
+		trigger = { has_dlc = "Lions of the North" }
+		picture = VASA_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Lions of the North" } }
+		picture = ELECTION_REPUBLICAN_eventPicture
+	}
+
+	is_triggered_only = yes
+	major = yes
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = is_frisian_freedom
+		}
+	}
+
+	option = {
+		name = vn_flavor_fri.102.a
+		ai_chance = { factor = 80 }
+		set_country_flag = has_overriden_name_flag
+		override_country_name = FRISIAN_FREEDOM_NAME
+		if = {
+			limit = {
+				NOT = { government = republic }
+			}
+			hidden_effect = { change_government = republic }
+		}
+		add_government_reform = peasants_republic
+		add_country_modifier = {
+			name = "fri_frisian_freedom_mission"
+			duration = 10950
+		}
+	}
+	option = {
+		name = vn_flavor_fri.102.b
+		trigger = { has_dlc = "Golden Century" }
+		ai_chance = { factor = 10 }
+		set_country_flag = has_overriden_name_flag
+		override_country_name = FRISIAN_FREEDOM_NAME
+		if = {
+			limit = {
+				NOT = { government = republic }
+			}
+			hidden_effect = { change_government = republic }
+		}
+		add_government_reform = pirate_republic_reform
+		add_country_modifier = {
+			name = "fri_frisian_freedom_mission"
+			duration = 10950
+		}
+	}
+	option = {
+		name = vn_flavor_fri.102.c
+		ai_chance = { factor = 10 }
+		set_country_flag = has_overriden_name_flag
+		override_country_name = FRISIAN_FREEDOM_NAME
+		if = {
+			limit = {
+				NOT = { government = republic }
+			}
+			hidden_effect = { change_government = republic }
+		}
+		add_government_reform = merchants_reform
+		add_country_modifier = {
+			name = "fri_frisian_freedom_mission"
+			duration = 10950
+		}
+	}
+	option = {
+		name = vn_flavor_fri.102.dd
+		ai_chance = { factor = 0 }
+		set_country_flag = has_overriden_name_flag
+		override_country_name = FRISIAN_FREEDOM_NAME
+		add_prestige_or_monarch_power = { amount = 10 }
+		add_country_modifier = {
+			name = "fri_frisian_freedom_mission"
+			duration = 10950
+		}
+	}
+}

@@ -1,0 +1,623 @@
+namespace = vn_english_succession
+
+#Initial event for ASE to chose heir
+country_event = {
+	id = vn_english_succession.1
+	title = "vn_english_succession.1.t"
+	desc = "vn_english_succession.1.d"
+	picture = NEW_HEIR_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		has_ruler_flag = edward_the_confessor_flag
+		has_regency = no
+		is_lesser_in_union = no
+		has_heir = no
+	}
+
+	major = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "vn_english_succession.1.a"
+		ai_chance = { factor = 1 }
+		if = {
+			limit = { has_government_attribute = representative_thing }
+			define_heir = {
+				name = "Eadgar"
+				dynasty = "Cerdicing"
+				culture = ROOT
+				claim = 50
+				adm = 3
+				dip = 2
+				mil = 2
+				birth_date = 1052.1.1
+				block_disinherit = yes
+			}
+		}
+		else = {
+			define_heir = {
+				name = "Eadgar"
+				dynasty = "Cerdicing"
+				culture = ROOT
+				claim = 50
+				adm = 2
+				dip = 1
+				mil = 1
+				birth_date = 1052.1.1
+				block_disinherit = yes
+			}
+		}
+		hidden_effect = {
+			define_heir_to_general = {
+				fire = 1
+				shock = 1
+				manuever = 2
+				siege = 0
+			}
+		}
+		custom_tooltip = vn_english_succession.1.a.tt
+		hidden_effect = {
+			set_country_flag = edward_sucession_edgar
+		}
+	}
+	option = {
+		name = "vn_english_succession.1.b"
+		ai_chance = { factor = 9 }
+		if = {
+			limit = { has_government_attribute = authorized_thing }
+			define_heir = {
+				name = "Hereweald"
+				dynasty = "Godwining"
+				culture = anglosaxon
+				female = no
+				adm = 4
+				dip = 4
+				mil = 5
+				claim = 50
+				birth_date = 1022.1.1
+				block_disinherit = yes
+			}
+		}
+		else = {
+			define_heir = {
+				name = "Hereweald"
+				dynasty = "Godwining"
+				culture = anglosaxon
+				female = no
+				adm = 3
+				dip = 3
+				mil = 4
+				claim = 50
+				birth_date = 1022.1.1
+				block_disinherit = yes
+			}
+		}
+		hidden_effect = {
+			define_heir_to_general = {
+				fire = 2
+				shock = 2
+				manuever = 3
+				siege = 0
+			}
+		}
+		custom_tooltip = vn_english_succession.1.a.tt
+		hidden_effect = {
+			set_country_flag = edward_sucession_godwin
+		}
+	}
+	option = {
+		name = "vn_english_succession.1.c"
+		ai_chance = { factor = 0 }
+		trigger = {
+			NOR = {
+				exists = yes
+				is_lesser_in_union = no
+				NOT = { war_with = ROOT }
+			}
+		}
+		if = {
+			limit = { has_government_attribute = authorized_thing }
+			define_heir = {
+				dynasty = "Hardrådeætta"
+				culture = norwegian
+				change_adm = 4
+				change_dip = 4
+				change_mil = 4
+				female = no
+				age = 15
+				block_disinherit = yes
+				hidden = yes
+			}
+		}
+		else = {
+			define_heir = {
+				dynasty = "Hardrådeætta"
+				culture = norwegian
+				change_adm = 3
+				change_dip = 3
+				change_mil = 3
+				female = no
+				age = 15
+				block_disinherit = yes
+				hidden = yes
+			}
+		}
+		NOR = {
+			add_opinion = {
+				who = ROOT
+				modifier = dynasty_elected
+			}
+		}
+		custom_tooltip = vn_english_succession.1.c.tt
+		hidden_effect = {
+			NOR = {
+				country_event = { id = vn_english_succession.2 }
+				set_ruler_flag = promised_throne_to_NOR
+			}
+			set_country_flag = edward_sucession_NOR
+		}
+	}
+	option = {
+		name = "vn_english_succession.1.dd"
+		ai_chance = { factor = 0 }
+		trigger = {
+			NRM = {
+				exists = yes
+				is_lesser_in_union = no
+				NOT = { war_with = ROOT }
+			}
+		}
+		if = {
+			limit = { has_government_attribute = authorized_thing }
+			define_heir = {
+				dynasty = "Rolloning"
+				culture = normand
+				change_adm = 4
+				change_dip = 4
+				change_mil = 4
+				female = no
+				age = 15
+				block_disinherit = yes
+				hidden = yes
+			}
+		}
+		else = {
+			define_heir = {
+				dynasty = "Rolloning"
+				culture = normand
+				change_adm = 3
+				change_dip = 3
+				change_mil = 3
+				female = no
+				age = 15
+				block_disinherit = yes
+				hidden = yes
+			}
+		}
+		NRM = {
+			add_opinion = {
+				who = ROOT
+				modifier = dynasty_elected
+			}
+		}
+		custom_tooltip = vn_english_succession.1.tt
+		hidden_effect = {
+			NRM = {
+				country_event = { id = vn_english_succession.2 }
+				set_ruler_flag = promised_throne_to_NRM
+			}
+			set_country_flag = edward_sucession_NRM
+		}
+	}
+
+	after = {
+		set_heir_flag = ruler_cant_trigger_this_event_flag
+	}
+}
+
+#Response for NRM/NOR
+country_event = {
+	id = vn_english_succession.2
+	title = "vn_english_succession.2.t"
+	desc = "vn_english_succession.2.d"
+	picture = NEW_HEIR_eventPicture
+
+	is_triggered_only = yes
+	mean_time_to_happen = { days = 1 }
+
+	option = {
+		name = "vn_english_succession.2.a"
+		add_opinion = {
+			who = FROM
+			modifier = dynasty_elected
+		}
+	}
+}
+
+#Northern Revolt
+country_event = {
+	id = vn_english_succession.3
+	title = "vn_english_succession.3.t"
+	desc = "vn_english_succession.3.d"
+	picture = CIVIL_WAR_eventPicture
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "vn_english_succession.3.a"
+		add_prestige = -10
+		tooltip = {
+			FROM = {
+				declare_war_with_cb = {
+					who = ROOT
+					casus_belli = cb_independence_war
+				}
+			}
+		}
+	}
+}
+
+#Conquest of England
+country_event = {
+	id = vn_english_succession.4
+	title = "vn_english_succession.4.t"
+	desc = {
+		trigger = { tag = NRM }
+		desc = "vn_english_succession.4.d"
+	}
+	desc = {
+		trigger = { tag = NOR }
+		desc = "vn_english_succession.4.d2"
+	}
+	picture = DEATH_OF_HEIR_eventPicture
+
+	is_triggered_only = yes
+	major = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "vn_english_succession.4.a"
+		ai_chance = { factor = 100 }
+		every_country = {
+			limit = { war_with = ROOT }
+			white_peace = ROOT
+		}
+		custom_tooltip = vn_english_succession.4.tt
+		hidden_effect = {
+			if = {
+				limit = {
+					tag = NRM
+					FRA = { overlord_of = NRM }
+				}
+				FRA = { free_vassal = NRM }
+				add_government_reform = feudalism_reform
+			}
+			if = {
+				limit = { has_country_modifier = subject_sword_hunt }
+				remove_country_modifier = subject_sword_hunt
+			}
+			if = {
+				limit = { has_country_modifier = subject_sankin_kotai }
+				remove_country_modifier = subject_sankin_kotai
+			}
+			if = {
+				limit = { has_country_modifier = subject_expel_ronin }
+				remove_country_modifier = subject_expel_ronin
+			}
+			if = {
+				limit = {
+					tag = NRM
+					XEV = {
+						exists = yes
+						is_at_war = no
+						NOT = { is_rival = NRM }
+						NOT = { is_enemy = NRM }
+						is_lesser_in_union = no
+					}
+				}
+				FRA = { free_vassal = XEV }
+				XEV = { add_historical_friend = NRM add_government_reform = autocracy_reform }
+				NRM = { create_march = XEV }
+			}
+			if = {
+				limit = {
+					tag = NRM
+					ALE = {
+						exists = yes
+						is_at_war = no
+						NOT = { is_rival = NRM }
+						NOT = { is_enemy = NRM }
+						is_lesser_in_union = no
+					}
+				}
+				FRA = { free_vassal = ALE }
+				ALE = { add_historical_friend = NRM add_government_reform = autocracy_reform }
+				NRM = { create_march = ALE }
+			}
+			if = {
+				limit = {
+					tag = NRM
+					XAU = {
+						exists = yes
+						is_at_war = no
+						NOT = { is_rival = NRM }
+						NOT = { is_enemy = NRM }
+						is_lesser_in_union = no
+					}
+				}
+				FRA = { free_vassal = XAU }
+				XAU = { add_historical_friend = NRM add_government_reform = autocracy_reform }
+				NRM = { create_march = XAU }
+			}
+			if = {
+				limit = {
+					tag = NRM
+					EUU = {
+						exists = yes
+						is_at_war = no
+						NOT = { is_rival = NRM }
+						NOT = { is_enemy = NRM }
+						is_lesser_in_union = no
+					}
+				}
+				FRA = { free_vassal = EUU }
+				EUU = { add_historical_friend = NRM add_government_reform = autocracy_reform }
+				NRM = { create_march = EUU }
+			}
+			add_manpower = 15
+			add_country_modifier = {
+				name = "normanconquestmod"
+				duration = 3650
+			}
+			random_owned_province = {
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				cavalry = ROOT
+				cavalry = ROOT
+				cavalry = ROOT
+			}
+			random_owned_province = {
+				limit = {
+					has_port = yes
+				}
+				galley = ROOT
+				galley = ROOT
+				galley = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+				transport = ROOT
+			}
+		}
+		declare_war_with_cb = {
+			who = ASE
+			casus_belli = cb_conquest_of_england
+		}
+		add_prestige = 20
+		hidden_effect = {
+			if = {
+				limit = {
+					tag = NOR
+					NOT = { war_with = NOL }
+					NOL = { is_subject_of = ASE }
+				}
+				NOL = { country_event = { id = vn_english_succession.7 days = 1 } }
+			}
+		}
+	}
+	option = {
+		name = "vn_english_succession.4.b"
+		ai_chance = { factor = 0 }
+		if = {
+			limit = { tag = NRM }
+			ASE = { set_country_flag = nrm_renounced_claims_on_ase }
+			complete_mission = vn_nrm_english_succession
+			complete_mission = vn_nrm_alea_iacta_est
+			complete_mission = vn_nrm_subjugate_england
+		}
+		if = {
+			limit = { tag = NOR }
+			ASE = { set_country_flag = nor_renounced_claims_on_ase }
+		}
+		add_stability = 1
+		add_prestige = -10
+		reverse_add_opinion = {
+			who = ASE
+			modifier = full_reconciliation
+		}
+	}
+}
+
+#NRM/NOR capture London
+country_event = {
+	id = vn_english_succession.5
+	title = "vn_english_succession.5.t"
+	desc = "vn_english_succession.5.d"
+	picture = SIEGE_eventPicture
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	trigger = {
+		is_in_war = {
+			attacker_leader = ROOT
+			defender_leader = ASE
+			casus_belli = cb_conquest_of_england
+		}
+		OR = { 
+			FROM = {
+				province_id = 2268
+			}
+			AND = { 
+				war_with = ASE 
+				2268 = { controlled_by = ROOT }
+			}
+		}
+	}
+
+	option = {
+		name = "vn_english_succession.5.a"
+		add_legitimacy = 10
+		ASE = { country_event = { id = vn_english_succession.6 } }
+	}
+}
+
+#England gets asked to back down
+country_event = {
+	id = vn_english_succession.6
+	title = vn_english_succession.6.t
+	desc = vn_english_succession.6.d
+	picture = SIEGE_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	major = yes
+	major_trigger = {
+		is_in_war = {
+			casus_belli = cb_conquest_of_england
+		}
+	}
+	
+	option = {
+		name = "vn_english_succession.6.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.1
+				FROM = { tag = NOR }
+			}
+			modifier = {
+				factor = 3
+				war_exhaustion = 5
+			}
+			modifier = {
+				factor = 3
+				war_exhaustion = 10
+			}
+			modifier = {
+				factor = 3
+				war_exhaustion = 15
+			}
+			modifier = {
+				factor = 3
+				war_exhaustion = 20
+			}
+		}
+		white_peace = FROM
+		FROM = {
+			create_union = ROOT
+			add_prestige = 50
+		}
+	}
+
+	option = {
+		name = "vn_english_succession.6.b"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				FROM = { tag = NRM }
+			}
+		}
+		add_war_exhaustion = 5
+	}
+}
+
+#Northumberland gets asked to join NOR
+country_event = {
+	id = vn_english_succession.7
+	title = vn_english_succession.7.t
+	desc = vn_english_succession.7.d
+	picture = {
+		trigger = { has_dlc = "Lions of the North" }
+		picture = VIKINGS_eventPicture
+	}
+	picture = {
+		trigger = { NOT = { has_dlc = "Lions of the North" } }
+		picture = NAVAL_MILITARY_eventPicture
+	}
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "vn_english_succession.7.a"
+		ai_chance = {
+			factor = 1
+		}
+		FROM = {
+			create_subject = {
+				subject_type = tributary_state
+				who = ROOT
+			}
+		}
+		define_ruler = {
+			name = "Tostig"
+			dynasty = "Godwining"
+			culture = anglosaxon
+			adm = 2
+			dip = 3
+			mil = 3
+		}
+		join_all_offensive_wars_of = FROM
+		hidden_effect = {
+			kill_heir = { allow_new_heir = yes }
+			add_ruler_personality = intricate_web_weaver_personality
+			ASE = { country_event = { id = vn_english_succession.3 days = 1} }
+			FROM = { country_event = { id = vn_english_succession.8 days = 1 } }
+		}
+	}
+
+	option = {
+		name = "vn_english_succession.7.b"
+		ai_chance = {
+			factor = 0
+		}
+		add_prestige = 5
+	}
+}
+
+#response for NOR
+country_event = {
+	id = vn_english_succession.8
+	title = vn_english_succession.8.t
+	desc = vn_english_succession.8.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vn_english_succession.8.a"
+		tooltip = {
+			FROM = { join_all_offensive_wars_of = ROOT }
+		}
+	}
+}

@@ -1,0 +1,171 @@
+namespace = vn_flavor_aan
+
+country_event = {
+	id = vn_flavor_aan.1
+	title = "vn_flavor_aan.1.t"
+	desc = "vn_flavor_aan.1.d"
+	picture = KING_SICK_IN_BED_eventPicture
+
+	fire_only_once = yes
+	
+	trigger = {
+		tag = AAN
+		government = monarchy
+		has_government_attribute = heir
+		has_heir = no
+		is_lesser_in_union = no
+		NOT = { started_in = 1071.1.1 }
+		is_year = 1073
+		NOT = { is_year = 1123 }
+	}
+
+	mean_time_to_happen = {
+		days = 300
+		modifier = {
+			factor = 0.75
+			ruler_age = 50
+		}
+		modifier = {
+			factor = 0.75
+			ruler_age = 60
+		}
+		modifier = {
+			factor = 0.75
+			ruler_age = 70
+		}
+		modifier = {
+			factor = 0.75
+			ruler_age = 80
+		}
+		modifier = {
+			factor = 0.75
+			ruler_age = 90
+		}
+	}
+
+	option = {
+		name = "vn_flavor_aan.1.a"
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 1.25
+				ruler_age = 50
+			}
+			modifier = {
+				factor = 1.25
+				ruler_age = 60
+			}
+			modifier = {
+				factor = 1.25
+				ruler_age = 70
+			}
+			modifier = {
+				factor = 1.25
+				ruler_age = 80
+			}
+			modifier = {
+				factor = 1.25
+				ruler_age = 90
+			}
+		}
+		define_heir = {
+			name = "Davit"
+			dynasty = "Bagrationi"
+			culture = georgian
+			religion = orthodox
+			birth_date = 1053.1.1
+			claim = 50
+			adm = 3
+			mil = 4
+			dip = 2
+		}
+		set_heir_flag = is_davit_bagrationi
+	}
+	option = {
+		name = "vn_flavor_aan.1.b"
+		ai_chance = {
+			factor = 25
+		}
+		add_legitimacy = 5
+	}
+}
+
+country_event = {
+	id = vn_flavor_aan.2
+	title = "vn_flavor_aan.2.t"
+	desc = "vn_flavor_aan.2.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		has_ruler_flag = is_davit_bagrationi
+		government = monarchy
+		NOT = { tag = GEO }
+		GEO = {
+			valid_for_personal_unions_trigger = yes
+		}
+	}
+
+	option = {
+		name = "vn_flavor_aan.2.a"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				alliance_with = GEO
+			}
+		}
+		add_casus_belli = {
+			type = cb_restore_personal_union
+			target = GEO
+			months = 300
+		}
+		hidden_effect = {
+			GEO = {
+				country_event = {
+					id = vn_flavor_aan.3
+				}
+			}
+		}
+	}
+	option = {
+		name = "vn_flavor_aan.2.b"
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				is_rival = GEO
+			}
+			modifier = {
+				factor = 0
+				is_enemy = GEO
+			}
+		}
+		reverse_add_opinion = {
+			who = GEO
+			modifier = opinion_good_relations
+		}
+	}
+}
+
+country_event = {
+	id = vn_flavor_aan.3
+	title = "vn_flavor_aan.3.t"
+	desc = "vn_flavor_aan.3.d"
+	picture = BAD_WITH_MONARCH_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vn_flavor_aan.3.a"
+		tooltip = {
+			reverse_add_casus_belli = {
+				type = cb_restore_personal_union
+				target = FROM
+				months = 300
+			}
+		}
+	}
+}

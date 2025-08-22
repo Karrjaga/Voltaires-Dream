@@ -1,0 +1,418 @@
+namespace = purple_phoenix 
+
+normal_or_historical_nations = yes
+
+country_event = {
+
+	id = purple_phoenix.1
+	
+	is_triggered_only = yes
+	
+	picture = CIVIL_WAR_eventPicture
+	
+	trigger = {
+		tag = BYZ
+		has_dlc = "Purple Phoenix"
+		num_of_cities = 25
+		has_idea_group = BYZ_ideas
+		OR = {
+			has_reform = byzantine_autocracy_reform
+			has_reform = eastern_monarchy
+		}
+		not = { has_idea = byz_corpus_iuris_civilis }
+		government = monarchy
+		NOT = { has_reform = steppe_horde }
+		OR = {
+			NOT = { legitimacy = 50 }
+			has_regency = yes
+		}
+	}
+		
+	title = "purple_phoenix.1.t"
+	desc = "purple_phoenix.1.d"
+		
+	option = {
+		name = "purple_phoenix.1.a"
+		random_owned_province = {
+			pretender_rebels = 3
+		}	
+	}
+}
+ 
+country_event = {
+	id = purple_phoenix.2
+	
+	title = "purple_phoenix.2.t"
+	desc = "purple_phoenix.2.d"
+	
+	picture = ATHENS_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BYZ
+		has_dlc = "Purple Phoenix"
+		religion = orthodox
+		owns = 2828 #Athens
+		NOT = { has_global_flag = constantinople_restored }
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = "purple_phoenix.2.a"
+		add_prestige = 10
+		add_dip_power = 50
+	}
+}
+
+country_event = {
+	id = purple_phoenix.6
+	
+	title = "purple_phoenix.6.t"
+	desc = "purple_phoenix.6.d"
+	
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BYZ
+		has_dlc = "Purple Phoenix"
+		religion = orthodox
+		owns = 2235 #Rome
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = "purple_phoenix.6.a"
+		add_prestige = 25
+		add_dip_power = 50
+	}
+}
+
+country_event = {
+	id = purple_phoenix.7
+	
+	title = "purple_phoenix.7.t"
+	desc = "purple_phoenix.7.d"
+	
+	picture = ORTHODOX_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BYZ
+		has_dlc = "Purple Phoenix"
+		religion = orthodox
+		owns = 2235 #Rome
+		2235 = { religion = orthodox }
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = "purple_phoenix.7.a"
+		add_patriarch_authority = 0.2
+	}
+}
+
+country_event = {
+	id = purple_phoenix.8
+	
+	title = "purple_phoenix.8.t"
+	desc = "purple_phoenix.8.d"
+	
+	picture = BATTLE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BYZ
+		started_in = 1371.9.27
+		has_dlc = "Purple Phoenix"
+		OR = {
+			owns = 392
+			owns = 2786
+			owns = 2398
+		}
+		serbia_region = { type = all NOT = { owned_by = TUR }}
+		rashkan_region = { type = all NOT = { owned_by = TUR }}
+		bosnia_region = { type = all NOT = { owned_by = TUR }}
+		croatia_region = { type = all NOT = { owned_by = TUR }}
+		dalmatian_region = { type = all NOT = { owned_by = TUR }}
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = "purple_phoenix.8.a"
+		add_mil_power = 50
+		add_dip_power = 50
+		add_adm_power = 50
+	}
+}
+
+country_event = {
+	id = purple_phoenix.9
+	title = "purple_phoenix.9.t"
+	desc = "purple_phoenix.9.d"
+	picture = BATTLE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BYZ
+		started_in = 1371.9.27
+		has_dlc = "Purple Phoenix"
+		OR = {
+			owns = 573
+			owns = 2135
+			owns = 2166
+		}
+		bulgaria_region = { type = all NOT = { owned_by = TUR }}
+		wallachia_region = { type = all NOT = { owned_by = TUR }}
+		bulgariasouth_region = { type = all NOT = { owned_by = TUR }}
+		albania_region = { type = all NOT = { owned_by = TUR }}
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = "purple_phoenix.9.a"
+		add_mil_power = 50
+		add_dip_power = 50
+		add_adm_power = 50
+	}
+}
+
+country_event = {
+	id = purple_phoenix.10
+	
+	title = "purple_phoenix.10.t"
+	desc = "purple_phoenix.10.d"
+	
+	picture = BATTLE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = BYZ
+		has_dlc = "Purple Phoenix"
+		started_in = 1371.9.27
+		owns = 1052
+		opsikion_region = { type = all NOT = { owned_by = TUR }}
+		thrakesion_region = { type = all NOT = { owned_by = TUR }}
+	}
+	
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = {
+		name = "purple_phoenix.10.a"
+		add_mil_power = 50
+		add_dip_power = 50
+		add_adm_power = 50
+	}
+}
+
+country_event = {
+	id = purple_phoenix.11
+	
+	title = "purple_phoenix.11.t"
+	desc = "purple_phoenix.11.d"
+	
+	picture = BYZANTINE_EAGLE_eventPicture
+		
+	trigger = {
+		tag = BYZ
+		has_dlc = "Purple Phoenix"
+		has_reform = byzantine_autocracy_reform
+		has_idea_group = BYZ_ideas
+		not = { has_idea = byz_corpus_iuris_civilis }
+		OR = {
+			NOT = { has_country_flag = recent_BYZ_factions }
+			had_country_flag = { flag = recent_BYZ_factions days = 365 }
+		}
+	}
+	
+	immediate = { set_country_flag = recent_BYZ_factions }
+	
+	mean_time_to_happen = {
+		months = 72
+	}
+	
+	option = {
+		name = "purple_phoenix.11.a"
+		add_mil_power = 50
+	}
+}
+
+country_event = {
+	id = purple_phoenix.12
+	
+	title = "purple_phoenix.12.t"
+	desc = "purple_phoenix.12.d"
+	
+	picture = BYZANTINE_EAGLE_eventPicture
+	
+	trigger = {
+		tag = BYZ
+		has_dlc = "Purple Phoenix"
+		has_reform = byzantine_autocracy_reform
+		has_idea_group = BYZ_ideas
+		not = { has_idea = byz_corpus_iuris_civilis }
+		OR = {
+			NOT = { has_country_flag = recent_BYZ_factions }
+			had_country_flag = { flag = recent_BYZ_factions days = 365 }
+		}
+	}
+	
+	immediate = { set_country_flag = recent_BYZ_factions }
+	
+	mean_time_to_happen = {
+		months = 72	
+	}
+	
+	option = {
+		name = "purple_phoenix.12.a"
+		add_mil_power = -25
+	}
+}
+
+country_event = {
+	id = purple_phoenix.13
+	
+	title = "purple_phoenix.13.t"
+	desc = "purple_phoenix.13.d"
+	picture = BYZANTINE_EMPEROR_eventPicture
+	
+	trigger = {
+		tag = BYZ
+		has_dlc = "Purple Phoenix"
+		has_reform = byzantine_autocracy_reform
+		has_idea_group = BYZ_ideas
+		not = { has_idea = byz_corpus_iuris_civilis }
+		OR = {
+			NOT = { has_country_flag = recent_BYZ_factions }
+			had_country_flag = { flag = recent_BYZ_factions days = 365 }
+		}
+	}
+	
+	immediate = { set_country_flag = recent_BYZ_factions }
+	
+	mean_time_to_happen = {
+		months = 72
+	}
+	
+	option = {
+		name = "purple_phoenix.13.a"
+		add_dip_power = 50
+	}
+}
+
+country_event = {
+	id = purple_phoenix.14
+	
+	title = "purple_phoenix.14.t"
+	desc = "purple_phoenix.14.d"
+	picture = BYZANTINE_EMPEROR_eventPicture
+	
+	trigger = {
+		tag = BYZ
+		has_dlc = "Purple Phoenix"
+		has_reform = byzantine_autocracy_reform
+		has_idea_group = BYZ_ideas
+		not = { has_idea = byz_corpus_iuris_civilis }
+		OR = {
+			NOT = { has_country_flag = recent_BYZ_factions }
+			had_country_flag = { flag = recent_BYZ_factions days = 365 }
+		}
+	}
+	
+	immediate = { set_country_flag = recent_BYZ_factions }
+	
+	mean_time_to_happen = {
+		months = 72
+	}
+	
+	option = {
+		name = "purple_phoenix.14.a"
+		add_dip_power = -25
+	}
+}
+
+country_event = {
+	id = purple_phoenix.15
+	
+	title = "purple_phoenix.15.t"
+	desc = "purple_phoenix.15.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = BYZ
+		has_dlc = "Purple Phoenix"
+		has_reform = byzantine_autocracy_reform
+		has_idea_group = BYZ_ideas
+		not = { has_idea = byz_corpus_iuris_civilis }
+		OR = {
+			NOT = { has_country_flag = recent_BYZ_factions }
+			had_country_flag = { flag = recent_BYZ_factions days = 365 }
+		}
+	}
+	
+	immediate = { set_country_flag = recent_BYZ_factions }
+	
+	mean_time_to_happen = {
+		months = 72
+	}
+	
+	option = {
+		name = "purple_phoenix.15.a"
+		add_adm_power = 50
+	}
+}
+
+country_event = {
+	id = purple_phoenix.16
+	
+	title = "purple_phoenix.16.t"
+	desc = "purple_phoenix.16.d"
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = BYZ
+		has_dlc = "Purple Phoenix"
+		has_idea_group = BYZ_ideas
+		not = { has_idea = byz_corpus_iuris_civilis }
+		has_reform = byzantine_autocracy_reform
+		OR = {
+			NOT = { has_country_flag = recent_BYZ_factions }
+			had_country_flag = { flag = recent_BYZ_factions days = 365 }
+		}
+	}
+	
+	immediate = { set_country_flag = recent_BYZ_factions }
+	
+	mean_time_to_happen = {
+		months = 72
+	}
+	
+	option = {
+		name = "purple_phoenix.16.a"
+		add_adm_power = -25
+	}
+}
+ 
