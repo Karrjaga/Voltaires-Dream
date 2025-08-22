@@ -20,8 +20,8 @@ country_event = {
 		tag = FTM
 		government = monarchy
 		religion = shiite
-		has_heir_flag = nizar_heir_flag
 		#has_heir_flag = nizar_heir_flag
+		NOT = { started_in = 1094.1.10 }
 		num_of_cities = 10
 	}
 
