@@ -627,7 +627,7 @@ province_event = {
 
 	trigger = {
 		superregion = iberia_superregion
-		religion = sunni
+		religion_group = muslim
 		owner = {
 			OR = {
 				religion = catholic
@@ -649,7 +649,7 @@ province_event = {
 
 	option = {
 		name = "vn_cultures.8.a"
-		change_religion = catholic
+		change_religion = ROOT
 		if = {
 			limit = { area = balears_area }
 			change_culture = balearic
