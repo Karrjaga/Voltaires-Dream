@@ -1015,23 +1015,24 @@ fatimid_caliphate_reform = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 60
 	modifiers = {
-		same_religion_advisor_cost = -0.2
 		tolerance_of_heathens_capacity = 1
 		tolerance_of_heretics_capacity = 1
-		governing_capacity = 50
+		governing_capacity_modifier = -0.5
+		reform_progress_growth = -0.1
 	}
 	custom_attributes = {
 		enables_divine_idea_group = yes
 		enables_aristocratic_idea_group = no
 	}
-	conditional = {
-		allow = { has_dlc = "Cradle of Civilization" }
-		government_abilities = {
-			feudal_theocracy_mechanic
-		}
-	}
+	# conditional = {
+	# 	allow = { has_dlc = "Cradle of Civilization" }
+	# 	government_abilities = {
+	# 		feudal_theocracy_mechanic
+	# 	}
+	# }
 	government_abilities = {
-		fatimid_irreverence_mechanic
+		#fatimid_irreverence_mechanic
+		fatimid_viziers_vs_caliph_mechanic
 	}
 	ai = {
 		factor = 1

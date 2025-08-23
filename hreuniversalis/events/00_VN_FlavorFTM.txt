@@ -38,6 +38,14 @@ country_event = {
 	option = {
 		name = "vn_flavor_ftm.1.a"
 		ai_chance = { factor = 90 }
+		if = {
+			limit = { has_government_mechanic = fatimid_viziers_vs_caliph_mechanic }
+			add_government_power = {
+				mechanic_type = fatimid_viziers_vs_caliph_mechanic
+				power_type = caliphal_authority
+				value = -5
+			}
+		}
 		add_stability = -1
 		define_ruler = { dynasty = ROOT	}
 		if = {
@@ -83,6 +91,14 @@ country_event = {
 	option = {
 		name = "vn_flavor_ftm.1.b"
 		ai_chance = { factor = 10 }
+		if = {
+			limit = { has_government_mechanic = fatimid_viziers_vs_caliph_mechanic }
+			add_government_power = {
+				mechanic_type = fatimid_viziers_vs_caliph_mechanic
+				power_type = caliphal_authority
+				value = 5
+			}
+		}
 		add_stability = 1
 		change_religion = qarmatian
 		set_religious_school = {
@@ -120,41 +136,42 @@ country_event = {
 
 	major = yes
 	fire_only_once = yes
+	is_triggered_only = yes
 
-	trigger = {
-		tag = FTM
-		NOT = { exists = MAM }
-		current_age = age_of_holy_wars
-		normal_or_historical_nations = yes
-		is_free_or_tributary_trigger = yes
-		any_owned_province = { religion = sunni }
-		NOT = { started_in = 1171.9.13 }
-		NOT = { owns = 4974 }
-		NOT = { ADM = 3 }
-		NOT = { DIP = 3 }
-		NOT = { MIL = 3 }
-		religion = shiite
-	}
+	# trigger = {
+	# 	tag = FTM
+	# 	NOT = { exists = MAM }
+	# 	current_age = age_of_holy_wars
+	# 	normal_or_historical_nations = yes
+	# 	is_free_or_tributary_trigger = yes
+	# 	any_owned_province = { religion = sunni }
+	# 	NOT = { started_in = 1171.9.13 }
+	# 	NOT = { owns = 4974 }
+	# 	NOT = { ADM = 3 }
+	# 	NOT = { DIP = 3 }
+	# 	NOT = { MIL = 3 }
+	# 	religion = shiite
+	# }
 
-	mean_time_to_happen =  {
-		months = 120
-		modifier = {
-			factor = 2
-			war_score = 50
-		}
-		modifier = {
-			factor = 2
-			at_war_with_religious_enemy = yes
-		}
-		modifier = {
-			factor = 0.5
-			has_regency = yes
-		}
-		modifier = {
-			factor = 0.5
-			war_exhaustion = 10
-		}
-	}
+	# mean_time_to_happen =  {
+	# 	months = 120
+	# 	modifier = {
+	# 		factor = 2
+	# 		war_score = 50
+	# 	}
+	# 	modifier = {
+	# 		factor = 2
+	# 		at_war_with_religious_enemy = yes
+	# 	}
+	# 	modifier = {
+	# 		factor = 0.5
+	# 		has_regency = yes
+	# 	}
+	# 	modifier = {
+	# 		factor = 0.5
+	# 		war_exhaustion = 10
+	# 	}
+	# }
 
 	immediate = {
 		hidden_effect = {
@@ -165,10 +182,7 @@ country_event = {
 	option = {
 		name = "vn_flavor_ftm.2.a"
 		ai_chance = { factor = 95 }
-		change_tag = MAM
-		change_government = monarchy
-		add_government_reform = ayyubid_dynasty
-		set_government_rank = 5
+		custom_tooltip = vn_flavor_ftm.2.tt
 		change_religion = sunni
 		set_religious_school = {
 			group = muslim
@@ -184,6 +198,16 @@ country_event = {
 			mil = 6
 		}
 		hidden_effect = {
+			change_tag = MAM
+			set_government_rank = 5
+			change_government = monarchy
+			if = {
+				limit = { has_dlc = "Winds of Change" }
+				add_government_reform = ayyubid_dynasty
+			}
+			else = {
+				add_government_reform = iqta
+			}
 			remove_heir = {}
 			swap_free_idea_group = yes
 			define_ruler_to_general = {
@@ -200,22 +224,23 @@ country_event = {
 		}
 		clr_country_flag = avoid_choosing_madhhab_flag
 	}
-	option = {
-		name = "vn_flavor_ftm.2.b"
-		ai_chance = { factor = 5 }
-		random_owned_province = {
-			limit = { religion = sunni }
-			spawn_rebels = {
-				type = sunni_rebels
-				leader = "Yûsuf"
-				leader_dynasty = "Eyûbî"
-				size = 5
-				unrest = 15
-				win = yes
-				religion = sunni
-				culture = kurdish
-			}
-		}
-		clr_country_flag = avoid_choosing_madhhab_flag
-	}
+	# option = {
+	# 	name = "vn_flavor_ftm.2.b"
+	# 	ai_chance = { factor = 5 }
+	# 	random_owned_province = {
+	# 		spawn_rebels = {
+	# 			type = pretender_rebels
+	# 			leader = "Yûsuf"
+	# 			leader_dynasty = "Eyûbî"
+	# 			size = 5
+	# 			unrest = 15
+	# 			win = yes
+	# 			religion = sunni
+	# 			culture = kurdish
+	# 		}
+	# 	}
+	# 	clr_country_flag = avoid_choosing_madhhab_flag
+	# }
 }
+
+#

@@ -25,3 +25,61 @@ fatimid_irreverence_mechanic = {
 		}
 	}
 }
+
+fatimid_viziers_vs_caliph_mechanic = {
+		available = { }
+
+	powers = {
+		caliphal_authority = {
+			gui = utraquists_vs_taborites_gov_mech
+			max = 100	#caliph direction
+			min = -100	#vizirate direction
+			base_monthly_growth = 0
+			scaled_modifier = {
+				trigger = {
+					has_government_power = { 
+						mechanic_type = fatimid_viziers_vs_caliph_mechanic
+						power_type = caliphal_authority
+						value = 0
+					}
+				}
+				modifier = {
+					all_estate_loyalty_equilibrium = 0.1
+					global_autonomy = -0.1
+					stability_cost_modifier = 1
+				}
+			}
+			reverse_scaled_modifier = {
+				trigger = {
+					NOT = {
+						has_government_power = { 
+							mechanic_type = fatimid_viziers_vs_caliph_mechanic
+							power_type = caliphal_authority
+							value = 0
+						}
+					}
+				}
+				modifier = {
+					advisor_cost = -0.2
+					global_unrest = 5
+					global_autonomy = 0.1
+				}
+			}
+			on_max_reached = {
+				custom_tooltip = fatimid_viziers_vs_caliph_mechanic_at
+				hidden_effect = {
+					remove_government_reform = fatimid_caliphate_reform
+					add_government_reform = feudal_theocracy
+				}
+				country_event = {
+					id = vn_flavor_ftm.3 #Ayyubid Coup
+				}
+			}
+			on_min_reached = {
+				country_event = {
+					id = vn_flavor_ftm.2 #Ayyubid Coup
+				}
+			}
+		}
+	}
+}
