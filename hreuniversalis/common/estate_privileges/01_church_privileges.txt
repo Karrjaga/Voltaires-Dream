@@ -3220,8 +3220,9 @@ estate_church_fund_dar_al_hadith = {
 	loyalty = 0.1
 	influence = 0.1
 	is_valid = {
-		is_or_was_tag = { tag = MAM }
+		#is_or_was_tag = { tag = MAM }
 		has_dlc = "King of Kings"
+		culture_group = turko_semitic
 	}
 	benefits = {
 		same_religion_advisor_cost = -0.1
@@ -3243,8 +3244,9 @@ estate_church_fund_madrasas = {
 	loyalty = 0.05
 	influence = 0.05
 	is_valid = {
-		is_or_was_tag = { tag = MAM }
+		#is_or_was_tag = { tag = MAM }
 		has_dlc = "King of Kings"
+		culture_group = turko_semitic
 	}
 	on_granted = {
 
@@ -3268,8 +3270,9 @@ estate_church_sponsor_waqf_payments = {
 	loyalty = 0.1
 	influence = 0.15
 	is_valid = {
-		is_or_was_tag = { tag = MAM }
+		#is_or_was_tag = { tag = MAM }
 		religion_group = muslim
+		culture_group = turko_semitic
 	}
 	on_granted = {
 
@@ -3307,7 +3310,9 @@ estate_church_INC_idol_making = {
 	influence = 0
 	loyalty = 0.1
 	is_valid = {
-		has_country_flag = INC_unlock_the_idol_privilege_flag
+		#has_country_flag = INC_unlock_the_idol_privilege_flag
+		has_dlc = "Winds of Change"
+		religion = egyptian_religion
 	}
 	can_select = {
 		trade_goods_produced_amount = {
