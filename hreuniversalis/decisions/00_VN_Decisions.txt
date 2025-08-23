@@ -257,13 +257,15 @@ country_decisions = {
 			}
 		}
 		effect = {
+			custom_tooltip = end_framo.tt
 			change_government = monarchy
 			add_government_reform = absolutist_france_reform
-			custom_tooltip = end_framo.tt
 			hidden_effect = {
 				every_subject_country = {
-					limit = { is_vassal = yes }
-					overlord = { free_vassal = PREV }
+					limit = {
+						is_subject_of_type = appanage
+					}
+					grant_independence = yes
 					every_owned_province = {
     					limit = { NOT = { is_core = ROOT } }
     					add_core = ROOT
