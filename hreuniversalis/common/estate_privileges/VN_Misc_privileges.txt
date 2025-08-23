@@ -202,64 +202,64 @@ estate_burghers_dutch_water_lines = {
 	}
 }
 
-# estate_burghers_marsh_expansion = {
-# 	icon = privilege_dev_cost_forest
-# 	max_absolutism = -10
-# 	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
-# 	influence = 0.05
-# 	loyalty = 0.05
-# 	is_valid = {
-# 		has_unlocked_estate_privilege = { estate_privilege = estate_burghers_marsh_expansion }
-# 	}
-# 	can_select = {
-# 		any_owned_province = {
-# 			has_terrain = marsh
-# 		}
-# 	}
-# 	on_granted = {
-# 		custom_tooltip = estate_burghers_marsh_expansion_gt
-# 		hidden_effect = {
-# 			every_owned_province = {
-# 				limit = {
-# 					has_terrain = marsh
-# 				}
-# 				add_province_modifier = {
-# 					name = estate_burghers_marsh_expansion_mod
-# 					duration = -1
-# 				}
-# 			}
-# 		}
-# 	}
-# 	on_revoked = {
-# 		custom_tooltip = estate_burghers_marsh_expansion_rt
-# 		hidden_effect = {
-# 			every_owned_province = {
-# 				limit = {
-# 					has_province_modifier = estate_burghers_marsh_expansion_mod
-# 				}
-# 				remove_province_modifier = estate_burghers_marsh_expansion_mod
-# 			}
-# 		}
-# 	}
-# 	penalties = {
-# 	}
-# 	benefits = {
-# 	}
-# 	ai_will_do = {
-# 		factor = 100
-# 		modifier = {
-# 			factor = 2
-# 			num_of_owned_provinces_with = {
-# 				has_terrain = marsh
-# 				value = 8
-# 			}
-# 		}
-# 		modifier = {
-# 			factor = 0
-# 			is_absolutism_active = yes
-# 		}
-# 	}
-# }
+estate_burghers_marsh_expansion = {
+	icon = privilege_dev_cost_forest
+	max_absolutism = -10
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
+	influence = 0.05
+	loyalty = 0.05
+	is_valid = {
+		has_unlocked_estate_privilege = { estate_privilege = estate_burghers_marsh_expansion }
+	}
+	can_select = {
+		any_owned_province = {
+			has_terrain = marsh
+		}
+	}
+	on_granted = {
+		custom_tooltip = estate_burghers_marsh_expansion_gt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_terrain = marsh
+				}
+				add_province_modifier = {
+					name = estate_burghers_marsh_expansion_mod
+					duration = -1
+				}
+			}
+		}
+	}
+	on_revoked = {
+		custom_tooltip = estate_burghers_marsh_expansion_rt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_modifier = estate_burghers_marsh_expansion_mod
+				}
+				remove_province_modifier = estate_burghers_marsh_expansion_mod
+			}
+		}
+	}
+	penalties = {
+	}
+	benefits = {
+	}
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 2
+			num_of_owned_provinces_with = {
+				has_terrain = marsh
+				value = 8
+			}
+		}
+		modifier = {
+			factor = 0
+			is_absolutism_active = yes
+		}
+	}
+}
 
 estate_burghers_kulm_law = {
 	icon = privilege_give_money

@@ -2304,22 +2304,22 @@ on_province_owner_change_estate_privileges_effect = {
 			duration = -1
 		}
 	}
-	# if = {
-	# 	limit = {
-	# 		owner = {
-	# 			has_estate_privilege = estate_burghers_marsh_expansion
-	# 		}
-	# 	}
-	# 	if = {
-	# 		limit = {
-	# 			has_terrain = marsh
-	# 		}
-	# 		add_province_modifier = {
-	# 			name = estate_burghers_marsh_expansion_mod
-	# 			duration = -1
-	# 		}
-	# 	}
-	# }
+	if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_burghers_marsh_expansion
+			}
+		}
+		if = {
+			limit = {
+				has_terrain = marsh
+			}
+			add_province_modifier = {
+				name = estate_burghers_marsh_expansion_mod
+				duration = -1
+			}
+		}
+	}
 	if = {
 		limit = {
 			owner = {
