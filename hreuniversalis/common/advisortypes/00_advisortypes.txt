@@ -114,6 +114,15 @@ philosopher = {
 		}
 	}
 
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
@@ -246,6 +255,15 @@ natural_scientist = {
 		}
 	}
 
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
@@ -389,6 +407,15 @@ artist = {
 		}
 	}
 
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
@@ -538,6 +565,16 @@ treasurer = {
 		modifier = {
 			monthly_persian_influence = 0.03
 		}
+	}
+
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -692,6 +729,16 @@ theologian = {
 			tolerance_heathen = 0.25
 		}
 	}
+
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
@@ -840,6 +887,16 @@ master_of_mint = {
 		modifier = {
 			monthly_persian_influence = 0.03
 		}
+	}
+
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -1003,6 +1060,16 @@ inquisitor = {
 			monthly_persian_influence = 0.03
 		}
 	}
+
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
@@ -1156,6 +1223,15 @@ statesman = {
 		}
 	}
 
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
@@ -1251,6 +1327,16 @@ naval_reformer = {
 		modifier = {
 			trade_efficiency = 0.02
 		}
+	}
+
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -1397,6 +1483,16 @@ trader = {
 			global_own_trade_power = 0.05
 		}
 	}
+
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
@@ -1486,13 +1582,23 @@ spymaster = {
 			trade_efficiency = 0.02
 		}
 	}
+
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
 				has_country_flag = has_hired_a_jewish_vizir_dip
 			}
 		}
-		modifier = { global_tariffs = 0.025 }
+		modifier = { spy_offence = 0.0625 }
 	}
 	
 	chance = {
@@ -1571,13 +1677,23 @@ colonial_governor = {
 			trade_efficiency = 0.02
 		}
 	}
+
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
 				has_country_flag = has_hired_a_jewish_vizir_dip
 			}
 		}
-		modifier = { spy_offence = 0.0625 }
+		modifier = { global_tariffs = 0.025 }
 	}
 	
 	chance = {
@@ -1688,6 +1804,16 @@ diplomat = {
 			ae_impact = -0.02
 		}
 	}
+
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
@@ -1774,6 +1900,15 @@ navigator = {
 		}
 	}
 
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
@@ -1869,6 +2004,15 @@ army_reformer = {
 		}
 	}
 
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
@@ -1975,14 +2119,24 @@ army_organiser = {
 		modifier = { no_cost_for_reinforcing = yes }
 	}
 
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
 				has_country_flag = has_hired_a_jewish_vizir_mil
 			}
 		}
-		modifier = { reinforce_speed = 0.0825 }
+		modifier = { land_forcelimit_modifier = 0.025 }
 	}
+	
 
 	chance = {
 		factor = 1
@@ -2061,13 +2215,22 @@ commandant = {
 		modifier = { army_tradition_decay = -0.003 }
 	}
 
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
 				has_country_flag = has_hired_a_jewish_vizir_mil
 			}
 		}
-		modifier = { land_maintenance_modifier = -0.025 }
+		modifier = { discipline = 0.0125 }
 	}
 
 	chance = {
@@ -2145,15 +2308,23 @@ quartermaster = {
 		modifier = { no_cost_for_reinforcing = yes }
 	}
 
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
 				has_country_flag = has_hired_a_jewish_vizir_mil
 			}
 		}
-		modifier = { land_forcelimit_modifier = 0.025 }
+		modifier = { reinforce_speed = 0.0825 }
 	}
-	
 
 	chance = {
 		factor = 1
@@ -2234,6 +2405,15 @@ recruitmaster = {
 		modifier = { no_cost_for_reinforcing = yes }
 	}
 	
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
@@ -2322,6 +2502,15 @@ fortification_expert = {
 		modifier = { siege_ability = 0.05 }
 	}
 
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
@@ -2397,13 +2586,22 @@ grand_captain = {
 		modifier = { army_tradition_decay = -0.003 }
 	}
 
+	#VN
+	skill_scaled_modifier = {
+		trigger = { 
+			owner = { 
+				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+			}
+		}
+		modifier = { monthly_caliphal_authority = -0.05 }
+	}
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
 				has_country_flag = has_hired_a_jewish_vizir_mil
 			}
 		}
-		modifier = { discipline = 0.0125 }
+		modifier = { land_maintenance_modifier = -0.025 }
 	}
 
 	chance = {

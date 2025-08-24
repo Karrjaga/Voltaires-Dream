@@ -1,5 +1,35 @@
 ### Voltaire's Nightmare Changelog ###
 
+# v 2.3.2 #
+-Added the following new National Idea sets: Ayyubids (contributed by jeffy6122), Persian ducal
+-Added the English Anarchy disaster
+-Added an event chain for the Seljuk Yoke of Georgia
+-Added an event chain around Davit Bagrationi of Alania
+-Added an event chain for the succession of Otto the White of Swabia
+-Added some new government reforms
+-Added some new estate privileges
+-Added a casus belli to establish new partial principalities
+-Added Abazin culture
+-Readded the Theodosian Walls from King of Kings
+-Wessex, Mercia & Northumbria now use an edited version of Anglo-Saxony's mission tree
+-Updated El Cid's event chain
+-Updated the Hundred Years War event chain
+-Updated some flags
+-Made the Revolt of the Earls disaster less harsh, giving Norman England higher survival chances
+-Crusades can now also target human players
+-Reworked the Jewish Vizirs estate privilege into a government mechanic
+-Turned some historical subjects of Genoa, Pisa and Venice into trade protectorates
+-Removed forts in provinces owned by native countries
+-Heirs becoming Crown Prince of France through the respective diplomatic action will now change their dynasty to France's, preventing obscure dynasties from ruling France
+-Road Networks and Guilds can no longer be built in silver producing provinces
+-Fixed the French Centralization decision
+-Fixed the Restore Byzantium decision
+-Fixed the Confirm Thalassocracy decision (thanks to rschristian)
+-Poor Quality Copper event no longer fires before mil tech 40 (thanks to rschristian)
+-Fixed Norway becoming a subject of France
+-Minor history adjustments
+-Other minor localization/bug fixes
+
 # v 2.3.1 #
 -Added the following mission trees: Normandy, Anglo-Saxony, Assyria, Brandenburg, Frisia
 -Added missing CoTs to Persia

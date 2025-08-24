@@ -976,6 +976,40 @@ alan_monarchy = {
 	}
 }
 
+sammarinese_republic = {
+	rank = {
+		1 = REPUBLIC
+		2 = REPUBLIC
+		3 = REPUBLIC
+		4 = REPUBLIC
+		5 = SERENE_REPUBLIC
+		6 = GREAT_REPUBLIC
+	}
+
+	ruler_male = {
+		1 = CAPTAIN_REGENT
+		2 = CAPTAIN_REGENT
+		3 = CAPTAIN_REGENT
+		4 = CAPTAIN_REGENT
+		5 = CAPTAIN_REGENT
+		6 = CAPTAIN_REGENT
+	}
+
+	ruler_female = {
+		1 = CAPTAIN_REGENT
+		2 = CAPTAIN_REGENT
+		3 = CAPTAIN_REGENT
+		4 = CAPTAIN_REGENT
+		5 = CAPTAIN_REGENT
+		6 = CAPTAIN_REGENT
+	}
+
+	trigger = {
+		tag = SMX
+		government = republic
+	}
+}
+
 taifa_monarchy = {
 	rank = {
 		1 = TAIFA

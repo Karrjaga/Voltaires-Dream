@@ -292,6 +292,7 @@
  GRAND_SEIGNEUR: "Großseigneur"
  SEIGNEURESSE: "Seigneuresse"
  GRAND_SEIGNEURESSE: "Großseigneuresse"
+ CAPTAIN_REGENT: "Capitano Reggente"
  NGC_parliament_name: "Reichstag"
  SGC_parliament_name: "Reichstag"
  EAH_parliament_name: "Reichstag"
@@ -556,6 +557,15 @@
  hussite_ecumene_desc: "Hussitische Ökumene stellt die §Otaboritische§! Unterstützung für eine radikale Reformation einerseits und die §Putraquistische§! Unterstützung für eine friedliche Einigung mit dem Papsttum auf der anderen Seite dar.\n\nHussitische Ökumene wird bei Folgendem erhöht:\n - Auswahl gewisser Kirchenaspekte: §P+10§!\n - Schlachten verlieren: §P+2.5§!\n - Kirchengebäude errichten: §P+10§!\n - Provinzen konvertieren: §O-2.5§!\n\nHussitische Ökumene wird bei Folgendem verringert:\n - Auswahl gewisser Kirchenaspekte: §O-10§!\n - Rekrutierung von Generälen: §O-5§!\n - Religion durchsetzen in Friedensangeboten: §O-20§!\n - Kirchen plündern in Friedensangeboten: §O-20§!\n - Schlachten gewinnen: §O-2.5§!\n\n§P100§! Hussitische Ökumene hat folgende Auswirkungen:\n    Toleranz (Häretiker): §G+3.00§!\n    Diplomatische Reputation: §G+3.00§!\n    Verfall (Armeetradition): §R+3.0%§!\n\n§O-100§! Hussitische Ökomene hat folgende Auswirkungen:\n    Effizienz (Belagerung): §G+25.0%§!\n    Erhaltener Moralschaden: §G-25.0%§!\n    Kosten (Stabilität): §R+100.0%§!"
  monthly_hussite_ecumene: "Hussitische Ökumene (Monatlich)"
  hussite_ecumene_gain_modifier: "Hussitische Ökumene (Zuwachs)"
+#Vizirate vs Caliph
+ fatimid_viziers_vs_caliph_mechanic: "Wesirat vs. Kalifat"
+ ability_fatimid_viziers_vs_caliph_mechanic: "Wesirat vs. Kalifat"
+ fatimid_viziers_vs_caliph_mechanic_at: "Die §Y[Root.GetAdjective]§!e Regierung wird reformiert."
+ fatimid_viziers_vs_caliph_mechanic_bt: "Die §YAyyubidendynastie§Y ergreift die Macht."
+ caliphal_authority: "Kalifale Autorität"
+ caliphal_authority_desc: "Die kalifale Autorität repräsentiert die Macht des fatimidischen Kalifen innerhalb unseres Staates und unserer Regierung. Wenn der Kalif zu viel Autorität verliert, müssen wir mit verhängnisvollen Folgen rechnen."
+ monthly_caliphal_authority: "Kalifale Autorität (Monatlich)"
+ caliphal_authority_gain_modifier: "Kalifale Autorität (Zuwachs)"
 #Fatimid Irreverence
  ability_fatimid_irreverence_mechanic: "Kalifale-Geringschätzung-Meter"
  fatimid_irreverence: "Kalifale Geringschätzung"

@@ -1057,6 +1057,28 @@ on_province_religion_converted_estate_privileges_effect = {
 			}
 		}
 	}
+	if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_church_moorish_tolerance
+			}
+		}
+		if = {
+			limit = {
+				religion_group = muslim
+			}
+			add_province_modifier = {
+				name = estate_church_moorish_tolerance_mod
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = {
+				has_province_modifier = estate_church_moorish_tolerance_mod
+			}
+			remove_province_modifier = estate_church_moorish_tolerance_mod
+		}
+	}
 }
 
 on_province_culture_converted_estate_privilges_effect = {
@@ -2282,22 +2304,22 @@ on_province_owner_change_estate_privileges_effect = {
 			duration = -1
 		}
 	}
-	# if = {
-	# 	limit = {
-	# 		owner = {
-	# 			has_estate_privilege = estate_burghers_marsh_expansion
-	# 		}
-	# 	}
-	# 	if = {
-	# 		limit = {
-	# 			has_terrain = marsh
-	# 		}
-	# 		add_province_modifier = {
-	# 			name = estate_burghers_marsh_expansion_mod
-	# 			duration = -1
-	# 		}
-	# 	}
-	# }
+	if = {
+		limit = {
+			owner = {
+				has_estate_privilege = estate_burghers_marsh_expansion
+			}
+		}
+		if = {
+			limit = {
+				has_terrain = marsh
+			}
+			add_province_modifier = {
+				name = estate_burghers_marsh_expansion_mod
+				duration = -1
+			}
+		}
+	}
 	if = {
 		limit = {
 			owner = {
