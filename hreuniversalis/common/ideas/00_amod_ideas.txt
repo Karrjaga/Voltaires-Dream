@@ -14823,6 +14823,6 @@ MAMA_ideas = {
 		same_religion_advisor_cost = -0.25
 	}
 	MAMA_idea_7 = {
-		global_heretic_missionary_strength = 0.02
+		global_missionary_strength = 0.02
 	}
 }
