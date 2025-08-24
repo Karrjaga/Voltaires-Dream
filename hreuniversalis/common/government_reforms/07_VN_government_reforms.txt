@@ -56,7 +56,7 @@ taifa_reform = {
 	}
 	modifiers = {
 		tolerance_heathen = 1
-		trade_efficiency = 0.05
+		idea_cost = -0.05
 	}
 	conditional = {
 		allow = {

@@ -24,9 +24,17 @@ mor_commander_of_the_muslims_mission = {
 	diplomatic_reputation = 1
 	diplomatic_upkeep = 1
 }
+mor_unifier_of_taifas_mission = {
+	years_of_nationalism = -10
+	global_unrest = -2
+}
 mor_set_sail_mission = {
 	privateer_efficiency = 0.25
 	sailors_recovery_speed = 0.25
+}
+mor_entry_into_iberia_mission = {
+	core_creation = -0.15
+	province_warscore_cost = -0.2
 }
 mor_barbary_piracy_mission = {
 	light_ship_cost = -0.2
