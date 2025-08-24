@@ -37,7 +37,7 @@ change_estate_land_share = {
 		name = "Yûsuf"
 		dynasty = "Eyûbî"
 		birth_date = 1137.1.1
-		culture = kurdish
+		culture = sorani
 		adm = 6
 		dip = 6
 		mil = 6
@@ -64,7 +64,7 @@ change_estate_land_share = {
 	clear_scripted_personalities = yes
 	add_ruler_personality = inspiring_leader_personality
 	add_ruler_personality = lawgiver_personality
-	add_ruler_personality = conqueror_personality
+	add_ruler_personality = legendary_conqueror_personality
 }
 1193.3.4 = {
 	monarch = {

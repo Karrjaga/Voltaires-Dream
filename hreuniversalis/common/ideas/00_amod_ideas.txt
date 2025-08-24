@@ -7206,6 +7206,7 @@ SMX_ideas = {
 		republican_tradition = 0.3
 		meritocracy = 1
 		horde_unity = 1
+		num_of_parliament_issues = 1
 	}
 	SMX_idea_3 = {
 		global_spy_defence = 0.1
@@ -14823,6 +14824,6 @@ MAMA_ideas = {
 		same_religion_advisor_cost = -0.25
 	}
 	MAMA_idea_7 = {
-		global_heretic_missionary_strength = 0.02
+		global_missionary_strength = 0.02
 	}
 }

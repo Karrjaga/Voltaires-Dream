@@ -1,4 +1,39 @@
 # T1 Reforms
+san_marinese_republic_reform = {
+	icon = "parliament_hall"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	modifiers = {
+		diplomats = 1
+		diplomatic_reputation = 1
+		yearly_corruption = -0.1
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = SMX
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = san_marinese_republic_reform
+			}
+		}
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+		custom_attributes = {
+			gain_rt_from_parliament = yes
+		}
+	}
+}
+
 taifa_reform = {
 	icon = "indian_sultanate"
 	allow_normal_conversion = yes

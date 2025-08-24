@@ -192,7 +192,7 @@ country_event = {
 			name = "Yûsuf"
 			dynasty = "Eyûbî"
 			age = 33
-			culture = kurdish
+			culture = sorani
 			adm = 6
 			dip = 6
 			mil = 6
@@ -218,7 +218,7 @@ country_event = {
 			}
 			add_ruler_personality = inspiring_leader_personality
 			add_ruler_personality = lawgiver_personality
-			add_ruler_personality = conqueror_personality
+			add_ruler_personality = legendary_conqueror_personality
 			override_country_name = AYYUBIDS_NAME
 			set_country_flag = ayyubids_name_flag
 		}

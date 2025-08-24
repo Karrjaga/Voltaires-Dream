@@ -709,6 +709,7 @@ republic = {
 				feudal_governorship
 				canton_government
 				italian_monarchy
+				san_marinese_republic_reform
 			}
 		}
 		republican_virtues = {
