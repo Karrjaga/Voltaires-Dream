@@ -302,6 +302,8 @@
  string_thingi: "Þing"
  string_witenagemot: "Witenagemot"
 #Vanilla reforms
+ san_marinese_republic_reform: "San-Marinesische Republik"
+ san_marinese_republic_reform_desc: "Eine Regierungsform, in der Stabilität durch eine langjährige republikanische Tradition gewährleistet wird, die auf einer jahrhundertelangen Bürgerbeteiligung basiert."
  ayyubid_dynasty_desc: "Die Ayyubiden-Dynastie regiert ihr Land, indem sie der örtlichen Elite, die dem as-Sultan al-Mu'azzam unterstellt ist, eine recht autonome Herrschaft zugestand. Unsere Regierung erlaubt es Menschen verschiedenster Herkunft, hohe Ränge in unserem Staat zu erreichen: eine Tradition, die unsere Dynastie beibehalten muss."
  mechanic_negate_unaccepted_levantine_culture_yes: "Der Malus durch nicht akzeptierte Kulturen wird in Provinzen der §YArabischen§! Kulturgruppe §Gnegiert§!."
  unlock_musketeers_reform_tt: "Neue Regierungsreform: "§YMusketiere der Garde§!"."
