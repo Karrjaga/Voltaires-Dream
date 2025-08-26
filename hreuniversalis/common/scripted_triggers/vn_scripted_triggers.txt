@@ -1,16 +1,3 @@
-has_fort_trigger = { #remove this later
-	custom_trigger_tooltip = {
-		tooltip = has_fort_building_trigger_tt
-		OR = {
-			has_building = fort_14th
-			has_building = fort_15th
-			has_building = fort_16th
-			has_building = fort_17th
-			has_building = fort_18th
-		}
-	}
-}
-
 has_fort_15th_trigger = {
 	OR = {
 		has_building = fort_15th
