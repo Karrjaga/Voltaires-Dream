@@ -1136,7 +1136,10 @@ vn_bra_missions_slot_3_c = {
 			set_country_flag = has_overriden_name_flag
 			custom_tooltip = " "
 			custom_tooltip = allow_earlier_prussia_formation_tt
-			hidden_effect = { set_country_flag = can_form_prussia_earlier }
+			set_country_flag = can_form_prussia_earlier
+			custom_tooltip = " "
+			custom_tooltip = allow_earlier_prussia_formation_tt2
+			set_country_flag = can_form_prussia_as_catholic
 			custom_tooltip = " "
 			add_prestige_or_monarch_power = { amount = 50 } 
 			custom_tooltip = " "
