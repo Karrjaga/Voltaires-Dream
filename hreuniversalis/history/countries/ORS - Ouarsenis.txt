@@ -257,6 +257,7 @@ religious_school = ibadi_school
 	monarch = {
 		name = "‘Abd al-Qâdir"
 		dynasty = "Banû Hasan"
+		birth_date = 1808.9.6
 		adm = 6
 		dip = 6
 		mil = 4

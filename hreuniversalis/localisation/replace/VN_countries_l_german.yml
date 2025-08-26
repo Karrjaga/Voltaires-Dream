@@ -1,5 +1,7 @@
 ﻿l_german:
 #Custom Names
+ DONBOLI_NAME: "Dunbulî"
+ DONBOLI_NAME_ADJ: "Dunbulîsch"
  CEMISGEZEK_NAME: "Çemisgezek"
  CEMISGEZEK_NAME_ADJ: "Çemisgezekisch"
  AZERBAIJAN: "Aserbaidschan"
@@ -2656,7 +2658,7 @@
  VNM_ADJ: "Vanemisch"
  TLV_ADJ: "Talavisch"
  AZL_ADJ: "Atzelisch"
- ORS_ADJ: "Ouarsenisisch"
+ ORS_ADJ: "Ouarsenisch"
  LGT_ADJ: "Laghouatisch"
  FGG_ADJ: "Figuigisch"
  DJB_ADJ: "Djerbisch"

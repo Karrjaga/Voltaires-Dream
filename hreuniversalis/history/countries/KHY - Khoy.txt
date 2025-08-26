@@ -21,6 +21,7 @@ capital = 7671 # Khoy
 #1071.8.26 to SJK
 
 1210.1.1 = {
+	override_country_name = DONBOLI_NAME
 	primary_culture = kurdish
 	government = tribal
 	add_government_reform = tribal_federation
@@ -99,6 +100,7 @@ capital = 7671 # Khoy
 
 #Khoy Khanate
 1612.1.1 = {
+	restore_country_name = yes
 	monarch = {
 		name = "Salman Soltan"
 		dynasty = "Dunbulî"
