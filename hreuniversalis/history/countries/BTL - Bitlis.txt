@@ -9,6 +9,7 @@ religious_school = hanafi_school
 
 #Dilmaç Beylik
 1085.1.1 = {
+	override_country_name = DILMAC_NAME
 	monarch = {
 		name = "Mehmed Bey"
 		dynasty = "Dilmaçoglu"
@@ -63,6 +64,7 @@ religious_school = hanafi_school
 	}
 }
 1192.1.1 = {
+	restore_country_name = yes
 	government = tribal
 	add_government_reform = tribal_federation
 	government_rank = 4
