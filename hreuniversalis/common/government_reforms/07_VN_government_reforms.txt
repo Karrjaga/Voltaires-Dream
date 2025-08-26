@@ -1050,10 +1050,10 @@ fatimid_caliphate_reform = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 60
 	modifiers = {
+		same_religion_advisor_cost = -0.2
+		advisor_pool = 1
 		tolerance_of_heathens_capacity = 1
 		tolerance_of_heretics_capacity = 1
-		governing_capacity_modifier = -0.5
-		reform_progress_growth = -0.1
 	}
 	custom_attributes = {
 		enables_divine_idea_group = yes
@@ -1067,7 +1067,7 @@ fatimid_caliphate_reform = {
 	# }
 	government_abilities = {
 		#fatimid_irreverence_mechanic
-		fatimid_viziers_vs_caliph_mechanic
+		fatimid_vizirate_mechanic
 	}
 	ai = {
 		factor = 1
@@ -2251,6 +2251,9 @@ sept_privileges_reform = {
 		global_regiment_recruit_speed = -0.1
 		global_regiment_cost = -0.1
 	}
+	ai = {
+		factor = 2
+	}
 }
 
 celtic_revival_reform = {
@@ -2267,6 +2270,9 @@ celtic_revival_reform = {
 		tolerance_own = 1
 		global_unrest = -1
 	}
+	ai = {
+		factor = 2
+	}
 }
 
 memorial_tradition_reform = {
@@ -2281,6 +2287,9 @@ memorial_tradition_reform = {
 	modifiers = {
 		cla_filid_influence = 0.1
 		global_institution_spread = 0.15
+	}
+	ai = {
+		factor = 2
 	}
 }
 
@@ -2302,6 +2311,9 @@ assyrian_resettlement_culture_reform = {
 	custom_attributes = {
 		concentrating_development_reduces_nationalism = yes
 	}
+	ai = {
+		factor = 10
+	}
 }
 
 assyrian_militarism_reform = {
@@ -2320,6 +2332,9 @@ assyrian_militarism_reform = {
 		mil_tech_cost_modifier = -0.1
 	}
 	
+	ai = {
+		factor = 10
+	}
 }
 
 #france

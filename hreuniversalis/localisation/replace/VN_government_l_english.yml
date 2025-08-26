@@ -568,6 +568,13 @@
  caliphal_authority_desc: "Caliphal Authority represents the power of the Fatimid Caliph within our state and government. If the Caliph loses too much authority, we will have to face catastrophic consequences."
  monthly_caliphal_authority: "Monthly Caliphal Authority"
  caliphal_authority_gain_modifier: "Caliphal Authority Gain Modifier"
+#Fatimid Vizirate
+ fatimid_vizirate_mechanic: "Fatimid Vizirate"
+ ability_fatimid_vizirate_mechanic: "Fatimid Vizirate"
+ vizirate_power: "Vizirate Power"
+ vizirate_power_desc: "Vizirate Power represents the power of the viziers within our state and government. If the vizirate gains too much authority, it might overthrow our government."
+ monthly_vizirate_power: "Monthly Vizirate Power"
+ vizirate_power_gain_modifier: "Vizirate Power Gain Modifier"
 #Fatimid Irreverence
  ability_fatimid_irreverence_mechanic: "Caliphal Irreverence Meter"
  fatimid_irreverence: "Caliphal Irreverence"
