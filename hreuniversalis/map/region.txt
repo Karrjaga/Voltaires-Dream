@@ -105,6 +105,10 @@ inner_egypt_region = {
 	areas = {
 		al_wahat_area
 	}
+	monsoon = {
+		00.05.01
+		00.11.30
+	}
 }
 
 middle_egypt_region = {
@@ -112,6 +116,10 @@ middle_egypt_region = {
 		vostani_area
 		said_area
 		red_sea_coast_area
+	}
+	monsoon = {
+		00.05.01
+		00.11.30
 	}
 }
 
@@ -121,6 +129,10 @@ lower_egypt_region = {
 		delta_area
 		alexandria_area
 		damietta_area
+	}
+	monsoon = {
+		00.05.01
+		00.11.30
 	}
 }
 
@@ -195,6 +207,10 @@ lower_mesopotamia_region = {
 		basra_area
 		najaf_area
 		baghdad_area
+	}
+	monsoon = {
+		00.02.01
+		00.08.31
 	}
 }
 
@@ -326,6 +342,14 @@ khwarezmia_region = {
 		transoxiana_area
 		nisa_area
 		dihistan_area
+	}
+	monsoon = {
+		00.11.01
+		00.12.30
+	}
+	monsoon = {
+		00.01.01
+		00.04.30
 	}
 }
 
@@ -674,6 +698,10 @@ south_karelia_region = {
 		ingria_area
 		ladoga_area
 		ivangorod_area
+	}
+	monsoon = {
+		00.09.01
+		00.11.30
 	}
 }
 
@@ -1182,6 +1210,10 @@ westpreussen_region = {
 		westpreussennorth_area
 		warmia_area
 	}
+	monsoon = {
+		00.04.01
+		00.05.31
+	}
 }
 
 ostpreussen_region = {
@@ -1189,6 +1221,10 @@ ostpreussen_region = {
 		konigsberg_area
 		ostpreusseneast_area
 		memel_area
+	}
+	monsoon = {
+		00.04.01
+		00.05.31
 	}
 }
 
@@ -1934,6 +1970,14 @@ mazandaran_region = {
 		tabaristan_area
 		daylam_area
 		gilan_area
+	}
+	monsoon = {
+		00.11.01
+		00.12.30
+	}
+	monsoon = {
+		00.01.01
+		00.04.30
 	}
 }
 
