@@ -1,6 +1,6 @@
 taifa_placate_the_christians_mission = {
 	diplomats = 1
-	improve_relation_modifier = 0.2
+	improve_relation_modifier = 0.25
 }
 taifa_university_of_cordoba_mission = {
 	local_development_cost = -0.1
@@ -9,7 +9,7 @@ taifa_university_of_cordoba_mission = {
 }
 taifa_restore_andalusia_mission = {
 	prestige_decay = -0.01
-	global_prosperity_growth = 0.15
+	global_prosperity_growth = 0.5
 }
 taifa_construct_castles_mission = {
 	defensiveness = 0.2
@@ -45,7 +45,7 @@ taifa_productive_continent_mission = {
 	global_tax_modifier = 0.1
 }
 taifa_summon_a_council_mission = {
-	advisor_cost = -0.1
+	advisor_cost = -0.25
 	advisor_pool = 1
 }
 

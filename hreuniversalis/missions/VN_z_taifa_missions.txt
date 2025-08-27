@@ -124,7 +124,7 @@ vn_taifa_missions_slot_2_a = {
         required_missions = { }
         trigger = {
             calc_true_if = {
-                amount = 3
+                amount = 2
                 all_ally = {
                     capital_scope = {
                         superregion = iberia_superregion
@@ -246,13 +246,13 @@ vn_taifa_missions_slot_3 = {
             }
         }
         effect = {
-            add_legitimacy_equivalent = { amount = 10 republican_tradition = 5 }
+            add_legitimacy_equivalent = { amount = 25 republican_tradition = 10 }
             custom_tooltip = " "
-			add_prestige_or_monarch_power = { amount = 10 } 
+			add_prestige_or_monarch_power = { amount = 25 } 
 			custom_tooltip = " "
             cordoba_area = {
                 limit = { owned_by = ROOT }
-                add_nationalism = -5
+                add_nationalism = -10
             }
         }
     }
