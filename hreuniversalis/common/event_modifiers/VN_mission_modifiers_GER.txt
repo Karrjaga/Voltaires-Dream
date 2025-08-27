@@ -1,0 +1,25 @@
+#German Cultural Fragmentation
+GER_central_margravian_modifier = {
+	num_accepted_cultures = 1
+}
+GER_thuringian_modifier = {
+	num_accepted_cultures = 1
+}
+GER_boden_alemannic_modifier = {
+	num_accepted_cultures = 1
+}
+GER_moselle_franconian_modifier = {
+	num_accepted_cultures = 1
+}
+GER_eastphalian_modifier = {
+	num_accepted_cultures = 1
+}
+GER_pfalzish_modifier = {
+	num_accepted_cultures = 1
+}
+GER_ripuarian_modifier = {
+	num_accepted_cultures = 1
+}
+GER_baltic_german_modifier = {
+	num_accepted_cultures = 1
+}

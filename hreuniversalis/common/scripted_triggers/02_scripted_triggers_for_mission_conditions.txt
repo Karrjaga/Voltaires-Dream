@@ -209,6 +209,14 @@ GER_can_integrate_a_culture = {
 		GER_can_integrate_culture = { culture = hannoverian }
 		GER_can_integrate_culture = { culture = lower_saxon }
 		GER_can_integrate_culture = { culture = prussian }
+		GER_can_integrate_culture = { culture = central_margravian }
+		GER_can_integrate_culture = { culture = thuringian }
+		GER_can_integrate_culture = { culture = boden_alemannic }
+		GER_can_integrate_culture = { culture = moselle_franconian }
+		GER_can_integrate_culture = { culture = eastphalian }
+		GER_can_integrate_culture = { culture = pfalzish }
+		GER_can_integrate_culture = { culture = ripuarian }
+		GER_can_integrate_culture = { culture = baltic_german }
 	}
 }
 
@@ -225,6 +233,14 @@ GER_integrating_a_culture = {
 		has_country_flag = GER_integrating_hannoverian
 		has_country_flag = GER_integrating_lower_saxon
 		has_country_flag = GER_integrating_prussian
+		has_country_flag = GER_integrating_central_margravian
+		has_country_flag = GER_integrating_thuringian
+		has_country_flag = GER_integrating_boden_alemannic
+		has_country_flag = GER_integrating_moselle_franconian
+		has_country_flag = GER_integrating_eastphalian
+		has_country_flag = GER_integrating_pfalzish
+		has_country_flag = GER_integrating_ripuarian
+		has_country_flag = GER_integrating_baltic_german
 	}
 }
 
@@ -240,6 +256,14 @@ GET_integrated_all_cultures = {
 	has_country_flag = GER_integrated_hannoverian
 	has_country_flag = GER_integrated_lower_saxon
 	has_country_flag = GER_integrated_prussian
+	has_country_flag = GER_integrated_central_margravian
+	has_country_flag = GER_integrated_thuringian
+	has_country_flag = GER_integrated_boden_alemannic
+	has_country_flag = GER_integrated_moselle_franconian
+	has_country_flag = GER_integrated_eastphalian
+	has_country_flag = GER_integrated_pfalzish
+	has_country_flag = GER_integrated_ripuarian
+	has_country_flag = GER_integrated_baltic_german
 }
 
 GER_num_of_cultures_accepted = {
@@ -312,6 +336,54 @@ GER_num_of_cultures_accepted = {
 				has_country_flag = GER_integrated_austrian
 			}
 		}
+		AND = {
+			OR = {
+				primary_culture = central_margravian
+				has_country_flag = GER_integrated_central_margravian
+			}
+		}
+		AND = {
+			OR = {
+				primary_culture = thuringian
+				has_country_flag = GER_integrated_thuringian
+			}
+		}
+		AND = {
+			OR = {
+				primary_culture = boden_alemannic
+				has_country_flag = GER_integrated_boden_alemannic
+			}
+		}
+		AND = {
+			OR = {
+				primary_culture = moselle_franconian
+				has_country_flag = GER_integrated_moselle_franconian
+			}
+		}
+		AND = {
+			OR = {
+				primary_culture = eastphalian
+				has_country_flag = GER_integrated_eastphalian
+			}
+		}
+		AND = {
+			OR = {
+				primary_culture = pfalzish
+				has_country_flag = GER_integrated_pfalzish
+			}
+		}
+		AND = {
+			OR = {
+				primary_culture = ripuarian
+				has_country_flag = GER_integrated_ripuarian
+			}
+		}
+		AND = {
+			OR = {
+				primary_culture = baltic_german
+				has_country_flag = GER_integrated_baltic_german
+			}
+		}
 	}
 }
 
@@ -361,6 +433,38 @@ GER_is_accepting_culture_being_integrated = {
 			accepted_culture = austrian
 			has_country_flag = GER_integrating_austrian
 		}
+		AND = {
+			accepted_culture = central_margravian
+			has_country_flag = GER_integrating_central_margravian
+		}
+		AND = {
+			accepted_culture = thuringian
+			has_country_flag = GER_integrating_thuringian
+		}
+		AND = {
+			accepted_culture = boden_alemannic
+			has_country_flag = GER_integrating_boden_alemannic
+		}
+		AND = {
+			accepted_culture = moselle_franconian
+			has_country_flag = GER_integrating_moselle_franconian
+		}
+		AND = {
+			accepted_culture = eastphalian
+			has_country_flag = GER_integrating_eastphalian
+		}
+		AND = {
+			accepted_culture = pfalzish
+			has_country_flag = GER_integrating_pfalzish
+		}
+		AND = {
+			accepted_culture = ripuarian
+			has_country_flag = GER_integrating_ripuarian
+		}
+		AND = {
+			accepted_culture = baltic_german
+			has_country_flag = GER_integrating_baltic_german
+		}
 	}
 }
 
@@ -409,6 +513,38 @@ GER_has_matching_culture = {
 		AND = {
 			culture = austrian
 			owner = { has_country_flag = GER_integrating_austrian }
+		}
+		AND = {
+			culture = central_margravian
+			owner = { has_country_flag = GER_integrating_central_margravian }
+		}
+		AND = {
+			culture = thuringian
+			owner = { has_country_flag = GER_integrating_thuringian }
+		}
+		AND = {
+			culture = boden_alemannic
+			owner = { has_country_flag = GER_integrating_boden_alemannic }
+		}
+		AND = {
+			culture = moselle_franconian
+			owner = { has_country_flag = GER_integrating_moselle_franconian }
+		}
+		AND = {
+			culture = eastphalian
+			owner = { has_country_flag = GER_integrating_eastphalian }
+		}
+		AND = {
+			culture = pfalzish
+			owner = { has_country_flag = GER_integrating_pfalzish  }
+		}
+		AND = {
+			culture = ripuarian
+			owner = { has_country_flag = GER_integrating_ripuarian }
+		}
+		AND = {
+			culture = baltic_german
+			owner = { has_country_flag = GER_integrating_baltic_german }
 		}
 	}
 }

@@ -1416,6 +1416,14 @@ GER_execute_effect_for_every_culture = {
 	$effect$ = { culture = hannoverian }
 	$effect$ = { culture = lower_saxon }
 	$effect$ = { culture = prussian }
+	$effect$ = { culture = central_margravian }
+	$effect$ = { culture = thuringian }
+	$effect$ = { culture = boden_alemannic }
+	$effect$ = { culture = moselle_franconian }
+	$effect$ = { culture = eastphalian }
+	$effect$ = { culture = pfalzish }
+	$effect$ = { culture = ripuarian }
+	$effect$ = { culture = baltic_german }
 }
 
 GER_start_integrating = {

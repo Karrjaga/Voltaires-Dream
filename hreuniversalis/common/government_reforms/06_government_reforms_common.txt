@@ -4809,6 +4809,14 @@ german_cultural_disunity_reform = {
 			remove_country_modifier = GER_hannoverian_modifier
 			remove_country_modifier = GER_lower_saxon_modifier
 			remove_country_modifier = GER_prussian_modifier
+			remove_country_modifier = GER_central_margravian_modifier
+			remove_country_modifier = GER_thuringian_modifier
+			remove_country_modifier = GER_boden_alemannic_modifier
+			remove_country_modifier = GER_moselle_franconian_modifier
+			remove_country_modifier = GER_eastphalian_modifier
+			remove_country_modifier = GER_pfalzish_modifier
+			remove_country_modifier = GER_ripuarian_modifier
+			remove_country_modifier = GER_baltic_german_modifier
 		}
 	}
 		
