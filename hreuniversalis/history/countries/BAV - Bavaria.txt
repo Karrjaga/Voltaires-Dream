@@ -9,9 +9,11 @@ elector = yes
 
 1054.6.1 = {
 	monarch = {
-		name = "(Regency Council)"
+		name = "Gebhard von Calw (Regent)"
 		regent = yes
-		adm = 2
+		birth_date = 1018.1.1
+		culture = swabian
+		adm = 3
 		dip = 2
 		mil = 2
 	}
