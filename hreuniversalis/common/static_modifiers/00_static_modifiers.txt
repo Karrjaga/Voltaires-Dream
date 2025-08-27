@@ -658,13 +658,13 @@ negative_stability = {
 	devotion = 1
 	caravan_power = 0.05
 	yearly_harmony = 0.25
-	pap_roman_mob_influence = 0.03
+	pap_roman_mob_influence = -0.03
 	monthly_russian_modernization = 0.03
 	monthly_ottoman_decadence = -0.15
-	monthly_authority_power = 0.05
 	monthly_caliphal_authority = -0.15
 	monthly_vizirate_power = 0.05
 	monthly_byzantine_feudalization = -0.15
+	monthly_authority_power = -0.05
 }
 
 positive_mandate = {	# 100% strength at 100 mandate, 0% at 50 mandate
