@@ -1051,9 +1051,9 @@ fatimid_caliphate_reform = {
 	nation_designer_cost = 60
 	modifiers = {
 		same_religion_advisor_cost = -0.2
-		advisor_pool = 1
 		tolerance_of_heathens_capacity = 1
 		tolerance_of_heretics_capacity = 1
+		yearly_corruption = 0.1
 	}
 	custom_attributes = {
 		enables_divine_idea_group = yes
@@ -1067,7 +1067,7 @@ fatimid_caliphate_reform = {
 	# }
 	government_abilities = {
 		#fatimid_irreverence_mechanic
-		fatimid_vizirate_mechanic
+		fatimid_vizierate_mechanic
 	}
 	ai = {
 		factor = 1
@@ -1323,7 +1323,7 @@ mamluk_leadership_reform = {
 	}
 }
 
-advising_vizirate_reform = {
+advising_vizierate_reform = {
 	icon = "noble_muslim"
 	allow_normal_conversion = yes
 	potential = {
@@ -2293,6 +2293,7 @@ memorial_tradition_reform = {
 	}
 }
 
+# T2 reforms and further
 assyrian_resettlement_culture_reform = {
 	icon = "soldiers_4"
 	allow_normal_conversion = yes
@@ -2307,7 +2308,6 @@ assyrian_resettlement_culture_reform = {
 		culture_conversion_cost = -0.1
 		culture_conversion_time = -0.1
 	}
-
 	custom_attributes = {
 		concentrating_development_reduces_nationalism = yes
 	}

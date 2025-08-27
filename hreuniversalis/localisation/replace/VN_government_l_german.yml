@@ -559,7 +559,7 @@
  hussite_ecumene_desc: "Hussitische Ökumene stellt die §Otaboritische§! Unterstützung für eine radikale Reformation einerseits und die §Putraquistische§! Unterstützung für eine friedliche Einigung mit dem Papsttum auf der anderen Seite dar.\n\nHussitische Ökumene wird bei Folgendem erhöht:\n - Auswahl gewisser Kirchenaspekte: §P+10§!\n - Schlachten verlieren: §P+2.5§!\n - Kirchengebäude errichten: §P+10§!\n - Provinzen konvertieren: §O-2.5§!\n\nHussitische Ökumene wird bei Folgendem verringert:\n - Auswahl gewisser Kirchenaspekte: §O-10§!\n - Rekrutierung von Generälen: §O-5§!\n - Religion durchsetzen in Friedensangeboten: §O-20§!\n - Kirchen plündern in Friedensangeboten: §O-20§!\n - Schlachten gewinnen: §O-2.5§!\n\n§P100§! Hussitische Ökumene hat folgende Auswirkungen:\n    Toleranz (Häretiker): §G+3.00§!\n    Diplomatische Reputation: §G+3.00§!\n    Verfall (Armeetradition): §R+3.0%§!\n\n§O-100§! Hussitische Ökomene hat folgende Auswirkungen:\n    Effizienz (Belagerung): §G+25.0%§!\n    Erhaltener Moralschaden: §G-25.0%§!\n    Kosten (Stabilität): §R+100.0%§!"
  monthly_hussite_ecumene: "Hussitische Ökumene (Monatlich)"
  hussite_ecumene_gain_modifier: "Hussitische Ökumene (Zuwachs)"
-#Vizirate vs Caliph
+#Vizierate vs Caliph
  fatimid_viziers_vs_caliph_mechanic: "Wesirat vs. Kalifat"
  ability_fatimid_viziers_vs_caliph_mechanic: "Wesirat vs. Kalifat"
  fatimid_viziers_vs_caliph_mechanic_at: "Die §Y[Root.GetAdjective]§!e Regierung wird reformiert."
@@ -718,8 +718,8 @@
  celtic_revival_reform_desc: "Auch wenn wir Christen sind, sollten wir unsere heidnischen Traditionen bewahren. Das wird nicht nur unser Volk aufblühen lassen, sondern auch neue theologische Debatten auslösen."
  memorial_tradition_reform: "Tradition des Gedenkens"
  memorial_tradition_reform_desc: "Unser Clan hat eine jahrhundertealte Tradition, die bis in die Römerzeit zurückreicht. Viele legendäre Helden und Könige stammen von unserem Volk ab, die wir ehren und als unsere Vorbilder aller Zeiten nehmen sollten."
- advising_vizirate_reform: "Beratendes Wesirat"
- advising_vizirate_reform_desc: ""
+ advising_vizierate_reform: "Beratendes Wesirat"
+ advising_vizierate_reform_desc: ""
  strength_of_the_voynuks_reform: "Stärke der Voynuks"
  strength_of_the_voynuks_reform_desc: ""
  askeri_officials_reform: "Askerî-Beamte"

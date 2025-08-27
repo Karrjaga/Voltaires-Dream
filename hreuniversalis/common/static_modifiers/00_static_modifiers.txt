@@ -642,7 +642,7 @@ positive_stability = {
 	monthly_ottoman_decadence = -0.05
 	monthly_authority_power = -0.01
 	monthly_caliphal_authority = 0.05
-	monthly_vizirate_power = -0.01
+	monthly_vizierate_power = -0.01
 	monthly_byzantine_feudalization = 0.025
 }
 
@@ -661,10 +661,10 @@ negative_stability = {
 	pap_roman_mob_influence = -0.03
 	monthly_russian_modernization = 0.03
 	monthly_ottoman_decadence = -0.15
-	monthly_caliphal_authority = -0.15
-	monthly_vizirate_power = 0.05
-	monthly_byzantine_feudalization = -0.15
 	monthly_authority_power = -0.05
+	monthly_caliphal_authority = 0.15
+	monthly_vizierate_power = -0.05
+	monthly_byzantine_feudalization = 0.15
 }
 
 positive_mandate = {	# 100% strength at 100 mandate, 0% at 50 mandate
@@ -764,7 +764,7 @@ bankruptcy = {
 	monthly_caliphal_authority = -1
 	monthly_byzantine_feudalization = -1
 	monthly_assyrian_militarization_power = 0.05
-	monthly_vizirate_power = 0.25
+	monthly_vizierate_power = 0.25
 }
 
 war = {
@@ -831,7 +831,7 @@ war_exhaustion = {
 	monthly_cultural_unity = -0.05
 	monthly_authority_power = 0.01
 	monthly_caliphal_authority = -0.05
-	monthly_vizirate_power = 0.01
+	monthly_vizierate_power = 0.01
 }
 
 doom = {
@@ -923,7 +923,7 @@ positive_piety = {
 	piety_dhimmi_loyalty_modifier = -0.1
 	mamluks_loyalty_modifier = 0.1
 	monthly_caliphal_authority = 0.1
-	monthly_vizirate_power = -0.1
+	monthly_vizierate_power = -0.1
 }
 
 #For convenience, its multiplied by negative piety in code.
@@ -936,7 +936,7 @@ negative_piety = {
 	dhimmi_loyalty_modifier = 0.1
 	mamluks_loyalty_modifier = -0.1
 	monthly_caliphal_authority = -0.1
-	monthly_vizirate_power = 0.1
+	monthly_vizierate_power = 0.1
 }
 
 defender_of_faith = {
@@ -953,7 +953,7 @@ defender_of_faith = {
 	monthly_asha_vahishta = 0.25
 	monthly_hussite_ecumene = -0.2
 	monthly_caliphal_authority = 0.05
-	monthly_vizirate_power = -0.05
+	monthly_vizierate_power = -0.05
 }
 
 defender_of_faith_refused_cta = {
@@ -961,7 +961,7 @@ defender_of_faith_refused_cta = {
 	monthly_asha_vahishta = -2
 	monthly_hussite_ecumene = 0.1
 	monthly_caliphal_authority = -0.05
-	monthly_vizirate_power = 0.05
+	monthly_vizierate_power = 0.05
 }
 
 emperor = {
@@ -1057,7 +1057,7 @@ legitimacy = {
 	nobles_loyalty_modifier = 0.1
 	monthly_cultural_unity = 0.2
 	monthly_divine_authority = 0.3
-	monthly_vizirate_power = -0.05
+	monthly_vizierate_power = -0.05
 }
 
 #Multiplied by current Horde Unity - 50
@@ -1136,7 +1136,7 @@ corruption = {
 	monthly_authority_power = 0.5
 	monthly_caliphal_authority = -0.1
 	monthly_byzantine_feudalization = -1
-	monthly_vizirate_power = 0.5
+	monthly_vizierate_power = 0.5
 }
 
 root_out_corruption = {
@@ -1238,7 +1238,7 @@ prestige = {
 	monthly_divine_authority = 0.1
 	monthly_authority_power = -0.2
 	monthly_caliphal_authority = 0.1
-	monthly_vizirate_power = -0.2
+	monthly_vizierate_power = -0.2
 }
 
 no_debate_in_parliament = {
@@ -1300,7 +1300,7 @@ inverse_religious_unity = {
 	church_power_modifier = -1
 	devotion = -1
 	yearly_corruption = 0.1
-	monthly_vizirate_power = 0.2
+	monthly_vizierate_power = 0.2
 }
 
 total_occupation = {
@@ -1512,7 +1512,7 @@ power_projection = {
 	republican_tradition = 0.2
 	monthly_divine_authority = 0.05
 	monthly_authority_power = -0.1
-	monthly_vizirate_power = -0.1
+	monthly_vizierate_power = -0.1
 }
 
 power_projection_25 = {
@@ -2386,7 +2386,7 @@ over_governing_capacity_modifier = {
 	monthly_caliphal_authority = -0.25
 	monthly_byzantine_feudalization = 2
 	monthly_assyrian_militarization_power = -1
-	monthly_vizirate_power = 0.5
+	monthly_vizierate_power = 0.5
 }
 
 #Scales with used capacity, being at full capacity means 100% of the modifier

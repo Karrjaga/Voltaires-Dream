@@ -32,7 +32,7 @@ mam_conquer_baghdad_mission = {
 	land_morale = 0.1
 	diplomatic_reputation = 2
 }
-mam_debilitate_the_vizirate_mission = {
+mam_debilitate_the_vizierate_mission = {
 	advisor_pool = 1
 	idea_cost = -0.05
 }

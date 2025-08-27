@@ -419,7 +419,7 @@ monarchy = {
 				superiority_of_the_state_reform
 				divided_aristocracy_reform
 				#mod
-				advising_vizirate_reform
+				advising_vizierate_reform
 				strength_of_the_voynuks_reform
 				askeri_officials_reform
 				chivalrous_confederations_reform
