@@ -19,4 +19,23 @@ country_decisions = {
 			country_event = { id = flavor_ger.9 }
 		}
 	}
+
+	#added for VN because the mission that removes the government reform is not in the mod
+	VN_GER_place_in_the_sun = {
+		potential = {
+			has_reform = german_cultural_disunity_reform
+		}
+		color = { 75  130  135 }
+		allow = {
+			GER_num_of_cultures_accepted = {
+				amount = 7
+			}
+		}
+		effect = {
+			remove_government_reform = german_cultural_disunity_reform
+			country_event = {
+				id = flavor_ger.11
+			}
+		}
+	}
 }

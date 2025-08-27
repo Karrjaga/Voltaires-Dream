@@ -1199,6 +1199,8 @@
  disable_mod_sk_tooltip: "Disables the Treaty of Venice Event"
  mod_sk_allowed: "Disables the Treaty of Venice Event"
 #German Cultural Fragmentation
+ VN_GER_place_in_the_sun_title: "Trust Your Neighbor"
+ VN_GER_place_in_the_sun_desc: "The German people are divided by petty squabbles. We cannot let divisions take hold of the nation; we must unify it together so we can brave what challenges the future holds for us."
  flavor_ger.9.hessian: "Let us integrate the §YHessians§!."
  flavor_ger.9.lower_saxon: "Let us integrate the §YLower Saxons§!."
  flavor_ger.9.central_margravian: "Let us integrate the §YMarkish§!."

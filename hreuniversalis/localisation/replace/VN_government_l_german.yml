@@ -1192,6 +1192,8 @@
  disable_mod_sk_tooltip: "Deaktiviert das Schattenkönigreich-Event"
  mod_sk_allowed: "Deaktiviert das Schattenkönigreich-Event"
 #German Cultural Fragmentation
+ VN_GER_place_in_the_sun_title: "Vertraut Euren Nachbarn"
+ VN_GER_place_in_the_sun_desc: "Das deutsche Volk ist in kleinliche Zwiste verwickelt. Wir dürfen nicht zulassen, dass diese Zwiste die Nation spalten. Wir müssen das Volk unter einer gemeinsamen Sache vereinen, um den Herausforderungen der Zukunft zu trotzen."
  flavor_ger.9.hessian: "Wir sollten die §YHessen§! integrieren."
  flavor_ger.9.lower_saxon: "Wir sollten die §YNiedersachsen§! integrieren."
  flavor_ger.9.central_margravian: "Wir sollten die §YMärker§! integrieren."
