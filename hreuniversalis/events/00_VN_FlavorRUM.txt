@@ -301,6 +301,8 @@ country_event = {
 			if = {
 				limit = { NOT = { exists = ERE } }
 				change_tag = ERE
+				change_government = monarchy
+				add_government_reform = beylik_government
 				define_ruler = { dynasty = "Eretnaoglu" }
 			}
 			every_core_province = {
