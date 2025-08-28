@@ -33,7 +33,7 @@ fatimid_viziers_vs_caliph_mechanic = {
 		caliphal_authority = {
 			gui = utraquists_vs_taborites_gov_mech
 			max = 100	#caliph direction
-			min = -100	#vizirate direction
+			min = -100	#vizierate direction
 			base_monthly_growth = 0
 			scaled_modifier = {
 				trigger = {
@@ -98,9 +98,47 @@ fatimid_vizierate_mechanic = {
 			base_monthly_growth = 0.05
 			development_scaled_monthly_growth = 0
 			scaled_modifier = {
+				trigger = {
+					NOT = { has_country_flag = ftm_vizierate_technology }
+					NOT = { has_country_flag = ftm_vizierate_religion }
+					NOT = { has_country_flag = ftm_vizierate_military }
+				}
+				modifier = {
+					global_tax_modifier = 0.2
+					inflation_reduction = 0.1
+				}
+			}
+			scaled_modifier = {
+				trigger = {
+					has_country_flag = ftm_vizierate_technology
+				}
+				modifier = {
+					idea_cost = -0.1
+					innovativeness_gain = 0.25
+				}
+			}
+			scaled_modifier = {
+				trigger = {
+					has_country_flag = ftm_vizierate_religion
+				}
+				modifier = {
+					global_missionary_strength = 0.03
+					religious_unity = 0.25
+				}
+			}
+			scaled_modifier = {
+				trigger = {
+					has_country_flag = ftm_vizierate_military
+				}
+				modifier = {
+					land_morale = 0.1
+					land_forcelimit_modifier = 0.1
+				}
+			}
+			scaled_modifier = {
 				modifier = {
 					stability_cost_modifier = 0.5
-					advisor_cost = 0.2
+					#advisor_cost = 0.2
 					min_autonomy = 20
 				}
 			}
@@ -136,6 +174,166 @@ fatimid_vizierate_mechanic = {
 				}
 			}
 			is_good = no
+		}
+	}
+
+	interactions = {
+		change_vizierate_bonus = {		
+			icon = GFX_devshirme_assign_local_pashas_button
+			trigger = {
+				NOT = {
+					has_government_power = {
+						mechanic_type = fatimid_vizierate_mechanic
+						power_type = vizierate_power
+						value = 90
+					}
+				}
+			}
+			effect = {
+				add_government_power = {
+					mechanic_type = fatimid_vizierate_mechanic
+					power_type = vizierate_power
+					value = 5
+				}
+				country_event = {
+					id = fatimid_caliphate_events.1
+					tooltip = change_vizierate_bonus.tt
+				}
+			}
+			cooldown_years = 20
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 0
+					has_government_power = {
+						mechanic_type = fatimid_vizierate_mechanic
+						power_type = vizierate_power
+						value = 80
+					}
+				}
+			}
+		}
+		ftm_promote_vizier_kinship = {
+			icon = GFX_devshirme_recruit_new_grand_vizier_button
+		 	cooldown_years = 25
+			trigger = {
+				NOT = {
+					has_government_power = {
+						mechanic_type = fatimid_vizierate_mechanic
+						power_type = vizierate_power
+						value = 90
+					}
+				}
+			}
+			effect = {
+				add_government_power = {
+					mechanic_type = fatimid_vizierate_mechanic
+					power_type = vizierate_power
+					value = 5
+				}
+				if = {
+					limit = {
+						has_country_flag = ftm_vizierate_military
+					}
+					add_country_modifier = {
+						name = ftm_promote_vizier_kinship_mil_mod
+						duration = 5475
+					}
+					add_estate_loyalty = {
+						estate = estate_mamluks
+						loyalty = 10
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_flag = ftm_vizierate_religion
+					}
+					add_country_modifier = {
+						name = ftm_promote_vizier_kinship_reli_mod
+						duration = 5475
+					}				
+					add_estate_loyalty = {
+						estate = estate_church
+						loyalty = 10
+					}
+				}
+				else_if = {
+					limit = {
+						has_country_flag = ftm_vizierate_technology
+					}
+					add_country_modifier = {
+						name = ftm_promote_vizier_kinship_tech_mod
+						duration = 5475
+					}
+					add_estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 10
+					}
+				}
+				else = {
+					add_country_modifier = {
+						name = ftm_promote_vizier_kinship_eco_mod
+						duration = 5475
+					}
+					add_estate_loyalty = {
+						estate = estate_burghers
+						loyalty = 10
+					}
+				}
+			}
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 0
+					has_government_power = {
+						mechanic_type = fatimid_vizierate_mechanic
+						power_type = vizierate_power
+						value = 80
+					}
+				}
+			}
+		}
+		ftm_purge_vizierate = {
+			icon = GFX_devshirme_conscript_heathen_recruits_button
+			cooldown_years = 10
+			trigger = {
+				has_government_power = {
+					mechanic_type = fatimid_vizierate_mechanic
+					power_type = vizierate_power
+					value = 10
+				}
+				adm_power_cost = 50
+				dip_power_cost = 50
+				mil_power_cost = 50
+			}
+			effect = {
+				add_government_power = {
+					mechanic_type = fatimid_vizierate_mechanic
+					power_type = vizierate_power
+					value = -10
+				}
+				adm_power_cost = 50
+				dip_power_cost = 50
+				mil_power_cost = 50
+				add_country_modifier = {
+					name = ftm_purge_vizierate_mod
+					duration = 3650
+				}
+
+			}
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 0
+					NOT = {
+						has_government_power = {
+							mechanic_type = fatimid_vizierate_mechanic
+							power_type = vizierate_power
+							value = 90
+						}
+					}
+				}
+			}
 		}
 	}
 }

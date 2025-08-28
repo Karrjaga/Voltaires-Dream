@@ -118,10 +118,10 @@ philosopher = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -259,10 +259,10 @@ natural_scientist = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -411,10 +411,10 @@ artist = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -571,10 +571,10 @@ treasurer = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -734,10 +734,10 @@ theologian = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -893,10 +893,10 @@ master_of_mint = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -1065,10 +1065,10 @@ inquisitor = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -1227,10 +1227,10 @@ statesman = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -1333,10 +1333,10 @@ naval_reformer = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -1488,10 +1488,10 @@ trader = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -1587,10 +1587,10 @@ spymaster = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -1682,10 +1682,10 @@ colonial_governor = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -1809,10 +1809,10 @@ diplomat = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -1904,10 +1904,10 @@ navigator = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -2008,10 +2008,10 @@ army_reformer = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -2123,10 +2123,10 @@ army_organiser = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -2219,10 +2219,10 @@ commandant = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -2312,10 +2312,10 @@ quartermaster = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -2409,10 +2409,10 @@ recruitmaster = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -2506,10 +2506,10 @@ fortification_expert = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 
@@ -2590,10 +2590,10 @@ grand_captain = {
 	skill_scaled_modifier = {
 		trigger = { 
 			owner = { 
-				has_government_mechanic = fatimid_viziers_vs_caliph_mechanic
+				has_government_mechanic = fatimid_vizierate_mechanic
 			}
 		}
-		modifier = { monthly_caliphal_authority = -0.05 }
+		modifier = { monthly_vizierate_power = 0.05 }
 	}
 	skill_scaled_modifier = {
 		trigger = { 

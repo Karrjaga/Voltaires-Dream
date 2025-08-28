@@ -8,6 +8,7 @@ namespace = pap_faction_events
 namespace = sufi_order_events
 namespace = germanic_monarchy_events
 namespace = anglo_norman_monarchy_events
+namespace = fatimid_caliphate_events
 
 #Italian Monarchy
 country_event = {
@@ -3369,3 +3370,96 @@ country_event = {
 # 	}
 # }
 
+#Fatimid Caliphate
+#choose bonus of vizierate
+country_event = {
+	id = fatimid_caliphate_events.1
+	title = "fatimid_caliphate_events.1.t"
+	desc = "fatimid_caliphate_events.1.d"
+	picture = LIBERUM_VETO_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #economy
+		name = fatimid_caliphate_events.1.a
+		ai_chance = { factor = 1 }
+		
+		trigger = {
+			OR = {
+				has_country_flag = ftm_vizierate_technology
+				has_country_flag = ftm_vizierate_religion
+				has_country_flag = ftm_vizierate_military
+			}
+		}
+		
+		clr_country_flag = ftm_vizierate_technology
+		clr_country_flag = ftm_vizierate_religion
+		clr_country_flag = ftm_vizierate_military
+		
+		custom_tooltip = fatimid_caliphate_events.1.tt
+		
+	}
+	
+	option = { #technolgy
+		name = fatimid_caliphate_events.1.b
+		ai_chance = { factor = 1 }
+		
+		trigger = {
+			NOT = {
+				has_country_flag = ftm_vizierate_technology
+			}
+		}
+		
+		clr_country_flag = ftm_vizierate_religion
+		clr_country_flag = ftm_vizierate_military
+		
+		set_country_flag = ftm_vizierate_technology
+		
+		custom_tooltip = fatimid_caliphate_events.1.tt2
+	}
+	
+	option = { #religion
+		name = fatimid_caliphate_events.1.c
+		ai_chance = { factor = 1 }
+		
+		trigger = {
+			NOT = {
+				has_country_flag = ftm_vizierate_religion
+			}
+		}
+		
+		clr_country_flag = ftm_vizierate_technology
+		clr_country_flag = ftm_vizierate_military
+		
+		set_country_flag = ftm_vizierate_religion
+		
+		custom_tooltip = fatimid_caliphate_events.1.tt3
+	}
+	
+	option = { #military
+		name = fatimid_caliphate_events.1.dd
+		ai_chance = { factor = 1 }
+		trigger = {
+			NOT = {
+				has_country_flag = ftm_vizierate_military
+			}
+		}
+		
+		clr_country_flag = ftm_vizierate_technology
+		clr_country_flag = ftm_vizierate_religion
+		
+		set_country_flag = ftm_vizierate_military
+		
+		custom_tooltip = fatimid_caliphate_events.1.tt4
+	}
+	option = { #no change
+		name = fatimid_caliphate_events.1.e
+		ai_chance = { factor = 0 }
+		custom_tooltip = fatimid_caliphate_events.1.tt5
+		add_government_power = {
+			mechanic_type = fatimid_vizierate_mechanic
+			power_type = vizierate_power
+			value = -5
+		}
+	}
+}
