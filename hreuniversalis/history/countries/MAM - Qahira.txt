@@ -1,5 +1,5 @@
 government = monarchy
-add_government_reform = iqta
+add_government_reform = ayyubid_dynasty
 government_rank = 5
 primary_culture = al_misr_arabic
 add_accepted_culture = al_suryah_arabic
@@ -26,9 +26,10 @@ change_estate_land_share = {
 1171.9.13 = {
 	if = {
 		limit = {
-			has_dlc = "Winds of Change"
+			NOT = { has_dlc = "Winds of Change" }
+			NOT = { started_in = 1250.5.2 }
 		}
-		add_government_reform = ayyubid_dynasty
+		add_government_reform = iqta
 	}
 	add_piety = 0.5
 	override_country_name = AYYUBIDS_NAME
