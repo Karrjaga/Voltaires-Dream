@@ -31,7 +31,7 @@ country_decisions = {
 				change_technology_group = muslim
 				change_unit_type = muslim
 			}
-			else_if = {
+			else = {
 				change_technology_group = eastern
 				change_unit_type = eastern
 			}
