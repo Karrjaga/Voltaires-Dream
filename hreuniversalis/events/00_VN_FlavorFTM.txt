@@ -20,7 +20,6 @@ country_event = {
 		tag = FTM
 		government = monarchy
 		religion = shiite
-		#has_heir_flag = nizar_heir_flag
 		NOT = { started_in = 1094.1.10 }
 		num_of_cities = 10
 	}
@@ -35,95 +34,143 @@ country_event = {
 		}
 	}
 
+	after = {
+		clr_country_flag = avoid_choosing_madhhab_flag
+	}
+
 	option = {
 		name = "vn_flavor_ftm.1.a"
 		ai_chance = { factor = 90 }
 		if = {
-			limit = { has_government_mechanic = fatimid_viziers_vs_caliph_mechanic }
-			add_government_power = {
-				mechanic_type = fatimid_viziers_vs_caliph_mechanic
-				power_type = caliphal_authority
-				value = -5
+			limit = { has_ruler_flag = nizar_heir_flag }
+			tooltip = {
+				kill_ruler = yes
+			}
+			define_ruler = {
+				name = "al-Musta‘lî"
+				dynasty = "Banû Fâtimah"
+				adm = 1
+				dip = 1
+				mil = 0
 			}
 		}
-		add_stability = -1
-		define_ruler = { dynasty = ROOT	}
-		if = {
-			limit = { has_heir_flag = nizar_heir_flag }
-			kill_heir = { allow_new_heir = no }
-		}
-		if = {
+		random_owned_province = {
 			limit = {
-				5022 = {
-					is_capital = no
-					controlled_by = ROOT
+				religion_group = muslim
+				OR = {
+					region = inner_egypt_region
+					region = middle_egypt_region
+					region = lower_egypt_region
 				}
+				is_capital = no
 			}
-			5022 = {
-				spawn_rebels = {
-					size = 3
-					type = pretender_rebels
-					win = yes
-					religion = qarmatian
-					leader = "al-Mustafâ"
-					leader_dynasty = "Banû Fâtimah"
-				}
+			spawn_large_scaled_rebels = {
+				type = qarmatian_rebels
+				no_defined_leader = yes
 			}
 		}
-		else = {
-			random_owned_province = {
-				limit = {
-					is_capital = no
-					controlled_by = ROOT
+		random_owned_province = {
+			limit = {
+				religion_group = muslim
+				OR = {
+					region = inner_egypt_region
+					region = middle_egypt_region
+					region = lower_egypt_region
 				}
-				spawn_rebels = {
-					size = 4
-					type = pretender_rebels
-					win = yes
-					religion = qarmatian
-					leader = "al-Mustafâ"
-					leader_dynasty = "Banû Fâtimah"
-				}
+				is_capital = no
+			}
+			spawn_small_scaled_rebels = {
+				type = qarmatian_rebels
+				no_defined_leader = yes
 			}
 		}
-		clr_country_flag = avoid_choosing_madhhab_flag
+		random_owned_province = {
+			limit = {
+				religion_group = muslim
+				OR = {
+					region = inner_egypt_region
+					region = middle_egypt_region
+					region = lower_egypt_region
+				}
+				is_capital = no
+			}
+			spawn_small_scaled_rebels = {
+				type = qarmatian_rebels
+				no_defined_leader = yes
+			}
+		}
 	}
 	option = {
 		name = "vn_flavor_ftm.1.b"
 		ai_chance = { factor = 10 }
-		if = {
-			limit = { has_government_mechanic = fatimid_viziers_vs_caliph_mechanic }
-			add_government_power = {
-				mechanic_type = fatimid_viziers_vs_caliph_mechanic
-				power_type = caliphal_authority
-				value = 5
+		change_religion = qarmatian
+		hidden_effect = {
+			set_religious_school = {
+				group = muslim
+				school = nizari_school
 			}
 		}
-		add_stability = 1
-		change_religion = qarmatian
-		set_religious_school = {
-			group = muslim
-			school = nizari_school
+		if = {
+			limit = { NOT = { has_ruler_flag = nizar_heir_flag } }
+			tooltip = {
+				kill_ruler = yes
+			}
+			define_ruler = {
+				name = "Nizâr"
+				dynasty = "Banû Fâtimah"
+				adm = 2
+				dip = 6
+				mil = 1
+			}
+		}
+		hidden_effect = {
+			add_ruler_personality = zealot_personality
 		}
 		random_owned_province = {
 			limit = {
-				is_capital = no
-				controlled_by = ROOT
+				religion_group = muslim
 				OR = {
-					region = lower_egypt_region
+					region = inner_egypt_region
 					region = middle_egypt_region
+					region = lower_egypt_region
 				}
+				is_capital = no
 			}
-			spawn_rebels = {
-				size = 4
-				type = pretender_rebels
-				win = yes
-				religion = shiite
-				leader = "al-Musta‘lî"
-				leader_dynasty = "Banû Fâtimah"
+			spawn_large_scaled_rebels = {
+				type = shiite_rebels
+				no_defined_leader = yes
 			}
 		}
-		clr_country_flag = avoid_choosing_madhhab_flag
+		random_owned_province = {
+			limit = {
+				religion_group = muslim
+				OR = {
+					region = inner_egypt_region
+					region = middle_egypt_region
+					region = lower_egypt_region
+				}
+				is_capital = no
+			}
+			spawn_small_scaled_rebels = {
+				type = shiite_rebels
+				no_defined_leader = yes
+			}
+		}
+		random_owned_province = {
+			limit = {
+				religion_group = muslim
+				OR = {
+					region = inner_egypt_region
+					region = middle_egypt_region
+					region = lower_egypt_region
+				}
+				is_capital = no
+			}
+			spawn_small_scaled_rebels = {
+				type = shiite_rebels
+				no_defined_leader = yes
+			}
+		}
 	}
 }
 
@@ -243,4 +290,212 @@ country_event = {
 	# }
 }
 
-#
+# #Annual Nile Floodings - Good
+# country_event = {
+#     id = vn_flavor_ftm.3
+#     title = vn_flavor_ftm.3.t
+#     desc = vn_flavor_ftm.3.d
+#     picture = 19_Monsoon_eventPicture
+# 	goto = egyptian_flood_prov
+    
+#     trigger = {
+# 		any_owned_province = {
+# 			OR = {
+# 				region = lower_egypt_region
+# 				region = inner_egypt_region
+# 				region = middle_egypt_region
+# 			}
+# 			OR = {
+# 				has_monsoon = severe_monsoon
+# 				has_monsoon = normal_monsoon
+# 				has_monsoon = mild_monsoon
+# 			}
+# 		}
+# 		NOT = {
+# 			any_owned_province = {
+# 				has_province_modifier = failed_monsoon
+# 			}
+# 		}
+# 		NOT = {
+# 			any_owned_province = {
+# 				has_province_modifier = good_monsoon_modifier
+# 			}
+# 		}
+# 		NOT = {
+# 			any_owned_province = {
+# 				has_province_modifier = plum_rains
+# 			}
+# 		}
+# 		NOT = {
+# 			any_owned_province = {
+# 				has_province_modifier = nile_floodings_good_mod
+# 			}
+# 		}
+# 		NOT = {
+# 			any_owned_province = {
+# 				has_province_modifier = nile_floodings_bad_mod
+# 			}
+# 		}
+#     }
+
+#     immediate = {
+# 		hidden_effect = {
+# 			random_owned_province = {
+# 				limit = {
+# 					OR = {
+# 						region = lower_egypt_region
+# 						region = inner_egypt_region
+# 						region = middle_egypt_region
+# 					}
+# 					OR = {
+# 						has_monsoon = severe_monsoon
+# 						has_monsoon = normal_monsoon
+# 						has_monsoon = mild_monsoon
+# 					}
+# 				}
+# 				save_event_target_as = egyptian_flood_prov
+# 			}
+# 		}
+# 	}
+	
+# 	mean_time_to_happen = {
+# 		months = 180
+# 	}
+
+#     option = {      
+#         name = EXCELLENT
+# 		add_years_of_income = 0.75
+# 		custom_tooltip = vn_flavor_ftm.3.tt
+# 		tooltip = {
+# 			add_prosperity = 25
+# 			add_province_modifier = {
+# 				name = nile_floodings_good_mod
+# 				duration = 1825
+# 			}
+# 		}
+# 		hidden_effect = {
+# 			event_target:plum_rains_province = {
+# 				region = {
+# 					limit = {
+# 						owned_by = ROOT
+# 						OR = {
+# 							has_monsoon = severe_monsoon
+# 							has_monsoon = normal_monsoon
+# 							has_monsoon = mild_monsoon
+# 						}
+# 					}
+# 					add_prosperity = 25
+# 					add_province_modifier = {
+# 						name = nile_floodings_good_mod
+# 						duration = 1825
+# 					}
+# 				}
+# 			}
+# 		}
+#     }
+# }
+
+# #Annual Nile Floodings - Bad
+# country_event = {
+#     id = vn_flavor_ftm.4
+#     title = vn_flavor_ftm.4.t
+#     desc = vn_flavor_ftm.4.d
+#     picture = 20_Monsoon_eventPicture
+# 	goto = egyptian_flood_prov
+    
+#     trigger = {
+# 		any_owned_province = {
+# 			OR = {
+# 				region = lower_egypt_region
+# 				region = inner_egypt_region
+# 				region = middle_egypt_region
+# 			}
+# 			OR = {
+# 				has_monsoon = severe_monsoon
+# 				has_monsoon = normal_monsoon
+# 				has_monsoon = mild_monsoon
+# 			}
+# 		}
+# 		NOT = {
+# 			any_owned_province = {
+# 				has_province_modifier = failed_monsoon
+# 			}
+# 		}
+# 		NOT = {
+# 			any_owned_province = {
+# 				has_province_modifier = good_monsoon_modifier
+# 			}
+# 		}
+# 		NOT = {
+# 			any_owned_province = {
+# 				has_province_modifier = plum_rains
+# 			}
+# 		}
+# 		NOT = {
+# 			any_owned_province = {
+# 				has_province_modifier = nile_floodings_good_mod
+# 			}
+# 		}
+# 		NOT = {
+# 			any_owned_province = {
+# 				has_province_modifier = nile_floodings_bad_mod
+# 			}
+# 		}
+#     }
+
+#     immediate = {
+# 		hidden_effect = {
+# 			random_owned_province = {
+# 				limit = {
+# 					OR = {
+# 						region = lower_egypt_region
+# 						region = inner_egypt_region
+# 						region = middle_egypt_region
+# 					}
+# 					OR = {
+# 						has_monsoon = severe_monsoon
+# 						has_monsoon = normal_monsoon
+# 						has_monsoon = mild_monsoon
+# 					}
+# 				}
+# 				save_event_target_as = egyptian_flood_prov
+# 			}
+# 		}
+# 	}
+	
+# 	mean_time_to_happen = {
+# 		months = 180
+# 	}
+
+#     option = {      
+#         name = monsoon_events.2.a
+# 		add_years_of_income = -0.75
+# 		custom_tooltip = vn_flavor_ftm.3.tt
+# 		tooltip = {
+# 			add_devastation = 20
+# 			add_province_modifier = {
+# 				name = nile_floodings_bad_mod
+# 				duration = 1825
+# 			}
+# 		}
+# 		hidden_effect = {
+# 			event_target:plum_rains_province = {
+# 				region = {
+# 					limit = {
+# 						owned_by = ROOT
+# 						OR = {
+# 							has_monsoon = severe_monsoon
+# 							has_monsoon = normal_monsoon
+# 							has_monsoon = mild_monsoon
+# 						}
+# 					}
+# 					add_devastation = 20
+# 					add_province_modifier = {
+# 						name = nile_floodings_bad_mod
+# 						duration = 1825
+# 					}
+# 				}
+# 			}
+# 		}
+#     }
+# }
