@@ -1872,7 +1872,7 @@
  vn_flavor_rum.1.t: "Rise of the Beyliks"
  vn_flavor_rum.1.d: "With the establishment of the Sultanate of Rûm, we thought Seljuk domination of Anatolia was unshakable. Now, however, after a series of crushing defeats by the Mongols and a continued string of inept rulers, our Sultanate's hold over disparate tribal warlords is declining, and several have begun to assert their independence as 'Beys'.\nWith such dedicated and highly-trained armies there is little we can do to stop them, but we may hope that they too descend into decadence over time just as we did before them."
  vn_flavor_rum.1.a: "Oh no no no..."
- vn_flavor_rum.1.tt: "All provinces in Anatolia will be lost the the Beyliks"
+ vn_flavor_rum.1.tt: "All provinces in Anatolia will be lost the Beyliks"
  vn_flavor_sar.1.t: "A Language For [Root.GetName]"
  vn_flavor_sar.1.d: "The Giudicati of Sardinia developed out of the early medieval Byzantine Archonate based in Caralis. Over time, as Islamic expansion increasingly rendered communication with the Imperial capital impossible, the Greek Iudikes had to fend for themselves and ended up developing into more Westernized feudal states. However, the legacy of our Greek roots can still be felt in our use of Byzantine Greek as the official language of government administration. Because the language is essentially dead, it has been proposed that we switch to using the local Romance vernacular instead."
  vn_flavor_sar.1.a: "We must preserve our Byzantine ties"
