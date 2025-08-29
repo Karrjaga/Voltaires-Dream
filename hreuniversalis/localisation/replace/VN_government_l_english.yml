@@ -559,15 +559,6 @@
  hussite_ecumene_desc: "Hussite Ecumene represents the §OTaborite§! support for a radical reformation on one side and §PUtraquist§! support for a peaceful agreement with the Papacy on the other.\n\nHussite Ecumene increases when we do one of the following:\n - Selecting certain Church Aspects: §P+10§!\n - Losing Battles: §P+2.5§!\n - Building Taxation Buildings: §P+2.5§!\n - Converting Provinces: §P+2.5§!\n - Recruiting Generals: §O-5§!\n\nHussite Ecumene decreases when we do one of the following:\n - Selecting certain Church Aspects: §O-10§!\n - Enforcing Religion in Peace Deals: §O-20§!\n - Raiding Churches in Peace Deals: §O-10§!\n - Winning Battles: §O-2.5§!\n\nAt §P100§! we gain the following effects:\n    Tolerance of Heretics: §G+3.00§!\n    Diplomatic Reputation: §G+3.00§!\n    Yearly Army Tradition Decay: §R+3.0%§!\n\nAt §O-100§! we gain the following effects:\n    Siege Ability: §G+25.0%§!\n    Morale Damage Received: §G-25.0%§!\n    Stability Cost Modifier: §R+100.0%§!"
  monthly_hussite_ecumene: "Monthly Hussite Ecumene"
  hussite_ecumene_gain_modifier: "Hussite Ecumene Gain Modifier"
-#Vizierate vs Caliph
- fatimid_viziers_vs_caliph_mechanic: "Vizierate vs. Caliphate"
- ability_fatimid_viziers_vs_caliph_mechanic: "Vizierate vs. Caliphate"
- fatimid_viziers_vs_caliph_mechanic_at: "The §Y[Root.GetAdjective]§! government will be reformed."
- fatimid_viziers_vs_caliph_mechanic_bt: "The §YAyyubid Dynasty§Y will seize power."
- caliphal_authority: "Caliphal Authority"
- caliphal_authority_desc: "Caliphal Authority represents the power of the Fatimid Caliph within our state and government. If the Caliph loses too much authority, we will have to face catastrophic consequences."
- monthly_caliphal_authority: "Monthly Caliphal Authority"
- caliphal_authority_gain_modifier: "Caliphal Authority Gain Modifier"
 #Fatimid Vizierate
  fatimid_vizierate_mechanic: "Fatimid Vizierate"
  ability_fatimid_vizierate_mechanic: "Fatimid Vizierate"
@@ -603,12 +594,6 @@
  fatimid_caliphate_events.1.tt2: "§YVizierate Power§! will now grant at maximum power:\n   Idea Cost: §G-10.0%§!\n   Innovativeness Gain: §G+25.0%§!"
  fatimid_caliphate_events.1.tt3: "§YVizierate Power§! will now grant at maximum power:\n   Missionary Strength: §G+3.00%§!\n   Religious Unity: §G+25.0%§!"
  fatimid_caliphate_events.1.tt4: "§YVizierate Power§! will now grant at maximum power:\n   Morale of Armies: §G+10.0%§!\n   Land Forcelimit Modifier: §G+10.0%§!"
-#Fatimid Irreverence
- ability_fatimid_irreverence_mechanic: "Caliphal Irreverence Meter"
- fatimid_irreverence: "Caliphal Irreverence"
- fatimid_irreverence_desc: "Caliphal Irreverence is a measure of how little the Caliph is respected by his subjects. The more Irreverence your realm has the more difficult it becomes to maintain the state and keep up with other great powers.\n\nCaliphal Irreverence increases by the following factors:\n - Being at War\n - Disloyal Mamluks and Mamluks owning crown land\n - Negative Stability\n - Corruption\n - Bankruptcy\n - Low Piety\n - Being over Governing Capacity\n - Average Global Autonomy\n\nCaliphal Irreverence decreases by the following factors:\n - Completing Estate Agendas\n - Positive Stability\n - Tolerance of the True Faith\n - High Piety\n - Converting Provinces\n - Being Defender of Faith\n\nIf Caliphal Irreverence reaches §R100§! then the §RGreat Calamity§! Disaster can fire."
- monthly_fatimid_irreverence: "Monthly Caliphal Irreverence"
- fatimid_irreverence_gain_modifier: "Caliphal Irreverence Gain Modifier"
 #Georgian Patranqmoba
  ability_georgia_mechanic: "Georgian Patronqmoba"
  A_PATRONQMOBA_POLICY: "A Georgian Patronqmoba Policy"

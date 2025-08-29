@@ -5796,14 +5796,6 @@ country_event = {
 				value = 2
 			}
 		}
-		if = {
-			limit = { has_government_mechanic = fatimid_irreverence_mechanic }
-			add_government_power = {
-				mechanic_type = fatimid_irreverence_mechanic
-				power_type = fatimid_irreverence
-				value = 2
-			}
-		}
 	}
 }
 

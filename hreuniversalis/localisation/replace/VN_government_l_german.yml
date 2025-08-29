@@ -559,15 +559,6 @@
  hussite_ecumene_desc: "Hussitische Ökumene stellt die §Otaboritische§! Unterstützung für eine radikale Reformation einerseits und die §Putraquistische§! Unterstützung für eine friedliche Einigung mit dem Papsttum auf der anderen Seite dar.\n\nHussitische Ökumene wird bei Folgendem erhöht:\n - Auswahl gewisser Kirchenaspekte: §P+10§!\n - Schlachten verlieren: §P+2.5§!\n - Kirchengebäude errichten: §P+10§!\n - Provinzen konvertieren: §O-2.5§!\n\nHussitische Ökumene wird bei Folgendem verringert:\n - Auswahl gewisser Kirchenaspekte: §O-10§!\n - Rekrutierung von Generälen: §O-5§!\n - Religion durchsetzen in Friedensangeboten: §O-20§!\n - Kirchen plündern in Friedensangeboten: §O-20§!\n - Schlachten gewinnen: §O-2.5§!\n\n§P100§! Hussitische Ökumene hat folgende Auswirkungen:\n    Toleranz (Häretiker): §G+3.00§!\n    Diplomatische Reputation: §G+3.00§!\n    Verfall (Armeetradition): §R+3.0%§!\n\n§O-100§! Hussitische Ökomene hat folgende Auswirkungen:\n    Effizienz (Belagerung): §G+25.0%§!\n    Erhaltener Moralschaden: §G-25.0%§!\n    Kosten (Stabilität): §R+100.0%§!"
  monthly_hussite_ecumene: "Hussitische Ökumene (Monatlich)"
  hussite_ecumene_gain_modifier: "Hussitische Ökumene (Zuwachs)"
-#Vizierate vs Caliph
- fatimid_viziers_vs_caliph_mechanic: "Wesirat vs. Kalifat"
- ability_fatimid_viziers_vs_caliph_mechanic: "Wesirat vs. Kalifat"
- fatimid_viziers_vs_caliph_mechanic_at: "Die §Y[Root.GetAdjective]§!e Regierung wird reformiert."
- fatimid_viziers_vs_caliph_mechanic_bt: "Die §YAyyubidendynastie§Y ergreift die Macht."
- caliphal_authority: "Kalifale Autorität"
- caliphal_authority_desc: "Die kalifale Autorität repräsentiert die Macht des fatimidischen Kalifen innerhalb unseres Staates und unserer Regierung. Wenn der Kalif zu viel Autorität verliert, müssen wir mit verhängnisvollen Folgen rechnen."
- monthly_caliphal_authority: "Kalifale Autorität (Monatlich)"
- caliphal_authority_gain_modifier: "Kalifale Autorität (Zuwachs)"
 #Fatimid Vizierate
  fatimid_vizierate_mechanic: "Fatimidisches Wesirat"
  ability_fatimid_vizierate_mechanic: "Fatimidisches Wesirat"
@@ -603,12 +594,6 @@
  fatimid_caliphate_events.1.tt2: "§YWesiratsmacht§! wird nun bei maximaler Macht folgende Auswirkungen haben:\n   Kosten (Ideen): §G-10.0%§!\n   Innovationsfähigkeit (Zuwachs): §G+25.0%§!"
  fatimid_caliphate_events.1.tt3: "§YWesiratsmacht§! wird nun bei maximaler Macht folgende Auswirkungen haben:\n   Missionarsstärke: §G+3.00%§!\n   Religiöse Einheit: §G+25.0%§!"
  fatimid_caliphate_events.1.tt4: "§YWesiratsmacht§! wird nun bei maximaler Macht folgende Auswirkungen haben:\n   Moral (Armee): §G+10.0%§!\n   Einheitenlimit (Armee): §G+10.0%§!"
-#Fatimid Irreverence
- ability_fatimid_irreverence_mechanic: "Kalifale-Geringschätzung-Meter"
- fatimid_irreverence: "Kalifale Geringschätzung"
- fatimid_irreverence_desc: "Kalifale Geringschätzung ist ein Maß dafür, wie sehr der Kalif von seinen Untertanen angesehen wird. Je mehr Geringschätzung ein Reich hat, desto schwieriger ist es, eine Regierung aufrechtzuerhalten und mit anderen Großmächten mitzuhalten.\n\nKalifale Geringschätzung wird durch Folgendes erhöht:\n- Sich im Krieg befinden\n- Illoyale Mamluken und Mamluken, die Kronland besitzen\n- Negative Stabilität\n- Korruption\n-Bankrott\n- Niedrige Pietät\n- Über dem Regierungslimit sein\n- Durchschnittliche Autonomie (Global)\n\nKalifale Geringschätzung wird durch Folgendes verringert:\n- Abschließen von Standesagenden\n- Positive Stabilität\n- Toleranz des wahren Glaubens\n- Hohe Pietät\n- Konvertierung von Provinzen\n- Verteidiger des Glaubens sein\n\nErreicht die Kalifale Geringschätzung §R100§!, kann die Katastrophe "§RGroße Kalamität§!" eintreten."
- monthly_fatimid_irreverence: "Kalifale Geringschätzung (Monatlich)"
- fatimid_irreverence_gain_modifier: "Kalifale Geringschätzung (Zuwachs)"
 #Georgian Patranqmoba
  ability_georgia_mechanic: "Georgisches Patronqmoba"
  A_PATRONQMOBA_POLICY: "Eine Georgisches-Patronqmoba-Politik"

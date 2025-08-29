@@ -96,20 +96,6 @@ on_startup = {
 
 	if = {
 		limit = {
-			tag = FTM
-			has_government_mechanic = fatimid_irreverence_mechanic
-			NOT = { has_country_flag = got_fatimid_decadence_flag }
-		}
-		set_country_flag = got_fatimid_decadence_flag
-		add_government_power = {
-			mechanic_type = fatimid_irreverence_mechanic
-			power_type = fatimid_irreverence
-			value = 50
-		}
-	}
-
-	if = {
-		limit = {
 			has_country_modifier = rise_of_the_seljuks
 		}
 		remove_country_modifier = rise_of_the_seljuks
@@ -1249,18 +1235,6 @@ on_province_religion_converted = {
 				mechanic_type = utraquists_vs_taborites_mechanic
 				power_type = hussite_ecumene
 				value = 2.5
-			}
-		}		
-	}
-	if = {
-		limit = {
-			owner = { has_government_mechanic = fatimid_irreverence_mechanic }
-		}
-		owner = {
-			add_government_power = { 
-				mechanic_type = fatimid_irreverence_mechanic
-				power_type = fatimid_irreverence
-				value = -2
 			}
 		}		
 	}

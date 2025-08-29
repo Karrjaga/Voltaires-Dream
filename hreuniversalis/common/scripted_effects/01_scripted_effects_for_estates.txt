@@ -4992,16 +4992,6 @@ on_completed_agenda_effect = {
 			value = -0.5
 		}
 	}
-	if = {
-		limit = {
-			has_government_mechanic = fatimid_irreverence_mechanic
-		}
-		add_government_power = { 
-			mechanic_type = fatimid_irreverence_mechanic
-			power_type = fatimid_irreverence
-			value = -0.5
-		}
-	}
 	clr_auto_complete_flag = yes
 }
 
@@ -5013,16 +5003,6 @@ on_failed_agenda_effect = {
 		add_government_power = { 
 			mechanic_type = ottoman_decadence_mechanic 
 			power_type = ottoman_decadence
-			value = 1
-		}
-	}
-	if = {
-		limit = {
-			has_government_mechanic = fatimid_irreverence_mechanic
-		}
-		add_government_power = { 
-			mechanic_type = fatimid_irreverence_mechanic
-			power_type = fatimid_irreverence
 			value = 1
 		}
 	}
