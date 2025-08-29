@@ -3455,7 +3455,6 @@ country_event = {
 	option = { #no change
 		name = fatimid_caliphate_events.1.e
 		ai_chance = { factor = 0 }
-		custom_tooltip = fatimid_caliphate_events.1.tt5
 		add_government_power = {
 			mechanic_type = fatimid_vizierate_mechanic
 			power_type = vizierate_power
