@@ -372,6 +372,223 @@ investiture = {
 }
 
 #######################################
+# Maritime Trade
+# 
+#######################################
+
+# maritime_trade = {
+
+# 	bonus = {
+# 		ship_power_propagation = 0.1
+# 		naval_tradition_from_trade = 0.1
+# 	}
+
+# 	trade_company_efficiency = 0.15
+# 	historical_start_date = 1150.1.1
+# 	historical_start_province = 2560 #Genoa
+
+# 	history = {
+# 		OR = {
+# 			AND = {
+# 				is_year = 1150
+# 				owner = {
+# 					has_government_attribute = is_merchant_republic
+# 					capital_scope = {
+# 						OR = {
+# 							superregion = italy_superregion
+# 							superregion = sicily_superregion
+# 						}
+# 					}
+# 				}
+# 			}
+# 			AND = {
+# 				is_year = 1160
+# 				owner = {
+# 					capital_scope = {
+# 						OR = {
+# 							superregion = italy_superregion
+# 							superregion = sicily_superregion
+# 						}
+# 					}
+# 				}
+# 			}
+# 			AND = {
+# 				is_year = 1160
+# 				owner = {
+# 					primary_culture = outremer
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	can_start = {
+# 		is_year = 1150
+# 		is_institution_enabled = investiture
+# 		OR = {
+# 			is_island = no
+# 			province_id = 112
+# 		}
+# 		is_state = yes
+# 		OR = {
+# 			development = 15
+# 			is_capital = yes
+# 		}
+# 		religion = catholic
+# 		owner = {
+# 			home_trade_node = {
+				
+# 			}
+# 		}
+# 		owner = {
+# 			OR = {
+# 				has_government_attribute = is_merchant_republic
+
+# 			}
+# 		}
+# 	}
+# 	start_chance = 5		#in 100 for when a province can_start
+	
+# 	on_start = institution_events.90
+	
+# 	can_embrace = {
+# 		owner = { has_institution = investiture }
+# 	}
+
+# 	embracement_speed = {
+# 		modifier = {
+# 			scale = yes
+# 			factor = 0.5
+# 			custom_trigger_tooltip = {
+# 				tooltip = tooltip_any_friendly_coast_border_province_has_embraced_investiture
+# 				any_friendly_coast_border_province = {
+# 					investiture = 100
+# 				}
+# 			}
+# 		}
+# 		modifier = {
+# 			factor = 0.3
+# 			scale = yes
+# 			custom_trigger_tooltip = {
+# 				tooltip = tooltip_any_neighbor_has_embraced_investiture
+# 				any_neighbor_province = {
+# 					NOT = { owned_by = ROOT }
+# 					investiture = 100
+# 				}
+# 			}
+# 		}
+# 		modifier = {
+# 			factor = 0.1
+# 			scale = yes
+# 			force_potential = yes
+# 			potential = {
+# 				owner = { has_estate = estate_church }
+# 			}
+# 			custom_trigger_tooltip = {
+# 				tooltip = INVESTITURE_AND_CHURCH
+# 				any_neighbor_province = {
+# 					investiture = 100
+# 				}
+# 				owner = {
+# 					has_estate = estate_church
+# 					estate_loyalty = {
+# 						estate = estate_church
+# 						loyalty = 40
+# 					}
+# 					estate_territory = {
+# 						estate = estate_church
+# 						territory = 30
+# 					}
+# 				}
+# 			}
+# 		}
+# 		modifier = {
+# 			factor = 2
+# 			potential = {
+# 				owner = {
+# 					religion_group = christian
+# 				}
+# 			}
+# 			custom_trigger_tooltip = {
+# 				tooltip = tooltip_owner_orthodox
+# 				owner = {
+# 					OR = {
+# 						religion = orthodox
+# 						religion = paulician
+# 					}
+# 				}
+# 			}
+# 		}
+# 		modifier = {
+# 			factor = 4
+# 			custom_trigger_tooltip = {
+# 				tooltip = tooltip_owner_theocracy
+# 				owner = { government = theocracy }
+# 			}
+# 		}
+# 		modifier = {
+# 			factor = 5
+# 			scale = yes
+# 			potential = {
+# 				owner = {
+# 					is_colonial_nation = yes
+# 				}
+# 			}
+# 			custom_trigger_tooltip = {
+# 				tooltip = tooltip_colonial_overlord_investiture
+# 				OR = {
+# 					has_port = yes
+# 					is_capital = yes
+# 				}
+# 				owner = {
+# 					is_colonial_nation = yes
+# 					overlord = { has_institution = investiture }
+# 				}
+# 			}
+# 		}
+# 		modifier = {
+# 			factor = 2
+# 			scale = yes
+# 			potential = {
+# 				owner = {
+# 					has_institution = investiture
+# 				}
+# 			}
+# 			custom_trigger_tooltip = {
+# 				tooltip = tooltip_investiture_embraced
+# 				owner = {
+# 					has_institution = investiture
+# 				}
+# 			}
+# 		}
+# 	}
+
+# 	ai_will_do = { 
+# 		factor = 24
+		
+# 		modifier = {
+# 			factor = 0.25
+# 			is_at_war = yes
+# 		}
+# 		modifier = {
+# 			factor = 2
+# 			neighbors_tech_discount = 0.1
+# 		}
+# 		modifier = {
+# 			factor = 2
+# 			neighbors_tech_discount = 0.2
+# 		}
+# 		modifier = {
+# 			factor = 2
+# 			neighbors_tech_discount = 0.3
+# 		}
+# 		modifier = {
+# 			factor = 2
+# 			neighbors_tech_discount = 0.4
+# 		}
+# 	}
+# }
+
+#######################################
 # Universities
 # 
 #######################################
@@ -553,8 +770,8 @@ universities = {
 guilds = {
 
 	bonus = {
-		trade_efficiency = 0.05
-		trade_range_modifier = 0.1
+		production_efficiency = 0.25
+		build_time = -0.25
 	}
 
 	trade_company_efficiency = 0.3
