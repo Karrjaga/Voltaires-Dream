@@ -19,21 +19,7 @@
 #         position = 10
 # 		required_missions = { vn_dan_nor_reconquer_danelaw }
 # 		provinces_to_highlight = {
-# 			OR = {
-# 				area = west_riding_area
-# 				area = east_riding_area
-# 				area = lincoln_area
-# 				area = norwich_area
-# 				area = middlesex_area
-# 				province_id = 2272
-# 				province_id = 2566
-# 				province_id = 1125
-# 				province_id = 2247
-# 				province_id = 1132
-# 				province_id = 2261
-# 				province_id = 4695
-# 				province_id = 1139
-# 			}
+# 			is_danelaw_province_trigger = yes
 # 			OR = {
 # 				NOT = { owned_by = ROOT }
 # 				has_fort_building_trigger = no
@@ -42,21 +28,7 @@
 #         trigger = {
 #             num_of_owned_provinces_with = {
 # 				value = 10
-# 				OR = {
-# 					area = west_riding_area
-# 					area = east_riding_area
-# 					area = lincoln_area
-# 					area = norwich_area
-# 					area = middlesex_area
-# 					province_id = 2272
-# 					province_id = 2566
-# 					province_id = 1125
-# 					province_id = 2247
-# 					province_id = 1132
-# 					province_id = 2261
-# 					province_id = 4695
-# 					province_id = 1139
-# 				}
+# 				is_danelaw_province_trigger = yes
 # 				has_fort_building_trigger = yes
 # 			}
 #         }
@@ -296,20 +268,22 @@
 # 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 # 		}
 #         trigger = {
-#             westfrisia_area = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
-# 			}
-# 			eastfrisia_area = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 10
+# 				OR = {
+# 					area = westfrisia_area
+# 					area = eastfrisia_area
+# 				}
 # 			}
 #         }
 #         effect = {
-# 			add_army_tradition = 5
-# 			create_general = {
+# 			add_mil_power = 100
+# 			custom_tooltip = " "
+# 			create_general_with_pips = {
 # 				culture = east_frisian
 # 				tradition = 75
+# 				add_fire = 1
+# 				add_shock = 1
 # 			}
 #         }
 # 	}
@@ -333,59 +307,21 @@
 #         position = 9
 # 		required_missions = { vn_dan_nor_invade_england }
 # 		provinces_to_highlight = {
-# 			OR = {
-# 				area = west_riding_area
-# 				area = east_riding_area
-# 				area = lincoln_area
-# 				area = norwich_area
-# 				area = middlesex_area
-# 				province_id = 2272
-# 				province_id = 2566
-# 				province_id = 1125
-# 				province_id = 2247
-# 				province_id = 1132
-# 				province_id = 2261
-# 				province_id = 4695
-# 				province_id = 1139
-# 			}
+# 			is_danelaw_province_trigger = yes
 # 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 # 		}
 #         trigger = {
-#             west_riding_area = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 30
+# 				is_danelaw_province_trigger = yes
 # 			}
-# 			east_riding_area = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
-# 			}
-# 			lincoln_area = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
-# 			}
-# 			norwich_area = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
-# 			}
-# 			middlesex_area = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
-# 			}
-# 			2272 = { country_or_non_sovereign_subject_holds = ROOT }
-# 			2566 = { country_or_non_sovereign_subject_holds = ROOT }
-# 			1125 = { country_or_non_sovereign_subject_holds = ROOT }
-# 			2247 = { country_or_non_sovereign_subject_holds = ROOT }
-# 			1132 = { country_or_non_sovereign_subject_holds = ROOT }
-# 			2261 = { country_or_non_sovereign_subject_holds = ROOT }
-# 			4695 = { country_or_non_sovereign_subject_holds = ROOT }
-# 			1139 = { country_or_non_sovereign_subject_holds = ROOT }
 #         }
 #         effect = {
-# 			add_country_modifier = {
-# 				name = "dan_nor_reconquer_danelaw_mission"
-# 				duration = 5475
+# 			country_event = {
+# 				id = vn_flavor_nor.100
 # 			}
-#             cheshire_area = {
+# 			custom_tooltip = " "
+# 			cheshire_area = {
 # 				limit = {
 # 					NOT = { is_core = ROOT }
 # 					NOT = { is_permanent_claim = ROOT }
@@ -399,6 +335,12 @@
 # 				}
 # 				add_permanent_claim = ROOT
 # 			}
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = "dan_nor_reconquer_danelaw_mission"
+# 				duration = 9125
+# 			}
+
 #         }
 #     }
 #     vn_dan_nor_assimilate_danelaw = {

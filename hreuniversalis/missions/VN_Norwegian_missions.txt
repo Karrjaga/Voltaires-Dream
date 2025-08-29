@@ -2,167 +2,149 @@
 # #By Isildur
 
 # vn_nor_missions_slot_1_a = {
-#     slot = 1
-#     generic = no
-#     ai = yes
-#     potential = {
-#         tag = NOR
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+# 	slot = 1
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		tag = NOR
+# 		NOT = { map_setup = map_setup_random }
+# 	}
+# 	has_country_shield = yes
 
-#     vn_nor_settle_succession = {
-#         icon = mission_war_for_the_crown
-#         position = 1
-#         required_missions = {  }
-#         trigger = {
+# 	vn_nor_settle_succession = {
+# 		icon = mission_war_for_the_crown
+# 		position = 1
+# 		required_missions = {  }
+# 		trigger = {
 # 			has_heir = yes
 # 			heir_claim = 90
 # 			heir_age = 15
-#             if = {
-#                 limit = { has_dlc = "Common Sense" }
-#                 legitimacy_equivalent = 100
-#             }
-#             else_if = {
-#                 limit = { government = monarchy }
-#                 legitimacy = 100
-#             }
+# 			if = {
+# 				limit = { has_dlc = "Common Sense" }
+# 				legitimacy_equivalent = 100
+# 			}
+# 			else_if = {
+# 				limit = { government = monarchy }
+# 				legitimacy = 100
+# 			}
 # 			custom_trigger_tooltip = {
-#                 tooltip = vn_nor_settle_succession.tt
-#                 OR = {
+# 				tooltip = vn_nor_settle_succession.tt
+# 				OR = {
 # 					has_global_flag = nor_civil_war_happened
 # 					current_age = age_of_crisis
 # 					current_age = age_of_dynasticism
-#                     current_age = age_of_discovery
-#                     current_age = age_of_reformation
-#                     current_age = age_of_absolutism
-#                     current_age = age_of_revolutions
-#                     current_age = age_of_ideology
-#                 }
-#             }
+# 					current_age = age_of_discovery
+# 					current_age = age_of_reformation
+# 					current_age = age_of_absolutism
+# 					current_age = age_of_revolutions
+# 					current_age = age_of_ideology
+# 				}
+# 			}
 # 			NOT = { has_spawned_rebels = pretender_rebels }
-#         }
-#         effect = {
-#             add_ruler_modifier = {
+# 		}
+# 		effect = {
+# 			add_ruler_modifier = {
 # 				name = "nor_settle_succession_mission"
 # 				duration = -1
 # 			}
-#         }
-#     }
-#     vn_nor_strong_ruler = {
-#         icon = mission_crown_of_norway
-#         position = 2
-#         required_missions = { vn_nor_settle_succession }
-#         trigger = {
+# 		}
+# 	}
+# 	vn_nor_strong_ruler = {
+# 		icon = mission_crown_of_norway
+# 		position = 2
+# 		required_missions = { vn_nor_settle_succession }
+# 		trigger = {
 # 			OR = {
 # 				monthly_adm = 12
 # 				monthly_dip = 12
 # 				monthly_mil = 12
 # 			}
-# 			OR = {
-# 				ADM = 5
-# 				DIP = 5
-# 				MIL = 5
+# 			ruler_total_stats = {
+# 				amount = 14 
 # 			}
-#             if = {
-#                 limit = { has_dlc = "Common Sense" }
-#                 legitimacy_equivalent = 100
-#             }
-#             else_if = {
-#                 limit = { government = monarchy }
-#                 legitimacy = 100
-#             }
-# 			NOT = { ruler_has_personality = craven_personality }
-#         }
-#         effect = {
-#             add_ruler_modifier = {
+# 			if = {
+# 				limit = { has_dlc = "Common Sense" }
+# 				legitimacy_equivalent = 100
+# 			}
+# 			else_if = {
+# 				limit = { government = monarchy }
+# 				legitimacy = 100
+# 			}
+# 			if = {
+# 				limit = { has_dlc = "Rights of Man" }
+# 				NOT = { ruler_has_personality = craven_personality }
+# 			}
+# 		}
+# 		effect = {
+# 			change_ruler_stat = {
+# 				type = mil
+# 				amount = 1
+# 			}
+# 			custom_tooltip = " "
+# 			add_ruler_modifier = {
 # 				name = "nor_strong_ruler_mission"
 # 				duration = -1
 # 			}
-# 			random_list = {
-# 				33 = {
-# 					change_ruler_stat = {
-#                         type = adm
-#                         amount = 1
-#                     }
-# 				}
-# 				33 = {
-# 					change_ruler_stat = {
-#                         type = dip
-#                         amount = 1
-#                     }
-# 				}
-# 				33 = {
-# 					change_ruler_stat = {
-#                         type = mil
-#                         amount = 1
-#                     }
-# 				}
-# 			}
-#         }
-#     }
-#     vn_nor_institute_landslov = {
-#         icon = mission_plc_governance_act
-#         position = 3
+# 		}
+# 	}
+# 	vn_nor_institute_landslov = {
+# 		icon = mission_plc_governance_act
+# 		position = 3
 # 		required_missions = { vn_nor_strong_ruler }
 # 		provinces_to_highlight = {
+# 			owned_by = ROOT
 # 			OR = {
 # 				region = austlandet_region
 # 				region = vestlandet_region
 # 			}
-# 			OR = {
-#                 NOT = { owned_by = ROOT }
-# 				NOT = { is_core = ROOT }
-# 				local_autonomy = 30
-#             }
+# 			local_autonomy = 30
 # 		}
-#         trigger = {
-#             austlandet_region = {
-# 				type = all
-# 				owned_by = ROOT
-# 				is_core = ROOT
-# 				NOT = { local_autonomy = 30 }
-# 			}
-# 			vestlandet_region = {
-# 				type = all
-# 				owned_by = ROOT
-# 				is_core = ROOT
-# 				NOT = { local_autonomy = 30 }
-# 			}
-# 			stability = 1
+# 		trigger = {
 # 			if = {
 # 				limit = {
 # 					has_dlc = "Rights of Man"
 # 				}
 # 				OR = {
-# 					ADM = 4
+# 					stability = 3
+# 					adm = 4
 # 					ruler_has_personality = lawgiver_personality
 # 				}
 # 			}
 # 			else = {
-# 				ADM = 3
+# 				OR = {
+# 					stability = 3
+# 					adm = 4
+# 				}
 # 			}
-#         }
-#         effect = {
+# 			num_of_owned_provinces_with = {
+# 				OR = {
+# 					region = austlandet_region
+# 					region = vestlandet_region
+# 				}
+# 				NOT = { local_autonomy = 30 }
+# 				value = 30
+# 			}
+# 		}
+# 		effect = {
+# 			change_ruler_stat = {
+# 				type = adm
+# 				amount = 1
+# 			}
+# 			custom_tooltip = " "
 # 			add_ruler_modifier = {
 # 				name = "nor_institute_landslov_mission"
 # 				duration = -1
 # 			}
-#             capital_scope = {
-# 				area = {
-# 					limit = {
-# 						owned_by = ROOT
-# 					}
-# 					add_local_autonomy = -10
-# 				}
+# 			capital_scope = {
+# 				add_or_upgrade_courthouse_building = yes
 # 			}
-#         }
-#     }
-#     vn_nor_establish_riksradet = {
-#         icon = mission_educated_people
-#         position = 4
-#         required_missions = { vn_nor_institute_landslov }
-#         trigger = {
+# 		}
+# 	}
+# 	vn_nor_establish_riksradet = {
+# 		icon = mission_educated_people
+# 		position = 4
+# 		required_missions = { vn_nor_institute_landslov }
+# 		trigger = {
 # 			NOT = { corruption = 2 }
 # 			has_adm_advisor_2 = yes
 # 			has_dip_advisor_2 = yes
@@ -181,8 +163,8 @@
 # 					loyalty = 60
 # 				}
 # 			}
-#         }
-#         effect = {
+# 		}
+# 		effect = {
 # 			if = {
 # 				limit = {
 # 					has_estate = estate_nobles
@@ -214,26 +196,39 @@
 # 				name = "nor_establish_riksradet_mission"
 # 				duration = -1
 # 			}
-#         }
+# 		}
 # 	}
 # }
 
 # vn_nor_missions_slot_1_b = {
-#     slot = 1
-#     generic = no
-#     ai = yes
-#     potential = {
-#         tag = NOR
-#         NOT = { map_setup = map_setup_random }
-#     }
+# 	slot = 1
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		tag = NOR
+# 		NOT = { map_setup = map_setup_random }
+# 	}
 # 	has_country_shield = yes
 	
-#     vn_nor_modernize_huscarls = {
-#         icon = mission_soldiers_in_line 
-#         position = 5
-#         required_missions = {  }
-#         trigger = {
-# 			mil_tech = 3
+# 	vn_nor_modernize_huscarls = {
+# 		icon = mission_fekete_sereg 
+# 		position = 5
+# 		required_missions = {  }
+# 		trigger = {
+# 			if = {
+# 				limit = { has_dlc = "Rights of Man" }
+# 				OR = {
+# 					has_medium_monthly_monarch_power = { type = mil }
+# 					mil = 5
+# 					ruler_has_personality = martial_educator_personality
+# 				}
+# 			}
+# 			else = {
+# 				OR = {
+# 					has_high_monthly_monarch_power = { type = mil }
+# 					mil = 5
+# 				}
+# 			}
 # 			if = {
 # 				limit = {
 # 					has_dlc = "Cradle of Civilization"
@@ -243,32 +238,41 @@
 # 			else = {
 # 				army_size = 20
 # 			}
-#         }
-#         effect = {
+# 		}
+# 		effect = {
 # 			if = {
 # 				limit = { has_dlc = "Lions of the North" }
 # 				unlock_estate_privilege = {
 # 					estate_privilege = estate_nobles_leidang_conscription
 # 				}
+# 				custom_tooltip = " "
 # 			}
-# 			add_army_tradition = 15
-#             add_ruler_modifier = {
+# 			add_army_tradition_or_mil_power = { amount = 15 }
+# 			custom_tooltip = " "
+# 			add_ruler_modifier = {
 # 				name = "nor_modernize_huscarls_mission"
 # 				duration = -1
 # 			}
-#         }
+# 		}
 # 	}
 # 	vn_nor_raise_leidangr = {
-#         icon = mission_expanded_leidang
-#         position = 6
-#         required_missions = { vn_nor_modernize_huscarls }
-#         trigger = {
-# 			share_of_starting_income = 1.25
-# 			treasury = 200
-# 			NOT = { num_of_loans = 1 }
-# 			NOT = { navy_size_percentage = 1 }
-# 			naval_forcelimit = 10
-# 			num_of_ports = 1
+# 		icon = mission_expanded_leidang
+# 		position = 6
+# 		required_missions = { vn_nor_modernize_huscarls }
+# 		trigger = {
+# 			navy_tradition = 50
+# 			navy_size = 25
+# 			if = {
+# 				limit = { 
+# 					OR = { 
+# 						has_dlc = "Rule Britannia"
+# 						has_dlc = "Domination"
+# 						has_dlc = "Golden Century"
+# 						has_dlc = "Lions of the North"
+# 					}
+# 				}
+# 				num_of_marines = 20
+# 			}
 # 			if = {
 # 				limit = {
 # 					has_dlc = "Lions of the North"
@@ -276,8 +280,8 @@
 # 				}
 # 				has_estate_privilege = estate_nobles_leidang_conscription
 # 			}
-#         }
-#         effect = {
+# 		}
+# 		effect = {
 # 			if = {
 # 				limit = { has_dlc = "Lions of the North" }
 # 				unlock_estate_privilege = {
@@ -287,9 +291,16 @@
 # 					estate_privilege = estate_nobles_leidang_elite_conscription
 # 				}
 # 			}
+# 			custom_tooltip = " "
+# 			change_ruler_stat = {
+# 				type = dip
+# 				amount = 1
+# 			}
+# 			custom_tooltip = " "
 # 			random_owned_province = {
 # 				limit = {
 # 					has_port = yes
+# 					NOT = { has_construction = navy }
 # 				}
 # 				add_unit_construction = {
 # 					type = galley
@@ -304,176 +315,160 @@
 # 					cost = 0
 # 				}
 # 			}
-#         }
-#     }
-#     vn_nor_support_crusades = {
-#         icon = mission_crusade
-#         position = 7
-#         required_missions = { vn_nor_raise_leidangr }
-#         trigger = {
+# 		}
+# 	}
+# 	vn_nor_support_crusades = {
+# 		icon = shield_of_christendom
+# 		position = 7
+# 		required_missions = { }
+# 		trigger = {
 # 			NOT = { current_age = age_of_empire }
+# 			participate_in_grand_crusade_trigger = yes
+# 		}
+# 		effect = {
+# 			add_yearly_manpower = 1
+# 			add_country_modifier = {
+# 				name = "fra_sanction_crusades_mission"
+# 				duration = 7300
+# 			}
+# 		}
+# 	}
+# 	vn_nor_a_worthy_epithet = {
+# 		icon = kingdom_of_heaven
+# 		position = 8
+# 		required_missions = { vn_nor_support_crusades }
+# 		trigger = {
+# 			num_of_battles = { amount = 100 }
 # 			if = {
 # 				limit = {
-# 					religion = catholic
-# 					current_age = age_of_empire
-# 					current_age = age_of_holy_wars
-# 					current_age = age_of_crisis
-# 				}
-# 				OR = {
-# 					is_in_war = {
-# 						casus_belli = cb_grand_crusade
-# 						attackers = ROOT
-# 					}
-# 					is_in_war = {
-# 						casus_belli = cb_grand_heretic
-# 						attackers = ROOT
+# 					OR = {
+# 						has_dlc = "Rights of Man"
+# 						has_dlc = "Emperor"
 # 					}
 # 				}
-# 			}
-# 			else_if = {
-# 				limit = { religion_group = christian }
-# 				is_defender_of_faith = yes
+# 				is_great_power = yes
 # 			}
 # 			else = {
-# 				religious_unity = 1
+# 				total_development = 500
 # 			}
-	
-#         }
-#         effect = {
-# 			add_prestige_or_monarch_power = { amount = 10 } 
-#             add_country_modifier = {
-# 				name = "fra_sanction_crusades_mission"
-# 				duration = 5475
-# 			}
-#         }
-#     }
-#     vn_nor_a_worthy_epithet = {
-#         icon = mission_king_of_franks
-#         position = 8
-# 		required_missions = { vn_nor_support_crusades }
-# 		provinces_to_highlight = {
-# 			OR = {
-# 				region = palestine_region
-# 				region = outremer_region
-# 			}
-# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 			power_projection = 50
 # 		}
-#         trigger = {
-# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-# 				value = 5
-# 				OR = {
-# 					region = palestine_region
-# 					region = outremer_region
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
 # 				}
+# 				custom_tooltip = ITA_gain_100_splendor
+# 				set_country_flag = ITA_gain_100_splendor_flag
+# 				custom_tooltip = " "
 # 			}
-#         }
-#         effect = {
 # 			add_ruler_modifier = {
 # 				name = "nor_a_worthy_epithet_mission"
 # 				duration = -1
 # 			}
-#         }
+# 		}
 # 	}
 # }
 
 # vn_nor_missions_slot_2_a = {
-#     slot = 2
-#     generic = no
-#     ai = yes
-#     potential = {
-#         tag = NOR
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+# 	slot = 2
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		tag = NOR
+# 		NOT = { map_setup = map_setup_random }
+# 	}
+# 	has_country_shield = yes
 
-#     vn_nor_a_rulers_saga = {
-#         icon = mission_court_education
-#         position = 2
-#         required_missions = { vn_nor_settle_succession }
-#         trigger = {
+# 	vn_nor_a_rulers_saga = {
+# 		icon = mission_court_education
+# 		position = 2
+# 		required_missions = { vn_nor_settle_succession }
+# 		trigger = {
 # 			has_adm_advisor_3 = yes
-#             artist = 2
+# 			artist = 2
 # 			prestige = 50
-#         }
-#         effect = {
+# 		}
+# 		effect = {
 # 			add_prestige_or_monarch_power = { amount = 25 } 
 # 			add_legitimacy = 20
 # 			add_ruler_modifier = {
 # 				name = "nor_a_rulers_saga_mission"
 # 				duration = -1
 # 			}
-#         }
+# 		}
 # 	}
 # }
 
 # vn_nor_missions_slot_2_b = {
-#     slot = 2
-#     generic = no
-#     ai = yes
-#     potential = {
-#         tag = NOR
-#         NOT = { map_setup = map_setup_random }
-#     }
+# 	slot = 2
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		tag = NOR
+# 		NOT = { map_setup = map_setup_random }
+# 	}
 # 	has_country_shield = yes
 	
-#     vn_nor_land_in_jylland = {
-#         icon = mission_exploration
-#         position = 3
+# 	vn_nor_land_in_jylland = {
+# 		icon = mission_exploration
+# 		position = 3
 # 		required_missions = { vn_nor_into_skane }
 # 		provinces_to_highlight = {
 # 			region = jutland_region
 # 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 # 		}
-#         trigger = {
-#             jutland_region = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
+# 		trigger = {
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 10
+# 				region = jutland_region
 # 			}
-#         }
-#         effect = {
-# 			add_navy_tradition = 10
+# 		}
+# 		effect = {
+# 			add_mil_power = 100
 # 			sonderborg_area = {
 # 				limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
+# 					NOT = { is_core = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
 # 			}
-#             slesvig_area = {
+# 			slesvig_area = {
 # 				limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
+# 					NOT = { is_core = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
 # 			}
-#         }
+# 		}
 # 	}
 # }
 
 # vn_nor_missions_slot_2_c = {
-#     slot = 2
-#     generic = no
-#     ai = yes
-#     potential = {
-#         tag = NOR
-#         NOT = { map_setup = map_setup_random }
-#     }
+# 	slot = 2
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		tag = NOR
+# 		NOT = { map_setup = map_setup_random }
+# 	}
 # 	has_country_shield = yes
 	
-#     vn_nor_curb_lendmenn = {
-#         icon = mission_have_two_subjects
-#         position = 4
-#         required_missions = { vn_nor_institute_landslov }
-#         trigger = {
+# 	vn_nor_curb_lendmenn = {
+# 		icon = mission_have_two_subjects
+# 		position = 4
+# 		required_missions = { vn_nor_institute_landslov }
+# 		trigger = {
+# 			NOT = { average_autonomy_above_min = 10 }
+# 			crown_land_share = 50
 # 			if = {
 # 				limit = {
 # 					has_estate = estate_nobles
 # 				}
-# 				crown_land_share = 50
 # 				NOT = {
 # 					estate_influence = {
 # 						estate = estate_nobles
-# 						influence = 30
+# 						influence = 50
 # 					}
 # 				}
 # 				estate_loyalty = {
@@ -482,91 +477,98 @@
 # 				}
 # 			}
 # 			else = {
-# 				stability = 1
-# 				NOT = { average_autonomy_above_min = 10 }
+# 				NOT = { has_estate = estate_nobles }
 # 			}
-#         }
-#         effect = {
+# 		}
+# 		effect = {
+# 			add_stability_or_adm_power = yes
 # 			add_ruler_modifier = {
 # 				name = "nor_curb_lendmenn_mission"
 # 				duration = -1
 # 			}
-#         }
+# 		}
 # 	}
 # }
 
 # vn_nor_missions_slot_2_d = {
-#     slot = 2
-#     generic = no
-#     ai = yes
-#     potential = {
-#         tag = NOR
-#         NOT = { map_setup = map_setup_random }
-#     }
+# 	slot = 2
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		tag = NOR
+# 		NOT = { map_setup = map_setup_random }
+# 	}
 # 	has_country_shield = yes
 
 # 	vn_nor_bahus_fortress = {
-#         icon = mission_castle_construction
-#         position = 5
+# 		icon = mission_castle_construction
+# 		position = 5
 # 		required_missions = {  }
 # 		provinces_to_highlight = {
 # 			province_id = 6023
 # 		}
-#         trigger = {
-#             6023 = {
-# 				owned_by = ROOT
-# 				is_core = ROOT
-# 				fort_level = 2
+# 		trigger = {
+# 			owns_core_province = 6023
+# 			6023 = {
 # 				has_fort_building_trigger = yes
-# 				base_manpower = 10
+# 				num_of_times_improved = 5
 # 			}
-#         }
-#         effect = {
-#             6023 = {
-# 				add_base_manpower = 1
+# 		}
+# 		effect = {
+# 			6023 = {
 # 				add_province_modifier = {
 # 					name = "nor_bahus_fortress_mission"
 # 					duration = -1
 # 				}
+# 				add_or_upgrade_fort_building = yes
 # 			}
-#         }
-#     }
-#     vn_nor_improve_festning = {
-#         icon = mission_european_castle 
-#         position = 6
+# 		}
+# 	}
+# 	vn_nor_improve_festning = {
+# 		icon = mission_european_castle 
+# 		position = 6
 # 		required_missions = { vn_nor_bahus_fortress }
-#         trigger = {
-#             num_of_owned_provinces_with = {
-# 				value = 6
-# 				fort_level = 2
-# 				has_fort_building_trigger = yes
+# 		trigger = {
+# 			fortification_expert = 2
+# 			num_of_owned_provinces_with = {
+# 				province_has_current_tech_fort_trigger = yes
+# 				value = 10
 # 			}
-#         }
-#         effect = {
+# 		}
+# 		effect = {
+# 			if = {
+# 				limit = { has_dlc = "Winds of Change" }
+# 				custom_tooltip = TIM_nobility_loyalty_with_forts
+# 				set_country_flag = TIM_nobility_loyalty_with_forts_flag
+# 				custom_tooltip = " "
+# 			}
 # 			add_ruler_modifier = {
 # 				name = "nor_improve_festning_mission"
 # 				duration = -1
 # 			}
-#         }
+# 		}
 # 	}
 # }
 
 # vn_nor_missions_slot_3_a = {
-#     slot = 3
-#     generic = no
-#     ai = yes
-#     potential = {
-#         tag = NOR
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+# 	slot = 3
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		tag = NOR
+# 		NOT = { map_setup = map_setup_random }
+# 	}
+# 	has_country_shield = yes
 
-#     vn_nor_resist_danes = {
-#         icon = mission_danish_flag
-#         position = 1
+# 	vn_nor_resist_danes = {
+# 		icon = mission_danish_flag
+# 		position = 1
 # 		required_missions = {  }
-#         trigger = {
-#             OR = {
+# 		provinces_to_highlight = {
+			
+# 		}
+# 		trigger = {
+# 			OR = {
 # 				DAN = {
 # 					exists = yes
 # 					custom_trigger_tooltip = {
@@ -590,68 +592,73 @@
 # 					amount = 2
 # 				}
 # 			}
-#         }
-#         effect = {
+# 		}
+# 		effect = {
+# 			create_general = {
+# 				tradition = 50
+# 			}
+# 			custom_tooltip = " "
+# 			skania_region = {
+# 				limit = {
+# 					NOT = { is_core = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			custom_tooltip = " "
 # 			add_country_modifier = {
 # 				name = "nor_against_swedes_mission"
 # 				duration = 7300
 # 			}
-#             skania_region = {
-# 				limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
-# 			}
-#         }
-#     }
-#     vn_nor_into_skane = {
-#         icon = mission_southern_frontier_lotn
-#         position = 2
+# 		}
+# 	}
+# 	vn_nor_into_skane = {
+# 		icon = mission_southern_frontier_lotn
+# 		position = 2
 # 		required_missions = { vn_nor_resist_danes }
 # 		provinces_to_highlight = {
 # 			region = skania_region
 # 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 # 		}
-#         trigger = {
-#             skania_region = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
+# 		trigger = {
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 10
+# 				region = skania_region
 # 			}
-#         }
-#         effect = {
-# 			add_prestige_or_monarch_power = { amount = 5 } 
+# 		}
+# 		effect = {
+# 			add_war_exhaustion = -2
 # 			jutland_region = {
 # 				limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
+# 					NOT = { is_core = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
 # 			}
-#             danishislands_region = {
+# 			danishislands_region = {
 # 				limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
+# 					NOT = { is_core = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
 # 			}
-#         }
-#     }
-#     vn_nor_invade_sjaelland = {
-#         icon = mission_end_the_sound_toll
-#         position = 3
+# 		}
+# 	}
+# 	vn_nor_invade_sjaelland = {
+# 		icon = mission_end_the_sound_toll
+# 		position = 3
 # 		required_missions = { vn_nor_into_skane }
 # 		provinces_to_highlight = {
 # 			region = danishislands_region
 # 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 # 		}
-#         trigger = {
-#             danishislands_region = {
+# 		trigger = {
+# 			danishislands_region = {
 # 				type = all
 # 				country_or_non_sovereign_subject_holds = ROOT
 # 			}
-#         }
-#         effect = {
+# 		}
+# 		effect = {
 # 			add_adm_power = 50
 # 			add_army_tradition = 10
 # 			if = {
@@ -670,12 +677,12 @@
 # 					add_base_production = 2 
 # 				}
 # 			}
-#         }
-#     }
-#     vn_nor_control_baltic_trade = {
-#         icon = mission_norways_is_independent
-#         position = 4
-#         required_missions = { 
+# 		}
+# 	}
+# 	vn_nor_control_baltic_trade = {
+# 		icon = mission_norways_is_independent
+# 		position = 4
+# 		required_missions = { 
 # 			vn_nor_land_in_jylland 
 # 			vn_nor_invade_sjaelland 
 # 			vn_nor_conquer_smaland 
@@ -693,7 +700,7 @@
 # 			}
 # 			NOT = { is_strongest_trade_power = ROOT }
 # 		}
-#         trigger = {
+# 		trigger = {
 # 			calc_true_if = {
 # 				2652 = {
 # 					is_strongest_trade_power = ROOT
@@ -718,65 +725,75 @@
 # 				}
 # 				amount = 4
 # 			}
-#         }
-#         effect = {
+# 		}
+# 		effect = {
 
 # 			add_power_projection = {
-#                 type = mission_rewards_power_projection
-#                 amount = 20
-#             }
+# 				type = mission_rewards_power_projection
+# 				amount = 20
+# 			}
 
 # 			add_ruler_modifier = {
 # 				name = "nor_control_baltic_trade_mission"
 # 				duration = -1
 # 			}
-#         }
+# 		}
 # 	}
 # 	vn_nor_scandinavia_united = {
-#         icon = mission_norwegian_great_power
-#         position = 6
+# 		icon = mission_norwegian_great_power
+# 		position = 6
 # 		required_missions = { vn_nor_control_baltic_trade }
 # 		provinces_to_highlight = {
 # 			superregion = scandinavia_superregion
 # 			OR = {
-#                 NOT = { owned_by = ROOT }
+# 				NOT = { owned_by = ROOT }
 # 				NOT = { is_core = ROOT }
-# 				consolidated_region_trigger = no
-#             }
-# 		}
-#         trigger = {
-#             scandinavia_superregion = {
-# 				type = all
-#                 owned_by = ROOT
-#                 is_core = ROOT
-# 				consolidated_region_trigger = yes
 # 			}
-#         }
-#         effect = {
-#             add_country_modifier = {
+# 		}
+# 		trigger = {
+# 			OR = {
+# 				DAN = { exists = no }
+# 				DAN = { is_subject_of = ROOT }
+# 			}
+# 			OR = {
+# 				SWE = { exists = no }
+# 				SWE = { is_subject_of = ROOT }
+# 			}
+# 			num_of_owned_provinces_with = {
+# 				value = 150
+# 				superregion = scandinavia_superregion
+# 			}
+# 		}
+# 		effect = {
+# 			custom_tooltip = allow_earlier_scandinavia_formation_tt
+# 			hidden_effect = { set_country_flag = can_form_scandinavia_earlier }
+# 			custom_tooltip = " "
+# 			change_government_reform_progress = 75
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
 # 				name = "nor_scandinavia_united_mission"
 # 				duration = 18250
 # 			}
-#         }
+# 		}
 # 	}
 # }
 
 # vn_nor_missions_slot_4_a = {
-#     slot = 4
-#     generic = no
-#     ai = yes
-#     potential = {
-#         tag = NOR
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+# 	slot = 4
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		tag = NOR
+# 		NOT = { map_setup = map_setup_random }
+# 	}
+# 	has_country_shield = yes
 
-#     vn_nor_against_swedes = {
-#         icon = mission_swedish_great_power
-#         position = 1
+# 	vn_nor_against_swedes = {
+# 		icon = mission_swedish_great_power
+# 		position = 1
 # 		required_missions = {  }
-#         trigger = {
-#             OR = {
+# 		trigger = {
+# 			OR = {
 # 				SWE = {
 # 					exists = yes
 # 					custom_trigger_tooltip = {
@@ -813,38 +830,38 @@
 # 					}
 # 				}
 # 			}
-#         }
-#         effect = {
+# 		}
+# 		effect = {
 # 			add_country_modifier = {
 # 				name = "nor_against_swedes_mission"
 # 				duration = 7300
 # 			}
-#             dalsland_area = {
+# 			dalsland_area = {
 # 				limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
+# 					NOT = { is_core = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
 # 			}
 # 			varmland_area = {
 # 				limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
+# 					NOT = { is_core = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
 # 			}
 # 			dalarna_area = {
 # 				limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
+# 					NOT = { is_core = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
 # 			}
-#         }
-#     }
-#     vn_nor_conquer_vastergotland = {
-#         icon = mission_swedish_military_advise
-#         position = 2
+# 		}
+# 	}
+# 	vn_nor_conquer_vastergotland = {
+# 		icon = mission_swedish_military_advise
+# 		position = 2
 # 		required_missions = { vn_nor_against_swedes }
 # 		provinces_to_highlight = {
 # 			OR = {
@@ -854,40 +871,36 @@
 # 			}
 # 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 # 		}
-#         trigger = {
-#             dalsland_area = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
+# 		trigger = {
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 15
+# 				OR = {
+# 					area = dalsland_area
+# 					area = vastergotland_area
+# 					area = varmland_area
+# 				}
 # 			}
-# 			vastergotland_area = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
-# 			}
-# 			varmland_area = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
-# 			}
-#         }
-#         effect = {
-#             scandinavia_region = {
+# 		}
+# 		effect = {
+# 			scandinavia_region = {
 # 				limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
+# 					NOT = { is_core = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
 # 			}
 # 			ostergotland_area = {
 # 				limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
+# 					NOT = { is_core = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
 # 			}
-#         }
-#     }
-#     vn_nor_conquer_smaland = {
-#         icon = mission_unite_home_region	#placeholder 
-#         position = 3
+# 		}
+# 	}
+# 	vn_nor_conquer_smaland = {
+# 		icon = mission_unite_home_region	#placeholder 
+# 		position = 3
 # 		required_missions = { vn_nor_conquer_vastergotland }
 # 		provinces_to_highlight = {
 # 			OR = {
@@ -896,163 +909,171 @@
 # 			}
 # 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 # 		}
-#         trigger = {
-#             scandinavia_region = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
+# 		trigger = {
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 15
+# 				OR = {
+# 					region = scandinavia_region
+# 					area = ostergotland_area
+# 				}
 # 			}
-# 			ostergotland_area = {
-# 				type = all
-# 				country_or_non_sovereign_subject_holds = ROOT
-# 			}
-#         }
-#         effect = {
+# 		}
+# 		effect = {
 # 			add_prestige_or_monarch_power = { amount = 10 } 
 # 			balticislands_region = {
 # 				limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
+# 					NOT = { is_core = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
 # 			}
-#         }
+# 		}
 # 	}
 # }
 
 # vn_nor_missions_slot_4_b = {
-#     slot = 4
-#     generic = no
-#     ai = yes
-#     potential = {
-#         tag = NOR
-#         NOT = { map_setup = map_setup_random }
-#     }
+# 	slot = 4
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		tag = NOR
+# 		NOT = { map_setup = map_setup_random }
+# 	}
 # 	has_country_shield = yes
 	
-#     vn_nor_develop_fish_trade = {
-#         icon = mission_scandinavian_port_authority 
-#         position = 4
+# 	vn_nor_develop_fish_trade = {
+# 		icon = mission_scandinavian_port_authority 
+# 		position = 4
 # 		required_missions = { }
-#         trigger = {
-# 			whales = 10
-# 			num_of_owned_provinces_with = {
-# 				value = 10
+# 		provinces_to_highlight = {
+# 			owned_by = ROOT
+# 			trade_goods = whales
+# 		} 
+# 		trigger = {
+# 			trade_goods_produced_amount = {
 # 				trade_goods = whales
-# 				base_production = 3
+# 				amount = 5
 # 			}
-#         }
-#         effect = {
-# 			custom_tooltip = vn_will_receive_rewards_tt
-#             random_owned_province = {
-# 				limit = {
-# 					OR = {
-# 						region = vestlandet_region
-# 						region = austlandet_region
-# 					}
-# 					trade_goods = whales
-# 				}
+# 			6034 = {
+# 				country_or_non_sovereign_subject_holds = ROOT
+# 				base_production = 5
+# 			}
+# 		}
+# 		effect = {
+# 			capital_scope = {
 # 				add_trade_modifier = {
 # 					who = ROOT
-#                     duration = 7300
-#                     power = 10
-#                     key = nor_whales_province
-# 				}
-# 				if = {
-# 					limit = { num_free_building_slots = 1 }
-# 					add_building_construction = {
-# 						cost = 0
-# 						speed = 1
-# 						building = marketplace
-# 					}
-# 				}
-# 				else = {
-# 					add_base_production = 2
+# 					duration = 9125
+# 					power = 10
+# 					key = nor_whales_province
 # 				}
 # 			}
-#         }
-#     }
-#     vn_nor_norwegian_timber = {
-#         icon = mission_colonial 
-#         position = 5
+# 			6034 = {
+# 				add_or_upgrade_trade_building = yes
+# 			}
+# 		}
+# 	}
+# 	vn_nor_norwegian_timber = {
+# 		icon = mission_colonial 
+# 		position = 5
 # 		required_missions = { vn_nor_develop_fish_trade }
-#         trigger = {
-# 			lumber = 10
-# 			num_of_owned_provinces_with = {
-# 				value = 10
-# 				trade_goods = lumber
-# 				base_production = 3
+# 		provinces_to_highlight = {
+# 			owned_by = ROOT
+# 			trade_goods = lumber
+# 		}
+# 		trigger = {
+# 			OR = {
+# 				num_of_owned_provinces_with = {
+# 					value = 3
+# 					trade_goods = lumber
+# 					has_building = mills
+# 				}
+# 				development_in_provinces = {
+# 					trade_goods = lumber
+# 					value = 75
+# 				}
 # 			}
-#         }
-#         effect = {
-#             random_owned_province = {
-# 				limit = {
-# 					OR = {
-# 						region = vestlandet_region
-# 						region = austlandet_region
-# 					}
+# 		}
+# 		effect = {
+# 			capital_scope = {
+# 				add_trade_modifier = {
+# 					who = ROOT
+# 					duration = 9125
+# 					power = 10
+# 					key = nor_lumber_province
+# 				}
+# 			}
+# 			add_years_of_owned_provinces_production_income = {
+# 				years = 10
+# 				trigger = {
 # 					trade_goods = lumber
 # 				}
-# 				add_trade_modifier = {
-# 					who = ROOT
-#                     duration = 7300
-#                     power = 10
-#                     key = nor_lumber_province
-# 				}
-# 				if = {
-# 					limit = { num_free_building_slots = 1 }
-# 					add_building_construction = {
-# 						cost = 0
-# 						speed = 1
-# 						building = workshop
-# 					}
-# 				}
-# 				else = {
-# 					add_base_production = 2
-# 				}
+# 				custom_tooltip = FROM_LUMBER_PRODUCTION
 # 			}
-#         }
-#     }
-#     vn_nor_hanseatic_routes = {
-#         icon = mission_hanseatic_city
-#         position = 6
-#         required_missions = { 
+# 		}
+# 	}
+# 	vn_nor_hanseatic_routes = {
+# 		icon = mission_rb_control_the_hansa
+# 		position = 6
+# 		required_missions = { 
 # 			vn_nor_norwegian_timber 
 # 			vn_nor_growth_of_bergen 
 # 		}
-#         trigger = {
-# 			1084 = {
-# 				is_strongest_trade_power = ROOT
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				province_id = 13
+# 				province_id = 1084
 # 			}
-# 			13 = {
-# 				is_strongest_trade_power = ROOT
+# 			NOT = {
+# 				owner = { alliance_with = ROOT }
 # 			}
-#         }
-#         effect = {
-#             1084 = {
-# 				if = {
-# 					limit = {
-# 						NOT = { is_core = ROOT }
-# 						NOT = { is_permanent_claim = ROOT }
-# 					}
-# 					add_permanent_claim = ROOT
+# 			NOT = {
+# 				country_or_non_sovereign_subject_holds = ROOT
+# 			}
+# 			NOT = {
+# 				trade_share = {
+# 					country = ROOT
+# 					share = 10
 # 				}
 # 			}
-# 			13 = {
-# 				if = {
-# 					limit = {
-# 						NOT = { is_core = ROOT }
-# 						NOT = { is_permanent_claim = ROOT }
+# 		}
+# 		trigger = {
+# 			OR = {
+# 				13 = { owner = { alliance_with = ROOT } }
+# 				13 = { country_or_non_sovereign_subject_holds = ROOT }
+# 				13 = {
+# 					trade_share = {
+# 						country = ROOT
+# 						share = 10
 # 					}
-# 					add_permanent_claim = ROOT
 # 				}
 # 			}
-# 			add_mercantilism = 2
-#         }
-#     }
-#     vn_nor_down_to_normandy = {
-#         icon = mission_norwegian_ship
-#         position = 7
-#         required_missions = { 
+# 			OR = {
+# 				1084 = { owner = { alliance_with = ROOT } }
+# 				1084 = { country_or_non_sovereign_subject_holds = ROOT }
+# 				1084 = {
+# 					trade_share = {
+# 						country = ROOT
+# 						share = 10
+# 					}
+# 				}
+# 			}
+# 		}
+# 		effect = {
+# 			add_mercantilism_or_monarch_power = { amount = 2 }
+# 			normandy_region = {
+# 				limit = {
+# 					NOT = { is_core = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 		}
+# 	}
+# 	vn_nor_down_to_normandy = {
+# 		icon = mission_norwegian_ship
+# 		position = 7
+# 		required_missions = { 
 # 			vn_nor_hanseatic_routes 
 # 			vn_nor_trade_with_isles 
 # 		}
@@ -1060,44 +1081,50 @@
 # 			region = normandy_region
 # 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 # 		}
-#         trigger = {
-#             2173 = {
+# 		trigger = {
+# 			2173 = {
 # 				is_strongest_trade_power = ROOT
 # 			}
 # 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 # 				value = 10
 # 				region = normandy_region
 # 			}
-#         }
-#         effect = {
-# 			add_accepted_culture_or_dip_power = { culture = normand free = yes }
-# 			add_mil_power = 100
+# 		}
+# 		effect = {
+# 			custom_tooltip = vn_upgrade_army_organizer
+# 			set_country_flag = moghulistan_organizer_flag
+# 			custom_tooltip = " "
+# 			normandy_region = {
+# 				limit = { country_or_non_sovereign_subject_holds = ROOT }
+# 				add_nationalism = -10
+# 			}
+# 			custom_tooltip = " "
 # 			paris_area = {
 # 				limit = {
 # 					NOT = { is_core = ROOT }
-# 					NOT = { is_claim = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
 # 				}
-# 				add_claim = ROOT
+# 				add_permanent_claim = ROOT
 # 			}
-#         }
+# 		}
 # 	}
 # }
 
 # vn_nor_missions_slot_5_a = {
-#     slot = 5
-#     generic = no
-#     ai = yes
-#     potential = {
-#         tag = NOR
-#         NOT = { map_setup = map_setup_random }
-#     }
-#     has_country_shield = yes
+# 	slot = 5
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		tag = NOR
+# 		NOT = { map_setup = map_setup_random }
+# 	}
+# 	has_country_shield = yes
 
-#     vn_nor_archdiocese_of_nidaros = {
-#         icon = mission_sell_indulgences
-#         position = 1
-#         required_missions = {  }
-#         trigger = {
+# 	vn_nor_archdiocese_of_nidaros = {
+# 		icon = mission_sell_indulgences
+# 		position = 1
+# 		required_missions = {  }
+# 		trigger = {
 # 			OR = {
 # 				AND = {
 # 					if = {
@@ -1122,8 +1149,8 @@
 # 				}
 # 				uses_papacy = no
 # 			}
-#         }
-#         effect = {
+# 		}
+# 		effect = {
 # 			add_religious_influence_effect_large = yes
 # 			if = {
 # 				limit = { uses_papacy = yes }
@@ -1136,59 +1163,59 @@
 # 				custom_tooltip = vn_nor_archdiocese_of_nidaros.tt2
 # 				add_prestige_or_monarch_power = { amount = 15 } 
 # 			}
-#         }
+# 		}
 # 	}
 # }
 
 # vn_nor_missions_slot_5_b = {
-#     slot = 5
-#     generic = no
-#     ai = yes
-#     potential = {
-#         tag = NOR
-#         NOT = { map_setup = map_setup_random }
-#     }
+# 	slot = 5
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		tag = NOR
+# 		NOT = { map_setup = map_setup_random }
+# 	}
 # 	has_country_shield = yes
 	
-#     vn_nor_take_svealand = {
-#         icon = mission_conquer_sweden
-#         position = 2
+# 	vn_nor_take_svealand = {
+# 		icon = mission_conquer_sweden
+# 		position = 2
 # 		required_missions = { vn_nor_against_swedes }
 # 		provinces_to_highlight = {
 # 			region = svealand_region
 # 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 # 		}
-#         trigger = {
-#             svealand_region = {
+# 		trigger = {
+# 			svealand_region = {
 # 				type = all
 # 				country_or_non_sovereign_subject_holds = ROOT
 # 			}
-#         }
-#         effect = {
-#             uppland_region = {
+# 		}
+# 		effect = {
+# 			uppland_region = {
 # 				limit = {
-#                     NOT = { is_core = ROOT }
-#                     NOT = { is_permanent_claim = ROOT }
-#                 }
-#                 add_permanent_claim = ROOT
+# 					NOT = { is_core = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
 # 			}
-#         }
+# 		}
 # 	}
 # 	vn_nor_conquer_stockholm = {
-#         icon = mission_big_city
-#         position = 2
+# 		icon = mission_big_city
+# 		position = 2
 # 		required_missions = { vn_nor_take_svealand }
 # 		provinces_to_highlight = {
 # 			region = uppland_region
 # 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 # 		}
-#         trigger = {
-#             uppland_region = {
+# 		trigger = {
+# 			uppland_region = {
 # 				type = all
 # 				country_or_non_sovereign_subject_holds = ROOT
 # 			}
-#         }
-#         effect = {
+# 		}
+# 		effect = {
 # 			if = {
 # 				limit = {
 # 					has_dlc = "Dharma"
@@ -1205,26 +1232,26 @@
 # 					add_base_production = 2 
 # 				}
 # 			}
-#         }
-#     }
-#     vn_nor_swedish_copper = {
-#         icon = mission_iron_and_copper
-#         position = 4
+# 		}
+# 	}
+# 	vn_nor_swedish_copper = {
+# 		icon = mission_iron_and_copper
+# 		position = 4
 # 		required_missions = { vn_nor_conquer_stockholm }
 # 		provinces_to_highlight = {
 # 			region = svealand_region
 # 			trade_goods = copper
 # 		}
-#         trigger = {
-#             num_of_owned_provinces_with = {
+# 		trigger = {
+# 			num_of_owned_provinces_with = {
 # 				value = 3
 # 				region = svealand_region
 # 				trade_goods = copper
 # 				base_production = 6
 # 				has_production_building_trigger = yes
 # 			}
-#         }
-#         effect = {
+# 		}
+# 		effect = {
 # 			if = {
 # 				limit = { has_dlc = "Lions of the North" }
 # 				country_event = { id = flavor_nor.48 }
@@ -1233,94 +1260,107 @@
 # 				name = "nor_swedish_copper_mission"
 # 				duration = -1
 # 			}
-#         }
+# 		}
 # 	}
 # }
 
 # vn_nor_missions_slot_5_c = {
-#     slot = 5
-#     generic = no
-#     ai = yes
-#     potential = {
-#         tag = NOR
-#         NOT = { map_setup = map_setup_random }
-#     }
+# 	slot = 5
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		tag = NOR
+# 		NOT = { map_setup = map_setup_random }
+# 	}
 # 	has_country_shield = yes
 	
-#     vn_nor_growth_of_bergen = {
-#         icon = mission_seize_north_sea_trade
-#         position = 5
+# 	vn_nor_growth_of_bergen = {
+# 		icon = mission_seize_north_sea_trade
+# 		position = 5
 # 		required_missions = {  }
 # 		provinces_to_highlight = {
 # 			province_id = 6038
 # 		}
-#         trigger = {
-#             6038 = {
-# 				is_capital_of = ROOT
-# 				owned_by = ROOT
-# 				is_core = ROOT
-# 				development = 20
-# 				calc_true_if = {
-# 					has_trade_building_trigger = yes
-# 					has_shipyard_building_trigger = yes
-# 					has_dock_building_trigger = yes
-# 					has_manpower_building_trigger = yes
-# 					amount = 3
-# 				}
-# 			}
-#         }
-#         effect = {
-# 			if = {
-# 				limit = {
-# 					has_dlc = "Dharma"
-# 					6038 = {
-# 						NOT = { province_has_center_of_trade_of_level = 3 }
-# 					}
-# 				}
-# 				6038 = {
-# 					add_center_of_trade_level = 1
-# 				}
-# 			}
-# 			else = {
-# 				6038 = { 
-# 					add_base_production = 2 
-# 				}
-# 			}
+# 		trigger = {
+# 			owns_core_province = 6038
 # 			6038 = {
+# 				development = 20
+# 				num_of_buildings_in_province = 3
+# 			}
+# 		}
+# 		effect = {
+# 			define_advisor = {
+# 				type = trader
+# 				discount = yes
+# 				skill = 2
+# 			}
+# 			custom_tooltip = " "
+# 			6038 = {
+# 				set_center_level_2_center_of_trade = yes
+# 				custom_tooltip = " "
 # 				add_province_modifier = {
 # 					name = "nor_growth_of_bergen_mission"
 # 					duration = 9125
 # 				}
 # 			}
-#         }
-#     }
-#     vn_nor_trade_with_isles = {
-#         icon = mission_control_the_channel
-#         position = 6
-#         required_missions = { vn_nor_growth_of_bergen }
-#         trigger = {
-#             calc_true_if = {
+# 		}
+# 	}
+# 	vn_nor_trade_with_isles = {
+# 		icon = mission_control_the_channel
+# 		position = 6
+# 		required_missions = { vn_nor_growth_of_bergen }
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				province_id = 2621
+# 				province_id = 258
+# 				province_id = 1132
+# 				province_id = 2268
+# 			}
+# 			NOT = {
+# 				trade_share = {
+# 					country = ROOT
+# 					share = 25
+# 				}
+# 			}
+# 		}
+# 		trigger = {
+# 			OR = {
 # 				2621 = {
-# 					is_strongest_trade_power = ROOT
+# 					trade_share = {
+# 						country = ROOT
+# 						share = 25
+# 					}
 # 				}
 # 				258 = {
-# 					is_strongest_trade_power = ROOT
+# 					trade_share = {
+# 						country = ROOT
+# 						share = 25
+# 					}
 # 				}
 # 				1132 = {
-# 					is_strongest_trade_power = ROOT
+# 					trade_share = {
+# 						country = ROOT
+# 						share = 25
+# 					}
 # 				}
 # 				2268 = {
-# 					is_strongest_trade_power = ROOT
+# 					trade_share = {
+# 						country = ROOT
+# 						share = 25
+# 					}
 # 				}
-# 				amount = 2
 # 			}
-#         }
-#         effect = {
-# 			add_mercantilism = 5
+# 		}
+# 		effect = {
+# 			add_years_of_trade_income = {
+# 				years = 4
+# 				custom_tooltip = zan_settle_trade_posts_ct
+# 			}
+# 			custom_tooltip = " "
 # 			add_country_modifier = {
 # 				name = "nor_trade_with_isles_mission"
 # 				duration = 9125
 # 			}
-#         }
+# 		}
 # 	}
 # }

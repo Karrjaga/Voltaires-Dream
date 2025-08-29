@@ -307,3 +307,48 @@ mediterranean_trade_node_scope = {
 	874 = { $trigger$ }
 	137 = { $trigger$ }
 }
+
+is_baltic_trade_node_province = {
+	OR = {
+		province_id = 1607
+		province_id = 2652
+		province_id = 1600
+		province_id = 6977
+		province_id = 5889
+		province_id = 6965
+		province_id = 1542
+		province_id = 6992
+	}
+}
+
+baltic_trade_node_scope = {
+	1607 = { $trigger$ }
+	2652 = { $trigger$ }
+	1600 = { $trigger$ }
+	6977 = { $trigger$ }
+	5889 = { $trigger$ }
+	6965 = { $trigger$ }
+	1542 = { $trigger$ }
+	6992 = { $trigger$ }
+}
+
+is_danelaw_province_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = is_danelaw_province_trigger.tt
+		OR = {
+			area = west_riding_area
+			area = east_riding_area
+			area = lincoln_area
+			area = norwich_area
+			area = middlesex_area
+			province_id = 2272
+			province_id = 2566
+			province_id = 1125
+			province_id = 2247
+			province_id = 1132
+			province_id = 2261
+			province_id = 4695
+			province_id = 1139
+		}
+	}
+}

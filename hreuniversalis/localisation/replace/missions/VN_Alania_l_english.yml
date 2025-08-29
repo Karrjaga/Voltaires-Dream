@@ -1,0 +1,74 @@
+﻿l_english:
+ vn_aan_georgian_relations_title: "Ties with the Georgians"
+ vn_aan_georgian_relations_desc: ""
+
+ vn_aan_cross_caucasus_title:0 "Cross the Caucasus"
+ vn_aan_cross_caucasus_desc:0 ""
+
+ vn_aan_conquer_kachetia_title:0 "Kachetian Plains"
+ vn_aan_conquer_kachetia_desc:0 ""
+
+ vn_aan_conquer_east_georgia_title:0 "Conquer Georgia"
+ vn_aan_conquer_east_georgia_desc:0 ""
+
+ vn_aan_rebuild_colchis_title:0 "Ancient Ports of Colchis"
+ vn_aan_rebuild_colchis_desc:0 ""
+
+ vn_aan_raiding_hordes_title:0 "Raiding Hordes"
+ vn_aan_raiding_hordes_desc:0 ""
+
+ vn_aan_conquer_karachay_title:0 "The Southern Tribes"
+ vn_aan_conquer_karachay_desc:0 ""
+
+ vn_aan_conquer_east_circassia_title:0 "Invasion of Circassia"
+ vn_aan_conquer_east_circassia_desc:0 ""
+
+ vn_aan_conquer_khazaria_title:0 "End the Khazar Khanate"
+ vn_aan_conquer_khazaria_desc:0 ""
+
+ vn_aan_humiliate_the_cumans_title:0 "Defy the Cumans"
+ vn_aan_humiliate_the_cumans_desc:0 ""
+
+ vn_aan_conquer_west_circassia_title:0 "Reach the Black Sea"
+ vn_aan_conquer_west_circassia_desc:0 ""
+
+ vn_aan_conquer_abkhazia_title:0 "Conquer Abkhazia"
+ vn_aan_conquer_abkhazia_desc:0 ""
+
+ vn_aan_caucasian_hegemony_title:0 "Caucasian Hegemony"
+ vn_aan_caucasian_hegemony_desc:0 ""
+
+ vn_aan_conquer_chechnya_title:0 "Subjugate the Durdzuks"
+ vn_aan_conquer_chechnya_desc:0 ""
+
+ vn_aan_conquer_lezgin_title:0 "Ruling the Nakh Peoples"
+ vn_aan_conquer_lezgin_desc:0 ""
+
+ vn_aan_conquer_shirvan_title:0 "Rivalling the Shirvanshah"
+ vn_aan_conquer_shirvan_desc:0 ""
+
+ vn_aan_demand_tribute_title:0 "Demand Tribute"
+ vn_aan_demand_tribute_desc:0 ""
+
+ vn_aan_conquer_derbent_title:0 "Conquer Derbent"
+ vn_aan_conquer_derbent_desc:0 ""
+
+ vn_aan_conquer_ganja_title:0 "Seize Ganja"
+ vn_aan_conquer_ganja_desc:0 ""
+
+ vn_aan_raid_baghdad_title:0 "Raid Baghdad"
+ vn_aan_raid_baghdad_desc:0 ""
+
+
+ aan_raiding_hordes_mission: "Alanian Raiders"
+ desc_aan_raiding_hordes_mission: ""
+ aan_conquer_karachay_mission: "Turkic Alliances"
+ desc_aan_conquer_karachay_mission: ""
+ aan_rebuild_colchis_mission: "Constructing a Fleet"
+ desc_aan_rebuild_colchis_mission: ""
+ aan_conquer_derbent_mission: "Trade with Persia"
+ desc_aan_conquer_derbent_mission: ""
+ aan_raid_baghdad_missions: "Spoils of Baghdad"
+ desc_aan_raid_baghdad_missions: ""
+ aan_cross_caucasus_mission: "Campaign to the South"
+ desc_aan_cross_caucasus_mission: ""

@@ -86,6 +86,7 @@
 # 			}
 # 			else = {
 # 				add_dip_power = 50
+# 				custom_tooltip = " "
 # 				328 = {
 # 					add_trade_modifier = {
 # 						who = ROOT
@@ -95,6 +96,7 @@
 # 					}
 # 				}
 # 			}
+# 			custom_tooltip = " "
 # 			hainaut_area = {
 # 				limit = {
 # 					NOT = { is_core = ROOT }
@@ -183,6 +185,7 @@
 # 		}
 # 		effect = {
 # 			add_accepted_culture_or_dip_power = { culture = wallonian }
+# 			custom_tooltip = " "
 # 			flanders_area = {
 # 				limit = {
 # 					NOT = { is_core = ROOT }
@@ -234,13 +237,13 @@
 # 				}
 # 			}
 # 			else = {
-# 				add_dip_power = 100
 # 				define_advisor = {
 # 					type = trader
 # 					culture = flemish
 # 					skill = 2
 # 					discount = yes
 # 				}
+# 				add_dip_power = 100
 # 			}
 # 		}
 # 	}
@@ -281,6 +284,7 @@
 # 				}
 # 				add_permanent_claim = ROOT
 # 			}
+# 			custom_tooltip = " "
 # 			add_country_modifier = {
 # 				name = hol_hertog_van_luxemburg_mission
 # 				duration = 9125
@@ -302,11 +306,13 @@
 # 		}
 # 		effect = {
 # 			add_adm_power = 100
+# 			custom_tooltip = " "
 # 			lorraine_region = {
 # 				limit = { country_or_non_sovereign_subject_holds = ROOT }
 # 				add_local_autonomy = -20
 # 				add_devastation = -10
 # 			}
+# 			custom_tooltip = " "
 # 			burgundy_region = {
 # 				limit = {
 # 					NOT = { is_core = ROOT }
@@ -334,6 +340,7 @@
 # 				type = mission_rewards_power_projection
 # 				amount = 50
 # 			}
+# 			custom_tooltip = " "
 # 			add_country_modifier = {
 # 				name = hol_burgundian_rule_reversed_mission
 # 				duration = -1
@@ -834,6 +841,7 @@
 # 			else = {
 # 				add_adm_power = 100
 # 			}
+# 			custom_tooltip = " "
 # 			add_reform_progress_big_effect = yes
 # 		}
 # 	}
@@ -1031,6 +1039,7 @@
 # 					}
 # 				}
 # 			}
+# 			custom_tooltip = " "
 # 			if = {
 # 				limit = {
 # 					valid_for_personal_unions_trigger = yes
@@ -1056,6 +1065,7 @@
 # 					}
 # 				}
 # 			}
+# 			custom_tooltip = " "
 # 			add_country_modifier = {
 # 				name = "hol_dynastic_claims_mission"
 # 				duration = 9125
@@ -1093,41 +1103,45 @@
 # 			}
 # 		}
 # 		effect = {
-# 			complex_dynamic_effect = {
-# 				first_custom_tooltip = vn_hol_orange_nassau.tt
-# 				first_limit = "
-# 					government = monarchy
-# 				"
-# 				first_effect = "
-# 					add_country_modifier = {
-# 						name = hol_orange_nassau_mission
-# 						duration = -1
+# 			if = {
+# 				limit = {
+# 					OR = {
+# 						government = monarchy
+# 						government = republic
 # 					}
-# 				"
-# 				second_custom_tooltip = vn_hol_orange_nassau.tt2
-# 				second_limit = "
-# 					government = republic
-# 				"
-# 				second_effect = "
-# 					add_country_modifier = {
-# 						name = hol_orange_nassau_mission2
-# 						duration = -1
-# 					}
-# 				"
-# 				third_custom_tooltip = vn_hol_orange_nassau.tt3
-# 				third_limit = "
-# 					NOT = { government = monarchy }
-# 					NOT = { government = republic }
-# 				"
-# 				third_effect = "
-# 					add_adm_power = 100
-# 					add_dip_power = 100
-# 					add_mil_power = 100
-# 					add_permanent_power_projection = {
-# 						type = 10_permanent_power_projection
-# 						amount = 10
-# 					}
-# 				"
+# 				}
+# 				complex_dynamic_effect = {
+# 					first_custom_tooltip = vn_hol_orange_nassau.tt
+# 					first_limit = "
+# 						government = monarchy
+# 					"
+# 					first_effect = "
+# 						add_country_modifier = {
+# 							name = hol_orange_nassau_mission
+# 							duration = -1
+# 						}
+# 					"
+# 					second_custom_tooltip = vn_hol_orange_nassau.tt2
+# 					second_limit = "
+# 						government = republic
+# 					"
+# 					second_effect = "
+# 						add_country_modifier = {
+# 							name = hol_orange_nassau_mission2
+# 							duration = -1
+# 						}
+# 					"
+# 				}
+# 			}
+# 			else = {
+# 				add_adm_power = 100
+# 				add_dip_power = 100
+# 				add_mil_power = 100
+# 				custom_tooltip = " "
+# 				add_permanent_power_projection = {
+# 					type = 10_permanent_power_projection
+# 					amount = 10
+# 				}
 # 			}
 # 		}
 # 	}
@@ -1363,18 +1377,44 @@
 # 			if = {
 # 				limit = {
 # 					has_dlc = "Domination"
-# 					OR = {
-# 						full_idea_group = piracy_ideas
-# 						has_reform = watergeuzen_reform
-# 					}
+# 				}
+# 				OR = {
+# 					full_idea_group = piracy_ideas
+# 					has_reform = watergeuzen_reform
+# 					num_of_light_ship = 50
 # 				}
 # 			}
 # 			else = {
-# 				full_idea_group = piracy_ideas
+# 				OR = {
+# 					num_of_light_ship = 50
+# 					full_idea_group = piracy_ideas
+# 				}
 # 			}
 # 		}
 # 		effect = {
-			
+# 			add_country_modifier = {
+# 				name = hol_watergeuzen_mission
+# 				duration = 9125
+# 			}
+# 		}
+# 	}
+# 	vn_hol_oostsee_handel = {
+# 		icon = mission_conquer_sweden
+# 		required_missions = { }
+# 		trigger = {
+# 			OR = {
+# 				13 = { has_merchant = ROOT }
+# 				5793 = { has_merchant = ROOT }
+# 				402 = { has_merchant = ROOT }
+# 			}
+# 		}
+# 		effect = {
+# 			add_mercantilism_or_monarch_power = { amount = 2 }
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 			   	name = "hol_oostsee_handel_mission"
+# 			  	duration = 9125
+# 			}
 # 		}
 # 	}
 # 	vn_hol_develop_the_staten = {
@@ -1654,9 +1694,8 @@
 # 	vn_hol_dutch_trading_culture = {
 # 		icon = support_the_bulk_trades
 # 		required_missions = {
-			
-			
-			
+# 			vn_hol_naval_expansion
+# 			vn_hol_port_of_antwerp
 # 		}
 # 		trigger = {
 # 			num_of_owned_provinces_with = {
@@ -1676,119 +1715,99 @@
 # 					has_dlc = "Cradle of Civilization"
 # 				}
 # 				enable_trading_policy = { policy = maximize_profit_upgraded }
-# 				enable_trading_policy = { policy = hostile_trading_upgraded }
-# 				enable_trading_policy = { policy = improve_inland_routes_upgraded }
 # 				enable_trading_policy = { policy = establish_communities_upgraded }
 # 				hidden_effect = {
 # 					disable_trading_policy = { policy = maximize_profit }
-# 					disable_trading_policy = { policy = hostile_trading }
-# 					disable_trading_policy = { policy = improve_inland_routes }
 # 					disable_trading_policy = { policy = establish_communities }
 # 				}
 # 			}
 # 			else = {
-# 				add_mercantilism_or_monarch_power = { amount = 5 }
+# 				add_dip_power = 100
 # 			}
+# 			custom_tooltip = " "
 # 			add_country_modifier = {
 # 				name = "hol_dutch_trading_culture_mission"
 # 				duration = 9125
 # 			}
 # 		}
 # 	}
-# 	vn_hol_oostsee_handel = {
-# 		icon = mission_conquer_sweden
-# 		required_missions = { }
-# 		trigger = {
-# 			OR = {
-# 				13 = { has_merchant = ROOT }
-# 				5793 = { has_merchant = ROOT }
-# 				402 = { has_merchant = ROOT }
-# 			}
-# 		}
-# 		effect = {
-# 			add_mercantilism = 2
-# 			add_country_modifier = {
-# 			   	name = "hol_oostsee_handel_mission"
-# 			  	duration = 9125
-# 			}
-# 		}
-# 	}
-# 	vn_hol_defeat_the_hansa = {	#Contest the Hansa
-# 		icon = mission_bane_of_the_hansa
-# 		required_missions = {  }
-# 		trigger = {
-# 			num_of_owned_provinces_with = {
-# 				has_province_modifier = hanseatic_city
-# 				value = 10
-# 			}
-# 		}
-# 		effect = {
-# 			429 = {
-# 				if = {
-# 					limit = {
-# 						NOT = { is_core = ROOT }
-# 						NOT = { is_permanent_claim = ROOT }
-# 					}
-# 					add_permanent_claim = ROOT
-# 				}
-# 			}
-# 			1084 = {
-# 				if = {
-# 					limit = {
-# 						NOT = { is_core = ROOT }
-# 						NOT = { is_permanent_claim = ROOT }
-# 					}
-# 					add_permanent_claim = ROOT
-# 				}
-# 			}
-# 			13 = {
-# 				if = {
-# 					limit = {
-# 						NOT = { is_core = ROOT }
-# 						NOT = { is_permanent_claim = ROOT }
-# 					}
-# 					add_permanent_claim = ROOT
-# 				}
-# 			}
-# 			896 = {
-# 				if = {
-# 					limit = {
-# 						NOT = { is_core = ROOT }
-# 						NOT = { is_permanent_claim = ROOT }
-# 					}
-# 					add_permanent_claim = ROOT
-# 				}
-# 			}
-# 			2729 = {
-# 				if = {
-# 					limit = {
-# 						NOT = { is_core = ROOT }
-# 						NOT = { is_permanent_claim = ROOT }
-# 					}
-# 					add_permanent_claim = ROOT
-# 				}
-# 			}
-# 			402 = {
-# 				if = {
-# 					limit = {
-# 						NOT = { is_core = ROOT }
-# 						NOT = { is_permanent_claim = ROOT }
-# 					}
-# 					add_permanent_claim = ROOT
-# 				}
-# 			}
-# 			5793 = {
-# 				if = {
-# 					limit = {
-# 						NOT = { is_core = ROOT }
-# 						NOT = { is_permanent_claim = ROOT }
-# 					}
-# 					add_permanent_claim = ROOT
-# 				}
-# 			}
-# 			# Hamburg/Bremen/Lubeck/Danzig/Riga/Antwerpen/Brugges (not in order)
-# 		}
-# 	}
+
+# 	# vn_hol_defeat_the_hansa = {	#Contest the Hansa
+# 	# 	icon = mission_bane_of_the_hansa
+# 	# 	required_missions = {  }
+# 	# 	trigger = {
+# 	# 		num_of_owned_provinces_with = {
+# 	# 			has_province_modifier = hanseatic_city
+# 	# 			value = 10
+# 	# 		}
+# 	# 	}
+# 	# 	effect = {
+# 	# 		429 = {
+# 	# 			if = {
+# 	# 				limit = {
+# 	# 					NOT = { is_core = ROOT }
+# 	# 					NOT = { is_permanent_claim = ROOT }
+# 	# 				}
+# 	# 				add_permanent_claim = ROOT
+# 	# 			}
+# 	# 		}
+# 	# 		1084 = {
+# 	# 			if = {
+# 	# 				limit = {
+# 	# 					NOT = { is_core = ROOT }
+# 	# 					NOT = { is_permanent_claim = ROOT }
+# 	# 				}
+# 	# 				add_permanent_claim = ROOT
+# 	# 			}
+# 	# 		}
+# 	# 		13 = {
+# 	# 			if = {
+# 	# 				limit = {
+# 	# 					NOT = { is_core = ROOT }
+# 	# 					NOT = { is_permanent_claim = ROOT }
+# 	# 				}
+# 	# 				add_permanent_claim = ROOT
+# 	# 			}
+# 	# 		}
+# 	# 		896 = {
+# 	# 			if = {
+# 	# 				limit = {
+# 	# 					NOT = { is_core = ROOT }
+# 	# 					NOT = { is_permanent_claim = ROOT }
+# 	# 				}
+# 	# 				add_permanent_claim = ROOT
+# 	# 			}
+# 	# 		}
+# 	# 		2729 = {
+# 	# 			if = {
+# 	# 				limit = {
+# 	# 					NOT = { is_core = ROOT }
+# 	# 					NOT = { is_permanent_claim = ROOT }
+# 	# 				}
+# 	# 				add_permanent_claim = ROOT
+# 	# 			}
+# 	# 		}
+# 	# 		402 = {
+# 	# 			if = {
+# 	# 				limit = {
+# 	# 					NOT = { is_core = ROOT }
+# 	# 					NOT = { is_permanent_claim = ROOT }
+# 	# 				}
+# 	# 				add_permanent_claim = ROOT
+# 	# 			}
+# 	# 		}
+# 	# 		5793 = {
+# 	# 			if = {
+# 	# 				limit = {
+# 	# 					NOT = { is_core = ROOT }
+# 	# 					NOT = { is_permanent_claim = ROOT }
+# 	# 				}
+# 	# 				add_permanent_claim = ROOT
+# 	# 			}
+# 	# 		}
+# 	# 		# Hamburg/Bremen/Lubeck/Danzig/Riga/Antwerpen/Brugges (not in order)
+# 	# 	}
+# 	# }
 # 	vn_hol_rule_the_hansa = {
 # 		icon = unite_the_league
 # 		required_missions = {  }
@@ -1840,43 +1859,18 @@
 # 			vn_hol_rule_the_hansa
 # 		}
 # 		provinces_to_highlight = {  
-# 			OR = {
-# 				province_id = 328
-# 				province_id = 2729
-# 				province_id = 2268
-# 			}
-# 			NOT = {
-# 				trade_share = {
-# 					country = ROOT
-# 					share = 50
-# 				}
+# 			ROOT = {
+# 				home_trade_node = { province_id = PREV_PREV }
 # 			}
 # 		} 
 # 		trigger = {
 # 			monthly_income = 500
 # 			home_trade_node = {
+# 				trade_node_value = 150
 # 				highest_value_trade_node = yes
 # 				trade_share = {
 # 					country = ROOT
 # 					share = 80
-# 				}
-# 			}
-# 			328 = {
-# 				trade_share = {
-# 					country = ROOT
-# 					share = 50
-# 				}
-# 			}
-# 			2729 = {
-# 				trade_share = {
-# 					country = ROOT
-# 					share = 50
-# 				}
-# 			}
-# 			2268 = {
-# 				trade_share = {
-# 					country = ROOT
-# 					share = 50
 # 				}
 # 			}
 # 		}
@@ -1884,6 +1878,7 @@
 # 			unlock_government_reform = {
 # 				government_reform = thalassocracy_reform
 # 			}
+# 			custom_tooltip = " "
 # 			add_country_modifier = {
 # 				name = "hol_control_world_trade_mission"
 # 				duration = -1
@@ -1901,11 +1896,16 @@
 # 			owns_core_province = 3197
 # 			3197 = {
 # 				has_education_building_trigger = yes
-# 				owned_by = ROOT
 # 			}
 # 		}
 # 		effect = {
-# 			add_innovativeness_big_effect = yes
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Rule Britannia"
+# 				}
+# 				add_innovativeness_big_effect = yes
+# 				custom_tooltip = " "
+# 			}
 # 			add_country_modifier = {
 # 				name = "hol_university_of_leiden_mission_country"
 # 				duration = 9125
@@ -1913,15 +1913,11 @@
 # 			3197 = {
 # 				add_province_modifier = {
 # 					name = "hol_university_of_leiden_mission_province"
-# 					duration = 9125
+# 					duration = -1
 # 				}
 # 			}
 # 		}
 # 	}
-	
-
-	
-	
 # }
 
 # vn_hol_missions_slot_5_e = {
@@ -2035,7 +2031,9 @@
 # 		}
 # 		effect = {
 # 			raise_war_taxes = yes
+# 			custom_tooltip = " "
 # 			add_manpower = 5
+# 			custom_tooltip = " "
 # 			add_country_modifier = {
 # 				name = "fra_sanction_crusades_mission"
 # 				duration = 7300
@@ -2083,6 +2081,7 @@
 # 				tradition = 60
 # 				add_shock = 2
 # 			}
+# 			custom_tooltip = " "
 # 			add_country_modifier = {
 # 				name = hol_train_the_knighthood_mission
 # 				duration = 9125
@@ -2150,6 +2149,7 @@
 # 				type = adm
 # 				amount = 1
 # 			}
+# 			custom_tooltip = " "
 # 			unlock_estate_privilege = {
 # 				estate_privilege = estate_burghers_marsh_expansion
 # 			}
@@ -2178,7 +2178,7 @@
 # 				}
 # 			}
 # 			else = {
-# 				mercantilism = 50
+# 				mercantilism = 40
 # 			}
 # 		}
 # 		effect = {
@@ -2196,6 +2196,7 @@
 # 					amount = 1
 # 				}
 # 			}
+# 			custom_tooltip = " "
 # 			add_country_modifier = {
 # 				name = hol_develop_mercantile_class_mission
 # 				duration = 10950
@@ -2377,7 +2378,7 @@
 # 		}
 # 	}
 # 	vn_hol_against_the_english = {
-# 		position = 9
+# 		position = 10
 # 		icon = english_alliance
 # 		required_missions = { }
 # 		provinces_to_highlight = {
@@ -2504,55 +2505,55 @@
 # 			}
 # 		}
 # 	}
-# 	vn_hol_claim_the_throne = {
-# 		position = 14
-# 		icon = the_glorious_revolution
-# 		required_missions = {
+# 	# vn_hol_claim_the_throne = {
+# 	# 	position = 14
+# 	# 	icon = the_glorious_revolution
+# 	# 	required_missions = {
 			
-# 		}
-# 		provinces_to_highlight = {
-# 			province_id = 2268
-# 		}
-# 		trigger = {
-# 			2268 = {
-# 				country_or_non_sovereign_subject_holds = ROOT
-# 			}
-# 		}
-# 		effect = {
-# 			northumbria_region = {
-# 				limit = {
-# 					NOT = { is_core = ROOT }
-# 					NOT = { is_permanent_claim = ROOT }
-# 				}
-# 				add_permanent_claim = ROOT
-# 			}
-# 			midlands_region = {
-# 				limit = {
-# 					NOT = { is_core = ROOT }
-# 					NOT = { is_permanent_claim = ROOT }
-# 				}
-# 				add_permanent_claim = ROOT
-# 			}
-# 			southeast_england_region = {
-# 				limit = {
-# 					NOT = { is_core = ROOT }
-# 					NOT = { is_permanent_claim = ROOT }
-# 				}
-# 				add_permanent_claim = ROOT
-# 			}
-# 			southwest_england_region = {
-# 				limit = {
-# 					NOT = { is_core = ROOT }
-# 					NOT = { is_permanent_claim = ROOT }
-# 				}
-# 				add_permanent_claim = ROOT
-# 			}
-# 			add_country_modifier = {
-# 				name = "hol_claim_the_throne_mission"
-# 		   		duration = 9125
-# 			}
-# 		}
-# 	}
+# 	# 	}
+# 	# 	provinces_to_highlight = {
+# 	# 		province_id = 2268
+# 	# 	}
+# 	# 	trigger = {
+# 	# 		2268 = {
+# 	# 			country_or_non_sovereign_subject_holds = ROOT
+# 	# 		}
+# 	# 	}
+# 	# 	effect = {
+# 	# 		northumbria_region = {
+# 	# 			limit = {
+# 	# 				NOT = { is_core = ROOT }
+# 	# 				NOT = { is_permanent_claim = ROOT }
+# 	# 			}
+# 	# 			add_permanent_claim = ROOT
+# 	# 		}
+# 	# 		midlands_region = {
+# 	# 			limit = {
+# 	# 				NOT = { is_core = ROOT }
+# 	# 				NOT = { is_permanent_claim = ROOT }
+# 	# 			}
+# 	# 			add_permanent_claim = ROOT
+# 	# 		}
+# 	# 		southeast_england_region = {
+# 	# 			limit = {
+# 	# 				NOT = { is_core = ROOT }
+# 	# 				NOT = { is_permanent_claim = ROOT }
+# 	# 			}
+# 	# 			add_permanent_claim = ROOT
+# 	# 		}
+# 	# 		southwest_england_region = {
+# 	# 			limit = {
+# 	# 				NOT = { is_core = ROOT }
+# 	# 				NOT = { is_permanent_claim = ROOT }
+# 	# 			}
+# 	# 			add_permanent_claim = ROOT
+# 	# 		}
+# 	# 		add_country_modifier = {
+# 	# 			name = "hol_claim_the_throne_mission"
+# 	# 	   		duration = 9125
+# 	# 		}
+# 	# 	}
+# 	# }
 # 	# vn_hol_king_stadtholder = {
 # 	# 	icon = become_king
 # 	# 	required_missions = { vn_hol_claim_the_throne }
