@@ -227,7 +227,7 @@ country_event = {
 	}
 }
 
-#guiscard's dream
+#kingdom of africa
 country_event = {
 	id = vn_flavor_apl.104
 	title = "vn_flavor_apl.104.t"
