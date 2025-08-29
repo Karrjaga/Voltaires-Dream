@@ -35,3 +35,71 @@ country_event = {
 		}
 	}
 }
+
+#Restore the Danelaw?
+country_event = {
+	id = vn_flavor_nor.100
+	title = "vn_flavor_nor.100.t"
+	desc = "vn_flavor_nor.100.d"
+	picture = VIKINGS_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "vn_flavor_nor.100.a"
+		hidden_effect = {
+			northumbria_region = {
+				limit = { owned_by = ROOT }
+				add_core = NOL
+				remove_core = ROOT
+			}
+			midlands_region = {
+				limit = { owned_by = ROOT }
+				add_core = NOL
+				remove_core = ROOT
+			}
+			southeast_england_region = {
+				limit = { owned_by = ROOT }
+				add_core = NOL
+				remove_core = ROOT
+			}
+			southwest_england_region = {
+				limit = { owned_by = ROOT }
+				add_core = NOL
+				remove_core = ROOT
+			}
+		}
+		release = NOL
+		if = {
+			limit = { has_dlc = "Winds of Change" }
+			create_subject = {
+				subject_type = integrated_personal_union
+				who = NOL
+			}
+		}
+		else = {
+			create_subject = {
+				subject_type = personal_union
+				who = NOL
+			}
+		}
+		hidden_effect = {
+			NOL = {
+				add_liberty_desire = -50
+				change_government = monarchy
+				add_government_reform = germanic_monarchy
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "vn_flavor_nor.100.b"
+		add_adm_power = 250
+		add_power_projection_mission = { amount = 25 }
+	}
+}
