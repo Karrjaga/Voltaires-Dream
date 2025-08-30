@@ -179,3 +179,9 @@ apl_conquer_corfu_mission = {
 	movement_speed = 0.1
 	land_attrition = -0.1
 }
+apl_richest_man_mission = {
+	
+}
+apl_burghers_mission = {
+	
+}
