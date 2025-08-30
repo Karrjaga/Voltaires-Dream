@@ -4134,10 +4134,98 @@ assign_cores_of_latin_empire_fiefs_effect = {
 				}
 			}
 		}
+		#BUL
+		if = {
+			limit = { NOT = { exists = BUL } }
+			bulgaria_region = {
+				limit = { owned_by = ROOT }
+				add_core = BUL
+				remove_core = ROOT
+			}
+			sophia_area = {
+				limit = { owned_by = ROOT }
+				add_core = BUL
+				remove_core = ROOT
+			}
+			kran_area = {
+				limit = { owned_by = ROOT }
+				add_core = BUL
+				remove_core = ROOT
+			}
+			prilep_area = {
+				limit = { owned_by = ROOT }
+				add_core = BUL
+				remove_core = ROOT
+			}
+			skopia_area = {
+				limit = { owned_by = ROOT }
+				add_core = BUL
+				remove_core = ROOT
+			}
+			release = BUL
+			BUL = {
+				change_government = monarchy
+				add_government_reform = bulgarian_tsardom_reform
+				set_capital = 2135
+				add_stability = 3
+				define_ruler = { dynasty = "Asenev" }
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+			add_truce_with = BUL
+		}
+		#TRE
+		if = {
+			limit = { NOT = { exists = TRE } }
+			chaldia_region = {
+				limit = { owned_by = ROOT }
+				add_core = TRE
+				remove_core = ROOT
+			}
+			paphlagonia_region = {
+				limit = { owned_by = ROOT }
+				add_core = TRE
+				remove_core = ROOT
+			}
+			crimea_region = {
+				limit = { owned_by = ROOT }
+				add_core = TRE
+				remove_core = ROOT
+			}
+			release = TRE
+			TRE = {
+				change_government = monarchy
+				add_government_reform = empire_of_trebizond
+				set_capital = 4181
+				add_stability = 3
+				define_ruler = { dynasty = "Komnenos" }
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.8
+						cavalry = 0.2
+					}
+				}
+			}
+			add_truce_with = TRE
+		}
 		#TSS
 		if = {
 			limit = { NOT = { exists = TSS } }
-			macedonia_region = {
+			serres_area = {
+				limit = { owned_by = ROOT }
+				add_core = TSS
+				remove_core = ROOT
+			}
+			kastoria_area = {
+				limit = { owned_by = ROOT }
+				add_core = TSS
+				remove_core = ROOT
+			}
+			chalkidiki_area = {
 				limit = { owned_by = ROOT }
 				add_core = TSS
 				remove_core = ROOT
@@ -4173,7 +4261,12 @@ assign_cores_of_latin_empire_fiefs_effect = {
 		#PPO
 		if = {
 			limit = { NOT = { exists = PPO } }
-			bulgariasouth_region = {
+			zagore_area = {
+				limit = { owned_by = ROOT }
+				add_core = PPO
+				remove_core = ROOT
+			}
+			plovdiv_area = {
 				limit = { owned_by = ROOT }
 				add_core = PPO
 				remove_core = ROOT
