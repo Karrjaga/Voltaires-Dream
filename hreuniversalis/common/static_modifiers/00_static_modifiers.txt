@@ -2464,6 +2464,7 @@ ruler_adm = {
 	monthly_divine_authority = 0.01
 	monthly_byzantine_feudalization = 0.02
 	monthly_jerusalem_power = 0.1
+	monthly_vizierate_power = -0.01
 }
 
 ruler_dip = {
@@ -2473,6 +2474,7 @@ ruler_dip = {
 	monthly_divine_authority = 0.01
 	monthly_byzantine_feudalization = 0.02
 	monthly_jerusalem_power = 0.1
+	monthly_vizierate_power = -0.01
 }
 
 ruler_mil = {
@@ -2481,6 +2483,7 @@ ruler_mil = {
 	monthly_divine_authority = 0.01
 	monthly_byzantine_feudalization = 0.02
 	monthly_jerusalem_power = 0.1
+	monthly_vizierate_power = -0.01
 }
 
 heir_adm = {
