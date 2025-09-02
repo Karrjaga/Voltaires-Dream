@@ -631,6 +631,10 @@ universities = {
 			development = 15
 			is_capital = yes
 		}
+		owner = {
+			NOT = { government = native }
+			NOT = { government = tribal }
+		}
 	}
 	start_chance = 5		#in 100 for when a province can_start
 	
