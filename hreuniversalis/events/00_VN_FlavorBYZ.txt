@@ -185,7 +185,7 @@ country_event = {
 		NOT = {
 			any_owned_province = {
 				superregion = sicily_superregion
-				controlled_by = BYZ
+				controlled_by = ROOT
 			}
 		}
 	}
@@ -196,9 +196,9 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			every_owned_province = {
+			sicily_superregion = {
 				limit = {
-					superregion = sicily_superregion
+					owned_BY = ROOT
 					controlled_by = APL
 				}
 				cede_province = APL
