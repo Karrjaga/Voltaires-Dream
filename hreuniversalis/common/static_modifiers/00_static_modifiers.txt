@@ -641,7 +641,6 @@ positive_stability = {
 	yearly_harmony = 0.25
 	monthly_ottoman_decadence = -0.05
 	monthly_authority_power = -0.01
-	monthly_caliphal_authority = 0.05
 	monthly_vizierate_power = -0.01
 	monthly_byzantine_feudalization = 0.025
 }
@@ -662,7 +661,6 @@ negative_stability = {
 	monthly_russian_modernization = 0.03
 	monthly_ottoman_decadence = -0.15
 	monthly_authority_power = -0.05
-	monthly_caliphal_authority = 0.15
 	monthly_vizierate_power = -0.05
 	monthly_byzantine_feudalization = 0.15
 }
@@ -729,7 +727,6 @@ inflation = {
 	state_maintenance_modifier = 0.01					#1% for each inflation step
 	monthly_russian_modernization = -0.01
 	monthly_byzantine_feudalization = -0.01
-	monthly_caliphal_authority = -0.01
 }
 
 bankruptcy = {
@@ -761,7 +758,6 @@ bankruptcy = {
 	great_project_upgrade_cost = 0.5
 	monthly_russian_modernization = -1
 	monthly_authority_power = 0.25
-	monthly_caliphal_authority = -1
 	monthly_byzantine_feudalization = -1
 	monthly_assyrian_militarization_power = 0.05
 	monthly_vizierate_power = 0.25
@@ -830,7 +826,6 @@ war_exhaustion = {
 	monthly_arabic_trade_influence_power = -0.05
 	monthly_cultural_unity = -0.05
 	monthly_authority_power = 0.01
-	monthly_caliphal_authority = -0.05
 	monthly_vizierate_power = 0.01
 }
 
@@ -850,7 +845,6 @@ authority = {
 regency_council = {
 	stability_cost_modifier = 0.25
 	tur_lalas_influence = 0.25
-	monthly_caliphal_authority = -0.05
 }
 
 trade_efficiency = {
@@ -922,7 +916,6 @@ positive_piety = {
 	church_loyalty_modifier = 0.1
 	piety_dhimmi_loyalty_modifier = -0.1
 	mamluks_loyalty_modifier = 0.1
-	monthly_caliphal_authority = 0.1
 	monthly_vizierate_power = -0.1
 }
 
@@ -935,7 +928,6 @@ negative_piety = {
 	piety_church_loyalty_modifier = -0.1
 	dhimmi_loyalty_modifier = 0.1
 	mamluks_loyalty_modifier = -0.1
-	monthly_caliphal_authority = -0.1
 	monthly_vizierate_power = 0.1
 }
 
@@ -952,7 +944,6 @@ defender_of_faith = {
 	devotion = 0.5
 	monthly_asha_vahishta = 0.25
 	monthly_hussite_ecumene = -0.2
-	monthly_caliphal_authority = 0.05
 	monthly_vizierate_power = -0.05
 }
 
@@ -960,7 +951,6 @@ defender_of_faith_refused_cta = {
 	diplomatic_reputation = -1
 	monthly_asha_vahishta = -2
 	monthly_hussite_ecumene = 0.1
-	monthly_caliphal_authority = -0.05
 	monthly_vizierate_power = 0.05
 }
 
@@ -1134,7 +1124,6 @@ corruption = {
 	monthly_ottoman_decadence = 10
 	monthly_arabic_trade_influence_power = -0.5
 	monthly_authority_power = 0.5
-	monthly_caliphal_authority = -0.1
 	monthly_byzantine_feudalization = -1
 	monthly_vizierate_power = 0.5
 }
@@ -1199,7 +1188,6 @@ over_extension = {
 	koj_patriarchate_influence = 0.5
 	yearly_corruption = 0.5
 	ottoman_decadence_gain_modifier = 0.25
-	monthly_caliphal_authority = -0.25
 }
 
 prestige = {
@@ -1237,7 +1225,6 @@ prestige = {
 	ghulams_loyalty_modifier = 0.05
 	monthly_divine_authority = 0.1
 	monthly_authority_power = -0.2
-	monthly_caliphal_authority = 0.1
 	monthly_vizierate_power = -0.2
 }
 
@@ -2383,7 +2370,6 @@ over_governing_capacity_modifier = {
 	administrative_efficiency = -0.5
 	monthly_ottoman_decadence = 2
 	monthly_authority_power = 0.5
-	monthly_caliphal_authority = -0.25
 	monthly_byzantine_feudalization = 2
 	monthly_assyrian_militarization_power = -1
 	monthly_vizierate_power = 0.5
@@ -2446,7 +2432,6 @@ diplomatic_reputation = {
 
 tolerance_own = {
 	monthly_divine_authority = 0.03
-	monthly_caliphal_authority = 0.05
 }
 
 tolerance_heretic = {
@@ -2568,12 +2553,10 @@ reverse_average_subject_liberty_desire = { #100% LD => 0% modifier
 average_global_autonomy = { #100% autonomy => 100% modifier
 	monthly_ottoman_decadence = 0.25
 	monthly_divine_authority = -0.5
-	monthly_caliphal_authority = -0.25
 }
 
 reverse_average_global_autonomy = { #100% autonomy => 0% modifier
 	monthly_council_consensus = 0.2
-	monthly_caliphal_authority = 0.25
 }
 
 adur_burzhen_mihr_mod = {
