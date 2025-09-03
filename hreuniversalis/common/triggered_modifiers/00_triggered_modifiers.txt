@@ -682,75 +682,75 @@ judaism_yom_kippur_aspect_defensive_war_modifier = {
 # Government Reform Specific
 ######################################
 
-ahmudan_system_attacker = {
-	potential = {
-		has_government_attribute = ahmudan_system
-	}
+# ahmudan_system_attacker = {
+# 	potential = {
+# 		has_government_attribute = ahmudan_system
+# 	}
 
-	trigger = {
-		is_at_war = yes
-	}
-	global_regiment_cost = -0.1
-	manpower_recovery_speed = 0.2
-}
+# 	trigger = {
+# 		is_at_war = yes
+# 	}
+# 	global_regiment_cost = -0.1
+# 	manpower_recovery_speed = 0.2
+# }
 
-ahmudan_system_defender = {
-	potential = {
-		has_government_attribute = ahmudan_system
-	}
+# ahmudan_system_defender = {
+# 	potential = {
+# 		has_government_attribute = ahmudan_system
+# 	}
 
-	trigger = {
-		is_in_war = {
-			defenders = ROOT
-		}
-	}
-	land_morale = 0.075
-	defensiveness = 0.15
-	manpower_recovery_speed = 0.1
-}
+# 	trigger = {
+# 		is_in_war = {
+# 			defenders = ROOT
+# 		}
+# 	}
+# 	land_morale = 0.075
+# 	defensiveness = 0.15
+# 	manpower_recovery_speed = 0.1
+# }
 
-TIM_diwan_adm = {
-	potential = {
-		has_reform = timurid_diwan_reform
-	}
+# TIM_diwan_adm = {
+# 	potential = {
+# 		has_reform = timurid_diwan_reform
+# 	}
 
-	trigger = {
-		national_focus = adm
-	}
-	yearly_corruption = -0.15
-}
+# 	trigger = {
+# 		national_focus = adm
+# 	}
+# 	yearly_corruption = -0.15
+# }
 
-TIM_diwan_dip = {
-	potential = {
-		has_reform = timurid_diwan_reform
-	}
+# TIM_diwan_dip = {
+# 	potential = {
+# 		has_reform = timurid_diwan_reform
+# 	}
 
-	trigger = {
-		national_focus = dip
-	}
-	global_unrest = -1
-}
+# 	trigger = {
+# 		national_focus = dip
+# 	}
+# 	global_unrest = -1
+# }
 
-TIM_diwan_mil = {
-	potential = {
-		has_reform = timurid_diwan_reform
-	}
+# TIM_diwan_mil = {
+# 	potential = {
+# 		has_reform = timurid_diwan_reform
+# 	}
 
-	trigger = {
-		national_focus = mil
-	}
-	land_maintenance_modifier = -0.1
-}
+# 	trigger = {
+# 		national_focus = mil
+# 	}
+# 	land_maintenance_modifier = -0.1
+# }
 
 
 #VN
 xvaetvadatha = {
 	potential = {
-		has_dlc = "Rights of Man"
-		has_government_attribute = queen
-		is_lesser_in_union = no
 		religion = zoroastrian
 		government = monarchy
+		has_government_attribute = queen
+		is_lesser_in_union = no
+		has_dlc = "Rights of Man"
 	}
 
 	trigger = {
@@ -766,10 +766,8 @@ xvaetvadatha = {
 
 investiture_controversy_m = {
 	potential = {
-		normal_or_historical_nations = yes
+		is_emperor = yes
 		has_global_flag = investiture_controversy_active
-		is_part_of_hre = yes
-		religion = catholic
 	}
 
 	trigger = {	
@@ -781,54 +779,54 @@ investiture_controversy_m = {
 	diplomatic_reputation = -1
 }
 
-reconquista_fervor = {
-	potential = {
-		normal_or_historical_nations = yes
-		has_global_flag = reconquista_fervor_flag
-		NOT = {
-			had_global_flag = {
-				flag = reconquista_fervor_flag
-				days = 18250
-			}
-		}
-		culture_group = iberian
-		religion = catholic
-		capital_scope = {
-			superregion = iberia_superregion
-		}
-	}
+# reconquista_fervor = {
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		has_global_flag = reconquista_fervor_flag
+# 		NOT = {
+# 			had_global_flag = {
+# 				flag = reconquista_fervor_flag
+# 				days = 18250
+# 			}
+# 		}
+# 		culture_group = iberian
+# 		religion = catholic
+# 		capital_scope = {
+# 			superregion = iberia_superregion
+# 		}
+# 	}
 
-	trigger = {	
-		any_enemy_country = {
-			religion_group = muslim
-			capital_scope = {
-				superregion = iberia_superregion
-			}
-		}
-	}
+# 	trigger = {	
+# 		any_enemy_country = {
+# 			religion_group = muslim
+# 			capital_scope = {
+# 				superregion = iberia_superregion
+# 			}
+# 		}
+# 	}
 
-	papal_influence = 1
-	land_morale = 0.05
-	reinforce_speed = 0.05
-}
+# 	papal_influence = 1
+# 	land_morale = 0.05
+# 	reinforce_speed = 0.05
+# }
 
-appanage_during_factionalism_modifier = {
-	potential = {
-		is_subject_of_type = tributary_state
-		overlord = { has_disaster = russian_factionalism }
-	}
-	trigger = {
-		is_subject_of_type = tributary_state
-		overlord = { has_disaster = russian_factionalism }
-	}
-	global_autonomy = 0.05
-	global_unrest = 5
-}
+# appanage_during_factionalism_modifier = {
+# 	potential = {
+# 		is_subject_of_type = tributary_state
+# 		overlord = { has_disaster = russian_factionalism }
+# 	}
+# 	trigger = {
+# 		is_subject_of_type = tributary_state
+# 		overlord = { has_disaster = russian_factionalism }
+# 	}
+# 	global_autonomy = 0.05
+# 	global_unrest = 5
+# }
 
 cathar_castles_modifier = {
 	potential = {
-		normal_or_historical_nations = yes
 		religion = cathar
+		normal_or_historical_nations = yes
 	}
 	trigger = {
 		owns_or_vassal_of = 1273
