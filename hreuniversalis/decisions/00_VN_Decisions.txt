@@ -1233,52 +1233,52 @@ country_decisions = {
 		}
 	}
 
-	claim_irish_high_kingship = {
-		major = yes
-		potential = {
-			has_reform = tribal_kingdom
-			NOT = { started_in = 1171.5.1 }
-			NOT = { exists = IRE }
-			NOT = { has_country_modifier = irish_high_king }
-			any_owned_province = { superregion = irish_superregion }
-			OR = {
-        		primary_culture = dalcassian
-				primary_culture = eoganachta
-				primary_culture = laigin
-				primary_culture = erainn
-				primary_culture = ulaidh
-				primary_culture = connachta
-				primary_culture = gallowglass
-        	}
-			#NOT = { any_country = { is_in_war = { casus_belli = cb_take_high_kingship } } }
-		}
-		provinces_to_highlight = {
-			OR = {
-				province_id = 891
-				province_id = 2737
-				province_id = 2308
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		allow = {
-			owns_or_vassal_of = 891 #Limerick
-			owns_or_vassal_of = 2737 #Dublin
-			owns_or_vassal_of = 2308 #Waterford
-			has_regency = no
-			is_female = no
-			is_subject = no
-			NOT = { any_country = { has_country_modifier = irish_high_king } }
-		}
-		effect = {
-			add_country_modifier = {
-            	name = irish_high_king
-            	duration = -1
-        	}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	# claim_irish_high_kingship = {
+	# 	major = yes
+	# 	potential = {
+	# 		has_reform = tribal_kingdom
+	# 		NOT = { started_in = 1171.5.1 }
+	# 		NOT = { exists = IRE }
+	# 		NOT = { has_country_modifier = irish_high_king }
+	# 		any_owned_province = { superregion = irish_superregion }
+	# 		OR = {
+    #     		primary_culture = dalcassian
+	# 			primary_culture = eoganachta
+	# 			primary_culture = laigin
+	# 			primary_culture = erainn
+	# 			primary_culture = ulaidh
+	# 			primary_culture = connachta
+	# 			primary_culture = gallowglass
+    #     	}
+	# 		#NOT = { any_country = { is_in_war = { casus_belli = cb_take_high_kingship } } }
+	# 	}
+	# 	provinces_to_highlight = {
+	# 		OR = {
+	# 			province_id = 891
+	# 			province_id = 2737
+	# 			province_id = 2308
+	# 		}
+	# 		NOT = { country_or_non_sovereign_subject_holds = ROOT }
+	# 	}
+	# 	allow = {
+	# 		owns_or_vassal_of = 891 #Limerick
+	# 		owns_or_vassal_of = 2737 #Dublin
+	# 		owns_or_vassal_of = 2308 #Waterford
+	# 		has_regency = no
+	# 		is_female = no
+	# 		is_subject = no
+	# 		NOT = { any_country = { has_country_modifier = irish_high_king } }
+	# 	}
+	# 	effect = {
+	# 		add_country_modifier = {
+    #         	name = irish_high_king
+    #         	duration = -1
+    #     	}
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 
 	establish_warmia_diocese = {
 		major = yes

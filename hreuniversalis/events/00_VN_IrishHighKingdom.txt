@@ -63,9 +63,18 @@ country_event = {
 	title = "vn_ire_kingdom.2.t"
 	desc = "vn_ire_kingdom.2.d"
 	picture = ASSASSINATION_eventPicture
+	goto = ire_capital
 
 	is_triggered_only = yes
 	mean_time_to_happen = { days = 1 }
+
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				save_event_target_as = ire_capital
+			}
+		}
+	}
 	
 	option = {
 		name = "vn_ire_kingdom.2.a"
@@ -104,11 +113,25 @@ country_event = {
                 }
             }
 		}
-		add_casus_belli = {
-            target = FROM
-            type = cb_take_high_kingship
-            months = 120
-        }
+		if = {
+			limit = {
+				NOT = { 
+					has_casus_belli = {
+						type = cb_take_high_kingship
+						target = FROM
+					}
+				}
+	
+			}
+			add_casus_belli = {
+				target = FROM
+				type = cb_take_high_kingship
+			}
+		}
+		reverse_add_opinion = {
+			who = FROM
+			modifier = opinion_displeased
+		}
 	}
 	option = {
 		name = "vn_ire_kingdom.2.b"
@@ -128,6 +151,18 @@ country_event = {
                 }
             }
         }
+		if = {
+			limit = {
+				has_casus_belli = {
+					type = cb_take_high_kingship
+					target = FROM
+				}
+			}
+			remove_casus_belli = {
+				type = cb_take_high_kingship
+				target = FROM
+			}
+		}
         reverse_add_opinion = {
 			who = FROM
 			modifier = opinion_pleased
@@ -142,6 +177,14 @@ country_event = {
     picture = GOOD_WITH_MONARCH_eventPicture
 
     major = yes
+	major_trigger = {
+		OR = {
+			capital_scope = {
+				superregion = irish_superregion
+			}
+			has_reform = tribal_kingdom
+		}
+	}
     is_triggered_only = yes
     mean_time_to_happen = { days = 1 }
 
