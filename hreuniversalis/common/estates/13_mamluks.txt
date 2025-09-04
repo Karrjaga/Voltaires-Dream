@@ -89,11 +89,9 @@ estate_mamluks = {
 	country_modifier_angry = {
 		mercenary_manpower = -1.0
 		global_unrest = 2
-		monthly_fatimid_irreverence = 0.25
 	}
 	land_ownership_modifier = {
 		mamluks_loyalty_modifier = 0.2
-		monthly_fatimid_irreverence = 1
 	}
 
 	# Influence modifiers
