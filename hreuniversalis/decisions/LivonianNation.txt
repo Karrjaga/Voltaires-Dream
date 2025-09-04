@@ -116,13 +116,8 @@ country_decisions = {
 	livonian_nation_batlic_german = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			was_never_end_game_tag_trigger = yes
-			NOT = { has_country_flag = formed_livonia_flag }
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
+			primary_culture = baltic_german
+			NOT = { exists = LVA }
 			NOT = {
 				OR = {
 					tag = RIG
@@ -132,8 +127,13 @@ country_decisions = {
 					tag = OSL
 				}
 			}
-			primary_culture = baltic_german
-			NOT = { exists = LVA }
+			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_livonia_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
 			OR = {
 				ai = no
 				is_religion_enabled = protestant

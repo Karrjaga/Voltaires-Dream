@@ -3,6 +3,15 @@ country_decisions = {
 	hannoverian_nation = {
 		major = yes
 		potential = {
+			OR = {
+				primary_culture = hannoverian
+				primary_culture = eastphalian
+			}
+			NOT = { tag = PRU }
+			NOT = { tag = HSA }
+			NOT = { tag = WES }
+			NOT = { exists = HAN }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -11,15 +20,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			was_never_end_game_tag_trigger = yes
-			NOT = { tag = PRU }
-			NOT = { tag = HSA }
-			NOT = { tag = WES }
-			NOT = { exists = HAN }
-			OR = {
-				primary_culture = hannoverian
-				primary_culture = eastphalian
 			}
 			is_colonial_nation = no
 			OR = {
@@ -116,6 +116,15 @@ country_decisions = {
 	westfalian_nation = {
 		major = yes
 		potential = {
+			OR = {
+				primary_culture = hannoverian #Westphalian
+				primary_culture = hessian
+			}
+			NOT = { tag = PRU }
+			NOT = { tag = SWI }
+			NOT = { tag = HAN }
+			NOT = { exists = WES }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			primitives = no
 			OR = {
@@ -125,15 +134,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			was_never_end_game_tag_trigger = yes
-			NOT = { tag = PRU }
-			NOT = { tag = SWI }
-			NOT = { tag = HAN }
-			NOT = { exists = WES }
-			OR = {
-				primary_culture = hannoverian #Westphalian
-				primary_culture = hessian
 			}
 			NOT = { has_country_flag = formed_westphalia }
 			is_colonial_nation = no
@@ -242,6 +242,15 @@ country_decisions = {
 	greek_nation = {
 		major = yes
 		potential = {
+			OR = {
+				primary_culture = greek
+				primary_culture = maniot
+				primary_culture = peloponnesian
+			}
+			NOT = { tag = BYZ }
+			NOT = { exists = BYZ }
+			NOT = { exists = GRE }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -250,15 +259,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			was_never_end_game_tag_trigger = yes
-			NOT = { tag = BYZ }
-			NOT = { exists = BYZ }
-			NOT = { exists = GRE }
-			OR = {
-				primary_culture = greek
-				primary_culture = maniot
-				primary_culture = peloponnesian
 			}
 			is_colonial_nation = no
 			OR = {

@@ -537,6 +537,7 @@ country_decisions = {
 		}
 		allow = {
 			2233 = {
+				has_province_modifier = BYZ_galata 
 				has_most_province_trade_power = ROOT
 				trade_share = {
 					country = ROOT

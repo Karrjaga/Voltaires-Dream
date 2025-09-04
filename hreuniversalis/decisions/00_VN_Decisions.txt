@@ -311,6 +311,12 @@ country_decisions = {
             normal_or_historical_nations = yes
         }
         allow = {
+			OR = {
+            	tag = REI
+            	tag = SXM
+            	tag = WGR
+            	tag = PAL
+            }
             is_at_war = no
             #Rheingrave
 			if = {
@@ -392,14 +398,14 @@ country_decisions = {
     make_turin_capital = {
 		potential = {
 			tag = SAV
-			normal_or_historical_nations = yes
-			owns = 1009
 			NOT = { capital = 1009 }
 			NOT = { primary_culture = piedmontese }
 			NOT = { has_country_flag = relocated_capital_turin }
+			normal_or_historical_nations = yes
 		}
 		allow = {
-			is_core = 1009
+			tag = SAV
+			owns_core_province = 1009
 			OR = {
 				adm_tech = 46
 				stability = 3
@@ -889,6 +895,7 @@ country_decisions = {
 			NOT = { is_religion_enabled = protestant }
 		}
 		allow = {
+			religion = iconoclast
 			has_regency = yes
 			is_at_war = no
 		}
@@ -912,6 +919,7 @@ country_decisions = {
 			current_age = age_of_empire
 		}
 		allow = {
+			primary_culture = bedouin_arabic
 			stability = 1
 			is_at_war = no
 			current_age = age_of_empire
@@ -939,11 +947,11 @@ country_decisions = {
 	revive_kemetism = {
 		major = yes
 		potential = {
+			primary_culture = old_egyptian
+			capital_scope = { continent = africa }
 			NOT = { tag = FTM }
 			NOT = { tag = MAM }
 			NOT = { religion = egyptian_religion }
-			capital_scope = { continent = africa }
-			primary_culture = old_egyptian
 			ai = no
 		}
 		provinces_to_highlight = {
@@ -970,6 +978,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			primary_culture = old_egyptian
 			OR = {
 				tag = EGY
 				AND = {
@@ -1993,10 +2002,18 @@ country_decisions = {
 			}
 		}
 		allow = {
+			OR = {
+				primary_culture = polabian
+				primary_culture = kashubian
+			}
 			primitives = no
 			capital_scope = {
 				culture_group = germanic
 				has_owner_accepted_culture = yes
+			}
+			OR = {
+				current_age = age_of_holy_wars
+				current_age = age_of_crisis
 			}
 			stability = 1
 			is_at_war = no
@@ -2042,6 +2059,7 @@ country_decisions = {
 			has_country_modifier = byz_aristocrats_m
 		}
 		allow = {
+			has_country_modifier = byz_aristocrats_m
 			stability = 1
 			NOT = {
 				has_estate_privilege = estate_nobles_emboldened_aristocrats
@@ -2067,6 +2085,7 @@ country_decisions = {
 			has_country_modifier = byz_bureaucrats_m
 		}
 		allow = {
+			has_country_modifier = byz_bureaucrats_m
 			government_reform_progress = 10
 			NOT = { num_of_states = 25 }
 			has_3_lv2_advisors_trigger = yes
@@ -2099,6 +2118,7 @@ country_decisions = {
 				#}
 				#amount = 60
 			#}
+			has_country_modifier = byz_defenses_m
 			if = {
 				limit = {
 					OR = {
@@ -2220,6 +2240,7 @@ country_decisions = {
 			has_country_modifier = byz_army_m
 		}
 		allow = {
+			has_country_modifier = byz_army_m
 			if = {
 				limit = { has_dlc = "Cradle of Civilization" }
 				OR = {
@@ -2252,6 +2273,7 @@ country_decisions = {
 			has_country_modifier = byz_unrest_m
 		}
 		allow = {
+			has_country_modifier = byz_unrest_m
 			is_at_war = no
 			#NOT = { average_autonomy_above_min = 1 }
 			NOT = { average_autonomy = 75 }
@@ -2336,12 +2358,12 @@ country_decisions = {
 	almoravid_invasion = {
 		major = yes
 		potential = {
-			current_age = age_of_empire
-			normal_or_historical_nations = yes
-			NOT = { started_in = 1061.1.1 }
 			tag = DAA
+			NOT = { started_in = 1061.1.1 }
+			current_age = age_of_empire
 			NOT = { exists = MOR }
 			is_subject = no
+			normal_or_historical_nations = yes
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -2357,16 +2379,17 @@ country_decisions = {
 			}
 		}
 		allow = {
-			current_age = age_of_empire
-			dynasty = "al-Murâbit"
-			religion = sunni
-			has_regency = no
-			is_at_war = no
+			tag = DAA
 			owns_core_province = 4677
 			owns_core_province = 4678
 			owns_core_province = 4680
 			owns_core_province = 4681
 			owns_core_province = 4682
+			current_age = age_of_empire
+			dynasty = "al-Murâbit"
+			religion = sunni
+			has_regency = no
+			is_at_war = no
 		}
 		effect = {
 			custom_tooltip = almoravid_invasion.tt
@@ -2547,11 +2570,11 @@ country_decisions = {
 			NOT = { religion = zoroastrian }
 		}
 		allow = {
+			owns_core_province = 7415
 			stability = 1
 			has_regency = no
-			is_free_or_tributary_trigger = yes
 			is_at_war = no
-			owns_core_province = 7415
+			is_free_or_tributary_trigger = yes
 		}
 		effect = {
 			add_stability = -1
@@ -2595,11 +2618,11 @@ country_decisions = {
 			NOT = { religion = mandaeism }
 		}
 		allow = {
+			owns_core_province = 6313
 			stability = 1
 			has_regency = no
-			is_free_or_tributary_trigger = yes
 			is_at_war = no
-			owns_core_province = 6313
+			is_free_or_tributary_trigger = yes
 		}
 		effect = {
 			add_stability = -1
@@ -2643,11 +2666,11 @@ country_decisions = {
 			NOT = { religion = yazidi }
 		}
 		allow = {
+			owns_core_province = 6378
 			stability = 1
 			has_regency = no
-			is_free_or_tributary_trigger = yes
 			is_at_war = no
-			owns_core_province = 6378
+			is_free_or_tributary_trigger = yes
 		}
 		effect = {
 			add_stability = -1
@@ -2691,11 +2714,11 @@ country_decisions = {
 			NOT = { religion = druze }
 		}
 		allow = {
+			owns_core_province = 4957
 			stability = 1
 			has_regency = no
-			is_free_or_tributary_trigger = yes
 			is_at_war = no
-			owns_core_province = 4957
+			is_free_or_tributary_trigger = yes
 		}
 		effect = {
 			add_stability = -1
@@ -2727,13 +2750,13 @@ country_decisions = {
 	azerbaijani_identity = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			primitives = no
-			was_never_end_game_tag_trigger = yes
 			OR = {
 				primary_culture = azerbaijani
 				primary_culture = azari
 			}
+			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
+			primitives = no
 			NOT = { has_country_flag = azerbaijani_identity_flag }
 			NOT = {
 				any_country = {

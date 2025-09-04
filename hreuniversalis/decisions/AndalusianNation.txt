@@ -67,12 +67,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = ADU }
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
-			is_at_war = no
-			is_tribal = no
-			NOT = { has_country_modifier = parias_modifier }
 			owns_core_province = 267			# Murcia
 			owns_core_province = 443			# Granada
 			owns_core_province = 1867			# Andalucia
@@ -82,7 +76,6 @@ country_decisions = {
 			owns_core_province = 2920			# Cadiz
 			owns_core_province = 1212			# Badajoz
 			owns_core_province = 403			# Almeria
-			2670 = { is_state = yes }
 			OR = {
 				AND = {
 					owns_core_province = 1121			# Algarve
@@ -93,6 +86,13 @@ country_decisions = {
 					owns_core_province = 2024			# Valencia
 				}
 			}
+			2670 = { is_state = yes }
+			NOT = { exists = ADU }
+			NOT = { has_country_modifier = parias_modifier }
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			is_tribal = no
 		}
 		effect = {
 			change_tag = ADU

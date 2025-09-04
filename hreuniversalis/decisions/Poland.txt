@@ -23,6 +23,10 @@ country_decisions = {
 			NOT = { has_country_flag = relocated_capital_warsawa }
 		}
 		allow = {
+			OR = {
+				tag = POL
+				tag = PLC
+			}
 			is_core = 1138
 			is_at_war = no
 		}

@@ -8,6 +8,7 @@ country_decisions = {
 			NOT = { has_country_flag = pru_confederation_happened }
 		}
 		allow = {
+			has_disaster = prussian_confederation_disaster
 			stability = 1
 			NOT = { num_of_rebel_controlled_provinces = 1 }
 			NOT = {

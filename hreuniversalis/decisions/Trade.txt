@@ -5,6 +5,7 @@ country_decisions = {
 			has_country_modifier = slave_empire
 		}
 		allow = {
+			has_country_modifier = slave_empire
 			has_institution = feudalism
 			has_institution = new_world_i
 			adm_tech = 40

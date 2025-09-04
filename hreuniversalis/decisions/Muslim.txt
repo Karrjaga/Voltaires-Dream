@@ -126,13 +126,15 @@ country_decisions = {
 	
 	change_religion_sunni = {
 		potential = {
-			has_dlc = "Star and Crescent"
 			religion = shiite
 			dominant_religion = sunni
+			has_dlc = "Star and Crescent"
 			is_free_or_tributary_trigger = yes
 			is_force_converted = no
 		}
 		allow = {
+			religion = shiite
+			dominant_religion = sunni
 			capital_scope = {
 				religion = sunni
 			}
@@ -156,6 +158,8 @@ country_decisions = {
 			is_force_converted = no
 		}
 		allow = {
+			religion = sunni
+			dominant_religion = shiite
 			capital_scope = {
 				religion = shiite
 			}
@@ -172,7 +176,6 @@ country_decisions = {
 
 	abandon_the_legal_ways = {
 		potential = {
-			has_dlc = "Cradle of Civilization"
 			#OR = {
 				has_government_attribute = allow_piety_switch_decision
 			# 	AND = {
@@ -187,9 +190,10 @@ country_decisions = {
 			# 	}
 			# }
 			uses_piety = yes
-
+			has_dlc = "Cradle of Civilization"
 		}
 		allow = {
+			has_government_attribute = allow_piety_switch_decision
 			piety = 0.5
 			stability = -2
 		}
@@ -205,7 +209,6 @@ country_decisions = {
 	
 	return_to_the_legal_ways = {
 		potential = {
-			has_dlc = "Cradle of Civilization"
 			#OR = {
 				has_government_attribute = allow_piety_switch_decision
 			# 	AND = {
@@ -220,8 +223,10 @@ country_decisions = {
 			# 	}
 			# }
 			uses_piety = yes
+			has_dlc = "Cradle of Civilization"
 		}
 		allow = {
+			has_government_attribute = allow_piety_switch_decision
 			NOT = { piety = -0.49 }
 			stability = -2
 		}

@@ -31,9 +31,12 @@ country_decisions = {
 	
 	de_heretico_comburendo_act = {
 		potential = {
-			NOT = { has_country_modifier = de_heretico_comburendo }
-			religion = catholic
+			OR = {
+				religion = catholic
+				religion = catholique
+			}
 			has_institution = laytheology
+			NOT = { has_country_modifier = de_heretico_comburendo }
 			reform_desire = 0.10
 		}
 		allow = {
@@ -57,6 +60,7 @@ country_decisions = {
 			religion_group = christian
 		}
 		allow = {
+			religion_group = christian
 			advisor = theologian
 		}
 		effect = {	
@@ -87,6 +91,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			religion_group = christian
 			adm = 3
 		}
 		effect = {	
@@ -199,13 +204,13 @@ country_decisions = {
 	
 	test_act = {
 		potential = {
-			NOT = { has_country_modifier = the_test_act }
 			OR = {
 				religion = protestant
 				religion = reformed
 				religion = anabaptist
 				religion = anglican
 			}
+			NOT = { has_country_modifier = the_test_act }
 		}
 		allow = {
 			adm_tech = 40
@@ -633,12 +638,13 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 		}
 		allow = {
-			stability = 1
-			is_at_war = no
+			religion_group = pagan
 			OR = {
 				NOT = { has_secondary_religion = yes }
 				secondary_religion = buddhism
 			}
+			stability = 1
+			is_at_war = no
 		}
 		effect = {
 			change_religion = buddhism
@@ -661,12 +667,13 @@ country_decisions = {
 	
 	invite_lama = {
 		potential = {
-			has_dlc = "Common Sense"
+			religion = buddhism
 			NOT = { has_country_modifier = vajrayana_lama }
 			NOT = { has_ruler_flag = invited_lama }
-			religion = buddhism
+			has_dlc = "Common Sense"
 		}
 		allow = {
+			religion = buddhism
 			stability = 1
 			prestige = 25
 			is_at_war = no
@@ -689,11 +696,12 @@ country_decisions = {
 	
 	anti_christian_edict = {
 		potential = {
-			NOT = { has_country_modifier = the_anti_christian_edict }
 			religion_group = eastern
+			NOT = { has_country_modifier = the_anti_christian_edict }
 			any_neighbor_country = { religion_group = christian }
 		}
 		allow = {
+			religion_group = eastern
 			is_defender_of_faith = no
 			any_neighbor_country = {
 				religion_group = christian
@@ -808,6 +816,8 @@ country_decisions = {
 			religion_group = pagan
 		}
 		allow = {
+			religion_group = pagan
+			NOT = { has_country_modifier = rite_of_passage }
 			ADM = 3
 		}
 		effect = {	
@@ -854,14 +864,15 @@ country_decisions = {
 	
 	enforce_heritage = {
 		potential = {
-			NOT = { has_country_modifier = enforcing_heritage }
 			religion_group = eastern
+			NOT = { has_country_modifier = enforcing_heritage }
 		}
 		allow = {
+			religion_group = eastern
+			stability = 1
 			any_neighbor_country = {
 				NOT = { religion_group = eastern }
 			}
-			stability = 1
 		}
 		effect = {	
 			add_country_modifier = {
@@ -931,6 +942,7 @@ country_decisions = {
 			has_country_flag = has_norse_flexible_deities_permanent
 		}
 		allow = {
+			religion = norse_pagan_reformed
 			has_regency = no
 			custom_trigger_tooltip = {
 				tooltip = decision_once_every_twenty_years
@@ -1421,6 +1433,8 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 		}
 		allow = {
+			religion_group = pagan
+			NOT = { religion = tengri_pagan_reformed }
 			NOT = { government = tribal }
 			stability = 1
 		}
@@ -1502,6 +1516,7 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 		}
 		allow = {
+			religion_group = pagan
 			NOT = { government = tribal }
 			stability = 1
 		}
@@ -1529,6 +1544,7 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 		}
 		allow = {
+			religion_group = pagan
 			NOT = { government = tribal }
 			stability = 1
 		}

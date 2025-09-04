@@ -79,6 +79,7 @@ country_decisions = {
 			has_government_attribute = can_force_election
 		}
 		allow = {
+			has_government_attribute = can_force_election
 			republican_tradition = 55
 			custom_trigger_tooltip = {
 				tooltip = force_reelection_tt
@@ -228,7 +229,7 @@ country_decisions = {
 			has_country_modifier = promoting_art
 		}
 		allow = {
-			always = yes
+			has_government_mechanic = persian_influence_mechanic
 		}
 		effect = {
 			custom_tooltip = stop_promoting_art_tt
@@ -258,6 +259,7 @@ country_decisions = {
 			has_government_attribute = legacy_of_timur_decision
 		}
 		allow = {
+			has_government_attribute = legacy_of_timur_decision
 			adm_power_cost = 50
 			NOT = { has_country_modifier = legacy_of_timur_modifier }
 		}
@@ -282,6 +284,7 @@ country_decisions = {
 			has_unlocked_decision = { type = grand_vizier_selection }
 		}
 		allow = {
+			has_unlocked_decision = { type = grand_vizier_selection }
 			adm_power_cost = 25
 			OR = {
 				has_estate_privilege = estate_church_independent_inquisition

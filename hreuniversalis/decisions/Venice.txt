@@ -102,10 +102,13 @@ confirm_thalassocracy = {
 	replenish_mercenary_ranks = {
 		major = yes
 		potential = {
-			has_country_flag = ven_condottieri_flag
 			owns = 112
+			has_country_flag = ven_condottieri_flag
 		} 
 		allow = {
+			hidden_trigger = {
+				has_country_flag = ven_condottieri_flag
+			}
 			custom_trigger_tooltip = {
 				tooltip = ROOT_5_YEAR_CD_TT
 				OR = {

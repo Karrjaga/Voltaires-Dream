@@ -178,14 +178,17 @@ country_decisions = {
 	lbv_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			primitives = no
 			OR = {
 				primary_culture = lombard
 				primary_culture = langobardic
 				primary_culture = venetian
 			}
+			NOT = { exists = LBV }
+			NOT = { tag = XKK }
+			NOT = { tag = SIC }
 			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
+			primitives = no
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -194,9 +197,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = LBV }
-			NOT = { tag = XKK }
-			NOT = { tag = SIC }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -209,13 +209,13 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_at_war = no
-			is_nomad = no
-			adm_tech = 56
-			NOT = { exists = LBV }
-			NOT = { exists = XKK }
 			owns_core_province = 1818 #milan
 			owns_core_province = 112 #venice
+			adm_tech = 56
+			is_at_war = no
+			is_nomad = no
+			NOT = { exists = LBV }
+			NOT = { exists = XKK }
 		}
 		effect = {
 			change_tag = LBV
@@ -1065,6 +1065,18 @@ country_decisions = {
 	sgc_nation = {
 		major = yes
 		potential = {
+			culture_group = germanic
+			capital_scope = {
+				superregion = germanysouth_superregion
+			}
+			NOT = { exists = SGC }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = FKE }
+			NOT = { tag = EAH }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			primitives = no
 			OR = {
@@ -1074,18 +1086,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			was_never_end_game_tag_trigger = yes
-			NOT = { exists = SGC }
-			NOT = { tag = PAP }
-			NOT = { tag = AVI }
-			NOT = { tag = HLR }
-			NOT = { tag = ROM }
-			NOT = { tag = FKE }
-			NOT = { tag = EAH }
-			culture_group = germanic
-			capital_scope = {
-				superregion = germanysouth_superregion
 			}
 		}
 		provinces_to_highlight = {
@@ -1169,6 +1169,18 @@ country_decisions = {
 	ngc_nation = {
 		major = yes
 		potential = {
+			culture_group = germanic
+			capital_scope = {
+				superregion = germanynorth_superregion
+			}
+			NOT = { exists = NGC }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = FKE }
+			NOT = { tag = EAH }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			primitives = no
 			OR = {
@@ -1178,18 +1190,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			was_never_end_game_tag_trigger = yes
-			NOT = { exists = NGC }
-			NOT = { tag = PAP }
-			NOT = { tag = AVI }
-			NOT = { tag = HLR }
-			NOT = { tag = ROM }
-			NOT = { tag = FKE }
-			NOT = { tag = EAH }
-			culture_group = germanic
-			capital_scope = {
-				superregion = germanynorth_superregion
 			}
 		}
 		provinces_to_highlight = {
@@ -1371,12 +1371,12 @@ country_decisions = {
 	holstein_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
 			OR = {
 				tag = RSB
 				tag = KIL
 			}
 			primary_culture = lower_saxon
+			normal_or_historical_nations = yes
 			OR = {
 				AND = {
 					ai = no
@@ -1399,14 +1399,14 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_at_war = no
-			is_nomad = no
-			NOT = { exists = SHL }
 			owns_core_province = 360 #kiel
 			owns_core_province = 1233 #rendsburg
 			owns_core_province = 2319 #itzehoe
 			owns_core_province = 362 #oldesloe
 			owns_core_province = 2210 #pinneberg
+			is_at_war = no
+			is_nomad = no
+			NOT = { exists = SHL }
 		}
 		effect = {
 			change_tag = SHL
@@ -3177,9 +3177,12 @@ country_decisions = {
 	normand_english_nation = {
 		major = yes
 		potential = {
+			tag = NRM
+			NOT = { started_in = 1066.10.14 }
+			exists = ASE
+			ASE = { ai = yes }
 			normal_or_historical_nations = yes
 			primitives = no
-			tag = NRM
 			primary_culture = normand
 			OR = {
 				ai = no
@@ -3189,8 +3192,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			exists = ASE
-			ASE = { ai = yes }
 		}
 		allow = {
 			is_at_war = no
@@ -3667,6 +3668,13 @@ country_decisions = {
 	iraqi_nation = {
 		major = yes
 		potential = {
+			primary_culture = al_iraqiya_arabic
+			NOT = { tag = ILK }
+			NOT = { tag = GLH }
+			NOT = { tag = PER }
+			NOT = { tag = TIM }
+			NOT = { tag = SJK }
+			NOT = { exists = IRQ }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			OR = {
@@ -3677,14 +3685,7 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = ILK }
-			NOT = { tag = GLH }
-			NOT = { tag = PER }
-			NOT = { tag = TIM }
-			NOT = { tag = SJK }
-			NOT = { exists = IRQ }
 			NOT = { has_reform = celestial_empire }
-			primary_culture = al_iraqiya_arabic
 			OR = {
 				ai = no
 				AND = {
@@ -3707,15 +3708,15 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 55
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
-			is_at_war = no
 			owns_core_province = 6301 #Baghdad
 			owns_core_province = 6294 #Basra
 			owns_core_province = 3690 #Mosul
 			owns_core_province = 6306 #Najaf
 			owns_core_province = 6370 #Sulaymaniyya
+			adm_tech = 55
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
 		}
 		effect = {
 			change_tag = IRQ
@@ -3860,6 +3861,19 @@ country_decisions = {
 	assyrian_nation = {
 		major = yes
 		potential = {
+			OR = {
+				religion = nestorian
+				religion = mandaeism
+				religion = yazidi
+				primary_culture = aramaic
+			}
+			NOT = { tag = ILK }
+			NOT = { tag = GLH }
+			NOT = { tag = PER }
+			NOT = { tag = IRQ }
+			NOT = { tag = TIM }
+			NOT = { tag = SJK }
+			NOT = { tag = ASY }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			OR = {
@@ -3870,20 +3884,7 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = ILK }
-			NOT = { tag = GLH }
-			NOT = { tag = PER }
-			NOT = { tag = IRQ }
-			NOT = { tag = TIM }
-			NOT = { tag = SJK }
-			NOT = { tag = ASY }
 			NOT = { has_reform = celestial_empire }
-			OR = {
-				religion = nestorian
-				religion = mandaeism
-				religion = yazidi
-				primary_culture = aramaic
-			}
 			OR = {
 				ai = no
 				NOT = { exists = ASY }
@@ -4569,9 +4570,22 @@ country_decisions = {
 	latin_empire = {
 		major = yes
 		potential = {
-			NOT = { has_country_flag = formed_latin_empire }
+			OR = {
+				owns = 2233
+				AND = {
+					ai = no
+					OR = {
+						tag = KNI
+						tag = NAP
+						tag = SIC
+						tag = TEU
+						tag = LIV
+					}
+				}
+			}
 			was_never_end_game_tag_trigger = yes
 			NOT = { exists = LAE }
+			NOT = { has_country_flag = formed_latin_empire }
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -4587,19 +4601,6 @@ country_decisions = {
 			}
 			NOT = { government = republic }
 			NOT = { has_reform = celestial_empire }
-			OR = {
-				owns = 2233
-				AND = {
-					ai = no
-					OR = {
-						tag = KNI
-						tag = NAP
-						tag = SIC
-						tag = TEU
-						tag = LIV
-					}
-				}
-			}
 			OR = {
 				NOT = { is_year = 1600 }
 				has_country_flag = can_form_latin_empire_later_too
@@ -4617,11 +4618,11 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_at_war = no
+			2233 = { is_state = yes }
 			owns_core_province = 2233 #Constantinople
 			owns_core_province = 573 #Adrianople
 			owns_core_province = 2398 #Thessaloniki
-			2233 = { is_state = yes }
+			is_at_war = no
 		}
 		effect = {
 			add_prestige = 25
@@ -4700,17 +4701,7 @@ country_decisions = {
 	kurdish_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			was_never_end_game_tag_trigger = yes
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
-			NOT = { exists = KRD }
+			culture_group = iranian_tribal
 			NOT = { tag = IRQ }
 			NOT = { tag = TUR }
 			NOT = { tag = PER }
@@ -4721,8 +4712,18 @@ country_decisions = {
 			NOT = { tag = ROM }
 			NOT = { tag = FKE }
 			NOT = { tag = MCD }
+			NOT = { exists = KRD }
+			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			NOT = { has_country_flag = formed_kurdistan_flag }
-			culture_group = iranian_tribal
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -4745,10 +4746,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			is_nomad = no
-			adm_tech = 40
 			owns_core_province = 6375 #Erbil
 			owns_core_province = 7664 #Mahabad
 			owns_core_province = 3460 #Bitlis
@@ -4757,6 +4754,10 @@ country_decisions = {
 				owns_core_province = 3669 #Diyar Bakr
 				owns_core_province = 7509 #Ilam
 			}
+			adm_tech = 40
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			is_nomad = no
 		}
 		effect = {
 			change_tag = KRD
@@ -5030,12 +5031,12 @@ country_decisions = {
 	khorasan_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
 			primary_culture = khorasani
-			was_never_end_game_tag_trigger = yes
 			NOT = { tag = SJK }
 			NOT = { tag = PER }
 			NOT = { tag = ERS }
+			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
 			NOT = { has_country_flag = formed_khorasan_flag }
 			OR = {
 				ai = no
@@ -5062,15 +5063,15 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			is_nomad = no
-			NOT = { exists = KHO }
 			owns_core_province = 7338 #Nishapur
 			owns_core_province = 7352 #Bojnnord
 			owns_core_province = 7597 #Golestan
 			owns_core_province = 7367 #Qaen
 			owns_core_province = 7359 #Kashmar
+			NOT = { exists = KHO }
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			is_nomad = no
 		}
 		effect = {
 			change_tag = KHO

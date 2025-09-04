@@ -3,6 +3,9 @@ country_decisions = {
 	arab_nation = {
 		major = yes
 		potential = {
+			culture_group = turko_semitic
+			capital_scope = { continent = asia }
+			NOT = { exists = ARB }
 			normal_or_historical_nations = yes
 			NOT = { has_country_flag = formed_arabia_flag }
 			OR = {
@@ -13,7 +16,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = ARB }
 			was_never_end_game_tag_trigger = yes
 			is_colonial_nation = no
 			OR = {
@@ -23,8 +25,6 @@ country_decisions = {
 					ai = no
 				}
 			}
-			capital_scope = { continent = asia }
-			culture_group = turko_semitic
 		}
 		provinces_to_highlight = {
 			OR = {

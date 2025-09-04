@@ -3,6 +3,12 @@ country_decisions = {
 	spanish_nation = {
 		major = yes
 		potential = {
+			OR = {
+				culture_group = iberian
+				primary_culture = basque
+			}
+			was_never_end_game_tag_trigger = yes
+			NOT = { religion_group = muslim }
 			normal_or_historical_nations = yes
 			NOT = { has_country_flag = formed_spain_flag }
 			OR = {
@@ -13,8 +19,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			was_never_end_game_tag_trigger = yes
-			NOT = { religion_group = muslim }
 			OR = {
 				ai = no
 				AND = {
@@ -29,10 +33,6 @@ country_decisions = {
 					ai = yes
 					NOT = { tag = POR }
 				}
-			}
-			OR = {
-				culture_group = iberian
-				primary_culture = basque
 			}
 			is_colonial_nation = no
 			OR = {
@@ -60,11 +60,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = SPA }
-			adm_tech = 40
-			is_nomad = no
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
 			owns_core_province = 1955	# Barcelona
 			owns_core_province = 711	# Aragón
 			owns_core_province = 519	# Castilla La Vieja
@@ -73,6 +68,11 @@ country_decisions = {
 			owns_core_province = 1208	# Toledo
 			owns_core_province = 2024	# Valencia
 			owns_core_province = 443	# Granada
+			NOT = { exists = SPA }
+			adm_tech = 40
+			is_nomad = no
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
 			iberia_superregion = {
 				type = all
 				NOT = { owner = { religion_group = muslim } }

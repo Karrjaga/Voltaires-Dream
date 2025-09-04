@@ -176,6 +176,9 @@ country_decisions = {
 			NOT = { has_country_modifier = got_baltic_monopoly }
 		}
 		allow = {
+			hidden_trigger = { #better performance
+				has_country_flag = can_swap_merchant_faction_perma_bonus
+			}
 			faction_influence = {
 				faction = mr_traders
 				influence = 80

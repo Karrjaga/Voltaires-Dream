@@ -17,6 +17,7 @@ country_decisions = {
 			religion = catholic
 		}
 		allow = {
+			religion = catholic
 			OR = {
 				tag = PAP
 				is_emperor = yes
@@ -115,6 +116,7 @@ country_decisions = {
 			religion = catholique
 		}
 		allow = {
+			religion = catholique
 			OR = {
 				tag = AVI
 				is_emperor = yes

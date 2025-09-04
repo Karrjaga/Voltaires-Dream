@@ -3,24 +3,6 @@ country_decisions = {
 	kingdom_of_jerusalem = {
 		major = yes
 		potential = {
-			NOT = { has_country_flag = formed_jerusalem }
-			was_never_end_game_tag_trigger = yes
-			NOT = { exists = KOJ }
-			normal_or_historical_nations = yes
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
-			OR = {
-				religion = catholic
-				religion = catholique
-			}
-			NOT = { government = republic }
-			NOT = { has_reform = celestial_empire }
 			OR = {
 				owns = 4974
 				AND = {
@@ -58,6 +40,24 @@ country_decisions = {
 					}
 				}
 			}
+			was_never_end_game_tag_trigger = yes
+			NOT = { exists = KOJ }
+			NOT = { has_country_flag = formed_jerusalem }
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			OR = {
+				religion = catholic
+				religion = catholique
+			}
+			NOT = { government = republic }
+			NOT = { has_reform = celestial_empire }
 			OR = {
 				NOT = { is_year = 1600 }
 				has_country_flag = can_form_jerusalem_later_too
@@ -75,11 +75,11 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_at_war = no
 			owns_core_province = 4986 #Gazzah
 			owns_core_province = 4974 #Jerusalem
 			owns_core_province = 4971 #Jaffa
 			4974 = { is_state = yes }
+			is_at_war = no
 		}
 		effect = {
 			add_prestige = 25

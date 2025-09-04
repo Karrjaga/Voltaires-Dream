@@ -3,6 +3,9 @@ country_decisions = {
 	portuguese_nation = {
 		major = yes
 		potential = {
+			primary_culture = portugese
+			NOT = { religion_group = muslim }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			NOT = { has_country_flag = formed_portugal_flag }
 			OR = {
@@ -13,8 +16,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			was_never_end_game_tag_trigger = yes
-			NOT = { religion_group = muslim }
 			OR = {
 				ai = no
 				AND = {
@@ -31,7 +32,6 @@ country_decisions = {
 					NOT = { tag = SPA }
 				}
 			}
-			primary_culture = portugese
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no

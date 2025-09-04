@@ -3,9 +3,14 @@ country_decisions = {
 	armenia_nation = {
 		major = yes
 		potential = {
+			culture_group = armenian_group
+			NOT = { tag = ARM }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			NOT = { has_country_flag = formed_armenia_flag }
-			was_never_end_game_tag_trigger = yes
+			
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -14,7 +19,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = ARM }
 			OR = {
 				ai = no
 				AND = {
@@ -22,7 +26,6 @@ country_decisions = {
 					num_of_cities = 5
 				}
 			}
-			primary_culture = armenian
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -54,11 +57,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = ARM }
-			is_at_war = no
-			is_free_or_tributary_trigger = yes
-			religion = coptic
-			is_nomad = no
 			owns_core_province = 6255	# Cilicia
 			owns_core_province = 3540	# Yerevan
 			owns_core_province = 3583	# Melikates
@@ -68,6 +66,11 @@ country_decisions = {
 				owns_core_province = 3515 #Mush
 				owns_core_province = 3463 #Van
 			}
+			NOT = { exists = ARM }
+			religion = coptic
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
 		}
 		effect = {
 			add_prestige = 25

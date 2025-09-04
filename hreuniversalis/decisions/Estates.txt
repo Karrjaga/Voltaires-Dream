@@ -289,8 +289,9 @@ country_decisions = {
 	gain_access_to_estate_dhimmi = {
 		major = yes
 		potential = {
-			has_dlc = "The Cossacks"
+			religion_group = muslim
 			NOT = { has_estate = estate_dhimmi }
+			has_dlc = "The Cossacks"
 			NOT = { has_unlocked_estate = { estate = estate_dhimmi } }
 			NOT = { has_government_attribute = is_merchant_republic }
 			NOT = { has_reform = trading_city }
@@ -303,10 +304,13 @@ country_decisions = {
 			is_nomad = no
 			is_colonial_nation = no
 			NOT = { has_reform = celestial_empire }
-			religion_group = muslim
 			NOT = { has_reform = revolutionary_empire_reform }
 		}
 		allow = {
+			hidden_trigger = { #better performance
+				religion_group = muslim
+				NOT = { has_estate = estate_dhimmi }
+			}
 			stability = 1
 			has_any_disaster = no
 			NOT = { num_of_rebel_armies = 1 }
@@ -372,6 +376,9 @@ country_decisions = {
 		major = yes
 		potential = { has_country_flag = estate_eunuchs_in_power }
 		allow = {
+			hidden_trigger = { #better performance
+				has_country_flag = estate_eunuchs_in_power
+			}
 			stability = 1
 			NOT = { num_of_rebel_controlled_provinces = 1 }
 		}
@@ -488,6 +495,9 @@ country_decisions = {
 			has_country_flag = estate_qizilbash_in_power
 		}
 		allow = {
+			hidden_trigger = { #better performance
+				has_country_flag = estate_qizilbash_in_power
+			}
 			stability = 1
 			NOT = { num_of_rebel_armies = 1 }
 			NOT = { num_of_rebel_controlled_provinces = 1 }

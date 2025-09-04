@@ -4,6 +4,17 @@ country_decisions = {
 		major = yes
 		potential = {
 			OR = {
+				culture_group = british
+				primary_culture = welsh
+				primary_culture = cornish
+			}
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = FKE }
+			NOT = { tag = AVE }
+			NOT = { exists = GBR }
+			OR = {
 				NOT = { has_government_attribute = english_parliament }	#Formation through the Parliament
 				ai = yes
 			}
@@ -16,17 +27,7 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = GBR }
-			NOT = { tag = PAP }
-			NOT = { tag = HLR }
-			NOT = { tag = FKE }
-			NOT = { tag = AVE }
 			was_never_end_game_tag_trigger = yes
-			OR = {
-				culture_group = british
-				primary_culture = welsh
-				primary_culture = cornish
-			}
 			OR = {
 				ai = no
 				AND = {
@@ -57,16 +58,16 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 40
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
-			is_at_war = no
 			owns_core_province = 2268		# London
 			owns_core_province = 986		# Oxfordshire
 			owns_core_province = 722		# Wessex
 			owns_core_province = 2621		# Lothian
 			owns_core_province = 4704		# Aberdeen
 			2268 = { is_state = yes }
+			adm_tech = 40
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
 		}
 		effect = {
 			change_tag = GBR

@@ -754,8 +754,7 @@ country_event = {
 	goto = not_ruling_culture_province
 
 	trigger = {
-		has_dlc = "Cradle of Civilization"
-		has_reform = mamluk_government
+		has_government_mechanic = mamluk_mechanic
 		NOT = { has_country_modifier = crushed_non_mamluk_rebels }
 		NOT = { has_country_modifier = placated_non_mamluk_rebels }
 		any_owned_province = {
@@ -763,6 +762,7 @@ country_event = {
 			is_capital = no
 			has_owner_accepted_culture = yes
 		}
+		has_dlc = "Cradle of Civilization"
 	}
 	
 	immediate = {
@@ -824,10 +824,10 @@ country_event = {
 	picture = SAD_MERCHANT_eventPicture
 
 	trigger = {
-		has_dlc = "Cradle of Civilization"
 		OR = {
 			has_reform = mamluk_government
 			has_reform = iqta
+			has_estate = estate_mamluks
 		}
 		any_owned_province = {
 			is_state = yes
@@ -839,10 +839,17 @@ country_event = {
 				trade_goods = cotton
 				trade_goods = gems
 				trade_goods = coffee
+				#mod
+				trade_goods = pearls
+				trade_goods = gold
+				trade_goods = carpet
+				trade_goods = marble
+				trade_goods = pepper
 			}
 			NOT = { has_province_modifier = unprofitable_monopolies }
 			NOT = { has_province_modifier = tarh }
 		}
+		has_dlc = "Cradle of Civilization"
 	}
 	
 	immediate = {
@@ -858,6 +865,12 @@ country_event = {
 						trade_goods = cotton
 						trade_goods = gems
 						trade_goods = coffee
+						#mod
+						trade_goods = pearls
+						trade_goods = gold
+						trade_goods = carpet
+						trade_goods = marble
+						trade_goods = pepper
 					}
 					NOT = { has_province_modifier = unprofitable_monopolies }
 					NOT = { has_province_modifier = tarh }
@@ -912,9 +925,9 @@ country_event = {
 	picture = MAMLUK_WARRIORS_eventPicture
 
 	trigger = {
-		has_dlc = "Cradle of Civilization"
-		has_reform = mamluk_government
+		has_government_mechanic = mamluk_mechanic
 		NOT = { legitimacy = 90 }
+		has_estate = estate_mamluks
 		NOT = {
 			estate_loyalty = {
 				estate = estate_mamluks
@@ -926,6 +939,7 @@ country_event = {
 			is_capital = no
 			is_in_capital_area = yes
 		}
+		has_dlc = "Cradle of Civilization"
 	}
 	
 	immediate = {
@@ -1062,16 +1076,17 @@ country_event = {
 	picture = THREE_HEIRS_eventPicture
 
 	trigger = {
-		has_dlc = "Cradle of Civilization"
-		has_reform = mamluk_government
+		has_government_mechanic = mamluk_mechanic
 		NOT = { has_country_modifier = factionalism }
 		NOT = { has_country_modifier = ruler_supporting_faction }
+		has_estate = estate_mamluks
 		NOT = {
 			estate_loyalty = {
 				estate = estate_mamluks
 				loyalty = 80
 			}
 		}
+		has_dlc = "Cradle of Civilization"
 	}
 	
 	is_triggered_only = yes
@@ -1120,9 +1135,9 @@ country_event = {
 	picture = THREE_HEIRS_eventPicture
 
 	trigger = {
-		has_dlc = "Cradle of Civilization"
-		has_reform = mamluk_government
+		has_government_mechanic = mamluk_mechanic
 		NOT = { legitimacy = 60 }
+		has_estate = estate_mamluks
 		NOT = {
 			estate_loyalty = {
 				estate = estate_mamluks
@@ -1132,6 +1147,7 @@ country_event = {
 		capital_scope = {
 			controlled_by = ROOT
 		}
+		has_dlc = "Cradle of Civilization"
 	}
 	
 	is_triggered_only = yes
@@ -1268,8 +1284,11 @@ country_event = {
 	picture = BIG_ARABIAN_CITY_eventPicture
 
 	trigger = {
-		has_dlc = "Cradle of Civilization"
-		has_reform = mamluk_government
+		OR = {
+			has_reform = mamluk_government
+			has_reform = fatimid_caliphate_reform
+			has_reform = ayyubid_dynasty
+		}
 		capital_scope = {
 			province_id = 5054
 			NOT = { has_province_modifier = cairo_markets }
@@ -1279,6 +1298,7 @@ country_event = {
 			NOT = { has_province_modifier = monuments_of_cairo }
 		}
 		NOT = { has_ruler_flag = no_pork_for_cairo }
+		has_dlc = "Cradle of Civilization"
 	}
 	
 	is_triggered_only = yes
@@ -1371,17 +1391,18 @@ country_event = {
 	picture = CARAVAN_EVENT_Picture
 
 	trigger = {
-		has_dlc = "Cradle of Civilization"
 		religion_group = muslim
 		OR = {
 			has_reform = mamluk_government
 			has_reform = iqta
 			has_reform = tribal_federation
+			has_estate = estate_mamluks
 		}
 		NOT = { has_country_modifier = bedouin_amir_al_hajj }
 		NOT = { has_country_modifier = warrior_amir_al_hajj }
 		NOT = { has_country_modifier = diplomat_amir_al_hajj }
 		NOT = { has_country_modifier = mamluk_amir_al_hajj }
+		has_dlc = "Cradle of Civilization"
 	}
 	
 	is_triggered_only = yes
@@ -1439,7 +1460,7 @@ country_event = {
 	option = {
 		name = mamluk_events.7.e #Only a loyal Mamluk can perform this task.
 		trigger = {
-			has_reform = mamluk_government
+			has_government_mechanic = mamluk_mechanic
 		}
 		custom_tooltip = mamluk_events.7.e.tt
 		add_estate_mamluks_loyalty_effect = yes
@@ -1459,17 +1480,18 @@ country_event = {
 	picture = QIZILBASH_CAVALRY_CHARGING_eventPicture
 
 	trigger = {
-		has_dlc = "Cradle of Civilization"
 		religion_group = muslim
 		OR = {
 			has_reform = mamluk_government
 			has_reform = iqta
 			has_reform = tribal_federation
+			has_estate = estate_mamluks
 		}
 		OR = {
 			NOT = { has_country_flag = failed_hajj }
 			had_country_flag = { flag = failed_hajj days = 3650 }
 		}
+		has_dlc = "Cradle of Civilization"
 	}
 	
 	
@@ -1591,17 +1613,18 @@ country_event = {
 	picture = MECCA_eventPicture
 
 	trigger = {
-		has_dlc = "Cradle of Civilization"
 		religion_group = muslim
 		OR = {
 			has_reform = mamluk_government
 			has_reform = iqta
 			has_reform = tribal_federation
+			has_estate = estate_mamluks
 		}
 		OR = {
 			NOT = { has_country_flag = good_hajj }
 			had_country_flag = { flag = good_hajj days = 3650 }
 		}
+		has_dlc = "Cradle of Civilization"
 	}
 	
 	
@@ -1711,8 +1734,7 @@ country_event = {
 	goto = defence_province
 
 	trigger = {
-		has_dlc = "Cradle of Civilization"
-		has_reform = mamluk_government
+		has_government_mechanic = mamluk_mechanic
 		any_owned_province = {
 			is_state = yes
 			NOT = { has_province_modifier = awlad_al_nas_commander }
@@ -1724,6 +1746,7 @@ country_event = {
 				is_wasteland = no
 			}
 		}
+		has_dlc = "Cradle of Civilization"
 	}
 	
 	is_triggered_only = yes
@@ -1796,20 +1819,21 @@ country_event = {
 	picture = THREE_HEIRS_eventPicture
 
 	trigger = {
-		has_dlc = "Cradle of Civilization"
-		has_reform = mamluk_government
+		has_government_mechanic = mamluk_mechanic
 		NOT = {
 			has_ruler_modifier = loyal_mamluks_in_high_positions
 		}
 		NOT = {
 			has_country_modifier = trusting_old_guard
 		}
+		has_estate = estate_mamluks
 		NOT = {
 			estate_loyalty = {
 				estate = estate_mamluks
 				loyalty = 80
 			}
 		}
+		has_dlc = "Cradle of Civilization"
 	}
 	
 	is_triggered_only = yes
@@ -1855,11 +1879,11 @@ country_event = {
 	picture = MAMLUK_WARRIORS_eventPicture
 
 	trigger = {
-		has_dlc = "Cradle of Civilization"
-		has_reform = mamluk_government
+		has_government_mechanic = mamluk_mechanic
 		is_at_war = no
 		num_of_cities = 20
 		NOT = { has_country_modifier = furusiyya } 
+		has_dlc = "Cradle of Civilization"
 	}
 	
 	is_triggered_only = yes

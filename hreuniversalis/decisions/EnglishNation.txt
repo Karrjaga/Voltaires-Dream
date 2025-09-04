@@ -3,6 +3,14 @@ country_decisions = {
 	english_nation = {
 		major = yes
 		potential = {
+			primary_culture = english
+			NOT = { tag = ENG }
+			NOT = { tag = AVE }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { exists = GBR }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -12,13 +20,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = ENG }
-			NOT = { exists = GBR }
-			NOT = { tag = AVE }
-			NOT = { tag = HLR }
-			NOT = { tag = PAP }
-			was_never_end_game_tag_trigger = yes
-			primary_culture = english
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -42,16 +43,16 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_at_war = no
-			is_nomad = no
-			is_free_or_tributary_trigger = yes	
-			NOT = { exists = ENG }
 			owns_core_province = 2268		# London
 			owns_core_province = 986		# Oxfordshire
 			owns_core_province = 722		# Wessex
 			owns_core_province = 498		# Kent
 			owns_core_province = 2188		# East Anglia
 			2268 = { is_state = yes }
+			NOT = { exists = ENG }
+			is_at_war = no
+			is_nomad = no
+			is_free_or_tributary_trigger = yes	
 		}
 		effect = {
 			change_tag = ENG

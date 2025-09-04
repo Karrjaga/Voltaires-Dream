@@ -2,9 +2,17 @@ country_decisions = {
 	switzerland_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			was_never_end_game_tag_trigger = yes
+			OR = {
+				primary_culture = swiss
+				primary_culture = romansch
+				AND = {
+					primary_culture = arpitan
+					capital_scope = { superregion = switzerland_superregion }
+				}
+			}
 			NOT = { tag = SWI }
+			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
 			NOT = { has_country_flag = formed_switzerland_flag }
 			OR = {
 				ai = no
@@ -17,14 +25,6 @@ country_decisions = {
 			OR = {
 				ai = no
 				NOT = { exists = SWI }
-			}
-			OR = {
-				primary_culture = swiss
-				primary_culture = romansch
-				AND = {
-					primary_culture = arpitan
-					capital_scope = { superregion = switzerland_superregion }
-				}
 			}
 			OR = {
 				is_former_colonial_nation = no

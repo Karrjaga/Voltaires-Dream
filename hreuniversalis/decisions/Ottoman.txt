@@ -20,15 +20,15 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_at_war = no
-			primary_culture = turkish
-			religion_group = muslim
 			controls = 2233
 			2233 = { is_state = yes }
 			owns = 573		# Edirne
 			owns = 1060		# Bithnyia
 			owns = 1051		# Bursa
-			owns = 2166		# Burgas			
+			owns = 2166		# Burgas
+			primary_culture = turkish
+			religion_group = muslim		
+			is_at_war = no
 		}
 		effect = {
 			set_country_flag = relocated_capital_constantinople
@@ -98,11 +98,11 @@ country_decisions = {
 
 	devshirme_system = {
 		potential = {
-			NOT = { has_dlc = "Domination" }
 			OR = {
 				has_reform = ottoman_government
 				has_reform = sultanate_of_rum_reform
 			}
+			NOT = { has_dlc = "Domination" }
 			NOT = { has_disaster = janissary_decadence }
 			NOT = { has_country_modifier = the_devshirme_system }
 			NOT = { has_country_flag = lapse_of_devshirme }
@@ -146,9 +146,9 @@ country_decisions = {
 
 	restore_devshirme_system = {
 		potential = {
-			has_dlc = "Domination"
-			has_country_flag = lapse_of_devshirme
 			has_reform = ottoman_government
+			has_country_flag = lapse_of_devshirme
+			has_dlc = "Domination"
 			NOT = { has_disaster = janissary_decadence }
 			NOT = { has_disaster = tur_disaster_janissary_coup }
 			NOT = { has_reform = devshirme_system_reform }
@@ -229,6 +229,9 @@ country_decisions = {
 			religion_group = muslim
 		}
 		allow = {
+			hidden_trigger = { #better performance
+				has_country_flag = tur_enable_second_golden_era_decision
+			}
 			OR = {
 				in_golden_age = yes
 				has_had_golden_age = yes
@@ -258,6 +261,7 @@ country_decisions = {
 			NOT = { has_country_flag = tur_fight_against_the_janissaries_1_flag }
 		}
 		allow = {
+			has_disaster = tur_disaster_janissary_coup
 			stability = 0
 			num_of_owned_provinces_with = {
 				superregion = balkans_superregion
@@ -282,6 +286,7 @@ country_decisions = {
 			NOT = { has_country_flag = tur_fight_against_the_janissaries_2_flag }
 		}
 		allow = {
+			has_disaster = tur_disaster_janissary_coup
 			stability = 0
 			num_of_owned_provinces_with = {
 				superregion = anatolia_superregion
@@ -306,6 +311,7 @@ country_decisions = {
 			NOT = { has_country_flag = tur_fight_against_the_janissaries_3_flag }
 		}
 		allow = {
+			has_disaster = tur_disaster_janissary_coup
 			stability = 0
 			capital_scope = {
 				controlled_by = ROOT
@@ -341,6 +347,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			has_disaster = tur_disaster_janissary_coup
 			adm_power_cost = 100
 			dip_power_cost = 100
 			mil_power_cost = 100

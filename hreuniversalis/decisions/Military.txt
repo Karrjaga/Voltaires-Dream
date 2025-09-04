@@ -2,15 +2,15 @@ country_decisions = {
 
 	enlist_privateers = {
 		potential = {
+			has_idea_group = maritime_ideas
+			dip_tech = 38
 			NOT = { has_country_modifier = hire_privateers }
 			navy_size = 1
-			has_idea_group = maritime_ideas
 			num_of_ports = 1
-			dip_tech = 38
 		}
 		allow = {
-			navy_size_percentage = 0.5
 			full_idea_group = maritime_ideas
+			navy_size_percentage = 0.5
 			mil = 3
 		}
 		effect = {
@@ -228,6 +228,7 @@ country_decisions = {
 			has_government_attribute = can_rally_volunteers_from_allies
 		}
 		allow = {
+			has_government_attribute = can_rally_volunteers_from_allies
 			is_at_war = yes
 			custom_trigger_tooltip = {
 				tooltip = decision_once_every_ten_years

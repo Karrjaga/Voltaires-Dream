@@ -40,10 +40,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = CAT }
-			adm_tech = 40	
-			is_at_war = no
-			is_nomad = no
 			owns_core_province = 1955
 			owns_core_province = 2054
 			owns_core_province = 1178
@@ -55,6 +51,10 @@ country_decisions = {
 				owns_core_province = 1788
 				owns_core_province = 521
 			}
+			NOT = { exists = CAT }
+			adm_tech = 40	
+			is_at_war = no
+			is_nomad = no
 		}
 		effect = {
 			change_tag = CAT

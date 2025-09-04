@@ -19,12 +19,13 @@ country_decisions = {
 	debate_acts_of_high_admiralty_issue = {
 		color = { 110 0 140 }
 		potential = {
-			has_parliament = yes
 			has_government_attribute = english_parliament
+			has_parliament = yes
 			has_issue_unlocked = { issue = acts_of_high_admiralty }
 			has_not_enacted_parliament_action = { parliament_action = acts_of_high_admiralty }
 		}
 		allow = {
+			has_government_attribute = english_parliament
 			has_active_debate = no
 		}
 		effect = {
@@ -48,12 +49,13 @@ country_decisions = {
 	debate_acts_of_maritime_courage_issue = {
 		color = { 110 0 140 }
 		potential = {
-			has_parliament = yes
 			has_government_attribute = english_parliament
+			has_parliament = yes
 			has_issue_unlocked = { issue = acts_of_maritime_courage }
 			has_not_enacted_parliament_action = { parliament_action = acts_of_maritime_courage }
 		}
 		allow = {
+			has_government_attribute = english_parliament
 			has_active_debate = no
 		}
 		effect = {
@@ -81,12 +83,13 @@ country_decisions = {
 	debate_acts_of_maritime_professionalism_issue = {
 		color = { 110 0 140 }
 		potential = {
-			has_parliament = yes
 			has_government_attribute = english_parliament
+			has_parliament = yes
 			has_issue_unlocked = { issue = acts_of_maritime_professionalism }
 			has_not_enacted_parliament_action = { parliament_action = acts_of_maritime_professionalism }
 		}
 		allow = {
+			has_government_attribute = english_parliament
 			has_active_debate = no
 		}
 		effect = {
@@ -107,12 +110,13 @@ country_decisions = {
 	debate_acts_of_naval_professionalism_issue = {
 		color = { 110 0 140 }
 		potential = {
-			has_parliament = yes
 			has_government_attribute = english_parliament
+			has_parliament = yes
 			has_issue_unlocked = { issue = acts_of_naval_professionalism }
 			has_not_enacted_parliament_action = { parliament_action = acts_of_naval_professionalism }
 		}
 		allow = {
+			has_government_attribute = english_parliament
 			has_active_debate = no
 		}
 		effect = {
@@ -167,12 +171,13 @@ country_decisions = {
 	debate_crown_of_iberia_act_issue = {
 		color = { 110 0 140 }
 		potential = {
-			has_parliament = yes
 			has_government_attribute = english_parliament
+			has_parliament = yes
 			has_issue_unlocked = { issue = crown_of_iberia_act }
 			has_not_enacted_parliament_action = { parliament_action = crown_of_iberia_act }
 		}
 		allow = {
+			has_government_attribute = english_parliament
 			has_active_debate = no
 			num_of_owned_provinces_with = {
 				superregion = iberia_superregion
@@ -199,12 +204,13 @@ country_decisions = {
 	debate_acts_of_impressment_issue = {
 		color = { 110 0 140 }
 		potential = {
-			has_parliament = yes
 			has_government_attribute = english_parliament
+			has_parliament = yes
 			has_issue_unlocked = { issue = acts_of_impressment }
 			has_not_enacted_parliament_action = { parliament_action = acts_of_impressment }
 		}
 		allow = {
+			has_government_attribute = english_parliament
 			has_active_debate = no
 		}
 		effect = {
@@ -225,13 +231,14 @@ country_decisions = {
 	debate_acts_of_taxation_issue = {
 		color = { 110 0 140 }
 		potential = {
-			has_parliament = yes
 			has_government_attribute = english_parliament
+			has_parliament = yes
 			has_issue_unlocked = { issue = acts_of_taxation }
 			has_not_enacted_parliament_action = { parliament_action = acts_of_taxation }
 			has_not_enacted_parliament_action = { parliament_action = act_of_representation }
 		}
 		allow = {
+			has_government_attribute = english_parliament
 			has_active_debate = no
 		}
 		effect = {
@@ -252,13 +259,14 @@ country_decisions = {
 	debate_act_of_representation_issue = {
 		color = { 110 0 140 }
 		potential = {
-			has_parliament = yes
 			has_government_attribute = english_parliament
+			has_parliament = yes
 			has_issue_unlocked = { issue = act_of_representation }
 			has_not_enacted_parliament_action = { parliament_action = act_of_representation }
 			has_not_enacted_parliament_action = { parliament_action = acts_of_taxation }
 		}
 		allow = {
+			has_government_attribute = english_parliament
 			has_active_debate = no
 		}
 		effect = {
@@ -279,12 +287,13 @@ country_decisions = {
 	debate_crown_of_italy_act_issue = {
 		color = { 110 0 140 }
 		potential = {
-			has_parliament = yes
 			has_government_attribute = english_parliament
+			has_parliament = yes
 			has_issue_unlocked = { issue = crown_of_italy_act }
 			has_not_enacted_parliament_action = { parliament_action = crown_of_italy_act }
 		}
 		allow = {
+			has_government_attribute = english_parliament
 			has_active_debate = no
 			num_of_owned_provinces_with = {
 				superregion = italy_superregion
@@ -308,12 +317,13 @@ country_decisions = {
 	debate_crown_of_ireland_act_issue = {
 		color = { 110 0 140 }
 		potential = {
-			has_parliament = yes
 			has_government_attribute = english_parliament
+			has_parliament = yes
 			has_issue_unlocked = { issue = crown_of_ireland_act }
 			has_not_enacted_parliament_action = { parliament_action = crown_of_ireland_act }
 		}
 		allow = {
+			has_government_attribute = english_parliament
 			has_active_debate = no
 			num_of_owned_provinces_with = {
 				superregion = irish_superregion
@@ -337,12 +347,13 @@ country_decisions = {
 	debate_crown_of_the_empire_act_issue = {
 		color = { 110 0 140 }
 		potential = {
-			has_parliament = yes
 			has_government_attribute = english_parliament
+			has_parliament = yes
 			has_issue_unlocked = { issue = crown_of_the_empire_act }
 			has_not_enacted_parliament_action = { parliament_action = crown_of_the_empire_act }
 		}
 		allow = {
+			has_government_attribute = english_parliament
 			has_active_debate = no
 			is_emperor = yes
 		}
@@ -438,12 +449,13 @@ country_decisions = {
 	debate_establish_the_imperial_diet_act_issue = {
 		color = { 110 0 140 }
 		potential = {
-			has_parliament = yes
 			has_government_attribute = english_parliament
+			has_parliament = yes
 			has_issue_unlocked = { issue = establish_the_imperial_diet_act }
 			has_not_enacted_parliament_action = { parliament_action = establish_the_imperial_diet_act }
 		}
 		allow = {
+			has_government_attribute = english_parliament
 			has_active_debate = no
 			is_emperor = yes
 		}
@@ -459,13 +471,16 @@ country_decisions = {
 	debate_french_english_reconciliation_act_issue = {
 		color = { 110 0 140 }
 		potential = {
-			has_parliament = yes
 			has_government_attribute = english_parliament
+			has_parliament = yes
 			#has_issue_unlocked = { issue = french_english_reconciliation_act }
-			has_mission = ave_promote_angevin_culture
+			#has_mission = ave_promote_angevin_culture
+			has_global_flag = eng_had_start_of_hundred_years_war
+			NOT = { has_global_flag = eng_had_start_of_hundred_years_war }
 			has_not_enacted_parliament_action = { parliament_action = french_english_reconciliation_act }
 		}
 		allow = {
+			has_government_attribute = english_parliament
 			OR = {
 				FRA = { is_subject_of = ROOT }
 				development_in_provinces = {

@@ -6,6 +6,7 @@ country_decisions = {
 		}
 		color = { 75  130  135 }
 		allow = {
+			has_reform = german_cultural_disunity_reform
 			custom_trigger_tooltip = {
 				tooltip = GET_can_integrate_a_culture
 				GER_can_integrate_a_culture = yes
@@ -27,6 +28,7 @@ country_decisions = {
 		}
 		color = { 75  130  135 }
 		allow = {
+			has_reform = german_cultural_disunity_reform
 			GER_num_of_cultures_accepted = {
 				amount = 7
 			}

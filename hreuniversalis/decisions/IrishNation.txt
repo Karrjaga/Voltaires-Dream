@@ -3,24 +3,6 @@ country_decisions = {
 	irish_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			primitives = no
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
-			NOT = { exists = IRE }
-			NOT = { tag = ENG }
-			NOT = { tag = ASE }
-			NOT = { tag = GBR }
-			NOT = { tag = LOI }
-			NOT = { tag = MAF }
-			was_never_end_game_tag_trigger = yes
-			capital_scope = { superregion = irish_superregion }
 			OR = {
 				primary_culture = dalcassian
 				primary_culture = connachta
@@ -31,6 +13,24 @@ country_decisions = {
 				primary_culture = irish
 				primary_culture = hiberno_norman
 				primary_culture = gallowglass
+			}
+			capital_scope = { superregion = irish_superregion }
+			NOT = { exists = IRE }
+			NOT = { tag = ENG }
+			NOT = { tag = ASE }
+			NOT = { tag = GBR }
+			NOT = { tag = LOI }
+			NOT = { tag = MAF }
+			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
+			primitives = no
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
 			}
 			OR = {
 				ai = no

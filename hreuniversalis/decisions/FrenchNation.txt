@@ -3,14 +3,10 @@ country_decisions = {
 	french_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
 			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
+				culture_group = french
+				primary_culture = basque
+				primary_culture = breton
 			}
 			capital_scope = {
 				OR = {
@@ -24,14 +20,18 @@ country_decisions = {
 			NOT = { tag = SPA }		# Basque is a valid culture for both FRA and SPA
 			NOT = { tag = AVE }		# Anglois is also valid
 			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			OR = {
 				ai = no
 				NOT = { exists = FRA }
-			}
-			OR = {
-				culture_group = french
-				primary_culture = basque
-				primary_culture = breton
 			}
 			is_colonial_nation = no
 			OR = {
@@ -58,10 +58,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_at_war = no
-			is_free_or_tributary_trigger = yes	
-			is_nomad = no
-			NOT = { exists = FRA }
 			owns_core_province = 2177	# Maine
 			owns_core_province = 2088	# Blois
 			owns_core_province = 2886	# Vermandois
@@ -69,7 +65,11 @@ country_decisions = {
 			owns_core_province = 2818	# Orléannais
 			owns_core_province = 4020	# Othe
 			owns_core_province = 183	# Champagne	
+			NOT = { exists = FRA }
 			548 = { is_state = yes }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes	
+			is_nomad = no
 		}
 		effect = {
 			change_tag = FRA
@@ -125,5 +125,4 @@ country_decisions = {
 			factor = 1
 		}
 	}
-	
 }

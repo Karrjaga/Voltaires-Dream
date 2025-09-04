@@ -160,17 +160,21 @@ country_decisions = {
 				tag = GMA
 				was_tag = GMA
 			}
+			NOT = { has_country_flag = restored_veligrad_flag }
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
 			}
-			NOT = { has_country_flag = restored_veligrad_flag }
 		}
 		allow = {
+			OR = {
+				tag = GMA
+				was_tag = GMA
+			}
+			NOT = { capital = 5150 }
 			is_core = 5150
 			owns = 5150
-			NOT = { capital = 5150 }
 			is_at_war = no
 			adm_power = 100
 			5150 = {

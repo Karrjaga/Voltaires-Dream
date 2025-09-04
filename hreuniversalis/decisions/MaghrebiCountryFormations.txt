@@ -399,23 +399,6 @@ country_decisions = {
 	tripoli_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			NOT = { has_country_flag = formed_tripoli_flag }
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
-			NOT = { tag = MOR }
-			NOT = { tag = TUN }
-			NOT = { tag = IFQ }
-			NOT = { tag = TLC }
-			NOT = { tag = ALG }
-			NOT = { tag = TRP }
-			was_never_end_game_tag_trigger = yes
 			OR = {
 				primary_culture = tunisian
 				culture_group = maghrebi
@@ -425,6 +408,25 @@ country_decisions = {
 					region = coastal_libya_region
 					region = inner_libya_region
 				}
+			}
+			NOT = { tag = MOR }
+			NOT = { tag = TUN }
+			NOT = { tag = IFQ }
+			NOT = { tag = TLC }
+			NOT = { tag = ALG }
+			NOT = { tag = TRP }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_tripoli_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
 			}
 			is_colonial_nation = no
 			OR = {
@@ -454,17 +456,17 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = TRP }
-			is_at_war = no
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
 			owns_core_province = 4920 #Tripoli
 			owns_core_province = 4926 #Thubaqt
-			4920 = { is_state = yes }
 			OR = {
 				owns_core_province = 4929 #Sirt
 				owns_core_province = 4594 #Djerba
 			}
+			4920 = { is_state = yes }
+			NOT = { exists = TRP }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
 		}
 		effect = {
 			4920 = { move_capital_effect = yes }

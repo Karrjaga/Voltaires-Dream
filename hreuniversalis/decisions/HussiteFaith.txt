@@ -2,14 +2,14 @@ country_decisions = {
 	become_hussite = {
 		major = yes
 		potential = {
+			religion_group = christian
+			any_owned_province = {
+				religion = hussite
+			}
 			NOT = { tag = BOH }
 			NOT = { religion = hussite }
 			NOT = { tag = PAP }
 			NOT = { tag = AVI }
-			any_owned_province = {
-				religion = hussite
-			}
-			religion_group = christian
 			is_emperor = no
 			is_lesser_in_union = no
 		}

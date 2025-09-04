@@ -2,8 +2,8 @@ country_decisions = {
 
 	abolish_black_army = {
 		potential = {
-			normal_or_historical_nations = yes
 			has_country_modifier = hun_black_army
+			normal_or_historical_nations = yes
 		}
 		allow = {
 			has_country_modifier = hun_black_army

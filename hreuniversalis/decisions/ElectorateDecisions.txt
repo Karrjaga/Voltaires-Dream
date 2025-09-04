@@ -2,16 +2,17 @@ country_decisions = {
 	purchase_the_electorate = {
 		major = yes
 		potential = {
+			is_part_of_hre = yes
 			is_elector = no
 			is_emperor = no
-			is_part_of_hre = yes
 		}
 		allow = {
-			is_elector = no
-			is_emperor = no
+			is_part_of_hre = yes
 			any_subject_country = {
 				is_elector = yes
 			}
+			is_elector = no
+			is_emperor = no
 			religion = emperor
 			treasury = 6000
 			NOT = { num_of_loans = 1 }

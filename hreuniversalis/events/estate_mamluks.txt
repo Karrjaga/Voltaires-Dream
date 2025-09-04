@@ -511,14 +511,14 @@ country_event = {
 	
 	trigger = {
 		has_estate = estate_mamluks
-		any_owned_province = { can_spawn_rebels = nationalist_rebels }
-		NOT = { has_reform = mamluk_government }
 		NOT = {
 			estate_loyalty = {
 				estate = estate_mamluks
 				loyalty = 40
 			}
 		}
+		NOT = { has_reform = mamluk_government }
+		any_owned_province = { can_spawn_rebels = nationalist_rebels }
 	}
 	mean_time_to_happen = { days = 1 }
 	

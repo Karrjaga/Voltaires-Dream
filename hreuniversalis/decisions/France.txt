@@ -3,13 +3,16 @@ country_decisions = {
 	move_the_court_to_versailles = {
 	
 		potential = {
+			tag = FRA
+			capital = 548
+			NOT = { has_country_flag = versailles_court }
+			government = monarchy
 			NOT = { 
 				OR = {
 					has_dlc = "Emperor"
 					has_dlc = "Leviathan"
 				}
 			}
-			tag = FRA
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -19,11 +22,9 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { has_country_flag = versailles_court }
-			capital = 548
-			government = monarchy
 		}
 		allow = {
+			tag = FRA
 			full_idea_group = economic_ideas
 			adm_tech = 50
 		}
@@ -92,6 +93,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			tag = FRA
 			OR = {
 				AND = {
 					religion = catholic

@@ -101,17 +101,7 @@ country_decisions = {
 	couronian_nation_baltic_german = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			was_never_end_game_tag_trigger = yes
-			NOT = { has_country_flag = formed_courland_flag }
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
+			primary_culture = baltic_german
 			NOT = {
 				OR = {
 					tag = RIG
@@ -121,9 +111,19 @@ country_decisions = {
 					tag = OSL
 				}
 			}
-			primary_culture = baltic_german
 			NOT = { tag = LVA }
 			NOT = { exists = KUR }
+			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_courland_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 			OR = {
 				ai = no
 				is_religion_enabled = protestant
@@ -144,9 +144,11 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 40
-			is_nomad = no			
-			is_at_war = no
+			owns_core_province = 5809	 # Kurland
+			owns_core_province = 5790	# Semigallia
+			5790 = { 					# Semigallia
+				is_state = yes
+			}
 			OR = {
 				religion = protestant
 				religion = anabaptist
@@ -154,11 +156,9 @@ country_decisions = {
 				religion = hussite
 				religion = anglican
 			}
-			owns_core_province = 5809	 # Kurland
-			owns_core_province = 5790	# Semigallia
-			5790 = { 					# Semigallia
-				is_state = yes
-			}
+			adm_tech = 40
+			is_nomad = no			
+			is_at_war = no
 		}
 		effect = {
 			5790 = { # Semigallia

@@ -3,12 +3,20 @@ country_decisions = {
 	german_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
 			OR = {
-				was_never_end_game_tag_trigger = yes
 				tag = NGC
 				tag = SGC
 			}
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = FKE }
+			NOT = { tag = MCD }
+			NOT = { tag = EAH }
+			was_never_end_game_tag_trigger = yes
+			NOT = { exists = GER }
+			normal_or_historical_nations = yes
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -16,17 +24,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			NOT = { exists = GER }
-			NOT = { tag = PAP }
-			NOT = { tag = AVI }
-			NOT = { tag = HLR }
-			NOT = { tag = ROM }
-			NOT = { tag = FKE }
-			NOT = { tag = EAH }
-			OR = {
-				tag = NGC
-				tag = SGC
 			}
 			OR = {
 				ai = no
@@ -83,22 +80,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			if = {
-				limit = {
-					NOT = {
-						has_country_flag = remove_germany_tech_requirement_flag
-					}
-				}
-				adm_tech = 54
-			}
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
-			OR = {
-				government = monarchy
-				government = republic
-				government = theocracy
-			}
-			is_at_war = no
 			owns_core_province = 1084	# Hamburg
 			owns_core_province = 2643	# Rostock
 			owns_core_province = 2652	# Berlin
@@ -117,6 +98,22 @@ country_decisions = {
 				owns_core_province = 4854	# Königsberg
 				owns_core_province = 1959	# Strassburg
 			}
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = remove_germany_tech_requirement_flag
+					}
+				}
+				adm_tech = 54
+			}
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			OR = {
+				government = monarchy
+				government = republic
+				government = theocracy
+			}
+			is_at_war = no
 			num_of_owned_provinces_with = {
 				value = 250
 				OR = {

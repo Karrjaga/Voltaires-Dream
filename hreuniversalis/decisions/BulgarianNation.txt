@@ -2,8 +2,15 @@ country_decisions = {
 	bulgaria_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
+			primary_culture = bulgarian
+			NOT = { tag = BUL }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = FKE }
+			NOT = { tag = MCD }
 			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
 			NOT = { has_country_flag = formed_bulgaria_flag }
 			OR = {
 				ai = no
@@ -13,7 +20,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = BUL }
 			OR = {
 				ai = no
 				AND = {
@@ -21,9 +27,6 @@ country_decisions = {
 					num_of_cities = 3 #Carnage
 				}
 			}
-			NOT = { tag = HLR }
-			NOT = { tag = PAP }
-			primary_culture = bulgarian
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no

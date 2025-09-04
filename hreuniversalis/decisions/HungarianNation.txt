@@ -3,6 +3,15 @@ country_decisions = {
 	hungarian_nation = {
 		major = yes
 		potential = {
+			primary_culture = hungarian
+			NOT = { tag = HUN }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = FKE }
+			NOT = { tag = ROM }
+			NOT = { tag = AVI }
+			NOT = { exists = EAH }
+			NOT = { exists = HUN }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_hungary_flag }
@@ -14,9 +23,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = EAH }
-			NOT = { exists = HUN }
-			NOT = { tag = HUN }
 			OR = {
 				ai = no
 				AND = {
@@ -24,12 +30,6 @@ country_decisions = {
 					num_of_cities = 6
 				}
 			}
-			NOT = { tag = HLR }
-			NOT = { tag = PAP }
-			NOT = { tag = FKE }
-			NOT = { tag = ROM }
-			NOT = { tag = AVI }
-			primary_culture = hungarian
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -55,13 +55,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = HUN }
-			is_at_war = no
-			is_free_or_tributary_trigger = yes
-			is_nomad = no	
-			5475 = { 					# Buda/Transdanubia
-				is_state = yes
-			}			
 			owns_core_province = 445	# Sopron
 			owns_core_province = 5475	# Buda
 			owns_core_province = 512	# Torontal
@@ -71,6 +64,13 @@ country_decisions = {
 				owns_core_province = 442 # Pressburg
 				owns_core_province = 448 # Torda
 			}
+			5475 = { 					# Buda/Transdanubia
+				is_state = yes
+			}
+			NOT = { exists = HUN }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no	
 		}
 		effect = {
 			add_prestige = 25

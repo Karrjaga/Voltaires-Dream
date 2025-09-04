@@ -14,7 +14,6 @@ country_event = {
 	picture = COUNTRY_COLLAPSE_eventPicture
 	is_triggered_only = yes
 	trigger = {
-		has_dlc = "Domination"
 		has_government_mechanic = ottoman_decadence_mechanic
 		#OR = {
 		#	NOT = { has_country_flag = had_decadence_event }
@@ -37,6 +36,7 @@ country_event = {
 			}
 		}
 		overextension_percentage = 1
+	has_dlc = "Domination"
 	}
 	mean_time_to_happen = {
 		days = 1
@@ -334,7 +334,6 @@ country_event = {
 	picture = COUNTRY_COLLAPSE_eventPicture
 	is_triggered_only = yes
 	trigger = {
-		has_dlc = "Domination"
 		has_government_mechanic = ottoman_decadence_mechanic
 		#OR = {
 		#	NOT = { has_country_flag = had_decadence_event }
@@ -359,6 +358,7 @@ country_event = {
 		war_exhaustion = 2
 		is_at_war = yes
 		NOT = { has_country_modifier = eased_war_contributions }
+		has_dlc = "Domination"
 	}
 	mean_time_to_happen = {
 		days = 1
@@ -650,7 +650,6 @@ country_event = {
 	picture = COUNTRY_COLLAPSE_eventPicture
 	is_triggered_only = yes
 	trigger = {
-		has_dlc = "Domination"
 		has_government_mechanic = ottoman_decadence_mechanic
 		#OR = {
 		#	NOT = { has_country_flag = had_decadence_event }
@@ -673,6 +672,7 @@ country_event = {
 			}
 		}
 		governing_capacity_percentage = 1.25
+		has_dlc = "Domination"
 	}
 	mean_time_to_happen = {
 		days = 1
@@ -960,7 +960,6 @@ country_event = {
 	picture = COUNTRY_COLLAPSE_eventPicture
 	is_triggered_only = yes
 	trigger = {
-		has_dlc = "Domination"
 		has_government_mechanic = ottoman_decadence_mechanic
 		#OR = {
 		#	NOT = { has_country_flag = had_decadence_event }
@@ -983,6 +982,7 @@ country_event = {
 			}
 		}
 		has_any_disaster = yes
+		has_dlc = "Domination"
 	}
 	mean_time_to_happen = {
 		days = 1
@@ -1125,7 +1125,6 @@ country_event = {
 	picture = COUNTRY_COLLAPSE_eventPicture
 	is_triggered_only = yes
 	trigger = {
-		has_dlc = "Domination"
 		has_government_mechanic = ottoman_decadence_mechanic
 		NOT = { has_country_modifier = removed_estates_from_power }
 		#OR = {
@@ -1164,6 +1163,7 @@ country_event = {
 			AND = { NOT = { estate_loyalty = { estate = estate_janissaries		loyalty = 30 } } estate_influence = { estate = estate_janissaries		influence = 80 } }
 			AND = { NOT = { estate_loyalty = { estate = estate_eunuchs			loyalty = 30 } } estate_influence = { estate = estate_eunuchs			influence = 80 } }
 		}
+		has_dlc = "Domination"
 	}
 	mean_time_to_happen = {
 		days = 1
@@ -1455,7 +1455,6 @@ country_event = {
 	picture = COUNTRY_COLLAPSE_eventPicture
 	is_triggered_only = yes
 	trigger = {
-		has_dlc = "Domination"
 		has_government_mechanic = ottoman_decadence_mechanic
 		OR = {
 			corruption = 1
@@ -1481,6 +1480,7 @@ country_event = {
 				value = 100
 			}
 		}
+		has_dlc = "Domination"
 	}
 	mean_time_to_happen = {
 		days = 1
@@ -1770,7 +1770,6 @@ country_event = {
 	picture = COUNTRY_COLLAPSE_eventPicture
 	is_triggered_only = yes
 	trigger = {
-		has_dlc = "Domination"
 		has_government_mechanic = ottoman_decadence_mechanic
 		#OR = {
 		#	NOT = { has_country_flag = had_decadence_event }
@@ -1796,6 +1795,7 @@ country_event = {
 		any_owned_province = {
 			NOT = { religion = ROOT }
 		}
+		has_dlc = "Domination"
 	}
 	mean_time_to_happen = {
 		days = 1
@@ -2094,7 +2094,6 @@ country_event = {
 	picture = COUNTRY_COLLAPSE_eventPicture
 	is_triggered_only = yes
 	trigger = {
-		has_dlc = "Domination"
 		has_government_mechanic = ottoman_decadence_mechanic
 		#OR = {
 		#	NOT = { has_country_flag = had_decadence_event }
@@ -2118,6 +2117,7 @@ country_event = {
 		}
 		NOT = { prestige = 0 } 
 		NOT = { has_country_modifier = overhauling_the_court }
+		has_dlc = "Domination"
 	}
 	mean_time_to_happen = {
 		days = 1
@@ -2414,7 +2414,6 @@ country_event = {
 	picture = COUNTRY_COLLAPSE_eventPicture
 	is_triggered_only = yes
 	trigger = {
-		has_dlc = "Domination"
 		has_government_mechanic = ottoman_decadence_mechanic
 		#OR = {
 		#	NOT = { has_country_flag = had_decadence_event }
@@ -2461,6 +2460,7 @@ country_event = {
 				NOT = { legitimacy = 50 }
 			}
 		}
+		has_dlc = "Domination"
 	}
 	mean_time_to_happen = {
 		days = 1
@@ -2748,7 +2748,6 @@ country_event = {
 	picture = COUNTRY_COLLAPSE_eventPicture
 	is_triggered_only = yes
 	trigger = {
-		has_dlc = "Domination"
 		has_government_mechanic = ottoman_decadence_mechanic
 		#OR = {
 		#	NOT = { has_country_flag = had_decadence_event }
@@ -2776,6 +2775,7 @@ country_event = {
 		}
 		is_in_deficit = yes
 		NOT = { years_of_income = 2 }
+		has_dlc = "Domination"
 	}
 	mean_time_to_happen = {
 		days = 1

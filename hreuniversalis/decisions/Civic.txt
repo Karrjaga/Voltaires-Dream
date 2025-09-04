@@ -168,6 +168,7 @@ country_decisions = {
 			exists = PAP
 		}
 		allow = {
+			has_country_modifier = the_statue_in_restraint_of_appeals
 			dip = 4
 			advisor = theologian
 			has_opinion = { who = PAP value = 100 }
@@ -209,6 +210,7 @@ country_decisions = {
 			exists = AVI
 		}
 		allow = {
+			has_country_modifier = the_statue_in_restraint_of_appeals
 			dip = 4
 			advisor = theologian
 			has_opinion = { who = AVI value = 100 }

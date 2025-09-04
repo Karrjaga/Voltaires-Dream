@@ -102,15 +102,15 @@ country_decisions = {
 	restore_ilkhanate_decision_march = {
 		major = yes
 		potential = {
-			is_year = 1245
-			normal_or_historical_nations = yes
 			owns = 7693
 			OR = {
 				tag = GLH
 				tag = MGE
 			}
-			NOT = { has_country_flag = restored_ilkhanate_decision_flag }
 			NOT = { exists = ILK }
+			is_year = 1245
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = restored_ilkhanate_decision_flag }
 			NOT = {
 				capital_scope = { superregion = persia_superregion }
 			}
@@ -120,6 +120,11 @@ country_decisions = {
 			NOT = { owned_by = ROOT }
 		}
 		allow = {
+			owns = 7693
+			OR = {
+				tag = GLH
+				tag = MGE
+			}
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			persia_superregion = {

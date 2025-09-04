@@ -120,10 +120,10 @@ country_decisions = {
 	estate_mamluks_recruit_minister = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_mamluks
 			has_enabled_estate_action = {
 				estate_action = RECRUIT_MINISTER_MAMLUKS
 			}
-			has_estate = estate_mamluks
 		}
 		allow = {
 			has_not_any_estate_disaster_active = yes

@@ -3,7 +3,12 @@ country_decisions = {
 	tatar_nation = {
 		major = yes
 		potential = {
+			culture_group = oghuz
+			NOT = { primary_culture = turkish }
+			NOT = { primary_culture = azerbaijani }
+			has_reform = steppe_horde
 			is_year = 1245
+			NOT = { exists = GLH }
 			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			NOT = { has_country_flag = formed_golden_horde_flag }
@@ -14,12 +19,7 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			NOT = { exists = GLH }
-			culture_group = oghuz
-			NOT = { primary_culture = turkish }
-			NOT = { primary_culture = azerbaijani }
-			has_reform = steppe_horde
+			}	
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no

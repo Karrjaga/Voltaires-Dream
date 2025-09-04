@@ -30,6 +30,7 @@ country_decisions = {
 			NOT = { owned_by = ROOT }
 		}
 		allow = {
+			2235 = { is_state = yes }
 			num_of_owned_provinces_with = {
 				custom_trigger_tooltip = {
 					tooltip = BYZ_highlighted_by_decision
@@ -40,7 +41,6 @@ country_decisions = {
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
-			2235 = { is_state = yes }
 		}
 		effect = {
 			2235 = {

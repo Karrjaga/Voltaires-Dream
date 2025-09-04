@@ -3,6 +3,13 @@ country_decisions = {
 	scandinavian_nation = {
 		major = yes
 		potential = {
+			culture_group = scandinavian
+			NOT = { primary_culture = gallowglass }
+			NOT = { exists = SCA }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			NOT = { has_country_flag = formed_scandinavia_flag }
 			OR = {
@@ -13,13 +20,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = SCA }
-			NOT = { tag = PAP }
-			NOT = { tag = AVI }
-			NOT = { tag = HLR }
-			was_never_end_game_tag_trigger = yes
-			culture_group = scandinavian
-			NOT = { primary_culture = gallowglass }
 			OR = {
 				ai = no
 				AND = {

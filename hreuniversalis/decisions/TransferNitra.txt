@@ -3,17 +3,17 @@ country_decisions = {
 	boh_transfer_nitra = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			NOT = { has_country_flag = transfered_nitra_flag }
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
 			OR = {
 				tag = BOH
 				was_tag = BOH
 			}
 			has_country_flag = boh_ownership_nitra
+			NOT = { has_country_flag = transfered_nitra_flag }
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
 			is_colonial_nation = no
 		}
 		provinces_to_highlight = {
@@ -28,6 +28,9 @@ country_decisions = {
 			}
 		}
 		allow = {
+			hidden_trigger = {
+				has_country_flag = boh_ownership_nitra
+			}
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			HUN = {
