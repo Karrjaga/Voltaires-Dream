@@ -229,7 +229,7 @@ country_decisions = {
 			has_country_modifier = promoting_art
 		}
 		allow = {
-			has_government_mechanic = persian_influence_mechanic
+			always = yes
 		}
 		effect = {
 			custom_tooltip = stop_promoting_art_tt
