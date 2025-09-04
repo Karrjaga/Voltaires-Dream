@@ -635,13 +635,12 @@ universities = {
 			NOT = { government = native }
 			NOT = { government = tribal }
 		}
-		owner = {
-			OR = {
-				technology_group = western
-				is_ahead_of_time_in_technology = { type = adm }
-				is_ahead_of_time_in_technology = { type = dip }
-				is_ahead_of_time_in_technology = { type = mil }
-			}
+		OR = {
+			superregion = french_superregion
+			superregion = burgundian_superregion
+			superregion = bohemia_superregion
+			superregion = germanysouth_superregion
+			superregion = italy_superregion
 		}
 	}
 	start_chance = 5		#in 100 for when a province can_start
