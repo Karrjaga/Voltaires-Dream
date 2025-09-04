@@ -11950,49 +11950,6 @@ ORK_ideas = {
 	}
 }
 
-CLC_ideas = {
-	start = {
-		stability_cost_modifier = -0.1
-		reinforce_cost_modifier = -0.2
-	}
-	bonus = {
-		diplomats = 1
-	}
-
-	trigger = {
-		tag = CLC
-	}
-	free = yes
-
-	CLC_idea_1 = {
-		defensiveness = 0.2
-	}
-	CLC_idea_2 = {
-		land_forcelimit_modifier = 0.15
-		garrison_size = 0.15
-	}
-	CLC_idea_3 = {
-		num_accepted_cultures = 1
-	}
-	CLC_idea_4 = {
-		global_missionary_strength = 0.02
-	}
-	CLC_idea_5 = {
-		legitimacy = 1
-		devotion = 1
-		republican_tradition = 0.3
-		meritocracy = 1
-		horde_unity = 1
-	}
-	CLC_idea_6 = {
-		leader_land_shock = 1
-	}
-	CLC_idea_7 = {
-		tolerance_heretic = 1
-		improve_relation_modifier = 0.25
-	}
-}
-
 REU_ideas = {
 	start = {
 		global_manpower_modifier = 0.15
@@ -12190,7 +12147,13 @@ DNM_ideas = {
 	}
 
 	trigger = {
-		tag = DNM
+		OR = {
+			tag = DNM
+			AND = {
+				tag = MLY
+				started_in = 1142.1.1
+			}
+		}
 	}
 	free = yes
 	DNM_idea_1 = {
@@ -14800,7 +14763,7 @@ MAMA_ideas = {
 	
 	trigger = {
 		tag = MAM
-		dynasty = "Eyûbî"
+		dynasty = "Eyï¿½bï¿½"
 	}
 	free = yes
 
