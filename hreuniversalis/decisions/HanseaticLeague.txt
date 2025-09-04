@@ -2,6 +2,19 @@ country_decisions = {
 	declare_hanseatic_league = {
 		major = yes
 		potential = {
+			owns = 13
+			OR = {
+				culture_group = germanic
+				tag = GOT
+				tag = RGS
+				tag = DNZ
+			}
+			NOT = { tag = HSA }
+			NOT = { tag = HLR }
+			NOT = { tag = FKE }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = GBR }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_hsa_flag }
@@ -13,18 +26,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = HSA }
-			NOT = { tag = HLR }
-			NOT = { tag = FKE }
-			NOT = { tag = PAP }
-			NOT = { tag = AVI }
-			NOT = { tag = GBR }
-			OR = {
-				culture_group = germanic
-				tag = GOT
-				tag = RGS
-				tag = DNZ
-			}
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -33,7 +34,6 @@ country_decisions = {
 					ai = no
 				}
 			}
-			owns = 13
 		}
 		provinces_to_highlight = {
 			OR = {

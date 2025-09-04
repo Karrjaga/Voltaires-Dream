@@ -313,25 +313,36 @@ country_decisions = {
         allow = {
             is_at_war = no
             #Rheingrave
-            OR = {  tag = REI
-                REI = { is_subject_of = ROOT }
-                AND = { NOT = { exists = REI } owns_or_vassal_of = 1104 }
-            }
-            #Wildgrave
-            OR = {  tag = WGR
-                WGR = { is_subject_of = ROOT }
-                AND = { NOT = { exists = WGR } owns_or_vassal_of = 18 }
-            }
-            #Raugrave
-            OR = {  tag = SXM
-                SXM = { is_subject_of = ROOT }
-                AND = { NOT = { exists = SXM } owns_or_vassal_of = 2752 }
-            }
-            #Pfalzgrave
-            OR = {  tag = PAL
-                PAL = { is_subject_of = ROOT }
-                AND = { NOT = { exists = PAL } owns_or_vassal_of = 2732 }
-            }
+			if = {
+				limit = { NOT = { tag = REI } }
+				OR = {
+					REI = { is_subject_of = ROOT }
+					AND = { NOT = { exists = REI } owns_or_vassal_of = 1104 }
+				}
+			}
+			#Wildgrave
+			else_if = {
+				limit = { NOT = { tag = WGR } }
+				OR = {
+					WGR = { is_subject_of = ROOT }
+					AND = { NOT = { exists = WGR } owns_or_vassal_of = 18 }
+				}
+			}
+			#Raugrave
+			else_if = {
+				limit = { NOT = { tag = SXM } }
+				OR = {
+					SXM = { is_subject_of = ROOT }
+					AND = { NOT = { exists = SXM } owns_or_vassal_of = 2752 }
+				}
+			}
+			#Pfalzgrave
+			else = {
+				OR = {
+                	PAL = { is_subject_of = ROOT }
+					AND = { NOT = { exists = PAL } owns_or_vassal_of = 2732 }
+				}
+			}
         }
         effect = {
         	override_country_name = ALLESGRAVIATE
@@ -350,22 +361,21 @@ country_decisions = {
                 	inherit = SXM 
                 	every_province = { limit = {} remove_core = PAL remove_core = REI remove_core = SXM }
                 }
-                if = {
+                else_if = {
                 	limit = { tag = PAL }
                 	inherit = WGR
                 	inherit = REI
                 	inherit = SXM
                 	every_province = { limit = {} remove_core = WGR remove_core = REI remove_core = SXM }
                 }
-                if = {
+                else_if = {
                 	limit = { tag = REI }
                 	inherit = PAL
                 	inherit = WGR
                 	inherit = SXM
                 	every_province = { limit = {} remove_core = PAL remove_core = WGR remove_core = SXM }
                 }
-                if = {
-                	limit = { tag = SXM }
+                else = {
                 	inherit = PAL
                 	inherit = REI
                 	inherit = WGR
@@ -692,10 +702,11 @@ country_decisions = {
 	form_brandenburg = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
+			primary_culture = central_margravian
 			NOT = { exists = BRA }
 			NOT = { exists = PRU }
 			NOT = { tag = PTH }
+			normal_or_historical_nations = yes
 			if = {
 				limit = {
 					OR = {
@@ -708,7 +719,6 @@ country_decisions = {
 			}
 			primitives = no
 			was_never_end_game_tag_trigger = yes
-			primary_culture = central_margravian
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -1040,8 +1050,7 @@ country_decisions = {
 		effect = {
 			add_prestige = 25
 			set_country_flag = formed_israel
-			every_province = {
-				limit = { region = palestine_region }
+			palestine_region = {
 				add_core = ISR
 			}
 			4974 = { change_culture = hebrew }

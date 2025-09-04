@@ -228,45 +228,45 @@ country_decisions = {
 			factor = 0
 		}
 	}
-	eng_disable_colonial_ventures = {
-		potential = {
-			OR = {
-				has_country_modifier = colonial_venture_act_modifier
-				has_country_flag = can_select_trade_goods_for_colonies
-				has_government_attribute = selectable_trade_goods_for_colonies
-			}
-			NOT = { has_country_flag = eng_disabled_colonial_ventures }
-		}
-		allow = {
-			always = yes
-		}
-		effect = {
-			custom_tooltip = eng_disable_colonial_ventures_tt
-			set_country_flag = eng_disabled_colonial_ventures
-		}
-		ai_will_do = {
-			factor = 10
-		}
-	}
-	eng_enable_colonial_ventures = {
-		potential = {
-			OR = {
-				has_country_modifier = colonial_venture_act_modifier
-				has_country_flag = can_select_trade_goods_for_colonies
-				has_government_attribute = selectable_trade_goods_for_colonies
-			}
-			has_country_flag = eng_disabled_colonial_ventures
-		}
-		allow = {
-			adm_power_cost = 100
-		}
-		effect = {
-			custom_tooltip = eng_enable_colonial_ventures_tt
-			adm_power_cost = 100
-			clr_country_flag = eng_disabled_colonial_ventures
-		}
-		ai_will_do = {
-			factor = 0
-		}
-	}
+	# eng_disable_colonial_ventures = {
+	# 	potential = {
+	# 		OR = {
+	# 			has_country_modifier = colonial_venture_act_modifier
+	# 			has_country_flag = can_select_trade_goods_for_colonies
+	# 			has_government_attribute = selectable_trade_goods_for_colonies
+	# 		}
+	# 		NOT = { has_country_flag = eng_disabled_colonial_ventures }
+	# 	}
+	# 	allow = {
+	# 		always = yes
+	# 	}
+	# 	effect = {
+	# 		custom_tooltip = eng_disable_colonial_ventures_tt
+	# 		set_country_flag = eng_disabled_colonial_ventures
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 10
+	# 	}
+	# }
+	# eng_enable_colonial_ventures = {
+	# 	potential = {
+	# 		OR = {
+	# 			has_country_modifier = colonial_venture_act_modifier
+	# 			has_country_flag = can_select_trade_goods_for_colonies
+	# 			has_government_attribute = selectable_trade_goods_for_colonies
+	# 		}
+	# 		has_country_flag = eng_disabled_colonial_ventures
+	# 	}
+	# 	allow = {
+	# 		adm_power_cost = 100
+	# 	}
+	# 	effect = {
+	# 		custom_tooltip = eng_enable_colonial_ventures_tt
+	# 		adm_power_cost = 100
+	# 		clr_country_flag = eng_disabled_colonial_ventures
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 0
+	# 	}
+	# }
 }

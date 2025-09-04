@@ -252,15 +252,8 @@ christian = {
 						current_age = age_of_crisis
 					}
 					OR = {
-						any_province = {
-							OR = {
-								province_id = 2670
-								province_id = 5022
-								province_id = 4974
-								province_id = 1052
-								province_id = 3660
-								province_id = 586
-							}
+						#muslim
+						2670 = {
 							controlled_by = owner
 							owner = {
 								religion_group = muslim
@@ -269,11 +262,44 @@ christian = {
 								num_of_cities = 8
 							}
 						}
-						any_province = {
-							OR = {
-								province_id = 402
-								province_id = 5793
+						4974 = {
+							controlled_by = owner
+							owner = {
+								religion_group = muslim
+								NOT = { alliance_with = ROOT }
+								is_subject = no
+								num_of_cities = 8
 							}
+						}
+						1052 = {
+							controlled_by = owner
+							owner = {
+								religion_group = muslim
+								NOT = { alliance_with = ROOT }
+								is_subject = no
+								num_of_cities = 8
+							}
+						}
+						3660 = {
+							controlled_by = owner
+							owner = {
+								religion_group = muslim
+								NOT = { alliance_with = ROOT }
+								is_subject = no
+								num_of_cities = 8
+							}
+						}
+						586 = {
+							controlled_by = owner
+							owner = {
+								religion_group = muslim
+								NOT = { alliance_with = ROOT }
+								is_subject = no
+								num_of_cities = 8
+							}
+						}
+						#pagan
+						402 = {
 							controlled_by = owner
 							owner = {
 								religion_group = pagan
@@ -282,12 +308,17 @@ christian = {
 								num_of_cities = 2
 							}
 						}
-						any_province = {
-							OR = {
-								province_id = 2433
-								province_id = 4063
-								province_id = 781
+						5793 = {
+							controlled_by = owner
+							owner = {
+								religion_group = pagan
+								NOT = { alliance_with = ROOT }
+								is_subject = no
+								num_of_cities = 2
 							}
+						}
+						#hussite/cathar/bogomilst
+						2433 = {
 							controlled_by = owner
 							owner = {
 								religion_group = christian
@@ -298,6 +329,29 @@ christian = {
 								num_of_cities = 8
 							}
 						}
+						4063 = {
+							controlled_by = owner
+							owner = {
+								religion_group = christian
+								NOT = { religion = catholic }
+								NOT = { religion = orthodox }
+								NOT = { alliance_with = ROOT }
+								is_subject = no
+								num_of_cities = 8
+							}
+						}
+						781 = {
+							controlled_by = owner
+							owner = {
+								religion_group = christian
+								NOT = { religion = catholic }
+								NOT = { religion = orthodox }
+								NOT = { alliance_with = ROOT }
+								is_subject = no
+								num_of_cities = 8
+							}
+						}
+						#orthodox
 						2233 = {
 							controlled_by = owner
 							owner = {

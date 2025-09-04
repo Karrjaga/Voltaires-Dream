@@ -3,6 +3,9 @@ country_decisions = {
 	andalusian_nation = {
 		major = yes
 		potential = {
+			primary_culture = andalucian
+			religion_group = muslim
+			NOT = { tag = ADU }
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -13,7 +16,6 @@ country_decisions = {
 				ai = no
 			}
 			was_never_end_game_tag_trigger = yes
-			NOT = { tag = ADU }
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -22,8 +24,6 @@ country_decisions = {
 					ai = no
 				}
 			}
-			primary_culture = andalucian
-			religion_group = muslim
 			OR = {
 				ai = no
 				AND = {

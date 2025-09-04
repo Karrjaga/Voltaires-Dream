@@ -2,6 +2,13 @@ country_decisions = {
 	scottish_nation = {
 		major = yes
 		potential = {
+			OR = {
+				primary_culture = scottish
+				primary_culture = highland_scottish
+			}
+			NOT = { tag = GBR }
+			NOT = { tag = SCO }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			NOT = { has_country_flag = formed_scotland_flag }
 			OR = {
@@ -11,13 +18,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			was_never_end_game_tag_trigger = yes
-			NOT = { tag = GBR }
-			NOT = { tag = SCO }
-			OR = {
-				primary_culture = scottish
-				primary_culture = highland_scottish
 			}
 			is_colonial_nation = no
 			OR = {

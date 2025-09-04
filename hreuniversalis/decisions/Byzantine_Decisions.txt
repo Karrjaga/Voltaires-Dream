@@ -1,45 +1,45 @@
 country_decisions = {
 	
-	BYZ_justinians_empire_decision = {
-		major = yes
-		potential = {
-			has_country_flag = BYZ_justinians_empire_decision_flag
-		}
-		provinces_to_highlight = {
-			BYZ_roman_empire_decision_trigger = yes
-			NOT = { owned_by = ROOT }
-		}
-		allow = {
-			#mission_completed = BYZ_justinians_ambition
-			#mission_completed = BYZ_egypt
+	# BYZ_justinians_empire_decision = {
+	# 	major = yes
+	# 	potential = {
+	# 		has_country_flag = BYZ_justinians_empire_decision_flag
+	# 	}
+	# 	provinces_to_highlight = {
+	# 		BYZ_roman_empire_decision_trigger = yes
+	# 		NOT = { owned_by = ROOT }
+	# 	}
+	# 	allow = {
+	# 		#mission_completed = BYZ_justinians_ambition
+	# 		#mission_completed = BYZ_egypt
 			
-			num_of_owned_provinces_with = {
-				custom_trigger_tooltip = {
-					tooltip = BYZ_highlighted_by_decision
-					BYZ_roman_empire_decision_trigger = yes
-				}
-				value = 1000
-			}
-		}
-		effect = {
-			override_country_name = BYZ_eastern_roman_empire
-			set_country_flag = is_BYZ_eastern_roman_empire_flag
-			clr_country_flag = BYZ_justinians_empire_decision_flag			
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
-				}
-				add_splendor = 400
-				add_prestige_or_monarch_power = { amount = 25 }
-			}
-			else = {
-				add_prestige_or_monarch_power = { amount = 60 }
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	# 		num_of_owned_provinces_with = {
+	# 			custom_trigger_tooltip = {
+	# 				tooltip = BYZ_highlighted_by_decision
+	# 				BYZ_roman_empire_decision_trigger = yes
+	# 			}
+	# 			value = 1000
+	# 		}
+	# 	}
+	# 	effect = {
+	# 		override_country_name = BYZ_eastern_roman_empire
+	# 		set_country_flag = is_BYZ_eastern_roman_empire_flag
+	# 		clr_country_flag = BYZ_justinians_empire_decision_flag			
+	# 		if = {
+	# 			limit = {
+	# 				has_dlc = "Mandate of Heaven"
+	# 			}
+	# 			add_splendor = 400
+	# 			add_prestige_or_monarch_power = { amount = 25 }
+	# 		}
+	# 		else = {
+	# 			add_prestige_or_monarch_power = { amount = 60 }
+	# 		}
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 	
 	BYZ_build_hexamilion_wall_decision = {
 		major = yes

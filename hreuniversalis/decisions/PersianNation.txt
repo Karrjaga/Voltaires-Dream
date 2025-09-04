@@ -2,9 +2,37 @@ country_decisions = {
 	persian_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
+			# if = {
+			# 	limit = { has_dlc = "King of Kings" }
+			# 	OR = {
+			# 		culture_group = iranian
+			# 		primary_culture = azerbaijani
+			# 	}
+			# }
+			#else = {
+				OR = {
+					culture_group = iranian
+					primary_culture = azerbaijani
+					tag = AKK
+				}
+			#}
+			OR = {
+				ai = no
+				NOT = { exists = PER }
+			}
+			NOT = { tag = SJK }
+			NOT = { tag = ERS }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = PAP }
+			NOT = { tag = TUR }
+			NOT = { tag = BYZ }
+			NOT = { tag = ARB }
+			NOT = { tag = AVI }
+			NOT = { tag = FKE }
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_persia_flag }
+			normal_or_historical_nations = yes
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -29,31 +57,6 @@ country_decisions = {
 			# 	}
 			# 	has_country_flag = turkoman_can_form_persia
 			# }
-			NOT = { tag = PER }
-			NOT = { tag = ERS }
-			NOT = { tag = HLR }
-			NOT = { tag = ROM }
-			NOT = { tag = PAP }
-			NOT = { tag = TUR }
-			NOT = { tag = BYZ }
-			NOT = { tag = ARB }
-			NOT = { tag = SJK }
-			NOT = { tag = AVI }
-			NOT = { tag = FKE }
-			# if = {
-			# 	limit = { has_dlc = "King of Kings" }
-			# 	OR = {
-			# 		culture_group = iranian
-			# 		primary_culture = azerbaijani
-			# 	}
-			# }
-			#else = {
-				OR = {
-					culture_group = iranian
-					primary_culture = azerbaijani
-					tag = AKK
-				}
-			#}
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no

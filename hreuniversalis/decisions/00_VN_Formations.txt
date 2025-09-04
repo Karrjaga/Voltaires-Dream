@@ -2246,18 +2246,15 @@ country_decisions = {
 	frankish_nation = {
 		major = yes
 		potential = {
+			owns = 2995
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = AVI }
+			NOT = { tag = MCD }
+			NOT = { exists = FKE }
+			NOT = { has_country_flag = restored_francia_flag }
 			normal_or_historical_nations = yes
-			culture_group = french
-			capital_scope = {
-				OR = {
-					superregion = french_superregion
-					superregion = burgundian_superregion
-				}
-			}
-			OR = {
-				was_never_end_game_tag_trigger = yes
-				tag = FRA
-			}
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -2266,12 +2263,15 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = HLR }
-			NOT = { tag = ROM }
-			NOT = { tag = PAP }
-			NOT = { tag = AVI }
-			NOT = { exists = FKE }
 			religion_group = christian
+			OR = {
+				culture_group = french
+				culture_group = germanic
+				culture_group = dutch_group
+				culture_group = latin
+				culture_group = rhaetic
+			}
+			
 		}
 		provinces_to_highlight = {
 			frankish_empire_decision_trigger = yes
@@ -2393,6 +2393,7 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 50
+			set_country_flag = restored_francia_flag
 		}
 		ai_will_do = {
 			factor = 0
@@ -3758,6 +3759,18 @@ country_decisions = {
 	syrian_nation = {
 		major = yes
 		potential = {
+			primary_culture = al_suryah_arabic
+			NOT = { tag = ILK }
+			NOT = { tag = GLH }
+			NOT = { tag = PER }
+			NOT = { tag = MAM }
+			NOT = { tag = EGY }
+			NOT = { tag = KOJ }
+			NOT = { tag = ISR }
+			NOT = { tag = JOR }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { exists = SYR }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			OR = {
@@ -3768,17 +3781,7 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = ILK }
-			NOT = { tag = GLH }
-			NOT = { tag = PER }
-			NOT = { tag = MAM }
-			NOT = { tag = EGY }
-			NOT = { tag = KOJ }
-			NOT = { tag = ISR }
-			NOT = { tag = JOR }
-			NOT = { exists = SYR }
 			NOT = { has_reform = celestial_empire }
-			primary_culture = al_suryah_arabic
 			OR = {
 				ai = no
 				AND = {
@@ -4039,6 +4042,14 @@ country_decisions = {
 	finnish_nation = {
 		major = yes
 		potential = {
+			OR = {
+				primary_culture = finnish
+				primary_culture = tavastian
+				primary_culture = karelian
+				primary_culture = ingrian
+			}
+			NOT = { exists = FIN }
+			NOT = { tag = GLH }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			OR = {
@@ -4049,15 +4060,7 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = GLH }
-			NOT = { exists = FIN }
 			NOT = { has_reform = celestial_empire }
-			OR = {
-				primary_culture = finnish
-				primary_culture = tavastian
-				primary_culture = karelian
-				primary_culture = ingrian
-			}
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -4132,6 +4135,11 @@ country_decisions = {
 	estonian_nation = {
 		major = yes
 		potential = {
+			OR = {
+				primary_culture = estonian
+				primary_culture = livlander
+			}
+			NOT = { exists = EST }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			OR = {
@@ -4142,12 +4150,7 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = EST }
 			NOT = { has_reform = celestial_empire }
-			OR = {
-				primary_culture = estonian
-				primary_culture = livlander
-			}
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -4228,6 +4231,13 @@ country_decisions = {
 	letonian_nation = {
 		major = yes
 		potential = {
+			OR = {
+				primary_culture = latvian
+				primary_culture = semigallian
+				primary_culture = selonian
+				primary_culture = curonian
+			}
+			NOT = { exists = LTG }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			OR = {
@@ -4238,17 +4248,11 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = LTG }
+			
 			NOT = { tag = LIT }
 			NOT = { tag = LIV }
 			NOT = { tag = TEU }
 			NOT = { has_reform = celestial_empire }
-			OR = {
-				primary_culture = latvian
-				primary_culture = semigallian
-				primary_culture = selonian
-				primary_culture = curonian
-			}
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -4329,6 +4333,10 @@ country_decisions = {
 	mazovian_nation = {
 		major = yes
 		potential = {
+			primary_culture = mazovian
+			NOT = { exists = MAZ }
+			NOT = { tag = POL }
+			NOT = { tag = PTH }
 			normal_or_historical_nations = yes
 			primitives = no
 			OR = {
@@ -4339,11 +4347,7 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = MAZ }
 			was_never_end_game_tag_trigger = yes
-			NOT = { tag = POL }
-			NOT = { tag = PTH }
-			primary_culture = mazovian
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -4415,6 +4419,13 @@ country_decisions = {
 	piedmontese_nation = {
 		major = yes
 		potential = {
+			primary_culture = piedmontese
+			NOT = { exists = PIE }
+			NOT = { exists = SPI }
+			NOT = { tag = SPI }
+			NOT = { tag = SAV }
+			NOT = { tag = LBV }
+			NOT = { tag = XKK }
 			normal_or_historical_nations = yes
 			primitives = no
 			OR = {
@@ -4426,13 +4437,6 @@ country_decisions = {
 				ai = no
 			}
 			was_never_end_game_tag_trigger = yes
-			NOT = { exists = PIE }
-			NOT = { exists = SPI }
-			NOT = { tag = SPI }
-			NOT = { tag = SAV }
-			NOT = { tag = LBV }
-			NOT = { tag = XKK }
-			primary_culture = piedmontese
 		}
 		provinces_to_highlight = {
 			province_id = 1009
@@ -4488,6 +4492,8 @@ country_decisions = {
 	breton_nation = {
 		major = yes
 		potential = {
+			primary_culture = breton
+			NOT = { exists = BRI }
 			normal_or_historical_nations = yes
 			primitives = no
 			OR = {
@@ -4503,8 +4509,6 @@ country_decisions = {
 				NOT = { exists = BRI }
 			}
 			was_never_end_game_tag_trigger = yes
-			NOT = { exists = BRI }
-			primary_culture = breton
 		}
 		provinces_to_highlight = {
 			OR = {

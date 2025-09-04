@@ -3,6 +3,8 @@ country_decisions = {
 	georgia_nation = {
 		major = yes
 		potential = {
+			culture_group = caucasian
+			NOT = { tag = GEO }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_georgia_flag }
@@ -14,7 +16,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = GEO }
 			OR = {
 				ai = no
 				AND = {
@@ -22,7 +23,6 @@ country_decisions = {
 					num_of_cities = 5
 				}
 			}
-			culture_group = caucasian
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no

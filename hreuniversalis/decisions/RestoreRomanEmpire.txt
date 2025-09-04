@@ -3,13 +3,15 @@ country_decisions = {
 	restore_roman_empire = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			NOT = { has_country_flag = restored_rome_flag }
+			owns = 2235
+			NOT = { tag = PAP }
 			NOT = { tag = FKE }
-			OR = {
-				owns = 2235
-				tag = BYZ
-			}
+			NOT = { tag = HLR }
+			NOT = { tag = AVI }
+			NOT = { tag = MCD }
+			NOT = { exists = ROM }
+			NOT = { has_country_flag = restored_rome_flag }
+			normal_or_historical_nations = yes
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -18,7 +20,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = ROM }
 			OR = {
 				religion_group = christian
 				religion_group = pagan
