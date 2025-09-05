@@ -11,12 +11,14 @@ country_event = {
 	id = propagate_religion_events.1
 	title = propagate_religion_events.1.t
 	desc = propagate_religion_events.1.d
-	picture = SULTAN_AND_MERCHANT_eventPicture
+	picture = DIPLOMACY_eventPicture
 	goto = trade_province
 	
 	trigger = {
+		ai = no #better performance
 		has_dlc = "Cradle of Civilization"
 		NOT = { religion_group = muslim }
+		NOT = { religion_group = christian }
 		any_active_trade_node = {
 			any_country_active_in_node = {
 				trading_policy_in_node = {
@@ -27,7 +29,8 @@ country_event = {
 			any_trade_node_member_province = {
 				owned_by = ROOT
 				NOT = { religion_group = muslim }
-				has_port = yes
+				NOT = { religion_group = christian }
+				#has_port = yes
 				NOT = { has_province_modifier = trading_settlement }
 			}
 		}
@@ -46,15 +49,26 @@ country_event = {
 					any_trade_node_member_province = {
 						owned_by = ROOT
 						NOT = { religion_group = muslim }
-						has_port = yes
+						NOT = { religion_group = christian }
+						#has_port = yes
 						NOT = { has_province_modifier = trading_settlement }
 					}
+				}
+				random_country = {
+					limit = {
+						trading_policy_in_node = {
+							node = PREV
+							policy = propagate_religion
+						}
+					}
+					save_event_target_as = converter_country #Used in Loc
 				}
 				random_trade_node_member_province = {
 					limit = {
 						owned_by = ROOT
 						NOT = { religion_group = muslim }
-						has_port = yes
+						NOT = { religion_group = christian }
+						#has_port = yes
 						NOT = { has_province_modifier = trading_settlement }
 					}
 					save_event_target_as = trade_province
@@ -95,10 +109,11 @@ country_event = {
 	id = propagate_religion_events.2
 	title = propagate_religion_events.2.t
 	desc = propagate_religion_events.2.d
-	picture = MYSTIC_IN_PRAYER_eventPicture
+	picture = RELIGIOUS_CONVERSION_eventPicture
 	goto = trade_province
 	
 	trigger = {
+		ai = no #better performance
 		has_dlc = "Cradle of Civilization"
 		NOT = { religion_group = muslim }
 		any_active_trade_node = {
@@ -169,7 +184,6 @@ country_event = {
 	
 	option = {
 		name = propagate_religion_events.2.a #We cannot let authority slip to outside groups such as this one.
-		add_legitimacy = 10
 	}
 	option = {
 		name = propagate_religion_events.2.b #They will be a welcome addition to our society.
@@ -188,17 +202,34 @@ country_event = {
 country_event = {
 	id = propagate_religion_events.3
 	title = propagate_religion_events.3.t
-	desc = propagate_religion_events.3.d
-	picture = DHOW_AT_SEA_eventPicture
+	desc = {
+		trigger = {
+			event_target:converter_country = { religion_group = christian }
+		}
+		desc = propagate_religion_events.3.d
+	}
+	desc = {
+		trigger = {
+			event_target:converter_country = { NOT = { religion_group = christian } }
+		}
+		desc = propagate_religion_events.3.d2
+	}
+	picture = SHIP_SAILING_eventPicture 
 	
 	trigger = {
+		ai = no #better performance
 		has_dlc = "Cradle of Civilization"
 		NOT = { religion_group = muslim }
+		NOT = { religion_group = christian }
 		any_active_trade_node = {
 			any_country_active_in_node = {
 				trading_policy_in_node = {
 					node = PREV
 					policy = propagate_religion
+				}
+				OR = {
+					religion_group = muslim
+					religion_group = christian
 				}
 			}
 			any_trade_node_member_province = {
@@ -217,6 +248,10 @@ country_event = {
 							node = PREV
 							policy = propagate_religion
 						}
+						OR = {
+							religion_group = muslim
+							religion_group = christian
+						}
 					}
 					any_trade_node_member_province = {
 						owned_by = ROOT
@@ -228,6 +263,10 @@ country_event = {
 						trading_policy_in_node = {
 							node = PREV
 							policy = propagate_religion
+						}
+						OR = {
+							religion_group = muslim
+							religion_group = christian
 						}
 					}
 					save_event_target_as = converter_country
@@ -306,10 +345,11 @@ country_event = {
 	id = propagate_religion_events.4
 	title = propagate_religion_events.4.t
 	desc = propagate_religion_events.4.d
-	picture = MYSTIC_IN_PRAYER_eventPicture
+	picture = RELIGIOUS_CONVERSION_eventPicture
 	goto = cured_province
 	
 	trigger = {
+		ai = no #better performance
 		has_dlc = "Cradle of Civilization"
 		any_active_trade_node = {
 			any_country_active_in_node = {
@@ -428,12 +468,15 @@ country_event = {
 	id = propagate_religion_events.5
 	title = propagate_religion_events.5.t
 	desc = propagate_religion_events.5.d
-	picture = PRAYER_IN_MOSQUE_eventPicture
+	picture = PRAYING_eventPicture
 	goto = mosque_province
 	
 	trigger = {
+		ai = no #better performance
 		has_dlc = "Cradle of Civilization"
 		NOT = { religion_group = muslim }
+		NOT = { religion_group = christian }
+		NOT = { government = native }
 		any_active_trade_node = {
 			any_country_active_in_node = {
 				trading_policy_in_node = {
@@ -444,9 +487,13 @@ country_event = {
 			}
 			any_trade_node_member_province = {
 				owned_by = ROOT
-				religion_group = muslim
+				OR = {
+					religion_group = muslim
+					religion_group = christian
+				}
 				any_neighbor_province = {
 					NOT = { religion_group = muslim }
+					NOT = { religion_group = christian }
 					area = PREV
 					owned_by = ROOT
 					is_capital = no
@@ -468,10 +515,14 @@ country_event = {
 					}
 					any_trade_node_member_province = {
 						owned_by = ROOT
-						religion_group = muslim
+						OR = {
+							religion_group = muslim
+							religion_group = christian
+						}
 						any_neighbor_province = {
 							area = PREV
 							NOT = { religion_group = muslim }
+							NOT = { religion_group = christian }
 							owned_by = ROOT
 							is_capital = no
 						}
@@ -490,10 +541,14 @@ country_event = {
 				random_trade_node_member_province = {
 					limit = {
 						owned_by = ROOT
-						religion_group = muslim
+						OR = {
+							religion_group = muslim
+							religion_group = christian
+						}
 						any_province = {
 							area = PREV
 							NOT = { religion_group = muslim }
+							NOT = { religion_group = christian }
 							owned_by = ROOT
 							is_capital = no
 						}
@@ -531,16 +586,12 @@ country_event = {
 		event_target:mosque_province = {
 			if = {
 				limit = {
-					adm_tech = 36
 					NOT = { has_building = temple }
 					NOT = { has_building = cathedral }
+					NOT = { has_building = monument }
 					num_free_building_slots = 1
 				}
-				if = {
-					limit = { has_building = monument }
-					remove_building = monument
-				}
-				add_building = temple
+				add_building = monument
 			}
 			add_base_tax = 1
 			area = {
@@ -576,11 +627,7 @@ country_event = {
 		NOT = { dominant_religion = ROOT }
 		capital_scope = {
 			religion_group = muslim
-			OR = {
-				superregion = pontic_steppe_superregion
-				superregion = central_asia_superregion
-				superregion = caucasia_superregion
-			}
+			is_node_in_trade_company_region = yes
 		}
 		NOT = { has_country_modifier = islamic_titles }
 	}
@@ -685,10 +732,22 @@ country_event = {
 country_event = {
 	id = propagate_religion_events.8
 	title = propagate_religion_events.8.t
-	desc = propagate_religion_events.8.d
-	picture = MUSLIM_SCHOLAR_WRITING_eventPicture
+	desc = {
+		trigger = {
+			event_target:converter_country = { religion_group = muslim }
+		}
+		desc = propagate_religion_events.8.d
+	}
+	desc = {
+		trigger = {
+			event_target:converter_country = { NOT = { religion_group = muslim } }
+		}
+		desc = propagate_religion_events.8.d2
+	}
+	picture = ARTWORK_eventPicture
 	
 	trigger = {
+		ai = no #better performance
 		has_dlc = "Cradle of Civilization"
 		any_active_trade_node = {
 			any_country_active_in_node = {
@@ -696,6 +755,10 @@ country_event = {
 				trading_policy_in_node = {
 					node = PREV
 					policy = propagate_religion
+				}
+				OR = {
+					religion_group = christian
+					religion_group = muslim
 				}
 			}
 			any_trade_node_member_province = {
@@ -715,6 +778,10 @@ country_event = {
 							node = PREV
 							policy = propagate_religion
 						}
+						OR = {
+							religion_group = christian
+							religion_group = muslim
+						}
 					}
 					any_trade_node_member_province = {
 						owned_by = ROOT
@@ -726,6 +793,10 @@ country_event = {
 						trading_policy_in_node = {
 							node = PREV
 							policy = propagate_religion
+						}
+						OR = {
+							religion_group = christian
+							religion_group = muslim
 						}
 					}
 					save_event_target_as = converter_country
@@ -816,10 +887,14 @@ country_event = {
 	goto = hinterland_province
 	
 	trigger = {
+		ai = no #better performance
 		has_dlc = "Cradle of Civilization"
 		any_active_trade_node = {
 			any_country_active_in_node = {
-				religion_group = muslim
+				OR = {
+					religion_group = muslim
+					religion_group = christian
+				}
 				trading_policy_in_node = {
 					node = PREV
 					policy = propagate_religion
@@ -828,6 +903,7 @@ country_event = {
 			any_trade_node_member_province = {
 				owned_by = ROOT
 				NOT = { religion_group = muslim }
+				NOT = { religion_group = christian }
 				is_capital = no
 				NOT = { has_province_modifier = chiefs_with_pretensions }
 			}
@@ -841,7 +917,10 @@ country_event = {
 			random_active_trade_node = {
 				limit = {
 					any_country = {
-						religion_group = muslim
+						OR = {
+							religion_group = muslim
+							religion_group = christian
+						}
 						trading_policy_in_node = {
 							node = PREV
 							policy = propagate_religion
@@ -850,13 +929,17 @@ country_event = {
 					any_trade_node_member_province = {
 						owned_by = ROOT
 						NOT = { religion_group = muslim }
+						NOT = { religion_group = christian }
 						is_capital = no
 						NOT = { has_province_modifier = chiefs_with_pretensions }
 					}
 				}
 				random_country = {
 					limit = {
-						religion_group = muslim
+						OR = {
+							religion_group = muslim
+							religion_group = christian
+						}
 						trading_policy_in_node = {
 							node = PREV
 							policy = propagate_religion
@@ -869,6 +952,7 @@ country_event = {
 						is_capital = no
 						owned_by = ROOT
 						NOT = { religion_group = muslim }
+						NOT = { religion_group = christian }
 						NOT = { has_province_modifier = chiefs_with_pretensions }
 					}
 					save_event_target_as = hinterland_province
@@ -898,20 +982,21 @@ country_event = {
 	id = propagate_religion_events.10
 	title = propagate_religion_events.10.t
 	desc = propagate_religion_events.10.d
-	picture = MYSTICS_DANCING_eventPicture
+	picture = STREET_SPEECH_eventPicture
 	
 	trigger = {
+		ai = no #better performance
 		has_dlc = "Cradle of Civilization"
 		NOT = { religion_group = muslim }
+		NOT = { religion_group = christian }
 		NOT = { has_country_modifier = rejection_of_syncretism }
 		any_owned_province = {
-			religion_group = muslim
-			has_owner_culture = yes
 			OR = {
-				superregion = pontic_steppe_superregion
-				superregion = central_asia_superregion
-				superregion = caucasia_superregion
+				religion_group = muslim
+				religion_group = christian
 			}
+			has_owner_culture = yes
+			is_node_in_trade_company_region = yes
 		}
 		any_active_trade_node = {
 			any_country = {
@@ -940,7 +1025,10 @@ country_event = {
 			random_active_trade_node = {
 				limit = {
 					any_country = {
-						religion_group = muslim
+						OR = {
+							religion_group = muslim
+							religion_group = christian
+						}
 						trading_policy_in_node = {
 							node = PREV
 							policy = propagate_religion
@@ -949,12 +1037,16 @@ country_event = {
 					any_trade_node_member_province = {
 						owned_by = ROOT
 						NOT = { religion_group = muslim }
+						NOT = { religion_group = christian }
 						is_capital = no
 					}
 				}
 				random_country = {
 					limit = {
-						religion_group = muslim
+						OR = {
+							religion_group = muslim
+							religion_group = christian
+						}
 						trading_policy_in_node = {
 							node = PREV
 							policy = propagate_religion
@@ -966,6 +1058,7 @@ country_event = {
 					limit = {
 						owned_by = ROOT
 						NOT = { religion_group = muslim }
+						NOT = { religion_group = christian }
 						is_capital = no
 					}
 					save_event_target_as = islamic_syncretism_province
@@ -996,23 +1089,24 @@ province_event = {
 	id = propagate_religion_events.11
 	title = propagate_religion_events.11.t
 	desc = propagate_religion_events.11.d
-	picture = SOUP_KITCHEN_eventPicture
+	picture = CITY_DEVELOPMENT_eventPicture
 	goto = root
 	
 	trigger = {
+		ai = no #better performance
 		has_dlc = "Cradle of Civilization"
-		OR = {
-			superregion = pontic_steppe_superregion
-			superregion = central_asia_superregion
-			superregion = caucasia_superregion
-		}
+		is_node_in_trade_company_region = yes
 		has_empty_adjacent_province = yes
 		owner = {
 			NOT = { religion_group = muslim }
+			NOT = { religion_group = christian }
 		}
 		any_country = {
 			NOT = { war_with = ROOT }
-			religion_group = muslim
+			OR = {
+				religion_group = muslim
+				religion_group = christian
+			}
 			trading_policy_in_node = {
 				node = ROOT
 				policy = propagate_religion
@@ -1027,7 +1121,10 @@ province_event = {
 			random_country = {
 				limit = {
 					NOT = { war_with = ROOT }
-					religion_group = muslim
+					OR = {
+						religion_group = muslim
+						religion_group = christian
+					}
 					trading_policy_in_node = {
 						node = ROOT
 						policy = propagate_religion
