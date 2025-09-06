@@ -17,6 +17,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			is_emperor = yes
 			NOT = { is_year = 1490 }
 			custom_trigger_tooltip = {
 				tooltip = tuscany_in_hre_tooltip

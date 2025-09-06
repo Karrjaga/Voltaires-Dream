@@ -3,25 +3,11 @@ country_decisions = {
 	great_moravia = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			NOT = { has_country_flag = formed_great_moravia_flag }
 			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			NOT = { exists = GMA }
-			NOT = { tag = PAP }
-			NOT = { tag = AVI }
-			NOT = { tag = HLR }
-			OR = {
-				OR = {
-					tag = SLO
-					was_tag = SLO
-				}
-				OR = {
-					tag = MRV
-					was_tag = MRV
-				}
+				tag = SLO
+				was_tag = SLO
+				tag = MRV
+				was_tag = MRV
 				AND = {
 					OR = {
 						tag = BOH
@@ -30,6 +16,16 @@ country_decisions = {
 					has_dlc = "Winds of Change"
 				}
 			}
+			NOT = { exists = GMA }
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_great_moravia_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
 			is_colonial_nation = no
 		}
 		provinces_to_highlight = {
@@ -52,9 +48,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 40
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
 			1078 = { country_or_non_sovereign_subject_holds = ROOT }
 			5475 = { country_or_non_sovereign_subject_holds = ROOT }
 			458 = { country_or_non_sovereign_subject_holds = ROOT }
@@ -67,6 +60,9 @@ country_decisions = {
 			1970 = { country_or_non_sovereign_subject_holds = ROOT }
 			2172 = { country_or_non_sovereign_subject_holds = ROOT }
 			2353 = { country_or_non_sovereign_subject_holds = ROOT }
+			adm_tech = 40
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
 		}
 		effect = {
 			if = {

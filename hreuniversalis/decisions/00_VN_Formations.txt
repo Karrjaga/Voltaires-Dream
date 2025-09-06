@@ -3,8 +3,11 @@ country_decisions = {
 	yugoslav_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
+			culture_group = south_slavic
+			NOT = { exists = MGF }
+			NOT = { tag = BYZ }
 			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -13,9 +16,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = MGF }
-			NOT = { tag = BYZ }
-			culture_group = south_slavic
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -32,20 +32,20 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			is_nomad = no
-			if = {
-				limit = { NOT = { has_country_flag = can_form_yugoslavia_earlier } }
-				adm_tech = 56
-			}
-			NOT = { exists = BYZ }
 			owns_core_province = 539 #Belgrade
 			owns_core_province = 2066 #Skopje
 			owns_core_province = 137 #Dubrovnik
 			owns_core_province = 2236 #Zagreb
 			owns_core_province = 2433 #Bobovac
 			owns_core_province = 2118 #Zeta
+			if = {
+				limit = { NOT = { has_country_flag = can_form_yugoslavia_earlier } }
+				adm_tech = 56
+			}
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			is_nomad = no
+			NOT = { exists = BYZ }
 		}
 		effect = {
 			change_tag = MGF
@@ -83,6 +83,13 @@ country_decisions = {
 	arpitan_nation = {
 		major = yes
 		potential = {
+			OR = {
+				primary_culture = arpitan
+				primary_culture = vivaro_alpine
+				primary_culture = provencal
+			}
+			NOT = { tag = SAV }
+			NOT = { exists = XAP }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			OR = {
@@ -92,13 +99,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			NOT = { tag = SAV }
-			NOT = { exists = XAP }
-			OR = {
-				primary_culture = arpitan
-				primary_culture = vivaro_alpine
-				primary_culture = provencal
 			}
 		}
 		provinces_to_highlight = {
@@ -115,17 +115,17 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			is_nomad = no
-			adm_tech = 14
-			NOT = { exists = XAP }
-			NOT = { exists = SAV }
 			owns_core_province = 2050 #Grenoble
 			owns_core_province = 541 #Lyon
 			owns_core_province = 800 #Embrun
 			owns_core_province = 2058 #Valence
 			owns_core_province = 989 #arles
+			adm_tech = 14
+			NOT = { exists = XAP }
+			NOT = { exists = SAV }
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			is_nomad = no
 		}
 		effect = {
 			change_tag = XAP
@@ -415,6 +415,16 @@ country_decisions = {
 	swabian_nation = {
 		major = yes
 		potential = {
+			OR = {
+				primary_culture = swabian
+				primary_culture = boden_alemannic
+			}
+			NOT = { exists = SWA }
+			was_never_end_game_tag_trigger = yes
+			OR = {
+				tag = ALS
+				NOT = { capital_scope = { region = alsace_region } }
+			}
 			normal_or_historical_nations = yes
 			primitives = no
 			OR = {
@@ -424,16 +434,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			was_never_end_game_tag_trigger = yes
-			NOT = { exists = SWA }
-			OR = {
-				primary_culture = swabian
-				primary_culture = boden_alemannic
-			}
-			OR = {
-				tag = ALS
-				NOT = { capital_scope = { region = alsace_region } }
 			}
 		}
 		provinces_to_highlight = {
@@ -451,17 +451,17 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 14
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			is_nomad = no
 			owns_core_province = 69 #konstanz
 			owns_core_province = 2956 #augsburg
 			owns_core_province = 58 #ulm
 			owns_core_province = 1771 #stgallen
 			owns_core_province = 632 #furstenberg
 			owns_core_province = 543 #freiburg
+			adm_tech = 14
 			num_of_cities = 20
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			is_nomad = no
 		}
 		effect = {
 			change_tag = SWA
@@ -527,6 +527,14 @@ country_decisions = {
 	franconian_nation = {
 		major = yes
 		potential = {
+			OR = {
+				primary_culture = franconian
+				primary_culture = moselle_franconian
+				primary_culture = pfalzish
+				primary_culture = hessian
+			}
+			NOT = { exists = FKN }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			primitives = no
 			OR = {
@@ -536,14 +544,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			was_never_end_game_tag_trigger = yes
-			NOT = { exists = FKN }
-			OR = {
-				primary_culture = franconian
-				primary_culture = moselle_franconian
-				primary_culture = pfalzish
-				primary_culture = hessian
 			}
 		}
 		provinces_to_highlight = {
@@ -562,10 +562,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 14
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			is_nomad = no
 			owns_core_province = 2523 #wurzburg
 			owns_core_province = 2544 #bamberg
 			owns_core_province = 151 #speyer
@@ -573,7 +569,11 @@ country_decisions = {
 			owns_core_province = 762 #mainz
 			owns_core_province = 1943 #frankfirt
 			owns_core_province = 3 #fulda
+			adm_tech = 14
 			num_of_cities = 20
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			is_nomad = no
 		}
 		effect = {
 			change_tag = FKN
@@ -633,6 +633,13 @@ country_decisions = {
 	lombardian_nation = {
 		major = yes
 		potential = {
+			OR = {
+				culture_group = latin
+				primary_culture = langobardic
+			}
+			NOT = { exists = XKK }
+			capital_scope = { superregion = italy_superregion }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			primitives = no
 			OR = {
@@ -642,13 +649,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			was_never_end_game_tag_trigger = yes
-			capital_scope = { superregion = italy_superregion }
-			NOT = { exists = XKK }
-			OR = {
-				culture_group = latin
-				primary_culture = langobardic
 			}
 		}
 		provinces_to_highlight = {
@@ -665,15 +665,15 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 40
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			is_nomad = no
 			owns_core_province = 1818 #milano
 			owns_core_province = 1798 #masserano
 			owns_core_province = 1012 #pavia
 			owns_core_province = 2742 #brescia
 			owns_core_province = 500 #lodi
+			adm_tech = 40
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			is_nomad = no
 		}
 		effect = {
 			change_tag = XKK
@@ -742,6 +742,17 @@ country_decisions = {
 	sicilian_nation = {
 		major = yes
 		potential = {
+			OR = {
+				culture_group = latin
+				primary_culture = langobardic
+			}
+			NOT = { tag = LBV }
+			OR = {
+				NOT = { exists = SIC }
+				tag = APL
+			}
+			capital_scope = { superregion = sicily_superregion }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -750,17 +761,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			OR = {
-				NOT = { exists = SIC }
-				tag = APL
-			}
-			NOT = { tag = LBV }
-			was_never_end_game_tag_trigger = yes
-			capital_scope = { superregion = sicily_superregion }
-			OR = {
-				culture_group = latin
-				primary_culture = langobardic
 			}
 		}
 		provinces_to_highlight = {
@@ -785,15 +785,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			OR = {
-				adm_tech = 40
-				tag = APL
-				has_reform = siculo_norman_monarchy
-			}
-			is_free_or_tributary_trigger = yes
-			NOT = { exists = SIC }
-			is_at_war = no
-			is_nomad = no
 			owns_core_province = 2041 #palermo
 			owns_core_province = 2703 #messina
 			owns_core_province = 431 #bari
@@ -803,6 +794,15 @@ country_decisions = {
 				owns_core_province = 564 #naples
 				owns_core_province = 2222 #aquila
 			}
+			NOT = { exists = SIC }
+			OR = {
+				adm_tech = 40
+				tag = APL
+				has_reform = siculo_norman_monarchy
+			}
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			is_nomad = no
 		}
 		effect = {
 			remove_non_electors_emperors_from_empire_effect = yes
@@ -848,15 +848,15 @@ country_decisions = {
 	romagna_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			primitives = no
-			NOT = { exists = RMG }
-			was_never_end_game_tag_trigger = yes
-			NOT = { tag = XKK }
 			OR = {
 				primary_culture = romagnan
 				tag = BLG
 			}
+			NOT = { tag = XKK }
+			NOT = { exists = RMG }
+			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
+			primitives = no
 		}
 		provinces_to_highlight = {
 			area = cesena_area
@@ -1003,6 +1003,9 @@ country_decisions = {
 	slovenian_nation = {
 		major = yes
 		potential = {
+			primary_culture = slovenian
+			NOT = { exists = SLV }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -1012,9 +1015,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			was_never_end_game_tag_trigger = yes
-			NOT = { exists = SLV }
-			primary_culture = slovenian
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -1030,15 +1030,15 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			is_nomad = no
-			adm_tech = 40
 			owns_core_province = 958 #ljubljana
 			owns_core_province = 691 #celje
 			owns_core_province = 942 #novo mesto
 			owns_core_province = 915 #maribor
 			owns_core_province = 943 #postojna
+			adm_tech = 40
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			is_nomad = no
 		}
 		effect = {
 			change_tag = SLV
@@ -2247,6 +2247,13 @@ country_decisions = {
 		major = yes
 		potential = {
 			owns = 2995
+			OR = {
+				culture_group = french
+				culture_group = germanic
+				culture_group = dutch_group
+				culture_group = latin
+				culture_group = rhaetic
+			}
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
 			NOT = { tag = ROM }
@@ -2264,20 +2271,17 @@ country_decisions = {
 				ai = no
 			}
 			religion_group = christian
-			OR = {
-				culture_group = french
-				culture_group = germanic
-				culture_group = dutch_group
-				culture_group = latin
-				culture_group = rhaetic
-			}
-			
 		}
 		provinces_to_highlight = {
 			frankish_empire_decision_trigger = yes
 			NOT = { owned_by = ROOT }
 		}
 		allow = {
+			owns = 2995
+			is_at_war = no
+			is_nomad = no
+			government = monarchy
+			is_free_or_tributary_trigger = yes	
 			num_of_owned_provinces_with = {
 				custom_trigger_tooltip = {
 					tooltip = BYZ_highlighted_by_decision
@@ -2285,10 +2289,6 @@ country_decisions = {
 				}
 				value = 750
 			}
-			is_at_war = no
-			is_nomad = no
-			is_free_or_tributary_trigger = yes	
-			government = monarchy
 		}
 		effect = {
 			restore_country_name = yes
@@ -2573,9 +2573,11 @@ country_decisions = {
 	moldovan_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
 			primary_culture = moldovan
+			NOT = { exists = MOL }
+			NOT = { tag = RMN }
 			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -2584,8 +2586,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = MOL }
-			NOT = { tag = RMN }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -2601,16 +2601,16 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 14
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			is_nomad = no
-			NOT = { exists = MOL }
 			owns_core_province = 5630 #bacau
 			owns_core_province = 5647 #suceava
 			owns_core_province = 5620 #chisinau
 			owns_core_province = 5650 #cernauti
 			owns_core_province = 5626 #iassy
+			NOT = { exists = MOL }
+			adm_tech = 14
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			is_nomad = no
 		}
 		effect = {
 			change_tag = MOL
@@ -3972,6 +3972,12 @@ country_decisions = {
 	circassian_nation = {
 		major = yes
 		potential = {
+			culture_group = abkhazian_group
+			NOT = { tag = ILK }
+			NOT = { tag = GLH }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { exists = CIR }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			OR = {
@@ -3982,11 +3988,7 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = ILK }
-			NOT = { tag = GLH }
-			NOT = { exists = CIR }
 			NOT = { has_reform = celestial_empire }
-			culture_group = abkhazian_group
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -4001,14 +4003,14 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 14
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
-			is_at_war = no
 			owns_core_province = 3650 #Sochi
 			owns_core_province = 3742 #Labinsk
 			owns_core_province = 6219 #Cherkessk
 			owns_core_province = 3653 #Tuapse
+			adm_tech = 14
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
 		}
 		effect = {
 			change_tag = CIR
@@ -4618,10 +4620,10 @@ country_decisions = {
 			}
 		}
 		allow = {
-			2233 = { is_state = yes }
 			owns_core_province = 2233 #Constantinople
 			owns_core_province = 573 #Adrianople
 			owns_core_province = 2398 #Thessaloniki
+			2233 = { is_state = yes }
 			is_at_war = no
 		}
 		effect = {
@@ -5201,17 +5203,13 @@ country_decisions = {
 	altsaxon_nation = {
 		major = yes
 		potential = {
+			primary_culture = lower_saxon
+			NOT = { tag = AVI }
+			NOT = { tag = PAP }
+			NOT = { exists = SXN }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			primitives = no
-			was_never_end_game_tag_trigger = yes
-			primary_culture = lower_saxon
-			OR = {
-				AND = {
-					ai = no
-					tag = SXN
-				}
-				NOT = { exists = SXN }
-			}
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -5227,16 +5225,16 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			is_nomad = no
-			NOT = { exists = SAX }
-			NOT = { exists = SXN }
 			owns_core_province = 2627 #Lüneburg
 			owns_core_province = 2794 #Brunswick
 			owns_core_province = 2972 #Paderborn
 			owns_core_province = 429 #Bremen
 			owns_core_province = 2973 #Münster
+			NOT = { exists = SXN }
+			NOT = { exists = SAX }
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			is_nomad = no
 		}
 		effect = {
 			change_tag = SXN

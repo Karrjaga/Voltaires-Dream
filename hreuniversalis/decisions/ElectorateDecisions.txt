@@ -106,18 +106,18 @@ country_decisions = {
 	usurp_the_electorate = {
 		major = yes
 		potential = {
-			is_elector = no
 			is_emperor = yes
+			is_elector = no
 		}
 		allow = {
 			is_part_of_hre = yes
-			is_elector = no
 			is_emperor = yes
+			is_elector = no
+			stability = 1
+			imperial_influence = 5
 			any_subject_country = {
 				is_elector = yes
 			}
-			stability = 1
-			imperial_influence = 5
 		}
 		effect = {
 			add_imperial_influence = -5

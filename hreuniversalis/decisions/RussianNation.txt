@@ -4,14 +4,24 @@ country_decisions = {
 		major = yes
 		potential = {
 			OR = {
+				primary_culture = russian
+				primary_culture = novgorodian
+				primary_culture = ryazanian
+				primary_culture = radimich
+				primary_culture = vyatich
+				primary_culture = krivich
+			}
+			NOT = { tag = POL }
+			NOT = { tag = RUS }
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_russia_flag }
+			OR = {
 				ai = no
 				has_global_flag = empire_of_china_dismantled
 				is_emperor_of_china = yes
 				NOT = { has_dlc = "Mandate of Heaven" }
 			}
 			normal_or_historical_nations = yes
-			was_never_end_game_tag_trigger = yes
-			NOT = { has_country_flag = formed_russia_flag }
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -20,19 +30,9 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = POL }
-			NOT = { tag = RUS }
 			OR = {
 				NOT = { exists = RUS }
 				ai = no
-			}
-			OR = {
-				primary_culture = russian
-				primary_culture = novgorodian
-				primary_culture = ryazanian
-				primary_culture = radimich
-				primary_culture = vyatich
-				primary_culture = krivich
 			}
 			OR = {
 				ai = no
@@ -85,29 +85,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = RUS }
-			if = {
-				limit = { has_dlc = "Mandate of Heaven" }
-				OR = {
-					AND = {
-						is_emperor_of_china = yes
-						empire_of_china_reform_passed = vassalize_tributaries_decision
-					}
-					custom_trigger_tooltip = {
-						tooltip = no_country_is_EoC
-						NOT = {
-							any_country = {
-								is_emperor_of_china = yes
-							}
-						}
-					}
-				}
-			}
-			adm_tech = 44
-			NOT = { has_reform = states_general_reform }
-			is_subject = no
-			is_nomad = no
-			is_at_war = no
 			owns_core_province = 6594			# Moskva
 			owns_core_province = 6144			# Novgorod
 			OR = {
@@ -121,7 +98,29 @@ country_decisions = {
 			OR = {
 				owns_core_province = 6689		# Nijni-Novgorod
 				owns_core_province = 6692		# Vladimir	
-			}			
+			}
+			NOT = { exists = RUS }
+			adm_tech = 44
+			NOT = { has_reform = states_general_reform }
+			is_subject = no
+			is_nomad = no
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" }
+				OR = {
+					AND = {
+						is_emperor_of_china = yes
+						empire_of_china_reform_passed = vassalize_tributaries_decision
+					}
+					custom_trigger_tooltip = {
+						tooltip = no_country_is_EoC
+						NOT = {
+							any_known_country = {
+								is_emperor_of_china = yes
+							}
+						}
+					}
+				}
+			}
 		}
 		effect = {
 			change_tag = RUS

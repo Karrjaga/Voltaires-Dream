@@ -8,17 +8,13 @@ country_decisions = {
 	estate_mamluks_contribute_mamluks = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_mamluks
 			has_enabled_estate_action = {
 				estate_action = CONTRIBUTE_WARRIORS_MAMLUKS
 			}
-			has_estate = estate_mamluks
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
-			estate_action_off_cooldown = {
-				estate_action = CONTRIBUTE_WARRIORS_MAMLUKS
-				days = 3650
-			}
+			has_estate = estate_mamluks
 			estate_loyalty = {
 				estate = estate_mamluks
 				loyalty = 50
@@ -26,6 +22,11 @@ country_decisions = {
 			estate_influence = {
 				estate = estate_mamluks
 				influence = 40
+			}
+			has_not_any_estate_disaster_active = yes
+			estate_action_off_cooldown = {
+				estate_action = CONTRIBUTE_WARRIORS_MAMLUKS
+				days = 3650
 			}
 			NOT = { manpower_percentage = 0.99 }
 		}
@@ -64,20 +65,13 @@ country_decisions = {
 	estate_mamluks_raise_host = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_mamluks
 			has_enabled_estate_action = {
 				estate_action = RAISE_HOST_MAMLUKS
 			}
-			has_estate = estate_mamluks
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
-			estate_action_off_cooldown = {
-				estate_action = RAISE_HOST_MAMLUKS
-				days = 3650
-			}
-			capital_scope = {
-				controlled_by = ROOT
-			}
+			has_estate = estate_mamluks
 			estate_loyalty = {
 				estate = estate_mamluks
 				loyalty = 50
@@ -85,6 +79,14 @@ country_decisions = {
 			estate_influence = {
 				estate = estate_mamluks
 				influence = 40
+			}
+			has_not_any_estate_disaster_active = yes
+			estate_action_off_cooldown = {
+				estate_action = RAISE_HOST_MAMLUKS
+				days = 3650
+			}
+			capital_scope = {
+				controlled_by = ROOT
 			}
 		}
 		effect = {
@@ -126,14 +128,15 @@ country_decisions = {
 			}
 		}
 		allow = {
+			has_estate = estate_mamluks
+			estate_influence = {
+				estate = estate_mamluks
+				influence = 40
+			}
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = RECRUIT_MINISTER_MAMLUKS
 				days = 10950
-			}
-			estate_influence = {
-				estate = estate_mamluks
-				influence = 40
 			}
 		}
 		effect = {
@@ -274,20 +277,13 @@ country_decisions = {
 	estate_holy_orders_raise_host = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_holy_orders
 			has_enabled_estate_action = {
 				estate_action = RAISE_HOST_HOLY_ORDERS
 			}
-			has_estate = estate_holy_orders
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
-			estate_action_off_cooldown = {
-				estate_action = RAISE_HOST_HOLY_ORDERS
-				days = 3650
-			}
-			capital_scope = {
-				controlled_by = ROOT
-			}
+			has_estate = estate_holy_orders
 			estate_loyalty = {
 				estate = estate_holy_orders
 				loyalty = 50
@@ -295,6 +291,14 @@ country_decisions = {
 			estate_influence = {
 				estate = estate_holy_orders
 				influence = 40
+			}
+			capital_scope = {
+				controlled_by = ROOT
+			}
+			has_not_any_estate_disaster_active = yes
+			estate_action_off_cooldown = {
+				estate_action = RAISE_HOST_HOLY_ORDERS
+				days = 3650
 			}
 		}
 		effect = {
@@ -330,17 +334,18 @@ country_decisions = {
 	estate_holy_orders_grant_generalship = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_holy_orders
 			has_enabled_estate_action = {
 				estate_action = RECRUIT_MINISTER_HOLY_ORDERS
 			}
-			has_estate = estate_holy_orders
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_holy_orders
 			estate_influence = {
 				estate = estate_holy_orders
 				influence = 40
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = RECRUIT_MINISTER_HOLY_ORDERS
 				days = 10950
@@ -364,17 +369,13 @@ country_decisions = {
 	estate_holy_orders_heir_knight = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_holy_orders
 			has_enabled_estate_action = {
 				estate_action = HEIR_KNIGHT_HOLY_ORDERS
 			}
-			has_estate = estate_holy_orders
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
-			estate_action_off_cooldown = {
-				estate_action = HEIR_KNIGHT_HOLY_ORDERS
-				days = 7300
-			}
+			has_estate = estate_holy_orders
 			estate_loyalty = {
 				estate = estate_holy_orders
 				loyalty = 30
@@ -382,6 +383,11 @@ country_decisions = {
 			estate_influence = {
 				estate = estate_holy_orders
 				influence = 40
+			}
+			has_not_any_estate_disaster_active = yes
+			estate_action_off_cooldown = {
+				estate_action = HEIR_KNIGHT_HOLY_ORDERS
+				days = 7300
 			}
 			has_heir = yes
 			heir_age = 15
@@ -416,12 +422,13 @@ country_decisions = {
 	estate_holy_orders_promote_knightly_nobility = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_holy_orders
 			has_enabled_estate_action = {
 				estate_action = PROMOTE_KNIGHTLY_NOBILITY_HOLY_ORDERS
 			}
-			has_estate = estate_holy_orders
 		}
 		allow = {
+			has_estate = estate_holy_orders
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = PROMOTE_KNIGHTLY_NOBILITY_HOLY_ORDERS

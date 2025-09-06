@@ -2,13 +2,6 @@ country_decisions = {
 	livonian_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			was_never_end_game_tag_trigger = yes
-			NOT = { has_country_flag = formed_livonia_flag }
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
 			OR = {
 				tag = RIG
 				tag = RGS
@@ -17,6 +10,13 @@ country_decisions = {
 				tag = OSL
 			}
 			NOT = { exists = LVA }
+			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_livonia_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
 			OR = {
 				ai = no
 				is_religion_enabled = protestant
@@ -40,6 +40,14 @@ country_decisions = {
 			}
 		}
 		allow = {
+			owns_core_province = 5830	# Koknese
+			owns_core_province = 5811	# Dünaburg
+			owns_core_province = 5831	# Wenden
+			owns_core_province = 5875	# Tartu
+			owns_core_province = 5889	# Tallinn
+			5831 = {
+				is_state = yes
+			}
 			adm_tech = 40
 			is_nomad = no			
 			is_at_war = no
@@ -49,14 +57,6 @@ country_decisions = {
 				religion = reformed
 				religion = hussite
 				religion = anglican
-			}
-			owns_core_province = 5830	# Koknese
-			owns_core_province = 5811	# Dünaburg
-			owns_core_province = 5831	# Wenden
-			owns_core_province = 5875	# Tartu
-			owns_core_province = 5889	# Tallinn
-			5831 = {
-				is_state = yes
 			}
 		}
 		effect = {

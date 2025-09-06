@@ -3,6 +3,11 @@ country_decisions = {
 	romanian_nation = {
 		major = yes
 		potential = {
+			culture_group = vlach
+			NOT = { tag = AVI }
+			NOT = { tag = PAP }
+			NOT = { exists = RMN }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -12,9 +17,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			was_never_end_game_tag_trigger = yes
-			NOT = { exists = RMN }
-			culture_group = vlach
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -39,16 +41,16 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
-			is_at_war = no
-			adm_tech = 40
 			owns_core_province = 448	# Transylvania
 			owns_core_province = 676	# Tolcu
 			owns_core_province = 5660	# Oltenia
 			owns_core_province = 5685	# Wallachia
 			owns_core_province = 5647	# Bessarabia
 			owns_core_province = 676	# Budjak
+			adm_tech = 40
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
 		}
 		effect = {
 			change_tag = RMN

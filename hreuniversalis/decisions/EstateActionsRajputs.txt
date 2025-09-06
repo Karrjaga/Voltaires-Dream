@@ -87,11 +87,11 @@ country_decisions = {
 	estate_rajput_demand_support = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_rajput
+			NOT = { has_estate = estate_nobles }
 			has_enabled_estate_action = {
 				estate_action = DEMAND_SUPPORT_RAJPUT
 			}
-			has_estate = estate_rajput
-			NOT = { has_estate = estate_nobles }
 		}
 		allow = {
 			has_not_any_estate_disaster_active = yes
@@ -126,18 +126,18 @@ country_decisions = {
 	estate_rajput_exempt_from_jizya = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_rajput
+			religion_group = muslim
 			has_enabled_estate_action = {
 				estate_action = EXEMPT_FROM_JIZYA_RAJPUT
 			}
-			has_estate = estate_rajput
-			religion_group = muslim
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
 			estate_influence = {
 				estate = estate_rajput
 				influence = 20
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = EXEMPT_FROM_JIZYA_RAJPUT
 				days = 3650
@@ -168,10 +168,10 @@ country_decisions = {
 	estate_rajput_promote_rajput_nobility = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_rajput
 			has_enabled_estate_action = {
 				estate_action = PROMOTE_RAJPUT_NOBILITY_RAJPUT
 			}
-			has_estate = estate_rajput
 		}
 		allow = {
 			has_not_any_estate_disaster_active = yes

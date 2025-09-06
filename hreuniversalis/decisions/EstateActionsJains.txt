@@ -3,18 +3,18 @@ country_decisions = {
 	estate_jains_procure_loans = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_jains
 			has_enabled_estate_action = {
 				estate_action = PROCURE_LOANS_JAINS
 			}
-			has_estate = estate_jains
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
-			is_bankrupt = no
 			estate_influence = {
 				estate = estate_jains
 				influence = 15
 			}
+			has_not_any_estate_disaster_active = yes
+			is_bankrupt = no
 			estate_action_off_cooldown = {
 				estate_action = PROCURE_LOANS_JAINS
 				days = 1825
@@ -38,14 +38,12 @@ country_decisions = {
 	estate_jains_investigate_corruption = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_jains
 			has_enabled_estate_action = {
 				estate_action = INVESTIGATE_CORRUPTION_JAINS
 			}
-			has_estate = estate_jains
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
-			corruption = 2
 			estate_loyalty = {
 				estate = estate_jains
 				loyalty = 40
@@ -54,6 +52,8 @@ country_decisions = {
 				estate = estate_jains
 				influence = 60
 			}
+			has_not_any_estate_disaster_active = yes
+			corruption = 2
 			estate_action_off_cooldown = {
 				estate_action = INVESTIGATE_CORRUPTION_JAINS
 				days = 10950
@@ -77,12 +77,13 @@ country_decisions = {
 	estate_jains_patronize_jain_families = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_jains
 			has_enabled_estate_action = {
 				estate_action = PATRONIZE_JAIN_FAMILIES_JAINS
 			}
-			has_estate = estate_jains
 		}
 		allow = {
+			has_estate = estate_jains
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = PATRONIZE_JAIN_FAMILIES_JAINS
@@ -143,11 +144,11 @@ country_decisions = {
 			has_estate = estate_jains
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
 			estate_influence = {
 				estate = estate_jains
 				influence = 30
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = COMMISSION_JAIN_SCRIPTURES_JAINS
 				days = 7300
@@ -185,15 +186,14 @@ country_decisions = {
 	estate_jains_demand_support = {
 		color = { 195 160 20 }
 		potential = {
-			has_enabled_estate_action = {
-				estate_action = DEMAND_SUPPORT_JAINS
-			}
 			has_estate = estate_jains
 			NOT = { has_estate = estate_burghers }
 			NOT = { has_estate = estate_vaisyas }
+			has_enabled_estate_action = {
+				estate_action = DEMAND_SUPPORT_JAINS
+			}
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
 			estate_loyalty = {
 				estate = estate_jains
 				loyalty = 30
@@ -202,6 +202,7 @@ country_decisions = {
 				estate = estate_jains
 				influence = 25
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = DEMAND_SUPPORT_JAINS
 				days = 7300

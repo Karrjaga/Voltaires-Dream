@@ -9,6 +9,7 @@ country_decisions = {
 			num_of_ports = 1
 		}
 		allow = {
+			dip_tech = 38
 			full_idea_group = maritime_ideas
 			navy_size_percentage = 0.5
 			mil = 3
@@ -89,8 +90,8 @@ country_decisions = {
 	
 	abolish_standardized_uniforms = {
 		potential = {
-			has_dlc = "Cradle of Civilization"
 			has_country_modifier = standardized_uniforms_modifier
+			has_dlc = "Cradle of Civilization"
 		}
 		allow = {
 			has_country_modifier = standardized_uniforms_modifier
@@ -109,6 +110,7 @@ country_decisions = {
 			has_government_attribute = has_righteous_army
 		}
 		allow = {
+			has_government_attribute = has_righteous_army
 			is_at_war = yes
 			OR = {
 				num_of_owned_provinces_with = {
@@ -150,6 +152,7 @@ country_decisions = {
 			has_government_attribute = can_raise_manpower_from_home_region
 		}
 		allow = {
+			has_government_attribute = can_raise_manpower_from_home_region
 			is_at_war = yes
 			custom_trigger_tooltip = {
 				tooltip = decision_once_every_ten_years

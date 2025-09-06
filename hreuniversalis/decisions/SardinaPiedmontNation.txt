@@ -105,17 +105,6 @@ country_decisions = {
 	sardinia_piedmont_nation_inherit = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
-			NOT = { exists = SPI }
-			government = monarchy
 			OR = {
 				AND = {
 					tag = SAV
@@ -132,15 +121,19 @@ country_decisions = {
 					}
 				}
 			}
+			NOT = { exists = SPI }
+			government = monarchy
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 		}
 		allow = {
-			adm_tech = 40
-			is_nomad = no
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			prestige = 50
-			dip = 3
-			adm = 3
 			OR = {
 				AND = {
 					tag = SAR
@@ -161,6 +154,13 @@ country_decisions = {
 					}
 				}
 			}
+			adm_tech = 40
+			is_nomad = no
+			is_at_war = no
+			prestige = 50
+			dip = 3
+			adm = 3
+			is_free_or_tributary_trigger = yes
 		}
 		effect = {
 			if = {

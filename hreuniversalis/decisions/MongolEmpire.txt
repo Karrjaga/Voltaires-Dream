@@ -3,26 +3,26 @@ country_decisions = {
 	restore_mongol_empire = {
 		major = yes
 		potential = {
-			is_year = 1245
-			normal_or_historical_nations = yes
-			OR = {
-				tag = GLH
-				tag = ILK
-				has_reform = holy_horde_reform
-				was_never_end_game_tag_trigger = yes
-			}
 			OR = {
 				culture_group = altaic
 				tag = GLH
 				has_reform = holy_horde_reform
 			}
-			NOT = { has_country_flag = mongol_empire_flag }
+			is_year = 1245
 			NOT = { tag = HLR }
 			NOT = { tag = ROM }
 			NOT = { tag = PAP }
 			NOT = { tag = AVI }
 			NOT = { tag = FKE }
 			NOT = { exists = MGE }
+			OR = {
+				tag = GLH
+				tag = ILK
+				has_reform = holy_horde_reform
+				was_never_end_game_tag_trigger = yes
+			}
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = mongol_empire_flag }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -35,6 +35,20 @@ country_decisions = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		allow = {
+			6594 = { country_or_non_sovereign_subject_holds = ROOT }
+			4237 = { country_or_non_sovereign_subject_holds = ROOT }
+			central_asia_superregion = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			pontic_steppe_superregion = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			persia_superregion = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			if = {
 				limit = {
 					has_reform = holy_horde_reform
@@ -51,20 +65,6 @@ country_decisions = {
 					tag = ILK
 				}
 			}
-			central_asia_superregion = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			pontic_steppe_superregion = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			persia_superregion = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			6594 = { country_or_non_sovereign_subject_holds = ROOT }
-			4237 = { country_or_non_sovereign_subject_holds = ROOT }
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 		}

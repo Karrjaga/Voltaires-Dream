@@ -8,12 +8,12 @@ country_decisions = {
 			}
 		}
 		allow = {
-			mil_power_cost = 25
 			any_owned_province = {
 				has_province_modifier = tripitaka_koreana
-				controlled_by = ROOT
 				NOT = { has_province_modifier = tripitaka_koreana_defenses }
+				controlled_by = ROOT
 			}
+			mil_power_cost = 25
 		}
 		provinces_to_highlight = {
 			owned_by = ROOT

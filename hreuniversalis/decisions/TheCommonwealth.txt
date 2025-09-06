@@ -131,7 +131,15 @@ country_decisions = {
 	lit_commonwealth = {
 		major = yes
 		potential = {
+			tag = LIT
+			POL = {
+				exists = yes
+				ai = yes
+				was_player = no
+			}
 			normal_or_historical_nations = yes
+			NOT = { exists = PLC }
+			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_plc_flag }
 			OR = {
 				ai = no
@@ -140,14 +148,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			NOT = { exists = PLC }
-			was_never_end_game_tag_trigger = yes
-			tag = LIT
-			POL = {
-				exists = yes
-				ai = yes
-				was_player = no
 			}
 			OR = {
 				ai = no
@@ -170,20 +170,20 @@ country_decisions = {
 			}
 		}
 		allow = {
-			POL = {
-				NOT = { num_of_cities = 201 }
-				NOT = { liberty_desire = 25 } 
-			}
-			adm_tech = 40
-			is_nomad = no
-			is_subject = no
-			stability = 3
-			is_at_war = no
 			owns_core_province = 5732				# Vilna
 			owns_core_province = 4243				# Minsk
 			owns_core_province = 4237				# Kiev
 			owns_core_province = 4282				# Turov
 			senior_union_with = POL
+			adm_tech = 40
+			POL = {
+				NOT = { num_of_cities = 201 }
+				NOT = { liberty_desire = 25 } 
+			}
+			is_nomad = no
+			is_subject = no
+			stability = 3
+			is_at_war = no
 			MAZ = { exists = no }
 		}
 		effect = {
@@ -269,15 +269,9 @@ country_decisions = {
 	commonwealth_enforced = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			NOT = { has_country_flag = formed_plc_flag }
 			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
+				tag = LIT
+				tag = POL
 			}
 			NOT = { exists = PLC }
 			LIT = {
@@ -288,9 +282,15 @@ country_decisions = {
 				NOT = { senior_union_with = LIT }
 				NOT = { junior_union_with = LIT }
 			}
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_plc_flag }
 			OR = {
-				tag = LIT
-				tag = POL
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
 			}
 			OR = {
 				ai = no
@@ -315,11 +315,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 40
-			is_nomad = no
-			is_free_or_tributary_trigger = yes
-			stability = 3
-			is_at_war = no
 			owns_core_province = 5732				# Vilna
 			owns_core_province = 4243				# Minsk
 			owns_core_province = 4237				# Kiev
@@ -329,6 +324,11 @@ country_decisions = {
 			owns_core_province = 402				# Danzig
 			owns_core_province = 4821				# Marienburg
 			MAZ = { exists = no }
+			adm_tech = 40
+			is_nomad = no
+			is_free_or_tributary_trigger = yes
+			stability = 3
+			is_at_war = no
 		}
 		effect = {
 			change_tag = PLC

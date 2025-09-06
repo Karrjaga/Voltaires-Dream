@@ -130,6 +130,7 @@ country_decisions = {
 			NOT = { government_rank = 6 }	#There is no "Arch-Emperor"
 		}
 		allow = {
+			has_reform = danish_archkingdom
 			legitimacy = 1
 		}
 		effect = {

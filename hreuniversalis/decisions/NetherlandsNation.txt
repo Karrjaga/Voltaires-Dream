@@ -3,6 +3,10 @@ country_decisions = {
 	netherlands_nation = {
 		major = yes
 		potential = {
+			culture_group = dutch_group
+			NOT = { tag = NED }
+			NOT = { tag = BGU }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			primitives = no
 			OR = {
@@ -17,10 +21,6 @@ country_decisions = {
 				NOT = { exists = NED }
 				ai = no
 			}
-			NOT = { tag = NED }
-			NOT = { tag = BGU }
-			was_never_end_game_tag_trigger = yes
-			culture_group = dutch_group
 			OR = {
 				ai = no
 				AND = {
@@ -44,6 +44,13 @@ country_decisions = {
 			}
 		}
 		allow = {
+			owns_core_province = 95 # Breda
+			owns_core_province = 331 # Zeeland
+			owns_core_province = 328 # Holland
+			owns_core_province = 1846 # Utrecht
+			owns_core_province = 2306 # Gelre
+			owns_core_province = 2204 # Friesland
+			NOT = { exists = NED }
 			if = {
 				limit = {
 					NOT = { has_country_flag = ned_ignore_tech_requirement_netherlands }
@@ -53,13 +60,6 @@ country_decisions = {
 			is_nomad = no
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
-			NOT = { exists = NED }
-			owns_core_province = 95 # Breda
-			owns_core_province = 331 # Zeeland
-			owns_core_province = 328 # Holland
-			owns_core_province = 1846 # Utrecht
-			owns_core_province = 2306 # Gelre
-			owns_core_province = 2204 # Friesland
 		}
 	 	effect = {
 			if = {

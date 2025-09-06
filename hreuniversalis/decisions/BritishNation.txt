@@ -137,20 +137,6 @@ country_decisions = {
 		major = yes
 		potential = {
 			OR = {
-				NOT = { has_government_attribute = english_parliament }	#Formation through the Parliament
-				ai = yes
-			}
-			normal_or_historical_nations = yes
-			NOT = { exists = GBR }
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
-			OR = {
 				AND = {
 					tag = ENG
 					OR = {
@@ -182,16 +168,22 @@ country_decisions = {
 					}
 				}
 			}
+			OR = {
+				NOT = { has_government_attribute = english_parliament }	#Formation through the Parliament
+				ai = yes
+			}
+			normal_or_historical_nations = yes
+			NOT = { exists = GBR }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
 		}
 		allow = {
-			if = {
-				limit = { NOT = { has_country_flag = can_form_britain_earlier } }
-				adm_tech = 40
-			}
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
-			is_at_war = no
-			legitimacy = 100
 			OR = {
 				AND = {
 					tag = ENG
@@ -210,6 +202,14 @@ country_decisions = {
 					ENG = { NOT = { num_of_cities = 120 } } #Keep this number the same as in potential
 				}
 			}
+			if = {
+				limit = { NOT = { has_country_flag = can_form_britain_earlier } }
+				adm_tech = 40
+			}
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			legitimacy = 100
 		}
 		effect = {
 			if = {

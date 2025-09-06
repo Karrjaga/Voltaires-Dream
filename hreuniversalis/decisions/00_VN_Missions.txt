@@ -426,146 +426,146 @@ country_decisions = {
 		}
 	}
 
-	vn_colonize_tierra_de_nadie = {
-		potential = {
-			#has_unlocked_decision = { type = vn_colonize_tierra_de_nadie }
-			OR = {
-				4371 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-				2850 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-				4370 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-				2719 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-				2337 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-				4369 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-				4346 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-				4347 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-				4345 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-				4344 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-				2718 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-				4474 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-			}
-		}
-		provinces_to_highlight = {
-			OR = {
-				province_id = 4371
-				province_id = 2850
-				province_id = 4370
-				province_id = 2719
-				province_id = 2337
-				province_id = 4369
-				province_id = 4346
-				province_id = 4347
-				province_id = 4345
-				province_id = 4344
-				province_id = 2718
-				province_id = 4474
-			}
-			is_empty = yes
-			any_neighbor_province = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-		allow = {
-			NOT = { has_country_modifier = parias_modifier }
-			is_at_war = no
-			is_free_or_tributary_trigger = yes
-			treasury = 50
-			dip_power_cost = 25
-			manpower = 0.1
-			custom_trigger_tooltip = {
-				tooltip = vn_colonize_tierra_de_nadie.tt
-				OR = {
-					4371 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-					2850 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-					4370 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-					2719 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-					2337 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-					4369 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-					4346 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-					4347 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-					4345 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-					4344 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-					2718 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-					4474 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-				}
-			}
-		}
-		effect = {
-			every_province = {
-				limit = {
-					OR = {
-						province_id = 4371
-						province_id = 2850
-						province_id = 4370
-						province_id = 2719
-						province_id = 2337
-						province_id = 4369
-						province_id = 4346
-						province_id = 4347
-						province_id = 4345
-						province_id = 4344
-						province_id = 2718
-						province_id = 4474
-					}
-					is_empty = yes
-					any_neighbor_province = {
-						country_or_non_sovereign_subject_holds = ROOT
-					}
-				}
-				custom_tooltip = INC_will_be_colonized
-			}
-			tooltip = {
-				add_treasury = -50
-				dip_power_cost = 25
-				add_manpower = -0.1
-			}
-			hidden_effect = {
-				random_province = {
-					limit = {
-						OR = {
-							province_id = 4371
-							province_id = 2850
-							province_id = 4370
-							province_id = 2719
-							province_id = 2337
-							province_id = 4369
-							province_id = 4346
-							province_id = 4347
-							province_id = 4345
-							province_id = 4344
-							province_id = 2718
-							province_id = 4474
-						}
-						is_empty = yes
-						any_neighbor_province = {
-							country_or_non_sovereign_subject_holds = ROOT
-						}
-					}
-					add_siberian_construction = 100
-					ROOT = { add_treasury = -50 }
-					ROOT = { dip_power_cost = 25 }
-					ROOT = { add_manpower = -0.1 }
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				is_bankrupt = yes
-			}
-			modifier = {
-				factor = 0
-				is_in_deficit = yes
-			}
-			modifier = {
-				factor = 0
-				NOT = { manpower_percentage = 0.75 }
-			}
-			modifier = {
-				factor = 0
-				num_of_loans = 1
-			}
-		}
-		ai_importance = 400
-	}
+	# vn_colonize_tierra_de_nadie = {
+	# 	potential = {
+	# 		#has_unlocked_decision = { type = vn_colonize_tierra_de_nadie }
+	# 		OR = {
+	# 			4371 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 			2850 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 			4370 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 			2719 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 			2337 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 			4369 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 			4346 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 			4347 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 			4345 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 			4344 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 			2718 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 			4474 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 		}
+	# 	}
+	# 	provinces_to_highlight = {
+	# 		OR = {
+	# 			province_id = 4371
+	# 			province_id = 2850
+	# 			province_id = 4370
+	# 			province_id = 2719
+	# 			province_id = 2337
+	# 			province_id = 4369
+	# 			province_id = 4346
+	# 			province_id = 4347
+	# 			province_id = 4345
+	# 			province_id = 4344
+	# 			province_id = 2718
+	# 			province_id = 4474
+	# 		}
+	# 		is_empty = yes
+	# 		any_neighbor_province = {
+	# 			country_or_non_sovereign_subject_holds = ROOT
+	# 		}
+	# 	}
+	# 	allow = {
+	# 		NOT = { has_country_modifier = parias_modifier }
+	# 		is_at_war = no
+	# 		is_free_or_tributary_trigger = yes
+	# 		treasury = 50
+	# 		dip_power_cost = 25
+	# 		manpower = 0.1
+	# 		custom_trigger_tooltip = {
+	# 			tooltip = vn_colonize_tierra_de_nadie.tt
+	# 			OR = {
+	# 				4371 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 				2850 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 				4370 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 				2719 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 				2337 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 				4369 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 				4346 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 				4347 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 				4345 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 				4344 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 				2718 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 				4474 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+	# 			}
+	# 		}
+	# 	}
+	# 	effect = {
+	# 		every_province = {
+	# 			limit = {
+	# 				OR = {
+	# 					province_id = 4371
+	# 					province_id = 2850
+	# 					province_id = 4370
+	# 					province_id = 2719
+	# 					province_id = 2337
+	# 					province_id = 4369
+	# 					province_id = 4346
+	# 					province_id = 4347
+	# 					province_id = 4345
+	# 					province_id = 4344
+	# 					province_id = 2718
+	# 					province_id = 4474
+	# 				}
+	# 				is_empty = yes
+	# 				any_neighbor_province = {
+	# 					country_or_non_sovereign_subject_holds = ROOT
+	# 				}
+	# 			}
+	# 			custom_tooltip = INC_will_be_colonized
+	# 		}
+	# 		tooltip = {
+	# 			add_treasury = -50
+	# 			dip_power_cost = 25
+	# 			add_manpower = -0.1
+	# 		}
+	# 		hidden_effect = {
+	# 			random_province = {
+	# 				limit = {
+	# 					OR = {
+	# 						province_id = 4371
+	# 						province_id = 2850
+	# 						province_id = 4370
+	# 						province_id = 2719
+	# 						province_id = 2337
+	# 						province_id = 4369
+	# 						province_id = 4346
+	# 						province_id = 4347
+	# 						province_id = 4345
+	# 						province_id = 4344
+	# 						province_id = 2718
+	# 						province_id = 4474
+	# 					}
+	# 					is_empty = yes
+	# 					any_neighbor_province = {
+	# 						country_or_non_sovereign_subject_holds = ROOT
+	# 					}
+	# 				}
+	# 				add_siberian_construction = 100
+	# 				ROOT = { add_treasury = -50 }
+	# 				ROOT = { dip_power_cost = 25 }
+	# 				ROOT = { add_manpower = -0.1 }
+	# 			}
+	# 		}
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 		modifier = {
+	# 			factor = 0
+	# 			is_bankrupt = yes
+	# 		}
+	# 		modifier = {
+	# 			factor = 0
+	# 			is_in_deficit = yes
+	# 		}
+	# 		modifier = {
+	# 			factor = 0
+	# 			NOT = { manpower_percentage = 0.75 }
+	# 		}
+	# 		modifier = {
+	# 			factor = 0
+	# 			num_of_loans = 1
+	# 		}
+	# 	}
+	# 	ai_importance = 400
+	# }
 }

@@ -30,6 +30,7 @@ country_decisions = {
 			NOT = { owned_by = ROOT }
 		}
 		allow = {
+			owns = 2235
 			2235 = { is_state = yes }
 			num_of_owned_provinces_with = {
 				custom_trigger_tooltip = {

@@ -8,9 +8,9 @@
 ######################################
 papal_subjugation = {
 	potential = {
-		normal_or_historical_nations = yes
 		religion = catholic
 		NOT = { tag = PAP }
+		normal_or_historical_nations = yes
 	}
 
 	trigger = {	
@@ -106,13 +106,13 @@ papal_subjugation_anti = {
 ######################################
 custodian_of_the_two_holy_mosques = {
 	potential = {
-		normal_or_historical_nations = yes
 		religion_group = muslim
+		normal_or_historical_nations = yes
 	}
 
 	trigger = {
-		is_free_or_tributary_trigger = yes
 		owns_or_vassal_of = 5012
+		is_free_or_tributary_trigger = yes
 	}
 
 	legitimacy = 0.5
@@ -124,14 +124,14 @@ custodian_of_the_two_holy_mosques = {
 ######################################
 submission_to_emperor = {
 	potential = {
-		has_global_flag = italians_leave_hre
-		NOT = { has_country_flag = reined_in_for_shadow_kingdom }
-		is_emperor = no
-		NOT = { is_year = 1550 }
 		OR = {
 			culture_group = latin
 			primary_culture = langobardic
 		}
+		has_global_flag = italians_leave_hre
+		NOT = { has_country_flag = reined_in_for_shadow_kingdom }
+		is_emperor = no
+		NOT = { is_year = 1550 }
 	}
 
 	trigger = {
@@ -311,12 +311,12 @@ pentarchy_mod = {
 
 ai_wants_chinese_capitals = {
 	potential = {
-		ai = yes
 		OR = {
 			owns = 6144
 			owns = 4237
 			owns = 6594
 		}
+		ai = yes
 		has_dlc = "Mandate of Heaven"
 		capital_scope = {
 			superregion = russia_superregion
@@ -335,12 +335,13 @@ ai_wants_chinese_capitals = {
 
 lost_control_of_beijing = {
 	potential = {
-		has_reform = tsardom
+		has_reform = celestial_empire
 		has_dlc = "Mandate of Heaven"
 		is_emperor_of_china = yes
 	}
 
 	trigger = {
+		has_reform = celestial_empire
 		6144 = {
 			OR = {
 				NOT = { country_or_subject_holds = ROOT }
@@ -358,12 +359,13 @@ lost_control_of_beijing = {
 
 lost_control_of_nanjing = {
 	potential = {
-		has_reform = tsardom
+		has_reform = celestial_empire
 		has_dlc = "Mandate of Heaven"
 		is_emperor_of_china = yes
 	}
 
 	trigger = {
+		has_reform = celestial_empire
 		4237 = {
 			OR = {
 				NOT = { country_or_subject_holds = ROOT }
@@ -381,12 +383,13 @@ lost_control_of_nanjing = {
 
 lost_control_of_canton = {
 	potential = {
-		has_reform = tsardom
+		has_reform = celestial_empire
 		has_dlc = "Mandate of Heaven"
 		is_emperor_of_china = yes
 	}
 
 	trigger = {
+		has_reform = celestial_empire
 		6594 = {
 			OR = {
 				NOT = { country_or_subject_holds = ROOT }
@@ -404,11 +407,12 @@ lost_control_of_canton = {
 
 waging_war_for_china = {
 	potential = {
-		has_reform = tsardom
+		has_reform = celestial_empire
 		has_dlc = "Mandate of Heaven"
 	}
 
 	trigger = {
+		has_reform = celestial_empire
 		is_in_war = {
 			attacker_leader = root
 			casus_belli = cb_chinese_unification
@@ -630,14 +634,15 @@ italian_wars_triggered_modifier = {
 ######################################
 defense_of_the_empire_modifier = {
 	potential = {
-		has_dlc = "Emperor"
+		hre_reform_passed = emperor_reichskrieg
 		OR = {
 			is_emperor = yes
 			is_elector = yes
 		}
-		hre_reform_passed = emperor_reichskrieg
+		has_dlc = "Emperor"
 	}
 	trigger = {
+		hre_reform_passed = emperor_reichskrieg
 		any_country = {
 			war_with = ROOT
 			NOT = { is_part_of_hre = yes }

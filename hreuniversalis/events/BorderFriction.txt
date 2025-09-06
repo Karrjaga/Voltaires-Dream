@@ -61,9 +61,8 @@ country_event = {
 	
 	immediate = {
 		hidden_effect = {
-			random_country = {
+			random_ally = {
 				limit = { 
-					alliance_with = ROOT
 					any_owned_province = {
 						is_claim = ROOT
 						NOT = { is_permanent_claim = root }

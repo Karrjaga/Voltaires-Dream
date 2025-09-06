@@ -3,6 +3,7 @@ country_decisions = {
 	form_kingdom_of_prussia = {
 		major = yes
 		potential = {
+			tag = BRA
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_prussia_flag }
@@ -11,7 +12,6 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			NOT = { has_reform = celestial_empire } 
-			tag = BRA
 			OR = {
 				NOT = { exists = PRU }
 				ai = no
@@ -29,7 +29,22 @@ country_decisions = {
 			}
 		}
 		allow = {
+			tag = BRA
 			NOT = { exists = PRU }
+			OR = {
+				AND = {
+					owns_core_province = 402	# Danzig
+					owns_core_province = 2199	# Stolp
+					owns_core_province = 4854	# Königsberg
+				}
+				PTH = {
+					years_in_union_under = {
+						who = ROOT
+						years = 50
+					}
+					NOT = { num_of_cities = 31 }
+				}
+			}
 			if = {
 				limit = { NOT = { has_country_flag = can_form_prussia_earlier } }
 				adm_tech = 40
@@ -42,20 +57,6 @@ country_decisions = {
 					religion = hussite
 					religion = anglican
 					religion = anabaptist
-				}
-			}
-			OR = {
-				PTH = {
-					years_in_union_under = {
-						who = ROOT
-						years = 50
-					}
-					NOT = { num_of_cities = 31 }
-				}
-				AND = {
-					owns_core_province = 402	# Danzig
-					owns_core_province = 2199	# Stolp
-					owns_core_province = 4854	# Königsberg
 				}
 			}
 			is_at_war = no

@@ -113,12 +113,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
-			is_at_war = no
-			is_tribal = no
-			NOT = { exists = PER }
-			NOT = { exists = ERS }
 			owns_core_province = 7533		# Hamadan
 			owns_core_province = 7554		# Isfahan
 			owns_core_province = 7415		# Yazd
@@ -133,6 +127,12 @@ country_decisions = {
 				owns_core_province = 7382		# Kerman
 				owns_core_province = 7334		# Mashhad
 			}
+			NOT = { exists = PER }
+			NOT = { exists = ERS }
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			is_tribal = no
 			if = {
 				limit = {
 					tag = TIM

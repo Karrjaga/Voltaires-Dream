@@ -87,7 +87,6 @@ country_event = {
 				superregion = switzerland_superregion
 			}
 		}
-		has_global_flag = had_canton_question
 		is_emperor = no
 		is_part_of_hre = yes
 

@@ -87,6 +87,9 @@ country_decisions = {
 			has_country_flag = rus_enable_vodka_sales_decision
 		}
 		allow = {
+			hidden_trigger = {
+				has_country_flag = rus_enable_vodka_sales_decision
+			}
 			grain = 1
 			custom_trigger_tooltip = {
 				tooltip = decision_once_every_ten_years

@@ -4,6 +4,16 @@ country_decisions = {
 		major = yes
 		potential = {
 			OR = {
+				primary_culture = byelorussian
+				primary_culture = ruthenian
+				primary_culture = volhynian
+				primary_culture = severian
+				primary_culture = dulebian
+				primary_culture = drevlian
+			}
+			NOT = { exists = UKR }
+			was_never_end_game_tag_trigger = yes
+			OR = {
 				has_global_flag = empire_of_china_dismantled
 				is_emperor_of_china = yes
 				NOT = { has_dlc = "Mandate of Heaven" }
@@ -18,16 +28,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			was_never_end_game_tag_trigger = yes
-			NOT = { exists = UKR }
-			OR = {
-				primary_culture = byelorussian
-				primary_culture = ruthenian
-				primary_culture = volhynian
-				primary_culture = severian
-				primary_culture = dulebian
-				primary_culture = drevlian
 			}
 			OR = {
 				ai = no
@@ -67,6 +67,30 @@ country_decisions = {
 			}
 		}
 		allow = {
+			OR = {
+				#owns everything
+				AND = {
+					owns_core_province = 4237		# Kiev
+					owns_core_province = 1140		# Halych
+					owns_core_province = 620		# Peremyshl
+					owns_core_province = 604		# Podolia
+					4237 = { is_state = yes }
+				}
+				#or owns only core-core stuff but has god like ruler
+				AND = {
+					owns_core_province = 4237		#Kiev				
+					owns_core_province = 604		#Podolia
+					4237 = { is_state = yes }
+					DIP = 5
+				}
+			}
+			if = {
+				limit = { NOT = { has_country_flag = can_form_ruthenia_earlier } }
+				adm_tech = 40
+			}
+			is_nomad = no
+			is_subject = no
+			is_at_war = no
 			if = {
 				limit = { has_dlc = "Mandate of Heaven" }
 				OR = {
@@ -77,35 +101,11 @@ country_decisions = {
 					custom_trigger_tooltip = {
 						tooltip = no_country_is_EoC
 						NOT = {
-							any_country = {
+							any_known_country = {
 								is_emperor_of_china = yes
 							}
 						}
 					}
-				}
-			}
-			if = {
-				limit = { NOT = { has_country_flag = can_form_ruthenia_earlier } }
-				adm_tech = 40
-			}
-			is_nomad = no
-			is_subject = no
-			is_at_war = no
-			OR = {
-				#owns everything
-				AND = {
-					4237 = { is_state = yes }
-					owns_core_province = 4237		# Kiev
-					owns_core_province = 1140		# Halych
-					owns_core_province = 620		# Peremyshl
-					owns_core_province = 604		# Podolia
-				}
-				#or owns only core-core stuff but has god like ruler
-				AND = {
-					4237 = { is_state = yes }
-					owns_core_province = 4237		#Kiev				
-					owns_core_province = 604		#Podolia
-					DIP = 5
 				}
 			}
 		}

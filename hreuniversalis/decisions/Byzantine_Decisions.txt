@@ -337,6 +337,9 @@ country_decisions = {
 			has_country_flag = BYZ_ecumenical_decision_flag
 		}
 		allow = {
+			hidden_trigger = {
+				has_country_flag = BYZ_ecumenical_decision_flag
+			}
 			custom_trigger_tooltip = {
 				tooltip = BYZ_25_year_cooldown
 				OR = {
@@ -364,6 +367,7 @@ country_decisions = {
 			has_estate_privilege = estate_burghers_exkousseiai_for_latins
 		}
 		allow = {
+			has_estate_privilege = estate_burghers_exkousseiai_for_latins
 			if = {
 				limit = {
 					trade_income_percentage = 0.01
@@ -390,6 +394,7 @@ country_decisions = {
 			has_estate_privilege = estate_nobles_deteriorating_army
 		}
 		allow = {
+			has_estate_privilege = estate_nobles_deteriorating_army
 			if = {
 				limit = {
 					always = no
@@ -428,6 +433,7 @@ country_decisions = {
 			NOT = { religion = catholic }
 		}
 		allow = {
+			has_estate_privilege = estate_church_union_of_the_churches
 			if = {
 				limit = {
 					exists = TUR
@@ -471,6 +477,16 @@ country_decisions = {
 			religion = catholic
 		}
 		allow = {
+			has_estate_privilege = estate_church_union_of_the_churches
+			owns = 2233
+			OR = { #either owns rome or the other patriarchates
+				owns = 2235
+				AND = {
+					owns = 5022
+					owns = 3053
+					owns = 4974
+				}
+			}
 			if = {
 				limit = {
 					exists = TUR
@@ -497,15 +513,6 @@ country_decisions = {
 				has_global_modifier_value = {
 					which = tolerance_heretic
 					value = 1
-				}
-			}
-			owns = 2233
-			OR = { #either owns rome or the other patriarchates
-				owns = 2235
-				AND = {
-					owns = 5022
-					owns = 3053
-					owns = 4974
 				}
 			}
 		}

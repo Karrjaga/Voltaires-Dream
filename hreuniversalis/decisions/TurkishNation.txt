@@ -3,6 +3,14 @@ country_decisions = {
 	turkish_nation = {
 		major = yes
 		potential = {
+			primary_culture = turkish
+			NOT = { tag = TUR }
+			NOT = { tag = SJK }
+			NOT = { tag = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = BYZ }
+			NOT = { exists = RUM }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_rum_flag }
@@ -14,12 +22,7 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = RUM }
-			NOT = { tag = SJK }
-			NOT = { tag = PRU }
-			NOT = { tag = ENG }
 			is_emperor_of_china = no
-			primary_culture = turkish
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -45,12 +48,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			is_at_war = no
-			is_subject = no
-			is_nomad = no
-			religion_group = muslim
-			NOT = { exists = RUM }
-			NOT = { exists = TUR }
 			owns_core_province = 1052		# Iznik
 			owns_core_province = 6790		# Konya
 			owns_core_province = 6740		# Ankara
@@ -58,6 +55,12 @@ country_decisions = {
 			owns_core_province = 6290		# Erzurum
 			owns_core_province = 6779		# Kayseri
 			owns_core_province = 4179		# Eskeshehir
+			religion_group = muslim
+			NOT = { exists = RUM }
+			NOT = { exists = TUR }
+			is_at_war = no
+			is_subject = no
+			is_nomad = no
 		}
 		effect = {
 			change_tag = RUM

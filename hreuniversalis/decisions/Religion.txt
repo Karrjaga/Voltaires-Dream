@@ -229,7 +229,6 @@ country_decisions = {
 	
 	dissolution_of_the_monasteries = {
 		potential = {
-			NOT = { has_country_modifier = the_dissolution_of_the_monasteries }
 			OR = {
 				religion = protestant
 				religion = reformed
@@ -244,8 +243,23 @@ country_decisions = {
 					has_country_modifier = the_statue_in_restraint_of_appeals
 				}
 			}
+			NOT = { has_country_modifier = the_dissolution_of_the_monasteries }
 		}
 		allow = {
+			OR = {
+				religion = protestant
+				religion = reformed
+				religion = anabaptist
+				religion = anglican
+				AND = {
+					religion = catholic
+					has_country_modifier = the_statue_in_restraint_of_appeals
+				}
+				AND = {
+					religion = catholique
+					has_country_modifier = the_statue_in_restraint_of_appeals
+				}
+			}
 			adm = 4
 		}
 		effect = {	
@@ -466,29 +480,14 @@ country_decisions = {
 
 	trade_propagation_convert_to_islam = {
 		potential = {
-			has_dlc = "Cradle of Civilization"
-			NOT = { religion_group = muslim }
 			capital_scope = {
 				religion_group = muslim
-				OR = {
-					superregion = pontic_steppe_superregion
-					superregion = central_asia_superregion
-					superregion = caucasia_superregion
-					superregion = persia_superregion
-				}
+				is_node_in_trade_company_region = yes
 			}
+			NOT = { religion_group = muslim }
+			has_dlc = "Cradle of Civilization"			
 		}
 		allow = {
-			if = {
-				limit = { OR = { government = monarchy government = tribal } }
-				legitimacy = 90
-			}
-			if = {
-				limit = { uses_devotion = yes }
-				NOT = { devotion = 80 }
-			}
-			has_regency = no
-			is_free_or_tributary_trigger = yes
 			custom_trigger_tooltip = {
 				tooltip = the_dominant_religion_is_a_form_of_islam_tooltip
 				OR = {
@@ -499,6 +498,16 @@ country_decisions = {
 					dominant_religion = qarmatian
 				}
 			}
+			if = {
+				limit = { OR = { government = monarchy government = tribal } }
+				legitimacy = 90
+			}
+			if = {
+				limit = { uses_devotion = yes }
+				NOT = { devotion = 80 }
+			}
+			has_regency = no
+			is_free_or_tributary_trigger = yes
 		}
 		effect = {
 			if = {
@@ -552,19 +561,15 @@ country_decisions = {
 
 	trade_propagation_convert_to_zoroastrianism = {
 		potential = {
-			has_dlc = "Cradle of Civilization"
-			NOT = { religion_group = zoroastrian_group }
 			capital_scope = {
 				religion_group = zoroastrian_group
-				OR = {
-					superregion = pontic_steppe_superregion
-					superregion = central_asia_superregion
-					superregion = caucasia_superregion
-					superregion = persia_superregion
-				}
+				is_node_in_trade_company_region = yes
 			}
+			NOT = { religion_group = zoroastrian_group }
+			has_dlc = "Cradle of Civilization"
 		}
 		allow = {
+			dominant_religion = zoroastrian
 			if = {
 				limit = { OR = { government = monarchy government = tribal } }
 				legitimacy = 90
@@ -575,7 +580,6 @@ country_decisions = {
 			}
 			has_regency = no
 			is_free_or_tributary_trigger = yes
-			dominant_religion = zoroastrian
 		}
 		effect = {
 			change_religion = zoroastrian
@@ -757,6 +761,7 @@ country_decisions = {
 			religion_group = pagan
 		}
 		allow = {
+			religion_group = pagan
 			is_at_war = no
 			stability = 1
 		}
@@ -812,8 +817,8 @@ country_decisions = {
 	
 	vision_quest = {
 		potential = {
-			NOT = { has_country_modifier = rite_of_passage }
 			religion_group = pagan
+			NOT = { has_country_modifier = rite_of_passage }
 		}
 		allow = {
 			religion_group = pagan
@@ -1019,11 +1024,12 @@ country_decisions = {
 	
 	tengri_yellow_shamanism = {
 		potential = {
+			religion = tengri_pagan_reformed
 			NOT = { has_country_modifier = yellow_shamanism_modifier }
 			NOT = { has_country_modifier = black_shamanism_modifier }
-			religion = tengri_pagan_reformed
 		}
 		allow = {
+			religion = tengri_pagan_reformed
 			ADM = 3
 		}
 		effect = {	
@@ -1039,11 +1045,12 @@ country_decisions = {
 	
 	tengri_black_shamanism = {
 		potential = {
+			religion = tengri_pagan_reformed
 			NOT = { has_country_modifier = yellow_shamanism_modifier }
 			NOT = { has_country_modifier = black_shamanism_modifier }
-			religion = tengri_pagan_reformed
 		}
 		allow = {
+			religion = tengri_pagan_reformed
 			ADM = 3
 			NOT = { has_country_modifier = yellow_shamanism_modifier }
 			NOT = { has_secondary_religion = yes }
@@ -1071,6 +1078,7 @@ country_decisions = {
 			num_of_cities = 4
 		}
 		allow = {
+			religion = tengri_pagan_reformed
 			legitimacy_or_horde_unity = 75
 			NOT = { has_ruler_modifier = support_of_the_khojas }
 		}
@@ -1126,10 +1134,11 @@ country_decisions = {
 
 	zoroastrian_rites_of_admission = {
 		potential = {
-			NOT = { has_country_modifier = rites_of_admission_modifier }
 			religion = zoroastrian
+			NOT = { has_country_modifier = rites_of_admission_modifier }
 		}
 		allow = {
+			religion = zoroastrian
 			stability = 2
 			ADM = 3
 			adm_power = 50
@@ -1152,8 +1161,8 @@ country_decisions = {
 
 	zoroastrian_royal_fires = {
 		potential = {
-			NOT = { has_country_modifier = royal_fires_modifier }
 			religion = zoroastrian
+			NOT = { has_country_modifier = royal_fires_modifier }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -1171,7 +1180,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			government_rank = 6
 			owns_core_province = 7334 #Various locations suggested to have been the site of these fires.
 			owns_core_province = 7663 #Various locations suggested to have been the site of these fires.
 			owns_core_province = 7342 #Various locations suggested to have been the site of these fires.
@@ -1179,6 +1187,7 @@ country_decisions = {
 			owns_core_province = 7448 #Various locations suggested to have been the site of these fires.
 			owns_core_province = 6439 #Various locations suggested to have been the site of these fires.
 			owns_core_province = 7445 #Various locations suggested to have been the site of these fires.
+			government_rank = 6
 		}
 		major = yes
 		effect = {	
@@ -1206,7 +1215,6 @@ country_decisions = {
 
 	animism_ritual_education = {
 		potential = {
-			NOT = { has_country_modifier = ritual_education_modifier }
 			OR = {
 				religion = animism
 				religion = slavic_pagan
@@ -1215,11 +1223,20 @@ country_decisions = {
 				religion = finnish_pagan
 				religion = uralinusko
 			}
+			NOT = { has_country_modifier = ritual_education_modifier }
 			any_owned_province = {
 				NOT = { religion = owner }
 			}
 		}
 		allow = {
+			OR = {
+				religion = animism
+				religion = slavic_pagan
+				religion = dievturiba
+				religion = maausko
+				religion = finnish_pagan
+				religion = uralinusko
+			}
 			adm_tech = 8
 			stability = 2
 			ADM = 3
@@ -1243,13 +1260,14 @@ country_decisions = {
 	
 	shamanism_wondering_shamans = {
 		potential = {
-			NOT = { has_country_modifier = wandering_shamans_modifier }
 			religion = shamanism
+			NOT = { has_country_modifier = wandering_shamans_modifier }
 			any_owned_province = {
 				NOT = { religion = owner }
 			}
 		}
 		allow = {
+			religion = shamanism
 			adm_tech = 8
 			stability = 2
 			ADM = 3
@@ -1273,16 +1291,20 @@ country_decisions = {
 
 	totemism_purification_movement = {
 		potential = {
-			NOT = { has_country_modifier = purification_movement_modifier }
 			OR = {
 				religion = hellenic_pagan
 				religion = egyptian_religion
 			}
+			NOT = { has_country_modifier = purification_movement_modifier }
 			any_owned_province = {
 				NOT = { religion = owner }
 			}
 		}
 		allow = {
+			OR = {
+				religion = hellenic_pagan
+				religion = egyptian_religion
+			}
 			stability = 2
 			ADM = 3
 			adm_power = 50
@@ -1305,13 +1327,16 @@ country_decisions = {
 
 	mesoamerican_codification_of_the_faith = {
 		potential = {
-			NOT = { has_country_modifier = codification_of_mayan_faith }
 			religion = vainakh
+			NOT = { has_country_modifier = codification_of_mayan_faith }
 			any_owned_province = {
 				NOT = { religion = owner }
 			}
 		}
 		allow = {
+			religion = vainakh
+			stability = 2
+			adm_power = 50
 			OR = {
 				AND = {	
 					has_dlc = "El Dorado"
@@ -1324,8 +1349,6 @@ country_decisions = {
 					has_institution = renaissance
 				}
 			}
-			stability = 2
-			adm_power = 50
 		}
 		effect = {
 			add_adm_power = -50
@@ -1345,13 +1368,16 @@ country_decisions = {
 	
 	nahuatl_conversion_ceremonies = {
 		potential = {
-			NOT = { has_country_modifier = nahuatl_sacrificial_stones }
 			religion = uatsdin
+			NOT = { has_country_modifier = nahuatl_sacrificial_stones }
 			any_owned_province = {
 				NOT = { religion = owner }
 			}
 		}
 		allow = {
+			religion = uatsdin
+			stability = 2
+			adm_power = 50
 			OR = {
 				AND = {	
 					has_dlc = "El Dorado"
@@ -1364,8 +1390,6 @@ country_decisions = {
 					has_institution = renaissance
 				}
 			}
-			stability = 2
-			adm_power = 50
 		}
 		effect = {
 			add_adm_power = -50
@@ -1385,13 +1409,16 @@ country_decisions = {
 	
 	inti_obligatory_religious_festivals = {
 		potential = {
-			NOT = { has_country_modifier = great_inti_festivals }
 			religion = khabze
+			NOT = { has_country_modifier = great_inti_festivals }
 			any_owned_province = {
 				NOT = { religion = owner }
 			}
 		}
 		allow = {
+			religion = khabze
+			stability = 2
+			adm_power = 50
 			OR = {
 				AND = {	
 					has_dlc = "El Dorado"
@@ -1404,8 +1431,6 @@ country_decisions = {
 					has_institution = renaissance
 				}
 			}
-			stability = 2
-			adm_power = 50
 		}
 		effect = {
 			add_adm_power = -50

@@ -525,6 +525,7 @@ country_decisions = {
 			NOT = { has_country_flag = bred_a_new_war_steed }
 		}
 		allow = {
+			has_unlocked_decision = { type = horse_breeding_decision }
 			has_global_modifier_value = {
 				which = cavalry_power  
 				value = 0.4

@@ -183,15 +183,15 @@ country_decisions = {
 	estate_vaisyas_commision_merchant_ships_for_war = {
 		color = { 195 160 20 }
 		potential = {
-			has_enabled_estate_action = {
-				estate_action = COMISSION_MERCHANT_SHIPS_FOR_WAR_VAISYAS
-			}
 			has_estate = estate_vaisyas
 			num_of_ports = 1
 			primitives = no
+			has_enabled_estate_action = {
+				estate_action = COMISSION_MERCHANT_SHIPS_FOR_WAR_VAISYAS
+			}
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_vaisyas
 			estate_loyalty = {
 				estate = estate_vaisyas
 				loyalty = 30
@@ -200,6 +200,7 @@ country_decisions = {
 				estate = estate_vaisyas
 				influence = 40
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = COMISSION_MERCHANT_SHIPS_FOR_WAR_VAISYAS
 				days = 10950

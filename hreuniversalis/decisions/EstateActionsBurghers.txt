@@ -51,13 +51,13 @@ country_decisions = {
 	estate_burghers_demand_support = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_burghers
 			has_enabled_estate_action = {
 				estate_action = DEMAND_SUPPORT_BURGHERS
 			}
-			has_estate = estate_burghers
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_burghers
 			estate_loyalty = {
 				estate = estate_burghers
 				loyalty = 30
@@ -66,6 +66,7 @@ country_decisions = {
 				estate = estate_burghers
 				influence = 25
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = DEMAND_SUPPORT_BURGHERS
 				days = 7300
@@ -89,12 +90,13 @@ country_decisions = {
 	estate_burghers_grant_monopoly_charter = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_burghers
 			has_enabled_estate_action = {
 				estate_action = GRANT_MONOPOLY_CHARTER_BURGHERS
 			}
-			has_estate = estate_burghers
 		}
 		allow = {
+			has_estate = estate_burghers
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = GRANT_MONOPOLY_CHARTER_BURGHERS
@@ -149,17 +151,18 @@ country_decisions = {
 	estate_burghers_recruit_ministers = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_burghers
 			has_enabled_estate_action = {
 				estate_action = RECRUIT_MINISTER_BURGHERS
 			}
-			has_estate = estate_burghers
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_burghers
 			estate_influence = {
 				estate = estate_burghers
 				influence = 40
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = RECRUIT_MINISTER_BURGHERS
 				days = 10950

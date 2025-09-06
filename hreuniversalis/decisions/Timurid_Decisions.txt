@@ -5,6 +5,7 @@ country_decisions = {
 			has_estate_privilege = estate_nobles_TIM_soyurghal_grants
 		}
 		allow = {
+			has_estate_privilege = estate_nobles_TIM_soyurghal_grants
 			OR = {
 				crown_land_share = 40 
 				AND = {
@@ -67,6 +68,7 @@ country_decisions = {
 			has_estate_privilege = estate_church_TIM_yasa_supremacy
 		}
 		allow = {
+			has_estate_privilege = estate_church_TIM_yasa_supremacy
 			if = {
 				limit = {
 					NOT = { has_country_flag = TIM_revoking_yasa_will_be_easier_flag }

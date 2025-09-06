@@ -712,6 +712,9 @@ country_event = {
 					}
 				}
 				discover_provinces = ROOT
+				set_estate_privilege = estate_church_TIM_yasa_supremacy
+				set_estate_privilege = estate_nobles_TIM_soyurghal_grants
+				set_estate_privilege = estate_burghers_patronage_of_the_arts
 			}
 			persia_superregion = {
 				add_claim = TIM

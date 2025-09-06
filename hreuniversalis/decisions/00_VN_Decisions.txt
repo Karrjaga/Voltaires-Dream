@@ -3,13 +3,13 @@ country_decisions = {
 	primi_adopt = {
 		major = yes
 		potential = {
-			has_dlc = "Conquest of Paradise"
-			primitives = no
 			technology_group = north_american
+			primitives = no
+			has_dlc = "Conquest of Paradise"
 		}
 		allow = {
-			primitives = no
 			technology_group = north_american
+			primitives = no
 			is_at_war = no
 		}
 		effect = {
@@ -44,15 +44,14 @@ country_decisions = {
 	elevate_canton = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			primitives = no
 			OR = {
 				primary_culture = swiss
 				primary_culture = arpitan
 				primary_culture = romansch
 			}
 			capital_scope = { superregion = switzerland_superregion }
-			NOT = { has_global_flag = swi_formed_flag }
+			normal_or_historical_nations = yes
+			primitives = no
 			NOT = { exists = SWI }
 			NOT = { tag = SAV }
 			NOT = { tag = XAP }
@@ -70,6 +69,11 @@ country_decisions = {
 			}
 		}
 		allow = {
+			OR = {
+				primary_culture = swiss
+				primary_culture = arpitan
+				primary_culture = romansch
+			}
 			is_at_war = no
 			is_subject = no
 			adm_power = 200
@@ -78,6 +82,7 @@ country_decisions = {
 				full_idea_group = economic_ideas
 				full_idea_group = innovativeness_ideas
 				full_idea_group = administrative_ideas
+				reform_level = 5
 				any_ally = {
 					has_reform = canton_government
 				}
@@ -112,6 +117,7 @@ country_decisions = {
 			has_reform = italian_monarchy
 		}
 		allow = {
+			has_reform = italian_monarchy
 			is_at_war = no
 			stability = 1
 			adm_tech = 12
@@ -242,6 +248,7 @@ country_decisions = {
 		major = yes
 		potential = { has_reform = feudal_france_reform }
 		allow = {
+			has_reform = feudal_france_reform
 			OR = {
 				current_age = age_of_absolutism
 				calc_true_if = {
@@ -808,6 +815,7 @@ country_decisions = {
 			NOT = { is_religion_enabled = protestant }
 		}
 		allow = {
+			religion = catholique
 			has_institution = laytheology
 			reverse_has_opinion = { who = PAP value = 0 }
 		}
@@ -836,27 +844,55 @@ country_decisions = {
 	revive_iconoclasm = {
 		major = yes
 		potential = {
-			tag = BYZ
+			is_or_was_tag = { tag = BYZ }
 			government = monarchy
 			religion = orthodox
 			NOT = { is_religion_enabled = protestant }
 		}
+		provinces_to_highlight = {
+			if = {
+				limit = {
+					ROOT = {
+						NOT = {
+							calc_true_if = {
+								amount = 2
+								owns = 2233
+								owns = 2708
+								owns = 3053
+								owns = 5022
+								owns = 4974
+							}
+						}
+					}
+				}
+				OR = {
+					province_id = 2233
+					province_id = 2708
+					province_id = 3053
+					province_id = 5022
+					province_id = 4974
+				}
+				NOT = { owned_by = ROOT }
+			}
+			else = {
+				always = no
+			}
+		}
 		allow = {
+			is_or_was_tag = { tag = BYZ }
 			stability = 1
 			has_regency = no
-			is_free_or_tributary_trigger = yes
 			is_at_war = no
+			is_free_or_tributary_trigger = yes
 			custom_trigger_tooltip = {
 				tooltip = pentarchyicon.tt
-				num_of_owned_provinces_with = {
-					value = 2
-					OR = {
-						province_id = 2233
-						province_id = 2708
-						province_id = 3053
-						province_id = 5022
-						province_id = 4974
-					}
+				calc_true_if = {
+					amount = 2
+					owns = 2233
+					owns = 2708
+					owns = 3053
+					owns = 5022
+					owns = 4974
 				}
 			}
 		}
@@ -2459,6 +2495,16 @@ country_decisions = {
 			}
 		}
 		allow = {
+			OR = {
+				religion = catholic
+				religion = catholique
+			}
+			OR = {
+				has_reform = leading_clergy_reform
+				has_reform = monastic_order_reform
+				has_reform = priory_reform
+				has_reform = crusader_order_reform
+			}
 			is_at_war = no
 			papacy_active = yes
 			papal_influence = 100
@@ -2500,6 +2546,7 @@ country_decisions = {
 			NOT = { has_country_flag = ended_fitna_by_low_authority }
 		}
 		allow = {
+			has_disaster = great_fitna
 			stability = 1
 			custom_trigger_tooltip = {
 				tooltip = great_fitna.tt
@@ -2526,6 +2573,7 @@ country_decisions = {
 			NOT = { has_country_flag = ended_fitna_by_low_authority }
 		}
 		allow = {
+			has_disaster = great_fitna
 			stability = 1
 			OR = {
 				custom_trigger_tooltip = {

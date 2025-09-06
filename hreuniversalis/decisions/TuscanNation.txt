@@ -3,6 +3,11 @@ country_decisions = {
 	tuscan_nation = {
 		major = yes
 		potential = {
+			primary_culture = tuscan
+			NOT = { tag = TUS }
+			NOT = { tag = XKK }
+			NOT = { tag = AVI }
+			NOT = { tag = PAP }
 			normal_or_historical_nations = yes
 			primitives = no
 			OR = {
@@ -14,8 +19,6 @@ country_decisions = {
 				ai = no
 			}
 			was_never_end_game_tag_trigger = yes
-			NOT = { tag = TUS }
-			NOT = { tag = XKK }
 			OR = {
 				ai = no
 				AND = {
@@ -24,7 +27,6 @@ country_decisions = {
 					NOT = { exists = TUS }
 				}
 			}
-			primary_culture = tuscan
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -54,11 +56,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 14
-			is_nomad = no
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			NOT = { exists = TUS }
 			owns_core_province = 646	# Arezzo
 			owns_core_province = 640	# Firenze
 			owns_core_province = 117	# Siena
@@ -66,6 +63,11 @@ country_decisions = {
 				owns_core_province = 115	# Pisa
 				owns_core_province = 2980	# Lucca
 			}
+			adm_tech = 14
+			NOT = { exists = TUS }
+			is_nomad = no
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
 		}
 		effect = {
 			change_tag = TUS

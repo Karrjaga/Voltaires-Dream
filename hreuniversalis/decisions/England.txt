@@ -10,11 +10,15 @@ country_decisions = {
 			NOT = { has_country_modifier = british_merchant_navy }
 		}
 		allow = {
+			OR = {
+				tag = ENG
+				tag = GBR
+			}
+			has_idea = grand_navy
+			has_idea = national_trade_policy
 			maritime_ideas = 5
 			monthly_income = 60
 			trade_income_percentage = 0.33
-			has_idea = grand_navy
-			has_idea = national_trade_policy
 		}
 		effect = {
 			add_country_modifier = {
@@ -36,6 +40,10 @@ country_decisions = {
 			NOT = { has_country_modifier = britanna_rules_the_waves }
 		}
 		allow = {
+			OR = {
+				tag = ENG
+				tag = GBR
+			}
 			num_of_total_ports = 50
 			num_of_heavy_ship = 50
 			num_of_light_ship = 50
@@ -107,6 +115,9 @@ country_decisions = {
 			NOT = { owns_or_non_sovereign_subject_of = 4706 }
 		}
 		allow = {
+			hidden_trigger = {
+				has_country_flag = eng_can_buy_orkney_flag
+			}
 			is_at_war = no
 			treasury = 200
 			4706 = {
@@ -150,6 +161,9 @@ country_decisions = {
 			}
 		}
 		allow = {
+			has_issue_unlocked = {
+				issue = british_ideas_laws
+			}
 			is_at_war = no
 			OR = {
 				has_country_modifier = royal_impressment_act_modifier
@@ -182,15 +196,15 @@ country_decisions = {
 	}
 	eng_end_the_law_discussions = {
 		potential = {
-			has_issue_unlocked = {
-				issue = british_ideas_laws
-			}
 			OR = {
 				has_idea_group = ENG_ideas
 				has_idea_group = GBR_ideas
 				has_idea_group = AVE_ideas
 			}
 			NOT = { has_country_flag = eng_can_not_adjust_ideas }
+			has_issue_unlocked = {
+				issue = british_ideas_laws
+			}
 		}
 		allow = {
 			always = yes
@@ -205,15 +219,15 @@ country_decisions = {
 	}
 	eng_start_the_law_discussions = {
 		potential = {
-			has_issue_unlocked = {
-				issue = british_ideas_laws
-			}
 			OR = {
 				has_idea_group = ENG_ideas
 				has_idea_group = GBR_ideas
 				has_idea_group = AVE_ideas
 			}
 			has_country_flag = eng_can_not_adjust_ideas
+			has_issue_unlocked = {
+				issue = british_ideas_laws
+			}
 		}
 		allow = {
 			adm_power_cost = 100
