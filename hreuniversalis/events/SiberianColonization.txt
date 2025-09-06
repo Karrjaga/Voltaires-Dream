@@ -14,7 +14,10 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Third Rome"
-		has_idea = siberian_frontier
+		OR = {
+			has_idea = siberian_frontier
+			has_idea = mother_of_russian_cities
+		}
 		OR = {
 			has_reform = principality
 			has_reform = tsardom
@@ -183,7 +186,10 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Third Rome"
-		has_idea = siberian_frontier
+		OR = {
+			has_idea = siberian_frontier
+			has_idea = mother_of_russian_cities
+		}
 		OR = {
 			has_reform = principality
 			has_reform = tsardom
@@ -220,7 +226,10 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Third Rome"
-		has_idea = siberian_frontier
+		OR = {
+			has_idea = siberian_frontier
+			has_idea = mother_of_russian_cities
+		}
 		OR = {
 			has_reform = principality
 			has_reform = tsardom
@@ -351,7 +360,10 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Third Rome"
-		has_idea = siberian_frontier
+		OR = {
+			has_idea = siberian_frontier
+			has_idea = mother_of_russian_cities
+		}
 		OR = {
 			has_reform = principality
 			has_reform = tsardom
@@ -457,7 +469,10 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Third Rome"
-		has_idea = siberian_frontier
+		OR = {
+			has_idea = siberian_frontier
+			has_idea = mother_of_russian_cities
+		}
 		OR = {
 			has_reform = principality
 			has_reform = tsardom
@@ -578,7 +593,10 @@ country_event = {
 
 	trigger = {
 		has_dlc = "Third Rome"
-		has_idea = siberian_frontier
+		OR = {
+			has_idea = siberian_frontier
+			has_idea = mother_of_russian_cities
+		}
 		OR = {
 			has_reform = principality
 			has_reform = tsardom
