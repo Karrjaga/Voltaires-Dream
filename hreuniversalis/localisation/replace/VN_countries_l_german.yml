@@ -1,5 +1,9 @@
 ﻿l_german:
 #Custom Names
+ SUZDAL: "Susdal"
+ SUZDAL_NAME: "Susdalisch"
+ GORODETS_NAME: "Gorodez"
+ GORODETS_NAME_ADJ: "Gorodezisch"
  DILMAC_NAME: "Dilmaç"
  DILMAC_NAME_ADJ: "Dilmaçisch"
  DONBOLI_NAME: "Dunbulî"

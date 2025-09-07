@@ -9,6 +9,7 @@ capital = 6569
 #Suzdal
 #1238.1.1 under YYV
 1252.7.24 = {
+	override_country_name = SUZDAL_NAME
 	monarch = {
 		name = "Andrey I"
 		dynasty = "Rurikovich"
@@ -21,6 +22,7 @@ capital = 6569
 
 #Gorodets
 1263.11.14 = {
+	override_country_name = GORODETS_NAME
 	capital = 6564
 	monarch = {
 		name = "Andrey II"
@@ -36,6 +38,7 @@ capital = 6569
 #Suzdal
 1293.1.1 = {
 	capital = 6569
+	override_country_name = SUZDAL_NAME
 	monarch = {
 		name = "Mikhail I"
 		dynasty = "Rurikovich"
@@ -87,7 +90,10 @@ capital = 6569
 }
 
 #Nizhny
-1341.1.1 = { capital = 6689 }
+1341.1.1 = {
+	restore_country_name = yes
+	capital = 6689
+}
 1355.1.1 = {
 	monarch = {
 		name = "Andrey III"
