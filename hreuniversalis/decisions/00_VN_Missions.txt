@@ -1,571 +1,571 @@
-country_decisions = {
-	vn_vassalize_ERZ = {
-		potential = {
-			has_unlocked_decision = { type = vn_vassalize_ERZ }
-			NOT = { tag = ERZ }
-			exists = ERZ
-		}
-		provinces_to_highlight = {
-			owned_by = ERZ
-		}
-		allow = {
-			dip_power_cost = 100
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
+# country_decisions = {
+# 	vn_vassalize_ERZ = {
+# 		potential = {
+# 			has_unlocked_decision = { type = vn_vassalize_ERZ }
+# 			NOT = { tag = ERZ }
+# 			exists = ERZ
+# 		}
+# 		provinces_to_highlight = {
+# 			owned_by = ERZ
+# 		}
+# 		allow = {
+# 			dip_power_cost = 100
+# 			is_free_or_tributary_trigger = yes
+# 			is_at_war = no
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
 					
-				}
-				reverse_has_opinion = {
-					who = ERZ
-					value = 190
-				}
-				ERZ = {
-					is_subject_of = ROOT
-					is_subject_of_type = tributary_state
-					NOT = { liberty_desire = 30 }
-					is_at_war = no
-				}
-			}
-			else = {
-				ERZ = {
-					exists = yes
-					NOT = { is_subject_of = ROOT }
-				}
-			}
-		}
-		effect = {
-			dip_power_cost = 100
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
-				}
-				create_subject = {
-					subject_type = vassal
-					who = ERZ
-					keep_liberty_desire = yes
-				}
-			}
-			else = {
-				add_casus_belli = {
-					type = cb_vassalize_mission
-					target = ERZ
-					months = 1200
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { num_of_free_diplomatic_relations = 1 }
-			}
-			modifier = {
-				factor = 0
-				any_subject_country = {
-					is_free_or_tributary_trigger = no
-					liberty_desire = 35
-				}
-			}
-		}
-	}
+# 				}
+# 				reverse_has_opinion = {
+# 					who = ERZ
+# 					value = 190
+# 				}
+# 				ERZ = {
+# 					is_subject_of = ROOT
+# 					is_subject_of_type = tributary_state
+# 					NOT = { liberty_desire = 30 }
+# 					is_at_war = no
+# 				}
+# 			}
+# 			else = {
+# 				ERZ = {
+# 					exists = yes
+# 					NOT = { is_subject_of = ROOT }
+# 				}
+# 			}
+# 		}
+# 		effect = {
+# 			dip_power_cost = 100
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
+# 				}
+# 				create_subject = {
+# 					subject_type = vassal
+# 					who = ERZ
+# 					keep_liberty_desire = yes
+# 				}
+# 			}
+# 			else = {
+# 				add_casus_belli = {
+# 					type = cb_vassalize_mission
+# 					target = ERZ
+# 					months = 1200
+# 				}
+# 			}
+# 		}
+# 		ai_will_do = {
+# 			factor = 1
+# 			modifier = {
+# 				factor = 0
+# 				NOT = { num_of_free_diplomatic_relations = 1 }
+# 			}
+# 			modifier = {
+# 				factor = 0
+# 				any_subject_country = {
+# 					is_free_or_tributary_trigger = no
+# 					liberty_desire = 35
+# 				}
+# 			}
+# 		}
+# 	}
 
-	vn_vassalize_MRC = {
-		potential = {
-			has_unlocked_decision = { type = vn_vassalize_MRC }
-			NOT = { tag = MRC }
-			exists = MRC
-		}
-		provinces_to_highlight = {
-			owned_by = MRC
-		}
-		allow = {
-			dip_power_cost = 100
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
-				}
-				reverse_has_opinion = {
-					who = MRC
-					value = 190
-				}
-				MRC = {
-					is_subject_of = ROOT
-					is_subject_of_type = tributary_state
-					NOT = { liberty_desire = 30 }
-					is_at_war = no
-				}
-			}
-			else = {
-				MRC = {
-					exists = yes
-					NOT = { is_subject_of = ROOT }
-				}
-			}
-		}
-		effect = {
-			dip_power_cost = 100
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
-				}
-				create_subject = {
-					subject_type = vassal
-					who = MRC
-					keep_liberty_desire = yes
-				}
-			}
-			else = {
-				add_casus_belli = {
-					type = cb_vassalize_mission
-					target = MRC
-					months = 1200
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { num_of_free_diplomatic_relations = 1 }
-			}
-			modifier = {
-				factor = 0
-				any_subject_country = {
-					is_free_or_tributary_trigger = no
-					liberty_desire = 35
-				}
-			}
-		}
-	}
+# 	vn_vassalize_MRC = {
+# 		potential = {
+# 			has_unlocked_decision = { type = vn_vassalize_MRC }
+# 			NOT = { tag = MRC }
+# 			exists = MRC
+# 		}
+# 		provinces_to_highlight = {
+# 			owned_by = MRC
+# 		}
+# 		allow = {
+# 			dip_power_cost = 100
+# 			is_free_or_tributary_trigger = yes
+# 			is_at_war = no
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
+# 				}
+# 				reverse_has_opinion = {
+# 					who = MRC
+# 					value = 190
+# 				}
+# 				MRC = {
+# 					is_subject_of = ROOT
+# 					is_subject_of_type = tributary_state
+# 					NOT = { liberty_desire = 30 }
+# 					is_at_war = no
+# 				}
+# 			}
+# 			else = {
+# 				MRC = {
+# 					exists = yes
+# 					NOT = { is_subject_of = ROOT }
+# 				}
+# 			}
+# 		}
+# 		effect = {
+# 			dip_power_cost = 100
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
+# 				}
+# 				create_subject = {
+# 					subject_type = vassal
+# 					who = MRC
+# 					keep_liberty_desire = yes
+# 				}
+# 			}
+# 			else = {
+# 				add_casus_belli = {
+# 					type = cb_vassalize_mission
+# 					target = MRC
+# 					months = 1200
+# 				}
+# 			}
+# 		}
+# 		ai_will_do = {
+# 			factor = 1
+# 			modifier = {
+# 				factor = 0
+# 				NOT = { num_of_free_diplomatic_relations = 1 }
+# 			}
+# 			modifier = {
+# 				factor = 0
+# 				any_subject_country = {
+# 					is_free_or_tributary_trigger = no
+# 					liberty_desire = 35
+# 				}
+# 			}
+# 		}
+# 	}
 
-	vn_vassalize_MDV = {
-		potential = {
-			has_unlocked_decision = { type = vn_vassalize_MDV }
-			NOT = { tag = MDV }
-			exists = MDV
-		}
-		provinces_to_highlight = {
-			owned_by = MDV
-		}
-		allow = {
-			dip_power_cost = 100
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
-				}
-				reverse_has_opinion = {
-					who = MDV
-					value = 190
-				}
-				MDV = {
-					is_subject_of = ROOT
-					is_subject_of_type = tributary_state
-					NOT = { liberty_desire = 30 }
-					is_at_war = no
-				}
-			}
-			else = {
-				MDV = {
-					exists = yes
-					NOT = { is_subject_of = ROOT }
-				}
-			}
-		}
-		effect = {
-			dip_power_cost = 100
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
-				}
-				create_subject = {
-					subject_type = vassal
-					who = MDV
-					keep_liberty_desire = yes
-				}
-			}
-			else = {
-				add_casus_belli = {
-					type = cb_vassalize_mission
-					target = MDV
-					months = 1200
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { num_of_free_diplomatic_relations = 1 }
-			}
-			modifier = {
-				factor = 0
-				any_subject_country = {
-					is_free_or_tributary_trigger = no
-					liberty_desire = 35
-				}
-			}
-		}
-	}
+# 	vn_vassalize_MDV = {
+# 		potential = {
+# 			has_unlocked_decision = { type = vn_vassalize_MDV }
+# 			NOT = { tag = MDV }
+# 			exists = MDV
+# 		}
+# 		provinces_to_highlight = {
+# 			owned_by = MDV
+# 		}
+# 		allow = {
+# 			dip_power_cost = 100
+# 			is_free_or_tributary_trigger = yes
+# 			is_at_war = no
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
+# 				}
+# 				reverse_has_opinion = {
+# 					who = MDV
+# 					value = 190
+# 				}
+# 				MDV = {
+# 					is_subject_of = ROOT
+# 					is_subject_of_type = tributary_state
+# 					NOT = { liberty_desire = 30 }
+# 					is_at_war = no
+# 				}
+# 			}
+# 			else = {
+# 				MDV = {
+# 					exists = yes
+# 					NOT = { is_subject_of = ROOT }
+# 				}
+# 			}
+# 		}
+# 		effect = {
+# 			dip_power_cost = 100
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
+# 				}
+# 				create_subject = {
+# 					subject_type = vassal
+# 					who = MDV
+# 					keep_liberty_desire = yes
+# 				}
+# 			}
+# 			else = {
+# 				add_casus_belli = {
+# 					type = cb_vassalize_mission
+# 					target = MDV
+# 					months = 1200
+# 				}
+# 			}
+# 		}
+# 		ai_will_do = {
+# 			factor = 1
+# 			modifier = {
+# 				factor = 0
+# 				NOT = { num_of_free_diplomatic_relations = 1 }
+# 			}
+# 			modifier = {
+# 				factor = 0
+# 				any_subject_country = {
+# 					is_free_or_tributary_trigger = no
+# 					liberty_desire = 35
+# 				}
+# 			}
+# 		}
+# 	}
 
-	vn_vassalize_BSH = {
-		potential = {
-			has_unlocked_decision = { type = vn_vassalize_BSH }
-			NOT = { tag = BSH }
-			exists = BSH
-		}
-		provinces_to_highlight = {
-			owned_by = BSH
-		}
-		allow = {
-			dip_power_cost = 100
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
-				}
-				reverse_has_opinion = {
-					who = BSH
-					value = 190
-				}
-				BSH = {
-					is_subject_of = ROOT
-					is_subject_of_type = tributary_state
-					NOT = { liberty_desire = 30 }
-					is_at_war = no
-				}
-			}
-			else = {
-				BSH = {
-					exists = yes
-					NOT = { is_subject_of = ROOT }
-				}
-			}
-		}
-		effect = {
-			dip_power_cost = 100
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
-				}
-				create_subject = {
-					subject_type = vassal
-					who = BSH
-					keep_liberty_desire = yes
-				}
-			}
-			else = {
-				add_casus_belli = {
-					type = cb_vassalize_mission
-					target = BSH
-					months = 1200
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { num_of_free_diplomatic_relations = 1 }
-			}
-			modifier = {
-				factor = 0
-				any_subject_country = {
-					is_free_or_tributary_trigger = no
-					liberty_desire = 35
-				}
-			}
-		}
-	}
+# 	vn_vassalize_BSH = {
+# 		potential = {
+# 			has_unlocked_decision = { type = vn_vassalize_BSH }
+# 			NOT = { tag = BSH }
+# 			exists = BSH
+# 		}
+# 		provinces_to_highlight = {
+# 			owned_by = BSH
+# 		}
+# 		allow = {
+# 			dip_power_cost = 100
+# 			is_free_or_tributary_trigger = yes
+# 			is_at_war = no
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
+# 				}
+# 				reverse_has_opinion = {
+# 					who = BSH
+# 					value = 190
+# 				}
+# 				BSH = {
+# 					is_subject_of = ROOT
+# 					is_subject_of_type = tributary_state
+# 					NOT = { liberty_desire = 30 }
+# 					is_at_war = no
+# 				}
+# 			}
+# 			else = {
+# 				BSH = {
+# 					exists = yes
+# 					NOT = { is_subject_of = ROOT }
+# 				}
+# 			}
+# 		}
+# 		effect = {
+# 			dip_power_cost = 100
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
+# 				}
+# 				create_subject = {
+# 					subject_type = vassal
+# 					who = BSH
+# 					keep_liberty_desire = yes
+# 				}
+# 			}
+# 			else = {
+# 				add_casus_belli = {
+# 					type = cb_vassalize_mission
+# 					target = BSH
+# 					months = 1200
+# 				}
+# 			}
+# 		}
+# 		ai_will_do = {
+# 			factor = 1
+# 			modifier = {
+# 				factor = 0
+# 				NOT = { num_of_free_diplomatic_relations = 1 }
+# 			}
+# 			modifier = {
+# 				factor = 0
+# 				any_subject_country = {
+# 					is_free_or_tributary_trigger = no
+# 					liberty_desire = 35
+# 				}
+# 			}
+# 		}
+# 	}
 
-	vn_vassalize_UDM = {
-		potential = {
-			has_unlocked_decision = { type = vn_vassalize_UDM }
-			NOT = { tag = UDM }
-			exists = UDM
-		}
-		provinces_to_highlight = {
-			owned_by = UDM
-		}
-		allow = {
-			dip_power_cost = 100
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
-				}
-				reverse_has_opinion = {
-					who = UDM
-					value = 190
-				}
-				UDM = {
-					is_subject_of = ROOT
-					is_subject_of_type = tributary_state
-					NOT = { liberty_desire = 30 }
-					is_at_war = no
-				}
-			}
-			else = {
-				UDM = {
-					exists = yes
-					NOT = { is_subject_of = ROOT }
-				}
-			}
-		}
-		effect = {
-			dip_power_cost = 100
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
-				}
-				create_subject = {
-					subject_type = vassal
-					who = UDM
-					keep_liberty_desire = yes
-				}
-			}
-			else = {
-				add_casus_belli = {
-					type = cb_vassalize_mission
-					target = UDM
-					months = 1200
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { num_of_free_diplomatic_relations = 1 }
-			}
-			modifier = {
-				factor = 0
-				any_subject_country = {
-					is_free_or_tributary_trigger = no
-					liberty_desire = 35
-				}
-			}
-		}
-	}
+# 	vn_vassalize_UDM = {
+# 		potential = {
+# 			has_unlocked_decision = { type = vn_vassalize_UDM }
+# 			NOT = { tag = UDM }
+# 			exists = UDM
+# 		}
+# 		provinces_to_highlight = {
+# 			owned_by = UDM
+# 		}
+# 		allow = {
+# 			dip_power_cost = 100
+# 			is_free_or_tributary_trigger = yes
+# 			is_at_war = no
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
+# 				}
+# 				reverse_has_opinion = {
+# 					who = UDM
+# 					value = 190
+# 				}
+# 				UDM = {
+# 					is_subject_of = ROOT
+# 					is_subject_of_type = tributary_state
+# 					NOT = { liberty_desire = 30 }
+# 					is_at_war = no
+# 				}
+# 			}
+# 			else = {
+# 				UDM = {
+# 					exists = yes
+# 					NOT = { is_subject_of = ROOT }
+# 				}
+# 			}
+# 		}
+# 		effect = {
+# 			dip_power_cost = 100
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
+# 				}
+# 				create_subject = {
+# 					subject_type = vassal
+# 					who = UDM
+# 					keep_liberty_desire = yes
+# 				}
+# 			}
+# 			else = {
+# 				add_casus_belli = {
+# 					type = cb_vassalize_mission
+# 					target = UDM
+# 					months = 1200
+# 				}
+# 			}
+# 		}
+# 		ai_will_do = {
+# 			factor = 1
+# 			modifier = {
+# 				factor = 0
+# 				NOT = { num_of_free_diplomatic_relations = 1 }
+# 			}
+# 			modifier = {
+# 				factor = 0
+# 				any_subject_country = {
+# 					is_free_or_tributary_trigger = no
+# 					liberty_desire = 35
+# 				}
+# 			}
+# 		}
+# 	}
 
-	vn_vassalize_QAS = {
-		potential = {
-			has_unlocked_decision = { type = vn_vassalize_QAS }
-			NOT = { tag = QAS }
-			exists = QAS
-		}
-		provinces_to_highlight = {
-			owned_by = QAS
-		}
-		allow = {
-			dip_power_cost = 100
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
-				}
-				reverse_has_opinion = {
-					who = QAS
-					value = 190
-				}
-				QAS = {
-					is_subject_of = ROOT
-					is_subject_of_type = tributary_state
-					NOT = { liberty_desire = 30 }
-					is_at_war = no
-				}
-			}
-			else = {
-				QAS = {
-					exists = yes
-					NOT = { is_subject_of = ROOT }
-				}
-			}
-		}
-		effect = {
-			dip_power_cost = 100
-			if = {
-				limit = {
-					has_dlc = "Mandate of Heaven"
-				}
-				create_subject = {
-					subject_type = vassal
-					who = QAS
-					keep_liberty_desire = yes
-				}
-			}
-			else = {
-				add_casus_belli = {
-					type = cb_vassalize_mission
-					target = QAS
-					months = 1200
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { num_of_free_diplomatic_relations = 1 }
-			}
-			modifier = {
-				factor = 0
-				any_subject_country = {
-					is_free_or_tributary_trigger = no
-					liberty_desire = 35
-				}
-			}
-		}
-	}
+# 	vn_vassalize_QAS = {
+# 		potential = {
+# 			has_unlocked_decision = { type = vn_vassalize_QAS }
+# 			NOT = { tag = QAS }
+# 			exists = QAS
+# 		}
+# 		provinces_to_highlight = {
+# 			owned_by = QAS
+# 		}
+# 		allow = {
+# 			dip_power_cost = 100
+# 			is_free_or_tributary_trigger = yes
+# 			is_at_war = no
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
+# 				}
+# 				reverse_has_opinion = {
+# 					who = QAS
+# 					value = 190
+# 				}
+# 				QAS = {
+# 					is_subject_of = ROOT
+# 					is_subject_of_type = tributary_state
+# 					NOT = { liberty_desire = 30 }
+# 					is_at_war = no
+# 				}
+# 			}
+# 			else = {
+# 				QAS = {
+# 					exists = yes
+# 					NOT = { is_subject_of = ROOT }
+# 				}
+# 			}
+# 		}
+# 		effect = {
+# 			dip_power_cost = 100
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
+# 				}
+# 				create_subject = {
+# 					subject_type = vassal
+# 					who = QAS
+# 					keep_liberty_desire = yes
+# 				}
+# 			}
+# 			else = {
+# 				add_casus_belli = {
+# 					type = cb_vassalize_mission
+# 					target = QAS
+# 					months = 1200
+# 				}
+# 			}
+# 		}
+# 		ai_will_do = {
+# 			factor = 1
+# 			modifier = {
+# 				factor = 0
+# 				NOT = { num_of_free_diplomatic_relations = 1 }
+# 			}
+# 			modifier = {
+# 				factor = 0
+# 				any_subject_country = {
+# 					is_free_or_tributary_trigger = no
+# 					liberty_desire = 35
+# 				}
+# 			}
+# 		}
+# 	}
 
-	# vn_colonize_tierra_de_nadie = {
-	# 	potential = {
-	# 		#has_unlocked_decision = { type = vn_colonize_tierra_de_nadie }
-	# 		OR = {
-	# 			4371 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 			2850 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 			4370 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 			2719 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 			2337 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 			4369 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 			4346 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 			4347 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 			4345 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 			4344 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 			2718 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 			4474 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 		}
-	# 	}
-	# 	provinces_to_highlight = {
-	# 		OR = {
-	# 			province_id = 4371
-	# 			province_id = 2850
-	# 			province_id = 4370
-	# 			province_id = 2719
-	# 			province_id = 2337
-	# 			province_id = 4369
-	# 			province_id = 4346
-	# 			province_id = 4347
-	# 			province_id = 4345
-	# 			province_id = 4344
-	# 			province_id = 2718
-	# 			province_id = 4474
-	# 		}
-	# 		is_empty = yes
-	# 		any_neighbor_province = {
-	# 			country_or_non_sovereign_subject_holds = ROOT
-	# 		}
-	# 	}
-	# 	allow = {
-	# 		NOT = { has_country_modifier = parias_modifier }
-	# 		is_at_war = no
-	# 		is_free_or_tributary_trigger = yes
-	# 		treasury = 50
-	# 		dip_power_cost = 25
-	# 		manpower = 0.1
-	# 		custom_trigger_tooltip = {
-	# 			tooltip = vn_colonize_tierra_de_nadie.tt
-	# 			OR = {
-	# 				4371 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 				2850 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 				4370 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 				2719 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 				2337 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 				4369 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 				4346 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 				4347 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 				4345 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 				4344 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 				2718 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 				4474 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
-	# 			}
-	# 		}
-	# 	}
-	# 	effect = {
-	# 		every_province = {
-	# 			limit = {
-	# 				OR = {
-	# 					province_id = 4371
-	# 					province_id = 2850
-	# 					province_id = 4370
-	# 					province_id = 2719
-	# 					province_id = 2337
-	# 					province_id = 4369
-	# 					province_id = 4346
-	# 					province_id = 4347
-	# 					province_id = 4345
-	# 					province_id = 4344
-	# 					province_id = 2718
-	# 					province_id = 4474
-	# 				}
-	# 				is_empty = yes
-	# 				any_neighbor_province = {
-	# 					country_or_non_sovereign_subject_holds = ROOT
-	# 				}
-	# 			}
-	# 			custom_tooltip = INC_will_be_colonized
-	# 		}
-	# 		tooltip = {
-	# 			add_treasury = -50
-	# 			dip_power_cost = 25
-	# 			add_manpower = -0.1
-	# 		}
-	# 		hidden_effect = {
-	# 			random_province = {
-	# 				limit = {
-	# 					OR = {
-	# 						province_id = 4371
-	# 						province_id = 2850
-	# 						province_id = 4370
-	# 						province_id = 2719
-	# 						province_id = 2337
-	# 						province_id = 4369
-	# 						province_id = 4346
-	# 						province_id = 4347
-	# 						province_id = 4345
-	# 						province_id = 4344
-	# 						province_id = 2718
-	# 						province_id = 4474
-	# 					}
-	# 					is_empty = yes
-	# 					any_neighbor_province = {
-	# 						country_or_non_sovereign_subject_holds = ROOT
-	# 					}
-	# 				}
-	# 				add_siberian_construction = 100
-	# 				ROOT = { add_treasury = -50 }
-	# 				ROOT = { dip_power_cost = 25 }
-	# 				ROOT = { add_manpower = -0.1 }
-	# 			}
-	# 		}
-	# 	}
-	# 	ai_will_do = {
-	# 		factor = 1
-	# 		modifier = {
-	# 			factor = 0
-	# 			is_bankrupt = yes
-	# 		}
-	# 		modifier = {
-	# 			factor = 0
-	# 			is_in_deficit = yes
-	# 		}
-	# 		modifier = {
-	# 			factor = 0
-	# 			NOT = { manpower_percentage = 0.75 }
-	# 		}
-	# 		modifier = {
-	# 			factor = 0
-	# 			num_of_loans = 1
-	# 		}
-	# 	}
-	# 	ai_importance = 400
-	# }
-}
+# 	# vn_colonize_tierra_de_nadie = {
+# 	# 	potential = {
+# 	# 		#has_unlocked_decision = { type = vn_colonize_tierra_de_nadie }
+# 	# 		OR = {
+# 	# 			4371 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 			2850 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 			4370 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 			2719 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 			2337 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 			4369 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 			4346 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 			4347 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 			4345 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 			4344 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 			2718 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 			4474 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 		}
+# 	# 	}
+# 	# 	provinces_to_highlight = {
+# 	# 		OR = {
+# 	# 			province_id = 4371
+# 	# 			province_id = 2850
+# 	# 			province_id = 4370
+# 	# 			province_id = 2719
+# 	# 			province_id = 2337
+# 	# 			province_id = 4369
+# 	# 			province_id = 4346
+# 	# 			province_id = 4347
+# 	# 			province_id = 4345
+# 	# 			province_id = 4344
+# 	# 			province_id = 2718
+# 	# 			province_id = 4474
+# 	# 		}
+# 	# 		is_empty = yes
+# 	# 		any_neighbor_province = {
+# 	# 			country_or_non_sovereign_subject_holds = ROOT
+# 	# 		}
+# 	# 	}
+# 	# 	allow = {
+# 	# 		NOT = { has_country_modifier = parias_modifier }
+# 	# 		is_at_war = no
+# 	# 		is_free_or_tributary_trigger = yes
+# 	# 		treasury = 50
+# 	# 		dip_power_cost = 25
+# 	# 		manpower = 0.1
+# 	# 		custom_trigger_tooltip = {
+# 	# 			tooltip = vn_colonize_tierra_de_nadie.tt
+# 	# 			OR = {
+# 	# 				4371 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 				2850 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 				4370 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 				2719 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 				2337 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 				4369 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 				4346 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 				4347 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 				4345 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 				4344 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 				2718 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 				4474 = { is_empty = yes any_neighbor_province = { country_or_non_sovereign_subject_holds = ROOT } }
+# 	# 			}
+# 	# 		}
+# 	# 	}
+# 	# 	effect = {
+# 	# 		every_province = {
+# 	# 			limit = {
+# 	# 				OR = {
+# 	# 					province_id = 4371
+# 	# 					province_id = 2850
+# 	# 					province_id = 4370
+# 	# 					province_id = 2719
+# 	# 					province_id = 2337
+# 	# 					province_id = 4369
+# 	# 					province_id = 4346
+# 	# 					province_id = 4347
+# 	# 					province_id = 4345
+# 	# 					province_id = 4344
+# 	# 					province_id = 2718
+# 	# 					province_id = 4474
+# 	# 				}
+# 	# 				is_empty = yes
+# 	# 				any_neighbor_province = {
+# 	# 					country_or_non_sovereign_subject_holds = ROOT
+# 	# 				}
+# 	# 			}
+# 	# 			custom_tooltip = INC_will_be_colonized
+# 	# 		}
+# 	# 		tooltip = {
+# 	# 			add_treasury = -50
+# 	# 			dip_power_cost = 25
+# 	# 			add_manpower = -0.1
+# 	# 		}
+# 	# 		hidden_effect = {
+# 	# 			random_province = {
+# 	# 				limit = {
+# 	# 					OR = {
+# 	# 						province_id = 4371
+# 	# 						province_id = 2850
+# 	# 						province_id = 4370
+# 	# 						province_id = 2719
+# 	# 						province_id = 2337
+# 	# 						province_id = 4369
+# 	# 						province_id = 4346
+# 	# 						province_id = 4347
+# 	# 						province_id = 4345
+# 	# 						province_id = 4344
+# 	# 						province_id = 2718
+# 	# 						province_id = 4474
+# 	# 					}
+# 	# 					is_empty = yes
+# 	# 					any_neighbor_province = {
+# 	# 						country_or_non_sovereign_subject_holds = ROOT
+# 	# 					}
+# 	# 				}
+# 	# 				add_siberian_construction = 100
+# 	# 				ROOT = { add_treasury = -50 }
+# 	# 				ROOT = { dip_power_cost = 25 }
+# 	# 				ROOT = { add_manpower = -0.1 }
+# 	# 			}
+# 	# 		}
+# 	# 	}
+# 	# 	ai_will_do = {
+# 	# 		factor = 1
+# 	# 		modifier = {
+# 	# 			factor = 0
+# 	# 			is_bankrupt = yes
+# 	# 		}
+# 	# 		modifier = {
+# 	# 			factor = 0
+# 	# 			is_in_deficit = yes
+# 	# 		}
+# 	# 		modifier = {
+# 	# 			factor = 0
+# 	# 			NOT = { manpower_percentage = 0.75 }
+# 	# 		}
+# 	# 		modifier = {
+# 	# 			factor = 0
+# 	# 			num_of_loans = 1
+# 	# 		}
+# 	# 	}
+# 	# 	ai_importance = 400
+# 	# }
+# }

@@ -522,6 +522,7 @@ country_event = {
 	picture = TRADE_GOODS_eventPicture
 	
 	trigger = {
+		ai = no #better performance
 		has_dlc = "Cradle of Civilization"
 		any_active_trade_node = {
 			any_country = {

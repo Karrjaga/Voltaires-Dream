@@ -2,8 +2,12 @@ country_decisions = {
 
 	build_lubeck_krantor = {
 		potential = {
-			NOT = { has_dlc = "Emperor" }
 			tag = HSA
+			owns = 13
+			13 = {
+				NOT = { has_province_modifier = "krantor_crane" }
+			}
+			NOT = { has_dlc = "Emperor" }
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -13,13 +17,10 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			owns = 13
 			has_government_attribute = is_merchant_republic
-			13 = {
-				NOT = { has_province_modifier = "krantor_crane" }
-			}
 		}
 		allow = {
+			tag = HSA
 			num_of_merchants = 4
 			years_of_income = 1
 			adm_power = 20
@@ -41,8 +42,10 @@ country_decisions = {
 	
 	commission_adler_von_lubeck = {
 		potential = {
-			dip_tech = 9
 			tag = HSA
+			owns = 13
+			controls = 13
+			dip_tech = 9
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -52,13 +55,12 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			owns = 13
-			controls = 13
 			NOT = {
 				has_country_flag = adler_built
 			}
 		}
 		allow = {
+			owns = 13
 			if = {
 				limit = { NOT = { has_dlc = "Golden Century" } }
 				years_of_income = 0.7

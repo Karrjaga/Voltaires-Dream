@@ -160,6 +160,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			has_reform = ottoman_government
 			NOT = { has_estate_privilege = estate_janissary_janissaries_from_muslims }
 			if = {
 				limit = { has_estate = estate_janissaries }

@@ -2,6 +2,7 @@ country_decisions = {
 
 confirm_thalassocracy = {
 		potential = {
+			num_of_ports = 1 #better performance
 			NOT = { 
 				has_country_modifier = thalassocracy
 			}
@@ -106,9 +107,7 @@ confirm_thalassocracy = {
 			has_country_flag = ven_condottieri_flag
 		} 
 		allow = {
-			hidden_trigger = {
-				has_country_flag = ven_condottieri_flag
-			}
+			owns = 112
 			custom_trigger_tooltip = {
 				tooltip = ROOT_5_YEAR_CD_TT
 				OR = {

@@ -386,6 +386,7 @@ country_decisions = {
 			religion_group = muslim
 		}
 		allow = {
+			religion_group = muslim
 			dip = 3
 			has_regency = no
 		}
@@ -403,11 +404,12 @@ country_decisions = {
 	
 	islamic_centre_of_scholarly = {
 		potential = {
-			NOT = { has_ruler_modifier = islamic_scholarly_centre }
 			religion_group = muslim
 			adm_tech = 38
+			NOT = { has_ruler_modifier = islamic_scholarly_centre }
 		}
 		allow = {
+			religion_group = muslim
 			dip = 5
 			has_regency = no
 		}
@@ -427,10 +429,11 @@ country_decisions = {
 
 	monastic_education = {
 		potential = {
-			NOT = { has_country_modifier = monastic_education_system }
 			religion = buddhism
+			NOT = { has_country_modifier = monastic_education_system }
 		}
 		allow = {
+			religion = buddhism
 			adm = 3
 		}
 		effect = {	
@@ -450,9 +453,10 @@ country_decisions = {
 
 	adopt_wahabism = {
 		potential = {
-			has_dlc = "Cradle of Civilization"
 			religion = sunni
 			has_reform = tribal_federation
+			ruler_religion = sunni
+			has_dlc = "Cradle of Civilization"
 			has_global_flag = wahabism_founded
 			NOT = {
 				religious_school = {
@@ -460,7 +464,6 @@ country_decisions = {
 					school = hanbali_school
 				}
 			}
-			ruler_religion = sunni
 		}
 		allow = {
 			piety = 1.0 #100 Legalism
@@ -842,12 +845,12 @@ country_decisions = {
 
 	save_the_burning_world = {
 		potential = {
-			NOT = { has_country_modifier = saving_the_burning_world }
 			OR = {
 				religion = yazidi
 				religion = druze
 				religion = mandaeism
 			}
+			NOT = { has_country_modifier = saving_the_burning_world }
 		}
 		allow = {
 			ADM = 3
@@ -1215,27 +1218,33 @@ country_decisions = {
 
 	animism_ritual_education = {
 		potential = {
-			OR = {
-				religion = animism
-				religion = slavic_pagan
-				religion = dievturiba
-				religion = maausko
-				religion = finnish_pagan
-				religion = uralinusko
-			}
+			religion_group = pagan
+			NOT = { religion = shamanism }
+			NOT = { religion = norse_pagan_reformed }
+			NOT = { religion = tengri_pagan_reformed }
+			NOT = { religion = hellenic_pagan }
+			NOT = { religion = egyptian_religion }
+			NOT = { religion = vainakh }
+			NOT = { religion = khabze }
+			NOT = { religion = uatsdin }
+			NOT = { religion = druwi }
 			NOT = { has_country_modifier = ritual_education_modifier }
 			any_owned_province = {
 				NOT = { religion = owner }
 			}
 		}
 		allow = {
-			OR = {
-				religion = animism
-				religion = slavic_pagan
-				religion = dievturiba
-				religion = maausko
-				religion = finnish_pagan
-				religion = uralinusko
+			hidden_trigger = {
+				religion_group = pagan
+				NOT = { religion = shamanism }
+				NOT = { religion = norse_pagan_reformed }
+				NOT = { religion = tengri_pagan_reformed }
+				NOT = { religion = hellenic_pagan }
+				NOT = { religion = egyptian_religion }
+				NOT = { religion = vainakh }
+				NOT = { religion = khabze }
+				NOT = { religion = uatsdin }
+				NOT = { religion = druwi }
 			}
 			adm_tech = 8
 			stability = 2
@@ -1487,6 +1496,10 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 		}
 		allow = {
+			hidden_trigger = {
+				religion_group = pagan
+				NOT = { religion = tengri_pagan_reformed }
+			}
 			NOT = { government = tribal }
 			stability = 1
 		}
@@ -1514,6 +1527,10 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 		}
 		allow = {
+			hidden_trigger = {
+				religion_group = pagan
+				NOT = { religion = tengri_pagan_reformed }
+			}
 			NOT = { government = tribal }
 			stability = 1
 		}
@@ -1590,8 +1607,12 @@ country_decisions = {
 
 	conversion_of_convenience = {
 		potential = {
-			is_lesser_in_union = no
+			OR = {
+				ai = no
+				has_idea_group = religious_ideas
+			}
 			NOT = { ruler_religion = ROOT }
+			is_lesser_in_union = no
 			OR = {
 				has_regency = no
 				AND = {
@@ -1600,12 +1621,9 @@ country_decisions = {
 					NOT = { heir_religion = ROOT }
 				}
 			}
-			OR = {
-				ai = no
-				has_idea_group = religious_ideas
-			}
 		}
 		allow = {
+			NOT = { ruler_religion = ROOT }
 			stability = 1
 			capital_scope = {
 				has_owner_religion = yes

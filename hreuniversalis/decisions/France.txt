@@ -40,8 +40,8 @@ country_decisions = {
 	
 	say_the_state_is_me = {
 		potential = {
-			NOT = { has_dlc = "Emperor" }
 			tag = FRA
+			NOT = { has_dlc = "Emperor" }
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -55,6 +55,7 @@ country_decisions = {
 			government = monarchy
 		}
 		allow = {
+			tag = FRA
 			current_age = age_of_absolutism
 			adm = 5
 			monthly_income = 100
@@ -145,6 +146,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			has_country_modifier = edict_de_nantes
 			OR = {
 				NOT = {
 					OR = {

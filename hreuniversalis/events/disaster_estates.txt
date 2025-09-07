@@ -55,6 +55,7 @@ country_event = {
 					has_reform = reorganized_ottoman_government
 					has_reform = sultanate_of_rum_reform
 					has_reform = seljuk_federation_reform
+					has_reform = beylik_government
 				}
 			}
 			add_country_modifier = {
@@ -65,8 +66,10 @@ country_event = {
 		else_if = {
 			limit = {
 				OR = {
+					is_emperor_of_china = yes
 					has_reform = tsardom
 					has_reform = principality
+					has_reform = ruthenian_tsardom
 				}
 			}
 			add_country_modifier = {
@@ -74,14 +77,14 @@ country_event = {
 				duration = -1
 			}
 		}
-		else_if = {
-			limit = { is_emperor_of_china = yes }
-			reduce_meritocracy_large_effect = yes
-			add_country_modifier = {
-				name = gentry_dominance
-				duration = -1
-			}
-		}
+		# else_if = {
+		# 	limit = { is_emperor_of_china = yes }
+		# 	reduce_meritocracy_large_effect = yes
+		# 	add_country_modifier = {
+		# 		name = gentry_dominance
+		# 		duration = -1
+		# 	}
+		# }
 		else_if = {
 			limit = {
 				OR = {
@@ -90,6 +93,9 @@ country_event = {
 					has_reform = sufi_reform
 					has_reform = millenarian_republic
 					has_reform = tribal_federation
+					has_reform = fatimid_caliphate_reform
+					has_reform = ayyubid_dynasty
+					has_reform = taifa_reform
 				}
 			}
 			add_country_modifier = {

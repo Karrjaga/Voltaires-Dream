@@ -3,12 +3,13 @@ country_decisions = {
 	estate_ghulams_promote_caucasian_troops = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_ghulams
 			has_enabled_estate_action = {
 				estate_action = PROMOTE_CAUCASIAN_TROOPS
 			}
-			has_estate = estate_ghulams
 		}
 		allow = {
+			has_estate = estate_ghulams
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = PROMOTE_CAUCASIAN_TROOPS

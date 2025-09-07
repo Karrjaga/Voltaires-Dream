@@ -3,12 +3,13 @@ country_decisions = {
 	estate_qizilbash_grant_qizilbash_horses = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_qizilbash
 			has_enabled_estate_action = {
 				estate_action = GRANT_QIZILBASH_HORSES
 			}
-			has_estate = estate_qizilbash
 		}
 		allow = {
+			has_estate = estate_qizilbash
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = GRANT_QIZILBASH_HORSES

@@ -172,11 +172,12 @@ country_decisions = {
 	promote_art = {
 		major = yes
 		potential = {
-			has_dlc = "King of Kings"
 			has_government_mechanic = persian_influence_mechanic
+			has_dlc = "King of Kings"
 			NOT = { has_country_modifier = promoting_art }
 		}
 		allow = {
+			has_government_mechanic = persian_influence_mechanic
 			OR = {
 				artist = 1
 				philosopher = 1
@@ -224,8 +225,8 @@ country_decisions = {
 	stop_promoting_art = {
 		major = yes
 		potential = {
-			has_dlc = "King of Kings"
 			has_government_mechanic = persian_influence_mechanic
+			has_dlc = "King of Kings"
 			has_country_modifier = promoting_art
 		}
 		allow = {

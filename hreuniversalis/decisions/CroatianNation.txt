@@ -3,6 +3,9 @@ country_decisions = {
 	croatian_nation = {
 		major = yes
 		potential = {
+			primary_culture = croatian
+			NOT = { tag = CRO }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			primitives = no
 			OR = {
@@ -13,13 +16,10 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = CRO }
-			was_never_end_game_tag_trigger = yes
 			OR = {
 				NOT = { exists = CRO }
 				ai = no
 			}
-			primary_culture = croatian
 			OR = {
 				ai = no
 				AND = {
@@ -51,10 +51,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = CRO }
-			is_nomad = no
-			is_free_or_tributary_trigger = yes
-			is_at_war = no			
 			owns_core_province = 2236			# Zagreb
 			owns_core_province = 1083			# Dalmatia
 			owns_core_province = 137			# Ragusa
@@ -62,6 +58,10 @@ country_decisions = {
 			owns_core_province = 2369			# Slavonia
 			owns_core_province = 1972			# Lika
 			2236 = { is_state = yes }
+			NOT = { exists = CRO }
+			is_nomad = no
+			is_free_or_tributary_trigger = yes
+			is_at_war = no			
 		}
 		effect = {
 			add_prestige = 25

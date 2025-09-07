@@ -145,21 +145,6 @@ country_decisions = {
 	algiers_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			NOT = { has_country_flag = formed_algiers_flag }
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
-			OR = {
-				is_free_or_tributary_trigger = yes
-				ai = no
-			}
-			NOT = { tag = MOR }
-			NOT = { tag = TUN }
-			NOT = { tag = TLC }
-			NOT = { tag = ALG }
-			was_never_end_game_tag_trigger = yes
 			OR = {
 				primary_culture = algerian
 				AND = {
@@ -172,6 +157,21 @@ country_decisions = {
 						}
 					}
 				}
+			}
+			NOT = { tag = MOR }
+			NOT = { tag = TUN }
+			NOT = { tag = TLC }
+			NOT = { tag = ALG }
+			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_algiers_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
 			}
 			OR = {
 				ai = no
@@ -209,17 +209,17 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = ALG }
-			is_at_war = no
-			is_nomad = no
-			is_free_or_tributary_trigger = yes
 			owns_core_province = 1946 #Algiers
 			owns_core_province = 4609 #Dahra
-			1946 = { is_state = yes }
 			OR = {
 				owns_core_province = 4614 #Tlemcen
 				owns_core_province = 423 #Kabylia
 			}
+			1946 = { is_state = yes }
+			NOT = { exists = ALG }
+			is_at_war = no
+			is_nomad = no
+			is_free_or_tributary_trigger = yes
 		}
 		effect = {
 			set_capital = 1946 #Algiers

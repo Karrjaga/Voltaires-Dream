@@ -153,6 +153,7 @@ country_decisions = {
 			has_country_modifier = kilkennystatutesmod
 		}
 		allow = {
+			has_country_modifier = kilkennystatutesmod
 			OR = {
 				AND = {
 					prestige = 15
@@ -172,7 +173,6 @@ country_decisions = {
 
 	albanian_kingdom = {
 		potential = {
-			NOT = { exists = DRZ }
 			OR = {
 				primary_culture = langobardic
 				culture_group = latin
@@ -181,6 +181,7 @@ country_decisions = {
 			arbanon_area = {
 				owned_by = ROOT
 			}
+			NOT = { exists = DRZ }
 			government = monarchy
 			NOT = { has_country_flag = formed_albania }
 			normal_or_historical_nations = yes
@@ -1059,14 +1060,14 @@ country_decisions = {
 
 	create_israel = {
 		potential = {
-			NOT = { exists = ISR }
-			NOT = { exists = KOJ }
+			palestine_region = { owned_by = ROOT }
+			technology_group = western
 			OR = {
 				religion_group = christian
 				religion = jewish
 			}
-			technology_group = western
-			palestine_region = { owned_by = ROOT }
+			NOT = { exists = ISR }
+			NOT = { exists = KOJ }
 			NOT = { has_country_flag = formed_israel }
 			normal_or_historical_nations = yes
 			is_year = 1600
@@ -1139,17 +1140,19 @@ country_decisions = {
 
 	form_israel = {
 		major = yes
-		potential = {	
-			normal_or_historical_nations = yes
+		potential = {
+			religion = jewish
 			NOT = { exists = ISR }
 			NOT = { tag = KOJ }
 			NOT = { tag = MAM }
 			NOT = { tag = FTM }
 			NOT = { tag = EGY }
 			NOT = { tag = SYR }
-			primitives = no
+			NOT = { tag = AVI }
+			NOT = { tag = PAP }
 			was_never_end_game_tag_trigger = yes
-			religion = jewish
+			normal_or_historical_nations = yes
+			primitives = no
 			OR = {
 				ai = no
 				is_playing_custom_nation = no
@@ -1171,13 +1174,13 @@ country_decisions = {
 			}
 		}
 		allow = {
+			owns_core_province = 4986 #Gaza
+			owns_core_province = 4974 #Jerusalem
+			owns_core_province = 4971 #Jaffa
 			NOT = { exists = KOJ }
 			is_free_or_tributary_trigger = yes
 			is_at_war = no
 			is_nomad = no
-			owns_core_province = 4986 #Gaza
-			owns_core_province = 4974 #Jerusalem
-			owns_core_province = 4971 #Jaffa
 		}
 		effect = {
 			set_capital = 4974
@@ -2353,6 +2356,7 @@ country_decisions = {
 	church_pagan_deity_decision = {
 		potential = {
 			has_dlc = "Wealth of Nations"
+			has_estate = estate_church
 			OR = {
 				religion = egyptian_religion
 				religion = hellenic_pagan
@@ -2363,11 +2367,10 @@ country_decisions = {
 				religion = dievturiba
 				religion = uralinusko
 			}
-			has_estate = estate_church
 		}
 		allow = {
-			has_regency = no
 			has_estate_privilege = estate_church_flexible_deities
+			has_regency = no
 			custom_trigger_tooltip = {
 				tooltip = decision_once_every_twenty_years
 				OR = {
@@ -2445,6 +2448,7 @@ country_decisions = {
 			has_government_attribute = has_jewish_advisors
 		}
 		allow = {
+			has_government_attribute = has_jewish_advisors
 			custom_trigger_tooltip = {
 				tooltip = decision_once_every_twenty_years
 				OR = {

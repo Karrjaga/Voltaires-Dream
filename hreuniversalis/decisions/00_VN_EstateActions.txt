@@ -157,12 +157,13 @@ country_decisions = {
 	estate_mamluks_patronize_mamluk_families = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_mamluks
 			has_enabled_estate_action = {
 				estate_action = PATRONIZE_MAMLUK_FAMILIES_MAMLUKS
 			}
-			has_estate = estate_mamluks
 		}
 		allow = {
+			has_estate = estate_mamluks
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = PATRONIZE_MAMLUK_FAMILIES_MAMLUKS
@@ -221,17 +222,13 @@ country_decisions = {
 	estate_holy_orders_contribute_warriors = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_holy_orders
 			has_enabled_estate_action = {
 				estate_action = CONTRIBUTE_WARRIORS_HOLY_ORDERS
 			}
-			has_estate = estate_holy_orders
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
-			estate_action_off_cooldown = {
-				estate_action = CONTRIBUTE_WARRIORS_HOLY_ORDERS
-				days = 3650
-			}
+			has_estate = estate_holy_orders
 			estate_loyalty = {
 				estate = estate_holy_orders
 				loyalty = 50
@@ -241,6 +238,11 @@ country_decisions = {
 				influence = 40
 			}
 			NOT = { manpower_percentage = 0.99 }
+			has_not_any_estate_disaster_active = yes
+			estate_action_off_cooldown = {
+				estate_action = CONTRIBUTE_WARRIORS_HOLY_ORDERS
+				days = 3650
+			}
 		}
 		effect = {
 			set_estate_action_cooldown = {

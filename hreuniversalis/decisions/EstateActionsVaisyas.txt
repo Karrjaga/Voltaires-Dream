@@ -89,12 +89,13 @@ country_decisions = {
 	estate_vaisyas_seek_guild_support = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_vaisyas
 			has_enabled_estate_action = {
 				estate_action = SEEK_GUILD_SUPPORT_VAISYAS
 			}
-			has_estate = estate_vaisyas
 		}
 		allow = {
+			has_estate = estate_vaisyas
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = SEEK_GUILD_SUPPORT_VAISYAS

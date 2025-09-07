@@ -2,6 +2,13 @@ country_decisions = {
 	two_sicilies_nation = {
 		major = yes
 		potential = {
+			OR = {
+				primary_culture = neapolitan
+				primary_culture = sicilian
+			}
+			NOT = { exists = TTS }
+			NOT = { tag = AVI }
+			NOT = { tag = PAP }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_two_sicilies_flag }
@@ -12,11 +19,6 @@ country_decisions = {
 			OR = {
 				is_free_or_tributary_trigger = yes
 				ai = no
-			}
-			NOT = { exists = TTS }
-			OR = {
-				primary_culture = neapolitan
-				primary_culture = sicilian
 			}
 			is_colonial_nation = no
 			OR = {
@@ -63,12 +65,12 @@ country_decisions = {
 			}
 		}
 		allow = {
+			owns_core_province = 564
+			owns_core_province = 2041
 			adm_tech = 40
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no
-			owns_core_province = 564
-			owns_core_province = 2041
 			num_of_owned_provinces_with = {
 				OR = {
 					culture = sicilian

@@ -3,12 +3,13 @@ country_decisions = {
 	estate_church_make_generous_donation = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_church
 			has_enabled_estate_action = {
 				estate_action = MAKE_GENEROUS_DONATION_CHURCH
 			}
-			has_estate = estate_church
 		}
 		allow = {
+			has_estate = estate_church
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = MAKE_GENEROUS_DONATION_CHURCH
@@ -44,12 +45,13 @@ country_decisions = {
 	estate_church_recruit_minister = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_church
 			has_enabled_estate_action = {
 				estate_action = RECRUIT_MINISTER_CHURCH
 			}
-			has_estate = estate_church
 		}
 		allow = {
+			has_estate = estate_church
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_shared_cooldown = {
 				estate_action = RECRUIT_ADVISOR_CHURCH
@@ -78,20 +80,21 @@ country_decisions = {
 	estate_church_recruit_inquisitor = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_church
 			has_enabled_estate_action = {
 				estate_action = RECRUIT_INQUISITOR_CHURCH
 			}
-			has_estate = estate_church
 		}
 		allow = {
+			has_estate = estate_church
+			estate_influence = {
+				estate = estate_church
+				influence = 40
+			}
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_shared_cooldown = {
 				estate_action = RECRUIT_ADVISOR_CHURCH
 				days = 10950
-			}
-			estate_influence = {
-				estate = estate_church
-				influence = 40
 			}
 		}
 		effect = {
@@ -112,21 +115,23 @@ country_decisions = {
 	estate_church_religious_delegation_action = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_church
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
 			has_enabled_estate_action = {
 				estate_action = RELIGIOUS_DELEGATION_CHURCH
 			}
-			has_estate = estate_church
-			NOT = { tag = PAP }
 		}
 		allow = {
+			has_estate = estate_church
+			estate_influence = {
+				estate = estate_church
+				influence = 40
+			}
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = RELIGIOUS_DELEGATION_CHURCH
 				days = 7300
-			}
-			estate_influence = {
-				estate = estate_church
-				influence = 40
 			}
 		}
 		effect = {
@@ -154,13 +159,13 @@ country_decisions = {
 	estate_church_demand_support = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_church
 			has_enabled_estate_action = {
 				estate_action = DEMAND_SUPPORT_CHURCH
 			}
-			has_estate = estate_church
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_church
 			estate_loyalty = {
 				estate = estate_church
 				loyalty = 30
@@ -169,6 +174,7 @@ country_decisions = {
 				estate = estate_church
 				influence = 25
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = DEMAND_SUPPORT_CHURCH
 				days = 7300
@@ -203,12 +209,13 @@ country_decisions = {
 	estate_church_seek_support_of_clergy = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_church
 			has_enabled_estate_action = {
 				estate_action = SEEK_SUPPORT_OF_CLERGY_CHURCH
 			}
-			has_estate = estate_church
 		}
 		allow = {
+			has_estate = estate_church
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = SEEK_SUPPORT_OF_CLERGY_CHURCH
@@ -263,21 +270,22 @@ country_decisions = {
 	estate_church_new_world_mission_action = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_church
 			has_enabled_estate_action = {
 				estate_action = NEW_WORLD_MISSION_CHURCH
 			}
-			has_estate = estate_church
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
-			estate_action_off_cooldown = {
-				estate_action = NEW_WORLD_MISSION_CHURCH
-				days = 7300
-			}
+			has_estate = estate_church
 			has_idea_group = exploration_ideas
 			estate_influence = {
 				estate = estate_church
 				influence = 40
+			}
+			has_not_any_estate_disaster_active = yes
+			estate_action_off_cooldown = {
+				estate_action = NEW_WORLD_MISSION_CHURCH
+				days = 7300
 			}
 		}
 		effect = {

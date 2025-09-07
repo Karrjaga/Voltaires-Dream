@@ -3,6 +3,9 @@ country_decisions = {
 	habsburg_nation = {
 		major = yes
 		potential = {
+			primary_culture = austrian
+			NOT = { tag = HAB }
+			NOT = { tag = EAH }
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			OR = {
@@ -13,9 +16,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			primary_culture = austrian
-			NOT = { tag = HAB }
-			NOT = { tag = EAH }
 			OR = {
 				NOT = { exists = EAH }
 				NOT = { exists = HAB }
@@ -46,12 +46,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = HAB }
-			NOT = { exists = EAH }
-			has_regency = no
-			is_nomad = no
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
 			if = {
 				limit = { has_ruler_flag = styria_inherited_austria_flag }
 				owns = 2172
@@ -65,6 +59,12 @@ country_decisions = {
 				owns = 2174
 				owns = 683
 			}
+			NOT = { exists = HAB }
+			NOT = { exists = EAH }
+			has_regency = no
+			is_nomad = no
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
 		}
 		effect = {
 			change_tag = HAB

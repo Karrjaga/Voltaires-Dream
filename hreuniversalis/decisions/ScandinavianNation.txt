@@ -53,6 +53,12 @@ country_decisions = {
 			}
 		}
 		allow = {
+			owns_core_province = 6109	# Uppland
+			owns_core_province = 654	# Skane
+			owns_core_province = 6070	# Vastergotland
+			owns_core_province = 5243	# Sjaelland
+			owns_core_province = 2320	# Jylland
+			owns_core_province = 6001	# Akershus
 			if = {
 				limit = {
 					has_dlc = "Lions of the North"
@@ -68,19 +74,13 @@ country_decisions = {
 			else = {
 				adm_tech = 55
 			}
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
-			is_at_war = no
-			owns_core_province = 6109	# Uppland
-			owns_core_province = 654	# Skane
-			owns_core_province = 6070	# Vastergotland
-			owns_core_province = 5243	# Sjaelland
-			owns_core_province = 2320	# Jylland
-			owns_core_province = 6001	# Akershus
 			num_of_owned_provinces_with = {
 				superregion = scandinavia_superregion
 				value = 60
 			}
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
 		}
 		effect = {
 			change_tag = SCA

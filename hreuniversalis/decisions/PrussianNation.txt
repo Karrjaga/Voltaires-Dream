@@ -392,13 +392,6 @@ country_decisions = {
 	prussian_nation_general = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
-			was_never_end_game_tag_trigger = yes
-			NOT = { has_country_flag = formed_prussia_flag }
-			OR = {
-				ai = no
-				is_playing_custom_nation = no
-			}
 			OR = {
 				primary_culture = pommeranian
 				primary_culture = central_margravian
@@ -406,15 +399,25 @@ country_decisions = {
 				tag = PTH
 			}
 			NOT = { tag = PRU }
+			NOT = { tag = GER }
+			NOT = { tag = HLR }
+			NOT = { tag = BRA }
+			NOT = { tag = TEU }
+			NOT = { tag = AVI }
+			NOT = { tag = PAP }
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_prussia_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			
 			OR = {
 				NOT = { exists = PRU }
 				ai = no
 			}
-			NOT = { tag = GER }
-			NOT = { tag = HLR }
-			NOT = { tag = BRA }
 			NOT = { has_reform = celestial_empire } 
-			NOT = { tag = TEU }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -428,6 +431,9 @@ country_decisions = {
 			}
 		}
 		allow = {
+			owns_core_province = 4854			# Königsberg
+			owns_core_province = 4826			# Warmia
+			owns_core_province = 402			# Danzig
 			NOT = { exists = PRU }
 			if = {
 				limit = { NOT = { has_country_flag = can_form_prussia_earlier } }
@@ -446,9 +452,6 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no
-			owns_core_province = 4854			# Königsberg
-			owns_core_province = 4826			# Warmia
-			owns_core_province = 402			# Danzig
 		}
 		effect = {
 			change_tag = PRU

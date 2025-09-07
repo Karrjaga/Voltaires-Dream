@@ -3,6 +3,14 @@ country_decisions = {
 	polish_nation = {
 		major = yes
 		potential = {
+			OR = {
+				primary_culture = polish
+				primary_culture = schlesian
+				primary_culture = mazovian
+			}
+			NOT = { exists = PLC }
+			NOT = { tag = POL }
+			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -12,20 +20,13 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = PLC }
-			NOT = { tag = POL }
+			
 			OR = {
 				ai = no
 				AND = {
 					NOT = { exists = POL }
 					num_of_cities = 10
 				}
-			}
-			was_never_end_game_tag_trigger = yes
-			OR = {
-				primary_culture = polish
-				primary_culture = schlesian
-				primary_culture = mazovian
 			}
 			is_colonial_nation = no
 			OR = {

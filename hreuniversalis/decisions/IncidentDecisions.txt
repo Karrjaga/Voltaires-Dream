@@ -14,6 +14,7 @@ country_decisions = {
 			}
 		}	
 		allow = {
+			is_emperor = yes
 			custom_trigger_tooltip = {
 				tooltip = emperor_trying_to_avert_shadow_kingdom_tt
 				has_global_flag = emperor_trying_to_avert_shadow_kingdom
@@ -82,10 +83,11 @@ country_decisions = {
 	great_peasants_war_emperor_decision = {
 		major = yes
 		potential = {
-			has_global_flag = great_peasants_war_flag
 			is_emperor = yes
+			has_global_flag = great_peasants_war_flag
 		}		
 		allow = {
+			is_emperor = yes
 			NOT = { active_imperial_incident = any }
 			custom_trigger_tooltip = {
 				tooltip = high_peasant_score_emperor_tt # need X score. current score is Y.
@@ -115,11 +117,12 @@ country_decisions = {
 	great_peasants_war_peasant_decision = {
 		major = yes
 		potential = {
-			has_global_flag = great_peasants_war_flag
 			has_government_attribute = is_peasants_republic
 			is_part_of_hre = yes
+			has_global_flag = great_peasants_war_flag
 		}		
 		allow = {
+			has_government_attribute = is_peasants_republic
 			NOT = { active_imperial_incident = any }
 			custom_trigger_tooltip = {
 				tooltip = high_peasant_score__peasant_tt # need X score. current score is Y.

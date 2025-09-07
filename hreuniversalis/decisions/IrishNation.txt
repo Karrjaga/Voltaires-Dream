@@ -4,18 +4,22 @@ country_decisions = {
 		major = yes
 		potential = {
 			OR = {
-				primary_culture = dalcassian
-				primary_culture = connachta
-				primary_culture = laigin
-				primary_culture = erainn
-				primary_culture = ulaidh
-				primary_culture = eoganachta
-				primary_culture = irish
-				primary_culture = hiberno_norman
+				AND = {
+					culture_group = celtic
+					NOT = { primary_culture = welsh }
+					NOT = { primary_culture = cumbric }
+					NOT = { primary_culture = cornish }
+					NOT = { primary_culture = breton }
+					NOT = { primary_culture = highland_scottish }
+					NOT = { primary_culture = manxculture }
+				}
 				primary_culture = gallowglass
+				primary_culture = hiberno_norman
 			}
 			capital_scope = { superregion = irish_superregion }
 			NOT = { exists = IRE }
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
 			NOT = { tag = ENG }
 			NOT = { tag = ASE }
 			NOT = { tag = GBR }
@@ -66,10 +70,6 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 40
-			is_nomad = no
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
 			owns = 393			# Ulster
 			owns = 2737			# Meath
 			owns = 2619			# Leinster
@@ -83,10 +83,14 @@ country_decisions = {
 				primary_culture = irish
 				primary_culture = hiberno_norman
 				AND = {
-					any_province = { culture = irish }
 					primary_culture = gallowglass
+					any_province = { culture = irish }
 				}
 			}
+			adm_tech = 40
+			is_nomad = no
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
 		}
 		effect = {
 			change_tag = IRE

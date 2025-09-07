@@ -3,8 +3,8 @@ country_decisions = {
 	unify_islam = {
 		major = yes
 		potential = {
-			has_dlc = "Star and Crescent"
 			ai = no
+			has_dlc = "Star and Crescent"
 			religion_group = muslim
 			num_of_cities = 20
 			OR = {
@@ -34,6 +34,9 @@ country_decisions = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		allow = {
+			hidden_trigger = {
+				ai = no
+			}
 			religion_group = muslim
 			if = {
 				limit = {

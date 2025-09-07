@@ -3,22 +3,23 @@ country_decisions = {
 	estate_burghers_ask_for_contribution = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_burghers
 			has_enabled_estate_action = {
 				estate_action = ASK_FOR_CONTRIBUTION_BURGHERS
 			}
-			has_estate = estate_burghers
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_burghers
+			num_of_ports = 1
 			estate_loyalty = {
 				estate = estate_burghers
 				loyalty = 30
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = ASK_FOR_CONTRIBUTION_BURGHERS
 				days = 3650
 			}
-			num_of_ports = 1
 		}
 		effect = {
 			set_estate_action_cooldown = {
@@ -186,14 +187,14 @@ country_decisions = {
 	estate_burghers_grant_admiralship = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_burghers
+			num_of_ports = 1
 			has_enabled_estate_action = {
 				estate_action = GRANT_ADMIRALSHIP_BURGHERS
 			}
-			has_estate = estate_burghers
-			num_of_ports = 1
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_burghers
 			estate_loyalty = {
 				estate = estate_burghers
 				loyalty = 30
@@ -201,7 +202,8 @@ country_decisions = {
 			estate_influence = {
 				estate = estate_burghers
 				influence = 40
-			}		
+			}	
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_shared_cooldown = {
 				estate_action = ADMIRAL_FROM_ESTATE
 				days = 3650
@@ -225,13 +227,13 @@ country_decisions = {
 	estate_burghers_grant_new_world_charter = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_burghers
 			has_enabled_estate_action = {
 				estate_action = GRANT_NEW_WORLD_CHARTER_BURGHERS
 			}
-			has_estate = estate_burghers
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_burghers
 			estate_loyalty = {
 				estate = estate_burghers
 				loyalty = 30
@@ -240,6 +242,7 @@ country_decisions = {
 				estate = estate_burghers
 				influence = 40
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_shared_cooldown = {
 				estate_action = ADMIRAL_FROM_ESTATE
 				days = 3650
@@ -263,15 +266,15 @@ country_decisions = {
 	estate_burghers_comission_merchant_ships_for_war = {
 		color = { 195 160 20 }
 		potential = {
-			has_enabled_estate_action = {
-				estate_action = COMISSION_MERCHANT_SHIPS_FOR_WAR_BURGHERS
-			}
 			has_estate = estate_burghers
 			num_of_ports = 1
 			primitives = no
+			has_enabled_estate_action = {
+				estate_action = COMISSION_MERCHANT_SHIPS_FOR_WAR_BURGHERS
+			}
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_burghers
 			estate_loyalty = {
 				estate = estate_burghers
 				loyalty = 30
@@ -280,6 +283,7 @@ country_decisions = {
 				estate = estate_burghers
 				influence = 40
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = COMISSION_MERCHANT_SHIPS_FOR_WAR_BURGHERS
 				days = 10950

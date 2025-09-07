@@ -3,18 +3,19 @@ country_decisions = {
 	estate_nomadic_tribes_support_tribes = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_nomadic_tribes
 			has_enabled_estate_action = {
 				estate_action = SUPPORT_TRIBES_NOMADIC_TRIBES
 			}
-			has_estate = estate_nomadic_tribes
 		}
 		allow = {
+			has_estate = estate_nomadic_tribes
+			years_of_income = 0.25
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = SUPPORT_TRIBES_NOMADIC_TRIBES
 				days = 3650
 			}
-			years_of_income = 0.25
 		}
 		effect = {
 			set_estate_action_cooldown = {
@@ -45,17 +46,13 @@ country_decisions = {
 	estate_nomadic_tribes_contribute_warriors = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_nomadic_tribes
 			has_enabled_estate_action = {
 				estate_action = CONTRIBUTE_WARRIORS_NOMADIC_TRIBES
 			}
-			has_estate = estate_nomadic_tribes
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
-			estate_action_off_cooldown = {
-				estate_action = CONTRIBUTE_WARRIORS_NOMADIC_TRIBES
-				days = 3650
-			}
+			has_estate = estate_nomadic_tribes
 			estate_loyalty = {
 				estate = estate_nomadic_tribes
 				loyalty = 50
@@ -65,6 +62,12 @@ country_decisions = {
 				influence = 40
 			}
 			NOT = { manpower_percentage = 0.99 }
+			has_not_any_estate_disaster_active = yes
+			estate_action_off_cooldown = {
+				estate_action = CONTRIBUTE_WARRIORS_NOMADIC_TRIBES
+				days = 3650
+			}
+			
 		}
 		effect = {
 			set_estate_action_cooldown = {
@@ -101,20 +104,13 @@ country_decisions = {
 	estate_nomadic_tribes_raise_host = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_nomadic_tribes
 			has_enabled_estate_action = {
 				estate_action = RAISE_HOST_NOMADIC_TRIBES
 			}
-			has_estate = estate_nomadic_tribes
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
-			estate_action_off_cooldown = {
-				estate_action = RAISE_HOST_NOMADIC_TRIBES
-				days = 3650
-			}
-			capital_scope = {
-				controlled_by = ROOT
-			}
+			has_estate = estate_nomadic_tribes
 			estate_loyalty = {
 				estate = estate_nomadic_tribes
 				loyalty = 50
@@ -123,6 +119,14 @@ country_decisions = {
 				estate = estate_nomadic_tribes
 				influence = 40
 			}
+			capital_scope = {
+				controlled_by = ROOT
+			}
+			has_not_any_estate_disaster_active = yes
+			estate_action_off_cooldown = {
+				estate_action = RAISE_HOST_NOMADIC_TRIBES
+				days = 3650
+			}			
 		}
 		effect = {
 			set_estate_action_cooldown = {
@@ -157,20 +161,21 @@ country_decisions = {
 	estate_nomadic_tribes_recruit_minister = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_nomadic_tribes
 			has_enabled_estate_action = {
 				estate_action = RECRUIT_MINISTER_NOMADIC_TRIBES
 			}
-			has_estate = estate_nomadic_tribes
 		}
 		allow = {
+			has_estate = estate_nomadic_tribes
+			estate_influence = {
+				estate = estate_nomadic_tribes
+				influence = 40
+			}
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = RECRUIT_MINISTER_NOMADIC_TRIBES
 				days = 10950
-			}
-			estate_influence = {
-				estate = estate_nomadic_tribes
-				influence = 40
 			}
 		}
 		effect = {
@@ -191,12 +196,13 @@ country_decisions = {
 	estate_nomadic_tribes_strengthen_tribal_autonomy = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_nomadic_tribes
 			has_enabled_estate_action = {
 				estate_action = STRENGTHEN_TRIBAL_AUTONOMY
 			}
-			has_estate = estate_nomadic_tribes
 		}
 		allow = {
+			has_estate = estate_nomadic_tribes
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = STRENGTHEN_TRIBAL_AUTONOMY
@@ -235,12 +241,13 @@ country_decisions = {
 	estate_nomadic_tribes_redistribute_horde_authority_tribes = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_nomadic_tribes
 			has_enabled_estate_action = {
 				estate_action = REDISTRIBUTE_HORDE_AUTHORITY_TRIBES
 			}
-			has_estate = estate_nomadic_tribes
 		}
 		allow = {
+			has_estate = estate_nomadic_tribes
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = REDISTRIBUTE_HORDE_AUTHORITY_TRIBES

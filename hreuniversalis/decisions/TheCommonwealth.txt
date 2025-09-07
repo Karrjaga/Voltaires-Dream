@@ -3,6 +3,9 @@ country_decisions = {
 	pol_commonwealth = {
 		major = yes
 		potential = {
+			tag = POL
+			LIT = { exists = yes }
+			NOT = { exists = PLC }
 			normal_or_historical_nations = yes
 			NOT = { has_country_flag = formed_plc_flag }
 			OR = {
@@ -13,10 +16,7 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { exists = PLC }
 			was_never_end_game_tag_trigger = yes
-			tag = POL
-			LIT = { exists = yes }
 			OR = {
 				ai = no
 				AND = {
