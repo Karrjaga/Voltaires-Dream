@@ -1,7 +1,11 @@
 ﻿l_english:
 #Custom Names
- SUZDAL: "Suzdal"
- SUZDAL_NAME: "Suzdalian"
+ VSHCHIZH_NAME: "Vshchizh"
+ VSHCHIZH_NAME_ADJ: "Vshchizhian"
+ TRUBETSK_NAME: "Trubetsk"
+ TRUBETSK_NAME_ADJ: "Trubetskian"
+ SUZDAL_NAME: "Suzdal"
+ SUZDAL_NAME_ADJ: "Suzdalian"
  GORODETS_NAME: "Gorodets"
  GORODETS_NAME_ADJ: "Gorodetsian"
  DILMAC_NAME: "Dilmaç"

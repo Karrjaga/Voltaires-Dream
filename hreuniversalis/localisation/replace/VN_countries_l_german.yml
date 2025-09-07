@@ -1,7 +1,11 @@
 ﻿l_german:
 #Custom Names
- SUZDAL: "Susdal"
- SUZDAL_NAME: "Susdalisch"
+ VSHCHIZH_NAME: "Wschisch"
+ VSHCHIZH_NAME_ADJ: "Wschischisch"
+ TRUBETSK_NAME: "Trubetsk"
+ TRUBETSK_NAME_ADJ: "Trubetskisch"
+ SUZDAL_NAME: "Susdal"
+ SUZDAL_NAME_ADJ: "Susdalisch"
  GORODETS_NAME: "Gorodez"
  GORODETS_NAME_ADJ: "Gorodezisch"
  DILMAC_NAME: "Dilmaç"

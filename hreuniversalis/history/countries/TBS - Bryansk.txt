@@ -9,6 +9,7 @@ fixed_capital = 3951
 
 #Princes of Vshchizh
 1164.2.15 = {
+	override_country_name = VSHCHIZH_NAME
 	capital = 3952
 	monarch = {
 		name = "Yaroslav I"
@@ -32,6 +33,7 @@ fixed_capital = 3951
 #Princes of Trubetsk
 #1164.2.15 under KSK
 1185.1.1 = {
+	override_country_name = TRUBETSK_NAME
 	primary_culture = severian
 	capital = 3932
 	monarch = {
@@ -83,6 +85,7 @@ fixed_capital = 3951
 #Princes of Bryansk
 #1246.9.20 under CHR
 1289.1.1 = {
+	restore_country_name = yes
 	primary_culture = vyatich
 	capital = 3951
 	monarch = {
@@ -105,6 +108,7 @@ fixed_capital = 3951
 
 #Trubetskoys
 1356.1.1 = {
+	override_country_name = TRUBETSK_NAME
 	primary_culture = severian
 	capital = 3932
 	monarch = {
@@ -164,3 +168,4 @@ fixed_capital = 3951
 	}
 }
 #done 1566.1.1
+1566.1.1 = { restore_country_name = yes }
