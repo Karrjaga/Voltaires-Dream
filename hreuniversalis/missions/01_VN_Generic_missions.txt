@@ -521,19 +521,19 @@ vn_expansion_missions = {
 					}
 				}
 			}
-			custom_tooltip = claim_neighbor_province
-			hidden_effect = {
-				every_owned_province = {
-					every_neighbor_province = {
-						limit = {
-							NOT = { owned_by = ROOT }
-							NOT = { is_permanent_claim = ROOT	}
-							NOT = { is_core = ROOT	}
-						}
-						add_claim = ROOT
-					}
-				}
-			}
+			# custom_tooltip = claim_neighbor_province
+			# hidden_effect = {
+			# 	every_owned_province = {
+			# 		every_neighbor_province = {
+			# 			limit = {
+			# 				NOT = { owned_by = ROOT }
+			# 				NOT = { is_permanent_claim = ROOT	}
+			# 				NOT = { is_core = ROOT	}
+			# 			}
+			# 			add_claim = ROOT
+			# 		}
+			# 	}
+			# }
 		}
 	}
 	conquer_states = {
@@ -547,21 +547,21 @@ vn_expansion_missions = {
 				name = "expansionist_country"
 				duration = 9125 
 			}
-			custom_tooltip = perma_claim_neighbor_area
-			hidden_effect = {
-				every_owned_province = {
-					every_neighbor_province = {
-						area = {
-							limit = {
-								NOT = { owned_by = ROOT }
-								NOT = { is_permanent_claim = ROOT    }
-								NOT = { is_core = ROOT    }
-							}
-							add_permanent_claim = ROOT
-						}
-					}
-				}
-			}
+			# custom_tooltip = perma_claim_neighbor_area
+			# hidden_effect = {
+			# 	every_owned_province = {
+			# 		every_neighbor_province = {
+			# 			area = {
+			# 				limit = {
+			# 					NOT = { owned_by = ROOT }
+			# 					NOT = { is_permanent_claim = ROOT    }
+			# 					NOT = { is_core = ROOT    }
+			# 				}
+			# 				add_permanent_claim = ROOT
+			# 			}
+			# 		}
+			# 	}
+			# }
 		}
 	}
 	vn_fortify_frontiers = {
@@ -626,21 +626,21 @@ vn_expansion_missions = {
 			tooltip = {
 				add_nationalism = -10
 			}
-			custom_tooltip = " "
-			custom_tooltip = perma_claim_neighbor_area
+			#custom_tooltip = " "
+			#custom_tooltip = perma_claim_neighbor_area
 			hidden_effect = {
-				every_owned_province = {
-					every_neighbor_province = {
-						area = {
-							limit = {
-								NOT = { owned_by = ROOT }
-								NOT = { is_permanent_claim = ROOT    }
-								NOT = { is_core = ROOT    }
-							}
-							add_permanent_claim = ROOT
-						}
-					}
-				}
+				# every_owned_province = {
+				# 	every_neighbor_province = {
+				# 		area = {
+				# 			limit = {
+				# 				NOT = { owned_by = ROOT }
+				# 				NOT = { is_permanent_claim = ROOT    }
+				# 				NOT = { is_core = ROOT    }
+				# 			}
+				# 			add_permanent_claim = ROOT
+				# 		}
+				# 	}
+				# }
 				every_owned_province = {
 					limit = {
 						region = capital
@@ -780,19 +780,19 @@ vn_military_missions = {
 				name = "thriving_arms_industry"
 				duration = 9125
 			}
-			custom_tooltip = claim_neighbor_province
-			hidden_effect = {
-				every_owned_province = {
-					every_neighbor_province = {
-						limit = {
-							NOT = { owned_by = ROOT }
-							NOT = { is_permanent_claim = ROOT	}
-							NOT = { is_core = ROOT	}
-						}
-						add_claim = ROOT
-					}
-				}
-			}
+			# custom_tooltip = claim_neighbor_province
+			# hidden_effect = {
+			# 	every_owned_province = {
+			# 		every_neighbor_province = {
+			# 			limit = {
+			# 				NOT = { owned_by = ROOT }
+			# 				NOT = { is_permanent_claim = ROOT	}
+			# 				NOT = { is_core = ROOT	}
+			# 			}
+			# 			add_claim = ROOT
+			# 		}
+			# 	}
+			# }
 		}
 	}
 	vn_high_tradition = {
@@ -836,19 +836,19 @@ vn_military_missions = {
 				name = "army_enthusiasm"
 				duration = 9125
 			}
-			custom_tooltip = perma_claim_home_region
-			hidden_effect = {
-				capital_scope = {
-					every_province = {
-						limit = {
-							region = PREV
-							NOT = { owned_by = ROOT }
-							NOT = { is_core = ROOT }
-						}
-						add_permanent_claim = ROOT
-					}
-				}
-			}
+			# custom_tooltip = perma_claim_home_region
+			# hidden_effect = {
+			# 	capital_scope = {
+			# 		every_province = {
+			# 			limit = {
+			# 				region = PREV
+			# 				NOT = { owned_by = ROOT }
+			# 				NOT = { is_core = ROOT }
+			# 			}
+			# 			add_permanent_claim = ROOT
+			# 		}
+			# 	}
+			# }
 		}
 	}
 	vn_professional_armies = {
