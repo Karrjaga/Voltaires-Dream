@@ -339,14 +339,15 @@ country_decisions = {
 	
 	the_khalifah = {
 		potential = {
-			NOT = { has_ruler_modifier = khalifah }
-			NOT = { has_ruler_modifier = ARB_khalifah_upgraded }
 			religion = sunni
 			NOT = { tag = MAM } #Controls the Caliph already.
 			NOT = { tag = FTM } #Controls the Caliph already.
 			NOT = { tag = BGH } #Controls the Caliph already.
+			NOT = { has_ruler_modifier = khalifah }
+			NOT = { has_ruler_modifier = ARB_khalifah_upgraded }
 		}
 		allow = {
+			religion = sunni
 			mil = 3
 			has_regency = no
 			is_female = no
@@ -382,8 +383,8 @@ country_decisions = {
 	
 	denouncement_of_sect_practices = {
 		potential = {
-			NOT = { has_ruler_modifier = sect_practices }
 			religion_group = muslim
+			NOT = { has_ruler_modifier = sect_practices }
 		}
 		allow = {
 			religion_group = muslim
@@ -491,6 +492,11 @@ country_decisions = {
 			has_dlc = "Cradle of Civilization"			
 		}
 		allow = {
+			capital_scope = {
+				religion_group = muslim
+				is_node_in_trade_company_region = yes
+			}
+			NOT = { religion_group = muslim }
 			custom_trigger_tooltip = {
 				tooltip = the_dominant_religion_is_a_form_of_islam_tooltip
 				OR = {
@@ -612,9 +618,9 @@ country_decisions = {
 
 	regulate_the_monastaries = {
 		potential = {
-			NOT = { has_country_modifier = regulated_monasteries }
-			adm_tech = 50
 			religion = buddhism
+			adm_tech = 50
+			NOT = { has_country_modifier = regulated_monasteries }
 		}
 		allow = {
 			adm = 3
@@ -740,9 +746,9 @@ country_decisions = {
 	
 	ibadat_khana = {
 		potential = {
+			religion_group = muslim
 			NOT = { has_country_modifier = house_of_worship }
 			NOT = { has_country_modifier = house_of_worship_upgrade }
-			religion_group = muslim
 		}
 		allow = {
 			full_idea_group = innovativeness_ideas
@@ -760,8 +766,8 @@ country_decisions = {
 	
 	divination = {
 		potential = {
-			NOT = { has_country_modifier = godly_inspiration }
 			religion_group = pagan
+			NOT = { has_country_modifier = godly_inspiration }
 		}
 		allow = {
 			religion_group = pagan
@@ -792,8 +798,8 @@ country_decisions = {
 	
 	religious_sacrifice = {
 		potential = {
-			NOT = { has_country_modifier = religious_sacrifices }
 			religion_group = pagan
+			NOT = { has_country_modifier = religious_sacrifices }
 		}
 		allow = {
 			adm = 3

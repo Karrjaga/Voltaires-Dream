@@ -3,17 +3,18 @@ country_decisions = {
 	estate_dhimmi_recruit_minister = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_dhimmi
 			has_enabled_estate_action = {
 				estate_action = RECRUIT_MINISTER_DHIMMI
 			}
-			has_estate = estate_dhimmi
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_dhimmi
 			estate_influence = {
 				estate = estate_dhimmi
 				influence = 40
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = RECRUIT_MINISTER_DHIMMI
 				days = 10950
@@ -37,17 +38,18 @@ country_decisions = {
 	estate_dhimmi_lighten_dhimmi_tax_burden = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_dhimmi
 			has_enabled_estate_action = {
 				estate_action = LIGHTEN_DHIMMI_TAX_BURDEN_DHIMMI
 			}
-			has_estate = estate_dhimmi
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_dhimmi
 			estate_influence = {
 				estate = estate_dhimmi
 				influence = 40
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = LIGHTEN_DHIMMI_TAX_BURDEN_DHIMMI
 				days = 3650
@@ -78,13 +80,13 @@ country_decisions = {
 	estate_dhimmi_promote_dhimmi_nobles = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_dhimmi
 			has_enabled_estate_action = {
 				estate_action = PROMOTE_DHIMMI_NOBLES_DHIMMI
 			}
-			has_estate = estate_dhimmi
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_dhimmi
 			estate_influence = {
 				estate = estate_dhimmi
 				influence = 40
@@ -93,6 +95,7 @@ country_decisions = {
 				estate = estate_dhimmi
 				loyalty = 30
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = PROMOTE_DHIMMI_NOBLES_DHIMMI
 				days = 10950
@@ -116,13 +119,13 @@ country_decisions = {
 	estate_dhimmi_recruit_from_the_dhimmi = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_dhimmi
 			has_enabled_estate_action = {
 				estate_action = RECRUIT_FROM_THE_DHIMMI_DHIMMI
 			}
-			has_estate = estate_dhimmi
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_dhimmi
 			estate_influence = {
 				estate = estate_dhimmi
 				influence = 40
@@ -131,6 +134,7 @@ country_decisions = {
 				estate = estate_dhimmi
 				loyalty = 30
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = RECRUIT_FROM_THE_DHIMMI_DHIMMI
 				days = 3650
@@ -174,13 +178,13 @@ country_decisions = {
 	estate_dhimmi_demand_contribution = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_dhimmi
 			has_enabled_estate_action = {
 				estate_action = DEMAND_CONTRIBUTION_DHIMMI
 			}
-			has_estate = estate_dhimmi
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_dhimmi
 			estate_influence = {
 				estate = estate_dhimmi
 				influence = 20
@@ -189,6 +193,7 @@ country_decisions = {
 				estate = estate_dhimmi
 				loyalty = 30
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = DEMAND_CONTRIBUTION_DHIMMI
 				days = 3650

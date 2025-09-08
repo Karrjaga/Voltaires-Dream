@@ -16,6 +16,7 @@ country_decisions = {
 			NOT = { has_country_flag = trade_company }
 		}
 		allow = {
+			tag = NED
 			num_of_ports = 10
 			dip_tech = 40			
 		}
@@ -64,13 +65,13 @@ country_decisions = {
 	ned_unite_two_crowns = {
 		major = yes
 		potential = {
+			tag = NED
 			NOT = { has_country_flag = ned_united_crowns_flag } 
 			OR = {
 				senior_union_with = ASE
 				senior_union_with = ENG
 				senior_union_with = GBR
 			}
-			tag = NED
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -83,7 +84,22 @@ country_decisions = {
 		}
 		allow = {
 			tag = NED 
+			hidden_trigger = {
+				NOT = { has_country_flag = ned_united_crowns_flag } 
+			}
+			OR = {
+				senior_union_with = ASE
+				senior_union_with = ENG
+				senior_union_with = GBR
+			}
 			is_at_war = no
+			2268 = { country_or_non_sovereign_subject_holds = ROOT }
+			986 = { country_or_non_sovereign_subject_holds = ROOT }
+			1799 = { country_or_non_sovereign_subject_holds = ROOT }
+			2188 = { country_or_non_sovereign_subject_holds = ROOT }
+			adm_tech = 48
+			legitimacy_equivalent = 90 
+			stability = 3 
 			if = {
 				limit = { 
 					ASE = { is_subject_of = ROOT }
@@ -132,13 +148,6 @@ country_decisions = {
 					}
 				}
 			}
-			2268 = { country_or_non_sovereign_subject_holds = ROOT }
-			986 = { country_or_non_sovereign_subject_holds = ROOT }
-			1799 = { country_or_non_sovereign_subject_holds = ROOT }
-			2188 = { country_or_non_sovereign_subject_holds = ROOT }
-			adm_tech = 48
-			legitimacy_equivalent = 90 
-			stability = 3 
 		}
 		effect = { 
 			custom_tooltip = ned_unite_two_crowns_tt 
@@ -193,10 +202,11 @@ country_decisions = {
 
 	overthrow_statist_stadholder = {
 		potential = {
+			has_government_attribute = has_dutch_election
 			has_estate_privilege = estate_nobles_orangist_privileges	
-			has_government_attribute = has_dutch_election			
 		}
 		allow = {
+			has_government_attribute = has_dutch_election
 			is_statists_in_power = yes
 			NOT = { has_ruler_flag = ned_orangist_ruler_flag }
 			is_lesser_in_union = no

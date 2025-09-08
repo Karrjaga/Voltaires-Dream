@@ -3,6 +3,20 @@ country_decisions = {
 	timurid_nation = {
 		major = yes
 		potential = {
+			dynasty = "Barlas"
+			OR = {
+				culture_group = iranian
+				primary_culture = turkmeni
+			}
+			NOT = { tag = PAP }
+			NOT = { tag = AVI }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = FKE }
+			NOT = { tag = PER }
+			NOT = { tag = TIM }
+			NOT = { tag = ARB }
+			religion_group = muslim
 			is_year = 1400
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
@@ -15,14 +29,6 @@ country_decisions = {
 				is_free_or_tributary_trigger = yes
 				ai = no
 			}
-			NOT = { tag = PAP }
-			NOT = { tag = AVI }
-			NOT = { tag = HLR }
-			NOT = { tag = ROM }
-			NOT = { tag = FKE }
-			NOT = { tag = PER }
-			NOT = { tag = TIM }
-			NOT = { tag = ARB }
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -31,12 +37,6 @@ country_decisions = {
 					ai = no
 				}
 			}
-			OR = {
-				culture_group = iranian
-				primary_culture = turkmeni
-			}
-			religion_group = muslim
-			dynasty = "Barlas"
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -51,17 +51,17 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = TIM }
-			is_free_or_tributary_trigger = yes
-			is_at_war = no
 			#owns_core_province = 446	# Herat
 			owns_core_province = 6439	# Samarkand
-			6439 = {						# Samarkand
-				is_state = yes
-			}
 			owns_core_province = 7554	# Isfahan
 			owns_core_province = 7574	# Qom
 			owns_core_province = 7448	# Shiraz
+			6439 = {						# Samarkand
+				is_state = yes
+			}
+			NOT = { exists = TIM }
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
 		}
 		effect = {
 			6439 = {

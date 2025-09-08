@@ -2035,10 +2035,6 @@ country_decisions = {
 				primary_culture = polabian
 				primary_culture = kashubian
 			}
-			OR = {
-				current_age = age_of_holy_wars
-				current_age = age_of_crisis
-			}
 		}
 		allow = {
 			OR = {
@@ -2050,12 +2046,12 @@ country_decisions = {
 				culture_group = germanic
 				has_owner_accepted_culture = yes
 			}
+			stability = 1
+			is_at_war = no
 			OR = {
 				current_age = age_of_holy_wars
 				current_age = age_of_crisis
 			}
-			stability = 1
-			is_at_war = no
 		}
 		effect = {
 			add_stability = -1
@@ -2355,7 +2351,6 @@ country_decisions = {
 
 	church_pagan_deity_decision = {
 		potential = {
-			has_dlc = "Wealth of Nations"
 			has_estate = estate_church
 			OR = {
 				religion = egyptian_religion
@@ -2367,6 +2362,7 @@ country_decisions = {
 				religion = dievturiba
 				religion = uralinusko
 			}
+			has_dlc = "Wealth of Nations"
 		}
 		allow = {
 			has_estate_privilege = estate_church_flexible_deities

@@ -642,7 +642,6 @@ defense_of_the_empire_modifier = {
 		has_dlc = "Emperor"
 	}
 	trigger = {
-		hre_reform_passed = emperor_reichskrieg
 		any_country = {
 			war_with = ROOT
 			NOT = { is_part_of_hre = yes }

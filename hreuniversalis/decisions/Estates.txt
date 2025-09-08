@@ -272,6 +272,7 @@ country_decisions = {
 			NOT = { is_revolutionary = yes }
 		}
 		allow = {
+			tag = ZAZ
 			stability = 0
 			NOT = { government = dictatorship }
 			NOT = { has_reform = presidential_despot_reform }

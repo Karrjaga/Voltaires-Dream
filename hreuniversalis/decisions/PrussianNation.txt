@@ -195,6 +195,10 @@ country_decisions = {
 	prussian_nation = {
 		major = yes
 		potential = {
+			OR = {
+				primary_culture = prussian
+				primary_culture = pruthenian
+			}
 			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			NOT = { has_country_flag = formed_pruthenia_flag }
@@ -216,10 +220,6 @@ country_decisions = {
 					ai = no
 				}
 			}
-			OR = {
-				primary_culture = prussian
-				primary_culture = pruthenian
-			}
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -234,6 +234,13 @@ country_decisions = {
 			}
 		}
 		allow = {
+			owns_core_province = 4854 # Königsberg
+			owns_core_province = 4861 #Mamonovo
+			owns_core_province = 4846 #Soldau
+			owns_core_province = 4834 #Ragnit
+			4854 = {
+				is_state = yes
+			}
 			NOT = { exists = PTH }
 			if = {
 				limit = { NOT = { has_country_flag = can_form_prussia_earlier } }
@@ -249,13 +256,6 @@ country_decisions = {
 					religion = anglican
 					religion = anabaptist
 				}
-			}
-			owns_core_province = 4854 # Königsberg
-			owns_core_province = 4861 #Mamonovo
-			owns_core_province = 4846 #Soldau
-			owns_core_province = 4834 #Ragnit
-			4854 = {
-				is_state = yes
 			}
 		}
 		effect = {

@@ -3,12 +3,13 @@ country_decisions = {
 	estate_nobles_call_diet = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_nobles
 			has_enabled_estate_action = {
 				estate_action = CALL_DIET_NOBLES
 			}
-			has_estate = estate_nobles
 		}
 		allow = {
+			has_estate = estate_nobles
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = CALL_DIET_NOBLES
@@ -63,13 +64,13 @@ country_decisions = {
 	estate_nobles_grant_generalship = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_nobles
 			has_enabled_estate_action = {
 				estate_action = GRANT_GENERALSHIP_NOBLES
 			}
-			has_estate = estate_nobles
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_nobles
 			estate_loyalty = {
 				estate = estate_nobles
 				loyalty = 30
@@ -78,6 +79,7 @@ country_decisions = {
 				estate = estate_nobles
 				influence = 40
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_shared_cooldown = {
 				estate_action = GENERAL_FROM_ESTATES
 				days = 3650
@@ -105,12 +107,13 @@ country_decisions = {
 	estate_nobles_recruit_conquistador_estates = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_nobles
 			has_enabled_estate_action = {
 				estate_action = RECRUIT_CONQUISTADOR_ESTATES_NOBLES
 			}
-			has_estate = estate_nobles
 		}
 		allow = {
+			has_estate = estate_nobles
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_shared_cooldown = {
 				estate_action = GENERAL_FROM_ESTATES
@@ -141,7 +144,7 @@ country_decisions = {
 			has_estate = estate_nobles
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_nobles
 			estate_loyalty = {
 				estate = estate_nobles
 				loyalty = 30
@@ -150,6 +153,7 @@ country_decisions = {
 				estate = estate_nobles
 				influence = 25
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = DEMAND_SUPPORT_NOBLES
 				days = 7300
@@ -173,17 +177,18 @@ country_decisions = {
 	estate_nobles_recruit_minister = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_nobles
 			has_enabled_estate_action = {
 				estate_action = RECRUIT_MINISTER_NOBLES
 			}
-			has_estate = estate_nobles
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_nobles
 			estate_influence = {
 				estate = estate_nobles
 				influence = 40
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = RECRUIT_MINISTER_NOBLES
 				days = 10950
@@ -207,13 +212,13 @@ country_decisions = {
 	estate_nobles_demand_more_troops = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_nobles
 			has_enabled_estate_action = {
 				estate_action = DEMAND_MORE_TROOPS_NOBLES
 			}
-			has_estate = estate_nobles
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_nobles
 			estate_loyalty = {
 				estate = estate_nobles
 				loyalty = 30
@@ -222,6 +227,7 @@ country_decisions = {
 				estate = estate_nobles
 				influence = 40
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = DEMAND_MORE_TROOPS_NOBLES
 				days = 9125

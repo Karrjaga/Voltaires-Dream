@@ -5,8 +5,9 @@ country_decisions = {
 			has_estate = estate_brahmins
 		}
 		allow = {
-			has_regency = no
+			religion = zoroastrian
 			has_estate_privilege = estate_brahmins_flexible_deities
+			has_regency = no
 			if = {
 				limit = {
 					has_government_attribute = reduce_new_deity_decision_cd

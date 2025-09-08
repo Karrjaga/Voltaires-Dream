@@ -3,13 +3,13 @@ country_decisions = {
 	estate_rajput_recruit_rajput_general = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_rajput
 			has_enabled_estate_action = {
 				estate_action = RECRUIT_RAJPUT_GENERAL_RAJPUT
 			}
-			has_estate = estate_rajput
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_rajput
 			estate_loyalty = {
 				estate = estate_rajput
 				loyalty = 30
@@ -18,6 +18,7 @@ country_decisions = {
 				estate = estate_rajput
 				influence = 40
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = GENERAL_FROM_ESTATES
 				days = 3650
@@ -41,13 +42,13 @@ country_decisions = {
 	estate_rajput_look_up_purbias_action = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_rajput
 			has_enabled_estate_action = {
 				estate_action = LOOK_UP_PURBIAS_RAJPUT
 			}
-			has_estate = estate_rajput
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_rajput
 			estate_loyalty = {
 				estate = estate_rajput
 				loyalty = 50
@@ -56,6 +57,7 @@ country_decisions = {
 				estate = estate_rajput
 				influence = 40
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = LOOK_UP_PURBIAS_RAJPUT
 				days = 3650
@@ -94,7 +96,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_rajput
 			estate_loyalty = {
 				estate = estate_rajput
 				loyalty = 30
@@ -103,6 +105,7 @@ country_decisions = {
 				estate = estate_rajput
 				influence = 25
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = DEMAND_SUPPORT_RAJPUT
 				days = 7300
@@ -133,6 +136,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			has_estate = estate_rajput
 			estate_influence = {
 				estate = estate_rajput
 				influence = 20
@@ -174,6 +178,7 @@ country_decisions = {
 			}
 		}
 		allow = {
+			has_estate = estate_rajput
 			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = PROMOTE_RAJPUT_NOBILITY_RAJPUT
@@ -212,13 +217,13 @@ country_decisions = {
 	estate_rajput_recruit_rajput_troops = {
 		color = { 195 160 20 }
 		potential = {
+			has_estate = estate_rajput
 			has_enabled_estate_action = {
 				estate_action = RECRUIT_RAJPUT_TROOPS_RAJPUT
 			}
-			has_estate = estate_rajput
 		}
 		allow = {
-			has_not_any_estate_disaster_active = yes
+			has_estate = estate_rajput
 			estate_loyalty = {
 				estate = estate_rajput
 				loyalty = 30
@@ -227,6 +232,7 @@ country_decisions = {
 				estate = estate_rajput
 				influence = 40
 			}
+			has_not_any_estate_disaster_active = yes
 			estate_action_off_cooldown = {
 				estate_action = RECRUIT_RAJPUT_TROOPS_RAJPUT
 				days = 9125
