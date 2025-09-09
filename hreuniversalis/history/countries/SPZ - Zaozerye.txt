@@ -9,6 +9,7 @@ fixed_capital = 6204
 
 #Princes of Mologa
 1321.1.1 = {
+	override_country_name = MOLOGA_NAME
 	monarch = {
 		name = "Mikhail I"
 		dynasty = "Rurikovich"
@@ -29,6 +30,7 @@ fixed_capital = 6204
 
 #Prince of Zaozerye
 1380.1.1 = {
+	restore_country_name = yes
 	capital = 6204
 	monarch = {
 		name = "Dmitry I"
