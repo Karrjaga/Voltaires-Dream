@@ -1,0 +1,142 @@
+namespace = vn_flavor_qmt
+
+country_event = {
+	id = vn_flavor_qmt.1
+	title = "vn_flavor_qmt.1.t"
+	desc = "vn_flavor_qmt.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	fire_only_once = yes
+	major_trigger = {
+		religion_group = muslim
+	}
+	
+	trigger = {
+		tag = QMT
+		religion = qarmatian
+		NOT = { started_in = 1077.1.1 }
+		is_subject = no
+		is_at_war = no
+		OR = {
+			AND = {
+				NOT = { exists = ALH }
+				any_owned_province = { is_core = ALH }
+			}
+			ALH = { is_subject_of = ROOT }
+		}
+		OR = {
+			AND = {
+				owns = 3435
+				controls = 3435
+			}
+			ALH = { owns = 3435 controls = 3435 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 0.8
+			is_year = 1075
+		}
+		modifier = {
+			factor = 0.8
+			is_year = 1080
+		}
+		modifier = {
+			factor = 0.8
+			is_year = 1085
+		}
+	}
+
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						exists = ALH
+					}
+				}
+				release = ALH
+				
+			}
+			else = {
+				every_owned_province = {
+					limit = {
+						is_core = ALH
+					}
+					cede_province = ALH
+				}
+			}
+			ALH = {
+				change_government = monarchy
+				add_government_reform = iqta
+				adopt_reform_progress = ROOT
+				change_primary_culture = gulf_arabic
+				change_religion = shiite
+				set_religious_school = {
+					group = muslim
+					school = ismaili_school
+				}
+				define_ruler = {
+					name = "Muhammad"
+					dynasty = "Banû ‘Uyûn"
+					adm = 3
+					dip = 4
+					mil = 4
+				}
+				define_heir = {}
+				capital_scope = {
+					build_to_forcelimit = {
+						infantry = 0.7
+						cavalry = 0.3
+					}
+				}
+				random_owned_province = {
+					limit = {
+						has_port = yes
+					}
+					build_to_forcelimit = {
+						galley = 0.3
+						light_ship = 0.3
+						transport = 0.2
+					}
+				}
+			}
+		}
+		
+	}
+
+	option = {
+		name = "vn_flavor_qmt.1.a"
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0
+				OR = {
+					is_bankrupt = yes
+					num_of_loans = 10
+					war_exhaustion = 10
+				}
+			}
+		}
+		declare_war_with_cb = {
+			who = ALH
+			casus_belli = cb_core
+			war_goal_province = 3435
+		}
+	}
+
+	option = {
+		name = "vn_flavor_qmt.1.b"
+		ai_chance = {
+			factor = 25
+		}
+		if = {
+			limit = { ai = no }
+			change_tag = ALH
+		}
+		ALH = { inherit = QMT }
+	}
+}
