@@ -203,6 +203,18 @@ declarewar = {
         #     }
         # }
 	}
+	#mod
+	condition = {
+		tooltip = CANNOT_NATIVE_FIRST_AGE
+		potential = {
+			current_age = age_of_empire
+			NOT = { government = native }
+			FROM = { government = native }
+		}
+		allow = {
+			NOT = { current_age = age_of_empire }	
+		}
+	}
 }
 	
 allianceaction = {

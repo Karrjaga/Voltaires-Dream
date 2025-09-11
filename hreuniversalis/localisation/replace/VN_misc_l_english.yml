@@ -304,6 +304,7 @@
  CANTUNREFORMED: "They are an unreformed tribe and hold no claimable titles!"
  KKSTAT: "Cannot marry Normans if the Statutes of Kilkenny are effective in their realm"
  KKSTAT2: "Cannot marry the Irish if the Statutes of Kilkenny are in effect"
+ CANNOT_NATIVE_FIRST_AGE: "Cannot declare wars on primitives during the Age of Empires."
  SAMEGOVT: "Must have same Government Type"
  SAMEGOVT2: "Must have same Government Type"
  SAMEGOVTMERCH: "Only Trading Cities can join your League"

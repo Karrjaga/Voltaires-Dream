@@ -305,6 +305,7 @@
  CANTUNREFORMED: "Sie sind ein unreformierter Stamm und besitzen keine beanspruchbaren Titel!"
  KKSTAT: "Solange die Kilkenny-Statuten in ihrem Reich gültig sind, ist keine Hochzeit mit Normannen möglich."
  KKSTAT2: "Solange die Kilkenny-Statuten gültig sind, ist keine Hochzeit mit Iren möglich."
+ CANNOT_NATIVE_FIRST_AGE: "Kann primitiven Ländern während des Zeitalters der Imperien keinen Krieg erklären"
  SAMEGOVT: "Muss die gleiche Regierungsform haben"
  SAMEGOVT2: "Muss die gleiche Regierungsform haben"
  SAMEGOVTMERCH: "Nur Handelsstädte können Eurer Liga beitreten"
