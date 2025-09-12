@@ -1063,6 +1063,12 @@ on_four_year_pulse = {
 	}
 }
 
+on_four_year_pulse_2 = {
+	random_events = {
+		10 = vn_plagues.3
+	}
+}
+
 on_battle_lost_unit = {
 	if = {
         limit = {

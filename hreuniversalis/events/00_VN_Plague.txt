@@ -2,1198 +2,1264 @@
 namespace = vn_plagues
 
 #start - The [Region] Plague of [GetYear]
-province_event = {
-	id = vn_plagues.1
-	title = vn_plagues.1.t
-	desc = {
-		trigger = {
-			owner = { has_country_flag = had_black_death }
-		}
-		desc = vn_plagues.1.d
-	}
-	desc = {
-		trigger = {
-			NOT = { owner = { has_country_flag = had_black_death } }
-		}
-		desc = vn_plagues.1.d2
-	}
-	picture = PLAGUE_eventPicture
-	goto = root
+# province_event = {
+# 	id = vn_plagues.1
+# 	title = vn_plagues.1.t
+# 	desc = {
+# 		trigger = {
+# 			owner = { has_country_flag = had_black_death }
+# 		}
+# 		desc = vn_plagues.1.d
+# 	}
+# 	desc = {
+# 		trigger = {
+# 			NOT = { owner = { has_country_flag = had_black_death } }
+# 		}
+# 		desc = vn_plagues.1.d2
+# 	}
+# 	picture = PLAGUE_eventPicture
+# 	goto = root
 
-	trigger = {
-		NOT = {
-			any_province = {
-				has_province_flag = ongoing_plague
-			}
-		}
-		owner = { 
-			# had_country_flag = {
-			# 	flag = had_black_death
-			# 	days = 3650
-			# }
-			NOT = { has_country_flag = country_ongoing_plague }
-		}
-		OR = {
-			NOT = { has_province_flag = recent_plague }
-			had_province_flag = {
-				flag = recent_plague	#plague can't reoccur in region for 50y
-				days = 18250
-			}
-		}
-		is_island = no
-		is_city = yes
-		NOT = {
-			region_for_scope_province = {
-				has_province_flag = ongoing_plague
-			}
-		}
-		owner = { 
-			#has_institution = publichealth 
-			NOT = { has_institution = industrialism }
-		}
-		OR = {
-			base_tax = 2
-			base_production = 2
-			base_manpower = 2
-		}
-		NOT = {
-			OR = {
-				has_terrain = desert
-				has_terrain = glacier
-				has_terrain = jungle
-			}
-		}
-		NOT = { 
-			owner = { 
-				OR = {
-					government = tribal 
-					government = native
-				}
-			} 
-		}
-	}
+# 	trigger = {
+# 		NOT = {
+# 			any_province = {
+# 				has_province_flag = ongoing_plague
+# 			}
+# 		}
+# 		owner = { 
+# 			# had_country_flag = {
+# 			# 	flag = had_black_death
+# 			# 	days = 3650
+# 			# }
+# 			NOT = { has_country_flag = country_ongoing_plague }
+# 		}
+# 		OR = {
+# 			NOT = { has_province_flag = recent_plague }
+# 			had_province_flag = {
+# 				flag = recent_plague	#plague can't reoccur in region for 50y
+# 				days = 18250
+# 			}
+# 		}
+# 		is_island = no
+# 		is_city = yes
+# 		NOT = {
+# 			region_for_scope_province = {
+# 				has_province_flag = ongoing_plague
+# 			}
+# 		}
+# 		owner = { 
+# 			#has_institution = publichealth 
+# 			NOT = { has_institution = industrialism }
+# 		}
+# 		OR = {
+# 			base_tax = 2
+# 			base_production = 2
+# 			base_manpower = 2
+# 		}
+# 		NOT = {
+# 			OR = {
+# 				has_terrain = desert
+# 				has_terrain = glacier
+# 				has_terrain = jungle
+# 			}
+# 		}
+# 		NOT = { 
+# 			owner = { 
+# 				OR = {
+# 					government = tribal 
+# 					government = native
+# 				}
+# 			} 
+# 		}
+# 	}
 
-	mean_time_to_happen = {
-		months = 1200
-		modifier = {
-			factor = 1.75
-			has_building = arsenal
-		}
-		modifier = {
-			factor = 0.5
-			development = 50
-		}
-		modifier = {
-			factor = 0.6
-			development = 40
-			NOT = { development = 50 }
-		}
-		modifier = {
-			factor = 0.7
-			development = 30
-			NOT = { development = 40 }
-		}
-		modifier = {
-			factor = 0.8
-			development = 20
-			NOT = { development = 30 }
-		}
-		modifier = {
-			factor = 0.9
-			development = 10
-			NOT = { development = 20 }
-		}
-		modifier = {
-			factor = 0.9
-			devastation = 1
-			NOT = { devastation = 25 }
-		}
-		modifier = {
-			factor = 0.8
-			devastation = 25
-			NOT = { devastation = 50 }
-		}
-		modifier = {
-			factor = 0.7
-			devastation = 50
-			NOT = { devastation = 75 }
-		}
-		modifier = {
-			factor = 0.6
-			devastation = 75
-			NOT = { devastation = 100 }
-		}
-		modifier = {
-			factor = 0.5
-			devastation = 100
-		}
-		modifier = {
-			factor = 1.25
-			has_dlc = "Mandate of Heaven"
-			prosperity = 1
-			NOT = { prosperity = 25 }
-		}
-		modifier = {
-			factor = 1.5
-			has_dlc = "Mandate of Heaven"
-			prosperity = 25
-			NOT = { prosperity = 50 }
-		}
-		modifier = {
-			factor = 1.75
-			has_dlc = "Mandate of Heaven"
-			prosperity = 50
-			NOT = { prosperity = 75 }
-		}
-		modifier = {
-			factor = 2.0
-			has_dlc = "Mandate of Heaven"
-			prosperity = 75
-			NOT = { prosperity = 100 }
-		}
-		modifier = {
-			factor = 0.9
-			NOT = { controlled_by = owner }
-		}
-		modifier = {
-			factor = 0.9
-			owner = { is_at_war = yes }
-		}
-		modifier = {
-			factor = 0.9
-			has_terrain = farmlands
-		}
-		modifier = {
-			factor = 0.9
-			is_capital = yes
-		}
-		modifier = {
-			factor = 2.5
-			OR = {
-				has_terrain = coastal_desert
-				has_terrain = hills
-				has_terrain = woods
-				is_island = yes
-			}
+# 	mean_time_to_happen = {
+# 		months = 1200
+# 		modifier = {
+# 			factor = 1.75
+# 			has_building = arsenal
+# 		}
+# 		modifier = {
+# 			factor = 0.5
+# 			development = 50
+# 		}
+# 		modifier = {
+# 			factor = 0.6
+# 			development = 40
+# 			NOT = { development = 50 }
+# 		}
+# 		modifier = {
+# 			factor = 0.7
+# 			development = 30
+# 			NOT = { development = 40 }
+# 		}
+# 		modifier = {
+# 			factor = 0.8
+# 			development = 20
+# 			NOT = { development = 30 }
+# 		}
+# 		modifier = {
+# 			factor = 0.9
+# 			development = 10
+# 			NOT = { development = 20 }
+# 		}
+# 		modifier = {
+# 			factor = 0.9
+# 			devastation = 1
+# 			NOT = { devastation = 25 }
+# 		}
+# 		modifier = {
+# 			factor = 0.8
+# 			devastation = 25
+# 			NOT = { devastation = 50 }
+# 		}
+# 		modifier = {
+# 			factor = 0.7
+# 			devastation = 50
+# 			NOT = { devastation = 75 }
+# 		}
+# 		modifier = {
+# 			factor = 0.6
+# 			devastation = 75
+# 			NOT = { devastation = 100 }
+# 		}
+# 		modifier = {
+# 			factor = 0.5
+# 			devastation = 100
+# 		}
+# 		modifier = {
+# 			factor = 1.25
+# 			has_dlc = "Mandate of Heaven"
+# 			prosperity = 1
+# 			NOT = { prosperity = 25 }
+# 		}
+# 		modifier = {
+# 			factor = 1.5
+# 			has_dlc = "Mandate of Heaven"
+# 			prosperity = 25
+# 			NOT = { prosperity = 50 }
+# 		}
+# 		modifier = {
+# 			factor = 1.75
+# 			has_dlc = "Mandate of Heaven"
+# 			prosperity = 50
+# 			NOT = { prosperity = 75 }
+# 		}
+# 		modifier = {
+# 			factor = 2.0
+# 			has_dlc = "Mandate of Heaven"
+# 			prosperity = 75
+# 			NOT = { prosperity = 100 }
+# 		}
+# 		modifier = {
+# 			factor = 0.9
+# 			NOT = { controlled_by = owner }
+# 		}
+# 		modifier = {
+# 			factor = 0.9
+# 			owner = { is_at_war = yes }
+# 		}
+# 		modifier = {
+# 			factor = 0.9
+# 			has_terrain = farmlands
+# 		}
+# 		modifier = {
+# 			factor = 0.9
+# 			is_capital = yes
+# 		}
+# 		modifier = {
+# 			factor = 2.5
+# 			OR = {
+# 				has_terrain = coastal_desert
+# 				has_terrain = hills
+# 				has_terrain = woods
+# 				is_island = yes
+# 			}
 			
-		}
-		modifier = {
-			factor = 5.0
-			OR = {
-				has_terrain = marsh
-				has_terrain = highlands
-				has_terrain = drylands
-				has_terrain = savannah
-			}
-		}
-		modifier = {
-			factor = 10.0
-			OR = {
-				has_terrain = mountain
-				has_terrain = forest
-			}
-		}
-		modifier = {
-			factor = 0.9
-			province_has_center_of_trade_of_level = 1
-			NOT = { province_has_center_of_trade_of_level = 2 }
-		}
-		modifier = {
-			factor = 0.8
-			province_has_center_of_trade_of_level = 2
-			NOT = { province_has_center_of_trade_of_level = 3 }
-		}
-		modifier = {
-			factor = 0.7
-			province_has_center_of_trade_of_level = 3
-		}
-	}
+# 		}
+# 		modifier = {
+# 			factor = 5.0
+# 			OR = {
+# 				has_terrain = marsh
+# 				has_terrain = highlands
+# 				has_terrain = drylands
+# 				has_terrain = savannah
+# 			}
+# 		}
+# 		modifier = {
+# 			factor = 10.0
+# 			OR = {
+# 				has_terrain = mountain
+# 				has_terrain = forest
+# 			}
+# 		}
+# 		modifier = {
+# 			factor = 0.9
+# 			province_has_center_of_trade_of_level = 1
+# 			NOT = { province_has_center_of_trade_of_level = 2 }
+# 		}
+# 		modifier = {
+# 			factor = 0.8
+# 			province_has_center_of_trade_of_level = 2
+# 			NOT = { province_has_center_of_trade_of_level = 3 }
+# 		}
+# 		modifier = {
+# 			factor = 0.7
+# 			province_has_center_of_trade_of_level = 3
+# 		}
+# 	}
 
-	immediate = {
-		hidden_effect = {
-			set_province_flag = plague_spread
-			set_province_flag = plague_epicenter
-			save_event_target_as = plague_start_province
-			owner = {
-				set_country_flag = country_ongoing_plague
-			}
-			region = {
-				set_province_flag = ongoing_plague
-				save_global_event_target_as = plague_region
-			}
-		}
-	}
+# 	immediate = {
+# 		hidden_effect = {
+# 			set_province_flag = plague_spread
+# 			set_province_flag = plague_epicenter
+# 			save_event_target_as = plague_start_province
+# 			owner = {
+# 				set_country_flag = country_ongoing_plague
+# 			}
+# 			region = {
+# 				set_province_flag = ongoing_plague
+# 				save_global_event_target_as = plague_region
+# 			}
+# 		}
+# 	}
 
-	option = {
-		name = vn_plagues.1.a
-		ai_chance = { factor = 0 }
-		add_province_modifier = {
-			name = influenza
-			duration = 3650
-		}
-		custom_tooltip = vn_plagues.1.a.tt
-		hidden_effect = {
-			every_neighbor_province = {
-				limit = { 
-					region = event_target:plague_region
-					NOT = { 
-						OR = {
-							has_province_flag = plague_spread 
-							has_province_modifier = influenza
-						}
-					}
-				}
-				random_list = {
-					70 = { }
-					30 = {
-						modifier = {
-							factor = 7
-							NOT = { has_building = arsenal }
-						}
-						set_province_flag = plague_spread
-						province_event = {
-							id = vn_plagues.2
-							days = 60
-							random = 15
-						}
-					}
-				}
-			}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		NOT = { has_building = arsenal }
-			#	}
-			#	random = {
-			#		chance = 75
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 60
-			#			random = 15
-			#		}
-			#	}
-			#}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		has_building = arsenal
-			#	}
-			#	random = {
-			#		chance = 30
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 60
-			#			random = 15
-			#		}
-			#	}
-			#}
-		}
-	}
-	option = {
-		name = vn_plagues.1.c
-		ai_chance = { factor = 50 }
-		if = {
-			limit = {
-				base_tax = 2
-				NOT = { base_tax = 6 }
-			}
-			add_base_tax = -1
-		}
-		if = {
-			limit = {
-				base_production = 2
-				NOT = { base_production = 6 }
-			}
-			add_base_production = -1
-		}
-		if = {
-			limit = {
-				base_manpower = 2
-				NOT = { base_manpower = 6 }
-			}
-			add_base_manpower = -1
-		}
-		if = {
-			limit = {
-				base_tax = 6
-				NOT = { base_tax = 10 }
-			}
-			add_base_tax = -2
-		}
-		if = {
-			limit = {
-				base_production = 6
-				NOT = { base_production = 10 }
-			}
-			add_base_production = -2
-		}
-		if = {
-			limit = {
-				base_manpower = 6
-				NOT = { base_manpower = 10 }
-			}
-			add_base_manpower = -2
-		}
-		if = {
-			limit = { base_tax = 10 }
-			add_base_tax = -3
-		}
-		if = {
-			limit = { base_production = 10 }
-			add_base_production = -3
-		}
-		if = {
-			limit = { base_manpower = 10 }
-			add_base_manpower = -3
-		}
-		custom_tooltip = vn_plagues.1.a.tt
-		hidden_effect = {
-			every_neighbor_province = {
-				limit = { 
-					region = event_target:plague_region
-					NOT = { 
-						OR = {
-							has_province_flag = plague_spread 
-							has_province_modifier = influenza
-						}
-					}
-				}
-				random_list = {
-					70 = { }
-					30 = {
-						modifier = {
-							factor = 7
-							NOT = { has_building = arsenal }
-						}
-						set_province_flag = plague_spread
-						province_event = {
-							id = vn_plagues.2
-							days = 60
-							random = 15
-						}
-					}
-				}
-			}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		NOT = { has_building = arsenal }
-			#	}
-			#	random = {
-			#		chance = 75
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 60
-			#			random = 15
-			#		}
-			#	}
-			#}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		has_building = arsenal
-			#	}
-			#	random = {
-			#		chance = 30
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 60
-			#			random = 15
-			#		}
-			#	}
-			#}
-		}
-	}
-	option = {
-		name = vn_plagues.1.b
-		ai_chance = { 
-			factor = 0
-		}
-		trigger = { is_capital = no }
-		add_local_autonomy = 25
-		owner = { add_years_of_income = -0.1 }
-		add_province_modifier = {
-			name = quarantined_influenza
-			duration = 3650
-		}
-		custom_tooltip = vn_plagues.1.b.tt
-		hidden_effect = {
-			every_neighbor_province = {
-				limit = { 
-					region = event_target:plague_region
-					NOT = { 
-						OR = {
-							has_province_flag = plague_spread 
-							has_province_modifier = influenza
-						}
-					}
-				}
-				random_list = {
-					90 = { }
-					10 = {
-						modifier = {
-							factor = 3
-							NOT = { has_building = arsenal }
-						}
-						set_province_flag = plague_spread
-						province_event = {
-							id = vn_plagues.2
-							days = 120
-							random = 30
-						}
-					}
-				}
-			}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		NOT = { has_building = arsenal }
-			#	}
-			#	random = {
-			#		chance = 25
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 120
-			#			random = 30
-			#		}
-			#	}
-			#}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		has_building = arsenal
-			#	}
-			#	random = {
-			#		chance = 10
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 120
-			#			random = 30
-			#		}
-			#	}
-			#}
-		}
-	}
-	option = {
-		name = vn_plagues.1.e
-		ai_chance = { 
-			factor = 50 
-			modifier = {
-				factor = 0
-				NOT = { owner = { years_of_income = 0.1 } }
-			}
-		}
-		trigger = { is_capital = no }
-		add_local_autonomy = 25
-		owner = { add_years_of_income = -0.1 }
-		if = {
-			limit = {
-				base_tax = 2
-				NOT = { base_tax = 6 }
-			}
-			add_base_tax = -1
-		}
-		if = {
-			limit = {
-				base_production = 2
-				NOT = { base_production = 6 }
-			}
-			add_base_production = -1
-		}
-		if = {
-			limit = {
-				base_manpower = 2
-				NOT = { base_manpower = 6 }
-			}
-			add_base_manpower = -1
-		}
-		if = {
-			limit = {
-				base_tax = 6
-				NOT = { base_tax = 10 }
-			}
-			add_base_tax = -2
-		}
-		if = {
-			limit = {
-				base_production = 6
-				NOT = { base_production = 10 }
-			}
-			add_base_production = -2
-		}
-		if = {
-			limit = {
-				base_manpower = 6
-				NOT = { base_manpower = 10 }
-			}
-			add_base_manpower = -2
-		}
-		if = {
-			limit = { base_tax = 10 }
-			add_base_tax = -3
-		}
-		if = {
-			limit = { base_production = 10 }
-			add_base_production = -3
-		}
-		if = {
-			limit = { base_manpower = 10 }
-			add_base_manpower = -3
-		}
-		custom_tooltip = vn_plagues.1.b.tt
-		hidden_effect = {
-			every_neighbor_province = {
-				limit = { 
-					region = event_target:plague_region
-					NOT = { 
-						OR = {
-							has_province_flag = plague_spread 
-							has_province_modifier = influenza
-						}
-					}
-				}
-				random_list = {
-					90 = { }
-					10 = {
-						modifier = {
-							factor = 3
-							NOT = { has_building = arsenal }
-						}
-						set_province_flag = plague_spread
-						province_event = {
-							id = vn_plagues.2
-							days = 120
-							random = 30
-						}
-					}
-				}
-			}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		NOT = { has_building = arsenal }
-			#	}
-			#	random = {
-			#		chance = 25
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 120
-			#			random = 30
-			#		}
-			#	}
-			#}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		has_building = arsenal
-			#	}
-			#	random = {
-			#		chance = 10
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 120
-			#			random = 30
-			#		}
-			#	}
-			#}
-		}
-	}
-}
+# 	option = {
+# 		name = vn_plagues.1.a
+# 		ai_chance = { factor = 0 }
+# 		add_province_modifier = {
+# 			name = influenza
+# 			duration = 3650
+# 		}
+# 		custom_tooltip = vn_plagues.1.a.tt
+# 		hidden_effect = {
+# 			every_neighbor_province = {
+# 				limit = { 
+# 					region = event_target:plague_region
+# 					NOT = { 
+# 						OR = {
+# 							has_province_flag = plague_spread 
+# 							has_province_modifier = influenza
+# 						}
+# 					}
+# 				}
+# 				random_list = {
+# 					70 = { }
+# 					30 = {
+# 						modifier = {
+# 							factor = 7
+# 							NOT = { has_building = arsenal }
+# 						}
+# 						set_province_flag = plague_spread
+# 						province_event = {
+# 							id = vn_plagues.2
+# 							days = 60
+# 							random = 15
+# 						}
+# 					}
+# 				}
+# 			}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		NOT = { has_building = arsenal }
+# 			#	}
+# 			#	random = {
+# 			#		chance = 75
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 60
+# 			#			random = 15
+# 			#		}
+# 			#	}
+# 			#}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		has_building = arsenal
+# 			#	}
+# 			#	random = {
+# 			#		chance = 30
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 60
+# 			#			random = 15
+# 			#		}
+# 			#	}
+# 			#}
+# 		}
+# 	}
+# 	option = {
+# 		name = vn_plagues.1.c
+# 		ai_chance = { factor = 50 }
+# 		if = {
+# 			limit = {
+# 				base_tax = 2
+# 				NOT = { base_tax = 6 }
+# 			}
+# 			add_base_tax = -1
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_production = 2
+# 				NOT = { base_production = 6 }
+# 			}
+# 			add_base_production = -1
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_manpower = 2
+# 				NOT = { base_manpower = 6 }
+# 			}
+# 			add_base_manpower = -1
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_tax = 6
+# 				NOT = { base_tax = 10 }
+# 			}
+# 			add_base_tax = -2
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_production = 6
+# 				NOT = { base_production = 10 }
+# 			}
+# 			add_base_production = -2
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_manpower = 6
+# 				NOT = { base_manpower = 10 }
+# 			}
+# 			add_base_manpower = -2
+# 		}
+# 		if = {
+# 			limit = { base_tax = 10 }
+# 			add_base_tax = -3
+# 		}
+# 		if = {
+# 			limit = { base_production = 10 }
+# 			add_base_production = -3
+# 		}
+# 		if = {
+# 			limit = { base_manpower = 10 }
+# 			add_base_manpower = -3
+# 		}
+# 		custom_tooltip = vn_plagues.1.a.tt
+# 		hidden_effect = {
+# 			every_neighbor_province = {
+# 				limit = { 
+# 					region = event_target:plague_region
+# 					NOT = { 
+# 						OR = {
+# 							has_province_flag = plague_spread 
+# 							has_province_modifier = influenza
+# 						}
+# 					}
+# 				}
+# 				random_list = {
+# 					70 = { }
+# 					30 = {
+# 						modifier = {
+# 							factor = 7
+# 							NOT = { has_building = arsenal }
+# 						}
+# 						set_province_flag = plague_spread
+# 						province_event = {
+# 							id = vn_plagues.2
+# 							days = 60
+# 							random = 15
+# 						}
+# 					}
+# 				}
+# 			}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		NOT = { has_building = arsenal }
+# 			#	}
+# 			#	random = {
+# 			#		chance = 75
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 60
+# 			#			random = 15
+# 			#		}
+# 			#	}
+# 			#}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		has_building = arsenal
+# 			#	}
+# 			#	random = {
+# 			#		chance = 30
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 60
+# 			#			random = 15
+# 			#		}
+# 			#	}
+# 			#}
+# 		}
+# 	}
+# 	option = {
+# 		name = vn_plagues.1.b
+# 		ai_chance = { 
+# 			factor = 0
+# 		}
+# 		trigger = { is_capital = no }
+# 		add_local_autonomy = 25
+# 		owner = { add_years_of_income = -0.1 }
+# 		add_province_modifier = {
+# 			name = quarantined_influenza
+# 			duration = 3650
+# 		}
+# 		custom_tooltip = vn_plagues.1.b.tt
+# 		hidden_effect = {
+# 			every_neighbor_province = {
+# 				limit = { 
+# 					region = event_target:plague_region
+# 					NOT = { 
+# 						OR = {
+# 							has_province_flag = plague_spread 
+# 							has_province_modifier = influenza
+# 						}
+# 					}
+# 				}
+# 				random_list = {
+# 					90 = { }
+# 					10 = {
+# 						modifier = {
+# 							factor = 3
+# 							NOT = { has_building = arsenal }
+# 						}
+# 						set_province_flag = plague_spread
+# 						province_event = {
+# 							id = vn_plagues.2
+# 							days = 120
+# 							random = 30
+# 						}
+# 					}
+# 				}
+# 			}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		NOT = { has_building = arsenal }
+# 			#	}
+# 			#	random = {
+# 			#		chance = 25
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 120
+# 			#			random = 30
+# 			#		}
+# 			#	}
+# 			#}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		has_building = arsenal
+# 			#	}
+# 			#	random = {
+# 			#		chance = 10
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 120
+# 			#			random = 30
+# 			#		}
+# 			#	}
+# 			#}
+# 		}
+# 	}
+# 	option = {
+# 		name = vn_plagues.1.e
+# 		ai_chance = { 
+# 			factor = 50 
+# 			modifier = {
+# 				factor = 0
+# 				NOT = { owner = { years_of_income = 0.1 } }
+# 			}
+# 		}
+# 		trigger = { is_capital = no }
+# 		add_local_autonomy = 25
+# 		owner = { add_years_of_income = -0.1 }
+# 		if = {
+# 			limit = {
+# 				base_tax = 2
+# 				NOT = { base_tax = 6 }
+# 			}
+# 			add_base_tax = -1
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_production = 2
+# 				NOT = { base_production = 6 }
+# 			}
+# 			add_base_production = -1
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_manpower = 2
+# 				NOT = { base_manpower = 6 }
+# 			}
+# 			add_base_manpower = -1
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_tax = 6
+# 				NOT = { base_tax = 10 }
+# 			}
+# 			add_base_tax = -2
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_production = 6
+# 				NOT = { base_production = 10 }
+# 			}
+# 			add_base_production = -2
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_manpower = 6
+# 				NOT = { base_manpower = 10 }
+# 			}
+# 			add_base_manpower = -2
+# 		}
+# 		if = {
+# 			limit = { base_tax = 10 }
+# 			add_base_tax = -3
+# 		}
+# 		if = {
+# 			limit = { base_production = 10 }
+# 			add_base_production = -3
+# 		}
+# 		if = {
+# 			limit = { base_manpower = 10 }
+# 			add_base_manpower = -3
+# 		}
+# 		custom_tooltip = vn_plagues.1.b.tt
+# 		hidden_effect = {
+# 			every_neighbor_province = {
+# 				limit = { 
+# 					region = event_target:plague_region
+# 					NOT = { 
+# 						OR = {
+# 							has_province_flag = plague_spread 
+# 							has_province_modifier = influenza
+# 						}
+# 					}
+# 				}
+# 				random_list = {
+# 					90 = { }
+# 					10 = {
+# 						modifier = {
+# 							factor = 3
+# 							NOT = { has_building = arsenal }
+# 						}
+# 						set_province_flag = plague_spread
+# 						province_event = {
+# 							id = vn_plagues.2
+# 							days = 120
+# 							random = 30
+# 						}
+# 					}
+# 				}
+# 			}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		NOT = { has_building = arsenal }
+# 			#	}
+# 			#	random = {
+# 			#		chance = 25
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 120
+# 			#			random = 30
+# 			#		}
+# 			#	}
+# 			#}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		has_building = arsenal
+# 			#	}
+# 			#	random = {
+# 			#		chance = 10
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 120
+# 			#			random = 30
+# 			#		}
+# 			#	}
+# 			#}
+# 		}
+# 	}
+# }
 
-#Plague spreads
-province_event = {
-	id = vn_plagues.2
-	title = vn_plagues.2.t
-	desc = vn_plagues.2.d
+# #Plague spreads
+# province_event = {
+# 	id = vn_plagues.2
+# 	title = vn_plagues.2.t
+# 	desc = vn_plagues.2.d
+# 	picture = PLAGUE_eventPicture
+# 	goto = root
+# 	is_triggered_only = yes
+
+# 	immediate = {
+# 		owner = {
+# 			set_country_flag = country_ongoing_plague
+# 		}
+# 	}
+
+# 	option = {
+# 		name = vn_plagues.2.a
+# 		ai_chance = { factor = 0 }
+# 		add_province_modifier = {
+# 			name = influenza
+# 			duration = 3650
+# 		}
+# 		custom_tooltip = vn_plagues.1.a.tt
+# 		hidden_effect = {
+# 			every_neighbor_province = {
+# 				limit = { 
+# 					region = event_target:plague_region
+# 					NOT = { 
+# 						OR = {
+# 							has_province_flag = plague_spread 
+# 							has_province_modifier = influenza
+# 						}
+# 					}
+# 				}
+# 				random_list = {
+# 					70 = { }
+# 					30 = {
+# 						modifier = {
+# 							factor = 7
+# 							NOT = { has_building = arsenal }
+# 						}
+# 						set_province_flag = plague_spread
+# 						province_event = {
+# 							id = vn_plagues.2
+# 							days = 60
+# 							random = 15
+# 						}
+# 					}
+# 				}
+# 			}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		NOT = { has_building = arsenal }
+# 			#	}
+# 			#	random = {
+# 			#		chance = 75
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 60
+# 			#			random = 15
+# 			#		}
+# 			#	}
+# 			#}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		has_building = arsenal
+# 			#	}
+# 			#	random = {
+# 			#		chance = 30
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 60
+# 			#			random = 15
+# 			#		}
+# 			#	}
+# 			#}
+# 		}
+# 	}
+# 	option = {
+# 		name = vn_plagues.2.c
+# 		ai_chance = { factor = 50 }
+# 		if = {
+# 			limit = {
+# 				base_tax = 2
+# 				NOT = { base_tax = 6 }
+# 			}
+# 			add_base_tax = -1
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_production = 2
+# 				NOT = { base_production = 6 }
+# 			}
+# 			add_base_production = -1
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_manpower = 2
+# 				NOT = { base_manpower = 6 }
+# 			}
+# 			add_base_manpower = -1
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_tax = 6
+# 				NOT = { base_tax = 10 }
+# 			}
+# 			add_base_tax = -2
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_production = 6
+# 				NOT = { base_production = 10 }
+# 			}
+# 			add_base_production = -2
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_manpower = 6
+# 				NOT = { base_manpower = 10 }
+# 			}
+# 			add_base_manpower = -2
+# 		}
+# 		if = {
+# 			limit = { base_tax = 10 }
+# 			add_base_tax = -3
+# 		}
+# 		if = {
+# 			limit = { base_production = 10 }
+# 			add_base_production = -3
+# 		}
+# 		if = {
+# 			limit = { base_manpower = 10 }
+# 			add_base_manpower = -3
+# 		}
+# 		custom_tooltip = vn_plagues.1.a.tt
+# 		hidden_effect = {
+# 			every_neighbor_province = {
+# 				limit = { 
+# 					region = event_target:plague_region
+# 					NOT = { 
+# 						OR = {
+# 							has_province_flag = plague_spread 
+# 							has_province_modifier = influenza
+# 						}
+# 					}
+# 				}
+# 				random_list = {
+# 					70 = { }
+# 					30 = {
+# 						modifier = {
+# 							factor = 7
+# 							NOT = { has_building = arsenal }
+# 						}
+# 						set_province_flag = plague_spread
+# 						province_event = {
+# 							id = vn_plagues.2
+# 							days = 60
+# 							random = 15
+# 						}
+# 					}
+# 				}
+# 			}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		NOT = { has_building = arsenal }
+# 			#	}
+# 			#	random = {
+# 			#		chance = 75
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 60
+# 			#			random = 15
+# 			#		}
+# 			#	}
+# 			#}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		has_building = arsenal
+# 			#	}
+# 			#	random = {
+# 			#		chance = 30
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 60
+# 			#			random = 15
+# 			#		}
+# 			#	}
+# 			#}
+# 		}
+# 	}
+# 	option = {
+# 		name = vn_plagues.2.b
+# 		ai_chance = { 
+# 			factor = 0
+# 		}
+# 		trigger = { is_capital = no }
+# 		add_local_autonomy = 25
+# 		owner = { add_years_of_income = -0.1 }
+# 		add_province_modifier = {
+# 			name = quarantined_influenza
+# 			duration = 3650
+# 		}
+# 		custom_tooltip = vn_plagues.1.b.tt
+# 		hidden_effect = {
+# 			every_neighbor_province = {
+# 				limit = { 
+# 					region = event_target:plague_region
+# 					NOT = { 
+# 						OR = {
+# 							has_province_flag = plague_spread 
+# 							has_province_modifier = influenza
+# 						}
+# 					}
+# 				}
+# 				random_list = {
+# 					90 = { }
+# 					10 = {
+# 						modifier = {
+# 							factor = 3
+# 							NOT = { has_building = arsenal }
+# 						}
+# 						set_province_flag = plague_spread
+# 						province_event = {
+# 							id = vn_plagues.2
+# 							days = 120
+# 							random = 30
+# 						}
+# 					}
+# 				}
+# 			}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		NOT = { has_building = arsenal }
+# 			#	}
+# 			#	random = {
+# 			#		chance = 25
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 120
+# 			#			random = 30
+# 			#		}
+# 			#	}
+# 			#}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		has_building = arsenal
+# 			#	}
+# 			#	random = {
+# 			#		chance = 10
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 120
+# 			#			random = 30
+# 			#		}
+# 			#	}
+# 			#}
+# 		}
+# 	}
+# 	option = {
+# 		name = vn_plagues.2.e
+# 		ai_chance = { 
+# 			factor = 50 
+# 			modifier = {
+# 				factor = 0
+# 				NOT = { owner = { years_of_income = 0.1 } }
+# 			}
+# 		}
+# 		trigger = { is_capital = no }
+# 		add_local_autonomy = 25
+# 		owner = { add_years_of_income = -0.1 }
+# 		if = {
+# 			limit = {
+# 				base_tax = 2
+# 				NOT = { base_tax = 6 }
+# 			}
+# 			add_base_tax = -1
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_production = 2
+# 				NOT = { base_production = 6 }
+# 			}
+# 			add_base_production = -1
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_manpower = 2
+# 				NOT = { base_manpower = 6 }
+# 			}
+# 			add_base_manpower = -1
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_tax = 6
+# 				NOT = { base_tax = 10 }
+# 			}
+# 			add_base_tax = -2
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_production = 6
+# 				NOT = { base_production = 10 }
+# 			}
+# 			add_base_production = -2
+# 		}
+# 		if = {
+# 			limit = {
+# 				base_manpower = 6
+# 				NOT = { base_manpower = 10 }
+# 			}
+# 			add_base_manpower = -2
+# 		}
+# 		if = {
+# 			limit = { base_tax = 10 }
+# 			add_base_tax = -3
+# 		}
+# 		if = {
+# 			limit = { base_production = 10 }
+# 			add_base_production = -3
+# 		}
+# 		if = {
+# 			limit = { base_manpower = 10 }
+# 			add_base_manpower = -3
+# 		}
+# 		custom_tooltip = vn_plagues.1.b.tt
+# 		hidden_effect = {
+# 			every_neighbor_province = {
+# 				limit = { 
+# 					region = event_target:plague_region
+# 					NOT = { 
+# 						OR = {
+# 							has_province_flag = plague_spread 
+# 							has_province_modifier = influenza
+# 						}
+# 					}
+# 				}
+# 				random_list = {
+# 					90 = { }
+# 					10 = {
+# 						modifier = {
+# 							factor = 3
+# 							NOT = { has_building = arsenal }
+# 						}
+# 						set_province_flag = plague_spread
+# 						province_event = {
+# 							id = vn_plagues.2
+# 							days = 120
+# 							random = 30
+# 						}
+# 					}
+# 				}
+# 			}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		NOT = { has_building = arsenal }
+# 			#	}
+# 			#	random = {
+# 			#		chance = 25
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 120
+# 			#			random = 30
+# 			#		}
+# 			#	}
+# 			#}
+# 			#every_neighbor_province = {
+# 			#	limit = { 
+# 			#		region = event_target:plague_region
+# 			#		NOT = { 
+# 			#			OR = {
+# 			#				has_province_flag = plague_spread 
+# 			#				has_province_modifier = influenza
+# 			#			}
+# 			#		}
+# 			#		has_building = arsenal
+# 			#	}
+# 			#	random = {
+# 			#		chance = 10
+# 			#		hidden_effect = { set_province_flag = plague_spread }
+# 			#		province_event = {
+# 			#			id = vn_plagues.2
+# 			#			days = 120
+# 			#			random = 30
+# 			#		}
+# 			#	}
+# 			#}
+# 		}
+# 	}
+# }
+
+# #End of Plague
+# province_event = {
+# 	id = vn_plagues.100
+# 	title = vn_plagues.100.t
+# 	desc = vn_plagues.100.d
+# 	picture = WOUNDED_SOLDIERS_eventPicture
+
+# 	trigger = {
+# 		has_province_flag = plague_epicenter
+# 		had_province_flag = {
+# 			flag = plague_epicenter
+# 			days = 1095
+# 		}
+# 		NOT = { owner = { has_country_flag = had_plague_end } }
+# 	}
+
+# 	mean_time_to_happen = {
+# 		months = 1
+# 	}
+
+# 	immediate = {
+# 		hidden_effect = {
+# 			clr_province_flag = plague_epicenter
+# 			owner = { 
+# 				clr_country_flag = country_ongoing_plague 
+# 				set_country_flag = had_plague_end
+# 			}
+# 			region = {
+# 				if = {
+# 					limit = { has_province_flag = plague_spread }
+# 					clr_province_flag = plague_spread
+# 				}
+# 				if = {
+# 					limit = { has_province_flag = ongoing_plague }
+# 					clr_province_flag = ongoing_plague
+# 				}
+# 				if = {
+# 					limit = { has_province_modifier = influenza }
+# 					remove_province_modifier = influenza
+# 				}
+# 				if = {
+# 					limit = { has_province_modifier = quarantined_influenza }
+# 					remove_province_modifier = quarantined_influenza
+# 				}
+# 				set_province_flag = recent_plague
+# 			}
+# 		}
+# 	}
+
+# 	option = {
+# 		name = vn_plagues.100.a
+# 		ai_chance = { factor = 100 }
+# 		custom_tooltip = vn_plagues.100.a.tt
+# 		hidden_effect = {
+# 			every_country = {
+# 				limit = {
+# 					NOT = { has_country_flag = had_plague_end }
+# 					any_owned_province = {
+# 						region = event_target:plague_region 
+# 					}
+# 				}
+# 				country_event = {
+# 					id = vn_plagues.101
+# 				}
+# 			}
+# 			owner = { clr_country_flag = had_plague_end }
+# 		}
+# 	}
+# 	after = {
+# 		hidden_effect = {
+# 			clear_global_event_target = plague_region
+# 		}
+# 	}
+# }
+
+# #End of Plague for other tags
+# country_event = {
+# 	id = vn_plagues.101
+# 	title = vn_plagues.101.t
+# 	desc = vn_plagues.101.d
+# 	picture = WOUNDED_SOLDIERS_eventPicture
+
+# 	is_triggered_only = yes
+
+# 	immediate = {
+# 		clr_country_flag = country_ongoing_plague
+# 	}
+
+# 	option = {
+# 		name = vn_plagues.101.a
+# 		ai_chance = { factor = 100 }
+# 		custom_tooltip = vn_plagues.100.a.tt
+# 	}
+# }
+
+#replace the previous events with something less performance heavy
+country_event = {
+	id = vn_plagues.3
+	title = vn_plagues.3.t
+	desc = vn_plagues.3.d
 	picture = PLAGUE_eventPicture
-	goto = root
+	goto = plague_prov
+
 	is_triggered_only = yes
-
-	immediate = {
-		owner = {
-			set_country_flag = country_ongoing_plague
-		}
-	}
-
-	option = {
-		name = vn_plagues.2.a
-		ai_chance = { factor = 0 }
-		add_province_modifier = {
-			name = influenza
-			duration = 3650
-		}
-		custom_tooltip = vn_plagues.1.a.tt
-		hidden_effect = {
-			every_neighbor_province = {
-				limit = { 
-					region = event_target:plague_region
-					NOT = { 
-						OR = {
-							has_province_flag = plague_spread 
-							has_province_modifier = influenza
-						}
-					}
-				}
-				random_list = {
-					70 = { }
-					30 = {
-						modifier = {
-							factor = 7
-							NOT = { has_building = arsenal }
-						}
-						set_province_flag = plague_spread
-						province_event = {
-							id = vn_plagues.2
-							days = 60
-							random = 15
-						}
-					}
-				}
-			}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		NOT = { has_building = arsenal }
-			#	}
-			#	random = {
-			#		chance = 75
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 60
-			#			random = 15
-			#		}
-			#	}
-			#}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		has_building = arsenal
-			#	}
-			#	random = {
-			#		chance = 30
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 60
-			#			random = 15
-			#		}
-			#	}
-			#}
-		}
-	}
-	option = {
-		name = vn_plagues.2.c
-		ai_chance = { factor = 50 }
-		if = {
-			limit = {
-				base_tax = 2
-				NOT = { base_tax = 6 }
-			}
-			add_base_tax = -1
-		}
-		if = {
-			limit = {
-				base_production = 2
-				NOT = { base_production = 6 }
-			}
-			add_base_production = -1
-		}
-		if = {
-			limit = {
-				base_manpower = 2
-				NOT = { base_manpower = 6 }
-			}
-			add_base_manpower = -1
-		}
-		if = {
-			limit = {
-				base_tax = 6
-				NOT = { base_tax = 10 }
-			}
-			add_base_tax = -2
-		}
-		if = {
-			limit = {
-				base_production = 6
-				NOT = { base_production = 10 }
-			}
-			add_base_production = -2
-		}
-		if = {
-			limit = {
-				base_manpower = 6
-				NOT = { base_manpower = 10 }
-			}
-			add_base_manpower = -2
-		}
-		if = {
-			limit = { base_tax = 10 }
-			add_base_tax = -3
-		}
-		if = {
-			limit = { base_production = 10 }
-			add_base_production = -3
-		}
-		if = {
-			limit = { base_manpower = 10 }
-			add_base_manpower = -3
-		}
-		custom_tooltip = vn_plagues.1.a.tt
-		hidden_effect = {
-			every_neighbor_province = {
-				limit = { 
-					region = event_target:plague_region
-					NOT = { 
-						OR = {
-							has_province_flag = plague_spread 
-							has_province_modifier = influenza
-						}
-					}
-				}
-				random_list = {
-					70 = { }
-					30 = {
-						modifier = {
-							factor = 7
-							NOT = { has_building = arsenal }
-						}
-						set_province_flag = plague_spread
-						province_event = {
-							id = vn_plagues.2
-							days = 60
-							random = 15
-						}
-					}
-				}
-			}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		NOT = { has_building = arsenal }
-			#	}
-			#	random = {
-			#		chance = 75
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 60
-			#			random = 15
-			#		}
-			#	}
-			#}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		has_building = arsenal
-			#	}
-			#	random = {
-			#		chance = 30
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 60
-			#			random = 15
-			#		}
-			#	}
-			#}
-		}
-	}
-	option = {
-		name = vn_plagues.2.b
-		ai_chance = { 
-			factor = 0
-		}
-		trigger = { is_capital = no }
-		add_local_autonomy = 25
-		owner = { add_years_of_income = -0.1 }
-		add_province_modifier = {
-			name = quarantined_influenza
-			duration = 3650
-		}
-		custom_tooltip = vn_plagues.1.b.tt
-		hidden_effect = {
-			every_neighbor_province = {
-				limit = { 
-					region = event_target:plague_region
-					NOT = { 
-						OR = {
-							has_province_flag = plague_spread 
-							has_province_modifier = influenza
-						}
-					}
-				}
-				random_list = {
-					90 = { }
-					10 = {
-						modifier = {
-							factor = 3
-							NOT = { has_building = arsenal }
-						}
-						set_province_flag = plague_spread
-						province_event = {
-							id = vn_plagues.2
-							days = 120
-							random = 30
-						}
-					}
-				}
-			}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		NOT = { has_building = arsenal }
-			#	}
-			#	random = {
-			#		chance = 25
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 120
-			#			random = 30
-			#		}
-			#	}
-			#}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		has_building = arsenal
-			#	}
-			#	random = {
-			#		chance = 10
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 120
-			#			random = 30
-			#		}
-			#	}
-			#}
-		}
-	}
-	option = {
-		name = vn_plagues.2.e
-		ai_chance = { 
-			factor = 50 
-			modifier = {
-				factor = 0
-				NOT = { owner = { years_of_income = 0.1 } }
-			}
-		}
-		trigger = { is_capital = no }
-		add_local_autonomy = 25
-		owner = { add_years_of_income = -0.1 }
-		if = {
-			limit = {
-				base_tax = 2
-				NOT = { base_tax = 6 }
-			}
-			add_base_tax = -1
-		}
-		if = {
-			limit = {
-				base_production = 2
-				NOT = { base_production = 6 }
-			}
-			add_base_production = -1
-		}
-		if = {
-			limit = {
-				base_manpower = 2
-				NOT = { base_manpower = 6 }
-			}
-			add_base_manpower = -1
-		}
-		if = {
-			limit = {
-				base_tax = 6
-				NOT = { base_tax = 10 }
-			}
-			add_base_tax = -2
-		}
-		if = {
-			limit = {
-				base_production = 6
-				NOT = { base_production = 10 }
-			}
-			add_base_production = -2
-		}
-		if = {
-			limit = {
-				base_manpower = 6
-				NOT = { base_manpower = 10 }
-			}
-			add_base_manpower = -2
-		}
-		if = {
-			limit = { base_tax = 10 }
-			add_base_tax = -3
-		}
-		if = {
-			limit = { base_production = 10 }
-			add_base_production = -3
-		}
-		if = {
-			limit = { base_manpower = 10 }
-			add_base_manpower = -3
-		}
-		custom_tooltip = vn_plagues.1.b.tt
-		hidden_effect = {
-			every_neighbor_province = {
-				limit = { 
-					region = event_target:plague_region
-					NOT = { 
-						OR = {
-							has_province_flag = plague_spread 
-							has_province_modifier = influenza
-						}
-					}
-				}
-				random_list = {
-					90 = { }
-					10 = {
-						modifier = {
-							factor = 3
-							NOT = { has_building = arsenal }
-						}
-						set_province_flag = plague_spread
-						province_event = {
-							id = vn_plagues.2
-							days = 120
-							random = 30
-						}
-					}
-				}
-			}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		NOT = { has_building = arsenal }
-			#	}
-			#	random = {
-			#		chance = 25
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 120
-			#			random = 30
-			#		}
-			#	}
-			#}
-			#every_neighbor_province = {
-			#	limit = { 
-			#		region = event_target:plague_region
-			#		NOT = { 
-			#			OR = {
-			#				has_province_flag = plague_spread 
-			#				has_province_modifier = influenza
-			#			}
-			#		}
-			#		has_building = arsenal
-			#	}
-			#	random = {
-			#		chance = 10
-			#		hidden_effect = { set_province_flag = plague_spread }
-			#		province_event = {
-			#			id = vn_plagues.2
-			#			days = 120
-			#			random = 30
-			#		}
-			#	}
-			#}
-		}
-	}
-}
-
-#End of Plague
-province_event = {
-	id = vn_plagues.100
-	title = vn_plagues.100.t
-	desc = vn_plagues.100.d
-	picture = WOUNDED_SOLDIERS_eventPicture
 
 	trigger = {
-		has_province_flag = plague_epicenter
-		had_province_flag = {
-			flag = plague_epicenter
-			days = 1095
+		NOT = { has_disaster = black_death }
+		any_owned_province = {
+			OR = {
+				development = 20
+				AND = {
+					development = 22
+					has_building = customs_house
+				}
+				AND = {
+					development = 25
+					has_building = arsenal
+				}
+			}
 		}
-		NOT = { owner = { has_country_flag = had_plague_end } }
-	}
-
-	mean_time_to_happen = {
-		months = 1
 	}
 
 	immediate = {
 		hidden_effect = {
-			clr_province_flag = plague_epicenter
-			owner = { 
-				clr_country_flag = country_ongoing_plague 
-				set_country_flag = had_plague_end
-			}
-			region = {
-				if = {
-					limit = { has_province_flag = plague_spread }
-					clr_province_flag = plague_spread
-				}
-				if = {
-					limit = { has_province_flag = ongoing_plague }
-					clr_province_flag = ongoing_plague
-				}
-				if = {
-					limit = { has_province_modifier = influenza }
-					remove_province_modifier = influenza
-				}
-				if = {
-					limit = { has_province_modifier = quarantined_influenza }
-					remove_province_modifier = quarantined_influenza
-				}
-				set_province_flag = recent_plague
-			}
-		}
-	}
-
-	option = {
-		name = vn_plagues.100.a
-		ai_chance = { factor = 100 }
-		custom_tooltip = vn_plagues.100.a.tt
-		hidden_effect = {
-			every_country = {
+			random_owned_province = {
 				limit = {
-					NOT = { has_country_flag = had_plague_end }
-					any_owned_province = {
-						region = event_target:plague_region 
+					OR = {
+						development = 20
+						AND = {
+							development = 22
+							has_building = customs_house
+						}
+						AND = {
+							development = 25
+							has_building = arsenal
+						}
 					}
 				}
-				country_event = {
-					id = vn_plagues.101
-				}
+				save_event_target_as = plague_prov
 			}
-			owner = { clr_country_flag = had_plague_end }
 		}
-	}
-	after = {
-		hidden_effect = {
-			clear_global_event_target = plague_region
-		}
-	}
-}
-
-#End of Plague for other tags
-country_event = {
-	id = vn_plagues.101
-	title = vn_plagues.101.t
-	desc = vn_plagues.101.d
-	picture = WOUNDED_SOLDIERS_eventPicture
-
-	is_triggered_only = yes
-
-	immediate = {
-		clr_country_flag = country_ongoing_plague
 	}
 
 	option = {
-		name = vn_plagues.101.a
-		ai_chance = { factor = 100 }
-		custom_tooltip = vn_plagues.100.a.tt
+		name = vn_plagues.3.a
+		custom_tooltip = vn_plagues.3.tt
+		hidden_effect = {
+			event_target:plague_prov = {
+				black_death_big_effect = yes
+				area = {
+					limit = {
+						owned_by = ROOT
+						NOT = { province_id = event_target:plague_prov }
+					}
+					black_death_small_effect = yes
+				}
+			}
+		}
 	}
 }
