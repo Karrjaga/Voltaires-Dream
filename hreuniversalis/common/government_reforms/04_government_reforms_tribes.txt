@@ -298,6 +298,9 @@ tribal_kingdom = {
 		hostile_attrition = 1
 		diplomatic_upkeep = -1
 	}
+	custom_attributes = {
+		enables_high_king_intervention = yes
+	}
 	ai = {
 		factor = 1
 	}

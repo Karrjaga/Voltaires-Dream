@@ -433,6 +433,7 @@
  principality_desc: "Dieser Staat hat ein Regierungssystem, das sich nach der Zersplitterung der Kiewer Rus und unter dem Druck des ständigen Einfalls tatarischer Tribut-Expeditionen ständig weiterentwickelt hat. Die herrschende Familie kann hier große Macht ausüben, aber Ältestennachfolge und fürstliche Apparate können manchmal zu langen internen Konflikten führen."
  principality_legacy_desc: "Dieser Staat hat ein Regierungssystem, das sich nach der Zersplitterung der Kiewer Rus und unter dem Druck des ständigen Einfalls tatarischer Tribut-Expeditionen ständig weiterentwickelt hat. Die herrschende Familie kann hier große Macht ausüben, aber Ältestennachfolge und fürstliche Apparate können manchmal zu langen internen Konflikten führen."
 #Government mechanics
+ mechanic_enables_high_king_intervention_yes: "Aktiviert die Diplomatieaktion "§YHochkönigliche Intervention§!""
  mechanic_has_jewish_advisors_yes: "Kann §Yjüdische Berater§! mit zusätzlichen Effekten anwerben"
  mechanic_enables_offer_reislaufer_yes: "Aktiviert die Diplomatieaktion "§YReisläufer anbieten§!""
  mechanic_enable_celtic_revolts_yes: "§RKeltische§! Provinzen und Untertanen werden regelmäßig rebellieren."

@@ -237,202 +237,6 @@ country_event = {
 }
 
 country_event = {
-    id = vn_ire_kingdom.5
-	title = "vn_ire_kingdom.5.t"
-	desc = "vn_ire_kingdom.5.d"
-    picture = FAMINE_eventPicture
-
-    trigger = {
-    	any_country = {
-    		has_country_modifier = irish_high_king
-    		has_regency = no
-    		is_female = no
-    		is_at_war = no
-    		military_strength = {
-                who = ROOT
-                value = 1
-            }
-    	}
-    	any_owned_province = { controlled_by = owner }
-    	NOT = { has_country_modifier = irish_high_king }
-    	OR = {
-			NOT = { has_country_flag = had_high_king_aid }
-			had_country_flag = { flag = had_high_king_aid days = 7300 }
-		}
-    	capital_scope = { superregion = irish_superregion }
-    	has_reform = tribal_kingdom
-    	is_subject = no
-    	OR = {
-        	primary_culture = dalcassian
-			primary_culture = eoganachta
-			primary_culture = laigin
-			primary_culture = erainn
-			primary_culture = ulaidh
-			primary_culture = connachta
-			primary_culture = gallowglass
-        }
-    	any_country = {
-			NOT = { has_country_modifier = irish_high_king }
-			capital_scope = { superregion = irish_superregion }
-			has_reform = tribal_kingdom
-			is_subject = no
-			OR = {
-        		primary_culture = dalcassian
-				primary_culture = eoganachta
-				primary_culture = laigin
-				primary_culture = erainn
-				primary_culture = ulaidh
-				primary_culture = connachta
-				primary_culture = gallowglass
-        	}
-			offensive_war_with = ROOT
-			war_score_against = {
-				who = ROOT
-				value = 70
-			}
-		}
-    }
-    mean_time_to_happen = {
-    	months = 120
-    	modifier = {
-    		factor = 0.75
-    		war_exhaustion = 10
-    	}
-    	modifier = {
-    		factor = 0.25
-    		war_exhaustion = 15
-    	}
-    }
-    immediate = { hidden_effect = { set_country_flag = had_high_king_aid } }
-
-    option = {
-        name = "vn_ire_kingdom.5.a"
-        ai_chance = {
-        	factor = 50
-        	modifier = {
-        		factor = 0.1
-        		any_country = {
-        			has_country_modifier = irish_high_king
-        			OR = {
-        				is_rival = ROOT
-        				is_enemy = ROOT
-        			}
-        		}
-        	}
-        }
-        random_country = {
-        	limit = { has_country_modifier = irish_high_king }
-        	country_event = { id = vn_ire_kingdom.6 days = 10 }
-        }
-        custom_tooltip = vn_ire_kingdom.5.tt
-    }
-
-    option = {
-        name = "vn_ire_kingdom.5.b"
-        ai_chance = { factor = 50 }
-        add_war_exhaustion = -5
-    }
-}
-
-country_event = {
-	id = vn_ire_kingdom.6
-	title = "vn_ire_kingdom.6.t"
-	desc = "vn_ire_kingdom.6.d"
-	picture = CIVIL_WAR_eventPicture
-
-	is_triggered_only = yes
-	mean_time_to_happen = { days = 1 }
-
-	option = {
-		name = "vn_ire_kingdom.6.a"
-		ai_chance = {
-			factor = 40
-			modifier = {
-				factor = 0.1
-				OR = {
-					is_rival = FROM
-        			is_enemy = FROM
-        			any_country = {
-        				offensive_war_with = FROM
-        				alliance_with = ROOT
-        			}
-				}
-			}
-		}
-		custom_tooltip = vn_ire_kingdom.6.tt
-		FROM = { country_event = { id = vn_ire_kingdom.7 } }
-		tooltip = {
-			FROM = {
-				add_opinion = {
-					who = ROOT
-					modifier = hrema59_opinion
-				}
-			}
-		}
-	}
-
-	option = {
-		name = "vn_ire_kingdom.6.b"
-		ai_chance = { factor = 60 }
-		FROM = { country_event = { id = vn_ire_kingdom.9 } }
-		tooltip = {
-			FROM = {
-				add_opinion = {
-					who = ROOT
-					modifier = hrema62_opinion
-				}
-			}
-		}
-	}
-}
-
-country_event = {
-	id = vn_ire_kingdom.7
-	title = "vn_ire_kingdom.7.t"
-	desc = "vn_ire_kingdom.7.d"
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-	mean_time_to_happen =  { days = 1 }
-	immediate = {
-		hidden_effect = {
-			every_country = {
-				limit = {
-					NOT = { has_country_modifier = irish_high_king }
-					capital_scope = { superregion = irish_superregion }
-					has_reform = tribal_kingdom
-					is_subject = no
-					offensive_war_with = ROOT
-					OR = {
-        				primary_culture = dalcassian
-						primary_culture = eoganachta
-						primary_culture = laigin
-						primary_culture = erainn
-						primary_culture = ulaidh
-						primary_culture = connachta
-						primary_culture = gallowglass
-        			}
-					war_score_against = {
-						who = ROOT
-						value = 70
-					}
-				}
-				white_peace = ROOT
-				country_event = { id = vn_ire_kingdom.8 }
-			}
-		}
-	}
-
-	option = {
-		name = "vn_ire_kingdom.7.a"
-		add_opinion = {
-			who = FROM
-			modifier = hrema59_opinion
-		}
-	}
-}
-
-country_event = {
 	id = vn_ire_kingdom.8
 	title = "vn_ire_kingdom.8.t"
 	desc = "vn_ire_kingdom.8.d"
@@ -443,30 +247,17 @@ country_event = {
 
 	option = {
 		name = "vn_ire_kingdom.8.a"
+		tooltip = {
+			white_peace = FROM
+			add_truce_with = FROM
+			FROM = { add_truce_with = ROOT }
+		}
 		random_country = {
 			limit = { has_country_modifier = irish_high_king }
 			reverse_add_opinion = {
 				who = ROOT
 				modifier = hrema60_opinion
 			}
-		}
-	}
-}
-
-country_event = {
-	id = vn_ire_kingdom.9
-	title = "vn_ire_kingdom.9.t"
-	desc = "vn_ire_kingdom.9.d"
-	picture = COURT_eventPicture
-
-	is_triggered_only = yes
-	mean_time_to_happen =  { days = 1 }
-
-	option = {
-		name = "vn_ire_kingdom.9.a"
-		add_opinion = {
-			who = FROM
-			modifier = hrema62_opinion
 		}
 	}
 }
