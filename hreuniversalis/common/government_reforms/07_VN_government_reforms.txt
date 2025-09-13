@@ -1066,7 +1066,6 @@ fatimid_caliphate_reform = {
 	# 	}
 	# }
 	government_abilities = {
-		#fatimid_irreverence_mechanic
 		fatimid_vizierate_mechanic
 	}
 	ai = {
