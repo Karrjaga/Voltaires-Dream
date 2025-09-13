@@ -1,5 +1,6 @@
 great_fitna = {
 	potential = {
+		always = no
 		tag = FTM
 		has_reform = fatimid_caliphate_reform
 		religion_group = muslim
@@ -15,121 +16,37 @@ great_fitna = {
 	
 	can_start = {
 		has_any_disaster = no
-		has_government_power = {
-			mechanic_type = fatimid_irreverence_mechanic 
-			power_type = fatimid_irreverence 
-			value = 100
-		}
-		OR = {
-			exists = KOJ
-			NOT = { stability = 3 }
-			NOT = { legitimacy = 50 }
-			war_exhaustion = 10
-			NOT = { ruler_total_stats = { amount = 10 } }
-			is_bankrupt = yes
-		}
 	}
 	
 	
 	can_stop = {
-		NOT = {
-			has_government_power = {
-				mechanic_type = fatimid_irreverence_mechanic 
-				power_type = fatimid_irreverence 
-				value = 80
-			}
-		}
-		stability = 3
-		legitimacy = 50
-		NOT = { war_exhaustion = 10 }
-		ruler_total_stats = { amount = 10 }
-		is_bankrupt = no
+		has_any_disaster = yes
 	}
 
 	progress = {
 		modifier = {
-			factor = 0.5
-			exists = KOJ
-		}
-		modifier = {
-			factor = 0.5
-			corruption = 5
-		}
-		modifier = {
-			factor = 0.5
-			corruption = 10
-		}
-		modifier = {
-			factor = 0.5
-			corruption = 15
-		}
-		modifier = {
-			factor = 0.5
-			corruption = 20
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { legitimacy = 75 }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { legitimacy = 50 }
-		}	
-		modifier = {
-			factor = 0.5
-			NOT = { legitimacy = 25 }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { estate_loyalty = { estate = estate_mamluks loyalty = 60 } }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { estate_loyalty = { estate = estate_mamluks loyalty = 50 } }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { estate_loyalty = { estate = estate_mamluks loyalty = 40 } }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { estate_loyalty = { estate = estate_mamluks loyalty = 30 } }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { estate_loyalty = { estate = estate_mamluks loyalty = 20 } }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { estate_loyalty = { estate = estate_mamluks loyalty = 10 } }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { stability = 3 }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { stability = 2 }
-		}
-		modifier = {
-			factor = 0.5
-			NOT = { stability = 1 }
+			factor = 1
+			tag = FTM
 		}
 		modifier = {
 			factor = 1
-			is_bankrupt = yes
+			NOT = { stability = 0 }
 		}
 		modifier = {
-			factor = 0.5
-			war_exhaustion = 10
+			factor = 1
+			NOT = { corruption = 5 }
 		}
 		modifier = {
-			factor = 0.5
-			war_exhaustion = 15
+			factor = 1
+			NOT = { corruption = 10 }
 		}
 		modifier = {
-			factor = 0.5
-			war_exhaustion = 20
+			factor = 1
+			NOT = { war_exhaustion = 5 }
+		}
+		modifier = {
+			factor = 1
+			NOT = { war_exhaustion = 10 }
 		}
 	}
 	
@@ -147,20 +64,14 @@ great_fitna = {
 	}
 
 	modifier = {
-		global_unrest = 10
-		mercenary_cost = 0.25
-		mercenary_manpower = -0.25
-		stability_cost_modifier = 0.5
+		global_unrest = 2
+		all_power_cost = 0.15
+		global_autonomy = 0.1
+		monarch_lifespan = -0.25
 	}	
 	
 	on_start = great_fitna.1
 	on_end = great_fitna.100
-	on_start_effect = {
-		freeze_government_power = {
-			mechanic_type = fatimid_irreverence_mechanic
-			power_type = fatimid_irreverence
-		}
-	}
 	
 	on_monthly = {
 		events = {
