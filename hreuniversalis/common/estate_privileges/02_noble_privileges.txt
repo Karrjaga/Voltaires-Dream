@@ -1104,14 +1104,14 @@ estate_nobles_strong_duchies = {
 				NOT = { has_estate_privilege = estate_nobles_strong_duchies }
 			}
 		}
-		#mod
-		NOT = { has_estate_privilege = estate_nobles_georgian_strong_duchies }
-		NOT = {
-			AND = {
-				tag = GEO
-				NOT = { has_estate_privilege = estate_nobles_georgian_strong_duchies }
-			}
-		}
+		# #mod
+		# NOT = { has_estate_privilege = estate_nobles_georgian_strong_duchies }
+		# NOT = {
+		# 	AND = {
+		# 		tag = GEO
+		# 		NOT = { has_estate_privilege = estate_nobles_georgian_strong_duchies }
+		# 	}
+		# }
 	}
 	can_select = {
 		custom_trigger_tooltip = {

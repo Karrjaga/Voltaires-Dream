@@ -22,6 +22,7 @@
 #Nobles Estate
  estate_nobles_frontier_resettlement: "Iberische Grenzkolonisten"
  estate_nobles_frontier_resettlement_desc: "Während der ständigen Kriege zwischen Christen und Muslimen in Iberien wurde ein großer Landstrich praktisch zu einem entvölkerten Niemandsland. Angeführt von den Bemühungen der Adligen, mehr Land für sich zu beanspruchen, können wir jedoch wieder eine Präsenz an der Grenze aufbauen."
+ estate_nobles_frontier_resettlement.tt: "Wir grenzen an eine nicht beanspruchte Provinz des Tierra de Nadie und es ist noch nicht vollständig besiedelt."
  estate_nobles_georgian_strong_duchies: "Starke georgische Herzogtümer"
  estate_nobles_georgian_strong_duchies_desc: "Georgien ist eine dezentralisierte Nation, in der die lokalen Herzöge und Grafen eine beträchtliche Unabhängigkeit von [Root.GetMdemder] [Root.Monarch.GetTitle] genießen. Dieses System hat seine Vorteile, macht die Aufrechterhaltung der königlichen Macht allerdings zu einer bedeutenden Herausforderung."
  estate_nobles_hungarian_nobles: "Widerspenstige Magnate"

@@ -1417,6 +1417,24 @@ on_colony_finished = {
 		}
 		add_core = MEY
 	}
+	if = {
+		limit = {
+			NOT = { has_global_flag = iberian_frontier_repopulated }
+			4371 = { is_city = yes }
+			2850 = { is_city = yes }
+			4370 = { is_city = yes }
+			2719 = { is_city = yes }
+			2337 = { is_city = yes }
+			4369 = { is_city = yes }
+			4346 = { is_city = yes }
+			4347 = { is_city = yes }
+			4345 = { is_city = yes }
+			4344 = { is_city = yes }
+			2718 = { is_city = yes }
+			4474 = { is_city = yes }
+		}
+		set_global_flag = iberian_frontier_repopulated
+	}
 }
 
 on_lose_great_power_status = {

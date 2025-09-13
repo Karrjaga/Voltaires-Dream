@@ -22,6 +22,7 @@
 #Nobles Estate
  estate_nobles_frontier_resettlement: "Iberian Frontier Colonists"
  estate_nobles_frontier_resettlement_desc: "During constant wars between Christians and Muslims in Iberia, a large swath of land effectively became a depopulated no man's land. Spearheaded by the efforts of nobles to claim more land for themselves, however, we can reestablish a presence on the Frontier."
+ estate_nobles_frontier_resettlement.tt: "We border an unclaimed province of Tierra de Nadie, and it has not yet been fully settled."
  estate_nobles_georgian_strong_duchies: "Georgian Strong Duchies"
  estate_nobles_georgian_strong_duchies_desc: "Georgia is a decentralized nation in which local dukes and counts have considerable independence from the [Root.Monarch.GetTitle]. This system has its benefits but makes maintaining the primacy of royal power a significant challenge."
  estate_nobles_hungarian_nobles: "Recalcitrant Magnates"
