@@ -250,10 +250,10 @@ propagate_religion = {
 		OR = {
 			religion_group = muslim
 			religion_group = zoroastrian_group
-			# AND = {
-			# 	religion_group = dharmic
-			# 	mission_completed = mnd_maj_porch_of_mecca
-			# }
+			AND = {
+				religion_group = christian
+				has_government_attribute = is_merchant_republic
+			}
 			custom_trigger_tooltip = {
 				tooltip = can_use_propagate_religion_tt
 				has_country_flag = can_use_propagate_religion
@@ -276,6 +276,13 @@ propagate_religion = {
 		}
 		if = {
 			limit = {
+				religion_group = christian
+				has_government_attribute = is_merchant_republic
+			}
+			FROM = { has_trader = ROOT is_node_in_trade_company_region = yes trade_share = { country = ROOT share = 30 }
+		}
+		else_if = {
+			limit = {
 				OR = {
 					NOT = { has_country_flag = orm_easier_propagation_flag }
 					had_country_flag = { flag = orm_easier_propagation_flag days = 5475 }
@@ -294,17 +301,16 @@ propagate_religion = {
 		else_if = { limit = { has_country_flag = 45_trade_power_for_propogate_religion } FROM = { has_trader = ROOT is_node_in_trade_company_region = yes trade_share = { country = ROOT share = 45 } } }
 		else_if = { limit = { OR = { NOT = { has_country_flag = orm_easier_propagation_flag } had_country_flag = { flag = orm_easier_propagation_flag days = 5475 } } } FROM = { has_trader = ROOT is_node_in_trade_company_region = yes trade_share = { country = ROOT share = 50 } } }
 		else = { FROM = { has_trader = ROOT is_node_in_trade_company_region = yes trade_share = { country = ROOT share = 35 } } }
-
 	}
 
 	can_maintain = {
 		OR = {
 			religion_group = muslim
 			religion_group = zoroastrian_group
-			# AND = {
-			# 	religion_group = dharmic
-			# 	mission_completed = mnd_maj_porch_of_mecca
-			# }
+			AND = {
+				religion_group = christian
+				has_government_attribute = is_merchant_republic
+			}
 			custom_trigger_tooltip = {
 				tooltip = can_use_propagate_religion_tt
 				has_country_flag = can_use_propagate_religion
@@ -325,7 +331,22 @@ propagate_religion = {
 				}
 			}
 		}
-		dominant_religion = ROOT
+		if = {
+			limit = {
+				religion_group = christian
+				has_government_attribute = is_merchant_republic
+			}
+			FROM = { has_trader = ROOT is_node_in_trade_company_region = yes trade_share = { country = ROOT share = 30 }
+		}
+		else_if = {
+			limit = {
+				OR = {
+					NOT = { has_country_flag = orm_easier_propagation_flag }
+					had_country_flag = { flag = orm_easier_propagation_flag days = 5475 }
+				}
+			}
+			dominant_religion = ROOT
+		}
 		if = { limit = { has_country_flag = 5_trade_power_for_propogate_religion } FROM = { has_trader = ROOT is_node_in_trade_company_region = yes } }
 		else_if = { limit = { has_country_flag = 10_trade_power_for_propogate_religion } FROM = { has_trader = ROOT is_node_in_trade_company_region = yes trade_share = { country = ROOT share = 5 } } }
 		else_if = { limit = { has_country_flag = 15_trade_power_for_propogate_religion } FROM = { has_trader = ROOT is_node_in_trade_company_region = yes trade_share = { country = ROOT share = 5 } } }
