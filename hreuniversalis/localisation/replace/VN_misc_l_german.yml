@@ -42,10 +42,6 @@
  desc_muslim_sailor_community: "Diese Provinz beherbergt eine aufblühende Gemeinschaft ausländischer Seeleute."
  desc_mosque_of_x: "Die jüngste Errichtung eines großen Gotteshauses in der Nähe hat diese Region anfälliger für die Verbreitung neuer religiöser Ideen gemacht."
  desc_defended_traditional_kingship: "Unser Herrscher hat die traditionellen Ansichten des Königtums verteidigt und unterdrückte religiöse Gruppen im höheren Adel und der Regierung an den Rand gedrängt."
- nile_floodings_bad_mod: "Verheerende Überschwemmungen am Nil"
- desc_nile_floodings_bad_mod: "Die jährlichen Nilüberschwemmungen haben große Teile dieser Provinz überflutet. Die Ernten wurden zerstört und die Menschen haben ihre Häuser verloren."
- nile_floodings_good_mod: "Wohlwollende Überschwemmungen am Nil"
- desc_nile_floodings_good_mod: "Dank der jährlichen Überschwemmungen des Nils genießen die Einwohner dieser Provinz einen Überschuss an Nahrung."
  is_danelaw_province_trigger.tt: "Ist Teil des §YDanelags§!."
  negropontian_triarchy_seat: "Sitz der Triarchie"
  desc_negropontian_triarchy_seat: "Der derzeitige Triarch stammt aus dieser Provinz, was ihre Bedeutung während ihrer Regierungszeit stärkt.

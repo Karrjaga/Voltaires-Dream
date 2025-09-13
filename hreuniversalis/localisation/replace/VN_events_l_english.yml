@@ -1723,8 +1723,6 @@
  vn_flavor_ftm.3.t: "Benevolent Nile floods"
  vn_flavor_ftm.3.d: ""
  vn_flavor_ftm.3.tt: "Every owned province in the §Y[egyptian_flood_prov.GetRegionName]§! Region affected by Nile Floodings:"
- vn_flavor_ftm.4.t: "Devastating Nile Floods"
- vn_flavor_ftm.4.d: ""
  vn_flavor_geo.1.t: "The Great Turkish Troubles"
  vn_flavor_geo.1.d: "The grave defeat of the Byzantine Empire at the Battle of Manzikert has irreversibly shifted the balance of power in Anatolia in favor of the Seljuk Empire. Turkish warriors are now roaming the region, plundering villages, monasteries, and trade routes unhindered. Even our southern provinces are not spared either: without the protection of Byzantine border posts, our frontiers are wide open, while the imperial court in Constantinople is unable to come to our aid.\n\nAfter a brief, frosty meeting of [Root.Monarch.GetTitle] [Root.Monarch.GetName] with the [SJK.GetAdjective] [SJK.Monarch.GetTitle] [SJK.Monarch.GetName] to settle these attacks, an annual tribute was imposed upon us. Supposedly, this is to curb hostilities and secure peace between our nations but without a doubt, it is only the first step toward our full subjugation..."
  vn_flavor_geo.1.a: "We must resist this tyranny!"
