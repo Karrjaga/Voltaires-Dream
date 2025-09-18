@@ -301,6 +301,7 @@
  KKSTAT: "Cannot marry Normans if the Statutes of Kilkenny are effective in their realm"
  KKSTAT2: "Cannot marry the Irish if the Statutes of Kilkenny are in effect"
  CANNOT_NATIVE_FIRST_AGE: "Cannot declare wars on primitives during the Age of Empires."
+ NOTBYZCRISIS: "[Root.GetName] cannot appoint new tributaries until the current disaster is over."
  SAMEGOVT: "Must have same Government Type"
  SAMEGOVT2: "Must have same Government Type"
  SAMEGOVTMERCH: "Only Trading Cities can join your League"
