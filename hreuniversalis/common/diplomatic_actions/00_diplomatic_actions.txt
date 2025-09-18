@@ -915,35 +915,6 @@ tributary_state_action = {
 			ai = yes
 		}
 		allow = {
-			OR = {
-				NOT = { ROOT = { capital_scope = { superregion = russia_superregion } } }
-				AND = {
-					ROOT = { capital_scope = { superregion = russia_superregion } }
-					NOT = { FROM = { capital_scope = { superregion = russia_superregion } } }
-				}
-			}
-			OR = {
-				NOT = { ROOT = { capital_scope = { superregion = ruthenia_superregion } } }
-				AND = {
-					ROOT = { capital_scope = { superregion = ruthenia_superregion } }
-					NOT = { FROM = { capital_scope = { superregion = ruthenia_superregion } } }
-				}
-			}
-			#mod
-			OR = {
-				NOT = { ROOT = { capital_scope = { superregion = british_isles_superregion } } }
-				AND = {
-					ROOT = { capital_scope = { superregion = british_isles_superregion } }
-					NOT = { FROM = { capital_scope = { superregion = british_isles_superregion } } }
-				}
-			}
-			OR = {
-				NOT = { ROOT = { capital_scope = { superregion = scandinavia_superregion } } }
-				AND = {
-					ROOT = { capital_scope = { superregion = scandinavia_superregion } }
-					NOT = { FROM = { capital_scope = { superregion = scandinavia_superregion } } }
-				}
-			}
 		}
 	}
 	#mod
@@ -964,35 +935,6 @@ ask_for_tributary_state_action = {
 			ai = yes
 		}
 		allow = {
-			OR = {
-				NOT = { FROM = { capital_scope = { superregion = russia_superregion } } }
-				AND = {
-					FROM = { capital_scope = { superregion = russia_superregion } }
-					NOT = { ROOT = { capital_scope = { superregion = russia_superregion } } }
-				}
-			}
-			OR = {
-				NOT = { FROM = { capital_scope = { superregion = ruthenia_superregion } } }
-				AND = {
-					FROM = { capital_scope = { superregion = ruthenia_superregion } }
-					NOT = { ROOT = { capital_scope = { superregion = ruthenia_superregion } } }
-				}
-			}
-			#mod
-			OR = {
-				NOT = { FROM = { capital_scope = { superregion = british_isles_superregion } } }
-				AND = {
-					FROM = { capital_scope = { superregion = british_isles_superregion } }
-					NOT = { ROOT = { capital_scope = { superregion = british_isles_superregion } } }
-				}
-			}
-			OR = {
-				NOT = { FROM = { capital_scope = { superregion = scandinavia_superregion } } }
-				AND = {
-					FROM = { capital_scope = { superregion = scandinavia_superregion } }
-					NOT = { ROOT = { capital_scope = { superregion = scandinavia_superregion } } }
-				}
-			}
 		}
 	}
 }
