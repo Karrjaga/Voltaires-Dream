@@ -67,7 +67,7 @@ hades =
 hera =
 {
 	culture_conversion_cost = -0.1
-	spy_offence = 0.15
+	spy_offence = 0.2
 	
 	potential = { religion = hellenic_pagan }
 	sprite = 22
@@ -87,8 +87,8 @@ hera =
 
 athena =
 {
-	land_morale = 0.05
-	mil_tech_cost_modifier = -0.05
+	land_morale = 0.1
+	mil_tech_cost_modifier = -0.1
 	
 	potential = { religion = hellenic_pagan }
 	sprite = 23
@@ -113,8 +113,8 @@ athena =
 
 aphrodite =
 {
-	vassal_income = 0.2
-	tolerance_heathen = 1
+	vassal_income = 0.25
+	tolerance_heathen = 2
 	
 	potential = { religion = hellenic_pagan }
 	sprite = 24

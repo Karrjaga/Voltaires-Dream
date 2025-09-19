@@ -1,6 +1,6 @@
 potrimpo = {
-	production_efficiency = 0.05
-	prestige = 0.5
+	production_efficiency = 0.1
+	placed_merchant_power_modifier = 0.5
 	
 	potential = { religion = druwi }
 	sprite = 73	
@@ -15,7 +15,7 @@ potrimpo = {
 
 autrimpo = {
 	naval_morale_damage = 0.05
-	trade_steering = 0.1
+	trade_steering = 0.2
 	
 	potential = { religion = druwi }
 	sprite = 74	
@@ -34,7 +34,7 @@ autrimpo = {
 
 peckols = {
 	army_tradition = 0.5
-	movement_speed = 0.05
+	movement_speed = 0.1
 	
 	potential = { religion = druwi }
 	sprite = 75	
@@ -52,8 +52,8 @@ peckols = {
 }
 
 occopirmo = {
-	shock_damage_received = -0.05
-	defensiveness = 0.1
+	shock_damage_received = -0.1
+	defensiveness = 0.2
 	
 	potential = { religion = druwi }
 	sprite = 76	
@@ -67,7 +67,7 @@ occopirmo = {
 }
 
 suaixtix = {
-	improve_relation_modifier = 0.15
+	improve_relation_modifier = 0.25
 	national_focus_years = -5
 	
 	potential = { religion = druwi }
@@ -86,8 +86,8 @@ suaixtix = {
 }
 
 piluuyto = {
-	development_cost_in_primary_culture = -0.1
-	core_creation = -0.05
+	development_cost_in_primary_culture = -0.15
+	core_creation = -0.1
 	
 	potential = { religion = druwi }
 	sprite = 78

@@ -1,5 +1,5 @@
 ausrine = {
-	global_missionary_strength = 0.01
+	global_missionary_strength = 0.02
 	naval_attrition = -0.1
 	
 	potential = { religion = animism }
@@ -19,7 +19,7 @@ ausrine = {
 }
 
 laima = {
-	monthly_heir_claim_increase = 0.1
+	monarch_lifespan = 0.1
 	advisor_pool = 1
 	
 	potential = { religion = animism }
@@ -59,8 +59,8 @@ milda = {
 }
 
 perkunas = {
-	morale_damage = 0.025
-	land_forcelimit_modifier = 0.05
+	morale_damage = 0.05
+	land_forcelimit_modifier = 0.1
 	
 	potential = { religion = animism }
 	sprite = 34
@@ -79,11 +79,11 @@ perkunas = {
 }
 
 saule = {
-	recover_army_morale_speed = 0.05
-	republican_tradition = 0.25
-	legitimacy = 0.5
-	devotion = 0.5
-	horde_unity = 0.25
+	recover_army_morale_speed = 0.1
+	republican_tradition = 0.3
+	legitimacy = 1
+	devotion = 1
+	horde_unity = 1
 	
 	potential = { religion = animism }
 	sprite = 35
@@ -102,8 +102,8 @@ saule = {
 }
 
 zemyna = {
-	production_efficiency = 0.05
-	same_religion_advisor_cost = -0.1
+	production_efficiency = 0.1
+	same_religion_advisor_cost = -0.2
 	
 	potential = { religion = animism }
 	sprite = 36

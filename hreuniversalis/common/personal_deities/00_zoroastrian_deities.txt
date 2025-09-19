@@ -1,6 +1,6 @@
 vohu_manah = {
-	fort_maintenance_modifier = -0.05
-	diplomatic_reputation = 0.5
+	fort_maintenance_modifier = -0.1
+	diplomatic_reputation = 1
 	monthly_asha_vahishta = 0.5
 	
 	potential = { religion = zoroastrian }
@@ -15,8 +15,8 @@ vohu_manah = {
 }
 
 asha_vahishta = {
-	hostile_attrition = 0.5
-	enemy_core_creation = 0.25
+	hostile_attrition = 1
+	yearly_corruption = -0.1
 	monthly_asha_vahishta = 0.5
 	
 	potential = { religion = zoroastrian }
@@ -31,11 +31,11 @@ asha_vahishta = {
 }
 
 xshathra_vairya = {
-	legitimacy = 0.5
-	horde_unity = 0.25
-	republican_tradition = 0.25
-	devotion = 0.5
-	shock_damage = 0.05
+	legitimacy = 1
+	horde_unity = 1
+	republican_tradition = 0.3
+	devotion = 1
+	shock_damage = 0.1
 	monthly_asha_vahishta = 0.5
 	
 	potential = { religion = zoroastrian }
@@ -50,8 +50,8 @@ xshathra_vairya = {
 }
 
 spenta_armaiti = {
-	tolerance_heathen = 1
-	religious_unity = 0.1
+	reverse_relation_with_heathen_religion = 20
+	religious_unity = 0.25
 	monthly_asha_vahishta = 0.5
 	
 	potential = { religion = zoroastrian }
@@ -66,8 +66,8 @@ spenta_armaiti = {
 }
 
 haurvatat = {
-	idea_cost = -0.05
-	blockade_efficiency = 0.15
+	idea_cost = -0.1
+	blockade_efficiency = 0.25
 	monthly_asha_vahishta = 0.5
 	
 	potential = { religion = zoroastrian }
@@ -87,7 +87,7 @@ haurvatat = {
 
 ameretat = {
 	global_unrest = -1
-	improve_relation_modifier = 0.15
+	improve_relation_modifier = 0.25
 	monthly_asha_vahishta = 0.5
 	
 	potential = { religion = zoroastrian }

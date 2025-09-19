@@ -1,6 +1,6 @@
 m_john = {
-	reform_progress_growth = 0.05
-	global_missionary_strength = 0.01
+	reform_progress_growth = 0.15
+	global_missionary_strength = 0.02
 	
 	potential = { religion = mandaeism }
 	sprite = 85	
@@ -10,7 +10,7 @@ m_john = {
 }
 
 m_noah = {
-	naval_morale = 0.05
+	naval_morale = 0.1
 	light_ship_power = 0.1
 	
 	potential = { religion = mandaeism }
@@ -29,7 +29,7 @@ m_noah = {
 }
 
 m_adam = {
-	heir_chance = 0.25
+	development_cost_in_primary_culture = -0.15
 	global_unrest = -1
 	
 	potential = { religion = mandaeism }
@@ -45,7 +45,7 @@ m_adam = {
 
 m_shem = {
 	global_own_trade_power = 0.1
-	trade_steering = 0.05
+	trade_steering = 0.2
 
 	potential = { religion = mandaeism }
 	sprite = 88	
@@ -59,8 +59,8 @@ m_shem = {
 }
 
 m_seth = {
-	adm_tech_cost_modifier = -0.05
-	embracement_cost = -0.1
+	adm_tech_cost_modifier = -0.1
+	embracement_cost = -0.2
 	
 	potential = { religion = mandaeism }
 	sprite = 89	
@@ -70,8 +70,8 @@ m_seth = {
 }
 
 m_abel = {
-	recover_army_morale_speed = 0.025
-	shock_damage_received = -0.05
+	recover_army_morale_speed = 0.1
+	shock_damage_received = -0.1
 	
 	potential = { religion = mandaeism }
 	sprite = 90

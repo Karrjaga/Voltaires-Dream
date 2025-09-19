@@ -1,6 +1,6 @@
 egy_ra = {
 	galley_power = 0.1
-    global_ship_cost = -0.05
+    global_ship_cost = -0.1
 	
 	potential = { religion = egyptian_religion }
 	sprite = 79	
@@ -14,8 +14,8 @@ egy_ra = {
 }
 
 egy_isis = {
-	morale_damage_received = -0.025
-	hostile_attrition = 0.5
+	morale_damage_received = -0.05
+	hostile_attrition = 1
 	
 	potential = { religion = egyptian_religion }
 	sprite = 80	
@@ -30,7 +30,7 @@ egy_isis = {
 
 egy_set = {
 	ae_impact = -0.05
-	stability_cost_modifier = -0.05
+	stability_cost_modifier = -0.1
 	
 	potential = { religion = egyptian_religion }
 	sprite = 81	
@@ -52,8 +52,8 @@ egy_set = {
 }
 
 egy_horus = {
-	dip_tech_cost_modifier = -0.05
-	global_institution_spread = 0.05
+	dip_tech_cost_modifier = -0.1
+	global_institution_spread = 0.1
 	
 	potential = { religion = egyptian_religion }
 	sprite = 82	
@@ -67,10 +67,10 @@ egy_horus = {
 }
 
 egy_sobek = {
-	legitimacy = 0.5
-	republican_tradition = 0.25
-	devotion = 0.5
-	horde_unity = 0.25
+	legitimacy = 1
+	republican_tradition = 0.3
+	devotion = 1
+	horde_unity = 1
 	army_tradition = 0.5
 	
 	potential = { religion = egyptian_religion }
@@ -85,8 +85,8 @@ egy_sobek = {
 }
 
 egy_anubis = {
-	global_garrison_growth = 0.1
-	global_foreign_trade_power = 0.05
+	global_garrison_growth = 0.2
+	global_foreign_trade_power = 0.1
 	
 	potential = { religion = egyptian_religion }
 	sprite = 84

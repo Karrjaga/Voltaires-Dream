@@ -1,6 +1,6 @@
 melek_taus = {
-	state_maintenance_modifier = -0.05
-	development_cost = -0.05
+	state_maintenance_modifier = -0.1
+	development_cost = -0.1
 	
 	potential = { religion = yazidi }
 	sprite = 55	
@@ -18,7 +18,7 @@ melek_taus = {
 }
 
 ashur = {
-	fire_damage = 0.05
+	fire_damage = 0.1
 	prestige = 0.5
 	
 	potential = { religion = yazidi }
@@ -34,7 +34,7 @@ ashur = {
 
 enki = {
 	naval_forcelimit_modifier = 0.1
-	adm_tech_cost_modifier = -0.05
+	adm_tech_cost_modifier = -0.1
 	
 	potential = { religion = yazidi }
 	sprite = 57	
@@ -52,8 +52,8 @@ enki = {
 }
 
 enlil = {
-	global_trade_goods_size_modifier = 0.05
-	trade_efficiency = 0.05
+	global_trade_goods_size_modifier = 0.1
+	trade_efficiency = 0.1
 	
 	potential = { religion = yazidi }
 	sprite = 58	
@@ -67,8 +67,8 @@ enlil = {
 }
 
 ishtar = {
-	autonomy_change_time = -0.2
-	heir_chance = 0.25
+	autonomy_change_time = -0.25
+	global_defender_dice_roll_bonus = 1
 	
 	potential = { religion = yazidi }
 	sprite = 59	
@@ -82,8 +82,8 @@ ishtar = {
 }
 
 anutu = {
-	recover_army_morale_speed = 0.025
-	tolerance_own = 1
+	recover_army_morale_speed = 0.1
+	tolerance_own = 2
 	
 	potential = { religion = yazidi }
 	sprite = 60
