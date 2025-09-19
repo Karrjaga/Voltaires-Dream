@@ -720,6 +720,7 @@
  vn_flavor_por.5.a_opinion: "Invited Henrique"
  vn_flavor_por.5.b_opinion: "Strengthened Overlord"
  hrema105_opinion: "Dekapolis"
+ seize_court_resources_desc: "Seize court resources amounting to 6 months of their yearly income ($ADM|G$ £adm, $DIP|G$ £dip and $MIL|G$ £mil ), which will increase Liberty Desire by $LD$."
 #Price Changes
  SIBERIAN_WHALING: "Siberian Whaling"
  POPULAR_OIL_LAMP: "Popularity of Oil Lamps"

@@ -721,7 +721,7 @@
  vn_flavor_por.5.a_opinion: "Hat Henrique eingeladen"
  vn_flavor_por.5.b_opinion: "Gestärkter Lehnsherr"
  hrema105_opinion: "Dekapolis"
- hrema131_opinion: "Bruch des Triumvirats"
+ seize_court_resources_desc: "Beschlagnahmt ihre Hofressourcen im Wert von 6 Monaten ihres jährlichen Einkommens ($ADM|G$ £adm, $DIP|G$ £dip und $MIL|G$ £mil). Dies erhöht ihr Freiheitsstreben um $LD$."
 #Price Changes
  SIBERIAN_WHALING: "Sibirischer Walfang"
  POPULAR_OIL_LAMP: "Popularität von Öllampen"
