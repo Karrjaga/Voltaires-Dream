@@ -6,6 +6,7 @@
 -Added an event chain for the Seljuk Yoke of Georgia
 -Added an event chain around Davit Bagrationi of Alania
 -Added an event chain for the succession of Otto the White of Swabia
+-Added an event for the Uyunid revolt/collapse of the Qarmatians
 -Added some new government reforms
 -Added some new estate privileges
 -Added a casus belli to establish new partial principalities
@@ -14,7 +15,9 @@
 -Wessex, Mercia & Northumbria now use an edited version of Anglo-Saxony's mission tree
 -Updated El Cid's event chain
 -Updated the Hundred Years War event chain
--Updated some flags
+-Updated several flags
+-Buffed many personal deities
+-Reverted some building nerfs
 -Made the Revolt of the Earls disaster less harsh, giving Norman England higher survival chances
 -Crusades can now also target human players
 -Reworked the Jewish Vizirs estate privilege into a government mechanic

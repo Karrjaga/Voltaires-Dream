@@ -264,7 +264,7 @@ college = {
 	cost = 150
 	time = 12
 	modifier = {
-		local_development_cost = -0.05
+		local_development_cost = -0.075
 		allowed_num_of_buildings = 1
 	}
 
@@ -295,6 +295,7 @@ customs_house = {
 	modifier = {
 		regiment_recruit_speed = -0.25
 		supply_limit_modifier = 0.20
+		local_monthly_devastation = -0.05
 	}
 	on_built = {
 		on_province_medical_building_built_estate_privileges_effect = yes
@@ -465,7 +466,7 @@ artisan = {
 	cost = 100
 	time = 12
 	modifier = {
-		local_production_efficiency = 0.05
+		local_production_efficiency = 0.1
 	}
 
 	allow_in_gold_provinces = no
@@ -551,7 +552,7 @@ marketplace = {
 	time = 12
 
 	modifier = {
-		province_trade_power_modifier = 0.1
+		province_trade_power_modifier = 0.5
 	}
 
 	on_built = {
@@ -601,7 +602,7 @@ workshop = {
 	cost = 150
 	time = 12
 	modifier = {
-		local_production_efficiency = 0.1
+		local_production_efficiency = 0.25
 	}
 
 	on_built = {
@@ -1739,7 +1740,7 @@ university = {
 	cost = 300
 	time = 12
 	modifier = {
-		local_development_cost = -0.1
+		local_development_cost = -0.15
 		allowed_num_of_buildings = 1
 	}
 	on_built = {
@@ -1835,7 +1836,7 @@ trade_depot = {
 	make_obsolete = marketplace
 
 	modifier = {
-		province_trade_power_modifier = 0.25
+		province_trade_power_modifier = 1
 	}
 	on_built = {
 		add_development_from_upgrading_or_building = {
@@ -2176,7 +2177,7 @@ stock_exchange = {
 	make_obsolete = trade_depot
 
 	modifier = {
-		province_trade_power_modifier = 0.5
+		province_trade_power_modifier = 1.25
 	}
 	on_built = {
 		if = {
@@ -2232,7 +2233,7 @@ counting_house = {
 
 	make_obsolete = workshop
 	modifier = {
-		local_production_efficiency = 0.25
+		local_production_efficiency = 0.5
 	}
 	on_built = {
 		add_development_from_upgrading_or_building = {
@@ -2667,7 +2668,7 @@ manufactory = {
 	cost = 500
 	time = 60
 	modifier = {
-		trade_goods_size = 1.0
+		trade_goods_size = 0.75
 	}
 }
 

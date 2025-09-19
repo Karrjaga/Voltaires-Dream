@@ -930,6 +930,11 @@ guilds = {
 				}
 			}
 		}
+		modifier = {
+			factor = 0.1
+			scale = yes
+			has_building = post_office
+		}
 	}
 
 	ai_will_do = { 
@@ -1251,6 +1256,16 @@ publichealth = {
 					has_institution = publichealth
 				}
 			}
+		}
+		modifier = {
+			factor = 0.1
+			scale = yes
+			has_building = arsenal
+		}
+		modifier = {
+			factor = 0.1
+			scale = yes
+			has_building = customs_house
 		}
 	}
 
