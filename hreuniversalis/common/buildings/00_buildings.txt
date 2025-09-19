@@ -239,9 +239,13 @@ harbour = {
 armory = {
 	cost = 100
 	time = 12
+	build_trigger = {
+		has_fort_building_trigger = yes
+	}
 	modifier = {
-		local_regiment_cost = -0.1
-		local_defensiveness = 0.1
+		local_fort_maintenance_modifier = -0.1
+		local_assault_fort_cost_modifier = 0.2
+		allowed_num_of_buildings = 1
 	}
 
 	on_built = {
@@ -261,6 +265,7 @@ college = {
 	time = 12
 	modifier = {
 		local_development_cost = -0.05
+		allowed_num_of_buildings = 1
 	}
 
 	ai_will_do = {
