@@ -280,7 +280,7 @@ estate_burghers = {
 		estate_burghers_TIM_gulf_toll
 		#mod
 		estate_burghers_kulm_law
-		#estate_burghers_marsh_expansion
+		estate_burghers_marsh_expansion
 		estate_burghers_dutch_water_lines
 		estate_burghers_jewish_scapegoats
 		estate_burghers_jewish_sanctuary
