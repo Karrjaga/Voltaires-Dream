@@ -3,7 +3,10 @@
 # 	generic = no
 # 	ai = yes
 # 	has_country_shield = yes
-# 	potential = { tag = AAN NOT = { map_setup = map_setup_random } } 
+# 	potential = {
+# 		tag = AAN
+# 		NOT = { map_setup = map_setup_random }
+# 	} 
 
 # 	vn_aan_georgian_relations = {
 # 		icon = geo_preventing_collapse
@@ -39,6 +42,62 @@
 			
 # 		}
 # 	}
+	
+# }
+
+# vn_aan_missions_1_with_geo = {
+# 	slot = 1
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		tag = AAN
+# 		#has_country_flag = aan_with_geo_missions
+# 		NOT = { map_setup = map_setup_random }
+# 	} 
+
+# 	vn_aan_befriend_georgia = {
+# 		provinces_to_highlight = {
+# 			owner = {
+# 				alliance_with = ROOT
+# 				culture_group = caucasian
+# 			}
+# 		}
+		
+# 		trigger = {
+# 			#not_in_mission_preview_mode = { key = HSN2 }
+# 			any_ally = {
+# 				capital_scope = {
+# 					region = georgia_region
+# 				}
+# 				culture_group = caucasian
+# 				has_opinion = {
+# 					who = ROOT
+# 					value = 190
+# 				}
+# 				if = {
+# 					limit = {
+# 						has_dlc = "The Cossacks"
+# 					}
+# 					trust = { who = ROOT value = 80 }
+# 				}
+# 			}
+# 		}
+# 	}
+	
+# }
+
+# vn_aan_mission_1_against_geo = {
+# 	slot = 1
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		tag = AAN
+# 		#has_country_flag = aan_against_geo_missions
+# 		NOT = { map_setup = map_setup_random }
+# 	}
+
 # 	vn_aan_cross_caucasus = {
 # 		icon = mission_the_caucasus_rus
 # 		position = 1
@@ -74,6 +133,7 @@
 # 				}
 # 				add_permanent_claim = ROOT
 # 			}
+# 			custom_tooltip = " "
 # 			add_country_modifier = {
 # 				name = aan_cross_caucasus_mission
 # 				duration = 9125
@@ -127,6 +187,48 @@
 # 		} 
 # 	}
 
+# 	vn_aan_conquer_east_georgia = {
+# 		icon = geo_preventing_collapse
+# 		position = 5
+# 		required_missions = { vn_aan_conquer_kachetia } 
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				area = argveti_area
+# 				area = imereti_area
+# 				area = samtskhe_area
+# 			}
+# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
+
+# 		trigger = {
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 12
+# 				OR = {
+# 					area = argveti_area
+# 					area = imereti_area
+# 					area = samtskhe_area
+# 				}
+# 			}
+# 		} 
+
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					has_government_mechanic = blood_gathering_mechanic
+# 				}
+# 				add_government_power = {
+# 					mechanic_type = blood_gathering_mechanic
+# 					power_type = blood
+# 					value = 15
+# 				}
+# 			}
+# 			else = {
+# 				add_mil_power = 50
+# 			}
+# 			custom_tooltip = " "
+# 		} 
+# 	}
+
 # 	vn_aan_rebuild_colchis = {
 # 		icon = mission_conquer_andhra_bah
 # 		position = 6
@@ -177,6 +279,50 @@
 # 				duration = 9125
 # 			}
 # 		} 
+# 	}
+# }
+
+# vn_aan_missions_1_branching_a = {
+# 	slot = 1
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		tag = AAN
+# 		NOT = { has_country_flag = aan_with_geo_missions }
+# 		NOT = { has_country_flag = aan_against_geo_missions }
+# 	}
+# 	has_country_shield = yes
+
+# 	vn_aan_braching_mission_1 = {
+# 		icon = mission_unknown_mission
+# 		position = 2
+# 		required_missions = {
+# 			vn_aan_georgian_relations
+# 		}
+# 		trigger = {
+# 			custom_trigger_tooltip = {
+# 				tooltip = selectable_mission_trigger_tt
+# 				always = no
+# 			}
+# 		}
+# 		effect = {
+# 			custom_tooltip = selectable_mission_trigger_tt
+# 		}
+# 	}
+# 	vn_aan_braching_mission_2 = {
+# 		icon = mission_unknown_mission
+# 		position = 3
+# 		required_missions = { vn_apl_braching_mission_1 }
+# 		trigger = {
+# 			custom_trigger_tooltip = {
+# 				tooltip = selectable_mission_trigger_tt
+# 				always = no
+# 			}
+# 		}
+# 		effect = {
+# 			custom_tooltip = selectable_mission_trigger_tt
+# 		}
 # 	}
 # }
 
@@ -353,47 +499,7 @@
 
 # 		effect = {  } 
 # 	}
-# 	vn_aan_conquer_east_georgia = {
-# 		icon = geo_preventing_collapse
-# 		position = 5
-# 		required_missions = { vn_aan_conquer_kachetia } 
-# 		provinces_to_highlight = {
-# 			OR = {
-# 				area = argveti_area
-# 				area = imereti_area
-# 				area = samtskhe_area
-# 			}
-# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-# 		} 
-
-# 		trigger = {
-# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-# 				value = 12
-# 				OR = {
-# 					area = argveti_area
-# 					area = imereti_area
-# 					area = samtskhe_area
-# 				}
-# 			}
-# 		} 
-
-# 		effect = {
-# 			if = {
-# 				limit = {
-# 					has_government_mechanic = blood_gathering_mechanic
-# 				}
-# 				add_government_power = {
-# 					mechanic_type = blood_gathering_mechanic
-# 					power_type = blood
-# 					value = 15
-# 				}
-# 			}
-# 			else = {
-# 				add_mil_power = 50
-# 			}
-# 			custom_tooltip = " "
-# 		} 
-# 	}
+	
 # }
 # vn_aan_missions_3_a = {
 # 	slot = 3
@@ -410,14 +516,18 @@
 # 			vn_aan_conquer_chechnya
 # 		}
 # 		provinces_to_highlight = {
-# 			area = chechnya_area
+# 			area = kumykia_area
 # 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 # 		} 
 
 # 		trigger = {
+# 			OR = {
+# 				NOT = { exists = KHZ }
+# 				KHZ = { is_subject_of = ROOT }
+# 			}
 # 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 # 				value = 6
-# 				area = chechnya_area
+# 				area = kumykia_area
 # 			}
 # 		} 
 
@@ -580,6 +690,42 @@
 # 		} 
 # 	}
 
+# 	vn_aan_conquer_derbent = {
+# 		icon = mission_caucasian_village
+# 		position = 3
+# 		required_missions = {
+# 			vn_aan_conquer_chechnya
+# 			vn_aan_conquer_khazaria
+# 		} 
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				area = derbent_area
+# 				area = lekia_area
+# 			}
+# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
+
+# 		trigger = {
+# 			6232 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 12
+# 				OR = {
+# 					area = derbent_area
+# 					area = lekia_area
+# 				}
+# 			}
+# 		} 
+
+# 		effect = {
+# 			6232 = { center_of_trade = 2 }
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = aan_conquer_derbent_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
+
 # 	vn_aan_conquer_lezgin = {
 # 		icon = per_create_the_ghulams
 # 		position = 3
@@ -588,19 +734,19 @@
 # 			vn_aan_conquer_khazaria
 # 		}
 # 		provinces_to_highlight = {
-# 			area = kumykia_area
+# 			area = chechnya_area
 # 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+
+			
 # 		} 
 
 # 		trigger = {
-# 			OR = {
-# 				NOT = { exists = KHZ }
-# 				KHZ = { is_subject_of = ROOT }
-# 			}
 # 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-# 				value = 10
-# 				area = kumykia_area
+# 				value = 6
+# 				area = chechnya_area
 # 			}
+
+			
 # 		} 
 
 # 		effect = {
@@ -674,38 +820,7 @@
 # 		} 
 # 	}
 
-# 	vn_aan_conquer_derbent = {
-# 		icon = mission_caucasian_village
-# 		position = 4
-# 		required_missions = { vn_aan_conquer_lezgin } 
-# 		provinces_to_highlight = {
-# 			OR = {
-# 				area = derbent_area
-# 				area = lekia_area
-# 			}
-# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-# 		} 
-
-# 		trigger = {
-# 			6232 = { country_or_non_sovereign_subject_holds = ROOT }
-# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-# 				value = 12
-# 				OR = {
-# 					area = derbent_area
-# 					area = lekia_area
-# 				}
-# 			}
-# 		} 
-
-# 		effect = {
-# 			6232 = { center_of_trade = 2 }
-# 			custom_tooltip = " "
-# 			add_country_modifier = {
-# 				name = aan_conquer_derbent_mission
-# 				duration = 9125
-# 			}
-# 		} 
-# 	}
+	
 
 # 	vn_aan_conquer_ganja = {
 # 		icon = mission_restore_rule_over_mysore
@@ -764,6 +879,252 @@
 # 					}
 # 				"
 # 			}
+# 		} 
+# 	}
+# }
+
+# vn_aan_missions_1_b = {
+# 	slot = 1
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		tag = AAN
+# 		NOT = { map_setup = map_setup_random }
+# 	} 
+
+# 	vn_aan_terracing_for_agriculture = {
+# 		icon = mission_a_million_rice_fields
+# 		position = 7
+# 		required_missions = {
+			
+# 		}
+# 		provinces_to_highlight = {
+# 			owned_by = ROOT
+# 			OR = {
+# 				has_terrain = mountain
+# 				has_terrain = hills
+# 				has_terrain = highlands
+# 			}
+# 		} 
+
+# 		trigger = {
+# 			custom_trigger_tooltip = {
+# 				tooltip = INC_has_developed_mountains_provinces
+# 				check_variable = {
+# 					which = num_of_times_developed_mountains
+# 					value = 20
+# 				}
+# 			}
+# 		} 
+
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Mandate of Heaven"
+# 				}
+# 				custom_tooltip = " "
+# 				custom_tooltip = INC_every_owned_province_with_highland_terrain_prosperity
+# 				hidden_effect = {
+# 					every_owned_province = {
+# 						limit = {
+# 							OR = {
+# 								has_terrain = mountain
+# 								has_terrain = highlands
+# 								has_terrain = hills
+# 							}
+# 						}
+# 						add_prosperity = 20
+# 					}
+# 				}
+# 			}
+# 		} 
+# 	}
+# 	vn_aan_caucasian_tea = {
+# 		icon = mission_riches_of_golconda
+# 		position = 7
+# 		required_missions = {
+			
+# 		}
+# 		provinces_to_highlight = {
+# 			owned_by = ROOT
+# 			trade_goods = tea
+# 		} 
+
+# 		trigger = {
+# 			trade_goods_produced_amount = {
+# 				trade_goods = tea
+# 				amount = 5
+# 			}
+# 		} 
+
+# 		effect = {
+# 			distribute_development = {
+# 				type = production
+# 				amount = 5
+# 				limit = "
+# 					trade_goods = tea
+# 				"
+# 				tooltip = vn_aan_caucasian_tea.tt
+# 			}
+			
+# 		} 
+# 	}
+
+# 	vn_aan_tea_monopoly = {
+# 		icon = yem_coffee
+# 		position = 8
+# 		required_missions = {
+# 			vn_aan_caucasian_tea
+# 		}
+# 		provinces_to_highlight = {
+# 			owned_by = ROOT
+# 			trade_goods = tea
+# 		} 
+
+# 		trigger = {
+# 			OR = {
+# 				trade_goods_produced_amount = {
+# 					trade_goods = tea
+# 					amount = 35
+# 				}
+# 				trading_part = {
+# 					trade_goods = tea
+# 					value = 0.35
+# 				}
+# 				production_leader = {
+# 					trade_goods = tea
+# 				}
+# 			}
+# 		} 
+
+# 		effect = {
+# 			capital_scope = {
+# 				add_or_upgrade_production_building = yes
+# 			}
+# 			custom_tooltip = " "
+# 			change_price = {
+# 				trade_goods = tea
+# 				key = vn_aan_tea_monopoly.tt
+# 				value = 0.25
+# 				duration = 18250
+# 			}
+# 		} 
+# 	}
+# }
+
+# vn_aan_missions_5_b = {
+# 	slot = 5
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		tag = AAN
+# 		NOT = { map_setup = map_setup_random }
+# 	} 
+
+# 	vn_aan_wolfes = {
+# 		icon = mjz_for_the_horde
+# 		position = 7
+# 		trigger = { 
+# 			num_of_battles = { amount = 15 }
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Cradle of Civilization"
+# 				}
+# 				army_professionalism = 0.15
+# 			}
+# 			else = {
+# 				army_tradition = 30
+# 			}
+# 		} 
+
+# 		effect = {  
+			
+# 		} 
+# 	}
+# 	vn_aan_parthian_shot = {
+# 		icon = mjz_for_the_horde
+# 		position = 7
+# 		required_missions = {
+# 			vn_aan_wolfes
+# 		}
+# 		trigger = { 
+# 			num_of_battles = { amount = 50 }
+# 			OR = {
+# 				num_of_cavalry = 20
+# 				cavalry_fraction = 0.25
+# 			}
+# 		} 
+
+# 		effect = {  
+# 			add_country_modifier = {
+# 				name = aan_parthian_shot_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
+# 	vn_aan_warrior_heroes = {
+# 		icon = mission_noble_tribes
+# 		position = 7
+# 		required_missions = {
+# 			vn_aan_parthian_shot
+# 		}
+# 		trigger = { 
+# 			num_of_battles = { amount = 200 }
+# 			army_size = 150
+# 		} 
+
+# 		effect = {  
+			
+# 		} 
+# 	}
+# 	vn_aan_blacksmithing = {
+# 		icon = mission_oirat
+# 		position = 7
+# 		required_missions = {
+			
+# 		}
+# 		trigger = { 
+# 			has_high_monthly_monarch_power = { type = mil }
+# 			OR = {
+# 				mil = 4
+# 				has_mil_advisor_3 = yes
+# 			}
+# 		} 
+
+# 		effect = {  
+			
+# 		} 
+# 	}
+# 	vn_aan_sarmatian_legacy = {
+# 		icon = mission_oirat
+# 		position = 7
+# 		required_missions = {
+			
+# 		}
+# 		trigger = { 
+			
+			
+# 		} 
+
+# 		effect = {  
+			
+# 		} 
+# 	}
+# 	vn_aan_asud_regiments = {
+# 		icon = mission_oirat
+# 		position = 7
+# 		required_missions = {
+			
+# 		}
+# 		trigger = { 
+			
+			
+# 		} 
+
+# 		effect = {  
+# 			#unlock mercs
 # 		} 
 # 	}
 # }

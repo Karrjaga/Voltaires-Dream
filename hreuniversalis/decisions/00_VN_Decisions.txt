@@ -2537,71 +2537,71 @@ country_decisions = {
 		}
 	}
 
-	great_fitna_high_authority = {
-		color = { 100 0 0 }
-		major = yes
-		potential = {
-			has_disaster = great_fitna
-			NOT = { has_country_flag = ended_fitna_by_high_authority }
-			NOT = { has_country_flag = ended_fitna_by_low_authority }
-		}
-		allow = {
-			has_disaster = great_fitna
-			stability = 1
-			custom_trigger_tooltip = {
-				tooltip = great_fitna.tt
-				check_variable = {
-					which = fatimid_authority
-					value = 10
-				}
-			}
-		}
-		effect = {
-			tooltip = { end_disaster = great_fitna }
-			country_event = { id = great_fitna.101 }
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	great_fitna_low_authority = {
-		color = { 100 0 0 }
-		major = yes
-		potential = {
-			has_disaster = great_fitna
-			NOT = { has_country_flag = ended_fitna_by_high_authority }
-			NOT = { has_country_flag = ended_fitna_by_low_authority }
-		}
-		allow = {
-			has_disaster = great_fitna
-			stability = 1
-			OR = {
-				custom_trigger_tooltip = {
-					tooltip = disaster_active_for_20_years_tooltip
-					had_country_flag = {
-						flag = had_great_fitna
-						days = 7300
-					}
-				}
-				custom_trigger_tooltip = {
-					tooltip = great_fitna.tt2
-					NOT = {
-						check_variable = {
-							which = fatimid_authority
-							value = -9
-						}
-					}
-				}
-			}
-		}
-		effect = {
-			tooltip = { end_disaster = great_fitna }
-			country_event = { id = great_fitna.102 }
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	# great_fitna_high_authority = {
+	# 	color = { 100 0 0 }
+	# 	major = yes
+	# 	potential = {
+	# 		has_disaster = great_fitna
+	# 		NOT = { has_country_flag = ended_fitna_by_high_authority }
+	# 		NOT = { has_country_flag = ended_fitna_by_low_authority }
+	# 	}
+	# 	allow = {
+	# 		has_disaster = great_fitna
+	# 		stability = 1
+	# 		custom_trigger_tooltip = {
+	# 			tooltip = great_fitna.tt
+	# 			check_variable = {
+	# 				which = fatimid_authority
+	# 				value = 10
+	# 			}
+	# 		}
+	# 	}
+	# 	effect = {
+	# 		tooltip = { end_disaster = great_fitna }
+	# 		country_event = { id = great_fitna.101 }
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
+	# great_fitna_low_authority = {
+	# 	color = { 100 0 0 }
+	# 	major = yes
+	# 	potential = {
+	# 		has_disaster = great_fitna
+	# 		NOT = { has_country_flag = ended_fitna_by_high_authority }
+	# 		NOT = { has_country_flag = ended_fitna_by_low_authority }
+	# 	}
+	# 	allow = {
+	# 		has_disaster = great_fitna
+	# 		stability = 1
+	# 		OR = {
+	# 			custom_trigger_tooltip = {
+	# 				tooltip = disaster_active_for_20_years_tooltip
+	# 				had_country_flag = {
+	# 					flag = had_great_fitna
+	# 					days = 7300
+	# 				}
+	# 			}
+	# 			custom_trigger_tooltip = {
+	# 				tooltip = great_fitna.tt2
+	# 				NOT = {
+	# 					check_variable = {
+	# 						which = fatimid_authority
+	# 						value = -9
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# 	effect = {
+	# 		tooltip = { end_disaster = great_fitna }
+	# 		country_event = { id = great_fitna.102 }
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 
 	revive_zoroastrianism = {
 		major = yes

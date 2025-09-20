@@ -600,6 +600,10 @@ base_values = {
 	max_flagships = 1
 	num_of_parliament_issues = 10
 	has_marines = yes
+
+	#mod
+	administrative_efficiency = -0.5
+	development_cost_modifier = -0.5
 }
 
 # AI 'cheats' that compensate for flaws in its long-term decision making, removing these may severely cripple the AI
@@ -2359,8 +2363,8 @@ expand_administation_modifier = {
 
 # At 100% over capacity, this modifier will be fully used
 over_governing_capacity_modifier = {
-	stability_cost_modifier = 1.0
-	ae_impact = 0.5
+	stability_cost_modifier = 2 #doubled
+	ae_impact = 1 #doubled
 	improve_relation_modifier = -0.5
 	advisor_cost = 1.0
 	monthly_militarized_society = -1.0
@@ -2373,6 +2377,10 @@ over_governing_capacity_modifier = {
 	monthly_byzantine_feudalization = 2
 	monthly_assyrian_militarization_power = -1
 	monthly_vizierate_power = 0.5
+
+	#mod
+	administrative_efficiency = -1
+	min_autonomy = 50
 }
 
 #Scales with used capacity, being at full capacity means 100% of the modifier

@@ -48,8 +48,8 @@ technology = {
 	expects_institution = {
 		feudalism = 0.25
 	}
-	
 	governing_capacity = 50
+	administrative_efficiency = 0.05
 }
 
 technology = {
@@ -79,6 +79,7 @@ technology = {
 		feudalism = 0.5
 	}
 	
+	development_cost_modifier = -0.05
 	watchman = yes
 }
 
@@ -102,6 +103,7 @@ technology = {
 	}
 	
 	production_efficiency	=	0.01
+	administrative_efficiency = 0.05
 }
 
 technology = {
@@ -145,6 +147,7 @@ technology = {
 		investiture = 0.5
 	}
 	
+	administrative_efficiency = 0.05
 	allowed_idea_groups = 2
 }
 
@@ -178,6 +181,7 @@ technology = {
 		investiture = 0.5
 	}
 	
+	development_cost_modifier = -0.05
 	governing_capacity = 50
 }
 
@@ -201,6 +205,7 @@ technology = {
 		universities = 0.15
 	}
 	
+	administrative_efficiency = 0.05
 	production_efficiency	=	0.01
 }
 
@@ -263,6 +268,7 @@ technology = {
 		guilds = 0.3
 	}
 	
+	administrative_efficiency = 0.05
 	production_efficiency	=	0.01
 }
 
@@ -289,6 +295,7 @@ technology = {
 		guilds = 0.5
 	}
 	
+	development_cost_modifier = -0.05
 	college = yes
 }
 
@@ -330,6 +337,7 @@ technology = {
 		chivalry = 0.3
 	}
 	
+	administrative_efficiency = 0.05
 	allowed_idea_groups = 4
 }
 
@@ -403,6 +411,7 @@ technology = {
 		publichealth = 0.5
 	}
 	
+	administrative_efficiency = 0.05
 	governing_capacity = 50
 }
 
@@ -420,6 +429,7 @@ technology = {
 	
 	governing_capacity = 50
 	farm_estate = yes
+	development_cost_modifier = -0.05
 }
 
 technology = {
@@ -483,6 +493,7 @@ technology = {
 		laytheology = 0.5
 	}
 	
+	administrative_efficiency = 0.05
 	# Temple
 	temple = yes
 }
@@ -501,6 +512,7 @@ technology = {
 	}
 
 	production_efficiency	=	0.01
+	development_cost_modifier = -0.05
 }
 
 technology = {
@@ -571,6 +583,8 @@ technology = {
 	}
 
 	year = 1504
+
+	administrative_efficiency = 0.05
 	courthouse = yes
 }
 
@@ -591,6 +605,7 @@ technology = {
 	
 	#The Scythe
 	production_efficiency 	=	0.01
+	development_cost_modifier = -0.05
 }
 
 technology = {
@@ -667,6 +682,7 @@ technology = {
 	administrative_monarchy	= yes 
 	administrative_republic	= yes
 	state_house = yes
+	administrative_efficiency = 0.05
 }
 
 technology = {
@@ -687,6 +703,7 @@ technology = {
 	
 	#Improved Drainage
 	production_efficiency 	=	0.01
+	development_cost_modifier = -0.05
 }
 
 technology = {
@@ -895,6 +912,7 @@ technology = {
 	
 	constitutional_monarchy = yes
 	constitutional_republic = yes
+	development_cost_modifier = -0.05
 }
 
 technology = {
@@ -1098,6 +1116,7 @@ technology = {
 
 	enlightened_despotism = yes
 	bureaucratic_despotism = yes
+	development_cost_modifier = -0.05
 }
 
 technology = {

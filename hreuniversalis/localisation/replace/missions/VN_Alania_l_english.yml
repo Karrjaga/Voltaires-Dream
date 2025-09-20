@@ -2,6 +2,9 @@
  vn_aan_georgian_relations_title: "Ties with the Georgians"
  vn_aan_georgian_relations_desc: ""
 
+ vn_aan_befriend_georgia_title: "Befriend Georgia"
+ vn_aan_befriend_georgia_desc: ""
+
  vn_aan_cross_caucasus_title:0 "Cross the Caucasus"
  vn_aan_cross_caucasus_desc:0 ""
 
@@ -59,8 +62,14 @@
  vn_aan_raid_baghdad_title:0 "Raid Baghdad"
  vn_aan_raid_baghdad_desc:0 ""
 
+ vn_aan_caucasian_tea_title: "Caucasian Tea"
+ vn_aan_caucasian_tea_desc: ""
+ vn_aan_caucasian_tea.tt: "The development will only be distributed in §YTea§! provinces."
 
- aan_raiding_hordes_mission: "Alanian Raiders"
+ vn_aan_tea_monopoly_title: "Tea Monopoly"
+ vn_aan_tea_monopoly_desc: ""
+
+ aan_raiding_hordes_mission: "Alan Raiders"
  desc_aan_raiding_hordes_mission: ""
  aan_conquer_karachay_mission: "Turkic Alliances"
  desc_aan_conquer_karachay_mission: ""
