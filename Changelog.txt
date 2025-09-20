@@ -16,8 +16,10 @@
 -Updated El Cid's event chain
 -Updated the Hundred Years War event chain
 -Updated several flags
--Buffed many personal deities
--Reverted some building nerfs
+-Rebalanced many personal deities
+-Rebalanced some buildings
+-Rebalanced administrative efficiency and development efficiency upon game start and in respective technologies
+-Christian merchant republics can now propagate religion through trade
 -Made the Revolt of the Earls disaster less harsh, giving Norman England higher survival chances
 -Crusades can now also target human players
 -Reworked the Jewish Vizirs estate privilege into a government mechanic
