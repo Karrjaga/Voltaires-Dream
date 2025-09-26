@@ -9,7 +9,6 @@ capital = 6238
 
 #Tabasaranshah
 1054.1.1 = {
-	override_country_name = TABASARAN_NAME
 	monarch = {
 		name = "Hormuzd"
 		dynasty = "Banû Yazîd"
@@ -19,12 +18,12 @@ capital = 6238
 	}
 }
 1065.1.1 = {
-	restore_country_name = yes
 	primary_culture = dagestani
 } #done
 
 #Quba Khanate
 1680.1.1 = {
+	override_country_name = QUBA_NAME
 	government = tribal
 	add_government_reform = steppe_horde
 	technology_group = nomad_group
@@ -54,6 +53,7 @@ capital = 6238
 
 #Lezgin Rebel
 1711.1.1 = {
+	restore_country_name = yes
 	religion = sunni
 	religious_school = shafii_school
 	monarch = {
@@ -69,6 +69,7 @@ capital = 6238
 
 #Khanate Restored
 1734.8.17 = {
+	override_country_name = QUBA_NAME
 	religion = shiite
 	religious_school = jafari_school
 	monarch = {
