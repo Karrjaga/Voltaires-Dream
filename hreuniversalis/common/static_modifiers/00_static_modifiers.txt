@@ -603,7 +603,7 @@ base_values = {
 
 	#mod
 	administrative_efficiency = -0.5
-	development_cost_modifier = -0.5
+	development_cost_modifier = 0.5
 }
 
 # AI 'cheats' that compensate for flaws in its long-term decision making, removing these may severely cripple the AI
