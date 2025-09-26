@@ -1640,7 +1640,7 @@
  vn_finnish_events.3.b: "This is a magnificent development."
 #Country flavor
  vn_flavor_aan.1.t: "A [GEO.GetAdjective] Heir for [Root.GetName]?"
- vn_flavor_aan.1.d: "A portion of the [Root.GetAdjective] court is concerned about the lack of an heir in the event of [Root.Monarch.GetTitle] [Root.Monarch.GetName]'s demise. While some are looking for suitable relatives of the [Root.Monarch.GetTitle], one wise advisor has suggested naming Davit Bagrationi as heir. This [GEO.GetAdjective] prince has been living in exile in [Root.GetName] since his father Demetrius Bagrationi's failed coup attempt on the [GEO.GetAdjective] throne. Davit Bagrationi has [Root.GetAdjective] blood through his mother Alda of Alania, daughter of Durgulel the Great, so his succession to the throne would not be particularly unacceptable."
+ vn_flavor_aan.1.d: "A portion of the [Root.GetAdjective] court is concerned about the lack of an heir in the event of [Root.Monarch.GetTitle] [Root.Monarch.GetName]'s demise. While some are looking for suitable relatives of the [Root.Monarch.GetTitle], one wise advisor has suggested naming Davit Bagrationi as heir. This [GEO.GetAdjective] prince has been living in exile in [Root.GetName] since his father Demetrius Bagrationi's failed coup attempt to the [GEO.GetAdjective] throne. Davit Bagrationi has [Root.GetAdjective] blood through his grandmother Alda of Alania, sister of Durgulel the Great, so his succession to the throne would not be particularly unacceptable."
  vn_flavor_aan.1.a: "Davit Bagrationi shall be our heir."
  vn_flavor_aan.1.b: "We do not need sons of failed pretenders on our throne."
  vn_flavor_aan.2.t: "The Claim of Davit Bagrationi"
