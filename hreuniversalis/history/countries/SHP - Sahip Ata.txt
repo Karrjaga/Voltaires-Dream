@@ -34,7 +34,7 @@ religious_school = hanafi_school
 		mil = 2
 	}
 }
-1297.1.1 = {
+1287.1.1 = {
 	monarch = {
 		name = "Ahmed"
 		dynasty = "Sâhipataoglu"
