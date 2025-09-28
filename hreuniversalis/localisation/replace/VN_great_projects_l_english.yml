@@ -1,5 +1,6 @@
 ﻿l_english:
 #Religions
+ province_is_or_accepts_mandaeism_tt: "The Religion of §Y[Root.GetName]§! is §YMandaeist§! and is either the State or the Syncretic Religion of the owner."
  province_is_or_accepts_sunni_tt: "The Religion of §Y[Root.GetName]§! is §YSunni§! and is either the State or the Syncretic Religion of the owner."
  province_is_or_accepts_zikri_tt: "The Religion of §Y[Root.GetName]§! is §YBatini§! and is either the State or the Syncretic Religion of the owner."
  province_is_or_accepts_qarmatian_tt: "The Religion of §Y[Root.GetName]§! is §YQarmatian§! and is either the State or the Syncretic Religion of the owner."
