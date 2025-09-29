@@ -4911,6 +4911,7 @@ german_saxon_reform = {
 						trade_goods = plumbum
 						trade_goods = silver
 						trade_goods = tin
+						trade_goods = zinc
 					}
 				}
 				add_province_modifier = { 
@@ -5389,12 +5390,12 @@ apostolic_kingdom = {
 	allow_normal_conversion = yes
 	potential = {
 		OR = {
-			religion = catholic
-			religion = catholique
-		}
-		OR = {
 			tag = HUN
 			was_tag = HUN
+		}
+		OR = {
+			religion = catholic
+			religion = catholique
 		}
 	}
 	legacy_equivalent = feudal_monarchy
@@ -5402,7 +5403,10 @@ apostolic_kingdom = {
 
 	nation_designer_trigger = {
 		primary_culture = hungarian
-		religion = catholic
+		OR = {
+			religion = catholic
+			religion = catholique
+		}
 	}
 
 	modifiers = {
@@ -5535,11 +5539,11 @@ bergordnung_reforms_reform = {
 	icon = "laesio_enormis_reform"
 	allow_normal_conversion = yes
 	potential = {
-		has_unlocked_government_reform = { government_reform = bergordnung_reforms_reform }
 		OR = {
 			tag = BOH
 			was_tag = BOH
 		}
+		has_unlocked_government_reform = { government_reform = bergordnung_reforms_reform }
 		has_dlc = "Winds of Change"
 	}
 	custom_attributes = {
@@ -5560,13 +5564,14 @@ vozove_hradby_reform = {
 	potential = {
 		OR = {
 			tag = HGA
-			has_unlocked_government_reform = { government_reform = vozove_hradby_reform }
-		}
-		OR = {
-			tag = HGA
 			was_tag = HGA
-			tag = BOH
-			was_tag = BOH
+			AND = {
+				OR = {
+					tag = BOH
+					was_tag = BOH
+				}
+				has_unlocked_government_reform = { government_reform = vozove_hradby_reform }
+			}	
 		}
 		has_dlc = "Winds of Change"
 	}
@@ -5581,4 +5586,3 @@ vozove_hradby_reform = {
 		factor = 1
 	}
 }
-

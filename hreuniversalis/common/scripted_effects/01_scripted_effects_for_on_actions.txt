@@ -1220,6 +1220,7 @@ on_province_owner_change_government_effect = {
 				trade_goods = silver
 				trade_goods = plumbum
 				trade_goods = tin
+				trade_goods = zinc
 			}
 			owner = {
 				has_government_attribute = GER_buff_mining_provinces
@@ -1657,6 +1658,7 @@ on_trade_good_changed_government_effect = {
 					trade_goods = tin
 					trade_goods = plumbum
 					trade_goods = silver
+					trade_goods = zinc
 				}
 			}
 			add_province_modifier = { 
