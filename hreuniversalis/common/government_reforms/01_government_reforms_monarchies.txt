@@ -2773,13 +2773,22 @@ arabic_plutocracy_reform = {
 	icon = arabian_plutocracy_reform
 	allow_normal_conversion = no
 	potential = {
-		primary_culture = gulf_arabic
+		OR = {
+			primary_culture = gulf_arabic
+			primary_culture = al_iraqiya_arabic
+		}
 	}
 	trigger = {
-		primary_culture = gulf_arabic
+		OR = {
+			primary_culture = gulf_arabic
+			primary_culture = al_iraqiya_arabic
+		}
 	}
 	nation_designer_trigger = {
-		primary_culture = gulf_arabic
+		OR = {
+			primary_culture = gulf_arabic
+			primary_culture = al_iraqiya_arabic
+		}
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 10
