@@ -608,6 +608,7 @@ almoravid_invasion = {
 	land_forcelimit = 25
 	global_manpower = 25
 	global_tax_income = 25
+	administrative_efficiency = 0.25
 }
 guelph_ruler = {
 	papal_influence = 0.5
@@ -735,6 +736,7 @@ invasion_nation_m = {
 	tur_militarists_influence = 1
 	global_institution_spread = 0.3
 	liberty_desire_from_subject_development = -0.25
+	administrative_efficiency = 0.25
 }
 all_graviates_titles_acquired = {
     legitimacy = 1
