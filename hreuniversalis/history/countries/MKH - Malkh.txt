@@ -9,6 +9,51 @@ capital = 7664 #Mahabad
 
 1335.12.1 = {
 	monarch = {
+		name = "Mukriyan"
+		dynasty = "Mukrî"
+		adm = 5
+		dip = 4
+		mil = 4
+	}
+}
+1370.1.1 = {
+	monarch = {
+		name = "Ibn Mukriyan"
+		dynasty = "Mukrî"
+		adm = 4
+		dip = 4
+		mil = 3
+	}
+}
+1410.1.1 = {
+	monarch = {
+		name = "Abu Seiff-Aldin"
+		dynasty = "Mukrî"
+		adm = 3
+		dip = 1
+		mil = 0
+	}
+}
+1460.1.1 = {
+	monarch = {
+		name = "Seiff-Aldin Khan"
+		dynasty = "Mukrî"
+		adm = 4
+		dip = 3
+		mil = 6
+	}
+}
+1510.1.1 = {
+	monarch = {
+		name = "Abu Bodagh"
+		dynasty = "Mukrî"
+		adm = 1
+		dip = 4
+		mil = 1
+	}
+}
+1560.1.1 = {
+	monarch = {
 		name = "Bodagh Soltan"
 		dynasty = "Mukrî"
 		adm = 3
@@ -16,4 +61,40 @@ capital = 7664 #Mahabad
 		mil = 1
 	}
 } #executed 1610.1.1
+1610.1.1 = {
+	monarch = {
+		name = "Haji Hassan"
+		dynasty = "Mukrî"
+		adm = 3
+		dip = 3
+		mil = 3
+	}
+}
+1660.1.1 = {
+	monarch = {
+		name = "Ibn Hassan"
+		dynasty = "Mukrî"
+		adm = 3
+		dip = 1
+		mil = 1
+	}
+}
+1710.1.1 = {
+	monarch = {
+		name = "Abu Mohammad"
+		dynasty = "Mukrî"
+		adm = 2
+		dip = 0
+		mil = 1
+	}
+}
+1760.1.1 = {
+	monarch = {
+		name = "Mohammad Khan"
+		dynasty = "Mukrî"
+		adm = 1
+		dip = 0
+		mil = 4
+	}
+}
 #done 1802.1.1
