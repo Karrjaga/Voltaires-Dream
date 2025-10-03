@@ -298,6 +298,7 @@
  EAH_parliament_name: "Reichstag"
  KOJ_parliament_name: "Haute Cour"
  SMX_parliament_name: "Arengo"
+ swiss_parliament_name: "Tagsatzung"
  georgian_parliament_name: "Darbazi"
  string_thingi: "Þing"
  string_witenagemot: "Witenagemot"
