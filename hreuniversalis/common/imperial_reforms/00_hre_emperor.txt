@@ -65,11 +65,11 @@ emperor_reichsreform = {
 		local_development_cost = -0.05
 	}
 	on_effect = {
-		custom_tooltip = demand_unlawful_allowed_tooltip
-		set_global_flag = demand_unlawful_allowed
+		#custom_tooltip = demand_unlawful_allowed_tooltip
+		#set_global_flag = demand_unlawful_allowed
 	}
 	off_effect = {
-		clr_global_flag = demand_unlawful_allowed
+		#clr_global_flag = demand_unlawful_allowed
 	}
 	required_reform = emperor_chrysobull
 	gui_container = mainline
