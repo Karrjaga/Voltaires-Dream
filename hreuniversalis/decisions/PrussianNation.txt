@@ -207,6 +207,7 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			#tag = TEU
+			NOT = { exists = PRU }
 			NOT = { has_reform = celestial_empire } 
 			OR = {
 				NOT = { exists = PTH }
