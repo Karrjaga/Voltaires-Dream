@@ -1,2835 +1,2835 @@
-vn_apl_missions_1a = {
-	slot = 1
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	} 
+# vn_apl_missions_1a = {
+# 	slot = 1
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	} 
 
-	vn_apl_right_hand_of_god = {
-		icon = show_piety
-		position = 1
-		provinces_to_highlight = {  } 
+# 	vn_apl_right_hand_of_god = {
+# 		icon = show_piety
+# 		position = 1
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			if = {
-				limit = { has_estate = estate_church }
-				estate_loyalty = {
-					estate = estate_church
-					loyalty = 60
-				}
-				num_of_estate_privileges = {
-					estate = estate_church
-					value = 3
-				}
-			}
-			else = {
-				stability = 2
-				OR = {
-					theologian = 1
-					inquisitor = 1
-				}
-			}
-		} 
+# 		trigger = {
+# 			if = {
+# 				limit = { has_estate = estate_church }
+# 				estate_loyalty = {
+# 					estate = estate_church
+# 					loyalty = 60
+# 				}
+# 				num_of_estate_privileges = {
+# 					estate = estate_church
+# 					value = 3
+# 				}
+# 			}
+# 			else = {
+# 				stability = 2
+# 				OR = {
+# 					theologian = 1
+# 					inquisitor = 1
+# 				}
+# 			}
+# 		} 
 
-		effect = {
-			add_country_modifier = {
-				name = apl_right_hand_of_god_mission
-				duration = 9125
-			}
-		} 
-	}
+# 		effect = {
+# 			add_country_modifier = {
+# 				name = apl_right_hand_of_god_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_fate_of_benevento = {
-		icon = counter_reformation
-		position = 2
-		required_missions = { vn_apl_right_hand_of_god } 
-		provinces_to_highlight = {
-			province_id = 566
-		} 
+# 	vn_apl_fate_of_benevento = {
+# 		icon = counter_reformation
+# 		position = 2
+# 		required_missions = { vn_apl_right_hand_of_god } 
+# 		provinces_to_highlight = {
+# 			province_id = 566
+# 		} 
 
-		trigger = {
-			OR = {
-				566 = { country_or_non_sovereign_subject_holds = ROOT }
-				566 = {
-					owner = {
-						has_opinion = {
-							who = ROOT
-							value = 150
-						}
-						has_opinion_modifier = {
-							who = ROOT 
-							modifier = sent_gift
-						}
-					}
-				}
-			}
-		} 
+# 		trigger = {
+# 			OR = {
+# 				566 = { country_or_non_sovereign_subject_holds = ROOT }
+# 				566 = {
+# 					owner = {
+# 						has_opinion = {
+# 							who = ROOT
+# 							value = 150
+# 						}
+# 						has_opinion_modifier = {
+# 							who = ROOT 
+# 							modifier = sent_gift
+# 						}
+# 					}
+# 				}
+# 			}
+# 		} 
 
-		effect = {
-			if = {
-				limit = {
-					religion = catholic
-					exists = PAP
-				}
-				complex_dynamic_effect = {
-					first_custom_tooltip = vn_complete_by_conquest
-					first_limit = "
-						566 = { country_or_non_sovereign_subject_holds = ROOT }
-					"
-					first_effect = "
-						country_event = {
-							id = vn_flavor_apl.100
-						}
-					"
-					second_custom_tooltip = vn_complete_by_diplomacy
-					second_limit = "
-						owner = {
-							has_opinion = {
-								who = ROOT
-								value = 150
-							}
-							has_opinion_modifier = {
-								who = ROOT 
-								modifier = sent_gift
-							}
-						}
-					"
-					second_effect = "
-						add_country_modifier = {
-							name = apl_fate_of_benevento_mission
-							duration = 9125
-						}
-						custom_tooltip = vn_apl_fate_of_benevento.tt
-						hidden_effect = {
-							every_country = {
-								limit = {
-									capital_scope = { superregion = sicily_superregion }
-								}
-								add_aggressive_expansion = {
-									who = ROOT
-									value = -10
-									apply_calc = no
-								}
-							}
-						}
-					"
-				}
-			}
-			else = {
-				complex_dynamic_effect = {
-					first_custom_tooltip = vn_complete_by_conquest
-					first_limit = "
-						566 = { country_or_non_sovereign_subject_holds = ROOT }
-					"
-					first_effect = "
-						566 = {
-							add_nationalism = -20
-							add_local_autonomy = -100
-						}
-					"
-					second_custom_tooltip = vn_complete_by_diplomacy
-					second_limit = "
-						owner = {
-							has_opinion = {
-								who = ROOT
-								value = 150
-							}
-							has_opinion_modifier = {
-								who = ROOT 
-								modifier = sent_gift
-							}
-						}
-					"
-					second_effect = "
-						add_country_modifier = {
-							name = apl_fate_of_benevento_mission
-							duration = 9125
-						}
-						custom_tooltip = vn_apl_fate_of_benevento.tt
-						hidden_effect = {
-							every_country = {
-								limit = {
-									capital_scope = { superregion = sicily_superregion }
-								}
-								add_aggressive_expansion = {
-									who = ROOT
-									value = -10
-									apply_calc = no
-								}
-							}
-						}
-					"
-				}
-			}
-		} 
-	}
+# 		effect = {
+# 			if = {
+# 				limit = {
+# 					religion = catholic
+# 					exists = PAP
+# 				}
+# 				complex_dynamic_effect = {
+# 					first_custom_tooltip = vn_complete_by_conquest
+# 					first_limit = "
+# 						566 = { country_or_non_sovereign_subject_holds = ROOT }
+# 					"
+# 					first_effect = "
+# 						country_event = {
+# 							id = vn_flavor_apl.100
+# 						}
+# 					"
+# 					second_custom_tooltip = vn_complete_by_diplomacy
+# 					second_limit = "
+# 						owner = {
+# 							has_opinion = {
+# 								who = ROOT
+# 								value = 150
+# 							}
+# 							has_opinion_modifier = {
+# 								who = ROOT 
+# 								modifier = sent_gift
+# 							}
+# 						}
+# 					"
+# 					second_effect = "
+# 						add_country_modifier = {
+# 							name = apl_fate_of_benevento_mission
+# 							duration = 9125
+# 						}
+# 						custom_tooltip = vn_apl_fate_of_benevento.tt
+# 						hidden_effect = {
+# 							every_country = {
+# 								limit = {
+# 									capital_scope = { superregion = sicily_superregion }
+# 								}
+# 								add_aggressive_expansion = {
+# 									who = ROOT
+# 									value = -10
+# 									apply_calc = no
+# 								}
+# 							}
+# 						}
+# 					"
+# 				}
+# 			}
+# 			else = {
+# 				complex_dynamic_effect = {
+# 					first_custom_tooltip = vn_complete_by_conquest
+# 					first_limit = "
+# 						566 = { country_or_non_sovereign_subject_holds = ROOT }
+# 					"
+# 					first_effect = "
+# 						566 = {
+# 							add_nationalism = -20
+# 							add_local_autonomy = -100
+# 						}
+# 					"
+# 					second_custom_tooltip = vn_complete_by_diplomacy
+# 					second_limit = "
+# 						owner = {
+# 							has_opinion = {
+# 								who = ROOT
+# 								value = 150
+# 							}
+# 							has_opinion_modifier = {
+# 								who = ROOT 
+# 								modifier = sent_gift
+# 							}
+# 						}
+# 					"
+# 					second_effect = "
+# 						add_country_modifier = {
+# 							name = apl_fate_of_benevento_mission
+# 							duration = 9125
+# 						}
+# 						custom_tooltip = vn_apl_fate_of_benevento.tt
+# 						hidden_effect = {
+# 							every_country = {
+# 								limit = {
+# 									capital_scope = { superregion = sicily_superregion }
+# 								}
+# 								add_aggressive_expansion = {
+# 									who = ROOT
+# 									value = -10
+# 									apply_calc = no
+# 								}
+# 							}
+# 						}
+# 					"
+# 				}
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_papal_benevolence = {
-		icon = answer_the_roman_question
-		position = 3
-		required_missions = { vn_apl_fate_of_benevento } 
-		provinces_to_highlight = { 
-			if = {
-				limit = { exists = PAP }
-				is_capital_of = PAP
-			}
-			else = {
-				province_id = 2708
-			}
-		} 
+# 	vn_apl_papal_benevolence = {
+# 		icon = answer_the_roman_question
+# 		position = 3
+# 		required_missions = { vn_apl_fate_of_benevento } 
+# 		provinces_to_highlight = { 
+# 			if = {
+# 				limit = { exists = PAP }
+# 				is_capital_of = PAP
+# 			}
+# 			else = {
+# 				province_id = 2708
+# 			}
+# 		} 
 
-		trigger = {
-			if = {
-				limit = { exists = PAP }
-				OR = {
-					AND = {
-						alliance_with = PAP
-						reverse_has_opinion = {
-							who = PAP
-							value = 180
-						}
-						invested_papal_influence = 50
-					}
-					AND = {
-						total_own_and_non_tributary_subject_development = PAP
-						has_won_war_against = {
-							who = PAP
-							max_years_since = 10
-						}
-					}
-				}
-			}
-			else = {
-				2708 = { country_or_non_sovereign_subject_holds = ROOT }
-			}
-		} 
+# 		trigger = {
+# 			if = {
+# 				limit = { exists = PAP }
+# 				OR = {
+# 					AND = {
+# 						alliance_with = PAP
+# 						reverse_has_opinion = {
+# 							who = PAP
+# 							value = 180
+# 						}
+# 						invested_papal_influence = 50
+# 					}
+# 					AND = {
+# 						total_own_and_non_tributary_subject_development = PAP
+# 						has_won_war_against = {
+# 							who = PAP
+# 							max_years_since = 10
+# 						}
+# 					}
+# 				}
+# 			}
+# 			else = {
+# 				2708 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			}
+# 		} 
 
-		effect = {
-			complex_dynamic_effect = {
-				first_custom_tooltip = vn_complete_by_conquest
-				first_limit = "
-					OR = {
-						AND = {
-							total_own_and_non_tributary_subject_development = PAP
-							has_won_war_against = {
-								who = PAP
-								max_years_since = 10
-							}
-						}
-						2708 = { country_or_non_sovereign_subject_holds = ROOT }
-					}
-				"
-				first_effect = "
-					add_treasury = 1000
-					add_mil_power = 100
-				"
-				second_custom_tooltip = vn_complete_by_diplomacy
-				second_limit = "
-					alliance_with = PAP
-					reverse_has_opinion = {
-						who = PAP
-						value = 180
-					}
-					invested_papal_influence = 50
-				"
-				second_effect = "
-					add_historical_friend = PAP
-					hidden_effect = { PAP = { add_historical_friend = ROOT } }
-					custom_tooltip = \" \"
-					add_country_modifier = {
-						name = apl_papal_benevolence_mission
-						duration = 9125
-					}
-				"
-			}
-		} 
-	}
+# 		effect = {
+# 			complex_dynamic_effect = {
+# 				first_custom_tooltip = vn_complete_by_conquest
+# 				first_limit = "
+# 					OR = {
+# 						AND = {
+# 							total_own_and_non_tributary_subject_development = PAP
+# 							has_won_war_against = {
+# 								who = PAP
+# 								max_years_since = 10
+# 							}
+# 						}
+# 						2708 = { country_or_non_sovereign_subject_holds = ROOT }
+# 					}
+# 				"
+# 				first_effect = "
+# 					add_treasury = 1000
+# 					add_mil_power = 100
+# 				"
+# 				second_custom_tooltip = vn_complete_by_diplomacy
+# 				second_limit = "
+# 					alliance_with = PAP
+# 					reverse_has_opinion = {
+# 						who = PAP
+# 						value = 180
+# 					}
+# 					invested_papal_influence = 50
+# 				"
+# 				second_effect = "
+# 					add_historical_friend = PAP
+# 					hidden_effect = { PAP = { add_historical_friend = ROOT } }
+# 					custom_tooltip = \" \"
+# 					add_country_modifier = {
+# 						name = apl_papal_benevolence_mission
+# 						duration = 9125
+# 					}
+# 				"
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_conquer_naples = {
-		icon = develop_provence
-		position = 4
-		required_missions = { vn_apl_conquer_salerno } 
-		provinces_to_highlight = {
-			OR = {
-				province_id = 2880
-				province_id = 4517
-				province_id = 564
-				province_id = 4516
-				province_id = 556
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 	vn_apl_conquer_naples = {
+# 		icon = develop_provence
+# 		position = 4
+# 		required_missions = { vn_apl_conquer_salerno } 
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				province_id = 2880
+# 				province_id = 4517
+# 				province_id = 564
+# 				province_id = 4516
+# 				province_id = 556
+# 			}
+# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		trigger = {
-			2880 = { country_or_non_sovereign_subject_holds = ROOT }
-			4517 = { country_or_non_sovereign_subject_holds = ROOT }
-			564 = { country_or_non_sovereign_subject_holds = ROOT }
-			4516 = { country_or_non_sovereign_subject_holds = ROOT }
-			556 = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 		trigger = {
+# 			2880 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			4517 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			564 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			4516 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			556 = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		effect = {
-			add_navy_tradition = 10
-			custom_tooltip = " "
-			564 = {
-				add_trade_modifier = {
-					who = ROOT
-					duration = 9125
-					power = 25
-					key = MAY_coastal_networks
-				}
-			}
-		} 
-	}
+# 		effect = {
+# 			add_navy_tradition = 10
+# 			custom_tooltip = " "
+# 			564 = {
+# 				add_trade_modifier = {
+# 					who = ROOT
+# 					duration = 9125
+# 					power = 25
+# 					key = MAY_coastal_networks
+# 				}
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_conquer_sardinia = {
-		icon = seize_sardinia
-		position = 6
-		required_missions = {
-			vn_apl_conquer_naples
-			vn_apl_conquer_capua
-			vn_apl_conquer_sicily
-		}
-		provinces_to_highlight = {
-			OR = {
-				area = arborea_area
-				area = sassari_area
-				area = gallura_area
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 	vn_apl_conquer_sardinia = {
+# 		icon = seize_sardinia
+# 		position = 6
+# 		required_missions = {
+# 			vn_apl_conquer_naples
+# 			vn_apl_conquer_capua
+# 			vn_apl_conquer_sicily
+# 		}
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				area = arborea_area
+# 				area = sassari_area
+# 				area = gallura_area
+# 			}
+# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 10
-				OR = {
-					area = arborea_area
-					area = sassari_area
-					area = gallura_area
-				}
-			}
-		} 
+# 		trigger = {
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 10
+# 				OR = {
+# 					area = arborea_area
+# 					area = sassari_area
+# 					area = gallura_area
+# 				}
+# 			}
+# 		} 
 
-		effect = { 
-			add_dip_power = 100
-			add_country_modifier = {
-				name = apl_conquer_sardinia_mission
-				duration = 9125
-			}
-		} 
-	}
+# 		effect = { 
+# 			add_dip_power = 100
+# 			add_country_modifier = {
+# 				name = apl_conquer_sardinia_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_conquer_algeria = {
-		icon = mission_combat_barbary_piracy
-		position = 7
-		required_missions = { vn_apl_conquer_tunisia } 
-		provinces_to_highlight = {
-			OR = {
-				region = kabylia_region
-				region = tlemcen_region
-			}
-			has_port = yes
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 	vn_apl_conquer_algeria = {
+# 		icon = mission_combat_barbary_piracy
+# 		position = 7
+# 		required_missions = { vn_apl_conquer_tunisia } 
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				region = kabylia_region
+# 				region = tlemcen_region
+# 			}
+# 			has_port = yes
+# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 12
-				OR = {
-					region = kabylia_region
-					region = tlemcen_region
-				}
-				has_port = yes
-			}
-		} 
+# 		trigger = {
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 12
+# 				OR = {
+# 					region = kabylia_region
+# 					region = tlemcen_region
+# 				}
+# 				has_port = yes
+# 			}
+# 		} 
 
-		effect = {
-			add_yearly_sailors = 3
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_conquer_algeria_mission
-				duration = 9125
-			}
-		} 
-	}
-}
-vn_apl_missions_2a = {
-	slot = 2
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# 		effect = {
+# 			add_yearly_sailors = 3
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_conquer_algeria_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
+# }
+# vn_apl_missions_2a = {
+# 	slot = 2
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_apulian_crusade = {
-		icon = crusader_fleet
-		position = 2
-		required_missions = {
-			vn_apl_right_hand_of_god
-			vn_apl_sons_of_tancred
-		}
-		provinces_to_highlight = {  } 
+# 	vn_apl_apulian_crusade = {
+# 		icon = crusader_fleet
+# 		position = 2
+# 		required_missions = {
+# 			vn_apl_right_hand_of_god
+# 			vn_apl_sons_of_tancred
+# 		}
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			religion = catholic
-			custom_trigger_tooltip = {
-				tooltip = vn_apl_apulian_crusade.tt
-				OR = {
-					has_global_flag = riga_delivered
-					has_global_flag = jerusalem_delivered
-					has_global_flag = constantinople_delivered
-					has_global_flag = edessa_delivered
-					has_global_flag = danzig_delivered
-				}
-			}
-		} 
+# 		trigger = {
+# 			religion = catholic
+# 			custom_trigger_tooltip = {
+# 				tooltip = vn_apl_apulian_crusade.tt
+# 				OR = {
+# 					has_global_flag = riga_delivered
+# 					has_global_flag = jerusalem_delivered
+# 					has_global_flag = constantinople_delivered
+# 					has_global_flag = edessa_delivered
+# 					has_global_flag = danzig_delivered
+# 				}
+# 			}
+# 		} 
 
-		effect = {
-			custom_tooltip = vn_apl_apulian_crusade.tt2
-			tooltip = {
-				add_papal_influence = 10
-				add_country_modifier = {
-					name = apl_apulian_crusade_mission
-					duration = 7300
-				}
-			}
-			hidden_effect = {
-				if = {
-					limit = {
-						calc_true_if = {
-							amount = 5
-							has_global_flag = riga_delivered
-							has_global_flag = jerusalem_delivered
-							has_global_flag = constantinople_delivered
-							has_global_flag = edessa_delivered
-							has_global_flag = danzig_delivered
-						}
-					}
-					add_papal_influence = 50
-					add_country_modifier = {
-						name = apl_apulian_crusade_mission
-						duration = 36500
-					}
-				}
-				else_if = {
-					limit = {
-						calc_true_if = {
-							amount = 4
-							has_global_flag = riga_delivered
-							has_global_flag = jerusalem_delivered
-							has_global_flag = constantinople_delivered
-							has_global_flag = edessa_delivered
-							has_global_flag = danzig_delivered
-						}
-					}
-					add_papal_influence = 40
-					add_country_modifier = {
-						name = apl_apulian_crusade_mission
-						duration = 29200
-					}
-				}
-				else_if = {
-					limit = {
-						calc_true_if = {
-							amount = 3
-							has_global_flag = riga_delivered
-							has_global_flag = jerusalem_delivered
-							has_global_flag = constantinople_delivered
-							has_global_flag = edessa_delivered
-							has_global_flag = danzig_delivered
-						}
-					}
-					add_papal_influence = 30
-					add_country_modifier = {
-						name = apl_apulian_crusade_mission
-						duration = 21900
-					}
-				}
-				else_if = {
-					limit = {
-						calc_true_if = {
-							amount = 2
-							has_global_flag = riga_delivered
-							has_global_flag = jerusalem_delivered
-							has_global_flag = constantinople_delivered
-							has_global_flag = edessa_delivered
-							has_global_flag = danzig_delivered
-						}
-					}
-					add_papal_influence = 20
-					add_country_modifier = {
-						name = apl_apulian_crusade_mission
-						duration = 14600
-					}
-				}
-				else = {
-					add_papal_influence = 10
-					add_country_modifier = {
-						name = apl_apulian_crusade_mission
-						duration = 7300
-					}
-				}
-			}
-		} 
-	}
+# 		effect = {
+# 			custom_tooltip = vn_apl_apulian_crusade.tt2
+# 			tooltip = {
+# 				add_papal_influence = 10
+# 				add_country_modifier = {
+# 					name = apl_apulian_crusade_mission
+# 					duration = 7300
+# 				}
+# 			}
+# 			hidden_effect = {
+# 				if = {
+# 					limit = {
+# 						calc_true_if = {
+# 							amount = 5
+# 							has_global_flag = riga_delivered
+# 							has_global_flag = jerusalem_delivered
+# 							has_global_flag = constantinople_delivered
+# 							has_global_flag = edessa_delivered
+# 							has_global_flag = danzig_delivered
+# 						}
+# 					}
+# 					add_papal_influence = 50
+# 					add_country_modifier = {
+# 						name = apl_apulian_crusade_mission
+# 						duration = 36500
+# 					}
+# 				}
+# 				else_if = {
+# 					limit = {
+# 						calc_true_if = {
+# 							amount = 4
+# 							has_global_flag = riga_delivered
+# 							has_global_flag = jerusalem_delivered
+# 							has_global_flag = constantinople_delivered
+# 							has_global_flag = edessa_delivered
+# 							has_global_flag = danzig_delivered
+# 						}
+# 					}
+# 					add_papal_influence = 40
+# 					add_country_modifier = {
+# 						name = apl_apulian_crusade_mission
+# 						duration = 29200
+# 					}
+# 				}
+# 				else_if = {
+# 					limit = {
+# 						calc_true_if = {
+# 							amount = 3
+# 							has_global_flag = riga_delivered
+# 							has_global_flag = jerusalem_delivered
+# 							has_global_flag = constantinople_delivered
+# 							has_global_flag = edessa_delivered
+# 							has_global_flag = danzig_delivered
+# 						}
+# 					}
+# 					add_papal_influence = 30
+# 					add_country_modifier = {
+# 						name = apl_apulian_crusade_mission
+# 						duration = 21900
+# 					}
+# 				}
+# 				else_if = {
+# 					limit = {
+# 						calc_true_if = {
+# 							amount = 2
+# 							has_global_flag = riga_delivered
+# 							has_global_flag = jerusalem_delivered
+# 							has_global_flag = constantinople_delivered
+# 							has_global_flag = edessa_delivered
+# 							has_global_flag = danzig_delivered
+# 						}
+# 					}
+# 					add_papal_influence = 20
+# 					add_country_modifier = {
+# 						name = apl_apulian_crusade_mission
+# 						duration = 14600
+# 					}
+# 				}
+# 				else = {
+# 					add_papal_influence = 10
+# 					add_country_modifier = {
+# 						name = apl_apulian_crusade_mission
+# 						duration = 7300
+# 					}
+# 				}
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_conquer_salerno = {
-		icon = confront_the_lombards
-		position = 3
-		required_missions = { vn_apl_crush_catepanate } 
-		provinces_to_highlight = {
-			OR = {
-				AND = {
-					owned_by = SLR
-					NOT = {
-						OR = {
-							NOT = { exists = SLR }
-							SLR = { is_subject_of = ROOT }
-						}
-					}
-				}
-				AND = {
-					province_id = 2033
-					NOT = { country_or_non_sovereign_subject_holds = ROOT }
-				}
-			}
-		} 
+# 	vn_apl_conquer_salerno = {
+# 		icon = confront_the_lombards
+# 		position = 3
+# 		required_missions = { vn_apl_crush_catepanate } 
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				AND = {
+# 					owned_by = SLR
+# 					NOT = {
+# 						OR = {
+# 							NOT = { exists = SLR }
+# 							SLR = { is_subject_of = ROOT }
+# 						}
+# 					}
+# 				}
+# 				AND = {
+# 					province_id = 2033
+# 					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 				}
+# 			}
+# 		} 
 
-		trigger = {
-			2033 = { country_or_non_sovereign_subject_holds = ROOT }
-			OR = {
-				NOT = { exists = SLR }
-				SLR = { is_subject_of = ROOT }
-			}
-		} 
+# 		trigger = {
+# 			2033 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			OR = {
+# 				NOT = { exists = SLR }
+# 				SLR = { is_subject_of = ROOT }
+# 			}
+# 		} 
 
-		effect = {
-			2033 = {
-				add_or_upgrade_tax_building = yes
-				custom_tooltip = " "
-				add_or_upgrade_trade_building = yes
-				custom_tooltip = " "
-				add_center_of_trade_level = 1
-			}
-			custom_tooltip = " "
+# 		effect = {
+# 			2033 = {
+# 				add_or_upgrade_tax_building = yes
+# 				custom_tooltip = " "
+# 				add_or_upgrade_trade_building = yes
+# 				custom_tooltip = " "
+# 				add_center_of_trade_level = 1
+# 			}
+# 			custom_tooltip = " "
 			
-			2880 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			4517 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			564 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			4516 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			556 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			2216 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			4518 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			2042 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			4520 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			2053 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			2046 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			3191 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			1180 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-		} 
-	}
+# 			2880 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			4517 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			564 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			4516 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			556 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			2216 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			4518 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			2042 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			4520 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			2053 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			2046 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			3191 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			1180 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_conquer_capua = {
-		icon = mission_have_two_subjects
-		position = 5
-		required_missions = { vn_apl_conquer_salerno } 
-		provinces_to_highlight = { 
-			AND = {
-				owned_by = CPU
-				NOT = {
-					OR = {
-						NOT = { exists = CPU }
-						CPU = { is_subject_of = ROOT }
-					}
-				}
-			}
-			AND = {
-				OR = {
-					province_id = 2216
-					province_id = 4518
-					province_id = 2042
-					province_id = 4520
-					province_id = 2053
-					province_id = 2046
-					province_id = 3191
-					province_id = 1180
-				}
-				NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			}
-		} 
+# 	vn_apl_conquer_capua = {
+# 		icon = mission_have_two_subjects
+# 		position = 5
+# 		required_missions = { vn_apl_conquer_salerno } 
+# 		provinces_to_highlight = { 
+# 			AND = {
+# 				owned_by = CPU
+# 				NOT = {
+# 					OR = {
+# 						NOT = { exists = CPU }
+# 						CPU = { is_subject_of = ROOT }
+# 					}
+# 				}
+# 			}
+# 			AND = {
+# 				OR = {
+# 					province_id = 2216
+# 					province_id = 4518
+# 					province_id = 2042
+# 					province_id = 4520
+# 					province_id = 2053
+# 					province_id = 2046
+# 					province_id = 3191
+# 					province_id = 1180
+# 				}
+# 				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 			}
+# 		} 
 
-		trigger = {
-			2216 = { country_or_non_sovereign_subject_holds = ROOT }
-			4518 = { country_or_non_sovereign_subject_holds = ROOT }
-			2042 = { country_or_non_sovereign_subject_holds = ROOT }
-			4520 = { country_or_non_sovereign_subject_holds = ROOT }
-			2053 = { country_or_non_sovereign_subject_holds = ROOT }
-			2046 = { country_or_non_sovereign_subject_holds = ROOT }
-			3191 = { country_or_non_sovereign_subject_holds = ROOT }
-			1180 = { country_or_non_sovereign_subject_holds = ROOT }
-			OR = {
-				NOT = { exists = CPU }
-				CPU = { is_subject_of = ROOT }
-			}
-		} 
+# 		trigger = {
+# 			2216 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			4518 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			2042 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			4520 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			2053 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			2046 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			3191 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			1180 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			OR = {
+# 				NOT = { exists = CPU }
+# 				CPU = { is_subject_of = ROOT }
+# 			}
+# 		} 
 
-		effect = {
-			add_mil_power = 100
-			custom_tooltip = " "
-			arborea_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			sassari_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			gallura_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_conquer_capua_mission
-				duration = 9125
-			}
-		} 
-	}
+# 		effect = {
+# 			add_mil_power = 100
+# 			custom_tooltip = " "
+# 			arborea_area = {
+# 				limit = {
+# 					NOT = { owned_by = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			sassari_area = {
+# 				limit = {
+# 					NOT = { owned_by = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			gallura_area = {
+# 				limit = {
+# 					NOT = { owned_by = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_conquer_capua_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_conquer_tunisia = {
-		icon = mission_conquer_tunisia
-		position = 6
-		required_missions = { vn_apl_conquer_sicily } 
-		provinces_to_highlight = {
-			area = tunis_area
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 	vn_apl_conquer_tunisia = {
+# 		icon = mission_conquer_tunisia
+# 		position = 6
+# 		required_missions = { vn_apl_conquer_sicily } 
+# 		provinces_to_highlight = {
+# 			area = tunis_area
+# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 5
-				area = tunis_area
-			}
-		} 
+# 		trigger = {
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 5
+# 				area = tunis_area
+# 			}
+# 		} 
 
-		effect = {
-			tunis_area = {
-				limit = { country_or_non_sovereign_subject_holds = ROOT }
-				add_local_autonomy = -25
-				add_nationalism = -5
-			}
-			custom_tooltip = " "
-			kabylia_region = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-					has_port = yes
-				}
-				add_permanent_claim = ROOT
-			}
-			tlemcen_region = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-					has_port = yes
-				}
-				add_permanent_claim = ROOT
-			}
-			inner_tunisia_region = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			coastal_tunisia_region = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-		} 
-	}
+# 		effect = {
+# 			tunis_area = {
+# 				limit = { country_or_non_sovereign_subject_holds = ROOT }
+# 				add_local_autonomy = -25
+# 				add_nationalism = -5
+# 			}
+# 			custom_tooltip = " "
+# 			kabylia_region = {
+# 				limit = {
+# 					NOT = { owned_by = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 					has_port = yes
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			tlemcen_region = {
+# 				limit = {
+# 					NOT = { owned_by = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 					has_port = yes
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			inner_tunisia_region = {
+# 				limit = {
+# 					NOT = { owned_by = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			coastal_tunisia_region = {
+# 				limit = {
+# 					NOT = { owned_by = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_kingdom_of_africa = {
-		icon = africa_proconsulare
-		position = 7
-		required_missions = { vn_apl_conquer_tunisia } 
-		provinces_to_highlight = {
-			OR = {
-				region = inner_tunisia_region
-				region = coastal_tunisia_region
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 	vn_apl_kingdom_of_africa = {
+# 		icon = africa_proconsulare
+# 		position = 7
+# 		required_missions = { vn_apl_conquer_tunisia } 
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				region = inner_tunisia_region
+# 				region = coastal_tunisia_region
+# 			}
+# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 25
-				OR = {
-					region = inner_tunisia_region
-					region = coastal_tunisia_region
-				}
-			}
-		} 
+# 		trigger = {
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 25
+# 				OR = {
+# 					region = inner_tunisia_region
+# 					region = coastal_tunisia_region
+# 				}
+# 			}
+# 		} 
 
-		effect = {
-			#event
-		} 
-	}
-}
-vn_apl_missions_3a = {
-	slot = 3
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# 		effect = {
+# 			#event
+# 		} 
+# 	}
+# }
+# vn_apl_missions_3a = {
+# 	slot = 3
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_sons_of_tancred = {
-		icon = venture_captains
-		position = 1
-		provinces_to_highlight = {  } 
+# 	vn_apl_sons_of_tancred = {
+# 		icon = venture_captains
+# 		position = 1
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			is_subject = no
-			OR = { 
-				has_mil_advisor = yes 
-				mil = 6
-			}
-			OR = {
-				army_size_percentage = 0.9
-				army_size = 12
-			}
-		} 
+# 		trigger = {
+# 			is_subject = no
+# 			OR = { 
+# 				has_mil_advisor = yes 
+# 				mil = 6
+# 			}
+# 			OR = {
+# 				army_size_percentage = 0.9
+# 				army_size = 12
+# 			}
+# 		} 
 
-		effect = {
-			add_country_modifier = {
-				name = apl_sons_of_tancred_mission
-				duration = 9125
-			}
-		} 
+# 		effect = {
+# 			add_country_modifier = {
+# 				name = apl_sons_of_tancred_mission
+# 				duration = 9125
+# 			}
+# 		} 
 
-		ai_weight = {
-			factor = 500
-		}
-	}
+# 		ai_weight = {
+# 			factor = 500
+# 		}
+# 	}
 
-	vn_apl_crush_catepanate = {
-		icon = the_latin_empire
-		position = 2
-		required_missions = { vn_apl_sons_of_tancred } 
-		provinces_to_highlight = {
-			if = {
-				limit = {
-					ROOT = { is_or_was_tag = { tag = APL } }
-				}
-				superregion = sicily_superregion
-				owned_by = BYZ
-			}
-			else = {
-				OR = {
-					region = apulia_region
-					region = campania_region
-				}
-				NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			}
-		} 
+# 	vn_apl_crush_catepanate = {
+# 		icon = the_latin_empire
+# 		position = 2
+# 		required_missions = { vn_apl_sons_of_tancred } 
+# 		provinces_to_highlight = {
+# 			if = {
+# 				limit = {
+# 					ROOT = { is_or_was_tag = { tag = APL } }
+# 				}
+# 				superregion = sicily_superregion
+# 				owned_by = BYZ
+# 			}
+# 			else = {
+# 				OR = {
+# 					region = apulia_region
+# 					region = campania_region
+# 				}
+# 				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 			}
+# 		} 
 
-		trigger = {
-			if = {
-				limit = {
-					is_or_was_tag = { tag = APL }
-				}
-				NOT = {
-					sicily_superregion = {
-						custom_trigger_tooltip = {
-							tooltip = vn_apl_crush_catepanate.tt
-							owned_by = BYZ
-						}
-					}
-				}
-			}
-			else = {
-				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-					value = 15
-					OR = {
-						region = apulia_region
-						region = campania_region
-					}
-				}
-			}
-		} 
+# 		trigger = {
+# 			if = {
+# 				limit = {
+# 					is_or_was_tag = { tag = APL }
+# 				}
+# 				NOT = {
+# 					sicily_superregion = {
+# 						custom_trigger_tooltip = {
+# 							tooltip = vn_apl_crush_catepanate.tt
+# 							owned_by = BYZ
+# 						}
+# 					}
+# 				}
+# 			}
+# 			else = {
+# 				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 					value = 15
+# 					OR = {
+# 						region = apulia_region
+# 						region = campania_region
+# 					}
+# 				}
+# 			}
+# 		} 
 
-		effect = {
-			if = {
-				limit = { tag = APL }
-				override_country_name = APULIA_CALABRIA
-				set_country_flag = has_overriden_name_flag
-				custom_tooltip = " "
-			}
-			add_army_tradition_or_mil_power = {
-				amount = 25
-			}
-			custom_tooltip = " "
-			2033 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-		} 
+# 		effect = {
+# 			if = {
+# 				limit = { tag = APL }
+# 				override_country_name = APULIA_CALABRIA
+# 				set_country_flag = has_overriden_name_flag
+# 				custom_tooltip = " "
+# 			}
+# 			add_army_tradition_or_mil_power = {
+# 				amount = 25
+# 			}
+# 			custom_tooltip = " "
+# 			2033 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 		} 
 
-		ai_weight = {
-			factor = 500
-		}
-	}
+# 		ai_weight = {
+# 			factor = 500
+# 		}
+# 	}
 
-	vn_apl_foothold_in_sicily = {
-		icon = mission_retake_ceuta
-		position = 4
-		required_missions = { vn_apl_crush_catepanate } 
-		provinces_to_highlight = {
-			region = sicilia_region
-			is_capital = yes
-			owner = {
-				NOT = { tag = ROOT }
-				religion_group = muslim
-			}
-		} 
+# 	vn_apl_foothold_in_sicily = {
+# 		icon = mission_retake_ceuta
+# 		position = 4
+# 		required_missions = { vn_apl_crush_catepanate } 
+# 		provinces_to_highlight = {
+# 			region = sicilia_region
+# 			is_capital = yes
+# 			owner = {
+# 				NOT = { tag = ROOT }
+# 				religion_group = muslim
+# 			}
+# 		} 
 
-		trigger = {
-			if = {
-				limit = {
-					sicilia_region = {
-						owner = {
-							NOT = { tag = ROOT }
-							religion_group = muslim
-						}
-					}
-				}
-				sicilia_region = {
-					owner = {
-						religion_group = muslim
-						war_with = ROOT
-						ROOT = {
-							war_score_against = {
-								who = PREV
-								value = 50
-							}
-						}
-					}
-				}
-			}
-			else = {
-				2703 = { country_or_non_sovereign_subject_holds = ROOT }
-			}
-		} 
+# 		trigger = {
+# 			if = {
+# 				limit = {
+# 					sicilia_region = {
+# 						owner = {
+# 							NOT = { tag = ROOT }
+# 							religion_group = muslim
+# 						}
+# 					}
+# 				}
+# 				sicilia_region = {
+# 					owner = {
+# 						religion_group = muslim
+# 						war_with = ROOT
+# 						ROOT = {
+# 							war_score_against = {
+# 								who = PREV
+# 								value = 50
+# 							}
+# 						}
+# 					}
+# 				}
+# 			}
+# 			else = {
+# 				2703 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			}
+# 		} 
 
-		effect = {
-			add_war_exhaustion = -3
-			custom_tooltip = " "
-			if = {
-				limit = {
-					NOT = { exists = TNC }
-				}
-				country_event = {
-					id = vn_flavor_apl.102
-				}
-				custom_tooltip = " "
-			}
-			else = {
-				add_country_modifier = {
-					name = apl_foothold_in_sicily_mission
-					duration = 9125
-				}
-			}
-			messina_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			syracuse_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			638 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			4504 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			2041 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			4502 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			4503 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			1877 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			559 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-		} 
-	}
+# 		effect = {
+# 			add_war_exhaustion = -3
+# 			custom_tooltip = " "
+# 			if = {
+# 				limit = {
+# 					NOT = { exists = TNC }
+# 				}
+# 				country_event = {
+# 					id = vn_flavor_apl.102
+# 				}
+# 				custom_tooltip = " "
+# 			}
+# 			else = {
+# 				add_country_modifier = {
+# 					name = apl_foothold_in_sicily_mission
+# 					duration = 9125
+# 				}
+# 			}
+# 			messina_area = {
+# 				limit = {
+# 					NOT = { owned_by = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			syracuse_area = {
+# 				limit = {
+# 					NOT = { owned_by = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			638 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			4504 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			2041 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			4502 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			4503 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			1877 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			559 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_conquer_sicily = {
-		icon = arb_sicily
-		position = 5
-		required_missions = { vn_apl_foothold_in_sicily } 
-		provinces_to_highlight = {
-			OR = {
-				area = messina_area
-				area = syracuse_area
-				province_id = 638
-				province_id = 4504
-				province_id = 2041
-				province_id = 4502
-				province_id = 4503
-				province_id = 1877
-				province_id = 559
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 	vn_apl_conquer_sicily = {
+# 		icon = arb_sicily
+# 		position = 5
+# 		required_missions = { vn_apl_foothold_in_sicily } 
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				area = messina_area
+# 				area = syracuse_area
+# 				province_id = 638
+# 				province_id = 4504
+# 				province_id = 2041
+# 				province_id = 4502
+# 				province_id = 4503
+# 				province_id = 1877
+# 				province_id = 559
+# 			}
+# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		trigger = {
-			messina_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			syracuse_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			638 = { country_or_non_sovereign_subject_holds = ROOT }
-			4504 = { country_or_non_sovereign_subject_holds = ROOT }
-			2041 = { country_or_non_sovereign_subject_holds = ROOT }
-			4502 = { country_or_non_sovereign_subject_holds = ROOT }
-			4503 = { country_or_non_sovereign_subject_holds = ROOT }
-			1877 = { country_or_non_sovereign_subject_holds = ROOT }
-			559 = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 		trigger = {
+# 			messina_area = {
+# 				type = all
+# 				country_or_non_sovereign_subject_holds = ROOT
+# 			}
+# 			syracuse_area = {
+# 				type = all
+# 				country_or_non_sovereign_subject_holds = ROOT
+# 			}
+# 			638 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			4504 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			2041 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			4502 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			4503 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			1877 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			559 = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		effect = {
-			add_power_projection = {
-				type = mission_rewards_power_projection
-				amount = 25
-			}
-			tunis_area = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			2711 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-		} 
-	}
+# 		effect = {
+# 			add_power_projection = {
+# 				type = mission_rewards_power_projection
+# 				amount = 25
+# 			}
+# 			tunis_area = {
+# 				limit = {
+# 					NOT = { owned_by = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			2711 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_conquer_malta = {
-		icon = fortify_malta
-		position = 6
-		required_missions = { vn_apl_conquer_sicily } 
-		provinces_to_highlight = {
-			province_id = 2711
-		} 
+# 	vn_apl_conquer_malta = {
+# 		icon = fortify_malta
+# 		position = 6
+# 		required_missions = { vn_apl_conquer_sicily } 
+# 		provinces_to_highlight = {
+# 			province_id = 2711
+# 		} 
 
-		trigger = {
-			2711 = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 		trigger = {
+# 			2711 = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		effect = {
-			2711 = {
-				if = {
-					limit = { has_dlc = "Leviathan" }
-					add_great_project_tier = {
-						type = malta_forts
-						tier = 1 
-					}
-				}
-				else = {
-					add_or_upgrade_shipyard_building = yes
-				}
-				custom_tooltip = " "
-				add_base_manpower = 3
-				add_local_autonomy = -50
-			}
-			custom_tooltip = " "
-			lower_egypt_region = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-		} 
-	}
-	vn_apl_conquer_egypt = {
-		icon = mission_rb_seize_alexandria
-		position = 7
-		required_missions = { vn_apl_conquer_malta vn_apl_conquer_tunisia } 
-		provinces_to_highlight = {
-			region = lower_egypt_region
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 		effect = {
+# 			2711 = {
+# 				if = {
+# 					limit = { has_dlc = "Leviathan" }
+# 					add_great_project_tier = {
+# 						type = malta_forts
+# 						tier = 1 
+# 					}
+# 				}
+# 				else = {
+# 					add_or_upgrade_shipyard_building = yes
+# 				}
+# 				custom_tooltip = " "
+# 				add_base_manpower = 3
+# 				add_local_autonomy = -50
+# 			}
+# 			custom_tooltip = " "
+# 			lower_egypt_region = {
+# 				limit = {
+# 					NOT = { owned_by = ROOT }
+# 					NOT = { is_permanent_claim = ROOT }
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 		} 
+# 	}
+# 	vn_apl_conquer_egypt = {
+# 		icon = mission_rb_seize_alexandria
+# 		position = 7
+# 		required_missions = { vn_apl_conquer_malta vn_apl_conquer_tunisia } 
+# 		provinces_to_highlight = {
+# 			region = lower_egypt_region
+# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 12
-				region = lower_egypt_region
-			}
-		} 
+# 		trigger = {
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 12
+# 				region = lower_egypt_region
+# 			}
+# 		} 
 
-		effect = {
-			add_years_of_owned_provinces_production_income = {
-				years = 10
-				trigger = {
-					has_province_modifier = granary_of_the_mediterranean
-				}
-				custom_tooltip = FROM_GRANARIES_OF_THE_MEDITERRANEAN
-			}
-		}
-	}
-}
-vn_apl_missions_4a = {
-	slot = 4
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# 		effect = {
+# 			add_years_of_owned_provinces_production_income = {
+# 				years = 10
+# 				trigger = {
+# 					has_province_modifier = granary_of_the_mediterranean
+# 				}
+# 				custom_tooltip = FROM_GRANARIES_OF_THE_MEDITERRANEAN
+# 			}
+# 		}
+# 	}
+# }
+# vn_apl_missions_4a = {
+# 	slot = 4
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_apulian_navy = {
-		icon = mission_exploration
-		position = 1
-		provinces_to_highlight = {  } 
+# 	vn_apl_apulian_navy = {
+# 		icon = mission_exploration
+# 		position = 1
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			OR = {
-				AND = {
-					navy_size_percentage = 1
-					naval_forcelimit = 10
-				}
-				navy_size = 20
-			}
-		} 
+# 		trigger = {
+# 			OR = {
+# 				AND = {
+# 					navy_size_percentage = 1
+# 					naval_forcelimit = 10
+# 				}
+# 				navy_size = 20
+# 			}
+# 		} 
 
-		effect = {
-			create_admiral = {
-				tradition = 50
-			}
-			custom_tooltip = " "
-			630 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			623 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			622 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			624 = {
-				if = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-		} 
-	}
+# 		effect = {
+# 			create_admiral = {
+# 				tradition = 50
+# 			}
+# 			custom_tooltip = " "
+# 			630 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			623 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			622 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			624 = {
+# 				if = {
+# 					limit = {
+# 						NOT = { is_core = ROOT }
+# 						NOT = { is_permanent_claim = ROOT }
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_conquer_corfu = {
-		icon = mission_invade_island
-		position = 3
-		required_missions = {
-			vn_apl_apulian_navy
-			vn_apl_crush_catepanate
-		}
-		provinces_to_highlight = {
-			OR = {
-				province_id = 630
-				province_id = 623
-				province_id = 622
-				province_id = 624
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 	vn_apl_conquer_corfu = {
+# 		icon = mission_invade_island
+# 		position = 3
+# 		required_missions = {
+# 			vn_apl_apulian_navy
+# 			vn_apl_crush_catepanate
+# 		}
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				province_id = 630
+# 				province_id = 623
+# 				province_id = 622
+# 				province_id = 624
+# 			}
+# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		trigger = {
-			630 = { country_or_non_sovereign_subject_holds = ROOT }
-			623 = { country_or_non_sovereign_subject_holds = ROOT }
-			622 = { country_or_non_sovereign_subject_holds = ROOT }
-			624 = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 		trigger = {
+# 			630 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			623 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			622 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			624 = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		effect = {
-			hellas_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			furthergreece_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			macedonia_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			thrace_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_conquer_corfu_mission
-				duration = 9125
-			}
-		} 
-	}
+# 		effect = {
+# 			hellas_region = {
+# 				limit = {
+# 					NOT = { is_permanent_claim = ROOT }
+# 					NOT = { is_core = ROOT	}
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			furthergreece_region = {
+# 				limit = {
+# 					NOT = { is_permanent_claim = ROOT }
+# 					NOT = { is_core = ROOT	}
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			macedonia_region = {
+# 				limit = {
+# 					NOT = { is_permanent_claim = ROOT }
+# 					NOT = { is_core = ROOT	}
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			thrace_region = {
+# 				limit = {
+# 					NOT = { is_permanent_claim = ROOT }
+# 					NOT = { is_core = ROOT	}
+# 				}
+# 				add_permanent_claim = ROOT
+# 			}
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_conquer_corfu_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_conquer_greece = {
-		icon = mission_steppe_warriors
-		position = 5
-		required_missions = { vn_apl_conquer_corfu } 
-		provinces_to_highlight = {
-			OR = {
-				region = hellas_region
-				region = furthergreece_region
-				region = macedonia_region
-				region = thrace_region
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 	vn_apl_conquer_greece = {
+# 		icon = mission_steppe_warriors
+# 		position = 5
+# 		required_missions = { vn_apl_conquer_corfu } 
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				region = hellas_region
+# 				region = furthergreece_region
+# 				region = macedonia_region
+# 				region = thrace_region
+# 			}
+# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		trigger = {
-			num_of_owned_provinces_with = {
-				OR = {
-					region = hellas_region
-					region = furthergreece_region
-					region = macedonia_region
-					region = thrace_region
-				}
-				value = 35
-			}
-		} 
+# 		trigger = {
+# 			num_of_owned_provinces_with = {
+# 				OR = {
+# 					region = hellas_region
+# 					region = furthergreece_region
+# 					region = macedonia_region
+# 					region = thrace_region
+# 				}
+# 				value = 35
+# 			}
+# 		} 
 
-		effect = {
-			add_prestige_or_monarch_power = { amount = 25 }
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_conquer_greece_mission
-				duration = 9125
-			}
-		} 
-	}
+# 		effect = {
+# 			add_prestige_or_monarch_power = { amount = 25 }
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_conquer_greece_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_guiscards_dream = {
-		icon = take_constantinople
-		position = 7
-		required_missions = { vn_apl_conquer_greece vn_apl_conquer_malta } 
-		provinces_to_highlight = { 
-			OR = {
-				AND = {
-					province_id = 2233
-					NOT = { country_or_non_sovereign_subject_holds = ROOT }
-				}
-				AND = {
-					owned_by = BYZ
-					NOT = { exists = BYZ }
-				}
-			}
-		} 
+# 	vn_apl_guiscards_dream = {
+# 		icon = take_constantinople
+# 		position = 7
+# 		required_missions = { vn_apl_conquer_greece vn_apl_conquer_malta } 
+# 		provinces_to_highlight = { 
+# 			OR = {
+# 				AND = {
+# 					province_id = 2233
+# 					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 				}
+# 				AND = {
+# 					owned_by = BYZ
+# 					NOT = { exists = BYZ }
+# 				}
+# 			}
+# 		} 
 
-		trigger = {
-			2233 = { country_or_non_sovereign_subject_holds = ROOT }
-			OR = {
-				total_own_and_non_tributary_subject_development = BYZ
-				NOT = { exists = BYZ }
-			}
-		} 
+# 		trigger = {
+# 			2233 = { country_or_non_sovereign_subject_holds = ROOT }
+# 			OR = {
+# 				total_own_and_non_tributary_subject_development = BYZ
+# 				NOT = { exists = BYZ }
+# 			}
+# 		} 
 
-		effect = {
-			if = {
-				limit = { 
-					has_dlc = "Rights of Man" 
-					NOT = { num_of_ruler_traits = { amount = 3 } }
-				}
-				add_ruler_personality = legendary_conqueror_personality
-			}
-			else = {
-				change_ruler_stat = {
-					type = mil
-					amount = 2
-				}
-			}
-			custom_tooltip = " "
-			custom_tooltip = vn_enable_trait_legendary_conqueror
-			set_country_flag = TIM_legendary_conqueror_flag
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_guiscards_dream_mission
-				duration = -1
-			}
-		} 
-	}
-}
-vn_apl_missions_5a = {
-	slot = 5
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# 		effect = {
+# 			if = {
+# 				limit = { 
+# 					has_dlc = "Rights of Man" 
+# 					NOT = { num_of_ruler_traits = { amount = 3 } }
+# 				}
+# 				add_ruler_personality = legendary_conqueror_personality
+# 			}
+# 			else = {
+# 				change_ruler_stat = {
+# 					type = mil
+# 					amount = 2
+# 				}
+# 			}
+# 			custom_tooltip = " "
+# 			custom_tooltip = vn_enable_trait_legendary_conqueror
+# 			set_country_flag = TIM_legendary_conqueror_flag
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_guiscards_dream_mission
+# 				duration = -1
+# 			}
+# 		} 
+# 	}
+# }
+# vn_apl_missions_5a = {
+# 	slot = 5
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_renew_blessing = {
-		icon = mission_hands_praying
-		position = 1
-		provinces_to_highlight = {
-			province_id = 1768
-		} 
+# 	vn_apl_renew_blessing = {
+# 		icon = mission_hands_praying
+# 		position = 1
+# 		provinces_to_highlight = {
+# 			province_id = 1768
+# 		} 
 
-		trigger = {
-			# owns_core_province = 1768
-			# 1768 = {
-			# 	has_tax_building_trigger = yes
-			# 	num_of_times_improved_by_owner = 3
-			# }
-		} 
+# 		trigger = {
+# 			# owns_core_province = 1768
+# 			# 1768 = {
+# 			# 	has_tax_building_trigger = yes
+# 			# 	num_of_times_improved_by_owner = 3
+# 			# }
+# 		} 
 
-		effect = {
-			if = {
-				limit = { ai = no }
-				enable_branching_mission_review_without_ai = { key = VN_APL }
-				custom_tooltip = " "
-			}
-			else = {
-				hidden_effect = {
-					random_list = {
-						1 = { set_country_flag = apl_viking_missions }
-						1 = { set_country_flag = apl_frankish_missions }
-						1 = { set_country_flag = apl_latin_missions }
-					}
-					swap_non_generic_missions = yes
-				}
-			}
-			add_country_modifier = {
-				name = apl_renew_blessing_mission
-				duration = 9125
-			}
-		} 
-		ai_weight = {
-			factor = 500
-		}
-	}
-}
+# 		effect = {
+# 			if = {
+# 				limit = { ai = no }
+# 				enable_branching_mission_review_without_ai = { key = VN_APL }
+# 				custom_tooltip = " "
+# 			}
+# 			else = {
+# 				hidden_effect = {
+# 					random_list = {
+# 						1 = { set_country_flag = apl_viking_missions }
+# 						1 = { set_country_flag = apl_frankish_missions }
+# 						1 = { set_country_flag = apl_latin_missions }
+# 					}
+# 					swap_non_generic_missions = yes
+# 				}
+# 			}
+# 			add_country_modifier = {
+# 				name = apl_renew_blessing_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 		ai_weight = {
+# 			factor = 500
+# 		}
+# 	}
+# }
 
-vn_apl_missions_slot_5_branching = {
-	slot = 5
-	generic = no
-	ai = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-		NOT = { has_country_flag = apl_viking_missions }
-		NOT = { has_country_flag = apl_frankish_missions }
-		NOT = { has_country_flag = apl_latin_missions }
-	}
-	has_country_shield = yes
+# vn_apl_missions_slot_5_branching = {
+# 	slot = 5
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 		NOT = { has_country_flag = apl_viking_missions }
+# 		NOT = { has_country_flag = apl_frankish_missions }
+# 		NOT = { has_country_flag = apl_latin_missions }
+# 	}
+# 	has_country_shield = yes
 
-	vn_apl_braching_mission_1 = {
-		icon = mission_unknown_mission
-		position = 2
-		required_missions = {
-			vn_apl_renew_blessing
-			vn_apl_apulian_navy
-		}
-		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = selectable_mission_trigger_tt
-				always = no
-			}
-		}
-		effect = {
-			custom_tooltip = selectable_mission_trigger_tt
-		}
-	}
-	vn_apl_braching_mission_2 = {
-		icon = mission_unknown_mission
-		position = 3
-		required_missions = { vn_apl_braching_mission_1 }
-		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = selectable_mission_trigger_tt
-				always = no
-			}
-		}
-		effect = {
-			custom_tooltip = selectable_mission_trigger_tt
-		}
-	}
-}
+# 	vn_apl_braching_mission_1 = {
+# 		icon = mission_unknown_mission
+# 		position = 2
+# 		required_missions = {
+# 			vn_apl_renew_blessing
+# 			vn_apl_apulian_navy
+# 		}
+# 		trigger = {
+# 			custom_trigger_tooltip = {
+# 				tooltip = selectable_mission_trigger_tt
+# 				always = no
+# 			}
+# 		}
+# 		effect = {
+# 			custom_tooltip = selectable_mission_trigger_tt
+# 		}
+# 	}
+# 	vn_apl_braching_mission_2 = {
+# 		icon = mission_unknown_mission
+# 		position = 3
+# 		required_missions = { vn_apl_braching_mission_1 }
+# 		trigger = {
+# 			custom_trigger_tooltip = {
+# 				tooltip = selectable_mission_trigger_tt
+# 				always = no
+# 			}
+# 		}
+# 		effect = {
+# 			custom_tooltip = selectable_mission_trigger_tt
+# 		}
+# 	}
+# }
 
-vn_apl_missions_5_viking = {
-	slot = 5
-	generic = no
-	ai = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-		has_country_flag = apl_viking_missions
-	}
+# vn_apl_missions_5_viking = {
+# 	slot = 5
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 		has_country_flag = apl_viking_missions
+# 	}
 
-	vn_apl_viking_blood = {
-		icon = mission_longships
-		position = 2
-		required_missions = {
-			vn_apl_renew_blessing
-			vn_apl_apulian_navy
-		}
-		provinces_to_highlight = {  } 
+# 	vn_apl_viking_blood = {
+# 		icon = mission_longships
+# 		position = 2
+# 		required_missions = {
+# 			vn_apl_renew_blessing
+# 			vn_apl_apulian_navy
+# 		}
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			not_in_mission_preview_mode = { key = VN_APL }
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				has_dock_building_trigger = yes
-				value = 15
-			}
-			navy_tradition = 50
-			OR = {
-				full_idea_group = naval_ideas
-				full_idea_group = maritime_ideas
-				naval_reformer = 3
-			}
-		} 
+# 		trigger = {
+# 			not_in_mission_preview_mode = { key = VN_APL }
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				has_dock_building_trigger = yes
+# 				value = 15
+# 			}
+# 			navy_tradition = 50
+# 			OR = {
+# 				full_idea_group = naval_ideas
+# 				full_idea_group = maritime_ideas
+# 				naval_reformer = 3
+# 			}
+# 		} 
 
-		effect = {
-						if = {
-				limit = {
-					exists = NRM
-					valid_for_personal_unions_trigger = yes
-					NRM = {
-						valid_for_personal_unions_trigger = yes
-					}
-				}
-				add_casus_belli = {
-					type = cb_fabricated_claims
-					months = 300
-					target = NRM
-				}
-			}
-			else = {
-				normandy_region = {
-					limit = {
-						NOT = { is_permanent_claim = ROOT }
-						NOT = { is_core = ROOT	}
-					}
-					add_permanent_claim = ROOT
-				}
-			}
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_viking_blood_mission
-				duration = 9125
-			}
-		} 
-	}
+# 		effect = {
+# 						if = {
+# 				limit = {
+# 					exists = NRM
+# 					valid_for_personal_unions_trigger = yes
+# 					NRM = {
+# 						valid_for_personal_unions_trigger = yes
+# 					}
+# 				}
+# 				add_casus_belli = {
+# 					type = cb_fabricated_claims
+# 					months = 300
+# 					target = NRM
+# 				}
+# 			}
+# 			else = {
+# 				normandy_region = {
+# 					limit = {
+# 						NOT = { is_permanent_claim = ROOT }
+# 						NOT = { is_core = ROOT	}
+# 					}
+# 					add_permanent_claim = ROOT
+# 				}
+# 			}
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_viking_blood_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_conquer_normandy = {
-		icon = dalmatian_conquest
-		position = 3
-		required_missions = { vn_apl_viking_blood } 
-		provinces_to_highlight = {
-			region = normandy_region
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 	vn_apl_conquer_normandy = {
+# 		icon = dalmatian_conquest
+# 		position = 3
+# 		required_missions = { vn_apl_viking_blood } 
+# 		provinces_to_highlight = {
+# 			region = normandy_region
+# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		trigger = {
-			not_in_mission_preview_mode = { key = VN_APL }
-			OR = {
-				senior_union_with = NRM
-				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-					value = 10
-					region = normandy_region
-				}
-			}
-		} 
+# 		trigger = {
+# 			not_in_mission_preview_mode = { key = VN_APL }
+# 			OR = {
+# 				senior_union_with = NRM
+# 				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 					value = 10
+# 					region = normandy_region
+# 				}
+# 			}
+# 		} 
 
-		effect = {
+# 		effect = {
 			
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_conquer_normandy_mission
-				duration = 10950
-			}
-		} 
-	}
-}
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_conquer_normandy_mission
+# 				duration = 10950
+# 			}
+# 		} 
+# 	}
+# }
 
-vn_apl_missions_5_frankish = {
-	slot = 5
-	generic = no
-	ai = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-		has_country_flag = apl_frankish_missions
-	}
+# vn_apl_missions_5_frankish = {
+# 	slot = 5
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 		has_country_flag = apl_frankish_missions
+# 	}
 
-	vn_apl_french_chivalry = {
-		icon = the_hundred_years_war
-		position = 2
-		required_missions = {
-			vn_apl_renew_blessing
-			vn_apl_apulian_navy
-		}
-		provinces_to_highlight = {  } 
+# 	vn_apl_french_chivalry = {
+# 		icon = the_hundred_years_war
+# 		position = 2
+# 		required_missions = {
+# 			vn_apl_renew_blessing
+# 			vn_apl_apulian_navy
+# 		}
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			not_in_mission_preview_mode = { key = VN_APL }
-			has_institution = chivalry
-			if = {
-				limit = { has_estate = estate_holy_orders }
-				estate_loyalty = {
-					estate = estate_holy_orders
-					loyalty = 65
-				}
-				num_of_estate_privileges = {
-					estate = estate_holy_orders
-					value = 4
-				}
-				num_of_estate_agendas_completed = {
-					estate = estate_holy_orders
-					value = 3
-				}
-			}
-			else_if = {
-				limit = { has_estate = estate_nobles }
-				estate_loyalty = {
-					estate = estate_nobles
-					loyalty = 65
-				}
-				num_of_estate_privileges = {
-					estate = estate_nobles
-					value = 4
-				}
-				num_of_estate_agendas_completed = {
-					estate = estate_nobles
-					value = 3
-				}
-			}
-		} 
+# 		trigger = {
+# 			not_in_mission_preview_mode = { key = VN_APL }
+# 			has_institution = chivalry
+# 			if = {
+# 				limit = { has_estate = estate_holy_orders }
+# 				estate_loyalty = {
+# 					estate = estate_holy_orders
+# 					loyalty = 65
+# 				}
+# 				num_of_estate_privileges = {
+# 					estate = estate_holy_orders
+# 					value = 4
+# 				}
+# 				num_of_estate_agendas_completed = {
+# 					estate = estate_holy_orders
+# 					value = 3
+# 				}
+# 			}
+# 			else_if = {
+# 				limit = { has_estate = estate_nobles }
+# 				estate_loyalty = {
+# 					estate = estate_nobles
+# 					loyalty = 65
+# 				}
+# 				num_of_estate_privileges = {
+# 					estate = estate_nobles
+# 					value = 4
+# 				}
+# 				num_of_estate_agendas_completed = {
+# 					estate = estate_nobles
+# 					value = 3
+# 				}
+# 			}
+# 		} 
 
-		effect = {
-			add_country_modifier = {
-				name = apl_french_chivalry_mission
-				duration = 9125
-			}
-		} 
-	}
-	vn_apl_royal_court = {
-		icon = mission_monarch_in_throne_room
-		position = 3
-		required_missions = {
-			vn_apl_french_chivalry
-		}
-		provinces_to_highlight = {  } 
+# 		effect = {
+# 			add_country_modifier = {
+# 				name = apl_french_chivalry_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
+# 	vn_apl_royal_court = {
+# 		icon = mission_monarch_in_throne_room
+# 		position = 3
+# 		required_missions = {
+# 			vn_apl_french_chivalry
+# 		}
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			not_in_mission_preview_mode = { key = VN_APL }
-			government_rank = 5
-			ruler_total_stats = {
-				amount = 12
-			}
-			if = {
-				limit = { government = monarchy }
-				legitimacy = 95
-			}
-			else = { stability = 3 }
-			has_any_disaster = no
-			has_adm_advisor = yes
-			has_dip_advisor = yes
-			has_mil_advisor = yes
-		} 
+# 		trigger = {
+# 			not_in_mission_preview_mode = { key = VN_APL }
+# 			government_rank = 5
+# 			ruler_total_stats = {
+# 				amount = 12
+# 			}
+# 			if = {
+# 				limit = { government = monarchy }
+# 				legitimacy = 95
+# 			}
+# 			else = { stability = 3 }
+# 			has_any_disaster = no
+# 			has_adm_advisor = yes
+# 			has_dip_advisor = yes
+# 			has_mil_advisor = yes
+# 		} 
 
-		effect = {
-			custom_tooltip = add_5_crown_land_share
-			hidden_effect = {
-				change_estate_land_share = {
-					estate = all
-					share = -5
-				}
-			}
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_royal_court_mission
-				duration = -1
-			}
-		} 
-	}
-}
+# 		effect = {
+# 			custom_tooltip = add_5_crown_land_share
+# 			hidden_effect = {
+# 				change_estate_land_share = {
+# 					estate = all
+# 					share = -5
+# 				}
+# 			}
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_royal_court_mission
+# 				duration = -1
+# 			}
+# 		} 
+# 	}
+# }
 
-vn_apl_missions_5_italian = {
-	slot = 5
-	generic = no
-	ai = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-		has_country_flag = apl_latin_missions
-	}
+# vn_apl_missions_5_italian = {
+# 	slot = 5
+# 	generic = no
+# 	ai = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 		has_country_flag = apl_latin_missions
+# 	}
 
-	# vn_apl_deal_with_venice = {
-	# 	icon = ven_of_wealth_and_power
-	# 	position = 2
-	# 	required_missions = {
-	# 		vn_apl_renew_blessing
-	# 		vn_apl_apulian_navy
-	# 	}
-	# 	provinces_to_highlight = {
-	# 		OR = {
-	# 			is_capital_of = VEN
-	# 			is_capital_of = GEN
-	# 			is_capital_of = PIS
-	# 			is_capital_of = ANC
-	# 			is_capital_of = NLI
-	# 		}
-	# 		owner = {
-	# 			has_government_attribute = is_merchant_republic
-	# 		}
-	# 	} 
+# 	# vn_apl_deal_with_venice = {
+# 	# 	icon = ven_of_wealth_and_power
+# 	# 	position = 2
+# 	# 	required_missions = {
+# 	# 		vn_apl_renew_blessing
+# 	# 		vn_apl_apulian_navy
+# 	# 	}
+# 	# 	provinces_to_highlight = {
+# 	# 		OR = {
+# 	# 			is_capital_of = VEN
+# 	# 			is_capital_of = GEN
+# 	# 			is_capital_of = PIS
+# 	# 			is_capital_of = ANC
+# 	# 			is_capital_of = NLI
+# 	# 		}
+# 	# 		owner = {
+# 	# 			has_government_attribute = is_merchant_republic
+# 	# 		}
+# 	# 	} 
 
-	# 	trigger = {
-	# 		not_in_mission_preview_mode = { key = VN_APL }
-	# 			VEN = {
-	# 				OR = {
-	# 					AND = {
-	# 						alliance_with = ROOT
-	# 						has_opinion = {
-	# 							who = ROOT
-	# 							value = 100
-	# 						}
-	# 					}
-	# 					is_subject_of = ROOT
-	# 					AND = {
-	# 						has_been_insulted_by_root = yes
-	# 						ROOT = {
-	# 							has_won_war_against = {
-	# 								max_years_since = 25
-	# 								who = VEN
-	# 							}
-	# 						}
-	# 					}
-	# 				}
-	# 			}
-	# 	} 
+# 	# 	trigger = {
+# 	# 		not_in_mission_preview_mode = { key = VN_APL }
+# 	# 			VEN = {
+# 	# 				OR = {
+# 	# 					AND = {
+# 	# 						alliance_with = ROOT
+# 	# 						has_opinion = {
+# 	# 							who = ROOT
+# 	# 							value = 100
+# 	# 						}
+# 	# 					}
+# 	# 					is_subject_of = ROOT
+# 	# 					AND = {
+# 	# 						has_been_insulted_by_root = yes
+# 	# 						ROOT = {
+# 	# 							has_won_war_against = {
+# 	# 								max_years_since = 25
+# 	# 								who = VEN
+# 	# 							}
+# 	# 						}
+# 	# 					}
+# 	# 				}
+# 	# 			}
+# 	# 	} 
 
-	# 	effect = {
+# 	# 	effect = {
 			
-	# 	} 
-	# }
-	vn_apl_reputable_mercs = {
-		icon = mission_italian_condottiere
-		position = 2
-		required_missions = {
-			vn_apl_renew_blessing
-			vn_apl_apulian_navy
-		}
-		provinces_to_highlight = {
+# 	# 	} 
+# 	# }
+# 	vn_apl_reputable_mercs = {
+# 		icon = mission_italian_condottiere
+# 		position = 2
+# 		required_missions = {
+# 			vn_apl_renew_blessing
+# 			vn_apl_apulian_navy
+# 		}
+# 		provinces_to_highlight = {
 			
-		}
-		trigger = {
+# 		}
+# 		trigger = {
 			
-		}
-		effect = {
+# 		}
+# 		effect = {
 			
 			
-		}
-	}
-	vn_apl_latin_ships = {
-		icon = mission_launch_a_flagship
-		position = 3
-		required_missions = {
-			vn_apl_reputable_mercs
-		}
-		provinces_to_highlight = {  } 
+# 		}
+# 	}
+# 	vn_apl_latin_ships = {
+# 		icon = mission_launch_a_flagship
+# 		position = 3
+# 		required_missions = {
+# 			vn_apl_reputable_mercs
+# 		}
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			not_in_mission_preview_mode = { key = VN_APL }
+# 		trigger = {
+# 			not_in_mission_preview_mode = { key = VN_APL }
 			
-		} 
+# 		} 
 
-		effect = {
-			add_navy_tradition = 25
-			custom_tooltip = " "
-			if = {
-				limit = { has_dlc = "Domination" }
-				add_country_modifier = {
-					name = ITA_allow_galleasses
-					duration = -1
-				}
-			}
-			else = {
-				add_country_modifier = {
-					name = ITA_galleass_galleys
-					duration = -1
-				}
-			}
-		} 
-	}
-}
+# 		effect = {
+# 			add_navy_tradition = 25
+# 			custom_tooltip = " "
+# 			if = {
+# 				limit = { has_dlc = "Domination" }
+# 				add_country_modifier = {
+# 					name = ITA_allow_galleasses
+# 					duration = -1
+# 				}
+# 			}
+# 			else = {
+# 				add_country_modifier = {
+# 					name = ITA_galleass_galleys
+# 					duration = -1
+# 				}
+# 			}
+# 		} 
+# 	}
+# }
 
-vn_apl_missions_5b = {
-	slot = 5
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# vn_apl_missions_5b = {
+# 	slot = 5
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_balkans_ally = {
-		icon = the_hungarian_succession
-		position = 4
-		required_missions = { vn_apl_conquer_corfu } 
-		provinces_to_highlight = {
-			OR = {
-				superregion = balkans_superregion
-				superregion = carpathia_superregion
-			}
-			is_capital = yes
-			owner = {
-				is_free_or_tributary_trigger = yes
-				NOT = { alliance_with = ROOT }
-				NOT = { is_rival = ROOT }
-				NOT = { is_enemy = ROOT }
-				total_development = 200
-			}
-		} 
+# 	vn_apl_balkans_ally = {
+# 		icon = the_hungarian_succession
+# 		position = 4
+# 		required_missions = { vn_apl_conquer_corfu } 
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				superregion = balkans_superregion
+# 				superregion = carpathia_superregion
+# 			}
+# 			is_capital = yes
+# 			owner = {
+# 				is_free_or_tributary_trigger = yes
+# 				NOT = { alliance_with = ROOT }
+# 				NOT = { is_rival = ROOT }
+# 				NOT = { is_enemy = ROOT }
+# 				total_development = 200
+# 			}
+# 		} 
 
-		trigger = {
-			any_ally = {
-				#custom_trigger_tooltip = {
-					#tooltip = vn_apl_balkans_ally.tt
-					capital_scope = {
-						OR = {
-							superregion = balkans_superregion
-							superregion = carpathia_superregion
-						}
-					}
-					has_opinion = {
-						who = ROOT
-						value = 150
-					}
-					total_development = 200
-				#}
-			}
-		} 
+# 		trigger = {
+# 			any_ally = {
+# 				#custom_trigger_tooltip = {
+# 					#tooltip = vn_apl_balkans_ally.tt
+# 					capital_scope = {
+# 						OR = {
+# 							superregion = balkans_superregion
+# 							superregion = carpathia_superregion
+# 						}
+# 					}
+# 					has_opinion = {
+# 						who = ROOT
+# 						value = 150
+# 					}
+# 					total_development = 200
+# 				#}
+# 			}
+# 		} 
 
-		effect = {
-			custom_tooltip = dan_denmark_on_european_stage_at
-			custom_tooltip = " "
-			add_yearly_manpower = 1.5
-			hidden_effect = {
-				every_ally = {
-					limit = {
-						capital_scope = {
-							OR = {
-								superregion = balkans_superregion
-								superregion = carpathia_superregion
-							}
-						}
-						has_opinion = {
-							who = ROOT
-							value = 150
-						}
-						total_development = 200
-					}
-					ROOT = {
-						add_trust = {
-							who = PREV
-							value = 10
-							mutual = yes
-						}
-						add_favors = {
-							who = PREV
-							amount = 10
-						}
-					}
-				}
-			}
-		} 
-	}
+# 		effect = {
+# 			custom_tooltip = dan_denmark_on_european_stage_at
+# 			custom_tooltip = " "
+# 			add_yearly_manpower = 1.5
+# 			hidden_effect = {
+# 				every_ally = {
+# 					limit = {
+# 						capital_scope = {
+# 							OR = {
+# 								superregion = balkans_superregion
+# 								superregion = carpathia_superregion
+# 							}
+# 						}
+# 						has_opinion = {
+# 							who = ROOT
+# 							value = 150
+# 						}
+# 						total_development = 200
+# 					}
+# 					ROOT = {
+# 						add_trust = {
+# 							who = PREV
+# 							value = 10
+# 							mutual = yes
+# 						}
+# 						add_favors = {
+# 							who = PREV
+# 							amount = 10
+# 						}
+# 					}
+# 				}
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_conquer_cyprus = {
-		icon = reclaim_the_aegean
-		position = 6
-		required_missions = { vn_apl_conquer_greece } 
-		provinces_to_highlight = {
-			area = cyprus_area
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		} 
+# 	vn_apl_conquer_cyprus = {
+# 		icon = reclaim_the_aegean
+# 		position = 6
+# 		required_missions = { vn_apl_conquer_greece } 
+# 		provinces_to_highlight = {
+# 			area = cyprus_area
+# 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+# 		} 
 
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 5
-				area = cyprus_area
-			}
-		} 
+# 		trigger = {
+# 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+# 				value = 5
+# 				area = cyprus_area
+# 			}
+# 		} 
 
-		effect = {
-			add_dip_power = 50
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_conquer_cyprus_mission
-				duration = 9125
-			}
-		} 
-	}
-}
-vn_apl_missions_1b = {
-	slot = 1
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# 		effect = {
+# 			add_dip_power = 50
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_conquer_cyprus_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
+# }
+# vn_apl_missions_1b = {
+# 	slot = 1
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_marketplaces = {
-		icon = control_the_means_of_transaction
-		position = 9
-		required_missions = { vn_apl_tyrrhenian_trade } 
-		provinces_to_highlight = {
+# 	vn_apl_marketplaces = {
+# 		icon = control_the_means_of_transaction
+# 		position = 9
+# 		required_missions = { vn_apl_tyrrhenian_trade } 
+# 		provinces_to_highlight = {
 
-		} 
+# 		} 
 
-		trigger = {
-			num_of_owned_provinces_with = {
-				has_trade_building_trigger = yes
-				value = 10
-			}
-		} 
+# 		trigger = {
+# 			num_of_owned_provinces_with = {
+# 				has_trade_building_trigger = yes
+# 				value = 10
+# 			}
+# 		} 
 
-		effect = {
-			add_country_modifier = {
-				name = apl_marketplaces_mission
-				duration = 9125
-			}
-		} 
-	}
-}
-vn_apl_missions_2b = {
-	slot = 2
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# 		effect = {
+# 			add_country_modifier = {
+# 				name = apl_marketplaces_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
+# }
+# vn_apl_missions_2b = {
+# 	slot = 2
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_tyrrhenian_trade = {
-		icon = end_genoese_competition
-		position = 8
-		provinces_to_highlight = {
-			province_id = 1642
-			NOT = {
-				trade_share = {
-					country = ROOT
-					share = 50
-				}
-			}
-		} 
+# 	vn_apl_tyrrhenian_trade = {
+# 		icon = end_genoese_competition
+# 		position = 8
+# 		provinces_to_highlight = {
+# 			province_id = 1642
+# 			NOT = {
+# 				trade_share = {
+# 					country = ROOT
+# 					share = 50
+# 				}
+# 			}
+# 		} 
 
-		trigger = {
-			1642 = {
-				trade_share = {
-					country = ROOT
-					share = 50
-				}
-			}
-		} 
+# 		trigger = {
+# 			1642 = {
+# 				trade_share = {
+# 					country = ROOT
+# 					share = 50
+# 				}
+# 			}
+# 		} 
 
-		effect = {
-			define_advisor = {
-				type = trader
-				skill = 3
-				cost_multiplier = 0.25
-			}
-			custom_tooltip = " "
-			add_mercantilism_or_monarch_power = { amount = 2 }
-		} 
-	}
+# 		effect = {
+# 			define_advisor = {
+# 				type = trader
+# 				skill = 3
+# 				cost_multiplier = 0.25
+# 			}
+# 			custom_tooltip = " "
+# 			add_mercantilism_or_monarch_power = { amount = 2 }
+# 		} 
+# 	}
 
-	vn_apl_mediterranean_sea_monopoly = {
-		icon = mission_coromandel_trade
-		position = 10
-		required_missions = {
-			vn_apl_burghers
-			vn_apl_marketplaces
-		}
-		provinces_to_highlight = {
-			is_mediterranean_trade_node_province = yes
-			OR = {
-				NOT = { is_strongest_trade_power = ROOT }
-				NOT = {
-					trade_share = {
-						country = ROOT
-						share = 30
-					}
-				}
-			}
-		} 
+# 	vn_apl_mediterranean_sea_monopoly = {
+# 		icon = mission_coromandel_trade
+# 		position = 10
+# 		required_missions = {
+# 			vn_apl_burghers
+# 			vn_apl_marketplaces
+# 		}
+# 		provinces_to_highlight = {
+# 			is_mediterranean_trade_node_province = yes
+# 			OR = {
+# 				NOT = { is_strongest_trade_power = ROOT }
+# 				NOT = {
+# 					trade_share = {
+# 						country = ROOT
+# 						share = 30
+# 					}
+# 				}
+# 			}
+# 		} 
 
-		trigger = {
-			calc_true_if = {
-				desc = vn_apl_mediterranean_sea_monopoly.tt
-				mediterranean_trade_node_scope = {
-					trigger = "
-						OR = {
-							trade_share = {
-								country = ROOT
-								share = 30
-							}
-							is_strongest_trade_power = ROOT
-						}
-					"
-				}
-				amount = 6
-			}
-		} 
+# 		trigger = {
+# 			calc_true_if = {
+# 				desc = vn_apl_mediterranean_sea_monopoly.tt
+# 				mediterranean_trade_node_scope = {
+# 					trigger = "
+# 						OR = {
+# 							trade_share = {
+# 								country = ROOT
+# 								share = 30
+# 							}
+# 							is_strongest_trade_power = ROOT
+# 						}
+# 					"
+# 				}
+# 				amount = 6
+# 			}
+# 		} 
 
-		effect = {
-			add_country_modifier = {
-				name = apl_mediterranean_sea_monopoly_mission
-				duration = 18250
-			}
-		} 
-	}
-}
-vn_apl_missions_3b = {
-	slot = 3
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# 		effect = {
+# 			add_country_modifier = {
+# 				name = apl_mediterranean_sea_monopoly_mission
+# 				duration = 18250
+# 			}
+# 		} 
+# 	}
+# }
+# vn_apl_missions_3b = {
+# 	slot = 3
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_burghers = {
-		icon = the_shape_of_trades_to_come
-		position = 9
-		required_missions = {
-			vn_apl_tyrrhenian_trade
-			vn_apl_sicilian_grain
-		}
-		provinces_to_highlight = {  } 
+# 	vn_apl_burghers = {
+# 		icon = the_shape_of_trades_to_come
+# 		position = 9
+# 		required_missions = {
+# 			vn_apl_tyrrhenian_trade
+# 			vn_apl_sicilian_grain
+# 		}
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			if = {
-				limit = {
-					has_estate = estate_burghers
-				}
-				estate_loyalty = {
-					estate = estate_burghers
-					loyalty = 60
-				}
-				num_of_estate_agendas_completed = {
-					estate = estate_burghers
-					value = 3
-				}
-			}
-			else = {
-				NOT = { has_estate = estate_burghers }
-			}
-		} 
+# 		trigger = {
+# 			if = {
+# 				limit = {
+# 					has_estate = estate_burghers
+# 				}
+# 				estate_loyalty = {
+# 					estate = estate_burghers
+# 					loyalty = 60
+# 				}
+# 				num_of_estate_agendas_completed = {
+# 					estate = estate_burghers
+# 					value = 3
+# 				}
+# 			}
+# 			else = {
+# 				NOT = { has_estate = estate_burghers }
+# 			}
+# 		} 
 
-		effect = {
-			if = { 
-				limit = { 
-					has_dlc = "Rights of Man" 
-					NOT = { num_of_ruler_traits = { amount = 3 } }
-				}				
-				add_ruler_personality = entrepreneur_personality 
-			}
-			else = {
-				change_ruler_stat = {
-					type = adm
-					amount = 1
-				}
-			}
-			add_country_modifier = {
-				name = apl_burghers_mission
-				duration = 9125
-			}
-		} 
-	}
+# 		effect = {
+# 			if = { 
+# 				limit = { 
+# 					has_dlc = "Rights of Man" 
+# 					NOT = { num_of_ruler_traits = { amount = 3 } }
+# 				}				
+# 				add_ruler_personality = entrepreneur_personality 
+# 			}
+# 			else = {
+# 				change_ruler_stat = {
+# 					type = adm
+# 					amount = 1
+# 				}
+# 			}
+# 			add_country_modifier = {
+# 				name = apl_burghers_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_richest_man = {
-		icon = mission_war_chest
-		position = 11
-		required_missions = {
-			vn_apl_mediterranean_sea_monopoly
-			vn_apl_steal_silkworms
-		}
-		provinces_to_highlight = {  } 
+# 	vn_apl_richest_man = {
+# 		icon = mission_war_chest
+# 		position = 11
+# 		required_missions = {
+# 			vn_apl_mediterranean_sea_monopoly
+# 			vn_apl_steal_silkworms
+# 		}
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			treasury = 3000
-			monthly_income = 250
-		} 
+# 		trigger = {
+# 			treasury = 3000
+# 			monthly_income = 250
+# 		} 
 
-		effect = {
-			custom_tooltip = vn_increase_trait_chance_entrepeneur
-			set_country_flag = ITA_higher_likelihood_of_entrepeneur_flag
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_richest_man_mission
-				duration = -1
-			}
-		} 
-	}
-}
-vn_apl_missions_4b = {
-	slot = 4
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# 		effect = {
+# 			custom_tooltip = vn_increase_trait_chance_entrepeneur
+# 			set_country_flag = ITA_higher_likelihood_of_entrepeneur_flag
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_richest_man_mission
+# 				duration = -1
+# 			}
+# 		} 
+# 	}
+# }
+# vn_apl_missions_4b = {
+# 	slot = 4
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_sicilian_grain = {
-		icon = prosperity_for_all
-		position = 8
-		provinces_to_highlight = {
-			owned_by = ROOT
-			OR = {
-				trade_goods = grain
-				trade_goods = barley
-				trade_goods = rye
-			}
-			OR = {
-				has_production_building_trigger = no
-				NOT = { development = 15 }
-			}
-		}
+# 	vn_apl_sicilian_grain = {
+# 		icon = prosperity_for_all
+# 		position = 8
+# 		provinces_to_highlight = {
+# 			owned_by = ROOT
+# 			OR = {
+# 				trade_goods = grain
+# 				trade_goods = barley
+# 				trade_goods = rye
+# 			}
+# 			OR = {
+# 				has_production_building_trigger = no
+# 				NOT = { development = 15 }
+# 			}
+# 		}
 
-		trigger = {
-			any_owned_province = {
-				OR = {
-					trade_goods = grain
-					trade_goods = barley
-					trade_goods = rye
-				}
-				has_production_building_trigger = yes
-				development = 15
-			}
-		} 
+# 		trigger = {
+# 			any_owned_province = {
+# 				OR = {
+# 					trade_goods = grain
+# 					trade_goods = barley
+# 					trade_goods = rye
+# 				}
+# 				has_production_building_trigger = yes
+# 				development = 15
+# 			}
+# 		} 
 
-		effect = {
-			if = {
-				limit = { has_dlc = "King of Kings" }
-				custom_tooltip = enable_export_grain_dip_action_tt
-				set_country_flag = enable_export_grain_dip_action_flag 
-			}
-			else = {
-				add_years_of_income = 1
-			}
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_sicilian_grain_mission
-				duration = 9125
-			}
-		} 
-	}
+# 		effect = {
+# 			if = {
+# 				limit = { has_dlc = "King of Kings" }
+# 				custom_tooltip = enable_export_grain_dip_action_tt
+# 				set_country_flag = enable_export_grain_dip_action_flag 
+# 			}
+# 			else = {
+# 				add_years_of_income = 1
+# 			}
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_sicilian_grain_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
 
-	vn_apl_steal_silkworms = {
-		icon = purely_for_commerce
-		position = 10
-		required_missions = {
-			vn_apl_adopt_irrigation
-			vn_apl_burghers
-		}
-		provinces_to_highlight = {
-			OR = {
-				AND = {
-					owned_by = ROOT
-					trade_goods = silk
-					has_production_building_trigger = no
-				}
-				AND = {
-					superregion = balkans_superregion
-					NOT = { owned_by = ROOT }
-					trade_goods = silk
-					controlled_by = ROOT
-				}
-				AND = {
-					superregion = anatolia_superregion
-					NOT = { owned_by = ROOT }
-					trade_goods = silk
-					controlled_by = ROOT
-				}
-			}
-		} 
+# 	vn_apl_steal_silkworms = {
+# 		icon = purely_for_commerce
+# 		position = 10
+# 		required_missions = {
+# 			vn_apl_adopt_irrigation
+# 			vn_apl_burghers
+# 		}
+# 		provinces_to_highlight = {
+# 			OR = {
+# 				AND = {
+# 					owned_by = ROOT
+# 					trade_goods = silk
+# 					has_production_building_trigger = no
+# 				}
+# 				AND = {
+# 					superregion = balkans_superregion
+# 					NOT = { owned_by = ROOT }
+# 					trade_goods = silk
+# 					controlled_by = ROOT
+# 				}
+# 				AND = {
+# 					superregion = anatolia_superregion
+# 					NOT = { owned_by = ROOT }
+# 					trade_goods = silk
+# 					controlled_by = ROOT
+# 				}
+# 			}
+# 		} 
 
-		trigger = {
-			OR = {
-				custom_trigger_tooltip = {
-					tooltip = vn_apl_steal_silkworms.tt
-					balkans_superregion = {
-						NOT = { owned_by = ROOT }
-						trade_goods = silk
-						controlled_by = ROOT
-					}
-					anatolia_superregion = {
-						NOT = { owned_by = ROOT }
-						trade_goods = silk
-						controlled_by = ROOT
-					}
-				}
-				num_of_owned_provinces_with = {
-					trade_goods = silk
-					has_production_building_trigger = yes
-					value = 3
-				}
-			}
-		} 
+# 		trigger = {
+# 			OR = {
+# 				custom_trigger_tooltip = {
+# 					tooltip = vn_apl_steal_silkworms.tt
+# 					balkans_superregion = {
+# 						NOT = { owned_by = ROOT }
+# 						trade_goods = silk
+# 						controlled_by = ROOT
+# 					}
+# 					anatolia_superregion = {
+# 						NOT = { owned_by = ROOT }
+# 						trade_goods = silk
+# 						controlled_by = ROOT
+# 					}
+# 				}
+# 				num_of_owned_provinces_with = {
+# 					trade_goods = silk
+# 					has_production_building_trigger = yes
+# 					value = 3
+# 				}
+# 			}
+# 		} 
 
-		effect = {
-			complex_dynamic_effect = {
-				first_custom_tooltip = vn_apl_steal_silkworms.tt2
-				first_limit = "
-					OR = {
-						balkans_superregion = {
-							NOT = { owned_by = ROOT }
-							trade_goods = silk
-							controlled_by = ROOT
-						}
-						anatolia_superregion = {
-							NOT = { owned_by = ROOT }
-							trade_goods = silk
-							controlled_by = ROOT
-						}
-					}
-				"
-				first_effect = "
-					country_event = {
-						id = vn_flavor_apl.103
-					}
-				"
-				second_custom_tooltip = vn_apl_steal_silkworms.tt3
-				second_limit = "
-					num_of_owned_provinces_with = {
-						trade_goods = silk
-						has_production_building_trigger = yes
-						value = 3
-					}
-				"
-				second_effect = "
-					distribute_development = {
-						amount = 5
-						type = production
-						limit = \"
-							trade_goods = silk
-							has_production_building_trigger = yes
-						\"
-					}
-					add_years_of_owned_provinces_production_income = {
-						years = 2
-						trigger = {
-							always = yes
-						}
-						custom_tooltip = MONOPOLY_INCOME_SILK_DESC
-					}
-				"
-			}
-			#trigger event manually
-			hidden_effect = {
-				if = {
-					limit = {
-						OR = {
-							balkans_superregion = {
-								NOT = { owned_by = ROOT }
-								trade_goods = silk
-								controlled_by = ROOT
-							}
-							anatolia_superregion = {
-								NOT = { owned_by = ROOT }
-								trade_goods = silk
-								controlled_by = ROOT
-							}
-						}
-						NOT = {
-							num_of_owned_provinces_with = {
-								trade_goods = silk
-								has_production_building_trigger = yes
-								value = 3
-							}
-						}
-					}
-					country_event = {
-						id = vn_flavor_apl.103
-					}
-				}
-			}
-		} 
-	}
-}
-vn_apl_missions_5c = {
-	slot = 5
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# 		effect = {
+# 			complex_dynamic_effect = {
+# 				first_custom_tooltip = vn_apl_steal_silkworms.tt2
+# 				first_limit = "
+# 					OR = {
+# 						balkans_superregion = {
+# 							NOT = { owned_by = ROOT }
+# 							trade_goods = silk
+# 							controlled_by = ROOT
+# 						}
+# 						anatolia_superregion = {
+# 							NOT = { owned_by = ROOT }
+# 							trade_goods = silk
+# 							controlled_by = ROOT
+# 						}
+# 					}
+# 				"
+# 				first_effect = "
+# 					country_event = {
+# 						id = vn_flavor_apl.103
+# 					}
+# 				"
+# 				second_custom_tooltip = vn_apl_steal_silkworms.tt3
+# 				second_limit = "
+# 					num_of_owned_provinces_with = {
+# 						trade_goods = silk
+# 						has_production_building_trigger = yes
+# 						value = 3
+# 					}
+# 				"
+# 				second_effect = "
+# 					distribute_development = {
+# 						amount = 5
+# 						type = production
+# 						limit = \"
+# 							trade_goods = silk
+# 							has_production_building_trigger = yes
+# 						\"
+# 					}
+# 					add_years_of_owned_provinces_production_income = {
+# 						years = 2
+# 						trigger = {
+# 							always = yes
+# 						}
+# 						custom_tooltip = MONOPOLY_INCOME_SILK_DESC
+# 					}
+# 				"
+# 			}
+# 			#trigger event manually
+# 			hidden_effect = {
+# 				if = {
+# 					limit = {
+# 						OR = {
+# 							balkans_superregion = {
+# 								NOT = { owned_by = ROOT }
+# 								trade_goods = silk
+# 								controlled_by = ROOT
+# 							}
+# 							anatolia_superregion = {
+# 								NOT = { owned_by = ROOT }
+# 								trade_goods = silk
+# 								controlled_by = ROOT
+# 							}
+# 						}
+# 						NOT = {
+# 							num_of_owned_provinces_with = {
+# 								trade_goods = silk
+# 								has_production_building_trigger = yes
+# 								value = 3
+# 							}
+# 						}
+# 					}
+# 					country_event = {
+# 						id = vn_flavor_apl.103
+# 					}
+# 				}
+# 			}
+# 		} 
+# 	}
+# }
+# vn_apl_missions_5c = {
+# 	slot = 5
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_adopt_irrigation = {
-		icon = mission_se_along_the_river
-		position = 9
-		required_missions = { vn_apl_sicilian_grain } 
-		provinces_to_highlight = {  } 
+# 	vn_apl_adopt_irrigation = {
+# 		icon = mission_se_along_the_river
+# 		position = 9
+# 		required_missions = { vn_apl_sicilian_grain } 
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			num_of_provinces_developed = { amount = 50 }
-		} 
+# 		trigger = {
+# 			num_of_provinces_developed = { amount = 50 }
+# 		} 
 
-		effect = {
-			add_years_of_owned_provinces_production_income = {
-				years = 8
-				trigger = {
-					superregion = sicily_superregion
-				}
-				custom_tooltip = FROM_SICILIAN_PRODUCTION
-			}
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_adopt_irrigation_mission
-				duration = 9125
-			}
-		} 
-	}
-}
-vn_apl_missions_1c = {
-	slot = 1
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# 		effect = {
+# 			add_years_of_owned_provinces_production_income = {
+# 				years = 8
+# 				trigger = {
+# 					superregion = sicily_superregion
+# 				}
+# 				custom_tooltip = FROM_SICILIAN_PRODUCTION
+# 			}
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_adopt_irrigation_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
+# }
+# vn_apl_missions_1c = {
+# 	slot = 1
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_tolerance = {
-		icon = mission_plc_cultural_flowering
-		position = 11
-		provinces_to_highlight = {  } 
+# 	vn_apl_tolerance = {
+# 		icon = mission_plc_cultural_flowering
+# 		position = 11
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			OR = {
-				development_in_provinces = {
-					value = 50
-					NOT = { religion = ROOT }
-				}
-				has_estate_privilege = estate_burghers_orthodox_tolerance
-				has_estate_privilege = estate_burghers_enforced_interfaith_dialogue
-			}
-		} 
+# 		trigger = {
+# 			OR = {
+# 				development_in_provinces = {
+# 					value = 50
+# 					NOT = { religion = ROOT }
+# 				}
+# 				has_estate_privilege = estate_burghers_orthodox_tolerance
+# 				has_estate_privilege = estate_burghers_enforced_interfaith_dialogue
+# 			}
+# 		} 
 
-		effect = {
-			add_stability_or_adm_power = yes
-		} 
-	}
-	vn_apl_new_secretaries = {
-		icon = medici_bank_ledgers
-		position = 12
-		required_missions = { vn_apl_tolerance } 
-		provinces_to_highlight = {  } 
+# 		effect = {
+# 			add_stability_or_adm_power = yes
+# 		} 
+# 	}
+# 	vn_apl_new_secretaries = {
+# 		icon = medici_bank_ledgers
+# 		position = 12
+# 		required_missions = { vn_apl_tolerance } 
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			reform_level = 3
-			has_high_monthly_monarch_power = { type = adm }
-			num_of_owned_provinces_with = {
-				value = 10
-				has_courthouse_building_trigger = yes
-			}
-		} 
+# 		trigger = {
+# 			reform_level = 3
+# 			has_high_monthly_monarch_power = { type = adm }
+# 			num_of_owned_provinces_with = {
+# 				value = 10
+# 				has_courthouse_building_trigger = yes
+# 			}
+# 		} 
 
-		effect = {
-			capital_scope = {
-				add_or_upgrade_courthouse_building = yes
-				add_base_tax = 2
-			}
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_new_secretaries_mission
-				duration = 9125
-			}
-		} 
-	}
-}
-vn_apl_missions_2c = {
-	slot = 2
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# 		effect = {
+# 			capital_scope = {
+# 				add_or_upgrade_courthouse_building = yes
+# 				add_base_tax = 2
+# 			}
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_new_secretaries_mission
+# 				duration = 9125
+# 			}
+# 		} 
+# 	}
+# }
+# vn_apl_missions_2c = {
+# 	slot = 2
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_diwan = {
-		icon = mission_noble_council
-		position = 13
-		required_missions = { vn_apl_new_secretaries } 
-		provinces_to_highlight = {  } 
+# 	vn_apl_diwan = {
+# 		icon = mission_noble_council
+# 		position = 13
+# 		required_missions = { vn_apl_new_secretaries } 
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			num_of_states = 15
-			stability = 2
-			OR = {
-				full_idea_group = humanist_ideas
-				num_accepted_cultures = 5
-				num_of_different_cultures_in_court = 3
-			}
-		} 
+# 		trigger = {
+# 			num_of_states = 15
+# 			stability = 2
+# 			OR = {
+# 				full_idea_group = humanist_ideas
+# 				num_accepted_cultures = 5
+# 				num_of_different_cultures_in_court = 3
+# 			}
+# 		} 
 
-		effect = {
-			add_reform_progress_small_effect = yes
-			custom_tooltip = " "
-			add_country_modifier = {
-				name = apl_diwan_mission
-				duration = -1
-			}
-		} 
-	}
-}
-vn_apl_missions_3c = {
-	slot = 3
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# 		effect = {
+# 			add_reform_progress_small_effect = yes
+# 			custom_tooltip = " "
+# 			add_country_modifier = {
+# 				name = apl_diwan_mission
+# 				duration = -1
+# 			}
+# 		} 
+# 	}
+# }
+# vn_apl_missions_3c = {
+# 	slot = 3
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_scholasticism = {
-		icon = mission_court_education
-		position = 12
-		required_missions = {
-			vn_apl_tolerance
-			vn_apl_encastellation
-		} 
-		provinces_to_highlight = {  } 
+# 	vn_apl_scholasticism = {
+# 		icon = mission_court_education
+# 		position = 12
+# 		required_missions = {
+# 			vn_apl_tolerance
+# 			vn_apl_encastellation
+# 		} 
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			has_institution = universities
-			if = {
-				limit = { has_dlc = "Rights of Man" } 
-				OR = { 
-					full_idea_group = innovativeness_ideas 
-					ruler_has_personality = free_thinker_personality 
-					ruler_has_personality = scholar_personality 
-					ruler_total_stats = {
-						amount = 14 
-					}
-				}
-			}
-			else = { 
-				OR = { 
-					full_idea_group = innovativeness_ideas 
-					ruler_total_stats = {
-						amount = 14 
-					}
-				}
-			}
-		} 
+# 		trigger = {
+# 			has_institution = universities
+# 			if = {
+# 				limit = { has_dlc = "Rights of Man" } 
+# 				OR = { 
+# 					full_idea_group = innovativeness_ideas 
+# 					ruler_has_personality = free_thinker_personality 
+# 					ruler_has_personality = scholar_personality 
+# 					ruler_total_stats = {
+# 						amount = 14 
+# 					}
+# 				}
+# 			}
+# 			else = { 
+# 				OR = { 
+# 					full_idea_group = innovativeness_ideas 
+# 					ruler_total_stats = {
+# 						amount = 14 
+# 					}
+# 				}
+# 			}
+# 		} 
 
-		effect = {
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = 15
-			}
-			custom_tooltip = " "
-			capital_scope = {
-				add_or_upgrade_university_building = yes
-			}
-		} 
-	}
-	vn_apl_court_of_innovation = {
-		icon = mission_plc_edict_education
-		position = 13
-		required_missions = { vn_apl_scholasticism } 
-		provinces_to_highlight = {  } 
+# 		effect = {
+# 			add_estate_loyalty = {
+# 				estate = estate_church
+# 				loyalty = 15
+# 			}
+# 			custom_tooltip = " "
+# 			capital_scope = {
+# 				add_or_upgrade_university_building = yes
+# 			}
+# 		} 
+# 	}
+# 	vn_apl_court_of_innovation = {
+# 		icon = mission_plc_edict_education
+# 		position = 13
+# 		required_missions = { vn_apl_scholasticism } 
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			if = {
-				limit = {
-					has_dlc = "Rule Britannia"
-				}
-				innovativeness = 40
-			}
-			is_ahead_of_time_in_technology = { tech = adm }
-			is_ahead_of_time_in_technology = { tech = dip }
-			is_ahead_of_time_in_technology = { tech = mil }
-		} 
+# 		trigger = {
+# 			if = {
+# 				limit = {
+# 					has_dlc = "Rule Britannia"
+# 				}
+# 				innovativeness = 40
+# 			}
+# 			is_ahead_of_time_in_technology = { tech = adm }
+# 			is_ahead_of_time_in_technology = { tech = dip }
+# 			is_ahead_of_time_in_technology = { tech = mil }
+# 		} 
 
-		effect = {
-			remove_comet_sighted_events = yes
-			custom_tooltip = " "
-			add_innovativeness_big_effect = yes
-		} 
-	}
-	vn_apl_multiculturalism = {
-		icon = mission_interfaith_relations
-		position = 14
-		required_missions = {
-			vn_apl_develop_palermo
-			vn_apl_court_of_innovation
-			vn_apl_diwan
-		}
-		provinces_to_highlight = { } 
+# 		effect = {
+# 			remove_comet_sighted_events = yes
+# 			custom_tooltip = " "
+# 			add_innovativeness_big_effect = yes
+# 		} 
+# 	}
+# 	vn_apl_multiculturalism = {
+# 		icon = mission_interfaith_relations
+# 		position = 14
+# 		required_missions = {
+# 			vn_apl_develop_palermo
+# 			vn_apl_court_of_innovation
+# 			vn_apl_diwan
+# 		}
+# 		provinces_to_highlight = { } 
 
-		trigger = {
-			num_accepted_cultures = 5
-			if = { 
-				limit = { has_dlc = "Mandate of Heaven" }
-				OR = { 
-					has_had_golden_age = yes 
-					in_golden_age = yes 
-				}
-			}
-			else = {
-				prestige = 75
-			}
-			OR = {
-				full_idea_group = humanist_ideas
-				ruler_has_personality = tolerant_personality
-				theologian = 3
-			}
-		} 
+# 		trigger = {
+# 			num_accepted_cultures = 5
+# 			if = { 
+# 				limit = { has_dlc = "Mandate of Heaven" }
+# 				OR = { 
+# 					has_had_golden_age = yes 
+# 					in_golden_age = yes 
+# 				}
+# 			}
+# 			else = {
+# 				prestige = 75
+# 			}
+# 			OR = {
+# 				full_idea_group = humanist_ideas
+# 				ruler_has_personality = tolerant_personality
+# 				theologian = 3
+# 			}
+# 		} 
 
-		effect = {
-			add_country_modifier = {
-				name = apl_multiculturalism_mission
-				duration = -1
-			}
-		} 
-	}
-}
-vn_apl_missions_4c = {
-	slot = 4
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# 		effect = {
+# 			add_country_modifier = {
+# 				name = apl_multiculturalism_mission
+# 				duration = -1
+# 			}
+# 		} 
+# 	}
+# }
+# vn_apl_missions_4c = {
+# 	slot = 4
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_develop_palermo = {
-		icon = develop_the_po_valley
-		position = 13
-		required_missions = { vn_apl_syncretic_architecture } 
-		provinces_to_highlight = {
-			province_id = 2041
-		} 
+# 	vn_apl_develop_palermo = {
+# 		icon = develop_the_po_valley
+# 		position = 13
+# 		required_missions = { vn_apl_syncretic_architecture } 
+# 		provinces_to_highlight = {
+# 			province_id = 2041
+# 		} 
 
-		trigger = {
-			owns_core_province = 2041
-			2041 = {
-				development = 40
-				num_of_buildings_in_province = 5
-			}
-		} 
+# 		trigger = {
+# 			owns_core_province = 2041
+# 			2041 = {
+# 				development = 40
+# 				num_of_buildings_in_province = 5
+# 			}
+# 		} 
 
-		effect = {
-			2041 = {
-				add_prosperity = 100
-				custom_tooltip = " "
-				set_center_level_3_center_of_trade = yes
-				custom_tooltip = " "
-				add_province_modifier = {
-					name = apl_develop_palermo_mission
-					duration = -1
-				}
-			}
-		} 
-	}
+# 		effect = {
+# 			2041 = {
+# 				add_prosperity = 100
+# 				custom_tooltip = " "
+# 				set_center_level_3_center_of_trade = yes
+# 				custom_tooltip = " "
+# 				add_province_modifier = {
+# 					name = apl_develop_palermo_mission
+# 					duration = -1
+# 				}
+# 			}
+# 		} 
+# 	}
 
 	
-}
-vn_apl_missions_5d = {
-	slot = 5
-	generic = no
-	ai = yes
-	has_country_shield = yes
-	potential = {
-		normal_or_historical_nations = yes
-		OR = {
-			tag = APL
-			tag = FGA
-			tag = LRN
-			tag = GGN
-			tag = AVS
-			tag = TNC
-			tag = SIC
-		}
-	}
+# }
+# vn_apl_missions_5d = {
+# 	slot = 5
+# 	generic = no
+# 	ai = yes
+# 	has_country_shield = yes
+# 	potential = {
+# 		normal_or_historical_nations = yes
+# 		OR = {
+# 			tag = APL
+# 			tag = FGA
+# 			tag = LRN
+# 			tag = GGN
+# 			tag = AVS
+# 			tag = TNC
+# 			tag = SIC
+# 		}
+# 	}
 
-	vn_apl_encastellation = {
-		icon = mission_castle_construction
-		position = 11
-		required_missions = {  } 
-		provinces_to_highlight = {  } 
+# 	vn_apl_encastellation = {
+# 		icon = mission_castle_construction
+# 		position = 11
+# 		required_missions = {  } 
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			fortification_expert = 2
-			num_of_owned_provinces_with = {
-				value = 10
-				province_has_current_tech_fort_trigger = yes
-				superregion = sicily_superregion
-			}
-		} 
+# 		trigger = {
+# 			fortification_expert = 2
+# 			num_of_owned_provinces_with = {
+# 				value = 10
+# 				province_has_current_tech_fort_trigger = yes
+# 				superregion = sicily_superregion
+# 			}
+# 		} 
 
-		effect = {
-			add_estate_loyalty = {
-				estate = estate_nobles
-				loyalty = 15
-			}
-			custom_tooltip = vn_apl_encastellation.tt
-			tooltip = {
-				add_province_modifier = {
-					name = apl_encastellation_mission
-					duration = 9125
-				}
-			}
-			hidden_effect = {
-				sicily_superregion = {
-					limit = {
-						owned_by = ROOT
-						province_has_current_tech_fort_trigger = yes
-					}
-					add_province_modifier = {
-						name = apl_encastellation_mission
-						duration = 9125
-					}
-				}
-			}
-		} 
-	}
-	vn_apl_syncretic_architecture = {
-		icon = mission_european_church
-		position = 12
-		required_missions = { vn_apl_encastellation } 
-		provinces_to_highlight = {  } 
+# 		effect = {
+# 			add_estate_loyalty = {
+# 				estate = estate_nobles
+# 				loyalty = 15
+# 			}
+# 			custom_tooltip = vn_apl_encastellation.tt
+# 			tooltip = {
+# 				add_province_modifier = {
+# 					name = apl_encastellation_mission
+# 					duration = 9125
+# 				}
+# 			}
+# 			hidden_effect = {
+# 				sicily_superregion = {
+# 					limit = {
+# 						owned_by = ROOT
+# 						province_has_current_tech_fort_trigger = yes
+# 					}
+# 					add_province_modifier = {
+# 						name = apl_encastellation_mission
+# 						duration = 9125
+# 					}
+# 				}
+# 			}
+# 		} 
+# 	}
+# 	vn_apl_syncretic_architecture = {
+# 		icon = mission_european_church
+# 		position = 12
+# 		required_missions = { vn_apl_encastellation } 
+# 		provinces_to_highlight = {  } 
 
-		trigger = {
-			num_of_owned_provinces_with = {
-				value = 20
-				has_tax_building_trigger = yes
-			}
-		} 
+# 		trigger = {
+# 			num_of_owned_provinces_with = {
+# 				value = 20
+# 				has_tax_building_trigger = yes
+# 			}
+# 		} 
 
-		effect = {
-			custom_tooltip = lit_every_province_that_fulfills_req_tt
-			tooltip = {
-				add_province_modifier = {
-					name = apl_syncretic_architecture_mission
-					duration = 9125
-				}
-			}
-			hidden_effect = {
-				every_owned_province = {
-					limit = {
-						has_tax_building_trigger = yes
-					}
-					add_province_modifier = {
-						name = apl_syncretic_architecture_mission
-						duration = 9125
-					}
-				}
-			}
-		} 
-	}
+# 		effect = {
+# 			custom_tooltip = lit_every_province_that_fulfills_req_tt
+# 			tooltip = {
+# 				add_province_modifier = {
+# 					name = apl_syncretic_architecture_mission
+# 					duration = 9125
+# 				}
+# 			}
+# 			hidden_effect = {
+# 				every_owned_province = {
+# 					limit = {
+# 						has_tax_building_trigger = yes
+# 					}
+# 					add_province_modifier = {
+# 						name = apl_syncretic_architecture_mission
+# 						duration = 9125
+# 					}
+# 				}
+# 			}
+# 		} 
+# 	}
 
 	
-}
+# }
