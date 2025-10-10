@@ -16,17 +16,17 @@
 
 # 	immediate = {
 # 		hidden_effect = {
+# 			add_stability = -1
+# 			add_legitimacy = -25
 # 			set_country_flag = had_great_fitna
 # 		}
 # 	}
 
 # 	option = {
 # 		name = great_fitna.1.a
-# 		add_stability = -1
-# 		add_legitimacy = -25
-# 		add_estate_loyalty = {
-# 			estate = estate_mamluks
-# 			loyalty = -20
+# 		tooltip = {
+# 			add_stability = -1
+# 			add_legitimacy = -25
 # 		}
 # 	}
 # }
@@ -52,19 +52,42 @@
 # 				loyalty = 40
 # 			}
 # 		}
+# 		any_owned_province = {
+# 			is_state = yes
+# 			is_capital = no
+# 		}
+# 	}
+
+# 	immediate = {
+# 		hidden_effect = {
+# 			random_owned_province = {
+# 				limit = {
+# 					is_state = yes
+# 					is_capital = no
+# 				}
+# 				save_event_target_as = mamluk_revolt_prov
+# 			}
+# 		}
 # 	}
 
 # 	option = {
 # 		name = great_fitna.2.a
-# 		add_years_of_income = -0.5
+# 		add_years_of_income = -0.25
 # 	}
 # 	option = {
 # 		name = great_fitna.2.b
-		
+# 		goto = mamluk_revolt_prov
+# 		event_target:mamluk_revolt_prov = {
+# 			spawn_rebels = {
+# 				size = 1
+# 				type = mamluk_rebels
+# 				win = yes
+# 			}
+# 		}
 # 	}
 # }
 
-# # Corrpution at court
+# # Corrpution at court #move
 # country_event = {
 # 	id = great_fitna.3
 # 	title = "great_fitna.3.t"
@@ -184,11 +207,33 @@
 
 # 	option = {
 # 		name = great_fitna.5.a
-# 		event
+# 		event_target:anarchy_prov = {
+# 			area = {
+# 				limit = {
+# 					owned_by = ROOT
+# 					controlled_by = ROOT
+# 					is_capital = no
+# 				}
+# 				add_province_modifier = {
+# 					name = bedouins_angry
+# 					duration = -1
+# 					desc = UNTIL_END_OF_GREAT_FITNA
+# 				}
+# 			}
+# 		}
 # 	}
 # 	option = {
 # 		name = great_fitna.5.b
-		
+# 		event_target:anarchy_prov = {
+# 			area = {
+# 				limit = {
+# 					owned_by = ROOT
+# 					controlled_by = ROOT
+# 					is_capital = no
+# 				}
+# 				add_local_autonomy = 50
+# 			}
+# 		}
 # 	}
 # }
 
@@ -207,6 +252,7 @@
 # 		religion = shiite
 # 		HED = {
 # 			exists = yes
+# 			is_neighbor_of = ROOT
 # 			ai = yes
 # 			religion = shiite
 # 			NOT = { war_with = ROOT }
@@ -218,7 +264,27 @@
 # 		hidden_effect = {
 # 			HED = {
 # 				capital_scope = {
+# 					change_religion = sunni
 # 					save_event_target_as = hed_cap
+# 				}
+# 				set_country_flag = avoid_choosing_madhhab_flag
+# 				change_religion = sunni
+# 				set_religious_school = {
+# 					group = muslim
+# 					school = hanafi_school
+# 				}
+# 				clr_country_flag = avoid_choosing_madhhab_flag
+# 				add_country_modifier = {
+# 					name = religious_zeal_at_conv
+# 					duration = 3650
+# 				}
+# 				if = {
+# 					limit = { is_subject_of = ROOT }
+# 					grant_independence = yes
+# 				}
+# 				if = {
+# 					limit = { alliance_with = ROOT }
+# 					break_alliance = ROOT
 # 				}
 # 			}
 # 		}
@@ -227,102 +293,23 @@
 # 	option = {
 # 		name = great_fitna.6.a #spread shia islam with force
 # 		ai_chance = { factor = 10 }
-# 		trigger = {
-# 			HED = { NOT = { is_subject_of = ROOT } }
-# 		}
-# 		change_variable = {
-# 			which = fatimid_authority
-# 			value = 3
-# 		}
-# 		hidden_effect = {
-# 			if = {
-# 				limit = { HED = { is_subject_of = ROOT } }
-# 				HED = {
-# 					grant_independence = yes
-# 				}
-# 			}
-# 			if = {
-# 				limit = {
-# 					alliance_with = HED
-# 				}
-# 				break_alliance = HED
-# 			}
-# 		}
 # 		declare_war_with_cb = {
 # 			casus_belli = cb_heretic
 # 			who = HED
 # 		}
-# 		hidden_effect = {
-# 			HED = {
-# 				set_country_flag = avoid_choosing_madhhab_flag
-# 				change_religion = sunni
-# 				set_religious_school = {
-# 					group = muslim
-# 					school = hanafi_school
-# 				}
-# 				add_opinion = {
-# 					who = ROOT
-# 					modifier = defended_heretic_rebels
-# 				}
-# 				reverse_add_opinion = {
-# 					who = ROOT
-# 					modifier = defended_heretic_rebels
-# 				}
-# 				clr_country_flag = avoid_choosing_madhhab_flag
-# 				capital_scope = { change_religion = sunni }
-# 				add_country_modifier = {
-# 					name = religious_zeal_at_conv
-# 					duration = 3650
-# 				}
-# 			}
-# 		}
 # 	}
 # 	option = {
-# 		name = great_fitna.6.b #corrupt
-# 		ai_chance = { factor = 50 }
-# 		change_variable = {
-# 			which = fatimid_authority
-# 			value = 1
-# 		}
-# 		add_years_of_income = -0.75
-# 		add_corruption = 2
-# 	}
-# 	option = {
-# 		name = great_fitna.6.c #let them be
+# 		name = great_fitna.6.b #let them be
 # 		ai_chance = { factor = 40 }
-# 		change_variable = {
-# 			which = fatimid_authority
-# 			value = -2
+# 		add_legitimacy = -10
+# 		add_prestige = -10
+# 		add_opinion = {
+# 			who = HED
+# 			modifier = defended_heretic_rebels
 # 		}
-# 		HED = {
-# 			set_country_flag = avoid_choosing_madhhab_flag
-# 			change_religion = sunni
-# 			hidden_effect = {
-# 				set_religious_school = {
-# 					group = muslim
-# 					school = hanafi_school
-# 				}
-# 			}
-# 			if = {
-# 				limit = { is_subject_of = ROOT }
-# 				add_liberty_desire = 50
-# 			}
-# 			add_opinion = {
-# 				who = ROOT
-# 				modifier = defended_heretic_rebels
-# 			}
-# 			reverse_add_opinion = {
-# 				who = ROOT
-# 				modifier = defended_heretic_rebels
-# 			}
-# 			clr_country_flag = avoid_choosing_madhhab_flag
-# 			hidden_effect = {
-# 				capital_scope = { change_religion = sunni }
-# 				add_country_modifier = {
-# 					name = religious_zeal_at_conv
-# 					duration = 3650
-# 				}
-# 			}
+# 		reverse_add_opinion = {
+# 			who = HED
+# 			modifier = defended_heretic_rebels
 # 		}
 # 	}
 # }
