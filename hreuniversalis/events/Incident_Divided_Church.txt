@@ -134,9 +134,9 @@ country_event = {
 			every_country = {
 				limit = {
 					is_part_of_hre = yes
-					religion = catholic
 					NOT = { tag = ROOT }
-					NOT = { has_reform = papacy_reform }
+					NOT = { tag = PAP }
+					NOT = { tag = AVI }
 					OR = {
 						religion = catholic
 						religion = catholique
