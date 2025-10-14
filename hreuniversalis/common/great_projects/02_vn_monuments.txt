@@ -3281,7 +3281,10 @@ castel_del_monte = {
 		upgrade_time = { months = 480 }
 		cost_to_upgrade = { factor = 10000 }
 		province_modifiers = { }
-		area_modifier = { }
+		area_modifier = {
+			attrition = 3
+			max_attrition = 3
+		}
 		region_modifier = { }
 		country_modifiers = {
 			autonomy_change_time = -0.25
