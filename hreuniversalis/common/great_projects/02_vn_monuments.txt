@@ -3270,7 +3270,6 @@ castel_del_monte = {
 		region_modifier = { }
 		country_modifiers = {
 			autonomy_change_time = -0.25
-			max_absolutism = 5
 		}
 		on_upgraded = {
 			add_base_manpower = 2
@@ -3288,8 +3287,8 @@ castel_del_monte = {
 		region_modifier = { }
 		country_modifiers = {
 			autonomy_change_time = -0.25
-			all_estate_possible_privileges = 1
-			max_absolutism = 10
+			nobles_privilege_slots = 1
+			max_absolutism = 5
 		}
 		on_upgraded = {
 			add_base_manpower = 3
