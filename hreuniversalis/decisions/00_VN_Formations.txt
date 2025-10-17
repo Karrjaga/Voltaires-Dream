@@ -1277,7 +1277,7 @@ country_decisions = {
 	mecklenburg_nation = {
 		major = yes
 		potential = {
-			normal_or_historical_nations = yes
+			primary_culture = pommeranian
 			OR = {
 				tag = SWX
 				tag = SGX
@@ -1285,14 +1285,8 @@ country_decisions = {
 				tag = PCH
 				tag = WRL
 			}
-			primary_culture = pommeranian
-			OR = {
-				AND = {
-					ai = no
-					tag = MKL
-				}
-				NOT = { exists = MKL }
-			}
+			normal_or_historical_nations = yes
+			NOT = { exists = MKL }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -1375,19 +1369,13 @@ country_decisions = {
 	holstein_nation = {
 		major = yes
 		potential = {
+			primary_culture = lower_saxon
 			OR = {
 				tag = RSB
 				tag = KIL
 			}
-			primary_culture = lower_saxon
 			normal_or_historical_nations = yes
-			OR = {
-				AND = {
-					ai = no
-					tag = SHL
-				}
-				NOT = { exists = SHL }
-			}
+			NOT = { exists = SHL }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -1457,23 +1445,12 @@ country_decisions = {
 	palatine_nation = {
 		major = yes
 		potential = {
+			dynasty = "von Wittelsbach"
 			OR = {
-				AND = {
-					tag = UPA
-					dynasty = "von Wittelsbach"
-				}
-				AND = {
-					tag = ZWB
-					dynasty = "von Wittelsbach"
-				}
+				tag = UPA
+				tag = ZWB
 			}
-			OR = {
-				AND = {
-					ai = no
-					tag = PAL
-				}
-				NOT = { exists = PAL }
-			}
+			NOT = { exists = PAL }
 			normal_or_historical_nations = yes
 			primitives = no
 		}
@@ -1539,22 +1516,16 @@ country_decisions = {
 	brunswick_nation = {
 		major = yes
 		potential = {
+			primary_culture = eastphalian
 			OR = {
 				tag = CLB
 				tag = GBU
 				tag = GTT
 				tag = WFB
 			}
-			primary_culture = eastphalian
 			normal_or_historical_nations = yes
 			primitives = no
-			OR = {
-				AND = {
-					ai = no
-					tag = BRU
-				}
-				NOT = { exists = BRU }
-			}
+			NOT = { exists = BRU }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -1617,21 +1588,9 @@ country_decisions = {
 	pomerania_nation = {
 		major = yes
 		potential = {
-			OR = {
-				tag = STE
-				tag = WOL
-				tag = BTH
-				tag = STP
-			}
 			primary_culture = pommeranian
 			normal_or_historical_nations = yes
-			OR = {
-				AND = {
-					ai = no
-					tag = POM
-				}
-				NOT = { exists = POM }
-			}
+			NOT = { exists = POM }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -1709,13 +1668,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			primary_culture = bavarian
-			OR = {
-				AND = {
-					ai = no
-					tag = BAV
-				}
-				NOT = { exists = BAV }
-			}
+			NOT = { exists = BAV }
 			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			primitives = no
@@ -5131,13 +5084,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			primary_culture = saxon
-			OR = {
-				AND = {
-					ai = no
-					tag = SAX
-				}
-				NOT = { exists = SAX }
-			}
+			NOT = { exists = SAX }
 			was_never_end_game_tag_trigger = yes
 			normal_or_historical_nations = yes
 			primitives = no
