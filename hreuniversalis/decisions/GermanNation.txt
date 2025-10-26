@@ -14,8 +14,8 @@ country_decisions = {
 			NOT = { tag = FKE }
 			NOT = { tag = MCD }
 			NOT = { tag = EAH }
-			was_never_end_game_tag_trigger = yes
 			NOT = { exists = GER }
+			#was_never_end_game_tag_trigger = yes # redundant
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
