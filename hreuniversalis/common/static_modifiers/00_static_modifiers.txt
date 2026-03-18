@@ -602,7 +602,7 @@ base_values = {
 	has_marines = yes
 
 	#mod
-	administrative_efficiency = -0.3
+	administrative_efficiency = -0.5
 	development_cost_modifier = 0.5
 }
 

@@ -49,7 +49,7 @@ technology = {
 		feudalism = 0.25
 	}
 	governing_capacity = 50
-	administrative_efficiency = 0.03
+	administrative_efficiency = 0.05
 }
 
 technology = {
@@ -103,7 +103,7 @@ technology = {
 	}
 	
 	production_efficiency	=	0.01
-	administrative_efficiency = 0.03
+	administrative_efficiency = 0.05
 }
 
 technology = {
@@ -147,7 +147,7 @@ technology = {
 		investiture = 0.5
 	}
 	
-	administrative_efficiency = 0.03
+	administrative_efficiency = 0.05
 	allowed_idea_groups = 2
 }
 
@@ -205,7 +205,7 @@ technology = {
 		universities = 0.15
 	}
 	
-	administrative_efficiency = 0.03
+	administrative_efficiency = 0.05
 	production_efficiency	=	0.01
 }
 
@@ -268,7 +268,7 @@ technology = {
 		guilds = 0.3
 	}
 	
-	administrative_efficiency = 0.03
+	administrative_efficiency = 0.05
 	production_efficiency	=	0.01
 }
 
@@ -337,7 +337,7 @@ technology = {
 		chivalry = 0.3
 	}
 	
-	administrative_efficiency = 0.03
+	administrative_efficiency = 0.05
 	allowed_idea_groups = 4
 }
 
@@ -411,7 +411,7 @@ technology = {
 		publichealth = 0.5
 	}
 	
-	administrative_efficiency = 0.03
+	administrative_efficiency = 0.05
 	governing_capacity = 50
 }
 
@@ -493,7 +493,7 @@ technology = {
 		laytheology = 0.5
 	}
 	
-	administrative_efficiency = 0.03
+	administrative_efficiency = 0.05
 	# Temple
 	temple = yes
 }
@@ -584,7 +584,7 @@ technology = {
 
 	year = 1504
 
-	administrative_efficiency = 0.03
+	administrative_efficiency = 0.05
 	courthouse = yes
 }
 
@@ -682,7 +682,7 @@ technology = {
 	administrative_monarchy	= yes 
 	administrative_republic	= yes
 	state_house = yes
-	administrative_efficiency = 0.03
+	administrative_efficiency = 0.05
 }
 
 technology = {
