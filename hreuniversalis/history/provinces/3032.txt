@@ -12,6 +12,8 @@ controller = FTM
 add_core = FTM
 add_core = HMS
 
+fort_14th = yes
+
 1060.8.30 = {
 	owner = APP
 	controller = APP
