@@ -6366,7 +6366,7 @@ fes_el_bali = { #regional wonder
 		on_upgraded = {
 			if = {
 				limit = {
-					not = {has_center_of_trade_of_level = 2}
+					not = {province_has_center_of_trade_of_level = 2}
 					}
 				add_center_of_trade_level = 1
 			}
