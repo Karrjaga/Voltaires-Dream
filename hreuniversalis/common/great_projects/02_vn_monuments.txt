@@ -855,8 +855,8 @@ saint_emilion_vineyards = { #regional wonder
 	}
 
 	tier_1 = {
-		upgrade_time = { months = 120 }
-		cost_to_upgrade = { factor = 1500 }
+		upgrade_time = { months = 96 }
+		cost_to_upgrade = { factor = 750 }
 		province_modifiers = {
 			trade_goods_size_modifier = 0.25
 			province_trade_power_modifier = 0.25
@@ -869,8 +869,8 @@ saint_emilion_vineyards = { #regional wonder
 	}
 
 	tier_2 = {
-		upgrade_time = { months = 240 }
-		cost_to_upgrade = { factor = 4000 }
+		upgrade_time = { months = 180 }
+		cost_to_upgrade = { factor = 2000 }
 		province_modifiers = { }
 		area_modifier = {
 			trade_goods_size_modifier = 0.25
@@ -883,8 +883,8 @@ saint_emilion_vineyards = { #regional wonder
 	}
 
 	tier_3 = {
-		upgrade_time = { months = 480 }
-		cost_to_upgrade = { factor = 10000 }
+		upgrade_time = { months = 300 }
+		cost_to_upgrade = { factor = 6000 }
 		province_modifiers = {}
 		area_modifier = {}
 		region_modifier = {
