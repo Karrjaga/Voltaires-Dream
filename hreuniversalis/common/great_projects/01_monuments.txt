@@ -6932,9 +6932,7 @@ citadel_of_aleppo = { #regional wondez
 			local_defensiveness = 0.33
 			local_manpower_modifier = 0.33
 		}
-		country_modifiers = {
-			legitimacy_equivalent
-		}
+		country_modifiers = {}
 		on_upgraded = {}
 	}
 	tier_3 = {
