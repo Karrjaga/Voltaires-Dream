@@ -25,6 +25,8 @@
  province_is_or_accepts_hellenic_pagan_tt: "Die Religion von §Y[Root.GetName]§! ist §Yhellenisch§!, und das ist entweder die Staats- oder synkretistische Religion des Besitzers."
  province_is_or_accepts_anglican_tt: "Die Religion von §Y[Root.GetName]§! ist §Yanglikanisch§!, und das ist entweder die Staats- oder synkretistische Religion des Besitzers."
  province_is_or_accepts_lollardy_tt: "Die Religion von §Y[Root.GetName]§! ist §Ylollardisch§!, und das ist entweder die Staats- oder synkretistische Religion des Besitzers."
+ province_is_or_accepts_protestant_tt: "Die Religion von §Y[Root.GetName]§! ist §YProtestantismus§!, und das ist entweder die Staats- oder synkretistische Religion des Besitzers."
+ province_is_or_accepts_anabaptist_tt: "Die Religion von §Y[Root.GetName]§! ist §YAnabaptistisch§!, und das ist entweder die Staats- oder synkretistische Religion des Besitzers."
 #Monuments
  santiago_cathedral: "Catedral de Santiago de Compostela"
  alcazar_of_seville: "Alcázar von Seville"
@@ -41,7 +43,7 @@
  kaiserdom: "Kaiserdom von Speyer"
  hohenzollern_castle: "Burg Hohenzollern"
  wurzburg_residence: "Residenz Würzburg"
- lucilinburhuc_castle: "Befestigungen am Bockfelsen"
+ lucilinburhuc_castle: "Lucilinburhuc"
  wartburg: "Wartburg"
  convent_of_st_gall: "Abtei St. Gallen"
  old_city_of_berne: "Altstadt von Bern"
