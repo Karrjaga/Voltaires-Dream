@@ -3,6 +3,7 @@
 # v 2.3.3 #
 -Recolored Georgia and Kakheti
 -Rebalanced early Administrative Efficiency penalty from -50 % to -30 % (thanks to supermash)
+-Fixed the Chelif River from missing on the map (thanks to RobertK.1408)
 
 # v 2.3.2 #
 -Added the following new National Idea sets: Ayyubids (contributed by jeffy6122), Persian ducal
