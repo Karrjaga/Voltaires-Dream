@@ -18,15 +18,11 @@ country_event = {
 			color = { 255 250 200 }
 		}
 		set_country_flag = has_overriden_color_flag
-		custom_tooltip = hsn_empower_ideas_tt
+		add_stability_or_adm_power = yes
 		add_prestige_or_monarch_power = { amount = 50 }
 		add_country_modifier = {
 			name = asy_assyrian_empire_mission
 			duration = -1
-		}
-		hidden_effect = {
-			set_country_flag = king_of_the_universe_flag
-			swap_free_idea_group = yes
 		}
 	}
 }
