@@ -14,10 +14,10 @@ country_decisions = {
 			NOT = { tag = FKE }
 			NOT = { tag = AVE }
 			NOT = { exists = GBR }
-			OR = {
-				NOT = { has_government_attribute = english_parliament }	#Formation through the Parliament
-				ai = yes
-			}
+			#OR = {
+			#	NOT = { has_government_attribute = english_parliament }	#Formation through the Parliament
+			#	ai = yes
+			#}
 			normal_or_historical_nations = yes
 			OR = {
 				ai = no
@@ -168,10 +168,10 @@ country_decisions = {
 					}
 				}
 			}
-			OR = {
-				NOT = { has_government_attribute = english_parliament }	#Formation through the Parliament
-				ai = yes
-			}
+			#OR = {
+			#	NOT = { has_government_attribute = english_parliament }	#Formation through the Parliament
+			#	ai = yes
+			#}
 			normal_or_historical_nations = yes
 			NOT = { exists = GBR }
 			OR = {
@@ -268,164 +268,164 @@ country_decisions = {
 		do_not_integrate = SCO
 	}
 
-	force_british_union_debate = {
-		major = yes
-		potential = {
-			has_government_attribute = english_parliament
-			ai = no
-			normal_or_historical_nations = yes
-			was_never_end_game_tag_trigger = yes
-			NOT = { exists = GBR }
-			NOT = { tag = AVE }
-			has_not_enacted_parliament_action = { parliament_action = english_scottish_act_of_union }
-		}
-		provinces_to_highlight = {
-			OR = {
-				province_id = 2268
-				province_id = 986
-				province_id = 722
-				province_id = 2621
-				province_id = 4704
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
-		allow = {
-			adm_tech = 40
-			has_issue_unlocked_tooltip = {
-				issue = english_scottish_act_of_union
-			}
-			has_active_debate = no
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
-			is_at_war = no
-			OR = {
-				AND = {
-					owns_core_province = 2268		# London
-					owns_core_province = 986		# Oxfordshire
-					owns_core_province = 722		# Wessex
-					owns_core_province = 2621		# Lothian
-					owns_core_province = 4704		# Aberdeen
-					4704 = {							# London
-						is_state = yes
-					}
-				}
-				AND = {
-					OR = {
-						SCO = {	junior_union_with = ROOT }
-						SCO = {	is_subject_of = ROOT }
-					}
-					SCO = { NOT = { num_of_cities = 28 } }
-				}
-			}
-		}
-		effect = {
-			start_debate = english_scottish_act_of_union
-			custom_tooltip = DEBATE_EFFECT_TT
-			tooltip = {
-				if = {
-					limit = {
-						SCO = {
-							exists = yes
-							ai = yes
-							is_subject_of = ROOT
-							NOT = { num_of_cities = 28 }
-						}
-					}
-					inherit = SCO
-					custom_tooltip = english_scottish_act_of_union_bt
-				}
-				change_tag = GBR
-				add_prestige = 25
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		ai_importance = 200
-		do_not_integrate = SCO
-	}
+	# force_british_union_debate = {
+	# 	major = yes
+	# 	potential = {
+	# 		has_government_attribute = english_parliament
+	# 		ai = no
+	# 		normal_or_historical_nations = yes
+	# 		was_never_end_game_tag_trigger = yes
+	# 		NOT = { exists = GBR }
+	# 		NOT = { tag = AVE }
+	# 		has_not_enacted_parliament_action = { parliament_action = english_scottish_act_of_union }
+	# 	}
+	# 	provinces_to_highlight = {
+	# 		OR = {
+	# 			province_id = 2268
+	# 			province_id = 986
+	# 			province_id = 722
+	# 			province_id = 2621
+	# 			province_id = 4704
+	# 		}
+	# 		OR = {
+	# 			NOT = { owned_by = ROOT }
+	# 			NOT = { is_core = ROOT }
+	# 		}
+	# 	}
+	# 	allow = {
+	# 		adm_tech = 40
+	# 		has_issue_unlocked_tooltip = {
+	# 			issue = english_scottish_act_of_union
+	# 		}
+	# 		has_active_debate = no
+	# 		is_free_or_tributary_trigger = yes
+	# 		is_nomad = no
+	# 		is_at_war = no
+	# 		OR = {
+	# 			AND = {
+	# 				owns_core_province = 2268		# London
+	# 				owns_core_province = 986		# Oxfordshire
+	# 				owns_core_province = 722		# Wessex
+	# 				owns_core_province = 2621		# Lothian
+	# 				owns_core_province = 4704		# Aberdeen
+	# 				4704 = {							# London
+	# 					is_state = yes
+	# 				}
+	# 			}
+	# 			AND = {
+	# 				OR = {
+	# 					SCO = {	junior_union_with = ROOT }
+	# 					SCO = {	is_subject_of = ROOT }
+	# 				}
+	# 				SCO = { NOT = { num_of_cities = 28 } }
+	# 			}
+	# 		}
+	# 	}
+	# 	effect = {
+	# 		start_debate = english_scottish_act_of_union
+	# 		custom_tooltip = DEBATE_EFFECT_TT
+	# 		tooltip = {
+	# 			if = {
+	# 				limit = {
+	# 					SCO = {
+	# 						exists = yes
+	# 						ai = yes
+	# 						is_subject_of = ROOT
+	# 						NOT = { num_of_cities = 28 }
+	# 					}
+	# 				}
+	# 				inherit = SCO
+	# 				custom_tooltip = english_scottish_act_of_union_bt
+	# 			}
+	# 			change_tag = GBR
+	# 			add_prestige = 25
+	# 		}
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# 	ai_importance = 200
+	# 	do_not_integrate = SCO
+	# }
 	
-	force_french_union_debate = {
-		major = yes
-		potential = {
-			has_government_attribute = english_parliament
-			ai = no
-			normal_or_historical_nations = yes
-			was_never_end_game_tag_trigger = yes
-			NOT = { exists = GBR }
-			NOT = { tag = AVE }
-			has_not_enacted_parliament_action = { parliament_action = english_french_act_of_union }
-		}
-		provinces_to_highlight = {
-			OR = {
-				province_id = 2268
-				province_id = 986
-				province_id = 722
-				province_id = 2621
-				province_id = 4704
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
-		allow = {
-			adm_tech = 40
-			has_issue_unlocked_tooltip = {
-				issue = english_french_act_of_union
-			}
-			has_active_debate = no
-			is_free_or_tributary_trigger = yes
-			is_nomad = no
-			is_at_war = no
-			OR = {
-				AND = {
-					owns_core_province = 986		# Oxfordshire
-					owns_core_province = 722		# Wessex
-					owns_core_province = 2268		# London
-					owns_core_province = 2177		# Maine
-					owns_core_province = 548		# Paris
-					owns_core_province = 1289		# Anjou
-					1289 = {							# Anjou
-						is_state = yes
-					}
-				}
-				AND = {
-					OR = {
-						FRA = {	junior_union_with = ROOT }
-						FRA = {	is_subject_of = ROOT }
-					}
-					FRA = { NOT = { num_of_cities = 80 } }
-				}
-			}
-		}
-		effect = {
-			start_debate = english_french_act_of_union
-			custom_tooltip = DEBATE_EFFECT_TT
-			tooltip = {
-				if = {
-					limit = {
-						FRA = {
-							exists = yes
-							ai = yes
-							is_subject_of = ROOT
-							NOT = { num_of_cities = 80 }
-						}
-					}
-					inherit = FRA
-					custom_tooltip = english_french_act_of_union_ct
-				}
-				change_tag = AVE
-				add_prestige = 25
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-		ai_importance = 200
-		do_not_integrate = FRA
-	}
+	# force_french_union_debate = {
+	# 	major = yes
+	# 	potential = {
+	# 		has_government_attribute = english_parliament
+	# 		ai = no
+	# 		normal_or_historical_nations = yes
+	# 		was_never_end_game_tag_trigger = yes
+	# 		NOT = { exists = GBR }
+	# 		NOT = { tag = AVE }
+	# 		has_not_enacted_parliament_action = { parliament_action = english_french_act_of_union }
+	# 	}
+	# 	provinces_to_highlight = {
+	# 		OR = {
+	# 			province_id = 2268
+	# 			province_id = 986
+	# 			province_id = 722
+	# 			province_id = 2621
+	# 			province_id = 4704
+	# 		}
+	# 		OR = {
+	# 			NOT = { owned_by = ROOT }
+	# 			NOT = { is_core = ROOT }
+	# 		}
+	# 	}
+	# 	allow = {
+	# 		adm_tech = 40
+	# 		has_issue_unlocked_tooltip = {
+	# 			issue = english_french_act_of_union
+	# 		}
+	# 		has_active_debate = no
+	# 		is_free_or_tributary_trigger = yes
+	# 		is_nomad = no
+	# 		is_at_war = no
+	# 		OR = {
+	# 			AND = {
+	# 				owns_core_province = 986		# Oxfordshire
+	# 				owns_core_province = 722		# Wessex
+	# 				owns_core_province = 2268		# London
+	# 				owns_core_province = 2177		# Maine
+	# 				owns_core_province = 548		# Paris
+	# 				owns_core_province = 1289		# Anjou
+	# 				1289 = {							# Anjou
+	# 					is_state = yes
+	# 				}
+	# 			}
+	# 			AND = {
+	# 				OR = {
+	# 					FRA = {	junior_union_with = ROOT }
+	# 					FRA = {	is_subject_of = ROOT }
+	# 				}
+	# 				FRA = { NOT = { num_of_cities = 80 } }
+	# 			}
+	# 		}
+	# 	}
+	# 	effect = {
+	# 		start_debate = english_french_act_of_union
+	# 		custom_tooltip = DEBATE_EFFECT_TT
+	# 		tooltip = {
+	# 			if = {
+	# 				limit = {
+	# 					FRA = {
+	# 						exists = yes
+	# 						ai = yes
+	# 						is_subject_of = ROOT
+	# 						NOT = { num_of_cities = 80 }
+	# 					}
+	# 				}
+	# 				inherit = FRA
+	# 				custom_tooltip = english_french_act_of_union_ct
+	# 			}
+	# 			change_tag = AVE
+	# 			add_prestige = 25
+	# 		}
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# 	ai_importance = 200
+	# 	do_not_integrate = FRA
+	# }
 }
