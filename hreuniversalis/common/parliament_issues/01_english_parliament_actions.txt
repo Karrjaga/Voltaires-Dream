@@ -7,9 +7,9 @@ english_french_act_of_union = {
 		has_not_enacted_parliament_action = {
 			parliament_action = english_french_act_of_union
 		}
-		has_issue_unlocked = {
-			issue = english_french_act_of_union
-		}
+		#has_issue_unlocked = {
+		#	issue = english_french_act_of_union
+		#}
 		is_free_or_tributary_trigger = yes
 		is_nomad = no
 		is_at_war = no
