@@ -11,6 +11,10 @@ country_event = {
 	is_triggered_only = yes
 	mean_time_to_happen = { days = 1 }
 
+	immediate = {
+		set_country_flag = has_seljuk_collapse
+	}
+
 	option = {
 		name = "seljuk_collapse.1.a"
 		add_prestige = -50
@@ -49,6 +53,7 @@ country_event = {
 	immediate = {
 		on_non_estate_disaster_end = yes
 		hidden_effect = {
+			clr_country_flag = has_seljuk_collapse
 			set_country_flag = had_seljuk_collapse
 		}
 	}

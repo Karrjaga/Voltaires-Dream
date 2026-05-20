@@ -109,7 +109,7 @@ seljuk_collapse = {
             NOT = { has_reform = seljuk_federation_reform }
 			custom_trigger_tooltip = {
 				tooltip = had_disaster_for_five_years
-				had_country_flag = { flag = had_seljuk_collapse days = 1825 }
+				had_country_flag = { flag = has_seljuk_collapse days = 1825 }
 			}
         }
 	}
